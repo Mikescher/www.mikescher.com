@@ -16,9 +16,27 @@
 		<div class="span4">
 			<h2>Heading</h2>
 
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-				euismod. Donec sed odio dui. </p>
+			<p>
+			
+			<?php
+				$connection = Yii::app()->db;
+				
+				$command=$connection->createCommand("SELECT * FROM programme");
+				$command->execute();   // a non-query SQL statement execution
+				// or execute an SQL query and fetch the result set
+				$reader=$command->query();
+				
+				// each $row is an array representing a row of data
+				$dbgtxt = "ello";
+				foreach($reader as $row)
+				{
+					$dbgtxt = $dbgtxt . print_r($row, true);
+				}
+				
+				echo TbHtml::textArea('dbgtxt', $dbgtxt, array('rows' => 5));
+			?>
+			
+			</p>
 
 			<p><a class="btn" href="#">View details &raquo;</a></p>
 		</div>

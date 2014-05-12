@@ -37,10 +37,23 @@ return array(
 				),
 			),
 		),
+
+		'db' => array(
+			'connectionString' => 'mysql:host=localhost;dbname=db451718',
+			'username' => 'root',
+			'password' => '',
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+			'charset' => 'utf8',
+		),
 	),
 	'params' => array(
 		// php configuration
 		'php.defaultCharset' => 'utf-8',
 		'php.timezone'       => 'UTC',
+
+		'yii.handleErrors'   => true,
+		'yii.debug' => true,
+		'yii.traceLevel' => 3,
 	)
 );
