@@ -27,6 +27,7 @@ return array(
 	'modules'=>array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
+			'generatorPaths' => array('bootstrap.gii'),
 			'password'=>'giipw',
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),

@@ -11,27 +11,40 @@ use Yiinitializr\Helpers\ArrayX;
 
 return ArrayX::merge(array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Mikescher.de',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
+
+	'aliases' => array(
+		'bootstrap' => realpath(__DIR__ . '/../extensions/bootstrap'), // change this if necessary
+	),
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'bootstrap.components.*',
+		'bootstrap.behaviors.*',
+		'bootstrap.helpers.*',
+
 	),
 
 	'modules'=>array(
-
+		//
 	),
 
 	// application components
 	'components'=>array(
+		'bootstrap' => array(
+			'class' => 'bootstrap.components.TbApi',   
+		),
+
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
