@@ -28,6 +28,7 @@ return array(
 		'errorHandler' => array(
 			'errorAction' => 'site/error',
 		),
+		
 		'log' => array(
 			'class'  => 'CLogRouter',
 			'routes' => array(
@@ -46,7 +47,22 @@ return array(
 			'enableParamLogging' => true,
 			'charset' => 'utf8',
 		),
+
+		'urlManager' => array(
+			// uncomment the following if you have enabled Apache's Rewrite module.
+			'urlFormat' => 'path',
+			//'caseSensitive' => true,
+			'showScriptName' => false,
+
+			'rules' => array(
+				// default rules
+				'<controller:\w+>/<id:\d+>' => '<controller>/view',
+				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+			),
+		),
 	),
+	
 	'params' => array(
 		// php configuration
 		'php.defaultCharset' => 'utf-8',

@@ -14,7 +14,7 @@
 	<!-- Example row of columns -->
 	<div class="row">
 		<div class="span4">
-			<h2>Heading</h2>
+			<h2>Heading YD: <?php echo YII_DEBUG ?></h2>
 
 			<p>
 			

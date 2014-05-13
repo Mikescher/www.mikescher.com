@@ -9,6 +9,10 @@
  * @copyright 2013 2amigOS! Consultation Group LLC
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
+
+// CHANGE the following line when in production mode
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+
 require('./../app/lib/vendor/autoload.php');
 
 Yiinitializr\Helpers\Initializer::create('./../app', 'main', array('common', 'env', 'local'))->run();

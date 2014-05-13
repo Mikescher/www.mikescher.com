@@ -46,21 +46,11 @@ return ArrayX::merge(array(
 				'bootstrap-yii.css' => false
 			)
 		),
-		'urlManager' => array(
-			// uncomment the following if you have enabled Apache's Rewrite module.
-			'urlFormat' => 'path',
-			'showScriptName' => false,
-
-			'rules' => array(
-				// default rules
-				'<controller:\w+>/<id:\d+>' => '<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-			),
-		),
+		
 		'user' => array(
 			'allowAutoLogin' => true,
 		),
+		
 		'errorHandler' => array(
 			'errorAction' => 'site/error',
 		)

@@ -26,7 +26,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/<?php echo (YII_DEBUG ? 'bootstrap.css' : 'bootstrap.min.css') ?>">
 	<style>
 		body {
 			padding-top: 60px;
@@ -89,7 +89,7 @@
 <?php echo $content; ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="js/libs/bootstrap.min.js"></script>
+<script src="<?php echo (YII_DEBUG ? 'bootstrap.js' : 'bootstrap.min.js') ?>"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 </body>
