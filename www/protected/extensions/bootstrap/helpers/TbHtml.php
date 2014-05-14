@@ -2351,22 +2351,7 @@ EOD;
         return self::controls($controls, $htmlOptions);
     }
 
-    /**
-     * Generates form actions.
-     * @param mixed $actions the actions.
-     * @param array $htmlOptions additional HTML attributes.
-     * @return string the generated actions.
-     */
-    public static function formActions($actions, $htmlOptions = array())
-    {
-        self::addCssClass('form-actions', $htmlOptions);
-        if (is_array($actions)) {
-            $actions = implode(' ', $actions);
-        }
-        return self::tag('div', $htmlOptions, $actions);
-    }
-
-    /**
+	/**
      * Generates a search form.
      * @param mixed $action the form action URL.
      * @param string $method form method (e.g. post, get).
@@ -2386,7 +2371,22 @@ EOD;
         return $output;
     }
 
-    // Buttons
+	/**
+	 * Generates form actions.
+	 * @param mixed $actions the actions.
+	 * @param array $htmlOptions additional HTML attributes.
+	 * @return string the generated actions.
+	 */
+	public static function formActions($actions, $htmlOptions = array())
+	{
+		self::addCssClass('form-actions', $htmlOptions);
+		if (is_array($actions)) {
+			$actions = implode(' ', $actions);
+		}
+		return self::tag('div', $htmlOptions, $actions);
+	}
+
+	// Buttons
     // http://twitter.github.io/bootstrap/2.3.2/base-css.html#buttons
     // --------------------------------------------------
 

@@ -6,3 +6,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # Leite andernfalls auf index.php um
 RewriteRule . index.php
+

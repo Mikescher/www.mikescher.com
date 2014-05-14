@@ -7,6 +7,9 @@ $this->breadcrumbs=
 	[
 		'Index'
 	];
+
+$this->selectedNav = 'index';
+
 ?>
 
 <div class="container">

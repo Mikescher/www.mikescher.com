@@ -49,7 +49,7 @@ return ArrayX::merge(array(
 
 		'urlManager'=>array(
 			'urlFormat' => 'path',
-			//'caseSensitive' => true,
+			'caseSensitive' => false,
 			'showScriptName' => true,
 			'rules'=>array(
 

@@ -15,6 +15,7 @@
 	<meta name="viewport" content="width=device-width">
 
 	<?php Yii::app()->bootstrap->register(); ?>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -27,19 +28,21 @@
 	$this->widget('bootstrap.widgets.TbNavbar',
 		[
 			'brandLabel' => Yii::app()->name,
-			'display' => null, // default is static to top
+			'display' => null,
+			'htmlOptions' =>
+				[
+					'class' => 'cstm-main-navbar'
+				],
 			'items' =>
 				[
 					[
 						'class' => 'bootstrap.widgets.TbNav',
 						'items' =>
 							[
-								array('label' => 'Home', 		'url' => '/', 'active' => true),
-								array('label' => 'Blog', 		'url' => '#', 'active' => false),
-								array('label' => 'Programme', 	'url' => '#', 'active' => false),
-								array('label' => 'About',		'url' => '#', 'active' => false),
-
-
+								array('label' => 'Home', 		'url' => '/', 'active' => ($this->selectedNav === 'index')),
+								array('label' => 'Blog', 		'url' => '#', 'active' => ($this->selectedNav === 'blog')),
+								array('label' => 'Programme', 	'url' => '#', 'active' => ($this->selectedNav === 'prog')),
+								array('label' => 'About',		'url' => 'About', 'active' => ($this->selectedNav === 'about')),
 							],
 					],
 
@@ -66,9 +69,10 @@
 <?php
 	if(isset($this->breadcrumbs))
 	{
-		$this->widget('bootstrap.widgets.TbBreadcrumb', array(
-			'links'=>$this->breadcrumbs,
-		));
+		$this->widget('bootstrap.widgets.TbBreadcrumb',
+			[
+				'links'=>$this->breadcrumbs,
+			]);
 	}
 ?>
 
@@ -76,8 +80,10 @@
 	echo $content;
 ?>
 
-<div id="footer">
-	Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+<hr>
+
+<div class="footer">
+	Copyright &copy; <?php echo date('Y'); ?> by Mike Schwörer.<br/>
 	All Rights Reserved.<br/>
 	<?php echo Yii::powered(); ?>
 </div>
