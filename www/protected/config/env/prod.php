@@ -1,25 +1,31 @@
 <?php
 
-return array(
-	'components' => array(
-		'db' => array(
-			'connectionString' => 'mysql:host=rdbms.strato.de;dbname=DB451718',
-			'username' => 'U451718',
-			'password' => 'Datenbank',
-			'enableProfiling' => false,
-			'enableParamLogging' => false,
-			'charset' => 'utf8',
-		),
+return [
+	'components' =>
+		[
+			'db' =>
+				[
+					'connectionString' => 'mysql:host=rdbms.strato.de;dbname=DB451718',
+					'username' => 'U451718',
+					'password' => 'Datenbank',
+					'enableProfiling' => false,
+					'enableParamLogging' => false,
+					'charset' => 'utf8',
+					'emulatePrepare' => true, // needed by some MySQL installations
+					'schemaCachingDuration' => 3600, // Performance with AR's
+				],
 
-		'errorHandler'=>array(
-			'errorAction'=>'site/error',
-		),
+			'errorHandler' =>
+				[
+					'errorAction' => 'site/error',
+				],
 
-	),
+		],
 
-	'params' => array(
-		'yii.debug' => false,
-		'yii.traceLevel' => 3,
-		'yii.handleErrors'   => false,
-	)
-);
+	'params' =>
+		[
+			'yii.debug' => false,
+			'yii.traceLevel' => 3,
+			'yii.handleErrors' => false,
+		],
+];
