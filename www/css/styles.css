@@ -33,3 +33,15 @@
 .cstm-main-navbar {
     margin-bottom: 0px;
 }
+
+/* Header
+-------------------------------------------------- */
+
+.brandLogo {
+    height: 30px;
+    padding: 8px 12px 10px 12px;
+}
+
+.navbar .brand {
+    padding: 0px;
+}

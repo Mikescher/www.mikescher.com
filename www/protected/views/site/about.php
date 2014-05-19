@@ -22,7 +22,7 @@ $this->selectedNav = 'about';
 	<div class="well cstm-background-white">
 		<p>Welcome to my private homepage.</p>
 
-		<p>My name is Mike Schwörer, and this is my homepage - here i upload programs i write in my free time and sometimes i even write a blog entry ...'); </p>
+		<p>My name is Mike Schwörer, and this is my homepage - here i upload programs i write in my free time and sometimes i even write a blog entry. </p>
 
 		<p>If you want you can look <?php echo TbHtml::link('here', '#'); // TODO Add Link ?> at the things I programmed </p>
 	</div>

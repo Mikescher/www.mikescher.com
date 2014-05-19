@@ -1098,7 +1098,7 @@ input[type="color"],
   margin-bottom: 10px;
   font-size: 15px;
   line-height: 20px;
-  color: #95a5a6;
+  color: #404040;
   vertical-align: middle;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
@@ -3210,7 +3210,7 @@ button.close {
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   vertical-align: middle;
   cursor: pointer;
-  background-color: #bfc6cb;
+  background-color: #2c3e50;
   *background-color: #d0d5d9;
   background-image: -moz-linear-gradient(top, #b4bcc2, #d0d5d9);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b4bcc2), to(#d0d5d9));
@@ -6370,7 +6370,6 @@ div.subnav .nav > .active > a:hover {
 }
 
 .btn {
-  padding: 9px 20px;
   color: #ffffff;
   text-decoration: none;
   text-shadow: none;
