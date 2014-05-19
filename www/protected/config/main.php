@@ -61,22 +61,12 @@ return ArrayX::merge(
 					[
 						'urlFormat' => 'path',
 						'caseSensitive' => false,
-						'showScriptName' => true,
+						'showScriptName' => false,
 						'rules' =>
 							[
-
-
 								'Programme/' => 'Programme/index',
-								'Programme/<action:\w+>' => 'programme/<action>',
-
-								'gii' => 'gii',
-								'gii/<controller:\w+>' => 'gii/<controller>',
-								'gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',
-
-								//'<controller:\w+>/<id:\d+>'                 =>  '<controller>/view',
-								//'<controller:\w+>/<action:\w+>/<id:\d+>'    =>  '<controller>/<action>',
-								//'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-
+								'downloads/<action:\w+>' => 'programme/<action>', 	// Compatibility
+								'downloads/downloads.php' => 'programme/index', 	// Compatibility
 
 								'' => 'site/index',
 								//'<action:\w+>' => 'site/<action>',

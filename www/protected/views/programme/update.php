@@ -5,7 +5,7 @@
 
 <?php
 $this->breadcrumbs=array(
-	'Programmes'=>array('index'),
+	'Programme'=>array('index'),
 	$model->Name=>array('view','id'=>$model->ID),
 	'Update',
 );

@@ -5,7 +5,7 @@
 
 <?php
 $this->breadcrumbs=array(
-	'Programmes',
+	'Programme',
 );
 
 $this->menu=array(

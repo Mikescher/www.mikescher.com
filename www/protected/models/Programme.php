@@ -128,6 +128,9 @@ class Programme extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'Pagination' => array (
+				'PageSize' => 50 //edit your number items per page here
+              ),
 		));
 	}
 
