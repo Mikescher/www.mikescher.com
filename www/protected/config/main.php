@@ -33,6 +33,7 @@ return ArrayX::merge(
 				'bootstrap.components.*',
 				'bootstrap.behaviors.*',
 				'bootstrap.helpers.*',
+				'bootstrap.widgets.*',
 			],
 
 		'modules' =>
@@ -64,8 +65,9 @@ return ArrayX::merge(
 						'rules' =>
 							[
 
-								'' => 'site/index',
-								'<action:\w+>' => 'site/<action>',
+
+								'Programme/' => 'Programme/index',
+								'Programme/<action:\w+>' => 'programme/<action>',
 
 								'gii' => 'gii',
 								'gii/<controller:\w+>' => 'gii/<controller>',
@@ -73,7 +75,11 @@ return ArrayX::merge(
 
 								//'<controller:\w+>/<id:\d+>'                 =>  '<controller>/view',
 								//'<controller:\w+>/<action:\w+>/<id:\d+>'    =>  '<controller>/<action>',
-								'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+								//'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+
+
+								'' => 'site/index',
+								//'<action:\w+>' => 'site/<action>',
 							],
 					],
 

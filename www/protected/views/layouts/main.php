@@ -25,6 +25,8 @@
 <!endif]-->
 
 <?php
+	if (! isset($this->selectedNav)) $this->selectedNav = "";
+
 	$this->widget('bootstrap.widgets.TbNavbar',
 		[
 			'brandLabel' => Yii::app()->name,
