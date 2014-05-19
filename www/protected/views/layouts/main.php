@@ -43,8 +43,8 @@
 							[
 								array('label' => 'Home', 		'url' => '/', 'active' => ($this->selectedNav === 'index')),
 								array('label' => 'Blog', 		'url' => '#', 'active' => ($this->selectedNav === 'blog')),
-								array('label' => 'Programme', 	'url' => '#', 'active' => ($this->selectedNav === 'prog')),
-								array('label' => 'About',		'url' => 'About', 'active' => ($this->selectedNav === 'about')),
+								array('label' => 'Programme', 	'url' => 'programme/', 'active' => ($this->selectedNav === 'prog')),
+								array('label' => 'About',		'url' => 'about', 'active' => ($this->selectedNav === 'about')),
 							],
 					],
 

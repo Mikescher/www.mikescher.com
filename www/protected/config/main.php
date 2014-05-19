@@ -69,7 +69,8 @@ return ArrayX::merge(
 								'downloads/downloads.php' => 'programme/index', 	// Compatibility
 
 								'' => 'site/index',
-								//'<action:\w+>' => 'site/<action>',
+
+								'<action:\w+>' => 'site/<action>',
 							],
 					],
 
