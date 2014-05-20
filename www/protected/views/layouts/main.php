@@ -29,7 +29,7 @@
 
 	$this->widget('bootstrap.widgets.TbNavbar',
 		[
-			'brandLabel'=>'<img src="/images/logo.png" class="brandLogo"/>',
+			'brandLabel'=>'<img src="/images/logo_static.png" class="brandLogo"/>',
 			'brandUrl'=>'/',
 			'display' => null,
 			'htmlOptions' =>
@@ -96,5 +96,6 @@
 <script src="<?php echo (YII_DEBUG ? 'bootstrap.js' : 'bootstrap.min.js') ?>"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+<script src="javascript/scripts.js"></script>
 </body>
 </html>
