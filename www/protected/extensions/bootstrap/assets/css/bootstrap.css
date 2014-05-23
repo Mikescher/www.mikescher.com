@@ -3210,8 +3210,7 @@ button.close {
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   vertical-align: middle;
   cursor: pointer;
-  background-color: #2c3e50;
-  *background-color: #d0d5d9;
+  background-color: #bfc6cb;
   background-image: -moz-linear-gradient(top, #b4bcc2, #d0d5d9);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b4bcc2), to(#d0d5d9));
   background-image: -webkit-linear-gradient(top, #b4bcc2, #d0d5d9);
