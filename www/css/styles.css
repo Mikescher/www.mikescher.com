@@ -26,6 +26,11 @@
 /* Helper
 -------------------------------------------------- */
 
+.cstm-well-light {
+    border: 2px solid #caecec;
+    background-color: white;
+}
+
 .cstm-background-white {
     background-color: white;
 }
@@ -44,4 +49,16 @@
 
 .navbar .brand {
     padding: 0px;
+}
+
+.dropdown-append {
+    padding-left: 0px;
+}
+
+.dropdown-append .dropdown-toggle {
+    padding-left: 0px !important;
+}
+
+ul.nav li.dropdown-append:hover > ul.dropdown-menu {
+    display: block;    
 }

@@ -1,3 +1,35 @@
+<?php // ###### FUNCTIONS ######
+function GetProgDropDownList()
+{
+	$progDropDown = array();
+	$dropDownModels = array();
+
+	$criteria = new CDbCriteria;
+	$criteria->order = "add_date DESC";
+	$criteria->limit = 3;
+	foreach (Programme::model()->findAll($criteria) as $row) {
+		$dropDownModels[] = $row;
+	}
+	$dropDownModels[] = null;
+
+	$criteria = new CDbCriteria;
+	$criteria->order = "add_date DESC";
+	$criteria->limit = 8;
+	$criteria->condition = "Sterne=4 AND visible=1";
+	foreach (Programme::model()->findAll($criteria) as $row) {
+		$dropDownModels[] = $row;
+	}
+
+	foreach ($dropDownModels as $row) {
+		if (is_null($row))
+			$progDropDown[] = TbHtml::menuDivider();
+		else
+			$progDropDown[] = array('label' => $row->attributes['Name'], 'url' => '/programme/' . $row->attributes['Name']);
+	}
+	return $progDropDown;
+}
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -42,19 +74,17 @@
 						'class' => 'bootstrap.widgets.TbNav',
 						'items' =>
 							[
-								array('label' => 'Home', 		'url' => '/', 'active' => ($this->selectedNav === 'index')),
-								array('label' => 'Blog', 		'url' => '#', 'active' => ($this->selectedNav === 'blog')),
-								array('label' => 'Programme', 	'url' => '/programme/', 'active' => ($this->selectedNav === 'prog')),
-								array('label' => 'About',		'url' => '/about', 'active' => ($this->selectedNav === 'about')),
+								['label' => 'Home', 		'url' => '/', 'active' => ($this->selectedNav === 'index')],
+								['label' => 'Blog', 		'url' => '#', 'active' => ($this->selectedNav === 'blog')],
+								['label' => 'Programme', 	'url' => '/programme/', 'active' => ($this->selectedNav === 'prog')],
+								['label' => '', 			'items' => GetProgDropDownList(), 'htmlOptions' => ['class' => 'dropdown-append']],
+								['label' => 'About',		'url' => '/about', 'active' => ($this->selectedNav === 'about')],
 							],
 					],
-
 					TbHtml::navbarSearchForm('search', '',
 						[
 							'class' => 'pull-right',
-
 							'placeholder' => 'Search',
-
 							'inputOptions' =>
 								[
 									'append' => TbHtml::submitButton(TbHtml::icon(TbHtml::ICON_SEARCH)),
@@ -94,8 +124,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="<?php echo (YII_DEBUG ? 'bootstrap.js' : 'bootstrap.min.js') ?>"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-<script src="javascript/scripts.js"></script>
+<script src="/js/plugins.js"></script>
+<script src="/js/main.js"></script>
+<script src="/javascript/scripts.js"></script>
 </body>
 </html>

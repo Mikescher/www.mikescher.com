@@ -19,7 +19,7 @@ $this->selectedNav = 'about';
 
 	<?php echo TbHtml::pageHeader('About Mikescher.de', ''); ?>
 
-	<div class="well cstm-background-white">
+	<div class="well cstm-well-light">
 		<p>Welcome to my private homepage.</p>
 
 		<p>My name is Mike Schwörer, and this is my homepage - here i upload programs i write in my free time and sometimes i even write a blog entry. </p>
@@ -27,7 +27,7 @@ $this->selectedNav = 'about';
 		<p>If you want you can look <?php echo TbHtml::link('here', '#'); // TODO Add Link ?> at the things I programmed </p>
 	</div>
 
-	<div class="well cstm-background-white">
+	<div class="well cstm-well-light">
 		<?php
 		$form = $this->beginWidget('bootstrap.widgets.TbActiveForm',
 			[

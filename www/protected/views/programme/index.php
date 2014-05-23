@@ -4,19 +4,31 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
+$this->breadcrumbs = array(
 	'Programme',
 );
 
-$this->menu=array(
-	array('label'=>'Create Programme','url'=>array('create')),
-	array('label'=>'Manage Programme','url'=>array('admin')),
+$this->menu = array(
+	array('label' => 'Create Programme', 'url' => array('create')),
+	array('label' => 'Manage Programme', 'url' => array('admin')),
 );
 ?>
 
-<h1>Programmes</h1>
+<div class="container">
+	<div class="span12">
+		<h1>My Prog's</h1>
+		<br>
+		<br>
+		<?php
 
-<?php $this->widget('bootstrap.widgets.TbListView',array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+		foreach (Programme::model()->findAll() as $record) {
+			echo "<div class='well'>";
+			echo nl2br(print_r($record->attributes, true));
+			echo "</div>";
+		}
+
+
+		?>
+	</div>
+</div>
+

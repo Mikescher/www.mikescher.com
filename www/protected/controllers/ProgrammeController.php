@@ -127,10 +127,9 @@ class ProgrammeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Programme');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+		$this->layout = '//layouts/main';
+
+		$this->render('index');
 	}
 
 	/**
