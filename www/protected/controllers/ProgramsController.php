@@ -50,8 +50,17 @@ class ProgramsController extends Controller
 	 */
 	public function actionView($id)
 	{
+		if (is_string($id))
+		{
+			$model = $this->loadModelByName($id);
+		}
+		else
+		{
+			$model = $this->loadModelByID($id);
+		}
+
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
 		));
 	}
 
@@ -156,9 +165,25 @@ class ProgramsController extends Controller
 	 * @return Program the loaded model
 	 * @throws CHttpException
 	 */
-	public function loadModel($id)
+	public function loadModelByID($id)
 	{
 		$model=Program::model()->findByPk($id);
+		if ($model===null) {
+			throw new CHttpException(404,'The requested page does not exist.');
+		}
+		return $model;
+	}
+
+	/**
+	 * Returns the data model based on the name of Program
+	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param string $name the ID of the model to be loaded
+	 * @return Program the loaded model
+	 * @throws CHttpException
+	 */
+	public function loadModelByName($name)
+	{
+		$model=Program::model()->findByAttributes(['Name' => $name]);
 		if ($model===null) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}

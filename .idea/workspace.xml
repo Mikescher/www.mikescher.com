@@ -63,10 +63,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="about.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/protected/config/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="74" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.4086207" vertical-offset="936" max-vertical-offset="1802">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProgramsController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/protected/controllers/ProgramsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="5" selection-start="1429" selection-end="1429" vertical-scroll-proportion="-16.423077" vertical-offset="661" max-vertical-offset="3434">
+              <folding>
+                <element signature="e#1432#1547#0" expanded="false" />
+                <element signature="e#1941#2118#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/protected/views/layouts/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="96" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-7.6538463" vertical-offset="600" max-vertical-offset="1785">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProgramHelper.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/protected/components/ProgramHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="102" selection-start="1626" selection-end="1626" vertical-scroll-proportion="-16.115385" vertical-offset="754" max-vertical-offset="1360">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/protected/views/site/about.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="78" selection-start="790" selection-end="790" vertical-scroll-proportion="0.762069" vertical-offset="0" max-vertical-offset="1530">
+            <state line="26" column="78" selection-start="790" selection-end="790" vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="1530">
               <folding />
             </state>
           </provider>
@@ -113,17 +152,17 @@
         <option value="$PROJECT_DIR$/www/protected/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/framework/logging/CLogger.php" />
         <option value="$PROJECT_DIR$/www/protected/models/Program.php" />
-        <option value="$PROJECT_DIR$/www/protected/controllers/ProgramsController.php" />
-        <option value="$PROJECT_DIR$/www/protected/config/main.php" />
         <option value="$PROJECT_DIR$/www/protected/views/site/index.php" />
         <option value="$PROJECT_DIR$/www/protected/views/layouts/main.php" />
-        <option value="$PROJECT_DIR$/www/protected/components/ProgramHelper.php" />
         <option value="$PROJECT_DIR$/www/protected/views/programs/admin.php" />
         <option value="$PROJECT_DIR$/www/protected/views/programs/create.php" />
         <option value="$PROJECT_DIR$/www/protected/views/programs/index.php" />
         <option value="$PROJECT_DIR$/www/protected/views/programs/update.php" />
         <option value="$PROJECT_DIR$/www/protected/views/programs/view.php" />
         <option value="$PROJECT_DIR$/www/protected/views/site/about.php" />
+        <option value="$PROJECT_DIR$/www/protected/components/ProgramHelper.php" />
+        <option value="$PROJECT_DIR$/www/protected/controllers/ProgramsController.php" />
+        <option value="$PROJECT_DIR$/www/protected/config/main.php" />
       </list>
     </option>
   </component>
@@ -1074,40 +1113,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/controllers/ProgramsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="21" selection-end="21" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="3128">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="70" selection-start="1506" selection-end="1506" vertical-scroll-proportion="-8.461538" vertical-offset="936" max-vertical-offset="1751">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/protected/views/site/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="76" selection-start="847" selection-end="847" vertical-scroll-proportion="-9.807693" vertical-offset="459" max-vertical-offset="1564">
           <folding>
             <marker date="1401267568830" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..Programme..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="79" selection-start="1591" selection-end="1591" vertical-scroll-proportion="-7.0" vertical-offset="600" max-vertical-offset="1785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/components/ProgramHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="96" selection-start="1620" selection-end="1620" vertical-scroll-proportion="-14.307693" vertical-offset="801" max-vertical-offset="1360">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1153,9 +1164,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="96" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-7.6538463" vertical-offset="600" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/components/ProgramHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="102" selection-start="1626" selection-end="1626" vertical-scroll-proportion="-16.115385" vertical-offset="754" max-vertical-offset="1360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/protected/views/site/about.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="78" selection-start="790" selection-end="790" vertical-scroll-proportion="0.762069" vertical-offset="0" max-vertical-offset="1530">
+        <state line="26" column="78" selection-start="790" selection-end="790" vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/controllers/ProgramsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="5" selection-start="1429" selection-end="1429" vertical-scroll-proportion="-16.423077" vertical-offset="661" max-vertical-offset="3434">
+          <folding>
+            <element signature="e#1432#1547#0" expanded="false" />
+            <element signature="e#1941#2118#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="74" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.4086207" vertical-offset="936" max-vertical-offset="1802">
           <folding />
         </state>
       </provider>

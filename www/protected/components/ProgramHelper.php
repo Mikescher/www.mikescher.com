@@ -67,7 +67,7 @@ class ProgramHelper {
 			if (is_null($row))
 				$progDropDown[] = TbHtml::menuDivider();
 			else
-				$progDropDown[] = array('label' => $row->attributes['Name'], 'url' => '/programs/' . $row->attributes['Name']);
+				$progDropDown[] = array('label' => $row->attributes['Name'], 'url' => '/programs/view/' . $row->attributes['Name']);
 		}
 		return $progDropDown;
 	}

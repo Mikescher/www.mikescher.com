@@ -65,8 +65,11 @@ return ArrayX::merge(
 						'rules' =>
 							[
 								'programs/' => 'programs/index',
-								'downloads/<action:\w+>' => 'programs/<action>', 	// Compatibility
+								'programs/view/<id>' => 'programs/view',
+
+								'downloads/details.php' => 'programs/index', 	// Compatibility
 								'downloads/downloads.php' => 'programs/index', 	// Compatibility
+								'downloads/<id>' => 'programs/view', 			// Compatibility
 
 								'' => 'site/index',
 
