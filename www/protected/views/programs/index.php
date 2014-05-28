@@ -1,16 +1,16 @@
 <?php
-/* @var $this ProgrammeController */
+/* @var $this ProgramController */
 /* @var $dataProvider CActiveDataProvider */
 ?>
 
 <?php
 $this->breadcrumbs = array(
-	'Programme',
+	'Programs',
 );
 
 $this->menu = array(
-	array('label' => 'Create Programme', 'url' => array('create')),
-	array('label' => 'Manage Programme', 'url' => array('admin')),
+	array('label' => 'Create Program', 'url' => array('create')),
+	array('label' => 'Manage Program', 'url' => array('admin')),
 );
 ?>
 
@@ -21,7 +21,7 @@ $this->menu = array(
 		<br>
 		<?php
 
-		foreach (Programme::model()->findAll() as $record) {
+		foreach (Program::model()->findAll() as $record) {
 			echo "<div class='well'>";
 			echo nl2br(print_r($record->attributes, true));
 			echo "</div>";

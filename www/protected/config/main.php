@@ -64,9 +64,9 @@ return ArrayX::merge(
 						'showScriptName' => false,
 						'rules' =>
 							[
-								'Programme/' => 'Programme/index',
-								'downloads/<action:\w+>' => 'programme/<action>', 	// Compatibility
-								'downloads/downloads.php' => 'programme/index', 	// Compatibility
+								'programs/' => 'programs/index',
+								'downloads/<action:\w+>' => 'programs/<action>', 	// Compatibility
+								'downloads/downloads.php' => 'programs/index', 	// Compatibility
 
 								'' => 'site/index',
 

@@ -1,6 +1,6 @@
 <?php
 
-class ProgrammeController extends Controller
+class ProgramsController extends Controller
 {
 
 	public $layout='//layouts/column2';
@@ -61,13 +61,13 @@ class ProgrammeController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Programme;
+		$model=new Program();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if (isset($_POST['Programme'])) {
-			$model->attributes=$_POST['Programme'];
+		if (isset($_POST['Program'])) {
+			$model->attributes=$_POST['Program'];
 			if ($model->save()) {
 				$this->redirect(array('view','id'=>$model->ID));
 			}
@@ -90,8 +90,8 @@ class ProgrammeController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if (isset($_POST['Programme'])) {
-			$model->attributes=$_POST['Programme'];
+		if (isset($_POST['Program'])) {
+			$model->attributes=$_POST['Program'];
 			if ($model->save()) {
 				$this->redirect(array('view','id'=>$model->ID));
 			}
@@ -138,10 +138,10 @@ class ProgrammeController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Programme('search');
+		$model=new Program('search');
 		$model->unsetAttributes();  // clear any default values
-		if (isset($_GET['Programme'])) {
-			$model->attributes=$_GET['Programme'];
+		if (isset($_GET['Program'])) {
+			$model->attributes=$_GET['Program'];
 		}
 
 		$this->render('admin',array(
@@ -153,12 +153,12 @@ class ProgrammeController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Programme the loaded model
+	 * @return Program the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Programme::model()->findByPk($id);
+		$model=Program::model()->findByPk($id);
 		if ($model===null) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
@@ -167,11 +167,11 @@ class ProgrammeController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Programme $model the model to be validated
+	 * @param Program $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if (isset($_POST['ajax']) && $_POST['ajax']==='programme-form') {
+		if (isset($_POST['ajax']) && $_POST['ajax']==='program-form') {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}

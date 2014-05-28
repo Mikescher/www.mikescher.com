@@ -1,24 +1,24 @@
 <?php
-/* @var $this ProgrammeController */
-/* @var $model Programme */
+/* @var $this ProgramController */
+/* @var $model Program */
 ?>
 
 <?php
 $this->breadcrumbs=array(
-	'Programme'=>array('index'),
+	'Programs'=>array('index'),
 	$model->Name,
 );
 
 $this->menu=array(
-	array('label'=>'List Programme', 'url'=>array('index')),
-	array('label'=>'Create Programme', 'url'=>array('create')),
-	array('label'=>'Update Programme', 'url'=>array('update', 'id'=>$model->ID)),
-	array('label'=>'Delete Programme', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ID),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Programme', 'url'=>array('admin')),
+	array('label'=>'List Program', 'url'=>array('index')),
+	array('label'=>'Create Program', 'url'=>array('create')),
+	array('label'=>'Update Program', 'url'=>array('update', 'id'=>$model->ID)),
+	array('label'=>'Delete Program', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ID),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage Program', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Programme #<?php echo $model->ID; ?></h1>
+<h1>View Program #<?php echo $model->ID; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(

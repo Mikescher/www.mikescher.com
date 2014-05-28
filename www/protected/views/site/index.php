@@ -40,7 +40,7 @@ $this->selectedNav = 'index';
 			<?php
 				$connection = Yii::app()->db;
 				
-				$command=$connection->createCommand("SELECT * FROM programme");
+				$command=$connection->createCommand("SELECT * FROM Programme");
 				$command->execute();   // a non-query SQL statement execution
 				// or execute an SQL query and fetch the result set
 				$reader=$command->query();

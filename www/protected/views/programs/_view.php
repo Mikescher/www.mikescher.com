@@ -1,6 +1,6 @@
 <?php
-/* @var $this ProgrammeController */
-/* @var $data Programme */
+/* @var $this ProgramController */
+/* @var $data Program */
 ?>
 
 <div class="view">

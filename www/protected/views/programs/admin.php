@@ -1,16 +1,16 @@
 <?php
-/* @var $this ProgrammeController */
-/* @var $model Programme */
+/* @var $this ProgramController */
+/* @var $model Program */
 
 
 $this->breadcrumbs=array(
-	'Programme'=>array('index'),
+	'Programs'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Programme', 'url'=>array('index')),
-	array('label'=>'Create Programme', 'url'=>array('create')),
+	array('label'=>'List Program', 'url'=>array('index')),
+	array('label'=>'Create Program', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -19,7 +19,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#programme-grid').yiiGridView('update', {
+	$('#program-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -30,7 +30,7 @@ $('.search-form form').submit(function(){
 
 ?>
 
-<h1>Manage Programmes</h1>
+<h1>Manage Program</h1>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -47,7 +47,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <br><br>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'type' => TbHtml::GRID_TYPE_BORDERED,
-	'id'=>'programme-grid',
+	'id'=>'program-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(

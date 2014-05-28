@@ -1,6 +1,6 @@
 <?php
 
-class ProgrammeHelper {
+class ProgramHelper {
 
 	public static function GetHighlightedProgList($doDelimiter)
 	{
@@ -10,7 +10,7 @@ class ProgrammeHelper {
 		$criteria->order = "add_date DESC";
 		$criteria->condition = "visible=1 AND enabled=1";
 		$criteria->limit = 3;
-		foreach (Programme::model()->findAll($criteria) as $row) {
+		foreach (Program::model()->findAll($criteria) as $row) {
 			$dropDownModels[] = $row;
 		}
 
@@ -23,7 +23,7 @@ class ProgrammeHelper {
 		$criteria->order = "add_date DESC";
 		$criteria->limit = 8;
 		$criteria->condition = "Sterne=4 AND visible=1 AND enabled=1";
-		foreach (Programme::model()->findAll($criteria) as $row) {
+		foreach (Program::model()->findAll($criteria) as $row) {
 			$dropDownModels[] = $row;
 		}
 
@@ -37,7 +37,7 @@ class ProgrammeHelper {
 		$criteria->condition = "DATEDIFF(CURDATE(), add_date) <= 14 AND visible=1 AND enabled=1";
 		$criteria->limit = 1;
 
-		return Programme::model()->find($criteria);
+		return Program::model()->find($criteria);
 	}
 
 	public static function GetDailyProg()
@@ -67,7 +67,7 @@ class ProgrammeHelper {
 			if (is_null($row))
 				$progDropDown[] = TbHtml::menuDivider();
 			else
-				$progDropDown[] = array('label' => $row->attributes['Name'], 'url' => '/programme/' . $row->attributes['Name']);
+				$progDropDown[] = array('label' => $row->attributes['Name'], 'url' => '/programs/' . $row->attributes['Name']);
 		}
 		return $progDropDown;
 	}

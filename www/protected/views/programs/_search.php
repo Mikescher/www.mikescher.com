@@ -1,6 +1,6 @@
 <?php
-/* @var $this ProgrammeController */
-/* @var $model Programme */
+/* @var $this ProgramController */
+/* @var $model Program */
 /* @var $form CActiveForm */
 ?>
 

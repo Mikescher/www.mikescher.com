@@ -8,7 +8,7 @@ class SiteController extends Controller
 	{
 		$data = array();
 
-		$data['program'] = ProgrammeHelper::GetDailyProg();
+		$data['program'] = ProgramHelper::GetDailyProg();
 
 		$this->render('index', $data);
 	}

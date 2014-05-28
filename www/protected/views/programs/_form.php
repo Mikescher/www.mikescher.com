@@ -1,13 +1,13 @@
 <?php
-/* @var $this ProgrammeController */
-/* @var $model Programme */
+/* @var $this ProgramController */
+/* @var $model Program */
 /* @var $form TbActiveForm */
 ?>
 
 <div class="form">
 
     <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
-	'id'=>'programme-form',
+	'id'=>'program-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
