@@ -17,7 +17,7 @@ $this->selectedNav = 'index';
 	<!-- Main hero unit for a primary marketing message or call to action -->
 	<div class="hero-unit">
 		<h1>Hello, world!</h1>
-
+		Daily Program: <?php echo $program->Name; ?>
 		<p> 
 		
 		<ul>

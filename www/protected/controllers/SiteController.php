@@ -6,7 +6,11 @@ class SiteController extends Controller
 
 	public function actionIndex()
 	{
-		$this->render('index');
+		$data = array();
+
+		$data['program'] = ProgrammeHelper::GetDailyProg();
+
+		$this->render('index', $data);
 	}
 
 	public function actionError()

@@ -1,35 +1,3 @@
-<?php // ###### FUNCTIONS ######
-function GetProgDropDownList()
-{
-	$progDropDown = array();
-	$dropDownModels = array();
-
-	$criteria = new CDbCriteria;
-	$criteria->order = "add_date DESC";
-	$criteria->limit = 3;
-	foreach (Programme::model()->findAll($criteria) as $row) {
-		$dropDownModels[] = $row;
-	}
-	$dropDownModels[] = null;
-
-	$criteria = new CDbCriteria;
-	$criteria->order = "add_date DESC";
-	$criteria->limit = 8;
-	$criteria->condition = "Sterne=4 AND visible=1";
-	foreach (Programme::model()->findAll($criteria) as $row) {
-		$dropDownModels[] = $row;
-	}
-
-	foreach ($dropDownModels as $row) {
-		if (is_null($row))
-			$progDropDown[] = TbHtml::menuDivider();
-		else
-			$progDropDown[] = array('label' => $row->attributes['Name'], 'url' => '/programme/' . $row->attributes['Name']);
-	}
-	return $progDropDown;
-}
-?>
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -77,7 +45,7 @@ function GetProgDropDownList()
 								['label' => 'Home', 		'url' => '/', 'active' => ($this->selectedNav === 'index')],
 								['label' => 'Blog', 		'url' => '#', 'active' => ($this->selectedNav === 'blog')],
 								['label' => 'Programme', 	'url' => '/programme/', 'active' => ($this->selectedNav === 'prog')],
-								['label' => '', 			'items' => GetProgDropDownList(), 'htmlOptions' => ['class' => 'dropdown-append']],
+								['label' => '', 			'items' => ProgrammeHelper::GetProgDropDownList(), 'htmlOptions' => ['class' => 'dropdown-append']],
 								['label' => 'About',		'url' => '/about', 'active' => ($this->selectedNav === 'about')],
 							],
 					],
