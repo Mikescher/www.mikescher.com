@@ -2,6 +2,7 @@
 
 class ThumbnailPreview extends CWidget {
 	public $caption = '';
+	public $link = '';
 	public $description = '';
 	public $category = '';
 	public $language = [];

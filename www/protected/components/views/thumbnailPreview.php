@@ -2,21 +2,23 @@
 /* @var $this ThumbnailPreview */
 ?>
 
-<li class="span3" style="width: 270px">
-	<div style="min-height: 600px">
-		<div class="thumbnail" style="padding: 0;">
-			<div style="padding:4px; height: 225px; overflow-y: hidden">
-				<img style="width: 100%" src="<?php echo $this->image; ?>">
+<li class="span3 thumbnailParentSpan">
+	<div >
+		<div class="thumbnail">
+			<div class="thumbnailInnerHead">
+				<a href="<?php echo $this->link; ?>">
+					<img style="width: 100%" src="<?php echo $this->image; ?>">
+				</a>
 			</div>
 			<div class="caption">
-				<?php //TODO Line out css to styles.css !!!!
+				<?php
 				if ( strlen($this->caption) > 13)
-					echo '<h3 class="progThumbnailCaption">' . $this->caption . '</h3>';
+					echo '<h3><a class="progThumbnailCaption" href="' . $this->link . '">' . $this->caption . '</a></h3>';
 				else
-					echo '<h2 class="progThumbnailCaption">' . $this->caption . '</h2>';
+					echo '<h2><a class="progThumbnailCaption" href="' . $this->link . '">' . $this->caption . '</a></h2>';
 				?>
 
-				<p style="min-height: 70px;"><?php echo $this->description; ?></p>
+				<p class="thumbnailInnerDescription"><?php echo $this->description; ?></p>
 
 				<p>
 					<?php
@@ -36,7 +38,7 @@
 					}
 					?>
 			</div>
-			<div class="modal-footer" style="text-align: left">
+			<div class="modal-footer thumbnailInnerFooter">
 				<div class="text-center">
 					<?php
 					for ($i = 0; $i < 4; $i++) {

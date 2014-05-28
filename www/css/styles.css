@@ -60,12 +60,47 @@
 }
 
 ul.nav li.dropdown-append:hover > ul.dropdown-menu {
-    display: block;    
+    display: block;
 }
 
-/* programs/view
+/* ThumbnalPreview
 -------------------------------------------------- */
 
 .progThumbnailCaption {
     color: #2C3E50;
+    text-decoration: none;
+}
+
+.progThumbnailCaption:active,
+.progThumbnailCaption:visited,
+.progThumbnailCaption:link,
+.progThumbnailCaption:hover {
+    /*color: #2C3E50;*/
+    text-decoration: none;
+}
+
+.thumbnailParentSpan {
+    width: 270px;
+}
+
+.thumbnailParentSpan > div {
+    min-height: 600px;
+}
+
+.thumbnailParentSpan > div > div {
+    padding: 0;
+}
+
+.thumbnailInnerHead {
+    padding: 4px;
+    height: 225px;
+    overflow-y: hidden;
+}
+
+.thumbnailInnerFooter {
+    text-align: left;
+}
+
+.thumbnailInnerDescription {
+    min-height: 120px;
 }
