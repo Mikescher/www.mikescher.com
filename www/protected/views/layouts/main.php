@@ -47,6 +47,7 @@
 								['label' => 'Programme', 	'url' => '/programme/', 'active' => ($this->selectedNav === 'prog')],
 								['label' => '', 			'items' => ProgrammeHelper::GetProgDropDownList(), 'htmlOptions' => ['class' => 'dropdown-append']],
 								['label' => 'About',		'url' => '/about', 'active' => ($this->selectedNav === 'about')],
+								['label' => '[[Log "'.Yii::app()->user->name.'" out]]',		'url' => '/logout',	'visible' => !Yii::app()->user->isGuest]
 							],
 					],
 					TbHtml::navbarSearchForm('search', '',

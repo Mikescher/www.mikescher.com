@@ -27,20 +27,20 @@ class ProgrammeController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','create','update','admin','delete'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
-//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-//				'actions'=>array('create','update'),
-//				'users'=>array('@'),
-//			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update','admin','delete'),
+				'users'=>array('@'),
+			),
 //			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-//				'actions'=>array('admin','delete'),
+//				'actions'=>array(),
 //					'users'=>array('admin'),
 //			),
-//			array('deny',  // deny all users
-//				'users'=>array('*'),
-//			),
+			array('deny',  // deny everythign else to all users
+				'users'=>array('*'),
+			),
 		);
 	}
 
@@ -106,6 +106,7 @@ class ProgrammeController extends Controller
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
+	 * @throws CHttpException on invalid request
 	 */
 	public function actionDelete($id)
 	{
