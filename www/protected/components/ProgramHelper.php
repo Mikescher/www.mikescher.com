@@ -22,7 +22,7 @@ class ProgramHelper {
 		$criteria = new CDbCriteria;
 		$criteria->order = "add_date DESC";
 		$criteria->limit = 8;
-		$criteria->condition = "Sterne=4 AND visible=1 AND enabled=1";
+		$criteria->condition = "Sterne >= 4 AND visible=1 AND enabled=1";
 		foreach (Program::model()->findAll($criteria) as $row) {
 			$dropDownModels[] = $row;
 		}

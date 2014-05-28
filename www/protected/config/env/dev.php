@@ -17,7 +17,7 @@ return [
 
 			'errorHandler' =>
 				[
-					'errorAction' => 'site/error',
+					'errorAction' => 'site/debugerror',
 				],
 
 		],

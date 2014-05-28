@@ -55,8 +55,6 @@ return ArrayX::merge(
 						'allowAutoLogin' => true,
 					],
 
-				// uncomment the following to enable URLs in path-format
-
 				'urlManager' =>
 					[
 						'urlFormat' => 'path',

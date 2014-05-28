@@ -13,6 +13,10 @@
 	<?php echo CHtml::encode($data->Name); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Thumbnailname')); ?>:</b>
+	<?php echo CHtml::encode($data->Thumbnailname); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Downloads')); ?>:</b>
 	<?php echo CHtml::encode($data->Downloads); ?>
 	<br />

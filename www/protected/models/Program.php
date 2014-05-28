@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'program':
  * @property integer $ID
  * @property string $Name
+ * @property string Thumbnailname
  * @property double $Downloads
  * @property string $Kategorie
  * @property double $Sterne
@@ -41,13 +42,13 @@ class Program extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Downloads, Kategorie, Sterne, enabled, visible, Language, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier', 'required'),
+			array('Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier', 'required'),
 			array('enabled, visible, viewable_code, uses_absCanv, highscore_gid', 'numerical', 'integerOnly'=>true),
 			array('Downloads, Sterne', 'numerical'),
 			array('update_identifier', 'length', 'max'=>28),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('ID, Name, Downloads, Kategorie, Sterne, enabled, visible, Language, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier, highscore_gid', 'safe', 'on'=>'search'),
+			array('ID, Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier, highscore_gid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,6 +71,7 @@ class Program extends CActiveRecord
 		return array(
 			'ID' => 'ID',
 			'Name' => 'Name',
+			'Thumbnailname' => 'Thumbnail name',
 			'Downloads' => 'Downloads',
 			'Kategorie' => 'Kategorie',
 			'Sterne' => 'Sterne',
@@ -107,6 +109,7 @@ class Program extends CActiveRecord
 
 		$criteria->compare('ID',$this->ID);
 		$criteria->compare('Name',$this->Name,true);
+		$criteria->compare('Thumbnailname',$this->Thumbnailname,true);
 		$criteria->compare('Downloads',$this->Downloads);
 		$criteria->compare('Kategorie',$this->Kategorie,true);
 		$criteria->compare('Sterne',$this->Sterne);

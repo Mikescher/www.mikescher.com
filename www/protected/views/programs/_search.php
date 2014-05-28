@@ -15,6 +15,8 @@
 
                     <?php echo $form->textAreaControlGroup($model,'Name',array('rows'=>6,'span'=>8)); ?>
 
+				<?php echo $form->textAreaControlGroup($model,'Thumbnailname',array('rows'=>6,'span'=>8)); ?>
+
                     <?php echo $form->textFieldControlGroup($model,'Downloads',array('span'=>5)); ?>
 
                     <?php echo $form->textAreaControlGroup($model,'Kategorie',array('rows'=>6,'span'=>8)); ?>

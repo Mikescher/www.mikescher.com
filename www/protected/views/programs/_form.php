@@ -19,11 +19,13 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'Name',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'Name',array('rows'=>6,'span'=>8)); ?>
+
+			<?php echo $form->textFieldControlGroup($model,'Thumbnailname',array('rows'=>6,'span'=>8)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'Downloads',array('span'=>5)); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'Kategorie',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'Kategorie',array('rows'=>6,'span'=>8)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'Sterne',array('span'=>5)); ?>
 
@@ -31,21 +33,21 @@
 
             <?php echo $form->textFieldControlGroup($model,'visible',array('span'=>5)); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'Language',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'Language',array('rows'=>6,'span'=>8)); ?>
 
             <?php echo $form->textAreaControlGroup($model,'Description',array('rows'=>6,'span'=>8)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'add_date',array('span'=>5)); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'download_url',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'download_url',array('rows'=>6,'span'=>8)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'viewable_code',array('span'=>5)); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'sourceforge_url',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'sourceforge_url',array('rows'=>6,'span'=>8)); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'homepage_url',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'homepage_url',array('rows'=>6,'span'=>8)); ?>
 
-            <?php echo $form->textAreaControlGroup($model,'github_url',array('rows'=>6,'span'=>8)); ?>
+            <?php echo $form->textFieldControlGroup($model,'github_url',array('rows'=>6,'span'=>8)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'uses_absCanv',array('span'=>5)); ?>
 

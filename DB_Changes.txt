@@ -1,0 +1,4 @@
+othervalues -> Added Column SValue
+othervalues -> Added Key "AdminPassword"
+programme   -> Added Column ThumbnailName
+programme   -> Changed Sieb_des_Erasthothenes -> Sieb des Erasthothenes (also ren Imagefiles)

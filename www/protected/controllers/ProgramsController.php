@@ -47,16 +47,18 @@ class ProgramsController extends Controller
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
+	 * @throws CHttpException when $id is integer
 	 */
 	public function actionView($id)
 	{
-		if (is_string($id))
+		if (is_numeric($id))
 		{
-			$model = $this->loadModelByName($id);
+			throw new CHttpException(400, "You can't access a program by ID");
+			//$model = $this->loadModelByID($id);
 		}
 		else
 		{
-			$model = $this->loadModelByID($id);
+			$model = $this->loadModelByName($id);
 		}
 
 		$this->render('view',array(
@@ -94,7 +96,7 @@ class ProgramsController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-		$model=$this->loadModel($id);
+		$model=$this->loadModelByID($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -121,7 +123,7 @@ class ProgramsController extends Controller
 	{
 		if (Yii::app()->request->isPostRequest) {
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			$this->loadModelByID($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if (!isset($_GET['ajax'])) {
@@ -169,7 +171,7 @@ class ProgramsController extends Controller
 	{
 		$model=Program::model()->findByPk($id);
 		if ($model===null) {
-			throw new CHttpException(404,'The requested page does not exist.');
+			throw new CHttpException(404,'The requested Programm (by ID) does not exist.');
 		}
 		return $model;
 	}
@@ -185,7 +187,7 @@ class ProgramsController extends Controller
 	{
 		$model=Program::model()->findByAttributes(['Name' => $name]);
 		if ($model===null) {
-			throw new CHttpException(404,'The requested page does not exist.');
+			throw new CHttpException(404,'The requested programm (by Name) does not exist.');
 		}
 		return $model;
 	}

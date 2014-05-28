@@ -62,3 +62,10 @@
 ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     display: block;    
 }
+
+/* programs/view
+-------------------------------------------------- */
+
+.progThumbnailCaption {
+    color: #2C3E50;
+}
