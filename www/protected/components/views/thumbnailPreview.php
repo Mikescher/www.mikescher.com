@@ -4,21 +4,29 @@
 
 <li class="span3 thumbnailParentSpan">
 	<div >
-		<div class="thumbnail">
+		<div class="thumbnail <?php if (! $this->enabled) print("thumbnailDisabled"); ?>">
 			<div class="thumbnailInnerHead">
-				<a href="<?php echo $this->link; ?>">
+				<a <?php if($this->enabled) echo 'href="'. $this->link . '"'; ?>>
 					<img style="width: 100%" src="<?php echo $this->image; ?>">
 				</a>
 			</div>
 			<div class="caption">
+				<?php $h_level = (strlen($this->caption) > 13) ? ["<h3>", "</h3>"] : ["<h2>", "</h2>"]; ?>
+
+				<?php echo $h_level[0]; ?>
+
 				<?php
-				if ( strlen($this->caption) > 13)
-					echo '<h3><a class="progThumbnailCaption" href="' . $this->link . '">' . $this->caption . '</a></h3>';
-				else
-					echo '<h2><a class="progThumbnailCaption" href="' . $this->link . '">' . $this->caption . '</a></h2>';
+					if ($this->enabled)
+						echo '<a class="progThumbnailCaption" href="' . $this->link . '">' . $this->caption . '</a>';
+					else
+						echo '<a class="progThumbnailCaption">' . $this->caption . '</a>';
 				?>
 
-				<p class="thumbnailInnerDescription"><?php echo $this->description; ?></p>
+				<?php echo $h_level[1]; ?>
+
+				<p class="thumbnailInnerDescription">
+					<?php echo $this->description; ?>
+				</p>
 
 				<p>
 					<?php

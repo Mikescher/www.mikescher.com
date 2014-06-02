@@ -24,7 +24,12 @@ class ProgramHelper {
 		$criteria->limit = 8;
 		$criteria->condition = "Sterne >= 4 AND visible=1 AND enabled=1";
 		foreach (Program::model()->findAll($criteria) as $row) {
-			$dropDownModels[] = $row;
+			$contains = false;
+			foreach($dropDownModels as $modelElem)
+				if ($modelElem != null && $modelElem->attributes['ID'] == $row->attributes['ID'])
+					$contains = true;
+			if (! $contains)
+				$dropDownModels[] = $row;
 		}
 
 		return $dropDownModels;

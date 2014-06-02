@@ -104,3 +104,8 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
 .thumbnailInnerDescription {
     min-height: 120px;
 }
+
+.thumbnailDisabled {
+    opacity: 0.4;
+    /*filter: alpha(opacity=40); *//* msie */
+}

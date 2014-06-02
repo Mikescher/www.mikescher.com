@@ -141,7 +141,15 @@ class ProgramsController extends Controller
 	{
 		$this->layout = '//layouts/main';
 
-		$this->render('index');
+		$data = array();
+
+		if (isset($_GET['page']) && is_numeric($_GET['page'])) {
+			$data['page'] = $_GET['page'];
+		} else {
+			$data['page'] = 1;
+		}
+
+		$this->render('index', $data);
 	}
 
 	/**

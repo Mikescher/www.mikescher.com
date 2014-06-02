@@ -28,7 +28,7 @@ class SeededRandom
 
 		$this->RSeed = ($this->RSeed * 125) % 2796203;
 
-		return $this->RSeed % ($max - $min + 1) + $min;
+		return $this->RSeed % ($max - $min) + $min;
 	}
 
 	function getRandomElement(array $arr)
