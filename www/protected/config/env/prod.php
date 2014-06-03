@@ -7,7 +7,7 @@ return [
 				[
 					'connectionString' => 'mysql:host=rdbms.strato.de;dbname=DB451718',
 					'username' => 'U451718',
-					'password' => 'Datenbank',
+					'password' => '?<?<?.?>?>?>', //TODO Change me and move me to extra file
 					'enableProfiling' => false,
 					'enableParamLogging' => false,
 					'charset' => 'utf8',
