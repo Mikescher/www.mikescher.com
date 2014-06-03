@@ -31,7 +31,7 @@
 		<?php
 
 		$criteria = new CDbCriteria;
-		$criteria->order = "add_date DESC";
+		$criteria->order = "Sterne DESC, add_date DESC";
 		$criteria->condition = "visible=1";
 
 		$all = Program::model()->findAll($criteria);
@@ -46,18 +46,21 @@
 			echo '<ul class="thumbnails">';
 
 			foreach (array_slice($all, $i * PROGS_INDEX_ROWSIZE, PROGS_INDEX_ROWSIZE) as $record) {
+				/* @var $record Program */
+
 				$this->widget('ThumbnailPreview',
 					[
-						'caption' => $record->attributes['Thumbnailname'],
-						'link' => '/programs/view/' . $record->attributes['Name'],
-						'description' => $record->attributes['Description'],
-						'category' => $record->attributes['Kategorie'],
-						'language' => explode("|", $record->attributes['Language']),
-						'image' => '/images/programs/thumbnails/' . $record->attributes['Name'] . '.jpg',
-						'starcount' => $record->attributes['Sterne'],
-						'downloads' => $record->attributes['Downloads'],
-						'date' => new DateTime($record->attributes['add_date']),
-						'enabled' => $record->attributes['enabled'],
+						'caption' => $record->Thumbnailname,
+						'link' => $record->getLink(),
+						'description' => $record->Description,
+						'category' => $record->Kategorie,
+						'language' => $record->getLanguageList(),
+						'image' => $record->getImagePath(),
+						'starcount' => $record->Sterne,
+						'downloads' => $record->Downloads,
+						'date' => new DateTime($record->add_date),
+						'enabled' => $record->enabled,
+						'programminglang' => $record->programming_lang,
 					]);
 			}
 

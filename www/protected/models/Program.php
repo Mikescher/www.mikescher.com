@@ -13,6 +13,7 @@
  * @property integer $enabled
  * @property integer $visible
  * @property string $Language
+ * @property string $programming_lang
  * @property string $Description
  * @property string $add_date
  * @property string $download_url
@@ -42,13 +43,14 @@ class Program extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier', 'required'),
+			array('Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier', 'required'),
 			array('enabled, visible, viewable_code, uses_absCanv, highscore_gid', 'numerical', 'integerOnly'=>true),
 			array('Downloads, Sterne', 'numerical'),
 			array('update_identifier', 'length', 'max'=>28),
+			array('programming_lang', 'length', 'max'=>16),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('ID, Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier, highscore_gid', 'safe', 'on'=>'search'),
+			array('ID, Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier, highscore_gid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -78,6 +80,7 @@ class Program extends CActiveRecord
 			'enabled' => 'Enabled',
 			'visible' => 'Visible',
 			'Language' => 'Language',
+			'programming_lang' => 'programming_lang',
 			'Description' => 'Description',
 			'add_date' => 'Add Date',
 			'download_url' => 'Download Url',
@@ -116,6 +119,7 @@ class Program extends CActiveRecord
 		$criteria->compare('enabled',$this->enabled);
 		$criteria->compare('visible',$this->visible);
 		$criteria->compare('Language',$this->Language,true);
+		$criteria->compare('programming_lang',$this->programming_lang,true);
 		$criteria->compare('Description',$this->Description,true);
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('download_url',$this->download_url,true);
@@ -144,5 +148,34 @@ class Program extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	//####################################
+	//########### MY FUNCTIONS ###########
+	//####################################
+
+	/**
+	 * @return string
+	 */
+	public function getImagePath() {
+		if (file_exists('images/programs/thumbnails/' . $this->Name . '.png'))
+			return '/images/programs/thumbnails/' . $this->Name . '.png';
+		else if (file_exists('images/programs/thumbnails/' . $this->Name . '.jpg'))
+			return '/images/programs/thumbnails/' . $this->Name . '.jpg'; //TODO REM ME - never use jpg
+		else throw new CHttpException(500, "Could not find Program Thumbnail '" . $this->Name . "'");
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLink() {
+		return '/programs/view/' . $this->Name;
+	}
+
+	/**
+	 * @return string[]
+	 */
+	public function getLanguageList() {
+		return explode("|", $this->Language);
 	}
 }

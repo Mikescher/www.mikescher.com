@@ -1,7 +1,14 @@
 <?php
 
+/**
+ * Class ProgramHelper
+ */
 class ProgramHelper {
 
+	/**
+	 * @param bool $doDelimiter
+	 * @return Program[]
+	 */
 	public static function GetHighlightedProgList($doDelimiter)
 	{
 		$dropDownModels = array();
@@ -26,7 +33,7 @@ class ProgramHelper {
 		foreach (Program::model()->findAll($criteria) as $row) {
 			$contains = false;
 			foreach($dropDownModels as $modelElem)
-				if ($modelElem != null && $modelElem->attributes['ID'] == $row->attributes['ID'])
+				if ($modelElem != null && $modelElem->ID == $row->ID)
 					$contains = true;
 			if (! $contains)
 				$dropDownModels[] = $row;
@@ -35,6 +42,9 @@ class ProgramHelper {
 		return $dropDownModels;
 	}
 
+	/**
+	 * @return Program
+	 */
 	public static function GetRecentProg()
 	{
 		$criteria = new CDbCriteria;
@@ -45,6 +55,9 @@ class ProgramHelper {
 		return Program::model()->find($criteria);
 	}
 
+	/**
+	 * @return Program
+	 */
 	public static function GetDailyProg()
 	{
 		$recent = self::GetRecentProg();
@@ -62,6 +75,9 @@ class ProgramHelper {
 		return $result;
 	}
 
+	/**
+	 * @return array
+	 */
 	public static function GetProgDropDownList()
 	{
 		$progDropDown = array();
@@ -72,7 +88,7 @@ class ProgramHelper {
 			if (is_null($row))
 				$progDropDown[] = TbHtml::menuDivider();
 			else
-				$progDropDown[] = array('label' => $row->attributes['Name'], 'url' => '/programs/view/' . $row->attributes['Name']);
+				$progDropDown[] = array('label' => $row->Name, 'url' => $row->getLink());
 		}
 		return $progDropDown;
 	}

@@ -7,7 +7,7 @@
 		<div class="thumbnail <?php if (! $this->enabled) print("thumbnailDisabled"); ?>">
 			<div class="thumbnailInnerHead">
 				<a <?php if($this->enabled) echo 'href="'. $this->link . '"'; ?>>
-					<img style="width: 100%" <?php if (! $this->enabled) print('class="grayscale"'); ?> src="<?php echo $this->image; ?>">
+					<img class="thumbnailInnerImage <?php if (! $this->enabled) print('grayscale'); ?>" src="<?php echo $this->image; ?>">
 				</a>
 			</div>
 			<div class="caption">
@@ -66,8 +66,8 @@
 					<div class="span4"><b><?php echo $this->date->format('d.m.y'); ?></b><br/>
 						<small>Added On</small>
 					</div>
-					<div class="span4"><b><?php echo $this->starcount . '/4'; ?></b><br/>
-						<small>Rating</small>
+					<div class="span4"><b><?php echo $this->programminglang; ?></b><br/>
+						<small>Language</small>
 					</div>
 				</div>
 			</div>

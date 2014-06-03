@@ -11,10 +11,12 @@ class ThumbnailPreview extends CWidget {
 	public $downloads = 0;
 	public $date = null;
 	public $image = '';
+	public $programminglang = '???';
 
 	public function run() {
 		if ($this->date == null)
 			$this->date = new DateTime('2000-01-01');
+
 		$this->render('thumbnailPreview');
 	}
 }

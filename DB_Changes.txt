@@ -1,5 +1,7 @@
 othervalues -> Added Column SValue
 othervalues -> Added Key "AdminPassword"
 programme   -> Added Column ThumbnailName
+programme   -> Added Column programming_lang
 programme   -> Changed Sieb_des_Erasthothenes -> Sieb des Erasthothenes (also ren Imagefiles)
 programme   -> Adjusted Star Ratings
+programme -> Niripsa[visible] = 0

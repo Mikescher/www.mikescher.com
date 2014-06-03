@@ -112,8 +112,17 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
 
 .thumbnailInnerHead {
     padding: 4px;
-    height: 225px;
-    overflow-y: hidden;
+    height: 204px;
+    line-height: 204px;
+
+    background-color: #ECF0F1;
+}
+
+.thumbnailInnerImage {
+    width: 100%;
+    border-radius: 3px;
+
+    vertical-align: middle;
 }
 
 .thumbnailInnerFooter {
@@ -127,4 +136,13 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
 .thumbnailDisabled {
     opacity: 0.75;
     filter: alpha(opacity=75); /* msie */
+}
+
+.thumbnailParentSpan .caption h1,
+.thumbnailParentSpan .caption h2,
+.thumbnailParentSpan .caption h3,
+.thumbnailParentSpan .caption h4,
+.thumbnailParentSpan .caption h5,
+.thumbnailParentSpan .caption h6 {
+    text-align: center;
 }
