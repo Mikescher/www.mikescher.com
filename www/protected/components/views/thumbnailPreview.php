@@ -2,12 +2,12 @@
 /* @var $this ThumbnailPreview */
 ?>
 
-<li class="span3 thumbnailParentSpan">
+<li class="thumbnailParentSpan">
 	<div >
 		<div class="thumbnail <?php if (! $this->enabled) print("thumbnailDisabled"); ?>">
 			<div class="thumbnailInnerHead">
 				<a <?php if($this->enabled) echo 'href="'. $this->link . '"'; ?>>
-					<img style="width: 100%" src="<?php echo $this->image; ?>">
+					<img style="width: 100%" <?php if (! $this->enabled) print('class="grayscale"'); ?> src="<?php echo $this->image; ?>">
 				</a>
 			</div>
 			<div class="caption">
