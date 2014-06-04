@@ -1,5 +1,5 @@
 <?php
-/* @var $this ThumbnailPreview */
+/* @var $this ThumbnailProgPreview */
 ?>
 
 <li class="thumbnailParentSpan">
@@ -45,6 +45,7 @@
 						echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 					}
 					?>
+				</p>
 			</div>
 			<div class="modal-footer thumbnailInnerFooter">
 				<div class="text-center">

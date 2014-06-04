@@ -1,5 +1,6 @@
 <?php
 /* @var $this SiteController */
+/* @var $program Program */
 
 $this->pageTitle=Yii::app()->name;
 
@@ -15,20 +16,30 @@ $this->selectedNav = 'index';
 <div class="container">
 
 	<!-- Main hero unit for a primary marketing message or call to action -->
-	<div class="hero-unit">
-		<h1>Hello, world!</h1>
-		Daily Program: <?php echo $program->Name; ?>
-		<p> 
-		
-		<ul>
-			<li>View file: <code><?php echo __FILE__; ?></code></li>
-			<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-		</ul>
-		
-		</p>
 
-		<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-	</div>
+	<?php
+	$this->widget('FullProgPreview',
+		[
+			'caption' => "Program of the Day:",
+			'program' => $program,
+		]);
+	?>
+
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World", "/log/1"); ?>
+
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
+
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
+
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
+
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
+
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
+
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
+
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
 
 	<!-- Example row of columns -->
 	<div class="row">
@@ -36,25 +47,25 @@ $this->selectedNav = 'index';
 			<h2>Heading YD: <?php echo YII_DEBUG ?></h2>
 
 			<p>
-			
-			<?php
+
+				<?php
 				$connection = Yii::app()->db;
-				
+
 				$command=$connection->createCommand("SELECT * FROM {{Programs}}");
 				$command->execute();   // a non-query SQL statement execution
 				// or execute an SQL query and fetch the result set
 				$reader=$command->query();
-				
+
 				// each $row is an array representing a row of data
 				$dbgtxt = "";
 				foreach($reader as $row)
 				{
 					$dbgtxt = $dbgtxt . print_r($row, true);
 				}
-				
+
 				echo TbHtml::textArea('dbgtxt', $dbgtxt, array('rows' => 5));
-			?>
-			
+				?>
+
 			</p>
 
 			<p><a class="btn" href="#">View details &raquo;</a></p>
@@ -77,43 +88,5 @@ $this->selectedNav = 'index';
 
 			<p><a class="btn" href="#">View details &raquo;</a></p>
 		</div>
-	</div>
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
-
-	<div class="well row collHeader">
-		<div class="collHeaderSpan-front">24.07.1999</div>
-		<div class="collHeaderSpan">Die neue Websiste ist online</div>
-		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
-	</div>
-
-	<div class="well row collHeader">
-		<div class="collHeaderSpan-front">24.07.1999</div>
-		<div class="collHeaderSpan">Die neue Websiste ist online</div>
-		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
-	</div>
-
-	<div class="well row collHeader">
-		<div class="collHeaderSpan-front">24.07.1999</div>
-		<div class="collHeaderSpan">Die neue Websiste ist online</div>
-		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
-	</div>
-
-	<div class="well row collHeader">
-		<div class="collHeaderSpan-front">24.07.1999</div>
-		<div class="collHeaderSpan">Die neue Websiste ist online</div>
-		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
-	</div>
-
-	<div class="well row collHeader">
-		<div class="collHeaderSpan-front">24.07.1999</div>
-		<div class="collHeaderSpan">Die neue Websiste ist online</div>
-		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
-	</div>
-
-	<div class="well row collHeader">
-		<div class="collHeaderSpan-front">24.07.1999</div>
-		<div class="collHeaderSpan">Die neue Websiste ist online</div>
-		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
 	</div>
 </div>

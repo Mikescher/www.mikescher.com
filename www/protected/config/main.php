@@ -30,6 +30,7 @@ return ArrayX::merge(
 			[
 				'application.models.*',
 				'application.components.*',
+				'application.components.widgets.*',
 				'bootstrap.components.*',
 				'bootstrap.behaviors.*',
 				'bootstrap.helpers.*',

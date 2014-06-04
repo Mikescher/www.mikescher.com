@@ -40,6 +40,6 @@ class SeededRandom
 	{
 		$now = getdate();
 
-		return ($now['year'] % 100) * 366 + $now['yday'];
+		return ($now['year'] % 100) * 366 + $now['yday'] /* * $now['seconds'] */;
 	}
 } 

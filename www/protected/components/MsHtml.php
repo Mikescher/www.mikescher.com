@@ -1,13 +1,32 @@
 <?php
 class MsHtml extends CHtml {
-	public static function collapsedHeader($date, $caption)
+
+	/**
+	 * @param DateTime $date
+	 * @param string $caption
+	 * @param string $link
+	 * @return string
+	 */
+	public static function collapsedHeader($date, $caption, $link = '')
 	{
-		return
-		'<div class="well row collHeader">
-			<div class="collHeaderSpan-front">' . $date->format('d.m.y') . '</div>
-			<div class="collHeaderSpan">' . $caption . '</div>
-			<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
-		</div>
-		';
+		if (empty($link)) {
+			return
+				'<div class="row collHeader">
+					<div class="collHeaderSpan-front">' . $date->format('d.m.Y') . '</div>
+					<div class="collHeaderSpan">' . $caption . '</div>
+					<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
+				</div>
+				';
+		} else {
+			return
+				'<div class="row collHeader collHeaderLinkParent">
+					<div class="collHeaderSpan-front">' . $date->format('d.m.Y') . '</div>
+					<div class="collHeaderSpan">' . $caption . '</div>
+					<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
+					<a class="collHeaderLink" href="' . $link . '">&nbsp;</a>
+				</div>
+				';
+		}
+
 	}
 } 

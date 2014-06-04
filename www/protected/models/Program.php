@@ -161,8 +161,8 @@ class Program extends CActiveRecord
 	public function getImagePath() {
 		if (file_exists('images/programs/thumbnails/' . $this->Name . '.png'))
 			return '/images/programs/thumbnails/' . $this->Name . '.png';
-		else if (file_exists('images/programs/thumbnails/' . $this->Name . '.jpg'))
-			return '/images/programs/thumbnails/' . $this->Name . '.jpg'; //TODO-MS REM ME - never use jpg
+//		else if (file_exists('images/programs/thumbnails/' . $this->Name . '.jpg'))
+//			return '/images/programs/thumbnails/' . $this->Name . '.jpg';
 		else throw new CHttpException(500, "Could not find Program Thumbnail '" . $this->Name . "'");
 	}
 

@@ -1,6 +1,6 @@
 <?php
 
-class ThumbnailPreview extends CWidget {
+class ThumbnailProgPreview extends CWidget {
 	public $caption = '';
 	public $link = '';
 	public $enabled = true;
@@ -17,7 +17,7 @@ class ThumbnailPreview extends CWidget {
 		if ($this->date == null)
 			$this->date = new DateTime('2000-01-01');
 
-		$this->render('thumbnailPreview');
+		$this->render('thumbnailProgPreview');
 	}
 }
 

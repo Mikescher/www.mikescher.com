@@ -5,6 +5,8 @@ class ProgramsController extends MSController
 
 	public $layout='//layouts/column2';
 
+	public $menu=array();
+
 	/**
 	 * @return array action filters
 	 */

@@ -48,7 +48,7 @@
 			foreach (array_slice($all, $i * PROGS_INDEX_ROWSIZE, PROGS_INDEX_ROWSIZE) as $record) {
 				/* @var $record Program */
 
-				$this->widget('ThumbnailPreview',
+				$this->widget('ThumbnailProgPreview',
 					[
 						'caption' => $record->Thumbnailname,
 						'link' => $record->getLink(),
