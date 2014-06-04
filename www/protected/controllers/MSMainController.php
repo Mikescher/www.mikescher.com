@@ -1,9 +1,7 @@
 <?php
 
-class SiteController extends Controller
+class MSMainController extends MSController
 {
-	public $selectedNav = '';
-
 	public function actionIndex()
 	{
 		$data = array();

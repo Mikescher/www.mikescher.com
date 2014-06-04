@@ -69,9 +69,9 @@ return ArrayX::merge(
 								'downloads/downloads.php' => 'programs/index', 	// Compatibility
 								'downloads/<id>' => 'programs/view', 			// Compatibility
 
-								'' => 'site/index',
+								'' => 'msmain/index',
 
-								'<action:\w+>' => 'site/<action>',
+								'<action:\w+>' => 'msmain/<action>',
 							],
 					],
 
@@ -86,6 +86,11 @@ return ArrayX::merge(
 									'levels' => 'error, warning',
 								],
 							],
+					],
+
+				'db' =>
+					[
+						'tablePrefix' => 'ms4_',
 					],
 			],
 

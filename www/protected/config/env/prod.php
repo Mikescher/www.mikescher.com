@@ -4,20 +4,21 @@ return [
 	'components' =>
 		[
 			'db' =>
-				[
-					'connectionString' => 'mysql:host=rdbms.strato.de;dbname=DB451718',
-					'username' => 'U451718',
-					'password' => '?<?<?.?>?>?>', //TODO Change me and move me to extra file
-					'enableProfiling' => false,
-					'enableParamLogging' => false,
-					'charset' => 'utf8',
-					'emulatePrepare' => true, // needed by some MySQL installations
-					'schemaCachingDuration' => 3600, // Performance with AR's
-				],
+				ArrayX::merge(
+					[
+						'connectionString' => 'mysql:host=rdbms.strato.de;dbname=DB451718',
+						'enableProfiling' => false,
+						'enableParamLogging' => false,
+						'charset' => 'utf8',
+						'emulatePrepare' => true, // needed by some MySQL installations
+						'schemaCachingDuration' => 3600, // Performance with AR's
+					],
+					require_once('database-access.secret.php') // DB Username & PW
+				),
 
 			'errorHandler' =>
 				[
-					'errorAction' => 'site/error',
+					'errorAction' => 'msmain/error',
 				],
 
 		],

@@ -1,11 +1,9 @@
 <?php
 
-class ProgramsController extends Controller
+class ProgramsController extends MSController
 {
 
 	public $layout='//layouts/column2';
-
-	public $selectedNav = '';
 
 	/**
 	 * @return array action filters

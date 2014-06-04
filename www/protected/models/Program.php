@@ -32,7 +32,7 @@ class Program extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'Programme';
+		return '{{programs}}';
 	}
 
 	/**
@@ -49,7 +49,7 @@ class Program extends CActiveRecord
 			array('update_identifier', 'length', 'max'=>28),
 			array('programming_lang', 'length', 'max'=>16),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
+			// @TODO-MS Please remove those attributes that should not be searched.
 			array('ID, Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier, highscore_gid', 'safe', 'on'=>'search'),
 		);
 	}
@@ -156,12 +156,13 @@ class Program extends CActiveRecord
 
 	/**
 	 * @return string
+	 * @throws CHttpException
 	 */
 	public function getImagePath() {
 		if (file_exists('images/programs/thumbnails/' . $this->Name . '.png'))
 			return '/images/programs/thumbnails/' . $this->Name . '.png';
 		else if (file_exists('images/programs/thumbnails/' . $this->Name . '.jpg'))
-			return '/images/programs/thumbnails/' . $this->Name . '.jpg'; //TODO REM ME - never use jpg
+			return '/images/programs/thumbnails/' . $this->Name . '.jpg'; //TODO-MS REM ME - never use jpg
 		else throw new CHttpException(500, "Could not find Program Thumbnail '" . $this->Name . "'");
 	}
 

@@ -17,7 +17,7 @@ return [
 
 			'errorHandler' =>
 				[
-					'errorAction' => 'site/debugerror',
+					'errorAction' => 'msmain/debugerror',
 				],
 
 		],
