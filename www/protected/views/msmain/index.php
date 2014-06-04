@@ -79,9 +79,41 @@ $this->selectedNav = 'index';
 		</div>
 	</div>
 
-	<hr>
+	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
 
-	<footer>
-		<p>&copy; Company 2012</p>
-	</footer>
+	<div class="well row collHeader">
+		<div class="collHeaderSpan-front">24.07.1999</div>
+		<div class="collHeaderSpan">Die neue Websiste ist online</div>
+		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
+	</div>
+
+	<div class="well row collHeader">
+		<div class="collHeaderSpan-front">24.07.1999</div>
+		<div class="collHeaderSpan">Die neue Websiste ist online</div>
+		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
+	</div>
+
+	<div class="well row collHeader">
+		<div class="collHeaderSpan-front">24.07.1999</div>
+		<div class="collHeaderSpan">Die neue Websiste ist online</div>
+		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
+	</div>
+
+	<div class="well row collHeader">
+		<div class="collHeaderSpan-front">24.07.1999</div>
+		<div class="collHeaderSpan">Die neue Websiste ist online</div>
+		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
+	</div>
+
+	<div class="well row collHeader">
+		<div class="collHeaderSpan-front">24.07.1999</div>
+		<div class="collHeaderSpan">Die neue Websiste ist online</div>
+		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
+	</div>
+
+	<div class="well row collHeader">
+		<div class="collHeaderSpan-front">24.07.1999</div>
+		<div class="collHeaderSpan">Die neue Websiste ist online</div>
+		<div class="collHeaderSpan-drop"> <i class="icon-chevron-down" ></i> </div>
+	</div>
 </div>

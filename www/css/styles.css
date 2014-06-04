@@ -146,3 +146,33 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
 .thumbnailParentSpan .caption h6 {
     text-align: center;
 }
+
+/* CollHeader
+-------------------------------------------------- */
+
+.collHeader {
+    border: 1px solid #D7E0E2;
+    padding: 0;
+}
+
+.collHeaderSpan-front {
+    float: left;
+
+    background-color: #D7E0E2;
+    width: 90px;
+    padding: 2px 15px;
+}
+
+.collHeaderSpan {
+    float: left;
+
+    font-weight: bold;
+    padding: 2px 10px;
+}
+
+.collHeaderSpan-drop {
+    float: right;
+
+    padding: 0 5px;
+    margin-top: 2px;
+}
