@@ -6,9 +6,19 @@
 
 	<?php echo MsHtml::collapsedHeader($this->date, $this->caption, $this->link); ?>
 
-	<div class="expCollContent">
+	<div class="expCollContent markdownOwner">
 		<p>
-			<?php echo $this->content; ?>
+			<?php
+
+			$this->beginWidget('CMarkdown');
+
+				echo file_get_contents('protected/components/widgets/views/demo.md');
+
+			$this->endWidget();
+
+			?>
+
+			<?php //echo $this->content; ?>
 		</p>
 	</div>
 </div>
