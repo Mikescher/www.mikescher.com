@@ -82,8 +82,6 @@
 	echo $content;
 ?>
 
-<hr>
-
 <div class="footer">
 	Copyright &copy; <?php echo date('Y'); ?> by Mike Schwörer.<br/>
 	All Rights Reserved.<br/>

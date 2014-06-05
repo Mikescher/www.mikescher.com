@@ -246,3 +246,27 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 }
+
+/* ExpandedLogHeader
+-------------------------------------------------- */
+
+.expCollHeader {
+    margin-bottom: 20px;
+}
+
+.expCollHeader > .collHeaderLinkParent {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.expCollContent {
+    border: 1px solid #D7E0E2;
+    border-top-width: 0px;
+
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+    margin-top: -20px;
+
+    padding: 5px;
+}

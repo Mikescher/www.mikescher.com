@@ -12,5 +12,3 @@ class FullProgPreview extends CWidget {
 		$this->render('fullProgPreview');
 	}
 }
-
-?>

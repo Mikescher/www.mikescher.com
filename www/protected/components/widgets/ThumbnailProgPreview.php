@@ -20,5 +20,3 @@ class ThumbnailProgPreview extends CWidget {
 		$this->render('thumbnailProgPreview');
 	}
 }
-
-?>
