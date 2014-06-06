@@ -2,6 +2,8 @@
 
 class ProgramsController extends MSController
 {
+	const PROGS_INDEX_ROWSIZE = 4;
+	const PROGS_INDEX_PAGESIZE = 16;
 
 	public $layout='//layouts/column2';
 
@@ -141,13 +143,40 @@ class ProgramsController extends MSController
 	{
 		$this->layout = '//layouts/main';
 
-		$data = array();
-
 		if (isset($_GET['page']) && is_numeric($_GET['page'])) {
-			$data['page'] = $_GET['page'];
+			$page = $_GET['page'];
 		} else {
-			$data['page'] = 1;
+			$page = 1;
 		}
+
+		$criteria = new CDbCriteria;
+		$criteria->order = "Sterne DESC, add_date DESC";
+		$criteria->condition = "visible=1";
+
+		$all = Program::model()->findAll($criteria);
+		/* @var $all Program[] */
+
+		$pagecount = ceil(count($all) / self::PROGS_INDEX_PAGESIZE);
+
+		$all = array_slice($all, ($page - 1) * self::PROGS_INDEX_PAGESIZE, self::PROGS_INDEX_PAGESIZE);
+
+		$rowcount = ceil((count($all) / self::PROGS_INDEX_ROWSIZE));
+
+		$progdata = array();
+		for ($i = 0; $i < $rowcount; $i++) {
+			$progdata[] = array();
+			foreach (array_slice($all, $i * self::PROGS_INDEX_ROWSIZE, self::PROGS_INDEX_ROWSIZE) as $record) {
+				$progdata[$i][] = $record;
+			}
+		}
+
+		//#######
+
+		$data = array();
+		$data['page'] = $page;
+		$data['pagecount'] = $pagecount;
+		$data['rowcount'] = $rowcount;
+		$data['data'] = $progdata;
 
 		$this->render('index', $data);
 	}

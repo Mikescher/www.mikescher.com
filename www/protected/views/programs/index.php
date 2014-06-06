@@ -1,13 +1,9 @@
 <?php
-/* @var $this ProgramController */
-/* @var $dataProvider CActiveDataProvider */
-?>
-
-<?php
-
-	const PROGS_INDEX_ROWSIZE = 4;
-	const PROGS_INDEX_PAGESIZE = 16;
-
+/* @var $this ProgramsController */
+/* @var $page integer  */
+/* @var $pagecount integer */
+/* @var $rowcount integer */
+/* @var $data Program[][] */
 ?>
 
 <?php
@@ -27,47 +23,31 @@
 	<br><br>
 
 	<div class="row-fluid">
-
 		<?php
 
-		$criteria = new CDbCriteria;
-		$criteria->order = "Sterne DESC, add_date DESC";
-		$criteria->condition = "visible=1";
-
-		$all = Program::model()->findAll($criteria);
-
-		$pagecount = ceil(count($all) / PROGS_INDEX_PAGESIZE);
-
-		$all = array_slice($all, ($page - 1) * PROGS_INDEX_PAGESIZE, PROGS_INDEX_PAGESIZE);
-
-		$rowcount = ceil((count($all) / PROGS_INDEX_ROWSIZE));
-
-		for ($i = 0; $i < $rowcount; $i++) {
+		foreach($data as $datarow) {
 			echo '<ul class="thumbnails">';
 
-			foreach (array_slice($all, $i * PROGS_INDEX_ROWSIZE, PROGS_INDEX_ROWSIZE) as $record) {
-				/* @var $record Program */
-
+			foreach($datarow as $dataelem) {
 				$this->widget('ThumbnailProgPreview',
 					[
-						'caption' => $record->Thumbnailname,
-						'link' => $record->getLink(),
-						'description' => $record->Description,
-						'category' => $record->Kategorie,
-						'language' => $record->getLanguageList(),
-						'image' => $record->getImagePath(),
-						'starcount' => $record->Sterne,
-						'downloads' => $record->Downloads,
-						'date' => new DateTime($record->add_date),
-						'enabled' => $record->enabled,
-						'programminglang' => $record->programming_lang,
+						'caption' => $dataelem->Thumbnailname,
+						'link' => $dataelem->getLink(),
+						'description' => $dataelem->Description,
+						'category' => $dataelem->Kategorie,
+						'language' => $dataelem->getLanguageList(),
+						'image' => $dataelem->getImagePath(),
+						'starcount' => $dataelem->Sterne,
+						'downloads' => $dataelem->Downloads,
+						'date' => new DateTime($dataelem->add_date),
+						'enabled' => $dataelem->enabled,
+						'programminglang' => $dataelem->programming_lang,
 					]);
 			}
-
 			echo '</ul>';
 		}
-		?>
 
+		?>
 	</div>
 
 	<?php
