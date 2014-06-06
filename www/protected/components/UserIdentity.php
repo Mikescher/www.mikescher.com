@@ -19,7 +19,7 @@ class UserIdentity extends CUserIdentity
 	{
 		$connection = Yii::app()->db;
 
-		$command=$connection->createCommand("SELECT SValue FROM othervalues WHERE Name = 'AdminPassword'");
+		$command=$connection->createCommand("SELECT SValue FROM {{othervalues}} WHERE Name = 'AdminPassword'");
 		$pw = $command->queryScalar();
 
 		$users=array(

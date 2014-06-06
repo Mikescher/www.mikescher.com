@@ -68,8 +68,8 @@ return ArrayX::merge(
 								'programs/' => 'programs/index',
 								'programs/view/<id>' => 'programs/view',
 
-								'log' => ['msmain/log', 'defaultParams' => ['logid' => '-1']],
-								'log/<logid:[0-9]+>' => ['msmain/log', 'defaultParams' => ['logid' => '-1']],
+								'log/' => ['log/index', 'defaultParams' => ['logid' => '-1']],
+								'log/<logid:[0-9]+>' => ['log/index', 'defaultParams' => ['logid' => '-1']],
 
 								'downloads/details.php' => 'programs/index', 	// Compatibility
 								'downloads/downloads.php' => 'programs/index', 	// Compatibility

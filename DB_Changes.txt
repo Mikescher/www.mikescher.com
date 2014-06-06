@@ -9,3 +9,5 @@ programme   -> ms4_programs
 
 idx_info    -> ms4_log
 idx_info    -> new columns + full content change
+
+othervalues  -> ms4_othervalues

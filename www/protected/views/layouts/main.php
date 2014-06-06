@@ -47,10 +47,10 @@
 								['label' => 'Programs', 	'url' => '/programs/', 'active' => ($this->selectedNav === 'prog')],
 								['label' => '', 			'items' => ProgramHelper::GetProgDropDownList(), 'htmlOptions' => ['class' => 'dropdown-append']],
 								['label' => 'About',		'url' => '/about', 'active' => ($this->selectedNav === 'about')],
-								['label' => '[[Log "'.Yii::app()->user->name.'" out]]',		'url' => '/logout',	'visible' => !Yii::app()->user->isGuest]
+								['label' => '[[Log "'.Yii::app()->user->name.'" out]]',	'url' => '/logout',	'visible' => !Yii::app()->user->isGuest, 'htmlOptions' => ['class' => 'cstm-main-navbar-highlight']]
 							],
 					],
-					MsHtml::navbarSearchForm('search', '',
+					MsHtml::navbarSearchForm('/search', '',
 						[
 							'class' => 'pull-right',
 							'placeholder' => 'Search',
@@ -89,10 +89,6 @@
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="<?php echo (YII_DEBUG ? 'bootstrap.js' : 'bootstrap.min.js') ?>"></script>
-<script src="/js/plugins.js"></script>
-<script src="/js/main.js"></script>
 <script src="/javascript/scripts.js"></script>
 </body>
 </html>

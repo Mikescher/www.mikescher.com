@@ -2,6 +2,38 @@
 
 class MSMainController extends MSController
 {
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl',
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',
+				'actions'=>array('index', 'about', 'debugerror', 'error', 'login', 'logout'),
+				'users'=>array('*'),
+			),
+			array('allow',
+				'actions'=>array('admin'),
+				'users'=>array('admin'),
+			),
+			array('deny',
+				'users'=>array('*'),
+			),
+		);
+	}
+
 	public function actionIndex()
 	{
 		$criteria = new CDbCriteria;
@@ -77,7 +109,7 @@ class MSMainController extends MSController
 
 	public function actionLogin()
 	{
-		$model=new LoginForm;
+		$model = new LoginForm();
 
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
@@ -98,6 +130,11 @@ class MSMainController extends MSController
 		$this->render('login', array('model'=>$model));
 	}
 
+	public function actionAdmin()
+	{
+		$this->render('admin', array());
+	}
+
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
@@ -105,16 +142,6 @@ class MSMainController extends MSController
 	}
 
 	public function actionLog($logid) {
-		$criteria = new CDbCriteria;
-		$criteria->order = "date DESC";
 
-		$all = Log::model()->findAll($criteria);
-		/* @var $all Log[] */
-
-		$this->render('log',
-			[
-				'logs' => $all,
-				'logid' => $logid,
-			]);
 	}
 }
