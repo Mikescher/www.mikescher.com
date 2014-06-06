@@ -179,4 +179,11 @@ class Program extends CActiveRecord
 	public function getLanguageList() {
 		return explode("|", $this->Language);
 	}
+
+	/**
+	 * @return DateTime
+	 */
+	public function getDateTime() {
+		return new DateTime($this->add_date);
+	}
 }

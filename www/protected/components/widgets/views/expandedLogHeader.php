@@ -2,23 +2,29 @@
 /* @var $this ExpandedLogHeader */
 ?>
 
-<div class="expCollHeader">
+<div class="expCollHeader accordion-group">
 
-	<?php echo MsHtml::collapsedHeader($this->date, $this->caption, $this->link); ?>
+	<?php
+		if ($this->isCollapsable()) {
+			echo MsHtml::interactiveCollapsedHeader($this->date, $this->caption, $this->collapseOwner, '#' . $this->getContentID());
+		} else {
+			echo MsHtml::collapsedHeader($this->date, $this->caption, $this->link);
+		}
+	?>
 
-	<div class="expCollContent markdownOwner">
-		<p>
-			<?php
+	<div <?php echo $this->getContentTagDefinition(); ?>>
+		<div>
+			<p>
+				<?php
 
-			$this->beginWidget('CMarkdown');
+				$this->beginWidget('CMarkdown');
 
-				echo file_get_contents('protected/components/widgets/views/demo.md');
+				echo $this->content;
 
-			$this->endWidget();
+				$this->endWidget();
 
-			?>
-
-			<?php //echo $this->content; ?>
-		</p>
+				?>
+			</p>
+		</div>
 	</div>
 </div>

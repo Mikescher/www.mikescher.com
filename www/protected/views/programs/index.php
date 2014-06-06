@@ -19,8 +19,7 @@
 
 <div class="container">
 
-	<h1>My Programs</h1>
-	<br><br>
+	<?php echo MsHtml::pageHeader("Programs", "Games and Tools, developed by me"); ?>
 
 	<div class="row-fluid">
 		<?php
@@ -29,6 +28,7 @@
 			echo '<ul class="thumbnails">';
 
 			foreach($datarow as $dataelem) {
+				/* @var $dataelem Program */
 				$this->widget('ThumbnailProgPreview',
 					[
 						'caption' => $dataelem->Thumbnailname,
@@ -39,7 +39,7 @@
 						'image' => $dataelem->getImagePath(),
 						'starcount' => $dataelem->Sterne,
 						'downloads' => $dataelem->Downloads,
-						'date' => new DateTime($dataelem->add_date),
+						'date' => $dataelem->getDateTime(),
 						'enabled' => $dataelem->enabled,
 						'programminglang' => $dataelem->programming_lang,
 					]);
@@ -61,7 +61,7 @@
 		}
 		$pagination_arr[] = ['label' => '&raquo;', 'url' => '?page=' . ($page+1), 'disabled' => ($page >= $pagecount)];
 
-		echo TbHtml::pagination($pagination_arr,
+		echo MsHtml::pagination($pagination_arr,
 			[
 				'align' => 'right',
 			]);

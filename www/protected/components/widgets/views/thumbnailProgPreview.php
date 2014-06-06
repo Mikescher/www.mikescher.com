@@ -31,7 +31,7 @@
 				<p>
 					<?php
 					if (!empty($this->category)) {
-						echo TbHtml::icon(TbHtml::ICON_TAG);
+						echo MsHtml::icon(MsHtml::ICON_TAG);
 						echo $this->category . '';
 					}
 					?>
@@ -40,7 +40,7 @@
 				<p>
 					<?php
 					foreach ($this->language as $lang) {
-						echo TbHtml::icon(TbHtml::ICON_GLOBE);
+						echo MsHtml::icon(MsHtml::ICON_GLOBE);
 						echo $lang;
 						echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 					}
@@ -52,9 +52,9 @@
 					<?php
 					for ($i = 0; $i < 4; $i++) {
 						if ($i < $this->starcount)
-							echo TbHtml::icon(TbHtml::ICON_STAR);
+							echo MsHtml::icon(MsHtml::ICON_STAR);
 						else
-							echo TbHtml::icon(TbHtml::ICON_STAR_EMPTY);
+							echo MsHtml::icon(MsHtml::ICON_STAR_EMPTY);
 					}
 					?>
 				</div>

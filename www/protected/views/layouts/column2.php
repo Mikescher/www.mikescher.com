@@ -18,7 +18,7 @@ use Yiinitializr\Helpers\ArrayX;
 					<?php
 					$this->widget('bootstrap.widgets.TbNav',
 						[
-							'type' => TbHtml::NAV_TYPE_LIST,
+							'type' => MsHtml::NAV_TYPE_LIST,
 							'items' => ArrayX::merge(
 									[
 										['label' => 'List header'],

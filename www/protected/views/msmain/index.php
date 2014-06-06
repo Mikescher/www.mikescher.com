@@ -1,6 +1,7 @@
 <?php
 /* @var $this MsMainController */
 /* @var $program Program */
+/* @var $logs Log[] */
 
 $this->pageTitle=Yii::app()->name;
 
@@ -18,44 +19,30 @@ $this->selectedNav = 'index';
 	<!-- Main hero unit for a primary marketing message or call to action -->
 
 	<?php
+
 	$this->widget('FullProgPreview',
 		[
 			'caption' => "Program of the Day:",
 			'program' => $program,
 		]);
+
+	$i = 0;
+	foreach ($logs as $logelem) {
+		if ($i == 0) {
+			$this->widget('ExpandedLogHeader',
+				[
+					'date' => $logelem->getDateTime(),
+					'caption' => $logelem->title,
+					'link' => '',
+					'content' => $logelem->content,
+				]);
+		} else {
+			echo MsHtml::collapsedHeader($logelem->getDateTime(), $logelem->title, $logelem->getLink());
+		}
+
+		$i++;
+	}
+
 	?>
-
-	<?php
-	$this->widget('ExpandedLogHeader',
-		[
-			'date' => new DateTime(),
-			'caption' => 'test',
-			'link' => '#',
-			'content' =>
-				'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-				dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-				Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-				amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-				aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-				gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-		]);
-	?>
-
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World", "/log/1"); ?>
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
-
-	<?php echo MsHtml::collapsedHeader(new DateTime(), "Hello World"); ?>
 
 </div>

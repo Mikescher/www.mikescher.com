@@ -10,6 +10,7 @@ require_once('protected/lib/ArrayX.php');
 use Yiinitializr\Helpers\ArrayX;
 
 return ArrayX::merge(
+	require_once('env/' . YII_CUSTOM_ENV . '.php'),
 	[
 		'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
 		'name' => 'Mikescher.de',
@@ -54,6 +55,7 @@ return ArrayX::merge(
 					[
 						// enable cookie-based authentication
 						'allowAutoLogin' => true,
+						'loginUrl'=> ['msmain/login'],
 					],
 
 				'urlManager' =>
@@ -65,6 +67,9 @@ return ArrayX::merge(
 							[
 								'programs/' => 'programs/index',
 								'programs/view/<id>' => 'programs/view',
+
+								'log' => ['msmain/log', 'defaultParams' => ['logid' => '-1']],
+								'log/<logid:[0-9]+>' => ['msmain/log', 'defaultParams' => ['logid' => '-1']],
 
 								'downloads/details.php' => 'programs/index', 	// Compatibility
 								'downloads/downloads.php' => 'programs/index', 	// Compatibility
@@ -102,4 +107,4 @@ return ArrayX::merge(
 				// this is used in contact page
 				'adminEmail' => 'webmaster@example.com',
 			],
-	], require_once('env/' . YII_CUSTOM_ENV . '.php'));
+	]);

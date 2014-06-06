@@ -50,13 +50,13 @@
 								['label' => '[[Log "'.Yii::app()->user->name.'" out]]',		'url' => '/logout',	'visible' => !Yii::app()->user->isGuest]
 							],
 					],
-					TbHtml::navbarSearchForm('search', '',
+					MsHtml::navbarSearchForm('search', '',
 						[
 							'class' => 'pull-right',
 							'placeholder' => 'Search',
 							'inputOptions' =>
 								[
-									'append' => TbHtml::submitButton(TbHtml::icon(TbHtml::ICON_SEARCH)),
+									'append' => MsHtml::submitButton(MsHtml::icon(MsHtml::ICON_SEARCH)),
 									'addOnOptions' =>
 										[
 											'class' => 'pull-right',

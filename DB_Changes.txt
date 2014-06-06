@@ -6,3 +6,6 @@ programme   -> Changed Sieb_des_Erasthothenes -> Sieb des Erasthothenes (also re
 programme   -> Adjusted Star Ratings
 programme   -> Niripsa[visible] = 0
 programme   -> ms4_programs
+
+idx_info    -> ms4_log
+idx_info    -> new columns + full content change

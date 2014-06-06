@@ -86,7 +86,7 @@ class ProgramHelper {
 
 		foreach ($dropDownModels as $row) {
 			if (is_null($row))
-				$progDropDown[] = TbHtml::menuDivider();
+				$progDropDown[] = MsHtml::menuDivider();
 			else
 				$progDropDown[] = array('label' => $row->Name, 'url' => $row->getLink());
 		}

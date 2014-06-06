@@ -46,7 +46,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 <br><br>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'type' => TbHtml::GRID_TYPE_BORDERED,
+	'type' => MsHtml::GRID_TYPE_BORDERED,
 	'id'=>'program-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,

@@ -4,9 +4,15 @@ class MSMainController extends MSController
 {
 	public function actionIndex()
 	{
-		$data = array();
+		$criteria = new CDbCriteria;
+		$criteria->order = "date DESC";
 
+		$all_log = Log::model()->findAll($criteria);
+		/* @var $all_log Log[] */
+
+		$data = array();
 		$data['program'] = ProgramHelper::GetDailyProg();
+		$data['logs'] = $all_log;
 
 		$this->render('index', $data);
 	}
@@ -69,9 +75,6 @@ class MSMainController extends MSController
 		$this->render('about', $data);
 	}
 
-	/**
-	 * Displays the login page
-	 */
 	public function actionLogin()
 	{
 		$model=new LoginForm;
@@ -95,12 +98,23 @@ class MSMainController extends MSController
 		$this->render('login', array('model'=>$model));
 	}
 
-	/**
-	 * Logs out the current user and redirect to homepage.
-	 */
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
+	}
+
+	public function actionLog($logid) {
+		$criteria = new CDbCriteria;
+		$criteria->order = "date DESC";
+
+		$all = Log::model()->findAll($criteria);
+		/* @var $all Log[] */
+
+		$this->render('log',
+			[
+				'logs' => $all,
+				'logid' => $logid,
+			]);
 	}
 }

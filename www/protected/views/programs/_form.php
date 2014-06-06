@@ -56,9 +56,9 @@
             <?php echo $form->textFieldControlGroup($model,'highscore_gid',array('span'=>5)); ?>
 
         <div class="form-actions">
-        <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
-		    'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
-		    'size'=>TbHtml::BUTTON_SIZE_LARGE,
+        <?php echo MsHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
+		    'color'=>MsHtml::BUTTON_COLOR_PRIMARY,
+		    'size'=>MsHtml::BUTTON_SIZE_LARGE,
 		)); ?>
     </div>
 

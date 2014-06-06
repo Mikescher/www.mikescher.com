@@ -316,23 +316,25 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
 
 .expCollHeader {
     margin-bottom: 20px;
+
+    border: 1px solid #D7E0E2;
+    border-radius: 6px;
 }
 
-.expCollHeader > .collHeaderLinkParent {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+.expCollHeader > .collHeader {
+    border-width: 0;
+    border-radius: 0;
+
+    margin-bottom: 0;
 }
 
 .expCollContent {
     background-color: #F5F5F5;
 
-    border: 1px solid #D7E0E2;
-    border-top-width: 0px;
+    margin-top: 0px;
+}
 
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-
-    margin-top: -20px;
+.expCollContent > div {
 
     padding: 15px 60px;
 }
