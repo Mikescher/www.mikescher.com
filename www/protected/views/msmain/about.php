@@ -27,6 +27,9 @@ $this->selectedNav = 'about';
 		<p>If you want you can look <?php echo MsHtml::link('here', '/programs'); ?> at the things I programd </p>
 	</div>
 
+	<?php echo (new ExtendedGitGraph('Mikescher'))->loadFinished(); ?>
+	<br />
+
 	<div class="well cstm-well-light">
 		<?php
 		$form = $this->beginWidget('bootstrap.widgets.TbActiveForm',
@@ -34,6 +37,7 @@ $this->selectedNav = 'about';
 				'layout' => MsHtml::FORM_LAYOUT_HORIZONTAL
 			]);
 		?>
+
 
 		<fieldset>
 			<legend>Contact</legend>

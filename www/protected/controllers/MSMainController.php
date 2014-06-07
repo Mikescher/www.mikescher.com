@@ -75,6 +75,8 @@ class MSMainController extends MSController
 	{
 		$data = array();
 
+		$this->js_scripts[] = file_get_contents('protected/components/extendedGitGraph/script.js');
+
 		if(isset($_POST['SendMailForm']))
 		{
 			$model = new SendMailForm();
@@ -132,6 +134,12 @@ class MSMainController extends MSController
 
 	public function actionAdmin()
 	{
+		if (isset($_GET['do_egh_update']) && $_GET['do_egh_update'] == '1') {
+			$this->layout = null;
+			$this->render('admin_updateEGH', array());
+			return;
+		}
+
 		$this->render('admin', array());
 	}
 

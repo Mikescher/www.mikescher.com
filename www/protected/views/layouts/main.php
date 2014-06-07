@@ -90,5 +90,14 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/javascript/scripts.js"></script>
+
+<?php
+	foreach($this->js_scripts as $script ) {
+		echo '<script type="text/javascript" language="JavaScript">', PHP_EOL;
+		echo $script;
+		echo '</script>', PHP_EOL;
+	}
+?>
+
 </body>
 </html>

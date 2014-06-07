@@ -39,7 +39,7 @@
 			); ?>
 		</div>
 
-		<div class="span3">
+		<div class="span3" style="display: none">
 			<?php
 			echo MsHtml::lead('Programs');
 
@@ -52,7 +52,7 @@
 			); ?>
 		</div>
 
-		<div class="span3">
+		<div class="span3" style="display: none">
 			<?php
 			echo MsHtml::lead('Programs');
 
@@ -64,5 +64,24 @@
 				]
 			); ?>
 		</div>
+	</div>
+
+	<div class="well well-small">
+		<?php
+		$egh =  new ExtendedGitGraph('Mikescher');
+		$egh->loadData();
+		?>
+
+		<h2>ExtendedGitGraph</h2>
+		<hr>
+
+		<strong>Last Update: </strong> <?php echo $egh->getFinishedDate()->format('d.m.Y H:i'); ?> <br>
+		<strong>Repositories: </strong> <?php echo count($egh->repositories); ?> <br>
+		<strong>Commits: </strong> <?php echo count($egh->commits); ?> <br>
+
+		<br><br>
+
+		<a class="btn btn-primary" href="?do_egh_update=1"> Update </a>
+
 	</div>
 </div>

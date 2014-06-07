@@ -32,6 +32,7 @@ return ArrayX::merge(
 				'application.models.*',
 				'application.components.*',
 				'application.components.widgets.*',
+				'application.components.extendedGitGraph.*',
 				'bootstrap.components.*',
 				'bootstrap.behaviors.*',
 				'bootstrap.helpers.*',

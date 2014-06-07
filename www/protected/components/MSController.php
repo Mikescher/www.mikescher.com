@@ -22,4 +22,9 @@ class MSController extends CController
 	 * @var string the currently active Element in the Navbar
 	 */
 	public $selectedNav = '';
+
+	/**
+	 * @var string[] additional js scripts
+	 */
+	public $js_scripts = array();
 }
