@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="span3">
 			<?php
-			echo MsHtml::lead('Programs');
+			echo MsHtml::lead('Logs');
 
 			echo MsHtml::stackedTabs(
 				[
@@ -28,7 +28,7 @@
 
 		<div class="span3">
 			<?php
-			echo MsHtml::lead('Logs');
+			echo MsHtml::lead('Programs');
 
 			echo MsHtml::stackedTabs(
 				[
@@ -68,16 +68,15 @@
 
 	<div class="well well-small">
 		<?php
-		$egh =  new ExtendedGitGraph('Mikescher');
-		$egh->loadData();
+		$egh =  $egh = (new ExtendedGitGraph('Mikescher'))->loadFinishedData();
 		?>
 
 		<h2>ExtendedGitGraph</h2>
 		<hr>
 
-		<strong>Last Update: </strong> <?php echo $egh->getFinishedDate()->format('d.m.Y H:i'); ?> <br>
-		<strong>Repositories: </strong> <?php echo count($egh->repositories); ?> <br>
-		<strong>Commits: </strong> <?php echo count($egh->commits); ?> <br>
+		<strong>Last Update: </strong> <?php echo $egh['creation']->format('d.m.Y H:i'); ?> <br>
+		<strong>Repositories: </strong> <?php echo $egh['repos']; ?> <br>
+		<strong>Commits: </strong> <?php echo $egh['total']; ?> <br>
 
 		<br><br>
 

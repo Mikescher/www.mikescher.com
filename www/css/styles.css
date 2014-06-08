@@ -441,3 +441,71 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     color: #2C3E50;
     text-shadow: 0px 0px 8px #00F;
 }
+
+/* About/Gitbox
+-------------------------------------------------- */
+
+.gitbox-container {
+    border: 2px solid #CAECEC;
+    border-radius: 6px;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.gitbox-header {
+    background-color: #F5F5F5;
+    border-bottom: 2px solid #CAECEC;
+
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    padding: 5px;
+    margin-bottom: 10px;
+
+    font-size: 13px;
+    font-weight: bold;
+    color: gray;
+}
+
+.gitbox-footer {
+    background-color: #F5F5F5;
+    border-top: 2px solid #CAECEC;
+
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+    margin-top: 10px;
+}
+
+.gitbox-footer-box {
+    width: 385px;
+    display: table-cell;
+}
+
+.gitbox-footer-box:not(:first-child) {
+    border-left: 2px solid #CAECEC;
+}
+
+.gitbox-footer-box-header {
+    display: block;
+
+    color: #777;
+    font-size: 11px;
+}
+
+.gitbox-footer-box-number {
+    display: block;
+
+    font-weight: 300;
+    line-height: 1.3em;
+    font-size: 24px;
+}
+
+.gitbox-footer-box-footer {
+    display: block;
+
+    color: #777;
+    font-size: 11px;
+}

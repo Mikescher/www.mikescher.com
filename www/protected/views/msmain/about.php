@@ -27,8 +27,44 @@ $this->selectedNav = 'about';
 		<p>If you want you can look <?php echo MsHtml::link('here', '/programs'); ?> at the things I programd </p>
 	</div>
 
-	<?php echo (new ExtendedGitGraph('Mikescher'))->loadFinished(); ?>
-	<br />
+	<?php $egh = (new ExtendedGitGraph('Mikescher'))->loadFinishedData(); ?>
+	<div class="gitbox-container">
+		<div class="gitbox-header">My Github Commits</div>
+
+		<?php echo $egh['content']; ?>
+
+		<div class="gitbox-footer">
+			<div class="gitbox-footer-box">
+				<span class="gitbox-footer-box-header">Last Update</span>
+				<span class="gitbox-footer-box-number"><?php echo $egh['creation']->diff(new DateTime())->format('%d'); ?> day<?php echo (($egh['creation']->diff(new DateTime())->format('d') == 1) ? '' : 's')?> ago</span>
+				<span class="gitbox-footer-box-footer"><?php echo $egh['creation']->format('M d Y'); ?></span>
+			</div>
+
+			<div class="gitbox-footer-box">
+    			<span class="gitbox-footer-box-header">Total commits</span>
+    			<span class="gitbox-footer-box-number"><?php echo $egh['total'] ?></span>
+				<span class="gitbox-footer-box-footer"><?php echo $egh['start']->format('M d Y') . ' - ' . $egh['end']->format('M d Y'); ?></span>
+			</div>
+
+			<div class="gitbox-footer-box">
+				<span class="gitbox-footer-box-header">Longest streak</span>
+				<span class="gitbox-footer-box-number"><?php echo $egh['streak']; ?> day<?php echo (($egh['streak'] == 1) ? '' : 's'); ?></span>
+				<span class="gitbox-footer-box-footer"><?php echo $egh['streak_start']->format('M d Y') . ' - ' . $egh['streak_end']->format('M d Y'); ?></span>
+			</div>
+
+			<div class="gitbox-footer-box">
+				<span class="gitbox-footer-box-header">Max commits</span>
+				<span class="gitbox-footer-box-number"><?php echo $egh['max_commits']; ?> / day</span>
+				<span class="gitbox-footer-box-footer"><?php echo $egh['max_commits_date']->format('M d Y'); ?></span>
+			</div>
+
+			<div class="gitbox-footer-box">
+				<span class="gitbox-footer-box-header">Avg commits</span>
+				<span class="gitbox-footer-box-number"><?php echo number_format($egh['avg_commits'],1); ?> / day</span>
+				<span class="gitbox-footer-box-footer"><?php echo $egh['start']->format('M d Y') . ' - ' . $egh['end']->format('M d Y'); ?></span>
+			</div>
+		</div>
+	</div>
 
 	<div class="well cstm-well-light">
 		<?php
