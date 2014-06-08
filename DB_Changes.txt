@@ -1,5 +1,7 @@
 othervalues -> Added Column SValue
 othervalues -> Added Key "AdminPassword"
+othervalues -> Added Keys "egg_*"
+
 programme   -> Added Column ThumbnailName
 programme   -> Added Column programming_lang
 programme   -> Changed Sieb_des_Erasthothenes -> Sieb des Erasthothenes (also ren Imagefiles)

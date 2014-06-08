@@ -17,15 +17,11 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$connection = Yii::app()->db;
-
-		$command=$connection->createCommand("SELECT SValue FROM {{othervalues}} WHERE Name = 'AdminPassword'");
-		$pw = $command->queryScalar();
-
-		$users=array(
+		$users = array(
 			// username => password
-			'admin' => $pw,
+			'admin' => MsHelper::getStringDBVar('AdminPassword'),
 		);
+
 		if(!isset($users[$this->username]))
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		elseif($users[$this->username]!==$this->password)

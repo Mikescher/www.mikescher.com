@@ -1,15 +1,12 @@
 <?php
 
-/* https://api.github.com/rate_limit
- * https://api.github.com/users/Mikescher/repos?page=1&per_page=100
- * https://api.github.com/repos/Mikescher/BefunGen/commits?author=mailport@mikescher.de&sha=3498a7d04dfec2775eb8cc12fdb856aea4d08184
- *
- */
-
 class ExtendedGitGraph {
 
-	const API_AUTHORIZE = 'https://github.com/login/oauth/authorize?client_id=d51cb5eb4036e5b5b871';
-	const API_TOKEN = 'https://github.com/login/oauth/access_token?client_id=d51cb5eb4036e5b5b871&client_secret=536915cfd90f2d3a501fbde25fc1965a24523421&code=%s';
+	const FILE_RAW_DATA = 'protected/data/ext_git_graph_apidata.dat';
+	const FILE_FINISHED_DATA = 'protected/data/gitgraph.dat';
+
+	const API_AUTHORIZE = 'https://github.com/login/oauth/authorize?client_id=%s';
+	const API_TOKEN = 'https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s';
 
 	const API_RATELIMIT = 'https://api.github.com/rate_limit';
 	const API_REPOSITORIESLIST = 'https://api.github.com/users/%s/repos?page=%d&per_page=100';
@@ -18,8 +15,12 @@ class ExtendedGitGraph {
 	private $token;
 	private $tokenHeader;
 
-	public $repositories;
-	public $commits;
+	private $repositories;
+	private $commits;
+
+	private $commitmap = array();
+	private $startdate = null;
+	private $enddate = null;
 
 	public function __construct($usr_name) {
 		$this->username = $usr_name;
@@ -27,8 +28,8 @@ class ExtendedGitGraph {
 		set_time_limit(300); // 5min
 	}
 
-	public function authenticate($auth_key) {
-		$url = sprintf(self::API_TOKEN, $auth_key);
+	public function authenticate($auth_key, $client_id, $client_secret) {
+		$url = sprintf(self::API_TOKEN, $client_id, $client_secret, $auth_key);
 		$result = file_get_contents($url);
 
 		$result = str_replace('access_token=', '', $result);
@@ -176,7 +177,7 @@ class ExtendedGitGraph {
 				'commits' => $this->commits,
 			]);
 
-		file_put_contents('protected/data/ext_git_graph_apidata.dat', $save);
+		file_put_contents(self::FILE_RAW_DATA, $save);
 
 		$this->output_flushed('Finished saving data');
 	}
@@ -187,7 +188,7 @@ class ExtendedGitGraph {
 	}
 
 	public function loadData() {
-		$data = unserialize(file_get_contents('protected/data/ext_git_graph_apidata.dat'));
+		$data = unserialize(file_get_contents(self::FILE_RAW_DATA));
 
 		$this->repositories = $data['repositories'];
 		$this->commits = $data['commits'];
@@ -214,24 +215,240 @@ class ExtendedGitGraph {
 			$result.= '<br />';
 		}
 
-		file_put_contents('protected/data/gitgraph.dat',
+		$this->generateCommitMap();
+
+		file_put_contents(self::FILE_FINISHED_DATA,
 			serialize(
 				[
 					'creation' => new DateTime(),
+					'total' => count($this->commits),
+					'repos' => count($this->repositories),
+					'streak' => $this->getLongestStreak(),
+					'streak_start' => $this->getLongestStreakStart(),
+					'streak_end' => $this->getLongestStreakEnd(),
+					'max_commits' => $this->getMaxCommits(),
+					'max_commits_date' => $this->getMaxCommitsDate(),
+					'avg_commits' => $this->getAvgCommits(),
+					'start' => $this->startdate,
+					'end' => $this->enddate,
 					'content' => $result,
 				]));
 
 		return $result;
 	}
 
-	public function loadFinished() {
-		$data = unserialize(file_get_contents('protected/data/gitgraph.dat'));
+	private function generateCommitMap() {
+		$this->commitmap = array();
+
+		$this->startdate = $this->getStartDate();
+		$this->enddate = $this->getEndDate();
+
+		$date = clone $this->startdate;
+		while($date < $this->enddate) {
+			$this->commitmap[$date->format('Y-m-d')] = 0;
+
+			$date = $date->modify("+1 day");
+		}
+
+		foreach	($this->commits as $commit) {
+			if(array_key_exists($commit['date']->format('Y-m-d'), $this->commitmap))
+				$this->commitmap[$commit['date']->format('Y-m-d')]++;
+		}
+	}
+
+	private function getStartDate() {
+		$date = $this->commits[0]['date'];
+
+		foreach($this->commits as $commit) {
+			if ($commit['date'] < $date) {
+				$date = clone $commit['date'];
+			}
+		}
+
+		return new DateTime($date->format('Y-m-d'));
+	}
+
+	private function getEndDate() {
+		$date = $this->commits[0]['date'];
+
+		foreach($this->commits as $commit) {
+			if ($commit['date'] > $date) {
+				$date = clone $commit['date'];
+			}
+		}
+
+		return new DateTime($date->format('Y-m-d'));
+	}
+
+	private function getCommitsForDate($d) {
+		$v = $d->format('Y-m-d');
+		if (array_key_exists($v, $this->commitmap))
+			return $this->commitmap[$d->format('Y-m-d')];
+		else
+			return 0;
+	}
+
+	private function getLongestStreak() {
+		/* @var $curr DateTime */
+		/* @var $end DateTime */
+		$curr = clone $this->startdate;
+		$end = clone $this->enddate;
+
+		$streak_curr = 0;
+		$streak_max = 0;
+
+		while ($curr <= $end) {
+			if ($this->getCommitsForDate($curr) > 0) {
+				$streak_curr++;
+			} else {
+				$streak_max = max($streak_max, $streak_curr);
+				$streak_curr = 0;
+			}
+
+			$curr = $curr->modify('+1 day');
+		}
+
+		$streak_max = max($streak_max, $streak_curr);
+
+		return $streak_max;
+	}
+
+	private function getLongestStreakStart() {
+		/* @var $curr DateTime */
+		/* @var $end DateTime */
+		$curr = clone $this->startdate;
+		$end = clone $this->enddate;
+
+		$streak_curr_start = clone $curr;
+		$streak_max_start = null;
+
+		$streak_curr = 0;
+		$streak_max = 0;
+
+		while ($curr <= $end) {
+			if ($this->getCommitsForDate($curr) > 0) {
+				$streak_curr++;
+			} else {
+				if ($streak_curr > $streak_max) {
+					$streak_max = $streak_curr;
+					$streak_max_start = clone $streak_curr_start;
+				}
+
+				$streak_curr = 0;
+				$streak_curr_start = clone $curr;
+			}
+
+			$curr = $curr->modify('+1 day');
+		}
+
+		if ($streak_curr > $streak_max) {
+			$streak_max_start = clone $streak_curr_start;
+		}
+
+		return $streak_max_start;
+	}
+
+	private function getLongestStreakEnd() {
+		/* @var $curr DateTime */
+		/* @var $end DateTime */
+		$curr = clone $this->startdate;
+		$end = clone $this->enddate;
+
+		$streak_max_end = null;
+
+		$streak_curr = 0;
+		$streak_max = 0;
+
+		while ($curr <= $end) {
+			if ($this->getCommitsForDate($curr) > 0) {
+				$streak_curr++;
+			} else {
+				if ($streak_curr > $streak_max) {
+					$streak_max = $streak_curr;
+					$streak_max_end = clone $curr;
+				}
+
+				$streak_curr = 0;
+			}
+
+			$curr = $curr->modify('+1 day');
+		}
+
+		if ($streak_curr > $streak_max) {
+			$streak_max_end = clone $curr;
+		}
+
+		return $streak_max_end;
+	}
+
+	private function getMaxCommits() {
+		/* @var $curr DateTime */
+		/* @var $end DateTime */
+		$curr = clone $this->startdate;
+		$end = clone $this->enddate;
+
+		$max = 0;
+
+		while ($curr <= $end) {
+			$max = max($max, $this->getCommitsForDate($curr));
+
+			$curr = $curr->modify('+1 day');
+		}
+
+		return $max;
+	}
+
+	private function getMaxCommitsDate() {
+		/* @var $curr DateTime */
+		/* @var $end DateTime */
+		$curr = clone $this->startdate;
+		$end = clone $this->enddate;
+
+		$max = 0;
+		$max_date = null;
+
+		while ($curr <= $end) {
+			$c = $this->getCommitsForDate($curr);
+			if ($c >=  $max) {
+				$max = $c;
+				$max_date = clone $curr;
+			}
+			$max = max($max, $this->getCommitsForDate($curr));
+
+			$curr = $curr->modify('+1 day');
+		}
+
+		return $max_date;
+	}
+
+	private function getAvgCommits() {
+		/* @var $curr DateTime */
+		/* @var $end DateTime */
+		$curr = clone $this->startdate;
+		$end = clone $this->enddate;
+
+		$max = array();
+
+		while ($curr <= $end) {
+			$max[] = $this->getCommitsForDate($curr);
+
+			$curr = $curr->modify('+1 day');
+		}
+
+		$sum = array_sum($max);
+		$count = count($max);
+
+		return $sum / $count;
+	}
+
+	public function loadFinishedContent() {
+		$data = unserialize(file_get_contents(self::FILE_FINISHED_DATA));
 		return $data['content'];
 	}
 
-	public function getFinishedDate() {
-		$data = unserialize(file_get_contents('protected/data/gitgraph.dat'));
-		return $data['creation'];
+	public function loadFinishedData() {
+		$data = unserialize(file_get_contents(self::FILE_FINISHED_DATA));
+		return $data;
 	}
 
 	private function getMaxCommitCount() {
