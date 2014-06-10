@@ -4,6 +4,9 @@
 ?>
 
 <?php
+
+$this->pageTitle = 'Create Programs - ' . Yii::app()->name;
+
 $this->breadcrumbs=array(
 	'Programs'=>array('index'),
 	'Create',

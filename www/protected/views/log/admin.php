@@ -2,6 +2,7 @@
 /* @var $this LogController */
 /* @var $model Log */
 
+$this->pageTitle = 'Manage Logs - ' . Yii::app()->name;
 
 $this->breadcrumbs=array(
 	'Logs'=>array('index'),

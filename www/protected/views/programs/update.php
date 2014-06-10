@@ -1,9 +1,12 @@
 <?php
-/* @var $this ProgramController */
+/* @var $this ProgramsController */
 /* @var $model Program */
 ?>
 
 <?php
+
+$this->pageTitle = 'Update Program - ' . Yii::app()->name;
+
 $this->breadcrumbs=array(
 	'Programs'=>array('index'),
 	$model->Name=>array('view','id'=>$model->ID),

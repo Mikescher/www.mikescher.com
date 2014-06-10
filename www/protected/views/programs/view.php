@@ -4,6 +4,9 @@
 ?>
 
 <?php
+
+$this->pageTitle = $model->Name . ' - ' . Yii::app()->name;
+
 $this->breadcrumbs=array(
 	'Programs'=>array('index'),
 	$model->Name,

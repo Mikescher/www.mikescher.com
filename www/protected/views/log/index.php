@@ -3,7 +3,7 @@
 /* @var $logs Log[] */
 /* @var $logid integer */
 
-$this->pageTitle=Yii::app()->name;
+$this->pageTitle = 'Log - ' . Yii::app()->name;
 
 $this->breadcrumbs=
 	[

@@ -14,7 +14,6 @@ Yii::createWebApplication($config)->run();
 
 
 // TODO-MS Add title property to pages
-// TODO-MS Add Metadata property to pages (especially programs) ->Search engines
 // TODO-MS More contrast in design ???
 // TODO-MS Add Favicon
 // TODO-MS Add Blog

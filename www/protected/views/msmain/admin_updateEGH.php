@@ -1,4 +1,13 @@
 <?php
+
+$this->pageTitle = 'Update EGH - ' . Yii::app()->name;
+
+$this->breadcrumbs =
+	[
+		'Admin',
+	];
+
+
 $v = new ExtendedGitGraph('Mikescher');
 
 $v->setToken(MsHelper::getStringDBVar('egg_auth-token'));

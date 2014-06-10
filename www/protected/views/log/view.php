@@ -4,6 +4,10 @@
 ?>
 
 <?php
+
+$this->pageTitle = 'View Log - ' . Yii::app()->name;
+
+
 $this->breadcrumbs=array(
 	'Logs'=>array('index'),
 	$model->title,

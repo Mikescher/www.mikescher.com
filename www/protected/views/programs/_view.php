@@ -1,5 +1,5 @@
 <?php
-/* @var $this ProgramController */
+/* @var $this ProgramsController */
 /* @var $data Program */
 ?>
 

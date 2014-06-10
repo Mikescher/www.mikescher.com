@@ -3,7 +3,10 @@
 ?>
 
 <?php
-	$this->breadcrumbs =
+
+$this->pageTitle = 'Manage - ' . Yii::app()->name;
+
+$this->breadcrumbs =
 		[
 			'Admin',
 		];

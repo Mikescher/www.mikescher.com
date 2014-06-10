@@ -1,7 +1,7 @@
 <?php
 /* @var $this MsMainController */
 
-$this->pageTitle=Yii::app()->name;
+$this->pageTitle = 'About - ' . Yii::app()->name;
 
 $this->breadcrumbs=
 	[

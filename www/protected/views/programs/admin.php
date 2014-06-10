@@ -1,7 +1,8 @@
 <?php
-/* @var $this ProgramController */
+/* @var $this ProgramsController */
 /* @var $model Program */
 
+$this->pageTitle = 'Manage Programs - ' . Yii::app()->name;
 
 $this->breadcrumbs=array(
 	'Programs'=>array('index'),

@@ -2,7 +2,7 @@
 /* @var $this MsMainController */
 /* @var $error array */
 
-	$this->pageTitle=Yii::app()->name . ' - Error';
+	$this->pageTitle='Error - ' . Yii::app()->name;
 	
 	$this->breadcrumbs=array(
 		'Error',
