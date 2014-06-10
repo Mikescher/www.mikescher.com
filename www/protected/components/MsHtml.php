@@ -1,6 +1,8 @@
 <?php
 class MsHtml extends TbHtml {
 
+	const INPUT_SIZE_CUSTOM_ABOUTTXT = 'xx_custom_is_about_tb';
+
 	/**
 	 * @param DateTime $date
 	 * @param string $caption

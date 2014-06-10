@@ -17,6 +17,8 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 
+	<link rel="icon" type="image/png" href="/images/favicon.png" /> <?php //TODO-MS Add nice favicon ?>
+
 	<?php Yii::app()->bootstrap->register(); ?>
 	<link rel="stylesheet" type="text/css" href="/css/styles.css" />
 

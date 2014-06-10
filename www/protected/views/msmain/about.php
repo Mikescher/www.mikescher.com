@@ -81,21 +81,21 @@ $this->selectedNav = 'about';
 			echo $form->textFieldControlGroup($model, 'name',
 				[
 					'placeholder' => 'Name',
-					'size' => MsHtml::INPUT_SIZE_XXLARGE,
+					'size' => MsHtml::INPUT_SIZE_CUSTOM_ABOUTTXT,
 					'prepend' => MsHtml::icon(MsHtml::ICON_USER),
 					'span' => 2,
 				]);
 			echo $form->textFieldControlGroup($model, 'email',
 				[
 					'placeholder' => 'Email address',
-					'size' => MsHtml::INPUT_SIZE_XXLARGE,
+					'size' => MsHtml::INPUT_SIZE_CUSTOM_ABOUTTXT,
 					'prepend' => MsHtml::icon(MsHtml::ICON_ENVELOPE),
 					'span' => 2,
 				]);
 			echo $form->textFieldControlGroup($model, 'header',
 				[
 					'placeholder' => 'Header',
-					'size' => MsHtml::INPUT_SIZE_XXLARGE,
+					'size' => MsHtml::INPUT_SIZE_CUSTOM_ABOUTTXT,
 					'prepend' => MsHtml::icon(MsHtml::ICON_TAG),
 					'span' => 5,
 				]);

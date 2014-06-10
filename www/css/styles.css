@@ -62,6 +62,10 @@ img.grayscale {
     -webkit-filter: grayscale(100%);
 }
 
+.input-xx_custom_is_about_tb {
+    width: 506px !important;
+}
+
 /* Header
 -------------------------------------------------- */
 
