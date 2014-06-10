@@ -36,7 +36,7 @@ $this->selectedNav = 'about';
 		<div class="gitbox-footer">
 			<div class="gitbox-footer-box">
 				<span class="gitbox-footer-box-header">Last Update</span>
-				<span class="gitbox-footer-box-number"><?php echo $egh['creation']->diff(new DateTime())->format('%d'); ?> day<?php echo (($egh['creation']->diff(new DateTime())->format('d') == 1) ? '' : 's')?> ago</span>
+				<span class="gitbox-footer-box-number"><?php echo $egh['creation']->diff(new DateTime())->format('%d') + 1; ?> day<?php echo (($egh['creation']->diff(new DateTime())->format('d') == 1) ? '' : 's')?> ago</span>
 				<span class="gitbox-footer-box-footer"><?php echo $egh['creation']->format('M d Y'); ?></span>
 			</div>
 
@@ -60,7 +60,7 @@ $this->selectedNav = 'about';
 
 			<div class="gitbox-footer-box">
 				<span class="gitbox-footer-box-header">Avg commits</span>
-				<span class="gitbox-footer-box-number"><?php echo number_format($egh['avg_commits'],1); ?> / day</span>
+				<span class="gitbox-footer-box-number"><?php echo number_format($egh['avg_commits'], 2); ?> / day</span>
 				<span class="gitbox-footer-box-footer"><?php echo $egh['start']->format('M d Y') . ' - ' . $egh['end']->format('M d Y'); ?></span>
 			</div>
 		</div>
