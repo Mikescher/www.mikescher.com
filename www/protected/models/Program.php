@@ -23,6 +23,8 @@
  * @property integer $uses_absCanv
  * @property string $update_identifier
  * @property integer $highscore_gid
+ *
+ * @property ProgramUpdates $version
  */
 class Program extends CActiveRecord
 {
@@ -58,9 +60,14 @@ class Program extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
+			'version' =>
+				[
+					self::HAS_ONE,
+					'ProgramUpdates',
+					[
+						'Name' => 'update_identifier'
+					]],
 		);
 	}
 
@@ -196,13 +203,5 @@ class Program extends CActiveRecord
 		}
 
 		return $out;
-	}
-
-	public function hasVersionInfo() {
-		return ! empty($this->update_identifier);
-	}
-
-	public function getVersionInfo() {
-		return 0; //TODO
 	}
 }

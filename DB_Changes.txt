@@ -20,3 +20,32 @@ updates   -> ms4_updates
 updates   -> 'Name' is primary key
 updates   -> Adjust 'Link'
 updates   -> 'Name' Type is VARCHAR(64)
+updates   -> Removed col 'Log'
+
+updateslog   -> new table
+<?php
+$rows=Yii::app()->db->createCommand('SELECT * FROM {{updates}}')->queryAll();
+$transaction=Yii::app()->db->beginTransaction();
+foreach($rows as $row) {
+	$prog = $row['Name'];
+	$log = $row['Log'];
+	$lines = explode('<br>', $log);
+
+	foreach ($lines as $line) {
+		$result = array();
+		preg_match('/([^ ]+)[^0-9]*([0-9\.]+)[^\(]*\((.*?)\)/', $line, $result);
+
+		if (count($result) == 4) {
+			$ip = trim($result[1]);
+			$version = trim($result[2]);
+			$date = DateTime::createFromFormat('d.m.Y - H:i:s', trim($result[3]));
+
+			echo $prog . '  |  ' . $ip . '  |  ' . $version . '  |  ' . $date->format('Y-m-d H:i:s') . '<br>';
+
+			Yii::app()->db->createCommand("INSERT INTO {{updateslog}} (programname, ip, version, date) VALUES ('$prog', '$ip', '$version', '" . $date->format('Y-m-d H:i:s') . "')")->execute();
+		}
+	}
+	echo '<hr>';
+}
+$transaction->commit();
+?>

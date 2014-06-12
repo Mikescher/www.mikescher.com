@@ -44,10 +44,12 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 							<td>Added:</td>
 							<td><?php echo TbHtml::badge($model->getDateTime()->format('d.m.Y'), array('color' => TbHtml::BADGE_COLOR_INFO)); ?></td>
 						</tr>
-						<tr>
-							<td>Version:</td>
-							<td><?php echo TbHtml::badge('????', array('color' => TbHtml::BADGE_COLOR_INFO)); ?></td>
-						</tr>
+						<?php if ($model->version != null): ?>
+							<tr>
+								<td>Version:</td>
+								<td><?php echo TbHtml::badge($model->version->Version, array('color' => TbHtml::BADGE_COLOR_INFO)); ?></td>
+							</tr>
+						<?php endif ?>
 					</table>
 				</div>
 
