@@ -41,8 +41,6 @@
 
             <?php echo $form->textFieldControlGroup($model,'download_url',array('rows'=>6,'span'=>8)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'viewable_code',array('span'=>5)); ?>
-
             <?php echo $form->textFieldControlGroup($model,'sourceforge_url',array('rows'=>6,'span'=>8)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'homepage_url',array('rows'=>6,'span'=>8)); ?>

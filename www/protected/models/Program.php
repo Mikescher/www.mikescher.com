@@ -17,7 +17,6 @@
  * @property string $Description
  * @property string $add_date
  * @property string $download_url
- * @property integer $viewable_code
  * @property string $sourceforge_url
  * @property string $homepage_url
  * @property string $github_url
@@ -43,14 +42,14 @@ class Program extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier', 'required'),
-			array('enabled, visible, viewable_code, uses_absCanv, highscore_gid', 'numerical', 'integerOnly'=>true),
+			array('Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier', 'required'),
+			array('enabled, visible, uses_absCanv, highscore_gid', 'numerical', 'integerOnly'=>true),
 			array('Downloads, Sterne', 'numerical'),
-			array('update_identifier', 'length', 'max'=>28),
+			array('update_identifier', 'length', 'max'=>64),
 			array('programming_lang', 'length', 'max'=>16),
 			// The following rule is used by search().
 			// @TODO-MS Please remove those attributes that should not be searched.
-			array('ID, Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, viewable_code, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier, highscore_gid', 'safe', 'on'=>'search'),
+			array('ID, Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier, highscore_gid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,7 +83,6 @@ class Program extends CActiveRecord
 			'Description' => 'Description',
 			'add_date' => 'Add Date',
 			'download_url' => 'Download Url',
-			'viewable_code' => 'Viewable Code',
 			'sourceforge_url' => 'Sourceforge Url',
 			'homepage_url' => 'Homepage Url',
 			'github_url' => 'Github Url',
@@ -123,7 +121,6 @@ class Program extends CActiveRecord
 		$criteria->compare('Description',$this->Description,true);
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('download_url',$this->download_url,true);
-		$criteria->compare('viewable_code',$this->viewable_code);
 		$criteria->compare('sourceforge_url',$this->sourceforge_url,true);
 		$criteria->compare('homepage_url',$this->homepage_url,true);
 		$criteria->compare('github_url',$this->github_url,true);
@@ -185,5 +182,27 @@ class Program extends CActiveRecord
 	 */
 	public function getDateTime() {
 		return new DateTime($this->add_date);
+	}
+
+	public function getStarHTML()
+	{
+		$out = '';
+
+		for ($i = 0; $i < 4; $i++) {
+			if ($i < $this->Sterne)
+				$out .= MsHtml::icon(MsHtml::ICON_STAR);
+			else
+				$out .= MsHtml::icon(MsHtml::ICON_STAR_EMPTY);
+		}
+
+		return $out;
+	}
+
+	public function hasVersionInfo() {
+		return ! empty($this->update_identifier);
+	}
+
+	public function getVersionInfo() {
+		return 0; //TODO
 	}
 }

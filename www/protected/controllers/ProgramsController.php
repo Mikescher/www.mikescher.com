@@ -53,10 +53,15 @@ class ProgramsController extends MSController
 	 */
 	public function actionView($id)
 	{
+		$this->layout = '//layouts/main';
+
 		if (is_numeric($id))
 		{
-			throw new CHttpException(400, "You can't access a program by ID");
-			//$model = $this->loadModelByID($id);
+			if (Yii::app()->user->name == 'admin') {
+				$model = $this->loadModelByID($id);
+			} else {
+				throw new CHttpException(400, "You can't access a program by ID");
+			}
 		}
 		else
 		{
