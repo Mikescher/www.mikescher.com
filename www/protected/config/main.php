@@ -72,6 +72,8 @@ return ArrayX::merge(
 								'log/' => ['log/index', 'defaultParams' => ['logid' => '-1']],
 								'log/<logid:[0-9]+>' => ['log/index', 'defaultParams' => ['logid' => '-1']],
 
+								'programupdates/' => 'programupdates/index',
+
 								'downloads/details.php' => 'programs/index', 	// Compatibility
 								'downloads/downloads.php' => 'programs/index', 	// Compatibility
 								'downloads/<id>' => 'programs/view', 			// Compatibility

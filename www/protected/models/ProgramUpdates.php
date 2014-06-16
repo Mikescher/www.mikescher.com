@@ -8,7 +8,7 @@
  * @property string $Version
  * @property string $Link
  *
- * @property ProgramUpdatesLog $log
+ * @property ProgramUpdatesLog[] $log
  */
 class ProgramUpdates extends CActiveRecord
 {
