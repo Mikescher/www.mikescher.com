@@ -16,9 +16,13 @@ class SeededRandom
 		$this->get();
 	}
 
-	function seedWithDailySeed()
+	function seedWithDailySeed($date)
 	{
-		$this->seed($this->getDailySeed());
+		$this->seed(($date->format('Y') % 100) * 10459);
+		$max = $date->format('z');
+		for ($i = 0; $i < $max; $i++) {
+			$this->get();
+		}
 	}
 
 	function get($min = 0, $max = 9999999)
@@ -34,12 +38,5 @@ class SeededRandom
 	function getRandomElement(array $arr)
 	{
 		return $arr[$this->get(0, count($arr))];
-	}
-
-	function getDailySeed()
-	{
-		$now = getdate();
-
-		return ($now['year'] % 100) * 366 + $now['yday'] /* * $now['seconds'] */;
 	}
 } 

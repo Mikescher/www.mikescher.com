@@ -7,9 +7,9 @@
 $this->pageTitle = 'Manage - ' . Yii::app()->name;
 
 $this->breadcrumbs =
-		[
-			'Admin',
-		];
+	[
+		'Admin',
+	];
 ?>
 
 <div class="container">
@@ -22,9 +22,9 @@ $this->breadcrumbs =
 
 			echo MsHtml::stackedTabs(
 				[
-					['label' => 'Show',    'url' => '/log'],
-					['label' => 'Manage',  'url' => '/log/admin'],
-					['label' => 'Create',  'url' => '/log/create'],
+					['label' => 'Show', 'url' => '/log'],
+					['label' => 'Manage', 'url' => '/log/admin'],
+					['label' => 'Create', 'url' => '/log/create'],
 				]
 			); ?>
 		</div>
@@ -35,9 +35,9 @@ $this->breadcrumbs =
 
 			echo MsHtml::stackedTabs(
 				[
-					['label' => 'Show',    'url' => '/programs'],
-					['label' => 'Manage',  'url' => '/programs/admin'],
-					['label' => 'Create',  'url' => '/programs/create'],
+					['label' => 'Show', 'url' => '/programs'],
+					['label' => 'Manage', 'url' => '/programs/admin'],
+					['label' => 'Create', 'url' => '/programs/create'],
 				]
 			); ?>
 		</div>
@@ -48,8 +48,8 @@ $this->breadcrumbs =
 
 			echo MsHtml::stackedTabs(
 				[
-					['label' => 'Show',     'url' => '/programupdates'],
-					['label' => 'Manage',  'url' => '/programupdates/admin'],
+					['label' => 'Show', 'url' => '/programupdates'],
+					['label' => 'Manage', 'url' => '/programupdates/admin'],
 					['label' => 'Create', 'url' => '/programupdates/create'],
 				]
 			); ?>
@@ -61,8 +61,8 @@ $this->breadcrumbs =
 
 			echo MsHtml::stackedTabs(
 				[
-					['label' => 'Home',     'url' => '#'],
-					['label' => 'Profile',  'url' => '#'],
+					['label' => 'Home', 'url' => '#'],
+					['label' => 'Profile', 'url' => '#'],
 					['label' => 'Messages', 'url' => '#'],
 				]
 			); ?>
@@ -71,7 +71,7 @@ $this->breadcrumbs =
 
 	<div class="well well-small">
 		<?php
-		$egh =  $egh = (new ExtendedGitGraph('Mikescher'))->loadFinishedData();
+		$egh = $egh = (new ExtendedGitGraph('Mikescher'))->loadFinishedData();
 		?>
 
 		<h2>ExtendedGitGraph</h2>
@@ -84,6 +84,43 @@ $this->breadcrumbs =
 		<br><br>
 
 		<a class="btn btn-primary" href="?do_egh_update=1"> Update </a>
+
+	</div>
+
+	<div class="well well-small">
+
+		<h2>Program of the day</h2>
+		<hr>
+
+		<?php
+
+		$data = array();
+
+		$now = new DateTime();
+
+		for ($i = 0; $i < 100; $i++) {
+			$data[] =
+				[
+					'Date' => $now->format('d.m.Y :: D'),
+					'Name' => ProgramHelper::GetDailyProg($now)->Name,
+				];
+
+			$now->modify('+1 day');
+		}
+
+		$this->widget('bootstrap.widgets.TbGridView',
+			[
+				'type' => TbHtml::GRID_TYPE_CONDENSED,
+				'dataProvider' => new CArrayDataProvider($data,
+						[
+							'keyField' => 'Date',
+							'Pagination' =>
+								[
+									'PageSize' => 14,
+								]
+						]),
+			]
+		); ?>
 
 	</div>
 </div>

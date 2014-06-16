@@ -43,24 +43,30 @@ class ProgramHelper {
 	}
 
 	/**
+	 * @param DateTime $date
 	 * @return Program
 	 */
-	public static function GetRecentProg()
+	public static function GetRecentProg($date)
 	{
 		$criteria = new CDbCriteria;
 		$criteria->order = "add_date DESC";
-		$criteria->condition = "DATEDIFF(CURDATE(), add_date) <= 14 AND visible=1 AND enabled=1";
+		$criteria->condition = "DATEDIFF('" . $date->format('Y-m-d') . "', add_date) <= 14 AND visible=1 AND enabled=1";
 		$criteria->limit = 1;
 
 		return Program::model()->find($criteria);
 	}
 
 	/**
+	 * @param string $date
 	 * @return Program
 	 */
-	public static function GetDailyProg()
+	public static function GetDailyProg($date = 'now')
 	{
-		$recent = self::GetRecentProg();
+		if ($date == 'now') {
+			$date = new DateTime();
+		}
+
+		$recent = self::GetRecentProg($date);
 
 		if ($recent != null)
 			return $recent;
@@ -68,7 +74,7 @@ class ProgramHelper {
 		$toparray = self::GetHighlightedProgList(false);
 
 		$msrand = new SeededRandom();
-		$msrand->seedWithDailySeed();
+		$msrand->seedWithDailySeed($date);
 
 		$result = $msrand->getRandomElement($toparray);
 
