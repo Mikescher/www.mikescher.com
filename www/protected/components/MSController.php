@@ -5,9 +5,9 @@
  */
 class MSController extends CController
 {
-	public $layout='//layouts/main';
+	public $layout = '//layouts/main';
 
-	public $breadcrumbs=array();
+	public $breadcrumbs = array();
 
 	public $selectedNav = '';
 

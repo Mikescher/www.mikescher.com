@@ -74,6 +74,11 @@ return ArrayX::merge(
 
 								'programupdates/' => 'programupdates/index',
 
+								'update.php' => 'api/update',
+								'update.php/<Name>' => 'api/update2',
+								'update' => 'api/update',
+								'update/<Name>' => 'api/update2',
+
 								'downloads/details.php' => 'programs/index', 	// Compatibility
 								'downloads/downloads.php' => 'programs/index', 	// Compatibility
 								'downloads/<id>' => 'programs/view', 			// Compatibility

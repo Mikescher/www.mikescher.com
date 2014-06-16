@@ -88,7 +88,7 @@
 ?>
 
 <div class="footer">
-	Copyright &copy; <?php echo date('Y'); ?> by Mike Schwörer.<br/>
+	Copyright &copy; <?php echo date('Y'); ?> by Mike Schwörer &#xb7; <a href="/admin">admin</a><br/>
 	All Rights Reserved.<br/>
 	<?php echo Yii::powered(); ?>
 </div>
