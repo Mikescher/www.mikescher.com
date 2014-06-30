@@ -20,6 +20,9 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 ?>
 
 <div class="container">
+	<?php if (! $model->enabled) echo TbHtml::alert(TbHtml::ALERT_COLOR_WARNING, TbHtml::b('Warning!') . '     	This programm is for normal users disabled'); ?>
+	<?php if (! $model->visible) echo TbHtml::alert(TbHtml::ALERT_COLOR_WARNING, TbHtml::b('Warning!') . '     	This programm is for normal users invisible'); ?>
+
 	<div class="row">
 		<div class="span3">
 			<div class="well progview_infocol">
@@ -50,6 +53,10 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 								<td><?php echo TbHtml::badge($model->version->Version, array('color' => TbHtml::BADGE_COLOR_INFO)); ?></td>
 							</tr>
 						<?php endif ?>
+						<?php
+						// TODO-MS Add Highscore Tables to MVC
+						// TODO-MS Show highest score when highscore_gid is set
+						?>
 					</table>
 				</div>
 

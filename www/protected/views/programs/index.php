@@ -1,9 +1,10 @@
 <?php
 /* @var $this ProgramsController */
-/* @var $page integer  */
+/* @var $page integer */
 /* @var $pagecount integer */
 /* @var $rowcount integer */
 /* @var $data Program[][] */
+/* @var $category string */
 ?>
 
 <?php
@@ -11,21 +12,26 @@
 $this->pageTitle = 'Programs - ' . Yii::app()->name;
 
 $this->breadcrumbs = array(
-		'Programs',
-	);
+	'Programs',
+);
 ?>
 
 <div class="container">
 
-	<?php echo MsHtml::pageHeader("Programs", "Games and Tools, developed by me"); ?>
+	<?php
+	if (empty($category))
+		echo MsHtml::pageHeader("Programs", "Games and Tools, developed by me");
+	else
+		echo MsHtml::pageHeader("Programs", '"' . $category . '"');
+	?>
 
 	<div class="row-fluid">
 		<?php
 
-		foreach($data as $datarow) {
+		foreach ($data as $datarow) {
 			echo '<ul class="thumbnails">';
 
-			foreach($datarow as $dataelem) {
+			foreach ($datarow as $dataelem) {
 				/* @var $dataelem Program */
 				$this->widget('ThumbnailProgPreview',
 					[
@@ -53,11 +59,11 @@ $this->breadcrumbs = array(
 	if ($pagecount > 1) {
 		$pagination_arr = array();
 
-		$pagination_arr[] = ['label' => '&laquo;', 'url' => '?page=' . ($page-1), 'disabled' => ($page <= 1)];
-		for($i = 1; $i <= $pagecount; $i++) {
+		$pagination_arr[] = ['label' => '&laquo;', 'url' => '?page=' . ($page - 1), 'disabled' => ($page <= 1)];
+		for ($i = 1; $i <= $pagecount; $i++) {
 			$pagination_arr[] = ['label' => $i, 'url' => '?page=' . $i, 'active' => ($i == $page)];
 		}
-		$pagination_arr[] = ['label' => '&raquo;', 'url' => '?page=' . ($page+1), 'disabled' => ($page >= $pagecount)];
+		$pagination_arr[] = ['label' => '&raquo;', 'url' => '?page=' . ($page + 1), 'disabled' => ($page >= $pagecount)];
 
 		echo MsHtml::pagination($pagination_arr,
 			[

@@ -144,7 +144,7 @@ class ProgramsController extends MSController
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	public function actionIndex($categoryfilter)
 	{
 		$this->layout = '//layouts/main';
 
@@ -156,7 +156,10 @@ class ProgramsController extends MSController
 
 		$criteria = new CDbCriteria;
 		$criteria->order = "Sterne DESC, add_date DESC";
-		$criteria->condition = "visible=1";
+		if (! empty($categoryfilter))
+			$criteria->addCondition("Kategorie = :cat");
+		$criteria->params[':cat'] = $categoryfilter;
+		$criteria->addCondition("visible=1");
 
 		$all = Program::model()->findAll($criteria);
 		/* @var $all Program[] */
@@ -182,6 +185,7 @@ class ProgramsController extends MSController
 		$data['pagecount'] = $pagecount;
 		$data['rowcount'] = $rowcount;
 		$data['data'] = $progdata;
+		$data['category'] = $categoryfilter;
 
 		$this->render('index', $data);
 	}

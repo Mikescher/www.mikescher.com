@@ -37,6 +37,8 @@
 
             <?php echo $form->textAreaControlGroup($model,'Description',array('rows'=>6,'span'=>8)); ?>
 
+			<?php echo $form->textFieldControlGroup($model,'programming_lang',array('rows'=>6,'span'=>8)); ?>
+
             <?php echo $form->textFieldControlGroup($model,'add_date',array('span'=>5)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'download_url',array('rows'=>6,'span'=>8)); ?>

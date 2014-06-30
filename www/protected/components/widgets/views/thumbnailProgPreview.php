@@ -32,7 +32,7 @@
 					<?php
 					if (!empty($this->category)) {
 						echo MsHtml::icon(MsHtml::ICON_TAG);
-						echo $this->category . '';
+						echo MsHtml::link($this->category . '', '/programs/cat/' . $this->category);
 					}
 					?>
 				</p>

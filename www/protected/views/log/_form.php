@@ -19,7 +19,12 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'date',array('span'=>5, 'value'=>date('Y-m-d'))); ?>
+            <?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'date',array('span'=>5, 'value' => date('Y-m-d')));
+			else
+				echo $form->textFieldControlGroup($model,'date',array('span'=>5, ));
+			?>
 
             <?php echo $form->textAreaControlGroup($model,'title',array('rows'=>6,'span'=>8)); ?>
 

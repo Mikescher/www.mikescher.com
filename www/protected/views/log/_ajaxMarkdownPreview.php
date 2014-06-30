@@ -1,6 +1,6 @@
 <?php
 
-$this->beginWidget('CMarkdown');
+$this->beginWidget('CMarkdown', array('purifyOutput'=>true));
 
 echo $content;
 

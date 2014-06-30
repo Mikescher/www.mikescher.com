@@ -44,7 +44,7 @@ class Program extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier', 'required'),
+			array('Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, uses_absCanv', 'required'),
 			array('enabled, visible, uses_absCanv, highscore_gid', 'numerical', 'integerOnly'=>true),
 			array('Downloads, Sterne', 'numerical'),
 			array('update_identifier', 'length', 'max'=>64),
@@ -86,7 +86,7 @@ class Program extends CActiveRecord
 			'enabled' => 'Enabled',
 			'visible' => 'Visible',
 			'Language' => 'Language',
-			'programming_lang' => 'programming_lang',
+			'programming_lang' => 'programming Language',
 			'Description' => 'Description',
 			'add_date' => 'Add Date',
 			'download_url' => 'Download Url',

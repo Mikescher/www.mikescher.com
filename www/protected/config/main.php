@@ -66,7 +66,8 @@ return ArrayX::merge(
 						'showScriptName' => false,
 						'rules' =>
 							[
-								'programs/' => 'programs/index',
+								'programs/' => ['programs/index', 'defaultParams' => ['categoryfilter' => '']],
+								'programs/cat/<categoryfilter>' => ['programs/index', 'defaultParams' => ['categoryfilter' => '']],
 								'programs/view/<id>' => 'programs/view',
 
 								'log/' => ['log/index', 'defaultParams' => ['logid' => '-1']],

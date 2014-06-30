@@ -106,6 +106,18 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     text-decoration: none;
 }
 
+.thumbnail a:active,
+.thumbnail a:visited,
+.thumbnail a:link {
+    color: #95A5A6;
+    text-decoration: none;
+}
+
+.thumbnail a:hover {
+    color: #1ABC9C;
+    text-decoration: none;
+}
+
 .thumbnailParentSpan {
     width: 270px;
 }
