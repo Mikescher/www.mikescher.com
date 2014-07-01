@@ -1,6 +1,6 @@
 ###Components
 
-##Basic
+####Basic
 
 - Source (Simple Lever)
 - Target (Display)
