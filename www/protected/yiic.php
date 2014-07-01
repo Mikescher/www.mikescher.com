@@ -5,3 +5,7 @@ $yiic=dirname(__FILE__).'/../../framework/yiic.php';
 $config=dirname(__FILE__).'/config/console.php';
 
 require_once($yiic);
+
+// TODO-MS SharkSim  -> MS.de
+// TODO-MS BefunGen  -> MS.de
+// TODO-MS jClipCorn -> MS.de
