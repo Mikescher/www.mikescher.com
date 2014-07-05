@@ -20,8 +20,8 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 ?>
 
 <div class="container">
-	<?php if (! $model->enabled) echo TbHtml::alert(TbHtml::ALERT_COLOR_WARNING, TbHtml::b('Warning!') . '     	This programm is for normal users disabled'); ?>
-	<?php if (! $model->visible) echo TbHtml::alert(TbHtml::ALERT_COLOR_WARNING, TbHtml::b('Warning!') . '     	This programm is for normal users invisible'); ?>
+	<?php if (!$model->enabled) echo TbHtml::alert(TbHtml::ALERT_COLOR_WARNING, TbHtml::b('Warning!') . '     	This programm is for normal users disabled'); ?>
+	<?php if (!$model->visible) echo TbHtml::alert(TbHtml::ALERT_COLOR_WARNING, TbHtml::b('Warning!') . '     	This programm is for normal users invisible'); ?>
 
 	<div class="row">
 		<div class="span3">
@@ -63,7 +63,7 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 				<div class="text-right progview_inforow">
 					<?php if ($model->uses_absCanv): ?>
 						<a href="/programs/view/AbsCanvas">
-						<?php echo TbHtml::badge('AbsCanvas', array('color' => TbHtml::BADGE_COLOR_WARNING)); ?>
+							<?php echo TbHtml::badge('AbsCanvas', array('color' => TbHtml::BADGE_COLOR_WARNING)); ?>
 						</a>
 					<?php endif ?>
 
@@ -73,27 +73,14 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 		</div>
 
 		<div class="span6">
-			<div class="well">
-				<h1 class="text-center"><?php echo $model->Name; ?></h1>
-				<hr/>
-
-				<div class="markdownOwner">
-					<div>
-						<p>
-							<?php
-							$this->beginWidget('CMarkdown');
-
-							for ($i = 0; $i < 24; $i++)
-								echo $model->Description . '<br>';
-
-							$this->endWidget();
-							?>
-						</p>
-					</div>
-				</div>
-			</div>
+			<?php
+				$this->widget('ProgDescription',
+					[
+						'program' => $model,
+					]
+				);
+			?>
 		</div>
-
 
 		<div class="span3">
 			<div class="well">
@@ -106,12 +93,12 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 							'block' => true,
 							'color' => TbHtml::BUTTON_COLOR_PRIMARY,
 							'size' => TbHtml::BUTTON_SIZE_DEFAULT,
-							'url' => '#',
+							'url' => '#', //TODO-MS Add Download link
 						]);
 					?>
 
 					<?php
-					if (! empty($model->github_url))
+					if (!empty($model->github_url))
 						echo TbHtml::linkbutton('Github',
 							[
 								'block' => true,
@@ -122,7 +109,7 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 					?>
 
 					<?php
-					if (! empty($model->sourceforge_url))
+					if (!empty($model->sourceforge_url))
 						echo TbHtml::linkbutton('Sourceforge',
 							[
 								'block' => true,
@@ -133,7 +120,7 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 					?>
 
 					<?php
-					if (! empty($model->homepage_url))
+					if (!empty($model->homepage_url))
 						echo TbHtml::linkbutton('Homepage',
 							[
 								'block' => true,
@@ -150,7 +137,7 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 								'block' => true,
 								'color' => TbHtml::BUTTON_COLOR_SUCCESS,
 								'size' => TbHtml::BUTTON_SIZE_DEFAULT,
-								'url' => '#',
+								'url' => '#', //TODO-MS Add Highscore link
 							]);
 					?>
 				</div>

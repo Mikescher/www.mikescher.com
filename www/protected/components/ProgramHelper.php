@@ -99,4 +99,74 @@ class ProgramHelper {
 		return $progDropDown;
 	}
 
+	public static function convertDescriptionListToTabs($descriptions, $name) {
+		$tabs = array();
+
+		foreach($descriptions as $desc)
+		{
+			if ($desc['type'] === 0)
+			{
+				$tabs[] =
+					[
+						'label' => $desc['name'],
+						'items' => self::convertDescriptionListToTabs($desc['items'], $name),
+					];
+			}
+			else if (strcasecmp($desc['name'], 'index') == 0) // == 0 : true
+			{
+				$tabs[] =
+					[
+						'label' => $name,
+						'content' => self::getDescriptionMarkdownTab($desc['path']),
+						'active' => true,
+					];
+			}
+			else
+			{
+				$tabs[] =
+					[
+						'label' => $desc['name'],
+						'content' => self::getDescriptionMarkdownTab($desc['path']),
+					];
+			}
+		}
+
+		return $tabs;
+	}
+
+	public static function getDescriptionMarkdownTab($path)
+	{
+		$md = new CMarkdown;
+
+		$content = file_get_contents($path);
+
+		$result = '<div class="markdownOwner"><div><p>';
+		$result .= $md->transform($content);
+		$result .= '</p></div></div>';
+
+		return $result;
+	}
+
+	/**
+	 * @param $filename
+	 * @param $number
+	 * @return string
+	 */
+	public static function getIndexedFilename($filename, &$number)
+	{
+		$bn = basename($filename, '.markdown');
+
+		if ($bn[0] >= '0' && $bn[0] <= '9' && $bn[1] >= '0' && $bn[1] <= '9' && $bn[2] == '_')
+		{
+			$name = substr($bn, 3);
+			$number = substr($bn, 0, 2) + 0;
+		}
+		else
+		{
+			$name = $bn;
+			$number = -1;
+		}
+
+		return $name;
+	}
 } 

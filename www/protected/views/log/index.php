@@ -21,7 +21,7 @@ $this->selectedNav = '';
 	<div class="accordion" id="lca">
 		<?php
 		$i = 0;
-		foreach($logs as $logelem) { //TODO-MS Translate all log things to eng
+		foreach($logs as $logelem) {
 			$i++;
 
 			$this->widget('ExpandedLogHeader',

@@ -50,7 +50,6 @@ class Program extends CActiveRecord
 			array('update_identifier', 'length', 'max'=>64),
 			array('programming_lang', 'length', 'max'=>16),
 			// The following rule is used by search().
-			// @TODO-MS Please remove those attributes that should not be searched.
 			array('ID, Name, Thumbnailname, Downloads, Kategorie, Sterne, enabled, visible, Language, programming_lang, Description, add_date, download_url, sourceforge_url, homepage_url, github_url, uses_absCanv, update_identifier, highscore_gid', 'safe', 'on'=>'search'),
 		);
 	}
@@ -203,5 +202,48 @@ class Program extends CActiveRecord
 		}
 
 		return $out;
+	}
+
+	/**
+	 * @return array()
+	 */
+	public function getDescriptions()
+	{
+		$result = array();
+
+		$path = "data/programs/desc/" . $this->Name . "/*";
+
+		$tl_paths = glob($path, GLOB_MARK);
+
+		foreach ($tl_paths as $fn)
+		{
+			if (MsHelper::endsWith($fn, "\\"))
+			{
+				$bl_paths = glob($fn . '*.markdown');
+
+				$bl_arr = array();
+				foreach ($bl_paths as $bl_fn)
+				{
+					$bl_arr[] = ['type' => 1, 'name' => ProgramHelper::getIndexedFilename($bl_fn, $num), 'path' => $bl_fn];
+				}
+
+				$result[] = ['type' => 0,'name' => ProgramHelper::getIndexedFilename($fn, $num), 'items' => $bl_arr];
+			}
+			else if (MsHelper::endsWith($fn, ".markdown"))
+			{
+				$ifn = ProgramHelper::getIndexedFilename($fn, $num);
+
+				if (strcasecmp($ifn, "index") == 0) // == 0 : true
+				{
+					array_unshift($result, ['type' => 1,'name' => $ifn, 'path' => $fn]);
+				}
+				else
+				{
+					$result[] = ['type' => 1,'name' => $ifn, 'path' => $fn];
+				}
+			}
+		}
+
+		return $result;
 	}
 }
