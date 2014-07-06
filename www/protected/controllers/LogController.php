@@ -13,7 +13,6 @@ class LogController extends MsController
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -137,7 +136,7 @@ class LogController extends MsController
 	 */
 	public function actionDelete($id)
 	{
-		if (Yii::app()->request->isPostRequest) {
+//		if (Yii::app()->request->isPostRequest) {
 			// we only allow deletion via POST request
 			$this->loadModel($id)->delete();
 
@@ -145,9 +144,9 @@ class LogController extends MsController
 			if (!isset($_GET['ajax'])) {
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 			}
-		} else {
-		throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
+//		} else {
+//		throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+//	}
 	}
 
 	/**

@@ -246,4 +246,8 @@ class Program extends CActiveRecord
 
 		return $result;
 	}
+
+	public function deleteDescriptions() {
+		MsHelper::deleteDir("data/programs/desc/" . $this->Name . "/");
+	}
 }

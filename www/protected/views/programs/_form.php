@@ -23,15 +23,30 @@
 
 			<?php echo $form->textFieldControlGroup($model,'Thumbnailname',array('rows'=>6,'span'=>8)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'Downloads',array('span'=>5)); ?>
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'Downloads',array('span'=>5, 'value' => '0'));
+			else
+				echo $form->textFieldControlGroup($model,'Downloads',array('span'=>5, ));
+			?>
 
             <?php echo $form->textFieldControlGroup($model,'Kategorie',array('rows'=>6,'span'=>8)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'Sterne',array('span'=>5)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'enabled',array('span'=>5)); ?>
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'enabled',array('span'=>5, 'value' => '0'));
+			else
+				echo $form->textFieldControlGroup($model,'enabled',array('span'=>5, ));
+			?>
 
-            <?php echo $form->textFieldControlGroup($model,'visible',array('span'=>5)); ?>
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'visible',array('span'=>5, 'value' => '0'));
+			else
+				echo $form->textFieldControlGroup($model,'visible',array('span'=>5, ));
+			?>
 
             <?php echo $form->textFieldControlGroup($model,'Language',array('rows'=>6,'span'=>8)); ?>
 
@@ -39,7 +54,12 @@
 
 			<?php echo $form->textFieldControlGroup($model,'programming_lang',array('rows'=>6,'span'=>8)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'add_date',array('span'=>5)); ?>
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'add_date',array('span'=>5, 'value' => date('Y-m-d')));
+			else
+				echo $form->textFieldControlGroup($model,'add_date',array('span'=>5, ));
+			?>
 
             <?php echo $form->textFieldControlGroup($model,'download_url',array('rows'=>6,'span'=>8)); ?>
 
@@ -49,7 +69,12 @@
 
             <?php echo $form->textFieldControlGroup($model,'github_url',array('rows'=>6,'span'=>8)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'uses_absCanv',array('span'=>5)); ?>
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'uses_absCanv',array('span'=>5, 'value' => date('Y-m-d')));
+			else
+				echo $form->textFieldControlGroup($model,'uses_absCanv',array('span'=>5, ));
+			?>
 
             <?php echo $form->textFieldControlGroup($model,'update_identifier',array('span'=>5,'maxlength'=>28)); ?>
 
