@@ -21,6 +21,7 @@
 
 	<?php Yii::app()->bootstrap->register(); ?>
 	<link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/prism.css"/>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -98,6 +99,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/javascript/scripts.js"></script>
+<script src="/javascript/prism.js"></script>
 
 <?php
 foreach ($this->js_scripts as $script) {

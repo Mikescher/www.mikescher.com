@@ -17,11 +17,7 @@
 			<p>
 				<?php
 
-				$this->beginWidget('CMarkdown');
-
-				echo $this->content;
-
-				$this->endWidget();
+				echo ParsedownHelper::parse($this->content);
 
 				?>
 			</p>

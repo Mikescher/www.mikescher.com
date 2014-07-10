@@ -136,12 +136,10 @@ class ProgramHelper {
 
 	public static function getDescriptionMarkdownTab($path)
 	{
-		$md = new CMarkdown;
-
 		$content = file_get_contents($path);
 
 		$result = '<div class="markdownOwner"><div><p>';
-		$result .= $md->transform($content);
+		$result .=  ParsedownHelper::parse($content);
 		$result .= '</p></div></div>';
 
 		return $result;
