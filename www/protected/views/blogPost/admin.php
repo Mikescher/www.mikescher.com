@@ -1,12 +1,16 @@
 <?php
-/* @var $this ProgramsController */
-/* @var $model Program */
+/* @var $this BlogPostController */
+/* @var $model BlogPost */
 
-$this->pageTitle = 'Manage Programs - ' . Yii::app()->name;
 
 $this->breadcrumbs=array(
-	'Programs'=>array('index'),
+	'Blog Posts'=>array('index'),
 	'Manage',
+);
+
+$this->menu=array(
+	array('label'=>'List BlogPost', 'url'=>array('index')),
+	array('label'=>'Create BlogPost', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,18 +19,15 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#program-grid').yiiGridView('update', {
+	$('#blog-post-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
 });
 ");
-
-
-
 ?>
 
-<h1>Manage Program</h1>
+<h1>Manage Blog Posts</h1>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -40,33 +41,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
-<br><br>
+
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'type' => MsHtml::GRID_TYPE_BORDERED,
-	'id'=>'program-grid',
+	'id'=>'blog-post-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'ID',
-		'Name',
-		'Downloads',
-		'Kategorie',
-		'Sterne',
-		'enabled',
-		/*
-		'visible',
-		'Language',
-		'Description',
-		'add_date',
-		'download_url',
-		'viewable_code',
-		'sourceforge_url',
-		'homepage_url',
-		'github_url',
-		'uses_absCanv',
-		'update_identifier',
-		'highscore_gid',
-		*/
+		'Date',
+		'Content',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

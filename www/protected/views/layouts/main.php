@@ -51,8 +51,8 @@
 						'items' =>
 							[
 								['label' => 'Home', 'url' => '/', 'active' => ($this->selectedNav === 'index')],
-								['label' => 'Blog', 'url' => '#', 'active' => ($this->selectedNav === 'blog')],
-								['label' => 'Programs', 'url' => '/programs/', 'active' => ($this->selectedNav === 'prog')],
+								['label' => 'Blog', 'url' => '/blog', 'active' => ($this->selectedNav === 'blog')],
+								['label' => 'Programs', 'url' => '/programs', 'active' => ($this->selectedNav === 'prog')],
 								['label' => '', 'items' => ProgramHelper::GetProgDropDownList(), 'htmlOptions' => ['class' => 'dropdown-append']],
 								['label' => 'About', 'url' => '/about', 'active' => ($this->selectedNav === 'about')],
 								['label' => '[[Log "' . Yii::app()->user->name . '" out]]', 'url' => '/logout', 'visible' => !Yii::app()->user->isGuest, 'htmlOptions' => ['class' => 'cstm-main-navbar-highlight']]

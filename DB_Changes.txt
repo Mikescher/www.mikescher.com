@@ -22,6 +22,8 @@ updates   -> Adjust 'Link'
 updates   -> 'Name' Type is VARCHAR(64)
 updates   -> Removed col 'Log'
 
+ms4_log -> Added
+
 updateslog   -> new table
 <?php
 $rows=Yii::app()->db->createCommand('SELECT * FROM {{updates}}')->queryAll();

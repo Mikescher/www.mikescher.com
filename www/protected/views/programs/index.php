@@ -14,6 +14,9 @@ $this->pageTitle = 'Programs - ' . Yii::app()->name;
 $this->breadcrumbs = array(
 	'Programs',
 );
+
+$this->selectedNav = 'prog';
+
 ?>
 
 <div class="container">

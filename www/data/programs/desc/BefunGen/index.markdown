@@ -22,7 +22,7 @@ It's an IDE in which you can write a program in *TextFunge*, and compile it to v
 > **NOTE:**  
 >  
 > While the generated Code practically is Befunge-98, you can use it in nearly every Befunge-93 interpreter.  
-> Because it doesn't use a single command, which was not defined in Befunge-93, the only non-Befunge-93 feature is the extended filesize.  
+> Because it doesn't use a single command, which was not defined in Befunge-93, the only non-Befunge-93 feature is the extended file size.  
 > Because this tool can generate fairly big Befunge-93 code, it often exceeds the size of 80x25, and is so no longer totally valid Befunge-93 code.
 > But for the sake of confusion I will refer in the rest of these documents to it as Befunge-93 code.
 

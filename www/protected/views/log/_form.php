@@ -35,7 +35,7 @@
 					'type'=>'POST',
 					'data' => ['content'=> 'js: $("#Log_content").val()'],
 					'update' => '#markdownAjaxContent',
-                	'error'=>'function(msg){alert("An error has happened");}',
+                	'error'=>'function(msg){alert("An error has happened" + JSON.stringify(msg));}',
 				]); ?>
 
 			<br>

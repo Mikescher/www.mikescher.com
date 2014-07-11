@@ -81,6 +81,14 @@ return ArrayX::merge(
 								'update' => 'api/update',
 								'update/<Name>' => 'api/update2',
 
+								'blog/' => 'blogPost/index',
+								'blog/ajaxMarkdownPreview' => 'blogPost/ajaxMarkdownPreview',
+								'blog/admin' => 'blogPost/admin',
+								'blog/create' => 'blogPost/create',
+								'blog/index' => 'blogPost/index',
+								'blog/update' => 'blogPost/update',
+								'blog/<id>' => 'blogPost/view/id/<id>',
+
 								'downloads/details.php' => 'programs/index', 	// Compatibility
 								'downloads/downloads.php' => 'programs/index', 	// Compatibility
 								'downloads/<id>' => 'programs/view', 			// Compatibility
