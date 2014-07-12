@@ -1,6 +1,6 @@
 <?php
 /* @var $this BlogPostController */
-/* @var $dataProvider CActiveDataProvider */
+/* @var $blogposts BlogPost[] */
 ?>
 
 <?php
@@ -15,9 +15,22 @@ $this->selectedNav = 'blog';
 
 ?>
 
-<h1>Blog Posts</h1>
+<div class="container">
 
-<?php $this->widget('bootstrap.widgets.TbListView',array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+	<?php echo MsHtml::pageHeader("Blog", "My personal programming blog"); ?>
+
+	<?php
+	$i = 0;
+	foreach($blogposts as $blogpost) {
+		$i++;
+
+		$this->widget('BlogLink',
+			[
+				'date' => new DateTime($blogpost->Date),
+				'caption' => $blogpost->Title,
+				'link' => $blogpost->getLink(),
+			]);
+	}
+	?>
+
+</div>

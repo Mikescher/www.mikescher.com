@@ -63,64 +63,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/_form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1309" selection-end="1485" vertical-scroll-proportion="-24.846153" vertical-offset="0" max-vertical-offset="969">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/protected/config/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="63" selection-start="2193" selection-end="2193" vertical-scroll-proportion="-17.653847" vertical-offset="969" max-vertical-offset="2261">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_ajaxMarkdownPreview.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/_ajaxMarkdownPreview.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="25" selection-start="32" selection-end="32" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="136">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogPostController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/protected/controllers/BlogPostController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="42" selection-start="3323" selection-end="3323" vertical-scroll-proportion="-24.846153" vertical-offset="1683" max-vertical-offset="3332">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="23" selection-start="258" selection-end="258" vertical-scroll-proportion="0.28619528" vertical-offset="0" max-vertical-offset="891">
+            <state line="16" column="0" selection-start="259" selection-end="259" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="476">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/protected/controllers/LogController.php">
+      <file leaf-file-name="admin.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="40" selection-start="516" selection-end="539" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="3400">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/protected/views/log/_form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="95" selection-start="1422" selection-end="1422" vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="1054">
+            <state line="20" column="41" selection-start="463" selection-end="463" vertical-scroll-proportion="0.3815937" vertical-offset="0" max-vertical-offset="1054">
               <folding />
             </state>
           </provider>
@@ -139,9 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/www/protected/views/msmain/login.php" />
-        <option value="$PROJECT_DIR$/www/protected/views/programs/_search.php" />
-        <option value="$PROJECT_DIR$/www/data/programs/.gitignore" />
         <option value="$PROJECT_DIR$/www/protected/models/ProgramUpdatesLog.php" />
         <option value="$PROJECT_DIR$/www/protected/controllers/ProgramUpdatesController.php" />
         <option value="$PROJECT_DIR$/www/protected/views/programupdates/index.php" />
@@ -174,8 +126,6 @@
         <option value="$PROJECT_DIR$/www/protected/components/ProgramHelper.php" />
         <option value="$PROJECT_DIR$/www/protected/components/widgets/views/expandedLogHeader.php" />
         <option value="$PROJECT_DIR$/www/protected/views/log/_ajaxMarkdownPreview.php" />
-        <option value="$PROJECT_DIR$/www/protected/models/BlogPost.php" />
-        <option value="$PROJECT_DIR$/www/protected/views/blogPost/index.php" />
         <option value="$PROJECT_DIR$/www/protected/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/www/protected/views/programs/index.php" />
         <option value="$PROJECT_DIR$/www/protected/views/programs/admin.php" />
@@ -187,9 +137,14 @@
         <option value="$PROJECT_DIR$/www/protected/config/main.php" />
         <option value="$PROJECT_DIR$/www/protected/views/blogPost/_form.php" />
         <option value="$PROJECT_DIR$/www/protected/views/log/_form.php" />
-        <option value="$PROJECT_DIR$/www/protected/controllers/BlogPostController.php" />
-        <option value="$PROJECT_DIR$/www/protected/views/blogPost/view.php" />
         <option value="$PROJECT_DIR$/www/javascript/prism.js" />
+        <option value="$PROJECT_DIR$/www/protected/controllers/BlogPostController.php" />
+        <option value="$PROJECT_DIR$/www/protected/models/BlogPost.php" />
+        <option value="$PROJECT_DIR$/www/protected/components/widgets/BlogLink.php" />
+        <option value="$PROJECT_DIR$/www/protected/views/blogPost/index.php" />
+        <option value="$PROJECT_DIR$/www/protected/components/widgets/views/blogLink.php" />
+        <option value="$PROJECT_DIR$/www/protected/views/blogPost/view.php" />
+        <option value="$PROJECT_DIR$/www/protected/views/blogPost/admin.php" />
       </list>
     </option>
   </component>
@@ -530,6 +485,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www.mikescher.de" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www.mikescher.de" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widgets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www.mikescher.de" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www.mikescher.de" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widgets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www.mikescher.de" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www.mikescher.de" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="javascript" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -573,10 +606,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Eigene Dateien\Dropbox\Programming\Web\Mikescher.de\www.mikescher.de\www\protected\views\blogPost" />
-      <recent name="E:\Eigene Dateien\Dropbox\Programming\Web\Mikescher.de\www.mikescher.de\www\protected\views\programs" />
       <recent name="E:\Eigene Dateien\Dropbox\Programming\Web\Mikescher.de\www.mikescher.de\www\protected\components\widgets\views" />
       <recent name="E:\Eigene Dateien\Dropbox\Programming\Web\Mikescher.de\www.mikescher.de\www\protected\components\widgets" />
+      <recent name="E:\Eigene Dateien\Dropbox\Programming\Web\Mikescher.de\www.mikescher.de\www\protected\views\blogPost" />
+      <recent name="E:\Eigene Dateien\Dropbox\Programming\Web\Mikescher.de\www.mikescher.de\www\protected\views\programs" />
       <recent name="E:\Eigene Dateien\Dropbox\Programming\Web\Mikescher.de\www.mikescher.de\www\protected\views\api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -759,21 +792,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/protected/extensions/bootstrap/helpers/TbHtml.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3682" column="27" selection-start="146162" selection-end="146162" vertical-scroll-proportion="0.52136755" vertical-offset="62170" max-vertical-offset="74018" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/components/widgets/ThumbnailProgPreview.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="11" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="459" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/components/widgets/views/thumbnailProgPreview.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="60" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1394" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/protected/yiic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="43" selection-start="218" selection-end="218" vertical-scroll-proportion="0.23247863" vertical-offset="0" max-vertical-offset="585" />
@@ -846,13 +864,6 @@
         <state line="40" column="5" selection-start="679" selection-end="679" vertical-scroll-proportion="0.67080045" vertical-offset="0" max-vertical-offset="887" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/components/MsHtml.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="156" selection-end="156" vertical-scroll-proportion="0.13416009" vertical-offset="0" max-vertical-offset="1326">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/protected/components/parsedown/ParsedownExtra.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.7598648" vertical-offset="2448" max-vertical-offset="6222" />
@@ -880,20 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/components/widgets/views/expandedLogHeader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="60" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/models/BlogPost.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="19" selection-start="192" selection-end="198" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="1785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/protected/controllers/MSMainController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="33" selection-start="40" selection-end="40" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="2720">
@@ -915,23 +912,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="26" selection-start="233" selection-end="233" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="75" selection-start="1859" selection-end="1859" vertical-scroll-proportion="-9.807693" vertical-offset="663" max-vertical-offset="2006">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
@@ -985,30 +968,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/models/Program.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="20" selection-start="5689" selection-end="5689" vertical-scroll-proportion="0.32460135" vertical-offset="2673" max-vertical-offset="4403">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="84" column="63" selection-start="2193" selection-end="2193" vertical-scroll-proportion="-17.653847" vertical-offset="969" max-vertical-offset="2261">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/controllers/LogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="40" selection-start="516" selection-end="539" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="3400">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/views/log/_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="95" selection-start="1422" selection-end="1422" vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
@@ -1041,20 +1003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/controllers/BlogPostController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="42" selection-start="3323" selection-end="3323" vertical-scroll-proportion="-24.846153" vertical-offset="1683" max-vertical-offset="3332">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/protected/views/log/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="205" selection-end="229" vertical-scroll-proportion="0.30527496" vertical-offset="0" max-vertical-offset="891">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/javascript/prism.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="3" selection-start="17464" selection-end="17464" vertical-scroll-proportion="0.6545866" vertical-offset="0" max-vertical-offset="883">
@@ -1071,9 +1019,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/views/log/_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="95" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.70594835" vertical-offset="0" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/views/log/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="205" selection-end="709" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/controllers/LogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="48" selection-start="855" selection-end="963" vertical-scroll-proportion="0.95398426" vertical-offset="0" max-vertical-offset="3400">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/controllers/BlogPostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="29" selection-start="3079" selection-end="3079" vertical-scroll-proportion="-13.076923" vertical-offset="1836" max-vertical-offset="3434">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/models/Program.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="0" selection-start="5643" selection-end="5745" vertical-scroll-proportion="-9.0" vertical-offset="2673" max-vertical-offset="4403">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/models/Log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3277217" vertical-offset="1183" max-vertical-offset="2074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/components/widgets/views/expandedLogHeader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="36" selection-start="291" selection-end="291" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/components/MsHtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="64" selection-start="616" selection-end="636" vertical-scroll-proportion="0.43883276" vertical-offset="0" max-vertical-offset="1326">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/components/widgets/views/blogLink.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="56" selection-start="289" selection-end="289" vertical-scroll-proportion="0.1335578" vertical-offset="0" max-vertical-offset="891">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/components/widgets/BlogLink.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="5" selection-start="228" selection-end="228" vertical-scroll-proportion="0.22895622" vertical-offset="0" max-vertical-offset="891">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="228" selection-end="228" vertical-scroll-proportion="0.30527496" vertical-offset="0" max-vertical-offset="891">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/models/BlogPost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="7" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.8664422" vertical-offset="911" max-vertical-offset="1904">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="23" selection-start="258" selection-end="258" vertical-scroll-proportion="0.28619528" vertical-offset="0" max-vertical-offset="891">
+        <state line="16" column="0" selection-start="259" selection-end="259" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/protected/views/blogPost/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="41" selection-start="463" selection-end="463" vertical-scroll-proportion="0.3815937" vertical-offset="0" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>

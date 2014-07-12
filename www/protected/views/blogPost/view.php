@@ -15,8 +15,6 @@ $this->breadcrumbs = array(
 
 <div class="container">
 
-	<h1>View BlogPost #<?php echo $model->ID; ?></h1>
-
 	<div class="well markdownOwner" id="markdownAjaxContent">
 		<?php echo ParsedownHelper::parse($model->Content); ?>
 	</div>

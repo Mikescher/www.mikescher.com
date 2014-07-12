@@ -125,10 +125,16 @@ class BlogPostController extends MSController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('BlogPost');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+		$criteria = new CDbCriteria;
+		$criteria->order = "Date DESC";
+
+		$all = BlogPost::model()->findAll($criteria);
+
+		$this->render('index',
+			[
+				'blogposts' => $all,
+			]
+		);
 	}
 
 	public function actionAjaxMarkdownPreview() {

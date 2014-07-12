@@ -96,4 +96,11 @@ class BlogPost extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getLink() {
+		return '/blog/' . $this->ID;
+	}
 }
