@@ -34,5 +34,6 @@ Prism.languages.csharp=Prism.languages.extend("clike",{keyword:/\b(abstract|as|b
  * My own languages
  */
 Prism.languages.befunge = {};;
+Prism.languages.plain = {};;
 
 (function(){if(!self.Prism){return}var e={csharp:"C#",cpp:"C++"};Prism.hooks.add("before-highlight",function(t){var n=e[t.language]||t.language;t.element.setAttribute("data-language",n)})})();
