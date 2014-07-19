@@ -97,10 +97,26 @@ class BlogPost extends CActiveRecord
 		return parent::model($className);
 	}
 
+	//####################################
+	//########### MY FUNCTIONS ###########
+	//####################################
+
+	/**
+	 * @return DateTime
+	 */
+	public function getDateTime() {
+		return new DateTime($this->Date);
+	}
+
 	/**
 	 * @return string
 	 */
 	public function getLink() {
-		return '/blog/' . $this->ID;
+		$name = $this->Title;
+
+		$name = str_replace(' ', '_', $name);
+		$name = preg_replace("/[^A-Za-z0-9_]/", '', $name);
+
+		return '/blog/' . $this->ID . '/' . $name;
 	}
 }

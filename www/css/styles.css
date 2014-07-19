@@ -636,3 +636,35 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
 
     border-radius: 6px 6px 0px 0px;
 }
+
+/* blog/view
+-------------------------------------------------- */
+
+.blogOwner {
+    border: 1px solid #D7E0E2;
+
+    padding-top: 0px;
+}
+
+.blogFooter {
+    background-color: #D7E0E2;
+
+    margin-top: 40px;
+
+    margin-bottom: -19px;
+    margin-left: -19px;
+    margin-right: -19px;
+
+    min-height: 22px;
+    padding: 2px 8px;
+}
+
+.blogFooterLeft {
+    float:left;
+
+    font-weight: bold;
+}
+
+.blogFooterRight {
+    float: right;
+}

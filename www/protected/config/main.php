@@ -88,6 +88,7 @@ return ArrayX::merge(
 								'blog/index' => 'blogPost/index',
 								'blog/update' => 'blogPost/update',
 								'blog/<id>' => 'blogPost/view/id/<id>',
+								'blog/<id>/<name>' => 'blogPost/view/id/<id>',
 
 								'downloads/details.php' => 'programs/index', 	// Compatibility
 								'downloads/downloads.php' => 'programs/index', 	// Compatibility

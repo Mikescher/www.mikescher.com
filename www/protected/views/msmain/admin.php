@@ -55,15 +55,15 @@ $this->breadcrumbs =
 			); ?>
 		</div>
 
-		<div class="span3" style="display: none">
+		<div class="span3">
 			<?php
-			echo MsHtml::lead('Programs');
+			echo MsHtml::lead('BlogPosts');
 
 			echo MsHtml::stackedTabs(
 				[
-					['label' => 'Home', 'url' => '#'],
-					['label' => 'Profile', 'url' => '#'],
-					['label' => 'Messages', 'url' => '#'],
+					['label' => 'Show', 'url' => '/blog'],
+					['label' => 'Manage', 'url' => '/blog/admin'],
+					['label' => 'Create', 'url' => '/blog/create'],
 				]
 			); ?>
 		</div>
