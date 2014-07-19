@@ -70,6 +70,7 @@ return ArrayX::merge(
 								'programs/' => ['programs/index', 'defaultParams' => ['categoryfilter' => '']],
 								'programs/cat/<categoryfilter>' => ['programs/index', 'defaultParams' => ['categoryfilter' => '']],
 								'programs/view/<id>' => 'programs/view',
+								'programs/download/<id>' => 'programs/download',
 
 								'log/' => ['log/index', 'defaultParams' => ['logid' => '-1']],
 								'log/<logid:[0-9]+>' => ['log/index', 'defaultParams' => ['logid' => '-1']],

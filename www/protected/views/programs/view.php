@@ -93,7 +93,8 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 							'block' => true,
 							'color' => TbHtml::BUTTON_COLOR_PRIMARY,
 							'size' => TbHtml::BUTTON_SIZE_DEFAULT,
-							'url' => '#', //TODO-MS Add Download link
+							'Content' => 'nofollow',
+							'url' => $model->getDownloadLink(), //TODO-MS Add Download link
 						]);
 					?>
 

@@ -177,6 +177,20 @@ class Program extends CActiveRecord
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getDownloadLink() {
+		return '/programs/download/' . $this->Name;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDirectDownloadLink() {
+		return '/data/programs/' . $this->Name . '.zip' ;
+	}
+
+	/**
 	 * @return string[]
 	 */
 	public function getLanguageList() {

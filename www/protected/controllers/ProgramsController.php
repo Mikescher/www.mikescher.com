@@ -28,7 +28,7 @@ class ProgramsController extends MSController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'download'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -70,6 +70,34 @@ class ProgramsController extends MSController
 		$this->render('view',array(
 			'model'=>$model,
 		));
+	}
+
+	/**
+	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
+	 * @throws CHttpException when $id is integer
+	 */
+	public function actionDownload($id)
+	{
+		$this->layout = '//layouts/main';
+
+		if (is_numeric($id))
+		{
+			if (Yii::app()->user->name == 'admin') {
+				$model = $this->loadModelByID($id);
+			} else {
+				throw new CHttpException(400, "You can't access a program by ID");
+			}
+		}
+		else
+		{
+			$model = $this->loadModelByName($id);
+		}
+
+		$model->Downloads++;
+		$model->save();
+
+		$this->redirect($model->getDirectDownloadLink());
 	}
 
 	/**
