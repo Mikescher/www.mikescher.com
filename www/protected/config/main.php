@@ -30,6 +30,7 @@ return ArrayX::merge(
 		'import' =>
 			[
 				'application.models.*',
+				'application.extensions.*',
 				'application.components.*',
 				'application.components.widgets.*',
 				'application.components.extendedGitGraph.*',
@@ -132,6 +133,10 @@ return ArrayX::merge(
 					[
 						'tablePrefix' => 'ms4_',
 					],
+
+				'counter' => array(
+					'class' => 'UserCounter',
+				),
 			],
 
 		// application-level parameters that can be accessed

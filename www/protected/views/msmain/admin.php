@@ -88,6 +88,7 @@ $this->breadcrumbs =
 	</div>
 
 	<div class="well well-small">
+
 		<h2>Program of the day</h2>
 		<hr>
 
