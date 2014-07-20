@@ -204,6 +204,9 @@ class Program extends CActiveRecord
 		return new DateTime($this->add_date);
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getStarHTML()
 	{
 		$out = '';
@@ -261,7 +264,16 @@ class Program extends CActiveRecord
 		return $result;
 	}
 
-	public function deleteDescriptions() {
+	public function deleteDescriptions()
+	{
 		MsHelper::deleteDir("data/programs/desc/" . $this->Name . "/");
+	}
+
+	/**
+	 * @return HighscoreGames
+	 */
+	public function getHighscoreGame()
+	{
+		return HighscoreGames::model()->findByPk($this->highscore_gid);
 	}
 }

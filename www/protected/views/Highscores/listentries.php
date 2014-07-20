@@ -26,9 +26,9 @@
 			border-spacing: 0px;
 		}
 
-		table td {
-			padding: 2px 0px;
-		}
+		table td { padding: 2px 0px; }
+		table td { width: 25%; }
+		table td:last-child { width: 50%; }
 
 		caption {
 			font-weight: bolder;

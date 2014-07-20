@@ -637,6 +637,10 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     border-radius: 6px 6px 0px 0px;
 }
 
+.progview_donwloadbtns > .btn-primary {
+    font-weight: 900;
+}
+
 /* blog/view
 -------------------------------------------------- */
 

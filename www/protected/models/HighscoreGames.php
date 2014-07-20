@@ -115,4 +115,15 @@ class HighscoreGames extends CActiveRecord
 	{
 		return '/Highscores/list?gameid=' . $this->ID;
 	}
+
+	/**
+	 * @return HighscoreEntries
+	 */
+	public function getMaximumScore()
+	{
+		if (count($this->ENTRIES) > 0)
+			return $this->ENTRIES[0];
+		else
+			return null;
+	}
 }

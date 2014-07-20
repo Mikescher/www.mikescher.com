@@ -39,6 +39,12 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 							<td>Downloads:</td>
 							<td><?php echo TbHtml::badge($model->Downloads, array('color' => TbHtml::BADGE_COLOR_SUCCESS)); ?></td>
 						</tr>
+						<?php if ($model->highscore_gid >= 0): ?>
+							<tr>
+								<td>Highscore:</td>
+								<td><?php echo TbHtml::badge($model->getHighscoreGame()->getMaximumScore()->POINTS, array('color' => TbHtml::BADGE_COLOR_SUCCESS)); ?></td>
+							</tr>
+						<?php endif ?>
 						<tr>
 							<td>Languages:</td>
 							<td><?php foreach ($model->getLanguageList() as $lang) echo TbHtml::badge($lang, array('color' => TbHtml::BADGE_COLOR_INFO)); ?></td>
@@ -53,10 +59,6 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 								<td><?php echo TbHtml::badge($model->version->Version, array('color' => TbHtml::BADGE_COLOR_INFO)); ?></td>
 							</tr>
 						<?php endif ?>
-						<?php
-						// TODO-MS Add Highscore Tables to MVC
-						// TODO-MS Show highest score when highscore_gid is set
-						?>
 					</table>
 				</div>
 
@@ -138,7 +140,7 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 								'block' => true,
 								'color' => TbHtml::BUTTON_COLOR_SUCCESS,
 								'size' => TbHtml::BUTTON_SIZE_DEFAULT,
-								'url' => '#', //TODO-MS Add Highscore link
+								'url' => '/Highscores/list?gameid=' . $model->highscore_gid, //TODO-MS Add Highscore link
 							]);
 					?>
 				</div>
