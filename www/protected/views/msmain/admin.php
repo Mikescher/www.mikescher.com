@@ -123,4 +123,15 @@ $this->breadcrumbs =
 		); ?>
 
 	</div>
+
+	<div class="well well-small">
+		<h2>Hit counter</h2>
+
+		online: <?php echo Yii::app()->counter->getOnline(); ?><br />
+		today: <?php echo Yii::app()->counter->getToday(); ?><br />
+		yesterday: <?php echo Yii::app()->counter->getYesterday(); ?><br />
+		total: <?php echo Yii::app()->counter->getTotal(); ?><br />
+		maximum: <?php echo Yii::app()->counter->getMaximal(); ?><br />
+		date for maximum: <?php echo date('d.m.Y', Yii::app()->counter->getMaximalTime()); ?>
+	</div>
 </div>
