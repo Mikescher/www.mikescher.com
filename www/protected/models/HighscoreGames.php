@@ -1,23 +1,22 @@
 <?php
 
 /**
- * This is the model class for table "{{updates}}".
+ * This is the model class for table "{{highscoregames}}".
  *
- * The followings are the available columns in table '{{updates}}':
- * @property string $Name
- * @property string $Version
- * @property string $Link
- *
- * @property ProgramUpdatesLog[] $log
+ * The followings are the available columns in table '{{highscoregames}}':
+ * @property integer $ID
+ * @property string $NAME
+ * @property string $SALT
+ * @property HighscoreEntries[] $ENTRIES
  */
-class ProgramUpdates extends CActiveRecord
+class HighscoreGames extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{updates}}';
+		return '{{highscoregames}}';
 	}
 
 	/**
@@ -28,10 +27,11 @@ class ProgramUpdates extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Version, Link', 'required'),
-			array('Name', 'length', 'max'=>64),
+			array('NAME, SALT', 'required'),
+			array('NAME', 'length', 'max'=>63),
+			array('SALT', 'length', 'max'=>6),
 			// The following rule is used by search().
-			array('Name, Version, Link', 'safe', 'on'=>'search'),
+			array('ID, NAME', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -43,14 +43,15 @@ class ProgramUpdates extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'log' =>
-			[
-				self::HAS_MANY,
-				'ProgramUpdatesLog',
+			'ENTRIES' =>
 				[
-					'programname' => 'Name'
-				]
-			],
+					self::HAS_MANY,
+					'HighscoreEntries',
+					[
+						'GAME_ID' => 'ID'
+					],
+					'order'=>'POINTS DESC'
+				],
 		);
 	}
 
@@ -60,9 +61,9 @@ class ProgramUpdates extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'Name' => 'Name',
-			'Version' => 'Version',
-			'Link' => 'Link',
+			'ID' => 'ID',
+			'NAME' => 'Name',
+			'SALT' => 'Salt',
 		);
 	}
 
@@ -80,11 +81,12 @@ class ProgramUpdates extends CActiveRecord
 	 */
 	public function search()
 	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('Name',$this->Name,true);
-		$criteria->compare('Version',$this->Version,true);
-		$criteria->compare('Link',$this->Link,true);
+		$criteria->compare('ID',$this->ID);
+		$criteria->compare('NAME',$this->NAME,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -95,10 +97,22 @@ class ProgramUpdates extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ProgramUpdates the static model class
+	 * @return HighscoreGames the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	//####################################
+	//########### MY FUNCTIONS ###########
+	//####################################
+
+	/**
+	 * @return string
+	 */
+	public function getListLink()
+	{
+		return '/Highscores/list?gameid=' . $this->ID;
 	}
 }

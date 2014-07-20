@@ -24,6 +24,12 @@ updates   -> Removed col 'Log'
 
 ms4_log -> Added
 
+entrys -> ms4_highscoreentries
+games -> ms4_highscoregames
+ms4_highscoreentries.IP -> length = 41
+
+
+
 updateslog   -> new table
 <?php
 $rows=Yii::app()->db->createCommand('SELECT * FROM {{updates}}')->queryAll();

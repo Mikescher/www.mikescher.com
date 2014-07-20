@@ -51,4 +51,9 @@ class APIController extends MSController
 
 		$this->render('update', ['data' => $data]);
 	}
+
+	public function actionTest()
+	{
+		$this->render('test', []);
+	}
 }
