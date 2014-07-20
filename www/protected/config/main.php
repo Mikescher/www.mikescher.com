@@ -48,6 +48,14 @@ return ArrayX::merge(
 		// application components
 		'components' =>
 			[
+				'hitcounter' =>
+					[
+						'class' => 'CHitCounter',
+
+						'table_stats' => '{{hc_stats}}',
+						'table_today' => '{{hc_today}}',
+					],
+
 				'bootstrap' =>
 					[
 						'class' => 'bootstrap.components.TbApi',

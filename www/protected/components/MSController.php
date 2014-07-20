@@ -14,4 +14,11 @@ class MSController extends CController
 	public $js_scripts = array();
 
 	public $title = null;
+
+
+	public function beforeAction($e){
+		Yii::app()->hitcounter->increment();
+
+		return parent::beforeAction($e);
+	}
 }

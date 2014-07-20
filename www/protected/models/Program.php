@@ -187,7 +187,10 @@ class Program extends CActiveRecord
 	 * @return string
 	 */
 	public function getDirectDownloadLink() {
-		return '/data/programs/' . $this->Name . '.zip' ;
+		if ($this->download_url == 'direkt' || is_null($this->download_url) || empty($this->download_url))
+			return '/data/programs/' . $this->Name . '.zip';
+		else
+			return $this->download_url;
 	}
 
 	/**

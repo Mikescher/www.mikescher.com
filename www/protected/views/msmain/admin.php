@@ -88,12 +88,10 @@ $this->breadcrumbs =
 	</div>
 
 	<div class="well well-small">
-
 		<h2>Program of the day</h2>
 		<hr>
 
 		<?php
-
 		$data = array();
 
 		$now = new DateTime();
@@ -122,5 +120,51 @@ $this->breadcrumbs =
 			]
 		); ?>
 
+	</div>
+
+	<div class="well well-small">
+		<h2>Hit counter</h2>
+
+		<hr>
+
+		<?php
+			/* @var CHitCounter $hc */
+			$hc = Yii::app()->hitcounter;
+		?>
+
+		<strong>Hits (today):</strong> <?php echo $hc->getTodayCount(); ?><br />
+		<strong>Hits (total):</strong> <?php echo $hc->getTotalCount(); ?><br />
+
+		<hr>
+		
+		<?php
+
+		$data = array();
+
+		$now = new DateTime();
+
+		for ($i = 0; $i < 24; $i++) {
+			$data[] =
+				[
+					'Date' => $now->format('d.m.Y :: D'),
+					'Count' => $hc->getCountForDay($now),
+				];
+
+			$now->modify('-1 day');
+		}
+
+		$this->widget('bootstrap.widgets.TbGridView',
+			[
+				'type' => TbHtml::GRID_TYPE_CONDENSED,
+				'dataProvider' => new CArrayDataProvider($data,
+						[
+							'keyField' => 'Date',
+							'Pagination' =>
+								[
+									'PageSize' => 100,
+								]
+						]),
+			]
+		); ?>
 	</div>
 </div>
