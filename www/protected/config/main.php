@@ -144,6 +144,6 @@ return ArrayX::merge(
 		'params' =>
 			[
 				// this is used in contact page
-				'adminEmail' => 'webmaster@example.com',
+				'adminEmail' => 'kundenservice@mikescher.de',
 			],
 	]);

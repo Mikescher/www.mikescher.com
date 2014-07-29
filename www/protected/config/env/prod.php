@@ -1,5 +1,8 @@
 <?php
 
+require_once('protected/lib/ArrayX.php');
+use Yiinitializr\Helpers\ArrayX;
+
 return [
 	'components' =>
 		[
