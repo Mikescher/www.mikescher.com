@@ -14,7 +14,9 @@ body {
 #fullbodywrapper {
     min-height:100%;
     position:relative;
+}
 
+#fullcontentwrapper {
     padding-bottom: 120px;
 }
 

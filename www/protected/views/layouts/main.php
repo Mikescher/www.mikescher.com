@@ -85,9 +85,11 @@
 	}
 	?>
 
+	<div id="fullcontentwrapper">
 	<?php
 	echo $content;
 	?>
+	</div>
 
 	<div class="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by Mike Schwörer &#xb7; <i><a href="/admin">{{admin}}</a></i><br/>
