@@ -119,4 +119,41 @@ class BlogPost extends CActiveRecord
 
 		return '/blog/' . $this->ID . '/' . $name;
 	}
+
+	/**
+	 * @param $search string[]
+	 * @return array()
+	 */
+	public static function getSearchResults($search)
+	{
+		/* @var $all BlogPost[] */
+		/* @var $resultarr BlogPost[] */
+		$all = BlogPost::model()->findAll();
+
+		$resultarr = array();
+
+		foreach($search as $searchpart)
+		{
+			foreach($all as $post)
+			{
+				if (stripos($post->Title, $searchpart) !== false && ! in_array($post, $resultarr))
+					$resultarr []= $post;
+			}
+		}
+
+		$result = array();
+
+		foreach($resultarr as $post)
+		{
+			$result []=
+				[
+					'Name' => $post->Title,
+					'Description' => null,
+					'Link' => $post->GetLink(),
+					'Image' => '/images/search/sresult_blog.png',
+				];
+		}
+
+		return $result;
+	}
 }

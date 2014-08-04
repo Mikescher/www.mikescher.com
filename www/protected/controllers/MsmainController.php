@@ -21,7 +21,7 @@ class MSMainController extends MSController
 	{
 		return array(
 			array('allow',
-				'actions'=>array('index', 'about', 'debugerror', 'error', 'login', 'logout'),
+				'actions'=>array('index', 'about', 'debugerror', 'error', 'login', 'logout', 'search'),
 				'users'=>array('*'),
 			),
 			array('allow',
@@ -149,5 +149,20 @@ class MSMainController extends MSController
 		$this->redirect(Yii::app()->homeUrl);
 	}
 
-	public function action
+	public function actionSearch($search)
+	{
+		$searchsplit = preg_split('[\+| ]', $search, 8, PREG_SPLIT_NO_EMPTY);
+
+		$results = array_merge(
+			Program::getSearchResults($searchsplit),
+			BlogPost::getSearchResults($searchsplit),
+			Log::getSearchResults($searchsplit),
+			HighscoreGames::getSearchResults($searchsplit));
+
+		$this->render('searchresults',
+		[
+			'searchstring' => $search,
+			'result' => $results,
+		]);
+	}
 }

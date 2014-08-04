@@ -15,6 +15,7 @@ class MSController extends CController
 
 	public $title = null;
 
+	public $searchvalue = '';
 
 	public function beforeAction($e){
 		Yii::app()->hitcounter->increment();

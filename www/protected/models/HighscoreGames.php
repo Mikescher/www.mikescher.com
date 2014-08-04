@@ -126,4 +126,41 @@ class HighscoreGames extends CActiveRecord
 		else
 			return null;
 	}
+
+	/**
+	 * @param $search string[]
+	 * @return array()
+	 */
+	public static function getSearchResults($search)
+	{
+		/* @var $all HighscoreGames[] */
+		/* @var $resultarr HighscoreGames[] */
+		$all = HighscoreGames::model()->findAll();
+
+		$resultarr = array();
+
+		foreach($search as $searchpart)
+		{
+			foreach($all as $hgame)
+			{
+				if (stripos($hgame->NAME, $searchpart) !== false && ! in_array($hgame, $resultarr))
+					$resultarr []= $hgame;
+			}
+		}
+
+		$result = array();
+
+		foreach($resultarr as $hgame)
+		{
+			$result []=
+				[
+					'Name' => $hgame->NAME . ' (Highscore)',
+					'Description' => null,
+					'Link' => $hgame->GetListLink(),
+					'Image' => '/images/search/sresult_highscores.png',
+				];
+		}
+
+		return $result;
+	}
 }

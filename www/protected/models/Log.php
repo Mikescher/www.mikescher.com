@@ -113,4 +113,41 @@ class Log extends CActiveRecord
 	public function getLink() {
 		return '/log/' . $this->ID;
 	}
+
+	/**
+	 * @param $search string[]
+	 * @return array()
+	 */
+	public static function getSearchResults($search)
+	{
+		/* @var $all Log[] */
+		/* @var $resultarr Log[] */
+		$all = Log::model()->findAll();
+
+		$resultarr = array();
+
+		foreach($search as $searchpart)
+		{
+			foreach($all as $post)
+			{
+				if (stripos($post->title, $searchpart) !== false && ! in_array($post, $resultarr))
+					$resultarr []= $post;
+			}
+		}
+
+		$result = array();
+
+		foreach($resultarr as $post)
+		{
+			$result []=
+				[
+					'Name' => $post->title,
+					'Description' => null,
+					'Link' => $post->GetLink(),
+					'Image' => '/images/search/sresult_log.png',
+				];
+		}
+
+		return $result;
+	}
 }

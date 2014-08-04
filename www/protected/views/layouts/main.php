@@ -64,6 +64,7 @@
 							'placeholder' => 'Search',
 							'inputOptions' =>
 								[
+									'value' => $this->searchvalue,
 									'append' => MsHtml::submitButton(MsHtml::icon(MsHtml::ICON_SEARCH)),
 									'addOnOptions' =>
 										[

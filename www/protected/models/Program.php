@@ -279,4 +279,47 @@ class Program extends CActiveRecord
 	{
 		return HighscoreGames::model()->findByPk($this->highscore_gid);
 	}
+
+	/**
+	 * @param $search string[]
+	 * @return array()
+	 */
+	public static function getSearchResults($search)
+	{
+		/* @var $all Program[] */
+		/* @var $resultarr Program[] */
+		$all = Program::model()->findAll();
+
+		$resultarr = array();
+
+		foreach($search as $searchpart)
+		{
+			foreach($all as $prog)
+			{
+				if (! $prog->enabled || ! $prog->visible)
+					continue;
+
+				if (stripos($prog->Name, $searchpart) !== false && ! in_array($prog, $resultarr))
+					$resultarr []= $prog;
+
+				if (stripos($prog->Description, $searchpart) !== false && ! in_array($prog, $resultarr))
+					$resultarr []= $prog;
+			}
+		}
+
+		$result = array();
+
+		foreach($resultarr as $prog)
+		{
+			$result []=
+				[
+					'Name' => $prog->Name,
+					'Description' => $prog->Description,
+					'Link' => $prog->GetLink(),
+					'Image' => $prog->GetImagePath(),
+				];
+		}
+
+		return $result;
+	}
 }

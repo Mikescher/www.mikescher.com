@@ -10,6 +10,3 @@ require_once($yiic);
 // TODO-MS BefunGen                -> MS.de
 // TODO-MS jClipCorn               -> MS.de
 // TODO-MS jQCCounter (OLD DATE !) -> MS.de
-
-
-//TODO-MS Add Guest counter
