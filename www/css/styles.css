@@ -309,6 +309,8 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     background-color: #EEF0F3;
 
     padding: 15px 20px;
+
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
 .markdownOwner blockquote p {

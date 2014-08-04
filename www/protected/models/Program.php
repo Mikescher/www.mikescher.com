@@ -237,7 +237,7 @@ class Program extends CActiveRecord
 
 		foreach ($tl_paths as $fn)
 		{
-			if (MsHelper::endsWith($fn, "\\"))
+			if (MsHelper::endsWith($fn, DIRECTORY_SEPARATOR))
 			{
 				$bl_paths = glob($fn . '*.markdown');
 
