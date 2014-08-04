@@ -34,14 +34,6 @@ return [
 				],
 		],
 
-
-	'params' =>
-		[
-			'yii.debug' => true,
-			'yii.traceLevel' => 3,
-			'yii.handleErrors' => true,
-		],
-
 	'modules' =>
 		[
 			'gii' =>

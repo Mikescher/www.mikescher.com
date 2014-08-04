@@ -23,13 +23,5 @@ return [
 				[
 					'errorAction' => 'msmain/error',
 				],
-
-		],
-
-	'params' =>
-		[
-			'yii.debug' => false,
-			'yii.traceLevel' => 3,
-			'yii.handleErrors' => false,
 		],
 ];

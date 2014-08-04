@@ -1,6 +1,6 @@
 <?php
 
-class LogController extends MsController
+class LogController extends MSController
 {
 	public $layout='//layouts/column2';
 

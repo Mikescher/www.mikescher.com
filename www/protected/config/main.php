@@ -33,7 +33,7 @@ return ArrayX::merge(
 				'application.extensions.*',
 				'application.components.*',
 				'application.components.widgets.*',
-				'application.components.extendedGitGraph.*',
+				'application.components.extendedgitgraph.*',
 				'application.components.parsedown.*',
 				'bootstrap.components.*',
 				'bootstrap.behaviors.*',
@@ -143,6 +143,9 @@ return ArrayX::merge(
 		// using Yii::app()->params['paramName']
 		'params' =>
 			[
+				'yii.debug' => defined('YII_DEBUG'),
+				'yii.traceLevel' => 3,
+				'yii.handleErrors' => defined('YII_DEBUG'),
 				// this is used in contact page
 				'adminEmail' => 'kundenservice@mikescher.de',
 			],

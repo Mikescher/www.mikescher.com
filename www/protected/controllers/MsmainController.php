@@ -75,7 +75,7 @@ class MSMainController extends MSController
 	{
 		$data = array();
 
-		$this->js_scripts[] = file_get_contents('protected/components/extendedGitGraph/script.js');
+		$this->js_scripts[] = file_get_contents('protected/components/extendedgitgraph/script.js');
 
 		if(isset($_POST['SendMailForm']))
 		{
