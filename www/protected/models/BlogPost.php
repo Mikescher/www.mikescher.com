@@ -117,7 +117,7 @@ class BlogPost extends CActiveRecord
 		$name = str_replace(' ', '_', $name);
 		$name = preg_replace("/[^A-Za-z0-9_]/", '', $name);
 
-		return '/blog/' . $this->ID . '/' . $name;
+		return '/blog/' . $this->ID . '/' . rawurlencode($name);
 	}
 
 	/**

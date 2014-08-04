@@ -14,13 +14,7 @@
 
 	<div <?php echo $this->getContentTagDefinition(); ?>>
 		<div>
-			<p>
-				<?php
-
-				echo ParsedownHelper::parse($this->content);
-
-				?>
-			</p>
+			<?php echo ParsedownHelper::parse($this->content); ?>
 		</div>
 	</div>
 </div>

@@ -163,7 +163,7 @@ class Program extends CActiveRecord
 	 */
 	public function getImagePath() {
 		if (file_exists('images/programs/thumbnails/' . $this->Name . '.png'))
-			return '/images/programs/thumbnails/' . $this->Name . '.png';
+			return '/images/programs/thumbnails/' . rawurlencode($this->Name) . '.png';
 //		else if (file_exists('images/programs/thumbnails/' . $this->Name . '.jpg'))
 //			return '/images/programs/thumbnails/' . $this->Name . '.jpg';
 		else throw new CHttpException(500, "Could not find Program Thumbnail '" . $this->Name . "'");
@@ -173,14 +173,14 @@ class Program extends CActiveRecord
 	 * @return string
 	 */
 	public function getLink() {
-		return '/programs/view/' . $this->Name;
+		return '/programs/view/' . rawurlencode($this->Name);
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getDownloadLink() {
-		return '/programs/download/' . $this->Name;
+		return '/programs/download/' . rawurlencode($this->Name);
 	}
 
 	/**
@@ -188,7 +188,7 @@ class Program extends CActiveRecord
 	 */
 	public function getDirectDownloadLink() {
 		if ($this->download_url == 'direkt' || is_null($this->download_url) || empty($this->download_url))
-			return '/data/programs/' . $this->Name . '.zip';
+			return '/data/programs/' . rawurlencode($this->Name) . '.zip';
 		else
 			return $this->download_url;
 	}

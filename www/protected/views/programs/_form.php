@@ -32,7 +32,12 @@
 
             <?php echo $form->textFieldControlGroup($model,'Kategorie',array('rows'=>6,'span'=>8)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'Sterne',array('span'=>5)); ?>
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'Sterne',array('span'=>5, 'value' => '0'));
+			else
+				echo $form->textFieldControlGroup($model,'Sterne',array('span'=>5));
+			?>
 
 			<?php
 			if ($model->isNewRecord)
@@ -61,7 +66,12 @@
 				echo $form->textFieldControlGroup($model,'add_date',array('span'=>5, ));
 			?>
 
-            <?php echo $form->textFieldControlGroup($model,'download_url',array('rows'=>6,'span'=>8)); ?>
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'download_url',array('rows'=>6,'span'=>8, 'value' => 'direkt'));
+			else
+				echo $form->textFieldControlGroup($model,'download_url',array('rows'=>6,'span'=>8, ));
+			?>
 
             <?php echo $form->textFieldControlGroup($model,'sourceforge_url',array('rows'=>6,'span'=>8)); ?>
 
@@ -69,16 +79,22 @@
 
             <?php echo $form->textFieldControlGroup($model,'github_url',array('rows'=>6,'span'=>8)); ?>
 
+
 			<?php
 			if ($model->isNewRecord)
-				echo $form->textFieldControlGroup($model,'uses_absCanv',array('span'=>5, 'value' => date('Y-m-d')));
+				echo $form->textFieldControlGroup($model,'uses_absCanv',array('span'=>5, 'value' => '0'));
 			else
 				echo $form->textFieldControlGroup($model,'uses_absCanv',array('span'=>5, ));
 			?>
 
             <?php echo $form->textFieldControlGroup($model,'update_identifier',array('span'=>5,'maxlength'=>28)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'highscore_gid',array('span'=>5)); ?>
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'highscore_gid',array('span'=>5, 'value' => '-1'));
+			else
+				echo $form->textFieldControlGroup($model,'highscore_gid',array('span'=>5));
+			?>
 
         <div class="form-actions">
         <?php echo MsHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(

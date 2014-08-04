@@ -12,18 +12,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><?php
-		echo $this->pageTitle; ?></title>
+	<title><?php echo CHtml::encode($this->pageTitle) ?></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 
-	<link rel="icon" type="image/png" href="/images/favicon.png"/> <?php //TODO-MS Add nice favicon ?>
+	<link rel="icon" type="image/png" href="/images/favicon.png"/>
 
 	<?php Yii::app()->bootstrap->register(); ?>
 	<link rel="stylesheet" type="text/css" href="/css/styles.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/prism.css"/>
-
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
 <!--if lt IE 7]>
