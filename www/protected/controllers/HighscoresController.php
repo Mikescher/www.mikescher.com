@@ -75,7 +75,7 @@ class HighscoresController extends MSController //TODO-MS Test online if it all 
 		}
 		else
 		{
-			$this->actionListEntries(intval(mysql_real_escape_string($_GET["gameid"])));
+			$this->actionListEntries(intval(htmlspecialchars($_GET["gameid"])));
 			return;
 		}
 	}
@@ -91,7 +91,7 @@ class HighscoresController extends MSController //TODO-MS Test online if it all 
 		}
 		else
 		{
-			$start = intval(mysql_real_escape_string($_GET["start"])) - 1;
+			$start = intval(htmlspecialchars($_GET["start"])) - 1;
 			if ($start < 0)
 			{
 				$start = 0;
@@ -100,7 +100,7 @@ class HighscoresController extends MSController //TODO-MS Test online if it all 
 
 		if (isset($_GET["highlight"]))
 		{
-			$highlight= intval(mysql_real_escape_string($_GET["highlight"]));
+			$highlight= intval(htmlspecialchars($_GET["highlight"]));
 		}
 		else
 			$highlight = 0;
