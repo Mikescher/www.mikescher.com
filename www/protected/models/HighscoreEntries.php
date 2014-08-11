@@ -133,9 +133,9 @@ class HighscoreEntries extends CActiveRecord
 		/* @var $game HighscoreGames */
 
 		if ($this->PLAYERID >= 0)
-			return md5($rand . $this->PLAYER . $this->PLAYERID . $this->POINTS . $game->ID);
+			return md5($rand . $this->PLAYER . $this->PLAYERID . $this->POINTS . $game->SALT);
 		else
-			return md5($rand . $this->PLAYER . $this->POINTS . $game->ID);
+			return md5($rand . $this->PLAYER . $this->POINTS . $game->SALT);
 	}
 
 	/**
