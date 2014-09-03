@@ -21,6 +21,7 @@
 	<?php Yii::app()->bootstrap->register(); ?>
 	<link rel="stylesheet" type="text/css" href="/css/styles.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/prism.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/lightbox.css"/>
 </head>
 <body>
 <!--if lt IE 7]>
@@ -97,9 +98,9 @@
 
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/javascript/scripts.js"></script>
 <script src="/javascript/prism.js"></script>
+<script src="/javascript/lightbox.min.js"></script>
 
 <?php
 foreach ($this->js_scripts as $script) {

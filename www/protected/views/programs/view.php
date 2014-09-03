@@ -86,7 +86,9 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 
 		<div class="span3">
 			<div class="well">
-				<img src="<?php echo $model->getImagePath(); ?>" class="progview_image"/>
+				<a href="<?php echo $model->getImagePath(); ?>" data-lightbox="img_prev" data-title="<?php echo $model->Name; ?>">
+				<img src="<?php echo $model->getImagePath(); ?>" class="progview_image" />
+				</a>
 
 				<div class="progview_donwloadbtns">
 					<?php
