@@ -560,6 +560,43 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
 /* programs/view
 -------------------------------------------------- */
 
+.progview_container {
+    width: 100%;
+}
+
+.progview_container > .row {
+    display:table;
+    border-spacing:0;
+    margin-left: 0;
+
+    width: 100%;
+    
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.progview_container > .row > [class*="span"] {
+    display:table-cell;
+
+    float: none;
+    vertical-align: top;
+
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.progview_container > .row > .span3 {
+    width: 270px;
+}
+
+.progview_container > .row > .span6 {
+    width: auto;
+}
+
+.progview_container > .row > .span3 .progview_image {
+    width: 232px;
+}
+
 .progview_image {
     border-radius: 6px;
     margin-bottom: 15px;
