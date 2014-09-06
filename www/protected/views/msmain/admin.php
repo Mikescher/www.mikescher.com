@@ -4,7 +4,7 @@
 
 <?php
 
-$this->pageTitle = 'Manage - ' . Yii::app()->name;
+$this->pageTitle = 'Admin Panel - ' . Yii::app()->name;
 
 $this->breadcrumbs =
 	[
@@ -87,6 +87,18 @@ $this->breadcrumbs =
 
 	</div>
 
+	<div class="well well-small">
+		<h2>Linklist</h2>
+		<hr>
+
+		<ul>
+			<li><a href="https://mikescher-de.disqus.com">Disqus Admin Panel</a></li>
+			<li><a href="https://www.strato.de/apps/CustomerService">Strato Customer Service</a></li>
+			<li><a href="http://v1.mikescher.de">Mikescher.de Wayback (v1)</a></li>
+			<li><a href="http://v2.mikescher.de">Mikescher.de Wayback (v2)</a></li>
+			<li><a href="http://v3.mikescher.de">Mikescher.de Wayback (v3)</a></li>
+		</ul>
+	</div>
 	<div class="well well-small">
 
 		<h2>Program of the day</h2>

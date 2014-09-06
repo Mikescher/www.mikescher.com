@@ -642,6 +642,10 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     padding-bottom: 10px;
 }
 
+.progview_maincol {
+    margin-bottom: 20px;
+}
+
 .progview_maincol > .tabbable > .tab-content {
     background-color: #ECF0F1;
 
