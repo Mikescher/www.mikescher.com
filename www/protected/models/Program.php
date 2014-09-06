@@ -179,6 +179,13 @@ class Program extends CActiveRecord
 	/**
 	 * @return string
 	 */
+	public function getAbsoluteLink() {
+		return 'http://www.mikescher.de' . $this->getLink();
+	}
+
+	/**
+	 * @return string
+	 */
 	public function getDownloadLink() {
 		return '/programs/download/' . rawurlencode($this->Name);
 	}

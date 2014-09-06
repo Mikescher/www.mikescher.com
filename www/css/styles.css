@@ -682,6 +682,16 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     font-weight: 900;
 }
 
+/* disqus
+-------------------------------------------------- */
+
+.disqus_owner {
+    border-radius: 6px;
+    border: 1px solid #D7E0E2;
+    padding: 10px;
+    background-color: #ECF0F1;
+}
+
 /* blog/view
 -------------------------------------------------- */
 

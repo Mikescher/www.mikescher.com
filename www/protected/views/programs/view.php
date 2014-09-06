@@ -82,6 +82,20 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 					]
 				);
 			?>
+			<div class="disqus_owner">
+				<?php
+					$this->widget(
+						'ext.YiiDisqusWidget.YiiDisqusWidget',
+						[
+							'shortname' => 'mikescher-de',
+							'identifier' => 'programs/view/' + $model->ID,
+							'title' => $model->Name,
+							'url' => $model->getAbsoluteLink(),
+							'category_id' => '3253400', // = programs/view
+						]
+					);
+				?>
+			</div>
 		</div>
 
 		<div class="span3">

@@ -121,6 +121,13 @@ class BlogPost extends CActiveRecord
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getAbsoluteLink() {
+		return 'http://www.mikescher.de' . $this->getLink();
+	}
+
+	/**
 	 * @param $search string[]
 	 * @return array()
 	 */
