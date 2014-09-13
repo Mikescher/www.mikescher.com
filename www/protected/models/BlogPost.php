@@ -8,6 +8,8 @@
  * @property string $Date
  * @property string $Title
  * @property string $Content
+ * @property string $Visible
+ * @property string $Enabled
  */
 class BlogPost extends CActiveRecord
 {
@@ -27,10 +29,10 @@ class BlogPost extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Date, Title, Content', 'required'),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('ID, Date, Title, Content', 'safe', 'on'=>'search'),
+			array('Date, Title, Content, Visible, Enabled', 'required'),
+			array('Visible, Enabled', 'numerical', 'integerOnly'=>true),
+
+			array('ID, Date, Title, Content, Visible, Enabled', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,6 +57,8 @@ class BlogPost extends CActiveRecord
 			'Date' => 'Date',
 			'Title' => 'Title',
 			'Content' => 'Content',
+			'Visible' => 'Visible',
+			'Enabled' => 'Enabled',
 		);
 	}
 
@@ -72,14 +76,14 @@ class BlogPost extends CActiveRecord
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
-
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('ID',$this->ID);
 		$criteria->compare('Date',$this->Date,true);
 		$criteria->compare('Title',$this->Title,true);
 		$criteria->compare('Content',$this->Content,true);
+		$criteria->compare('Visible',$this->Visible,true);
+		$criteria->compare('Enabled',$this->Enabled,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

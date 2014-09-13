@@ -29,6 +29,7 @@ $this->selectedNav = 'blog';
 				'date' => new DateTime($blogpost->Date),
 				'caption' => $blogpost->Title,
 				'link' => $blogpost->getLink(),
+				'stroked' => !($blogpost->Enabled && $blogpost->Visible),
 			]);
 	}
 	?>

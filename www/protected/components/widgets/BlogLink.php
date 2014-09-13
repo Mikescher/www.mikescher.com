@@ -4,6 +4,7 @@ class BlogLink extends CWidget {
 	public $date;
 	public $caption = '';
 	public $link = '';
+	public $stroked = false;
 
 	public function run() {
 		if ($this->date == null)

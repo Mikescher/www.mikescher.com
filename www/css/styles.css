@@ -264,6 +264,13 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     position: absolute;
 }
 
+.collHeaderPseudoLink {
+    color: #2C3E50;
+}
+
+.collHeaderStroked {
+    text-decoration: line-through;
+}
 
 /* FullProgPreview
 -------------------------------------------------- */

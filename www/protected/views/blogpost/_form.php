@@ -30,6 +30,20 @@
 
             <?php echo $form->textAreaControlGroup($model,'Content',array('rows'=>30,'span'=>8)); ?>
 
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'Visible',array('span'=>5, 'value' => '1'));
+			else
+				echo $form->textFieldControlGroup($model,'Visible',array('span'=>5, ));
+			?>
+
+			<?php
+			if ($model->isNewRecord)
+				echo $form->textFieldControlGroup($model,'Enabled',array('span'=>5, 'value' => '1'));
+			else
+				echo $form->textFieldControlGroup($model,'Enabled',array('span'=>5, ));
+			?>
+
 			<?php echo MsHtml::ajaxButton ("Preview", CController::createUrl('blog/ajaxMarkdownPreview'),
 				[
 					'type'=>'POST',

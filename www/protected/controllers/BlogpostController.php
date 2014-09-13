@@ -43,12 +43,19 @@ class BlogPostController extends MSController
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
+	 * @throws CHttpException if Enabled is false
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		$model = $this->loadModel($id);
+
+		if (! $model->Enabled && Yii::app()->user->name != 'admin')
+			throw new CHttpException(403, 'This Blogpost is locked');
+
+		$this->render('view',
+			[
+				'model' => $model,
+			]);
 	}
 
 	/**
@@ -127,6 +134,12 @@ class BlogPostController extends MSController
 	{
 		$criteria = new CDbCriteria;
 		$criteria->order = "Date DESC";
+
+		if (Yii::app()->user->name != 'admin')
+		{
+			$criteria->addCondition('Visible = 1');
+			$criteria->addCondition('Enabled = 1');
+		}
 
 		$all = BlogPost::model()->findAll($criteria);
 

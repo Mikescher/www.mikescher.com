@@ -42,11 +42,14 @@ class APIController extends MSController
 
 	public function actionUpdate2($Name)
 	{
+		if (! isset($_GET['Name'])) {
+			throw new CHttpException(404,'Invalid Request - [Name] missing');
+		}
+
 		$data = ProgramUpdates::model()->findByAttributes(['Name' => $Name]);
 
-		if (! isset($_GET['Name'])) {
+		if (is_null($data)) {
 			throw new CHttpException(404,'Invalid Request - [Name] not found');
-			return;
 		}
 
 		$this->render('update', ['data' => $data]);
