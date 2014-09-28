@@ -43,7 +43,7 @@ class MSMainController extends MSController
 		/* @var $all_log Log[] */
 
 		$data = array();
-		$data['program'] = ProgramHelper::GetDailyProg();
+		$data['program'] = ProgramHelper::GetDailyProg(); //TODO-MS Show last BlogEntry
 		$data['logs'] = $all_log;
 
 		$this->render('index', $data);

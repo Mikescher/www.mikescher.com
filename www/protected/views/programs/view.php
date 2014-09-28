@@ -11,6 +11,9 @@ $this->breadcrumbs = array(
 	'Programs' => array('index'),
 	$model->Name,
 );
+
+array_push($this->css_files, "/css/lightbox.css");
+
 ?>
 
 <?php
@@ -112,7 +115,7 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 							'color' => TbHtml::BUTTON_COLOR_PRIMARY,
 							'size' => TbHtml::BUTTON_SIZE_DEFAULT,
 							'Content' => 'nofollow',
-							'url' => $model->getDownloadLink(), //TODO-MS Add Download link
+							'url' => $model->getDownloadLink(),
 						]);
 					?>
 
@@ -156,7 +159,7 @@ if (!$model->visible && Yii::app()->user->name != 'admin') {
 								'block' => true,
 								'color' => TbHtml::BUTTON_COLOR_SUCCESS,
 								'size' => TbHtml::BUTTON_SIZE_DEFAULT,
-								'url' => '/Highscores/list?gameid=' . $model->highscore_gid, //TODO-MS Add Highscore link
+								'url' => '/Highscores/list?gameid=' . $model->highscore_gid,
 							]);
 					?>
 				</div>

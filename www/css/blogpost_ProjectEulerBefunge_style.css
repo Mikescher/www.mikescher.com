@@ -1,0 +1,76 @@
+.PEB_tableProblems {
+    width: 100%;
+}
+
+.PEB_tablerowProblems {
+
+}
+
+.PEB_tablecellProblems {
+
+}
+
+.PEB_TC_Value:not(:hover) {
+    color: transparent;
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.PEB_TC_Value:hover {
+    color: black;
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.PEB_TC_Time {
+    border-radius: 5px;
+
+    display: inline-block;
+    padding: 1px 6px;
+}
+
+.PEB_TC_Timelevel_0 { background-color: #0A0 !important; }
+
+.PEB_TC_Timelevel_1 { background-color: #84FF0A !important; }
+
+.PEB_TC_Timelevel_2 { background-color: #FF0 !important; }
+
+.PEB_TC_Timelevel_3 { background-color: #F60 !important; }
+
+.PEB_TC_Timelevel_4 { background-color: #F11 !important; }
+
+.PEB_TC_Size_93 {
+    display: inline-flex;
+    float: right;
+
+
+    border-radius: 5px;
+    background-color: #0A0;
+
+    display: inline-block;
+    padding: 1px 6px;
+}
+
+.PEB_TC_Size_98 {
+    display: inline-flex;
+    float: right;
+
+
+    border-radius: 5px;
+    background-color: #FF0;
+
+    display: inline-block;
+    padding: 1px 6px;
+}
+
+.PEB_TC_Title a {
+    color: #2C3E50;
+}

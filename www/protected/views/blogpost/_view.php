@@ -21,6 +21,11 @@
 	<?php echo CHtml::encode($data->Content); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('ControllerID')); ?>:</b>
+	<?php echo CHtml::encode($data->ControllerID); ?>
+	<br />
+
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Visible')); ?>:</b>
 	<?php echo CHtml::encode($data->Visible); ?>
 	<br />

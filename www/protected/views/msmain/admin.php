@@ -48,7 +48,6 @@ $this->breadcrumbs =
 
 			echo MsHtml::stackedTabs(
 				[
-					['label' => 'Show', 'url' => '/programupdates'],
 					['label' => 'Manage', 'url' => '/programupdates/admin'],
 					['label' => 'Create', 'url' => '/programupdates/create'],
 				]
@@ -64,6 +63,59 @@ $this->breadcrumbs =
 					['label' => 'Show', 'url' => '/blog'],
 					['label' => 'Manage', 'url' => '/blog/admin'],
 					['label' => 'Create', 'url' => '/blog/create'],
+				]
+			); ?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span3">
+			<?php
+			echo MsHtml::lead('EulerProblems');
+
+			echo MsHtml::stackedTabs(
+				[
+					['label' => 'Manage', 'url' => '/eulerproblem/admin'],
+					['label' => 'Create', 'url' => '/eulerproblem/create'],
+				]
+			); ?>
+		</div>
+
+		<div class="span3" style="visibility: hidden">
+			<?php
+			echo MsHtml::lead('xxx');
+
+			echo MsHtml::stackedTabs(
+				[
+					['label' => 'Show', 'url' => '/xxx'],
+					['label' => 'Manage', 'url' => '/xxx/admin'],
+					['label' => 'Create', 'url' => '/xxx/create'],
+				]
+			); ?>
+		</div>
+
+		<div class="span3" style="visibility: hidden">
+			<?php
+			echo MsHtml::lead('xxx');
+
+			echo MsHtml::stackedTabs(
+				[
+					['label' => 'Show', 'url' => '/xxx'],
+					['label' => 'Manage', 'url' => '/xxx/admin'],
+					['label' => 'Create', 'url' => '/xxx/create'],
+				]
+			); ?>
+		</div>
+
+		<div class="span3" style="visibility: hidden">
+			<?php
+			echo MsHtml::lead('xxx');
+
+			echo MsHtml::stackedTabs(
+				[
+					['label' => 'Show', 'url' => '/xxx'],
+					['label' => 'Manage', 'url' => '/xxx/admin'],
+					['label' => 'Create', 'url' => '/xxx/create'],
 				]
 			); ?>
 		</div>

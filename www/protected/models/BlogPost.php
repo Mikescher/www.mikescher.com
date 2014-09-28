@@ -8,6 +8,7 @@
  * @property string $Date
  * @property string $Title
  * @property string $Content
+ * @property string $ControllerID
  * @property string $Visible
  * @property string $Enabled
  */
@@ -29,10 +30,10 @@ class BlogPost extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Date, Title, Content, Visible, Enabled', 'required'),
+			array('Date, Title, Content, ControllerID, Visible, Enabled', 'required'),
 			array('Visible, Enabled', 'numerical', 'integerOnly'=>true),
 
-			array('ID, Date, Title, Content, Visible, Enabled', 'safe', 'on'=>'search'),
+			array('ID, Date, Title, Content, ControllerID, Visible, Enabled', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +58,7 @@ class BlogPost extends CActiveRecord
 			'Date' => 'Date',
 			'Title' => 'Title',
 			'Content' => 'Content',
+			'ControllerID' => 'ControllerID',
 			'Visible' => 'Visible',
 			'Enabled' => 'Enabled',
 		);
@@ -82,6 +84,7 @@ class BlogPost extends CActiveRecord
 		$criteria->compare('Date',$this->Date,true);
 		$criteria->compare('Title',$this->Title,true);
 		$criteria->compare('Content',$this->Content,true);
+		$criteria->compare('ControllerID',$this->ControllerID,true);
 		$criteria->compare('Visible',$this->Visible,true);
 		$criteria->compare('Enabled',$this->Enabled,true);
 
@@ -166,5 +169,10 @@ class BlogPost extends CActiveRecord
 		}
 
 		return $result;
+	}
+
+	public function isSpecialBlogPost()
+	{
+		return ! empty($this->ControllerID);
 	}
 }

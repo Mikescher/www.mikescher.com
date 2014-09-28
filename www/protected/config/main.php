@@ -100,6 +100,8 @@ return ArrayX::merge(
 								'blog/<id>' => 'blogPost/view/id/<id>',
 								'blog/<id>/<name>' => 'blogPost/view/id/<id>',
 
+								'eulerProblem/' => 'eulerProblem/index',
+
 								'Highscores/list.php' => 'Highscores/list',				// Compatibility
 								'Highscores/insert.php' => 'Highscores/insert',			// Compatibility
 								'Highscores/update.php' => 'Highscores/update',			// Compatibility

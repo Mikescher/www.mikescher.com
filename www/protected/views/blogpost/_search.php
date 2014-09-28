@@ -17,6 +17,8 @@
 
                     <?php echo $form->textAreaControlGroup($model,'Content',array('rows'=>6,'span'=>8)); ?>
 
+					<?php echo $form->textFieldControlGroup($model,'ControllerID',array('span'=>5)); ?>
+
 					<?php echo $form->textFieldControlGroup($model,'Visible',array('span'=>5)); ?>
 
 					<?php echo $form->textFieldControlGroup($model,'Enabled',array('span'=>5)); ?>

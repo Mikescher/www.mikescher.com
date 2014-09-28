@@ -22,19 +22,16 @@ class BlogPostController extends MSController
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow',
 				'actions'=>array('index','view', 'ajaxMarkdownPreview'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+			array('allow',
 				'actions'=>array('create','update','admin','delete'),
 				'users'=>array('@'),
 			),
-//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-//				'actions'=>array(),
-//					'users'=>array('admin'),
-//			),
-			array('deny',  // deny everythign else to all users
+
+			array('deny',
 				'users'=>array('*'),
 			),
 		);
@@ -45,17 +42,30 @@ class BlogPostController extends MSController
 	 * @param integer $id the ID of the model to be displayed
 	 * @throws CHttpException if Enabled is false
 	 */
-	public function actionView($id)
+	public function actionView($id) //TODO-MS add BFJoust to Blog
 	{
 		$model = $this->loadModel($id);
 
 		if (! $model->Enabled && Yii::app()->user->name != 'admin')
 			throw new CHttpException(403, 'This Blogpost is locked');
 
-		$this->render('view',
-			[
-				'model' => $model,
-			]);
+		if ($model->isSpecialBlogPost())
+		{
+			$controllerMethod = 'viewBlogpost' . $model->ControllerID;
+			if(is_callable([$this, $controllerMethod]))
+				$this->$controllerMethod($model);
+			else
+				throw new CHttpException(500, 'Unknown ControllerID: ' . $controllerMethod);
+		}
+		else
+		{
+			$this->render('view',
+				[
+					'model' => $model,
+				]);
+		}
+
+
 	}
 
 	/**
@@ -71,16 +81,19 @@ class BlogPostController extends MSController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if (isset($_POST['BlogPost'])) {
+		if (isset($_POST['BlogPost']))
+		{
 			$model->attributes=$_POST['BlogPost'];
-			if ($model->save()) {
+			if ($model->save())
+			{
 				$this->redirect(array('view','id'=>$model->ID));
 			}
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		$this->render('create',
+			[
+				'model'=>$model,
+			]);
 	}
 
 	/**
@@ -97,16 +110,19 @@ class BlogPostController extends MSController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if (isset($_POST['BlogPost'])) {
+		if (isset($_POST['BlogPost']))
+		{
 			$model->attributes=$_POST['BlogPost'];
-			if ($model->save()) {
-				$this->redirect(array('view','id'=>$model->ID));
+			if ($model->save())
+			{
+				$this->redirect(['view','id'=>$model->ID]);
 			}
 		}
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
+		$this->render('update',
+			[
+				'model'=>$model,
+			]);
 	}
 
 	/**
@@ -122,7 +138,8 @@ class BlogPostController extends MSController
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if (!isset($_GET['ajax'])) {
+		if (!isset($_GET['ajax']))
+		{
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 		}
 	}
@@ -150,14 +167,18 @@ class BlogPostController extends MSController
 		);
 	}
 
-	public function actionAjaxMarkdownPreview() {
-		if(Yii::app()->request->isAjaxRequest){
+	public function actionAjaxMarkdownPreview()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
 			$this->renderPartial('_ajaxMarkdownPreview',
 				[
 					'Content' => $_POST['Content'],
 				],
 				false, true);
-		} else {
+		}
+		else
+		{
 			throw new CHttpException(400,'Invalid request. This is a Ajax only action.');
 		}
 	}
@@ -171,13 +192,15 @@ class BlogPostController extends MSController
 
 		$model=new BlogPost('search');
 		$model->unsetAttributes();  // clear any default values
-		if (isset($_GET['BlogPost'])) {
+		if (isset($_GET['BlogPost']))
+		{
 			$model->attributes=$_GET['BlogPost'];
 		}
 
-		$this->render('admin',array(
-			'model'=>$model,
-		));
+		$this->render('admin',
+			[
+				'model'=>$model,
+			]);
 	}
 
 	/**
@@ -190,7 +213,8 @@ class BlogPostController extends MSController
 	public function loadModel($id)
 	{
 		$model=BlogPost::model()->findByPk($id);
-		if ($model===null) {
+		if ($model===null)
+		{
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
 		return $model;
@@ -207,4 +231,57 @@ class BlogPostController extends MSController
 			Yii::app()->end();
 		}
 	}
+
+	//#########################################################################
+	//##################### Special Blogpost Controllers ######################
+	//#########################################################################
+
+	/**
+	 * @param BlogPost $model
+	 */
+	protected function viewBlogpostProjectEulerBefunge($model)
+	{
+		$problems = EulerProblem::model()->findAll(['order'=>'Problemnumber']);
+
+		$problemnumber = 0;
+		if (isset($_GET['problem']) AND is_numeric($_GET['problem']))
+			$problemnumber = $_GET['problem'];
+
+		$criteria=new CDbCriteria;
+		$criteria->condition='Problemnumber = ' . $problemnumber;
+		$currproblem = EulerProblem::model()->find($criteria);
+
+		if (is_null($currproblem))
+		{
+			$problemID = -1;
+			$currproblem = null;
+		}
+		else
+		{
+			$problemID = -1;
+			for($i = 0; $i < count($problems); $i++)
+				if ($problems[$i]->Problemnumber == $problemnumber)
+				{
+					$problemID = $i;
+					break;
+				}
+		}
+
+		if ($problemID == -1)
+		{
+			$problemID = -1;
+			$currproblem = null;
+		}
+
+		$this->render('view_ProjectEulerBefunge',
+			[
+				'model' => $model,
+				'problems' => $problems,
+				'currproblem' => $currproblem,
+				'currproblemID' => $problemID,
+			]);
+	}
+
+	//#########################################################################
+	//#########################################################################
 }

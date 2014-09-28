@@ -23,9 +23,18 @@ $this->selectedNav = 'prog';
 
 	<?php
 	if (empty($category))
+	{
 		echo MsHtml::pageHeader("Programs", "Games and Tools, developed by me");
+	}
 	else
+	{
 		echo MsHtml::pageHeader("Programs", '"' . $category . '"');
+
+		$this->breadcrumbs = array(
+			'Programs' => '/programs',
+			$category
+		);
+	}
 	?>
 
 	<div class="row-fluid">

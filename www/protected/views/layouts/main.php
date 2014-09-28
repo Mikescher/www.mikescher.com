@@ -19,9 +19,13 @@
 	<link rel="icon" type="image/png" href="/images/favicon.png"/>
 
 	<?php Yii::app()->bootstrap->register(); ?>
-	<link rel="stylesheet" type="text/css" href="/css/styles.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/prism.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/lightbox.css"/>
+
+	<?php
+	foreach ($this->css_files as $file)
+	{
+		echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"$file\"/>\r\n";
+	}
+	?>
 </head>
 <body>
 <!--if lt IE 7]>

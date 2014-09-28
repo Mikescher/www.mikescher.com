@@ -12,6 +12,11 @@ class MSController extends CController
 	public $selectedNav = '';
 
 	public $js_scripts = array();
+	public $css_files =
+	[
+		"/css/styles.css",
+		"/css/prism.css",
+	];
 
 	public $title = null;
 

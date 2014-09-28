@@ -56,8 +56,3 @@ defined('YII_CUSTOM_ENV') or define('YII_CUSTOM_ENV', 'prod');
 
 require_once($yii);
 Yii::createWebApplication($config)->run();
-
-
-// TODO-MS Add Blog
-// TODO-MS Add Search (Blog + progs + log) jew auch metadata / desc ...
-// TODO-MS Add Prog Display

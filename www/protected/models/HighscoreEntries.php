@@ -37,7 +37,6 @@ class HighscoreEntries extends CActiveRecord
 			array('PLAYER, IP', 'length', 'max'=>41),
 			array('CHECKSUM', 'length', 'max'=>32),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
 			array('GAME_ID, POINTS, PLAYER, PLAYERID, CHECKSUM, TIMESTAMP, IP', 'safe', 'on'=>'search'),
 		);
 	}
