@@ -42,7 +42,7 @@ class BlogPostController extends MSController
 	 * @param integer $id the ID of the model to be displayed
 	 * @throws CHttpException if Enabled is false
 	 */
-	public function actionView($id) //TODO-MS add BFJoust to Blog
+	public function actionView($id)
 	{
 		$model = $this->loadModel($id);
 
@@ -52,7 +52,7 @@ class BlogPostController extends MSController
 		if ($model->isSpecialBlogPost())
 		{
 			$controllerMethod = 'viewBlogpost' . $model->ControllerID;
-			if(is_callable([$this, $controllerMethod]))
+			if(method_exists($this, $controllerMethod))
 				$this->$controllerMethod($model);
 			else
 				throw new CHttpException(500, 'Unknown ControllerID: ' . $controllerMethod);
@@ -279,6 +279,18 @@ class BlogPostController extends MSController
 				'problems' => $problems,
 				'currproblem' => $currproblem,
 				'currproblemID' => $problemID,
+			]);
+	}
+
+	/**
+	 * @param BlogPost $model
+	 */
+	protected function viewBlogpostBFJoustBot($model)
+	{
+
+		$this->render('view_BFJoustBot',
+			[
+				'model' => $model,
 			]);
 	}
 

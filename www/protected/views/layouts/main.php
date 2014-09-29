@@ -106,7 +106,13 @@
 <script src="/javascript/prism.js"></script>
 <script src="/javascript/lightbox.min.js"></script>
 
+
 <?php
+foreach ($this->js_files as $file)
+{
+	echo "<script src=\"$file\"></script>\r\n";
+}
+
 foreach ($this->js_scripts as $script) {
 	echo '<script type="text/javascript" language="JavaScript">', PHP_EOL;
 	echo $script;
