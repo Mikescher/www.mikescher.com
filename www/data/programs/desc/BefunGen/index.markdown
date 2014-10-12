@@ -12,7 +12,7 @@
 
 > **NOTE:**  
 >  
-> If you don't know the esoteric language Befunge I can refer you to the [esolang page](http://esolangs.org/wiki/Befunge) and my own [tutorial](/__INSERT__LINK_HERE__.php)
+> If you don't know the esoteric language Befunge I can refer you to the [esolang page](http://esolangs.org/wiki/Befunge) and my own [tutorial](/blog/2/Lets_do_Befunge93)
 
 ## BefunWrite
 
