@@ -124,6 +124,11 @@ class EulerProblem extends CActiveRecord
 		return parent::model($className);
 	}
 
+	public function getBlogLink()
+	{
+		return '/blog/1/Project_Euler_with_Befunge/problem-' . str_pad($this->Problemnumber, 3, '0', STR_PAD_LEFT);
+	}
+
 	public function getSourcecodefile($absolute = true)
 	{
 		return ($absolute ? '/' : '') . 'data/blog/Befunge/Euler_Problem-' . str_pad($this->Problemnumber, 3, '0', STR_PAD_LEFT) . '.b93';
@@ -152,6 +157,11 @@ class EulerProblem extends CActiveRecord
 		return $this->SolutionWidth <= 80 AND $this->SolutionHeight <= 25;
 	}
 
+	public function getRawGithubLink()
+	{
+		return 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-' . str_pad($this->Problemnumber, 3, '0', STR_PAD_LEFT) . '.b93';
+	}
+
 	public function generateMarkdown()
 	{
 		$num_padded = str_pad($this->Problemnumber, 3, '0', STR_PAD_LEFT);
@@ -165,13 +175,20 @@ class EulerProblem extends CActiveRecord
 			'```befunge' . PHP_EOL .
 			$this->Code . PHP_EOL .
 			'```' . PHP_EOL .
-			'[Download](/data/blog/Befunge/Euler_Problem-' . $num_padded . '.b93)' . PHP_EOL .
+
+			($this->AbbreviatedCode ?
+			(
+				'> **NOTE**  ' . PHP_EOL .
+				'> This program is too big to display here, click **[download]** to see the full program.  ' . PHP_EOL . PHP_EOL
+			) : '').
+
+			'<a class="btn btn-primary" href="' . $this->getRawGithubLink() . '">Download</a>' . PHP_EOL .
 			'' . PHP_EOL .
 			$this->Explanation . PHP_EOL .
 			'' . PHP_EOL .
 			'**Interpreter steps:** `' . number_format($this->SolutionSteps, 0, null, ',') . '`  ' . PHP_EOL .
 			'**Execution time** ([BefunExec](/programs/view/BefunGen)): `' . number_format($this->SolutionTime, 0, null, ',') . '` ms' . (($this->SolutionTime < 1000) ? ('  ') : (' *(= ' . MsHelper::formatMilliseconds($this->SolutionTime) . ')*  ')) . PHP_EOL .
-			'**Program size:** `' . $this->SolutionWidth . 'x' . $this->SolutionHeight . '`  ' . PHP_EOL .
+			'**Program size:** `' . $this->SolutionWidth . 'x' . $this->SolutionHeight . '` ' . ($this->isBefunge93() ? '*(fully valid Befunge-93)*' : '') . '  ' . PHP_EOL .
 			'**Solution:** `' . number_format($this->SolutionValue, 0, null, ',') . '`  ';
 	}
 }

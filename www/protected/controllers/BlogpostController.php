@@ -244,8 +244,9 @@ class BlogPostController extends MSController
 		$problems = EulerProblem::model()->findAll(['order'=>'Problemnumber']);
 
 		$problemnumber = 0;
-		if (isset($_GET['problem']) AND is_numeric($_GET['problem']))
-			$problemnumber = $_GET['problem'];
+
+		if (isset($_GET['problem']) AND is_numeric(preg_replace('/^[Pp]roblem-/', '', $_GET['problem'])))
+			$problemnumber = preg_replace('/^[Pp]roblem-/', '', $_GET['problem']);
 
 		$criteria=new CDbCriteria;
 		$criteria->condition='Problemnumber = ' . $problemnumber;

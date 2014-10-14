@@ -10,4 +10,3 @@ defined('YII_DEBUG') or define('YII_DEBUG',true);
 defined('YII_CUSTOM_ENV') or define('YII_CUSTOM_ENV', 'dev');
 
 require_once($yii);
-Yii::createWebApplication($config)->run();

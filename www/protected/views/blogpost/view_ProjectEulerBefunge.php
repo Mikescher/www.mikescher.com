@@ -75,7 +75,7 @@ array_push($this->css_files, "/css/blogpost_ProjectEulerBefunge_style.css");
 				echo '<tr class="PEB_tablerowProblems">' . "\r\n";
 
 				echo '<td class="PEB_tablecellProblems PEB_TC_Number">' . $problem->Problemnumber . "</td>\r\n";
-				echo '<td class="PEB_tablecellProblems PEB_TC_Title"><a href="?problem=' . $problems[$i]->Problemnumber . '">' . $problem->Problemtitle . "</a></td>\r\n";
+				echo '<td class="PEB_tablecellProblems PEB_TC_Title"><a href="' . $problems[$i]->getBlogLink() . '">' . $problem->Problemtitle . "</a></td>\r\n";
 				echo '<td class="PEB_tablecellProblems"><div class="PEB_TC_Time PEB_TC_Timelevel_' . $problem->getTimeScore() . '">' . MsHelper::formatMilliseconds($problem->SolutionTime) . "</div></td>\r\n";
 
 				if ($problem->isBefunge93())
@@ -118,7 +118,7 @@ array_push($this->css_files, "/css/blogpost_ProjectEulerBefunge_style.css");
 				array_push($pagination,
 					[
 						'label' => str_pad($problems[$i]->Problemnumber, 3, '0', STR_PAD_LEFT),
-						'url' => '?problem=' . $problems[$i]->Problemnumber,
+						'url' => $problems[$i]->getBlogLink(),
 						'disabled' => false,
 						'active' => $currproblemID == $i,
 					]);
