@@ -53,19 +53,19 @@ var RepetitionState = {
     OPEN: 10,
     CLOSED: 11,
     AWAITING_NUMBER: 12,
-    FINISHED: 13,
+    FINISHED: 13
 };
 var RepetitionMode = {
     UNDEFINIED: 10,
     ITERATIVE: 11,
-    RECURSIVE: 12,
+    RECURSIVE: 12
 };
 var MatchWinner = {
     UNDEFINIED: 0,
     PLAYER_1: 10,
     DRAW: 15,
     PLAYER_2: 20,
-    ABORT: -1,
+    ABORT: -1
 };
 
 var BF_CHARS = ['+', '-', '<', '>', '[', ']', '.'];
@@ -443,7 +443,7 @@ BFMatch.prototype.start = function(canvas, width, height, speed) {
 
 BFMatch.prototype.stop = function(winner) {
     if (winner == MatchWinner.UNDEFINIED)
-        throw new "can't stop on undef";
+        throw ("can't stop on undef");
     
     if (this._intervalID != -1) {
    		clearInterval(this._intervalID);
@@ -466,7 +466,7 @@ BFMatch.prototype.stop = function(winner) {
             this.winner = MatchWinner.ABORT;
             break;
         default:
-        	throw new "no-enum value in stop()";
+        	throw ( "no-enum value in stop()" );
     }
 };
     
