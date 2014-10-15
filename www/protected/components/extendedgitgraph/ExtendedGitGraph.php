@@ -2,14 +2,17 @@
 
 class ExtendedGitGraph {
 
-	const FILE_RAW_DATA = 'protected/data/ext_git_graph_apidata.dat';
-	const FILE_FINISHED_DATA = 'protected/data/gitgraph.dat';
+	const FILE_RAW_DATA      = 'protected/data/git_graph_raw.dat';
+	const FILE_FINISHED_DATA = 'protected/data/git_graph_data.dat';
 
 	const API_AUTHORIZE = 'https://github.com/login/oauth/authorize?client_id=%s';
-	const API_TOKEN = 'https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s';
+	const API_TOKEN     = 'https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s';
 
-	const API_RATELIMIT = 'https://api.github.com/rate_limit';
+	const API_RATELIMIT        = 'https://api.github.com/rate_limit';
 	const API_REPOSITORIESLIST = 'https://api.github.com/users/%s/repos?page=%d&per_page=100';
+	const API_SINGLEREPOSITORY = 'https://api.github.com/repos/%s';
+
+	const PROGRESS_SESSION_COOKIE = 'ajax_progress_egh_refresh';
 
 	private $username;
 	private $token;
@@ -18,14 +21,15 @@ class ExtendedGitGraph {
 	private $repositories;
 	private $commits;
 
+	private $sec_username = [];
+	private $sec_repo = [];
+
 	private $commitmap = array();
 	private $startdate = null;
 	private $enddate = null;
 
 	public function __construct($usr_name) {
 		$this->username = $usr_name;
-
-		set_time_limit(300); // 5min
 	}
 
 	public function authenticate($auth_key, $client_id, $client_secret) {
@@ -44,52 +48,83 @@ class ExtendedGitGraph {
 	}
 
 	public function collect() {
-		ob_implicit_flush(true);
-		ob_end_flush();
+		set_time_limit(300); // 5min
 
-		//--------------------------------
+		$this->output_flushed_clear();
+		$this->output_flushed("Start progress");
 
 		$this->listRepositories();
-
 		$this->listAllCommits();
 
 		$this->save();
 
-		//--------------------------------
-
-		$this->output_flushed($this->getRemainingRequests() . ' Requests remaining');
+		$this->output_flushed("Remaining Requests: " . $this->getRemainingRequests());
+		$this->output_flushed("Finished progress");
 	}
 
-	private function listRepositories() {
+	private function listRepositories()
+	{
+		$this->repositories = array();
+
+		$this->listRepositoriesForUser($this->username);
+
+		foreach ($this->sec_username as $un)
+		{
+			$this->listRepositoriesForUser($un);
+		}
+
+		foreach($this->sec_repo as $srep)
+		{
+			$this->listSingleRepo($srep);
+		}
+	}
+
+	private function listRepositoriesForUser($usr) {
 		$page = 1;
-		$url = sprintf(self::API_REPOSITORIESLIST . '&' . $this->tokenHeader, $this->username, $page);
+		$url = sprintf(self::API_REPOSITORIESLIST . '&' . $this->tokenHeader, $usr, $page);
 
 		$result = $this->getJSON($url);
 
-		$repo_list = array();
-
 		while (! empty($result)) {
 			foreach ($result as $result_repo) {
-				$repo_list[] = $this->parseRepoJSON($result_repo);
+				$this->repositories[] = $this->parseRepoJSON($result_repo);
 
 				$this->output_flushed("Found Repo: " . $result_repo->{'full_name'});
 			}
 
 			//##########
 
-			$url = sprintf(self::API_REPOSITORIESLIST . '&' . $this->tokenHeader, $this->username, ++$page);
+			$url = sprintf(self::API_REPOSITORIESLIST . '&' . $this->tokenHeader, $usr, ++$page);
 
 			$result = $this->getJSON($url);
 		}
+	}
 
-		$this->repositories = $repo_list;
+	private function listSingleRepo($repo)
+	{
+		$url = sprintf(self::API_SINGLEREPOSITORY . '?' . $this->tokenHeader, $repo);
+
+		$result_repo = $this->getJSON($url);
+
+		if (! empty($result_repo))
+		{
+			$this->repositories[] = $this->parseRepoJSON($result_repo);
+
+			$this->output_flushed("Found Repo: " . $result_repo->{'full_name'});
+		}
 	}
 
 	private function getJSON($url) {
 		$options  = array('http' => array('user_agent'=> $_SERVER['HTTP_USER_AGENT']));
-//		$options  = array('http' => array('user_agent'=> 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1944.0 Safari/537.36'));
 		$context  = stream_context_create($options);
-		$response = file_get_contents($url, false, $context);
+
+		$response = @file_get_contents($url, false, $context);
+
+		if ($response === false)
+		{
+			$this->output_flushed("Error recieving json: '" . $url . "'");
+			return array();
+		}
 
 		return json_decode($response);
 	}
@@ -121,7 +156,7 @@ class ExtendedGitGraph {
 				$commit_list[] = $this->parseCommitJSON($repo, $result_commit);
 			}
 
-			$this->output_flushed("Found 100 Commits from  " . $repo['full_name']);
+			$this->output_flushed("Found " . count($result) . " Commits from  " . $repo['full_name']);
 
 			//##########
 
@@ -182,9 +217,20 @@ class ExtendedGitGraph {
 		$this->output_flushed('Finished saving data');
 	}
 
+	public function output_flushed_clear()
+	{
+		if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+
+		$_SESSION[self::PROGRESS_SESSION_COOKIE] = '';
+		session_commit();
+	}
+
 	public function output_flushed($txt)
 	{
-		echo '[' . date('H:i.s') . '] ' . $txt . "<br>";
+		if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+
+		$_SESSION[self::PROGRESS_SESSION_COOKIE] .= '[' . date('H:i.s') . '] ' . $txt . "\r\n";
+		session_commit();
 	}
 
 	public function loadData() {
@@ -491,4 +537,14 @@ class ExtendedGitGraph {
 
 		return $years;
 	}
-} 
+
+	public function addSecondaryUsername($sun)
+	{
+		$this->sec_username[] = $sun;
+	}
+
+	public function addSecondaryRepository($sre)
+	{
+		$this->sec_repo[] = $sre;
+	}
+}

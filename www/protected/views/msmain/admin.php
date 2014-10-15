@@ -10,6 +10,9 @@ $this->breadcrumbs =
 	[
 		'Admin',
 	];
+
+array_push($this->js_files, '/javascript/msmain_admin_script.js');
+
 ?>
 
 <div class="container">
@@ -135,7 +138,12 @@ $this->breadcrumbs =
 
 		<br><br>
 
-		<a class="btn btn-primary" href="?do_egh_update=1"> Update </a>
+		<div style="text-align: center;">
+		<textarea id="egh_ajaxOutput" readonly="readonly"></textarea>
+		<br>
+		<a class="btn btn-primary" href="javascript:startAjaxRefresh()" style="width: 90%"> Update </a>
+		</div>
+
 
 	</div>
 

@@ -1,0 +1,876 @@
+a:12:{s:8:"creation";O:8:"DateTime":3:{s:4:"date";s:19:"2014-10-15 11:25:10";s:13:"timezone_type";i:3;s:8:"timezone";s:13:"Europe/Berlin";}s:5:"total";i:1130;s:5:"repos";i:26;s:6:"streak";i:22;s:12:"streak_start";O:8:"DateTime":3:{s:4:"date";s:19:"2014-03-25 00:00:00";s:13:"timezone_type";i:3;s:8:"timezone";s:13:"Europe/Berlin";}s:10:"streak_end";O:8:"DateTime":3:{s:4:"date";s:19:"2014-04-17 00:00:00";s:13:"timezone_type";i:3;s:8:"timezone";s:13:"Europe/Berlin";}s:11:"max_commits";i:17;s:16:"max_commits_date";O:8:"DateTime":3:{s:4:"date";s:19:"2014-05-15 00:00:00";s:13:"timezone_type";i:3;s:8:"timezone";s:13:"Europe/Berlin";}s:11:"avg_commits";d:1.9362068965517240659579556449898518621921539306640625;s:5:"start";O:8:"DateTime":3:{s:4:"date";s:19:"2013-03-14 00:00:00";s:13:"timezone_type";i:3;s:8:"timezone";s:13:"Europe/Berlin";}s:3:"end";O:8:"DateTime":3:{s:4:"date";s:19:"2014-10-14 00:00:00";s:13:"timezone_type";i:3;s:8:"timezone";s:13:"Europe/Berlin";}s:7:"content";s:120115:"
+
+<div class="extGitGraphContainer">
+	<svg class="git_list">
+		<g transform="translate(20, 20) ">
+			<g transform="translate(0, 0)">
+				<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="01.01.2013 [2013 :: 0 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 1st January 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="02.01.2013 [2013 :: 0 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 2nd January 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="03.01.2013 [2013 :: 0 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 3rd January 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="04.01.2013 [2013 :: 0 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 4th January 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="05.01.2013 [2013 :: 0 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 5th January 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="06.01.2013 [2013 :: 0 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 6th January 2013"/>
+</g>
+<g transform="translate(13, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="07.01.2013 [2013 :: 1 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 7th January 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="08.01.2013 [2013 :: 1 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 8th January 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="09.01.2013 [2013 :: 1 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 9th January 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="10.01.2013 [2013 :: 1 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 10th January 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="11.01.2013 [2013 :: 1 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 11th January 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="12.01.2013 [2013 :: 1 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 12th January 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="13.01.2013 [2013 :: 1 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 13th January 2013"/>
+</g>
+<g transform="translate(26, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="14.01.2013 [2013 :: 2 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 14th January 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="15.01.2013 [2013 :: 2 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 15th January 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="16.01.2013 [2013 :: 2 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 16th January 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="17.01.2013 [2013 :: 2 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 17th January 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="18.01.2013 [2013 :: 2 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 18th January 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="19.01.2013 [2013 :: 2 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 19th January 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="20.01.2013 [2013 :: 2 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 20th January 2013"/>
+</g>
+<g transform="translate(39, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="21.01.2013 [2013 :: 3 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 21st January 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="22.01.2013 [2013 :: 3 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 22nd January 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="23.01.2013 [2013 :: 3 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 23rd January 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="24.01.2013 [2013 :: 3 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 24th January 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="25.01.2013 [2013 :: 3 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 25th January 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="26.01.2013 [2013 :: 3 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 26th January 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="27.01.2013 [2013 :: 3 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 27th January 2013"/>
+</g>
+<g transform="translate(52, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="28.01.2013 [2013 :: 4 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 28th January 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="29.01.2013 [2013 :: 4 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 29th January 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="30.01.2013 [2013 :: 4 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 30th January 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="31.01.2013 [2013 :: 4 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 31st January 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="01.02.2013 [2013 :: 4 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 1st February 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="02.02.2013 [2013 :: 4 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 2nd February 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="03.02.2013 [2013 :: 4 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 3rd February 2013"/>
+</g>
+<g transform="translate(65, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="04.02.2013 [2013 :: 5 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 4th February 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="05.02.2013 [2013 :: 5 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 5th February 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="06.02.2013 [2013 :: 5 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 6th February 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="07.02.2013 [2013 :: 5 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 7th February 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="08.02.2013 [2013 :: 5 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 8th February 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="09.02.2013 [2013 :: 5 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 9th February 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="10.02.2013 [2013 :: 5 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 10th February 2013"/>
+</g>
+<g transform="translate(78, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="11.02.2013 [2013 :: 6 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 11th February 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="12.02.2013 [2013 :: 6 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 12th February 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="13.02.2013 [2013 :: 6 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 13th February 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="14.02.2013 [2013 :: 6 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 14th February 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="15.02.2013 [2013 :: 6 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 15th February 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="16.02.2013 [2013 :: 6 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 16th February 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="17.02.2013 [2013 :: 6 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 17th February 2013"/>
+</g>
+<g transform="translate(91, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="18.02.2013 [2013 :: 7 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 18th February 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="19.02.2013 [2013 :: 7 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 19th February 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="20.02.2013 [2013 :: 7 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 20th February 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="21.02.2013 [2013 :: 7 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 21st February 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="22.02.2013 [2013 :: 7 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 22nd February 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="23.02.2013 [2013 :: 7 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 23rd February 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="24.02.2013 [2013 :: 7 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 24th February 2013"/>
+</g>
+<g transform="translate(104, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="25.02.2013 [2013 :: 8 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 25th February 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="26.02.2013 [2013 :: 8 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 26th February 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="27.02.2013 [2013 :: 8 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 27th February 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="28.02.2013 [2013 :: 8 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 28th February 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="01.03.2013 [2013 :: 8 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 1st March 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="02.03.2013 [2013 :: 8 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 2nd March 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="03.03.2013 [2013 :: 8 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 3rd March 2013"/>
+</g>
+<g transform="translate(117, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="04.03.2013 [2013 :: 9 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 4th March 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="05.03.2013 [2013 :: 9 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 5th March 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="06.03.2013 [2013 :: 9 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 6th March 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="07.03.2013 [2013 :: 9 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 7th March 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="08.03.2013 [2013 :: 9 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 8th March 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="09.03.2013 [2013 :: 9 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 9th March 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="10.03.2013 [2013 :: 9 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 10th March 2013"/>
+</g>
+<g transform="translate(130, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="11.03.2013 [2013 :: 10 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 11th March 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="12.03.2013 [2013 :: 10 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 12th March 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="13.03.2013 [2013 :: 10 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 13th March 2013"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="14.03.2013 [2013 :: 10 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 14th March 2013"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="15.03.2013 [2013 :: 10 :: 4] -> 4" hvr_header="6 commits" hvr_content=" on Friday 15th March 2013"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="16.03.2013 [2013 :: 10 :: 5] -> 3" hvr_header="4 commits" hvr_content=" on Saturday 16th March 2013"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="17.03.2013 [2013 :: 10 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 17th March 2013"/>
+</g>
+<g transform="translate(143, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="18.03.2013 [2013 :: 11 :: 0] -> 3" hvr_header="3 commits" hvr_content=" on Monday 18th March 2013"/>
+<rect style="fill: #DBDEE0;" y="13" height="11" width="11" dbg_tag="19.03.2013 [2013 :: 11 :: 1] -> 1" hvr_header="1 commits" hvr_content=" on Tuesday 19th March 2013"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="20.03.2013 [2013 :: 11 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 20th March 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="21.03.2013 [2013 :: 11 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 21st March 2013"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="22.03.2013 [2013 :: 11 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 22nd March 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="23.03.2013 [2013 :: 11 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 23rd March 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="24.03.2013 [2013 :: 11 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 24th March 2013"/>
+</g>
+<g transform="translate(156, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="25.03.2013 [2013 :: 12 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 25th March 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="26.03.2013 [2013 :: 12 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 26th March 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="27.03.2013 [2013 :: 12 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 27th March 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="28.03.2013 [2013 :: 12 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 28th March 2013"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="29.03.2013 [2013 :: 12 :: 4] -> 3" hvr_header="3 commits" hvr_content=" on Friday 29th March 2013"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="30.03.2013 [2013 :: 12 :: 5] -> 3" hvr_header="4 commits" hvr_content=" on Saturday 30th March 2013"/>
+<rect style="fill: #9099A2;" y="78" height="11" width="11" dbg_tag="31.03.2013 [2013 :: 12 :: 6] -> 4" hvr_header="5 commits" hvr_content=" on Sunday 31st March 2013"/>
+</g>
+<g transform="translate(169, 0)">
+<rect style="fill: #C2C7CB;" y="0" height="11" width="11" dbg_tag="01.04.2013 [2013 :: 13 :: 0] -> 2" hvr_header="2 commits" hvr_content=" on Monday 1st April 2013"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="02.04.2013 [2013 :: 13 :: 1] -> 3" hvr_header="3 commits" hvr_content=" on Tuesday 2nd April 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="03.04.2013 [2013 :: 13 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 3rd April 2013"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="04.04.2013 [2013 :: 13 :: 3] -> 3" hvr_header="3 commits" hvr_content=" on Thursday 4th April 2013"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="05.04.2013 [2013 :: 13 :: 4] -> 4" hvr_header="5 commits" hvr_content=" on Friday 5th April 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="06.04.2013 [2013 :: 13 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 6th April 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="07.04.2013 [2013 :: 13 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 7th April 2013"/>
+</g>
+<g transform="translate(182, 0)">
+<rect style="fill: #C2C7CB;" y="0" height="11" width="11" dbg_tag="08.04.2013 [2013 :: 14 :: 0] -> 2" hvr_header="2 commits" hvr_content=" on Monday 8th April 2013"/>
+<rect style="fill: #C2C7CB;" y="13" height="11" width="11" dbg_tag="09.04.2013 [2013 :: 14 :: 1] -> 2" hvr_header="2 commits" hvr_content=" on Tuesday 9th April 2013"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="10.04.2013 [2013 :: 14 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 10th April 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="11.04.2013 [2013 :: 14 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 11th April 2013"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="12.04.2013 [2013 :: 14 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 12th April 2013"/>
+<rect style="fill: #77828E;" y="65" height="11" width="11" dbg_tag="13.04.2013 [2013 :: 14 :: 5] -> 5" hvr_header="7 commits" hvr_content=" on Saturday 13th April 2013"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="14.04.2013 [2013 :: 14 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 14th April 2013"/>
+</g>
+<g transform="translate(195, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="15.04.2013 [2013 :: 15 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 15th April 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="16.04.2013 [2013 :: 15 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 16th April 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="17.04.2013 [2013 :: 15 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 17th April 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="18.04.2013 [2013 :: 15 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 18th April 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="19.04.2013 [2013 :: 15 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 19th April 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="20.04.2013 [2013 :: 15 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 20th April 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="21.04.2013 [2013 :: 15 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 21st April 2013"/>
+</g>
+<g transform="translate(208, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="22.04.2013 [2013 :: 16 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 22nd April 2013"/>
+<rect style="fill: #9099A2;" y="13" height="11" width="11" dbg_tag="23.04.2013 [2013 :: 16 :: 1] -> 4" hvr_header="5 commits" hvr_content=" on Tuesday 23rd April 2013"/>
+<rect style="fill: #C2C7CB;" y="26" height="11" width="11" dbg_tag="24.04.2013 [2013 :: 16 :: 2] -> 2" hvr_header="2 commits" hvr_content=" on Wednesday 24th April 2013"/>
+<rect style="fill: #77828E;" y="39" height="11" width="11" dbg_tag="25.04.2013 [2013 :: 16 :: 3] -> 5" hvr_header="9 commits" hvr_content=" on Thursday 25th April 2013"/>
+<rect style="fill: #77828E;" y="52" height="11" width="11" dbg_tag="26.04.2013 [2013 :: 16 :: 4] -> 5" hvr_header="9 commits" hvr_content=" on Friday 26th April 2013"/>
+<rect style="fill: #C2C7CB;" y="65" height="11" width="11" dbg_tag="27.04.2013 [2013 :: 16 :: 5] -> 2" hvr_header="2 commits" hvr_content=" on Saturday 27th April 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="28.04.2013 [2013 :: 16 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 28th April 2013"/>
+</g>
+<g transform="translate(221, 0)">
+<rect style="fill: #9099A2;" y="0" height="11" width="11" dbg_tag="29.04.2013 [2013 :: 17 :: 0] -> 4" hvr_header="5 commits" hvr_content=" on Monday 29th April 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="30.04.2013 [2013 :: 17 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 30th April 2013"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="01.05.2013 [2013 :: 17 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 1st May 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="02.05.2013 [2013 :: 17 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 2nd May 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="03.05.2013 [2013 :: 17 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 3rd May 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="04.05.2013 [2013 :: 17 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 4th May 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="05.05.2013 [2013 :: 17 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 5th May 2013"/>
+</g>
+<g transform="translate(234, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="06.05.2013 [2013 :: 18 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 6th May 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="07.05.2013 [2013 :: 18 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 7th May 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="08.05.2013 [2013 :: 18 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 8th May 2013"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="09.05.2013 [2013 :: 18 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 9th May 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="10.05.2013 [2013 :: 18 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 10th May 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="11.05.2013 [2013 :: 18 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 11th May 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="12.05.2013 [2013 :: 18 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 12th May 2013"/>
+</g>
+<g transform="translate(247, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="13.05.2013 [2013 :: 19 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 13th May 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="14.05.2013 [2013 :: 19 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 14th May 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="15.05.2013 [2013 :: 19 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 15th May 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="16.05.2013 [2013 :: 19 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 16th May 2013"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="17.05.2013 [2013 :: 19 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 17th May 2013"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="18.05.2013 [2013 :: 19 :: 5] -> 3" hvr_header="3 commits" hvr_content=" on Saturday 18th May 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="19.05.2013 [2013 :: 19 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 19th May 2013"/>
+</g>
+<g transform="translate(260, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="20.05.2013 [2013 :: 20 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 20th May 2013"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="21.05.2013 [2013 :: 20 :: 1] -> 3" hvr_header="4 commits" hvr_content=" on Tuesday 21st May 2013"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="22.05.2013 [2013 :: 20 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 22nd May 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="23.05.2013 [2013 :: 20 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 23rd May 2013"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="24.05.2013 [2013 :: 20 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 24th May 2013"/>
+<rect style="fill: #C2C7CB;" y="65" height="11" width="11" dbg_tag="25.05.2013 [2013 :: 20 :: 5] -> 2" hvr_header="2 commits" hvr_content=" on Saturday 25th May 2013"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="26.05.2013 [2013 :: 20 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 26th May 2013"/>
+</g>
+<g transform="translate(273, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="27.05.2013 [2013 :: 21 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 27th May 2013"/>
+<rect style="fill: #DBDEE0;" y="13" height="11" width="11" dbg_tag="28.05.2013 [2013 :: 21 :: 1] -> 1" hvr_header="1 commits" hvr_content=" on Tuesday 28th May 2013"/>
+<rect style="fill: #AAB0B7;" y="26" height="11" width="11" dbg_tag="29.05.2013 [2013 :: 21 :: 2] -> 3" hvr_header="3 commits" hvr_content=" on Wednesday 29th May 2013"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="30.05.2013 [2013 :: 21 :: 3] -> 3" hvr_header="3 commits" hvr_content=" on Thursday 30th May 2013"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="31.05.2013 [2013 :: 21 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 31st May 2013"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="01.06.2013 [2013 :: 21 :: 5] -> 3" hvr_header="4 commits" hvr_content=" on Saturday 1st June 2013"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="02.06.2013 [2013 :: 21 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 2nd June 2013"/>
+</g>
+<g transform="translate(286, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="03.06.2013 [2013 :: 22 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 3rd June 2013"/>
+<rect style="fill: #C2C7CB;" y="13" height="11" width="11" dbg_tag="04.06.2013 [2013 :: 22 :: 1] -> 2" hvr_header="2 commits" hvr_content=" on Tuesday 4th June 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="05.06.2013 [2013 :: 22 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 5th June 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="06.06.2013 [2013 :: 22 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 6th June 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="07.06.2013 [2013 :: 22 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 7th June 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="08.06.2013 [2013 :: 22 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 8th June 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="09.06.2013 [2013 :: 22 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 9th June 2013"/>
+</g>
+<g transform="translate(299, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="10.06.2013 [2013 :: 23 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 10th June 2013"/>
+<rect style="fill: #9099A2;" y="13" height="11" width="11" dbg_tag="11.06.2013 [2013 :: 23 :: 1] -> 4" hvr_header="5 commits" hvr_content=" on Tuesday 11th June 2013"/>
+<rect style="fill: #77828E;" y="26" height="11" width="11" dbg_tag="12.06.2013 [2013 :: 23 :: 2] -> 5" hvr_header="8 commits" hvr_content=" on Wednesday 12th June 2013"/>
+<rect style="fill: #77828E;" y="39" height="11" width="11" dbg_tag="13.06.2013 [2013 :: 23 :: 3] -> 5" hvr_header="8 commits" hvr_content=" on Thursday 13th June 2013"/>
+<rect style="fill: #C2C7CB;" y="52" height="11" width="11" dbg_tag="14.06.2013 [2013 :: 23 :: 4] -> 2" hvr_header="2 commits" hvr_content=" on Friday 14th June 2013"/>
+<rect style="fill: #9099A2;" y="65" height="11" width="11" dbg_tag="15.06.2013 [2013 :: 23 :: 5] -> 4" hvr_header="6 commits" hvr_content=" on Saturday 15th June 2013"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="16.06.2013 [2013 :: 23 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 16th June 2013"/>
+</g>
+<g transform="translate(312, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="17.06.2013 [2013 :: 24 :: 0] -> 3" hvr_header="4 commits" hvr_content=" on Monday 17th June 2013"/>
+<rect style="fill: #77828E;" y="13" height="11" width="11" dbg_tag="18.06.2013 [2013 :: 24 :: 1] -> 5" hvr_header="8 commits" hvr_content=" on Tuesday 18th June 2013"/>
+<rect style="fill: #77828E;" y="26" height="11" width="11" dbg_tag="19.06.2013 [2013 :: 24 :: 2] -> 5" hvr_header="8 commits" hvr_content=" on Wednesday 19th June 2013"/>
+<rect style="fill: #DBDEE0;" y="39" height="11" width="11" dbg_tag="20.06.2013 [2013 :: 24 :: 3] -> 1" hvr_header="1 commits" hvr_content=" on Thursday 20th June 2013"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="21.06.2013 [2013 :: 24 :: 4] -> 4" hvr_header="6 commits" hvr_content=" on Friday 21st June 2013"/>
+<rect style="fill: #C2C7CB;" y="65" height="11" width="11" dbg_tag="22.06.2013 [2013 :: 24 :: 5] -> 2" hvr_header="2 commits" hvr_content=" on Saturday 22nd June 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="23.06.2013 [2013 :: 24 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 23rd June 2013"/>
+</g>
+<g transform="translate(325, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="24.06.2013 [2013 :: 25 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 24th June 2013"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="25.06.2013 [2013 :: 25 :: 1] -> 3" hvr_header="3 commits" hvr_content=" on Tuesday 25th June 2013"/>
+<rect style="fill: #5E6B79;" y="26" height="11" width="11" dbg_tag="26.06.2013 [2013 :: 25 :: 2] -> 6" hvr_header="10 commits" hvr_content=" on Wednesday 26th June 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="27.06.2013 [2013 :: 25 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 27th June 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="28.06.2013 [2013 :: 25 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 28th June 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="29.06.2013 [2013 :: 25 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 29th June 2013"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="30.06.2013 [2013 :: 25 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 30th June 2013"/>
+</g>
+<g transform="translate(338, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="01.07.2013 [2013 :: 26 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 1st July 2013"/>
+<rect style="fill: #C2C7CB;" y="13" height="11" width="11" dbg_tag="02.07.2013 [2013 :: 26 :: 1] -> 2" hvr_header="2 commits" hvr_content=" on Tuesday 2nd July 2013"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="03.07.2013 [2013 :: 26 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 3rd July 2013"/>
+<rect style="fill: #DBDEE0;" y="39" height="11" width="11" dbg_tag="04.07.2013 [2013 :: 26 :: 3] -> 1" hvr_header="1 commits" hvr_content=" on Thursday 4th July 2013"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="05.07.2013 [2013 :: 26 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 5th July 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="06.07.2013 [2013 :: 26 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 6th July 2013"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="07.07.2013 [2013 :: 26 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 7th July 2013"/>
+</g>
+<g transform="translate(351, 0)">
+<rect style="fill: #C2C7CB;" y="0" height="11" width="11" dbg_tag="08.07.2013 [2013 :: 27 :: 0] -> 2" hvr_header="2 commits" hvr_content=" on Monday 8th July 2013"/>
+<rect style="fill: #C2C7CB;" y="13" height="11" width="11" dbg_tag="09.07.2013 [2013 :: 27 :: 1] -> 2" hvr_header="2 commits" hvr_content=" on Tuesday 9th July 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="10.07.2013 [2013 :: 27 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 10th July 2013"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="11.07.2013 [2013 :: 27 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 11th July 2013"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="12.07.2013 [2013 :: 27 :: 4] -> 3" hvr_header="4 commits" hvr_content=" on Friday 12th July 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="13.07.2013 [2013 :: 27 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 13th July 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="14.07.2013 [2013 :: 27 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 14th July 2013"/>
+</g>
+<g transform="translate(364, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="15.07.2013 [2013 :: 28 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 15th July 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="16.07.2013 [2013 :: 28 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 16th July 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="17.07.2013 [2013 :: 28 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 17th July 2013"/>
+<rect style="fill: #DBDEE0;" y="39" height="11" width="11" dbg_tag="18.07.2013 [2013 :: 28 :: 3] -> 1" hvr_header="1 commits" hvr_content=" on Thursday 18th July 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="19.07.2013 [2013 :: 28 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 19th July 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="20.07.2013 [2013 :: 28 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 20th July 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="21.07.2013 [2013 :: 28 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 21st July 2013"/>
+</g>
+<g transform="translate(377, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="22.07.2013 [2013 :: 29 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 22nd July 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="23.07.2013 [2013 :: 29 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 23rd July 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="24.07.2013 [2013 :: 29 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 24th July 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="25.07.2013 [2013 :: 29 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 25th July 2013"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="26.07.2013 [2013 :: 29 :: 4] -> 4" hvr_header="6 commits" hvr_content=" on Friday 26th July 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="27.07.2013 [2013 :: 29 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 27th July 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="28.07.2013 [2013 :: 29 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 28th July 2013"/>
+</g>
+<g transform="translate(390, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="29.07.2013 [2013 :: 30 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 29th July 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="30.07.2013 [2013 :: 30 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 30th July 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="31.07.2013 [2013 :: 30 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 31st July 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="01.08.2013 [2013 :: 30 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 1st August 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="02.08.2013 [2013 :: 30 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 2nd August 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="03.08.2013 [2013 :: 30 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 3rd August 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="04.08.2013 [2013 :: 30 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 4th August 2013"/>
+</g>
+<g transform="translate(403, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="05.08.2013 [2013 :: 31 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 5th August 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="06.08.2013 [2013 :: 31 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 6th August 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="07.08.2013 [2013 :: 31 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 7th August 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="08.08.2013 [2013 :: 31 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 8th August 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="09.08.2013 [2013 :: 31 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 9th August 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="10.08.2013 [2013 :: 31 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 10th August 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="11.08.2013 [2013 :: 31 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 11th August 2013"/>
+</g>
+<g transform="translate(416, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="12.08.2013 [2013 :: 32 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 12th August 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="13.08.2013 [2013 :: 32 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 13th August 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="14.08.2013 [2013 :: 32 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 14th August 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="15.08.2013 [2013 :: 32 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 15th August 2013"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="16.08.2013 [2013 :: 32 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 16th August 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="17.08.2013 [2013 :: 32 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 17th August 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="18.08.2013 [2013 :: 32 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 18th August 2013"/>
+</g>
+<g transform="translate(429, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="19.08.2013 [2013 :: 33 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 19th August 2013"/>
+<rect style="fill: #C2C7CB;" y="13" height="11" width="11" dbg_tag="20.08.2013 [2013 :: 33 :: 1] -> 2" hvr_header="2 commits" hvr_content=" on Tuesday 20th August 2013"/>
+<rect style="fill: #C2C7CB;" y="26" height="11" width="11" dbg_tag="21.08.2013 [2013 :: 33 :: 2] -> 2" hvr_header="2 commits" hvr_content=" on Wednesday 21st August 2013"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="22.08.2013 [2013 :: 33 :: 3] -> 4" hvr_header="6 commits" hvr_content=" on Thursday 22nd August 2013"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="23.08.2013 [2013 :: 33 :: 4] -> 3" hvr_header="3 commits" hvr_content=" on Friday 23rd August 2013"/>
+<rect style="fill: #C2C7CB;" y="65" height="11" width="11" dbg_tag="24.08.2013 [2013 :: 33 :: 5] -> 2" hvr_header="2 commits" hvr_content=" on Saturday 24th August 2013"/>
+<rect style="fill: #9099A2;" y="78" height="11" width="11" dbg_tag="25.08.2013 [2013 :: 33 :: 6] -> 4" hvr_header="5 commits" hvr_content=" on Sunday 25th August 2013"/>
+</g>
+<g transform="translate(442, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="26.08.2013 [2013 :: 34 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 26th August 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="27.08.2013 [2013 :: 34 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 27th August 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="28.08.2013 [2013 :: 34 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 28th August 2013"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="29.08.2013 [2013 :: 34 :: 3] -> 3" hvr_header="4 commits" hvr_content=" on Thursday 29th August 2013"/>
+<rect style="fill: #C2C7CB;" y="52" height="11" width="11" dbg_tag="30.08.2013 [2013 :: 34 :: 4] -> 2" hvr_header="2 commits" hvr_content=" on Friday 30th August 2013"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="31.08.2013 [2013 :: 34 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 31st August 2013"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="01.09.2013 [2013 :: 34 :: 6] -> 3" hvr_header="3 commits" hvr_content=" on Sunday 1st September 2013"/>
+</g>
+<g transform="translate(455, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="02.09.2013 [2013 :: 35 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 2nd September 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="03.09.2013 [2013 :: 35 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 3rd September 2013"/>
+<rect style="fill: #C2C7CB;" y="26" height="11" width="11" dbg_tag="04.09.2013 [2013 :: 35 :: 2] -> 2" hvr_header="2 commits" hvr_content=" on Wednesday 4th September 2013"/>
+<rect style="fill: #DBDEE0;" y="39" height="11" width="11" dbg_tag="05.09.2013 [2013 :: 35 :: 3] -> 1" hvr_header="1 commits" hvr_content=" on Thursday 5th September 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="06.09.2013 [2013 :: 35 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 6th September 2013"/>
+<rect style="fill: #C2C7CB;" y="65" height="11" width="11" dbg_tag="07.09.2013 [2013 :: 35 :: 5] -> 2" hvr_header="2 commits" hvr_content=" on Saturday 7th September 2013"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="08.09.2013 [2013 :: 35 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 8th September 2013"/>
+</g>
+<g transform="translate(468, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="09.09.2013 [2013 :: 36 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 9th September 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="10.09.2013 [2013 :: 36 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 10th September 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="11.09.2013 [2013 :: 36 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 11th September 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="12.09.2013 [2013 :: 36 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 12th September 2013"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="13.09.2013 [2013 :: 36 :: 4] -> 3" hvr_header="3 commits" hvr_content=" on Friday 13th September 2013"/>
+<rect style="fill: #C2C7CB;" y="65" height="11" width="11" dbg_tag="14.09.2013 [2013 :: 36 :: 5] -> 2" hvr_header="2 commits" hvr_content=" on Saturday 14th September 2013"/>
+<rect style="fill: #9099A2;" y="78" height="11" width="11" dbg_tag="15.09.2013 [2013 :: 36 :: 6] -> 4" hvr_header="6 commits" hvr_content=" on Sunday 15th September 2013"/>
+</g>
+<g transform="translate(481, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="16.09.2013 [2013 :: 37 :: 0] -> 3" hvr_header="4 commits" hvr_content=" on Monday 16th September 2013"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="17.09.2013 [2013 :: 37 :: 1] -> 3" hvr_header="4 commits" hvr_content=" on Tuesday 17th September 2013"/>
+<rect style="fill: #9099A2;" y="26" height="11" width="11" dbg_tag="18.09.2013 [2013 :: 37 :: 2] -> 4" hvr_header="6 commits" hvr_content=" on Wednesday 18th September 2013"/>
+<rect style="fill: #DBDEE0;" y="39" height="11" width="11" dbg_tag="19.09.2013 [2013 :: 37 :: 3] -> 1" hvr_header="1 commits" hvr_content=" on Thursday 19th September 2013"/>
+<rect style="fill: #C2C7CB;" y="52" height="11" width="11" dbg_tag="20.09.2013 [2013 :: 37 :: 4] -> 2" hvr_header="2 commits" hvr_content=" on Friday 20th September 2013"/>
+<rect style="fill: #9099A2;" y="65" height="11" width="11" dbg_tag="21.09.2013 [2013 :: 37 :: 5] -> 4" hvr_header="6 commits" hvr_content=" on Saturday 21st September 2013"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="22.09.2013 [2013 :: 37 :: 6] -> 3" hvr_header="3 commits" hvr_content=" on Sunday 22nd September 2013"/>
+</g>
+<g transform="translate(494, 0)">
+<rect style="fill: #C2C7CB;" y="0" height="11" width="11" dbg_tag="23.09.2013 [2013 :: 38 :: 0] -> 2" hvr_header="2 commits" hvr_content=" on Monday 23rd September 2013"/>
+<rect style="fill: #DBDEE0;" y="13" height="11" width="11" dbg_tag="24.09.2013 [2013 :: 38 :: 1] -> 1" hvr_header="1 commits" hvr_content=" on Tuesday 24th September 2013"/>
+<rect style="fill: #C2C7CB;" y="26" height="11" width="11" dbg_tag="25.09.2013 [2013 :: 38 :: 2] -> 2" hvr_header="2 commits" hvr_content=" on Wednesday 25th September 2013"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="26.09.2013 [2013 :: 38 :: 3] -> 4" hvr_header="5 commits" hvr_content=" on Thursday 26th September 2013"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="27.09.2013 [2013 :: 38 :: 4] -> 3" hvr_header="3 commits" hvr_content=" on Friday 27th September 2013"/>
+<rect style="fill: #77828E;" y="65" height="11" width="11" dbg_tag="28.09.2013 [2013 :: 38 :: 5] -> 5" hvr_header="9 commits" hvr_content=" on Saturday 28th September 2013"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="29.09.2013 [2013 :: 38 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 29th September 2013"/>
+</g>
+<g transform="translate(507, 0)">
+<rect style="fill: #C2C7CB;" y="0" height="11" width="11" dbg_tag="30.09.2013 [2013 :: 39 :: 0] -> 2" hvr_header="2 commits" hvr_content=" on Monday 30th September 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="01.10.2013 [2013 :: 39 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 1st October 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="02.10.2013 [2013 :: 39 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 2nd October 2013"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="03.10.2013 [2013 :: 39 :: 3] -> 3" hvr_header="4 commits" hvr_content=" on Thursday 3rd October 2013"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="04.10.2013 [2013 :: 39 :: 4] -> 4" hvr_header="5 commits" hvr_content=" on Friday 4th October 2013"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="05.10.2013 [2013 :: 39 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 5th October 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="06.10.2013 [2013 :: 39 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 6th October 2013"/>
+</g>
+<g transform="translate(520, 0)">
+<rect style="fill: #77828E;" y="0" height="11" width="11" dbg_tag="07.10.2013 [2013 :: 40 :: 0] -> 5" hvr_header="8 commits" hvr_content=" on Monday 7th October 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="08.10.2013 [2013 :: 40 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 8th October 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="09.10.2013 [2013 :: 40 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 9th October 2013"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="10.10.2013 [2013 :: 40 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 10th October 2013"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="11.10.2013 [2013 :: 40 :: 4] -> 3" hvr_header="4 commits" hvr_content=" on Friday 11th October 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="12.10.2013 [2013 :: 40 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 12th October 2013"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="13.10.2013 [2013 :: 40 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 13th October 2013"/>
+</g>
+<g transform="translate(533, 0)">
+<rect style="fill: #9099A2;" y="0" height="11" width="11" dbg_tag="14.10.2013 [2013 :: 41 :: 0] -> 4" hvr_header="5 commits" hvr_content=" on Monday 14th October 2013"/>
+<rect style="fill: #77828E;" y="13" height="11" width="11" dbg_tag="15.10.2013 [2013 :: 41 :: 1] -> 5" hvr_header="7 commits" hvr_content=" on Tuesday 15th October 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="16.10.2013 [2013 :: 41 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 16th October 2013"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="17.10.2013 [2013 :: 41 :: 3] -> 3" hvr_header="3 commits" hvr_content=" on Thursday 17th October 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="18.10.2013 [2013 :: 41 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 18th October 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="19.10.2013 [2013 :: 41 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 19th October 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="20.10.2013 [2013 :: 41 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 20th October 2013"/>
+</g>
+<g transform="translate(546, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="21.10.2013 [2013 :: 42 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 21st October 2013"/>
+<rect style="fill: #DBDEE0;" y="13" height="11" width="11" dbg_tag="22.10.2013 [2013 :: 42 :: 1] -> 1" hvr_header="1 commits" hvr_content=" on Tuesday 22nd October 2013"/>
+<rect style="fill: #C2C7CB;" y="26" height="11" width="11" dbg_tag="23.10.2013 [2013 :: 42 :: 2] -> 2" hvr_header="2 commits" hvr_content=" on Wednesday 23rd October 2013"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="24.10.2013 [2013 :: 42 :: 3] -> 3" hvr_header="3 commits" hvr_content=" on Thursday 24th October 2013"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="25.10.2013 [2013 :: 42 :: 4] -> 3" hvr_header="4 commits" hvr_content=" on Friday 25th October 2013"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="26.10.2013 [2013 :: 42 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 26th October 2013"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="27.10.2013 [2013 :: 42 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 27th October 2013"/>
+</g>
+<g transform="translate(559, 0)">
+<rect style="fill: #9099A2;" y="0" height="11" width="11" dbg_tag="28.10.2013 [2013 :: 43 :: 0] -> 4" hvr_header="6 commits" hvr_content=" on Monday 28th October 2013"/>
+<rect style="fill: #9099A2;" y="13" height="11" width="11" dbg_tag="29.10.2013 [2013 :: 43 :: 1] -> 4" hvr_header="5 commits" hvr_content=" on Tuesday 29th October 2013"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="30.10.2013 [2013 :: 43 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 30th October 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="31.10.2013 [2013 :: 43 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 31st October 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="01.11.2013 [2013 :: 43 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 1st November 2013"/>
+<rect style="fill: #9099A2;" y="65" height="11" width="11" dbg_tag="02.11.2013 [2013 :: 43 :: 5] -> 4" hvr_header="5 commits" hvr_content=" on Saturday 2nd November 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="03.11.2013 [2013 :: 43 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 3rd November 2013"/>
+</g>
+<g transform="translate(572, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="04.11.2013 [2013 :: 44 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 4th November 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="05.11.2013 [2013 :: 44 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 5th November 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="06.11.2013 [2013 :: 44 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 6th November 2013"/>
+<rect style="fill: #77828E;" y="39" height="11" width="11" dbg_tag="07.11.2013 [2013 :: 44 :: 3] -> 5" hvr_header="7 commits" hvr_content=" on Thursday 7th November 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="08.11.2013 [2013 :: 44 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 8th November 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="09.11.2013 [2013 :: 44 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 9th November 2013"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="10.11.2013 [2013 :: 44 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 10th November 2013"/>
+</g>
+<g transform="translate(585, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="11.11.2013 [2013 :: 45 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 11th November 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="12.11.2013 [2013 :: 45 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 12th November 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="13.11.2013 [2013 :: 45 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 13th November 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="14.11.2013 [2013 :: 45 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 14th November 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="15.11.2013 [2013 :: 45 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 15th November 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="16.11.2013 [2013 :: 45 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 16th November 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="17.11.2013 [2013 :: 45 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 17th November 2013"/>
+</g>
+<g transform="translate(598, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="18.11.2013 [2013 :: 46 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 18th November 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="19.11.2013 [2013 :: 46 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 19th November 2013"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="20.11.2013 [2013 :: 46 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 20th November 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="21.11.2013 [2013 :: 46 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 21st November 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="22.11.2013 [2013 :: 46 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 22nd November 2013"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="23.11.2013 [2013 :: 46 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 23rd November 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="24.11.2013 [2013 :: 46 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 24th November 2013"/>
+</g>
+<g transform="translate(611, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="25.11.2013 [2013 :: 47 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 25th November 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="26.11.2013 [2013 :: 47 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 26th November 2013"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="27.11.2013 [2013 :: 47 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 27th November 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="28.11.2013 [2013 :: 47 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 28th November 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="29.11.2013 [2013 :: 47 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 29th November 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="30.11.2013 [2013 :: 47 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 30th November 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="01.12.2013 [2013 :: 47 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 1st December 2013"/>
+</g>
+<g transform="translate(624, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="02.12.2013 [2013 :: 48 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 2nd December 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="03.12.2013 [2013 :: 48 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 3rd December 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="04.12.2013 [2013 :: 48 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 4th December 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="05.12.2013 [2013 :: 48 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 5th December 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="06.12.2013 [2013 :: 48 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 6th December 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="07.12.2013 [2013 :: 48 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 7th December 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="08.12.2013 [2013 :: 48 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 8th December 2013"/>
+</g>
+<g transform="translate(637, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="09.12.2013 [2013 :: 49 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 9th December 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="10.12.2013 [2013 :: 49 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 10th December 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="11.12.2013 [2013 :: 49 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 11th December 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="12.12.2013 [2013 :: 49 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 12th December 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="13.12.2013 [2013 :: 49 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 13th December 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="14.12.2013 [2013 :: 49 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 14th December 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="15.12.2013 [2013 :: 49 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 15th December 2013"/>
+</g>
+<g transform="translate(650, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="16.12.2013 [2013 :: 50 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 16th December 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="17.12.2013 [2013 :: 50 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 17th December 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="18.12.2013 [2013 :: 50 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 18th December 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="19.12.2013 [2013 :: 50 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 19th December 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="20.12.2013 [2013 :: 50 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 20th December 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="21.12.2013 [2013 :: 50 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 21st December 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="22.12.2013 [2013 :: 50 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 22nd December 2013"/>
+</g>
+<g transform="translate(663, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="23.12.2013 [2013 :: 51 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 23rd December 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="24.12.2013 [2013 :: 51 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 24th December 2013"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="25.12.2013 [2013 :: 51 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 25th December 2013"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="26.12.2013 [2013 :: 51 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 26th December 2013"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="27.12.2013 [2013 :: 51 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 27th December 2013"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="28.12.2013 [2013 :: 51 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 28th December 2013"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="29.12.2013 [2013 :: 51 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 29th December 2013"/>
+</g>
+<g transform="translate(676, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="30.12.2013 [2013 :: 52 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 30th December 2013"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="31.12.2013 [2013 :: 52 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 31st December 2013"/>
+			</g>
+
+			<text y="-3" x="29.714285714286" style="text-anchor: middle" class="caption_month">Jan</text><text y="-3" x="84.5" style="text-anchor: middle" class="caption_month">Feb</text><text y="-3" x="139.28571428571" style="text-anchor: middle" class="caption_month">Mar</text><text y="-3" x="195.92857142857" style="text-anchor: middle" class="caption_month">Apr</text><text y="-3" x="252.57142857143" style="text-anchor: middle" class="caption_month">May</text><text y="-3" x="309.21428571429" style="text-anchor: middle" class="caption_month">Jun</text><text y="-3" x="365.85714285714" style="text-anchor: middle" class="caption_month">Jul</text><text y="-3" x="423.42857142857" style="text-anchor: middle" class="caption_month">Aug</text><text y="-3" x="480.07142857143" style="text-anchor: middle" class="caption_month">Sep</text><text y="-3" x="536.71428571429" style="text-anchor: middle" class="caption_month">Oct</text><text y="-3" x="593.35714285714" style="text-anchor: middle" class="caption_month">Nov</text><text y="-3" x="650" style="text-anchor: middle" class="caption_month">Dec</text><text y="5.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">M</text><text y="18.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">T</text><text y="31.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">W</text><text y="44.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">T</text><text y="57.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">F</text><text y="70.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">S</text><text y="83.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">S</text><text  x="-10" y="-5" class="caption">2013</text>		</g>
+	</svg>
+
+	<div class="svg-tip n">
+		<strong>&nbsp;</strong><span>&nbsp;</span>
+	</div>
+
+	<div class="egg_footer">
+		<a href="/programs/view/ExtendedGitGraph">extendedGitGraph</a>
+	</div>
+</div><br />
+
+<div class="extGitGraphContainer">
+	<svg class="git_list">
+		<g transform="translate(20, 20) ">
+			<g transform="translate(0, 0)">
+				<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="01.01.2014 [2014 :: 0 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 1st January 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="02.01.2014 [2014 :: 0 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 2nd January 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="03.01.2014 [2014 :: 0 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 3rd January 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="04.01.2014 [2014 :: 0 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 4th January 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="05.01.2014 [2014 :: 0 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 5th January 2014"/>
+</g>
+<g transform="translate(13, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="06.01.2014 [2014 :: 1 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 6th January 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="07.01.2014 [2014 :: 1 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 7th January 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="08.01.2014 [2014 :: 1 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 8th January 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="09.01.2014 [2014 :: 1 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 9th January 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="10.01.2014 [2014 :: 1 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 10th January 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="11.01.2014 [2014 :: 1 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 11th January 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="12.01.2014 [2014 :: 1 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 12th January 2014"/>
+</g>
+<g transform="translate(26, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="13.01.2014 [2014 :: 2 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 13th January 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="14.01.2014 [2014 :: 2 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 14th January 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="15.01.2014 [2014 :: 2 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 15th January 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="16.01.2014 [2014 :: 2 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 16th January 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="17.01.2014 [2014 :: 2 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 17th January 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="18.01.2014 [2014 :: 2 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 18th January 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="19.01.2014 [2014 :: 2 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 19th January 2014"/>
+</g>
+<g transform="translate(39, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="20.01.2014 [2014 :: 3 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 20th January 2014"/>
+<rect style="fill: #DBDEE0;" y="13" height="11" width="11" dbg_tag="21.01.2014 [2014 :: 3 :: 1] -> 1" hvr_header="1 commits" hvr_content=" on Tuesday 21st January 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="22.01.2014 [2014 :: 3 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 22nd January 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="23.01.2014 [2014 :: 3 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 23rd January 2014"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="24.01.2014 [2014 :: 3 :: 4] -> 3" hvr_header="3 commits" hvr_content=" on Friday 24th January 2014"/>
+<rect style="fill: #9099A2;" y="65" height="11" width="11" dbg_tag="25.01.2014 [2014 :: 3 :: 5] -> 4" hvr_header="5 commits" hvr_content=" on Saturday 25th January 2014"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="26.01.2014 [2014 :: 3 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 26th January 2014"/>
+</g>
+<g transform="translate(52, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="27.01.2014 [2014 :: 4 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 27th January 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="28.01.2014 [2014 :: 4 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 28th January 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="29.01.2014 [2014 :: 4 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 29th January 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="30.01.2014 [2014 :: 4 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 30th January 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="31.01.2014 [2014 :: 4 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 31st January 2014"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="01.02.2014 [2014 :: 4 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 1st February 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="02.02.2014 [2014 :: 4 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 2nd February 2014"/>
+</g>
+<g transform="translate(65, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="03.02.2014 [2014 :: 5 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 3rd February 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="04.02.2014 [2014 :: 5 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 4th February 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="05.02.2014 [2014 :: 5 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 5th February 2014"/>
+<rect style="fill: #5E6B79;" y="39" height="11" width="11" dbg_tag="06.02.2014 [2014 :: 5 :: 3] -> 6" hvr_header="10 commits" hvr_content=" on Thursday 6th February 2014"/>
+<rect style="fill: #77828E;" y="52" height="11" width="11" dbg_tag="07.02.2014 [2014 :: 5 :: 4] -> 5" hvr_header="8 commits" hvr_content=" on Friday 7th February 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="08.02.2014 [2014 :: 5 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 8th February 2014"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="09.02.2014 [2014 :: 5 :: 6] -> 3" hvr_header="3 commits" hvr_content=" on Sunday 9th February 2014"/>
+</g>
+<g transform="translate(78, 0)">
+<rect style="fill: #9099A2;" y="0" height="11" width="11" dbg_tag="10.02.2014 [2014 :: 6 :: 0] -> 4" hvr_header="6 commits" hvr_content=" on Monday 10th February 2014"/>
+<rect style="fill: #9099A2;" y="13" height="11" width="11" dbg_tag="11.02.2014 [2014 :: 6 :: 1] -> 4" hvr_header="5 commits" hvr_content=" on Tuesday 11th February 2014"/>
+<rect style="fill: #AAB0B7;" y="26" height="11" width="11" dbg_tag="12.02.2014 [2014 :: 6 :: 2] -> 3" hvr_header="4 commits" hvr_content=" on Wednesday 12th February 2014"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="13.02.2014 [2014 :: 6 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 13th February 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="14.02.2014 [2014 :: 6 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 14th February 2014"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="15.02.2014 [2014 :: 6 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 15th February 2014"/>
+<rect style="fill: #9099A2;" y="78" height="11" width="11" dbg_tag="16.02.2014 [2014 :: 6 :: 6] -> 4" hvr_header="5 commits" hvr_content=" on Sunday 16th February 2014"/>
+</g>
+<g transform="translate(91, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="17.02.2014 [2014 :: 7 :: 0] -> 3" hvr_header="3 commits" hvr_content=" on Monday 17th February 2014"/>
+<rect style="fill: #C2C7CB;" y="13" height="11" width="11" dbg_tag="18.02.2014 [2014 :: 7 :: 1] -> 2" hvr_header="2 commits" hvr_content=" on Tuesday 18th February 2014"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="19.02.2014 [2014 :: 7 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 19th February 2014"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="20.02.2014 [2014 :: 7 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 20th February 2014"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="21.02.2014 [2014 :: 7 :: 4] -> 3" hvr_header="3 commits" hvr_content=" on Friday 21st February 2014"/>
+<rect style="fill: #C2C7CB;" y="65" height="11" width="11" dbg_tag="22.02.2014 [2014 :: 7 :: 5] -> 2" hvr_header="2 commits" hvr_content=" on Saturday 22nd February 2014"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="23.02.2014 [2014 :: 7 :: 6] -> 3" hvr_header="3 commits" hvr_content=" on Sunday 23rd February 2014"/>
+</g>
+<g transform="translate(104, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="24.02.2014 [2014 :: 8 :: 0] -> 3" hvr_header="4 commits" hvr_content=" on Monday 24th February 2014"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="25.02.2014 [2014 :: 8 :: 1] -> 3" hvr_header="3 commits" hvr_content=" on Tuesday 25th February 2014"/>
+<rect style="fill: #AAB0B7;" y="26" height="11" width="11" dbg_tag="26.02.2014 [2014 :: 8 :: 2] -> 3" hvr_header="3 commits" hvr_content=" on Wednesday 26th February 2014"/>
+<rect style="fill: #2C3E50;" y="39" height="11" width="11" dbg_tag="27.02.2014 [2014 :: 8 :: 3] -> 8" hvr_header="15 commits" hvr_content=" on Thursday 27th February 2014"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="28.02.2014 [2014 :: 8 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 28th February 2014"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="01.03.2014 [2014 :: 8 :: 5] -> 3" hvr_header="4 commits" hvr_content=" on Saturday 1st March 2014"/>
+<rect style="fill: #9099A2;" y="78" height="11" width="11" dbg_tag="02.03.2014 [2014 :: 8 :: 6] -> 4" hvr_header="6 commits" hvr_content=" on Sunday 2nd March 2014"/>
+</g>
+<g transform="translate(117, 0)">
+<rect style="fill: #77828E;" y="0" height="11" width="11" dbg_tag="03.03.2014 [2014 :: 9 :: 0] -> 5" hvr_header="8 commits" hvr_content=" on Monday 3rd March 2014"/>
+<rect style="fill: #DBDEE0;" y="13" height="11" width="11" dbg_tag="04.03.2014 [2014 :: 9 :: 1] -> 1" hvr_header="1 commits" hvr_content=" on Tuesday 4th March 2014"/>
+<rect style="fill: #9099A2;" y="26" height="11" width="11" dbg_tag="05.03.2014 [2014 :: 9 :: 2] -> 4" hvr_header="5 commits" hvr_content=" on Wednesday 5th March 2014"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="06.03.2014 [2014 :: 9 :: 3] -> 4" hvr_header="5 commits" hvr_content=" on Thursday 6th March 2014"/>
+<rect style="fill: #77828E;" y="52" height="11" width="11" dbg_tag="07.03.2014 [2014 :: 9 :: 4] -> 5" hvr_header="8 commits" hvr_content=" on Friday 7th March 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="08.03.2014 [2014 :: 9 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 8th March 2014"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="09.03.2014 [2014 :: 9 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 9th March 2014"/>
+</g>
+<g transform="translate(130, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="10.03.2014 [2014 :: 10 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 10th March 2014"/>
+<rect style="fill: #9099A2;" y="13" height="11" width="11" dbg_tag="11.03.2014 [2014 :: 10 :: 1] -> 4" hvr_header="5 commits" hvr_content=" on Tuesday 11th March 2014"/>
+<rect style="fill: #AAB0B7;" y="26" height="11" width="11" dbg_tag="12.03.2014 [2014 :: 10 :: 2] -> 3" hvr_header="4 commits" hvr_content=" on Wednesday 12th March 2014"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="13.03.2014 [2014 :: 10 :: 3] -> 4" hvr_header="6 commits" hvr_content=" on Thursday 13th March 2014"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="14.03.2014 [2014 :: 10 :: 4] -> 4" hvr_header="6 commits" hvr_content=" on Friday 14th March 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="15.03.2014 [2014 :: 10 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 15th March 2014"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="16.03.2014 [2014 :: 10 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 16th March 2014"/>
+</g>
+<g transform="translate(143, 0)">
+<rect style="fill: #77828E;" y="0" height="11" width="11" dbg_tag="17.03.2014 [2014 :: 11 :: 0] -> 5" hvr_header="7 commits" hvr_content=" on Monday 17th March 2014"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="18.03.2014 [2014 :: 11 :: 1] -> 3" hvr_header="3 commits" hvr_content=" on Tuesday 18th March 2014"/>
+<rect style="fill: #9099A2;" y="26" height="11" width="11" dbg_tag="19.03.2014 [2014 :: 11 :: 2] -> 4" hvr_header="6 commits" hvr_content=" on Wednesday 19th March 2014"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="20.03.2014 [2014 :: 11 :: 3] -> 4" hvr_header="5 commits" hvr_content=" on Thursday 20th March 2014"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="21.03.2014 [2014 :: 11 :: 4] -> 4" hvr_header="5 commits" hvr_content=" on Friday 21st March 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="22.03.2014 [2014 :: 11 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 22nd March 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="23.03.2014 [2014 :: 11 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 23rd March 2014"/>
+</g>
+<g transform="translate(156, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="24.03.2014 [2014 :: 12 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 24th March 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="25.03.2014 [2014 :: 12 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 25th March 2014"/>
+<rect style="fill: #9099A2;" y="26" height="11" width="11" dbg_tag="26.03.2014 [2014 :: 12 :: 2] -> 4" hvr_header="5 commits" hvr_content=" on Wednesday 26th March 2014"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="27.03.2014 [2014 :: 12 :: 3] -> 3" hvr_header="4 commits" hvr_content=" on Thursday 27th March 2014"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="28.03.2014 [2014 :: 12 :: 4] -> 3" hvr_header="4 commits" hvr_content=" on Friday 28th March 2014"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="29.03.2014 [2014 :: 12 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 29th March 2014"/>
+<rect style="fill: #9099A2;" y="78" height="11" width="11" dbg_tag="30.03.2014 [2014 :: 12 :: 6] -> 4" hvr_header="6 commits" hvr_content=" on Sunday 30th March 2014"/>
+</g>
+<g transform="translate(169, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="31.03.2014 [2014 :: 13 :: 0] -> 3" hvr_header="3 commits" hvr_content=" on Monday 31st March 2014"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="01.04.2014 [2014 :: 13 :: 1] -> 3" hvr_header="3 commits" hvr_content=" on Tuesday 1st April 2014"/>
+<rect style="fill: #77828E;" y="26" height="11" width="11" dbg_tag="02.04.2014 [2014 :: 13 :: 2] -> 5" hvr_header="7 commits" hvr_content=" on Wednesday 2nd April 2014"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="03.04.2014 [2014 :: 13 :: 3] -> 4" hvr_header="5 commits" hvr_content=" on Thursday 3rd April 2014"/>
+<rect style="fill: #AAB0B7;" y="52" height="11" width="11" dbg_tag="04.04.2014 [2014 :: 13 :: 4] -> 3" hvr_header="3 commits" hvr_content=" on Friday 4th April 2014"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="05.04.2014 [2014 :: 13 :: 5] -> 3" hvr_header="3 commits" hvr_content=" on Saturday 5th April 2014"/>
+<rect style="fill: #77828E;" y="78" height="11" width="11" dbg_tag="06.04.2014 [2014 :: 13 :: 6] -> 5" hvr_header="7 commits" hvr_content=" on Sunday 6th April 2014"/>
+</g>
+<g transform="translate(182, 0)">
+<rect style="fill: #5E6B79;" y="0" height="11" width="11" dbg_tag="07.04.2014 [2014 :: 14 :: 0] -> 6" hvr_header="11 commits" hvr_content=" on Monday 7th April 2014"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="08.04.2014 [2014 :: 14 :: 1] -> 3" hvr_header="4 commits" hvr_content=" on Tuesday 8th April 2014"/>
+<rect style="fill: #C2C7CB;" y="26" height="11" width="11" dbg_tag="09.04.2014 [2014 :: 14 :: 2] -> 2" hvr_header="2 commits" hvr_content=" on Wednesday 9th April 2014"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="10.04.2014 [2014 :: 14 :: 3] -> 3" hvr_header="4 commits" hvr_content=" on Thursday 10th April 2014"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="11.04.2014 [2014 :: 14 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 11th April 2014"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="12.04.2014 [2014 :: 14 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 12th April 2014"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="13.04.2014 [2014 :: 14 :: 6] -> 3" hvr_header="3 commits" hvr_content=" on Sunday 13th April 2014"/>
+</g>
+<g transform="translate(195, 0)">
+<rect style="fill: #2C3E50;" y="0" height="11" width="11" dbg_tag="14.04.2014 [2014 :: 15 :: 0] -> 8" hvr_header="17 commits" hvr_content=" on Monday 14th April 2014"/>
+<rect style="fill: #77828E;" y="13" height="11" width="11" dbg_tag="15.04.2014 [2014 :: 15 :: 1] -> 5" hvr_header="8 commits" hvr_content=" on Tuesday 15th April 2014"/>
+<rect style="fill: #77828E;" y="26" height="11" width="11" dbg_tag="16.04.2014 [2014 :: 15 :: 2] -> 5" hvr_header="7 commits" hvr_content=" on Wednesday 16th April 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="17.04.2014 [2014 :: 15 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 17th April 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="18.04.2014 [2014 :: 15 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 18th April 2014"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="19.04.2014 [2014 :: 15 :: 5] -> 3" hvr_header="3 commits" hvr_content=" on Saturday 19th April 2014"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="20.04.2014 [2014 :: 15 :: 6] -> 3" hvr_header="3 commits" hvr_content=" on Sunday 20th April 2014"/>
+</g>
+<g transform="translate(208, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="21.04.2014 [2014 :: 16 :: 0] -> 3" hvr_header="3 commits" hvr_content=" on Monday 21st April 2014"/>
+<rect style="fill: #9099A2;" y="13" height="11" width="11" dbg_tag="22.04.2014 [2014 :: 16 :: 1] -> 4" hvr_header="5 commits" hvr_content=" on Tuesday 22nd April 2014"/>
+<rect style="fill: #5E6B79;" y="26" height="11" width="11" dbg_tag="23.04.2014 [2014 :: 16 :: 2] -> 6" hvr_header="10 commits" hvr_content=" on Wednesday 23rd April 2014"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="24.04.2014 [2014 :: 16 :: 3] -> 3" hvr_header="4 commits" hvr_content=" on Thursday 24th April 2014"/>
+<rect style="fill: #77828E;" y="52" height="11" width="11" dbg_tag="25.04.2014 [2014 :: 16 :: 4] -> 5" hvr_header="8 commits" hvr_content=" on Friday 25th April 2014"/>
+<rect style="fill: #455464;" y="65" height="11" width="11" dbg_tag="26.04.2014 [2014 :: 16 :: 5] -> 7" hvr_header="13 commits" hvr_content=" on Saturday 26th April 2014"/>
+<rect style="fill: #77828E;" y="78" height="11" width="11" dbg_tag="27.04.2014 [2014 :: 16 :: 6] -> 5" hvr_header="7 commits" hvr_content=" on Sunday 27th April 2014"/>
+</g>
+<g transform="translate(221, 0)">
+<rect style="fill: #5E6B79;" y="0" height="11" width="11" dbg_tag="28.04.2014 [2014 :: 17 :: 0] -> 6" hvr_header="11 commits" hvr_content=" on Monday 28th April 2014"/>
+<rect style="fill: #9099A2;" y="13" height="11" width="11" dbg_tag="29.04.2014 [2014 :: 17 :: 1] -> 4" hvr_header="6 commits" hvr_content=" on Tuesday 29th April 2014"/>
+<rect style="fill: #AAB0B7;" y="26" height="11" width="11" dbg_tag="30.04.2014 [2014 :: 17 :: 2] -> 3" hvr_header="3 commits" hvr_content=" on Wednesday 30th April 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="01.05.2014 [2014 :: 17 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 1st May 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="02.05.2014 [2014 :: 17 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 2nd May 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="03.05.2014 [2014 :: 17 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 3rd May 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="04.05.2014 [2014 :: 17 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 4th May 2014"/>
+</g>
+<g transform="translate(234, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="05.05.2014 [2014 :: 18 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 5th May 2014"/>
+<rect style="fill: #455464;" y="13" height="11" width="11" dbg_tag="06.05.2014 [2014 :: 18 :: 1] -> 7" hvr_header="14 commits" hvr_content=" on Tuesday 6th May 2014"/>
+<rect style="fill: #AAB0B7;" y="26" height="11" width="11" dbg_tag="07.05.2014 [2014 :: 18 :: 2] -> 3" hvr_header="3 commits" hvr_content=" on Wednesday 7th May 2014"/>
+<rect style="fill: #5E6B79;" y="39" height="11" width="11" dbg_tag="08.05.2014 [2014 :: 18 :: 3] -> 6" hvr_header="10 commits" hvr_content=" on Thursday 8th May 2014"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="09.05.2014 [2014 :: 18 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 9th May 2014"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="10.05.2014 [2014 :: 18 :: 5] -> 3" hvr_header="4 commits" hvr_content=" on Saturday 10th May 2014"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="11.05.2014 [2014 :: 18 :: 6] -> 3" hvr_header="3 commits" hvr_content=" on Sunday 11th May 2014"/>
+</g>
+<g transform="translate(247, 0)">
+<rect style="fill: #C2C7CB;" y="0" height="11" width="11" dbg_tag="12.05.2014 [2014 :: 19 :: 0] -> 2" hvr_header="2 commits" hvr_content=" on Monday 12th May 2014"/>
+<rect style="fill: #77828E;" y="13" height="11" width="11" dbg_tag="13.05.2014 [2014 :: 19 :: 1] -> 5" hvr_header="9 commits" hvr_content=" on Tuesday 13th May 2014"/>
+<rect style="fill: #9099A2;" y="26" height="11" width="11" dbg_tag="14.05.2014 [2014 :: 19 :: 2] -> 4" hvr_header="5 commits" hvr_content=" on Wednesday 14th May 2014"/>
+<rect style="fill: #2C3E50;" y="39" height="11" width="11" dbg_tag="15.05.2014 [2014 :: 19 :: 3] -> 8" hvr_header="17 commits" hvr_content=" on Thursday 15th May 2014"/>
+<rect style="fill: #77828E;" y="52" height="11" width="11" dbg_tag="16.05.2014 [2014 :: 19 :: 4] -> 5" hvr_header="9 commits" hvr_content=" on Friday 16th May 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="17.05.2014 [2014 :: 19 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 17th May 2014"/>
+<rect style="fill: #DBDEE0;" y="78" height="11" width="11" dbg_tag="18.05.2014 [2014 :: 19 :: 6] -> 1" hvr_header="1 commits" hvr_content=" on Sunday 18th May 2014"/>
+</g>
+<g transform="translate(260, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="19.05.2014 [2014 :: 20 :: 0] -> 3" hvr_header="4 commits" hvr_content=" on Monday 19th May 2014"/>
+<rect style="fill: #DBDEE0;" y="13" height="11" width="11" dbg_tag="20.05.2014 [2014 :: 20 :: 1] -> 1" hvr_header="1 commits" hvr_content=" on Tuesday 20th May 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="21.05.2014 [2014 :: 20 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 21st May 2014"/>
+<rect style="fill: #DBDEE0;" y="39" height="11" width="11" dbg_tag="22.05.2014 [2014 :: 20 :: 3] -> 1" hvr_header="1 commits" hvr_content=" on Thursday 22nd May 2014"/>
+<rect style="fill: #C2C7CB;" y="52" height="11" width="11" dbg_tag="23.05.2014 [2014 :: 20 :: 4] -> 2" hvr_header="2 commits" hvr_content=" on Friday 23rd May 2014"/>
+<rect style="fill: #77828E;" y="65" height="11" width="11" dbg_tag="24.05.2014 [2014 :: 20 :: 5] -> 5" hvr_header="7 commits" hvr_content=" on Saturday 24th May 2014"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="25.05.2014 [2014 :: 20 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 25th May 2014"/>
+</g>
+<g transform="translate(273, 0)">
+<rect style="fill: #9099A2;" y="0" height="11" width="11" dbg_tag="26.05.2014 [2014 :: 21 :: 0] -> 4" hvr_header="6 commits" hvr_content=" on Monday 26th May 2014"/>
+<rect style="fill: #77828E;" y="13" height="11" width="11" dbg_tag="27.05.2014 [2014 :: 21 :: 1] -> 5" hvr_header="7 commits" hvr_content=" on Tuesday 27th May 2014"/>
+<rect style="fill: #77828E;" y="26" height="11" width="11" dbg_tag="28.05.2014 [2014 :: 21 :: 2] -> 5" hvr_header="7 commits" hvr_content=" on Wednesday 28th May 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="29.05.2014 [2014 :: 21 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 29th May 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="30.05.2014 [2014 :: 21 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 30th May 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="31.05.2014 [2014 :: 21 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 31st May 2014"/>
+<rect style="fill: #77828E;" y="78" height="11" width="11" dbg_tag="01.06.2014 [2014 :: 21 :: 6] -> 5" hvr_header="8 commits" hvr_content=" on Sunday 1st June 2014"/>
+</g>
+<g transform="translate(286, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="02.06.2014 [2014 :: 22 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 2nd June 2014"/>
+<rect style="fill: #9099A2;" y="13" height="11" width="11" dbg_tag="03.06.2014 [2014 :: 22 :: 1] -> 4" hvr_header="5 commits" hvr_content=" on Tuesday 3rd June 2014"/>
+<rect style="fill: #AAB0B7;" y="26" height="11" width="11" dbg_tag="04.06.2014 [2014 :: 22 :: 2] -> 3" hvr_header="3 commits" hvr_content=" on Wednesday 4th June 2014"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="05.06.2014 [2014 :: 22 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 5th June 2014"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="06.06.2014 [2014 :: 22 :: 4] -> 4" hvr_header="5 commits" hvr_content=" on Friday 6th June 2014"/>
+<rect style="fill: #9099A2;" y="65" height="11" width="11" dbg_tag="07.06.2014 [2014 :: 22 :: 5] -> 4" hvr_header="5 commits" hvr_content=" on Saturday 7th June 2014"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="08.06.2014 [2014 :: 22 :: 6] -> 3" hvr_header="4 commits" hvr_content=" on Sunday 8th June 2014"/>
+</g>
+<g transform="translate(299, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="09.06.2014 [2014 :: 23 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 9th June 2014"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="10.06.2014 [2014 :: 23 :: 1] -> 3" hvr_header="3 commits" hvr_content=" on Tuesday 10th June 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="11.06.2014 [2014 :: 23 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 11th June 2014"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="12.06.2014 [2014 :: 23 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 12th June 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="13.06.2014 [2014 :: 23 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 13th June 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="14.06.2014 [2014 :: 23 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 14th June 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="15.06.2014 [2014 :: 23 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 15th June 2014"/>
+</g>
+<g transform="translate(312, 0)">
+<rect style="fill: #AAB0B7;" y="0" height="11" width="11" dbg_tag="16.06.2014 [2014 :: 24 :: 0] -> 3" hvr_header="4 commits" hvr_content=" on Monday 16th June 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="17.06.2014 [2014 :: 24 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 17th June 2014"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="18.06.2014 [2014 :: 24 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 18th June 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="19.06.2014 [2014 :: 24 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 19th June 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="20.06.2014 [2014 :: 24 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 20th June 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="21.06.2014 [2014 :: 24 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 21st June 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="22.06.2014 [2014 :: 24 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 22nd June 2014"/>
+</g>
+<g transform="translate(325, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="23.06.2014 [2014 :: 25 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 23rd June 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="24.06.2014 [2014 :: 25 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 24th June 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="25.06.2014 [2014 :: 25 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 25th June 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="26.06.2014 [2014 :: 25 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 26th June 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="27.06.2014 [2014 :: 25 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 27th June 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="28.06.2014 [2014 :: 25 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 28th June 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="29.06.2014 [2014 :: 25 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 29th June 2014"/>
+</g>
+<g transform="translate(338, 0)">
+<rect style="fill: #C2C7CB;" y="0" height="11" width="11" dbg_tag="30.06.2014 [2014 :: 26 :: 0] -> 2" hvr_header="2 commits" hvr_content=" on Monday 30th June 2014"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="01.07.2014 [2014 :: 26 :: 1] -> 3" hvr_header="4 commits" hvr_content=" on Tuesday 1st July 2014"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="02.07.2014 [2014 :: 26 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 2nd July 2014"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="03.07.2014 [2014 :: 26 :: 3] -> 4" hvr_header="6 commits" hvr_content=" on Thursday 3rd July 2014"/>
+<rect style="fill: #77828E;" y="52" height="11" width="11" dbg_tag="04.07.2014 [2014 :: 26 :: 4] -> 5" hvr_header="7 commits" hvr_content=" on Friday 4th July 2014"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="05.07.2014 [2014 :: 26 :: 5] -> 3" hvr_header="3 commits" hvr_content=" on Saturday 5th July 2014"/>
+<rect style="fill: #5E6B79;" y="78" height="11" width="11" dbg_tag="06.07.2014 [2014 :: 26 :: 6] -> 6" hvr_header="10 commits" hvr_content=" on Sunday 6th July 2014"/>
+</g>
+<g transform="translate(351, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="07.07.2014 [2014 :: 27 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 7th July 2014"/>
+<rect style="fill: #DBDEE0;" y="13" height="11" width="11" dbg_tag="08.07.2014 [2014 :: 27 :: 1] -> 1" hvr_header="1 commits" hvr_content=" on Tuesday 8th July 2014"/>
+<rect style="fill: #455464;" y="26" height="11" width="11" dbg_tag="09.07.2014 [2014 :: 27 :: 2] -> 7" hvr_header="12 commits" hvr_content=" on Wednesday 9th July 2014"/>
+<rect style="fill: #AAB0B7;" y="39" height="11" width="11" dbg_tag="10.07.2014 [2014 :: 27 :: 3] -> 3" hvr_header="3 commits" hvr_content=" on Thursday 10th July 2014"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="11.07.2014 [2014 :: 27 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 11th July 2014"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="12.07.2014 [2014 :: 27 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 12th July 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="13.07.2014 [2014 :: 27 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 13th July 2014"/>
+</g>
+<g transform="translate(364, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="14.07.2014 [2014 :: 28 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 14th July 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="15.07.2014 [2014 :: 28 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 15th July 2014"/>
+<rect style="fill: #AAB0B7;" y="26" height="11" width="11" dbg_tag="16.07.2014 [2014 :: 28 :: 2] -> 3" hvr_header="3 commits" hvr_content=" on Wednesday 16th July 2014"/>
+<rect style="fill: #DBDEE0;" y="39" height="11" width="11" dbg_tag="17.07.2014 [2014 :: 28 :: 3] -> 1" hvr_header="1 commits" hvr_content=" on Thursday 17th July 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="18.07.2014 [2014 :: 28 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 18th July 2014"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="19.07.2014 [2014 :: 28 :: 5] -> 3" hvr_header="4 commits" hvr_content=" on Saturday 19th July 2014"/>
+<rect style="fill: #9099A2;" y="78" height="11" width="11" dbg_tag="20.07.2014 [2014 :: 28 :: 6] -> 4" hvr_header="6 commits" hvr_content=" on Sunday 20th July 2014"/>
+</g>
+<g transform="translate(377, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="21.07.2014 [2014 :: 29 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 21st July 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="22.07.2014 [2014 :: 29 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 22nd July 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="23.07.2014 [2014 :: 29 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 23rd July 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="24.07.2014 [2014 :: 29 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 24th July 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="25.07.2014 [2014 :: 29 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 25th July 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="26.07.2014 [2014 :: 29 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 26th July 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="27.07.2014 [2014 :: 29 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 27th July 2014"/>
+</g>
+<g transform="translate(390, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="28.07.2014 [2014 :: 30 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 28th July 2014"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="29.07.2014 [2014 :: 30 :: 1] -> 3" hvr_header="3 commits" hvr_content=" on Tuesday 29th July 2014"/>
+<rect style="fill: #9099A2;" y="26" height="11" width="11" dbg_tag="30.07.2014 [2014 :: 30 :: 2] -> 4" hvr_header="5 commits" hvr_content=" on Wednesday 30th July 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="31.07.2014 [2014 :: 30 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 31st July 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="01.08.2014 [2014 :: 30 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 1st August 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="02.08.2014 [2014 :: 30 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 2nd August 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="03.08.2014 [2014 :: 30 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 3rd August 2014"/>
+</g>
+<g transform="translate(403, 0)">
+<rect style="fill: #77828E;" y="0" height="11" width="11" dbg_tag="04.08.2014 [2014 :: 31 :: 0] -> 5" hvr_header="8 commits" hvr_content=" on Monday 4th August 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="05.08.2014 [2014 :: 31 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 5th August 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="06.08.2014 [2014 :: 31 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 6th August 2014"/>
+<rect style="fill: #C2C7CB;" y="39" height="11" width="11" dbg_tag="07.08.2014 [2014 :: 31 :: 3] -> 2" hvr_header="2 commits" hvr_content=" on Thursday 7th August 2014"/>
+<rect style="fill: #DBDEE0;" y="52" height="11" width="11" dbg_tag="08.08.2014 [2014 :: 31 :: 4] -> 1" hvr_header="1 commits" hvr_content=" on Friday 8th August 2014"/>
+<rect style="fill: #AAB0B7;" y="65" height="11" width="11" dbg_tag="09.08.2014 [2014 :: 31 :: 5] -> 3" hvr_header="4 commits" hvr_content=" on Saturday 9th August 2014"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="10.08.2014 [2014 :: 31 :: 6] -> 3" hvr_header="4 commits" hvr_content=" on Sunday 10th August 2014"/>
+</g>
+<g transform="translate(416, 0)">
+<rect style="fill: #455464;" y="0" height="11" width="11" dbg_tag="11.08.2014 [2014 :: 32 :: 0] -> 7" hvr_header="12 commits" hvr_content=" on Monday 11th August 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="12.08.2014 [2014 :: 32 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 12th August 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="13.08.2014 [2014 :: 32 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 13th August 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="14.08.2014 [2014 :: 32 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 14th August 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="15.08.2014 [2014 :: 32 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 15th August 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="16.08.2014 [2014 :: 32 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 16th August 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="17.08.2014 [2014 :: 32 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 17th August 2014"/>
+</g>
+<g transform="translate(429, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="18.08.2014 [2014 :: 33 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 18th August 2014"/>
+<rect style="fill: #C2C7CB;" y="13" height="11" width="11" dbg_tag="19.08.2014 [2014 :: 33 :: 1] -> 2" hvr_header="2 commits" hvr_content=" on Tuesday 19th August 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="20.08.2014 [2014 :: 33 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 20th August 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="21.08.2014 [2014 :: 33 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 21st August 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="22.08.2014 [2014 :: 33 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 22nd August 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="23.08.2014 [2014 :: 33 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 23rd August 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="24.08.2014 [2014 :: 33 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 24th August 2014"/>
+</g>
+<g transform="translate(442, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="25.08.2014 [2014 :: 34 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 25th August 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="26.08.2014 [2014 :: 34 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 26th August 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="27.08.2014 [2014 :: 34 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 27th August 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="28.08.2014 [2014 :: 34 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 28th August 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="29.08.2014 [2014 :: 34 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 29th August 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="30.08.2014 [2014 :: 34 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 30th August 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="31.08.2014 [2014 :: 34 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 31st August 2014"/>
+</g>
+<g transform="translate(455, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="01.09.2014 [2014 :: 35 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 1st September 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="02.09.2014 [2014 :: 35 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 2nd September 2014"/>
+<rect style="fill: #C2C7CB;" y="26" height="11" width="11" dbg_tag="03.09.2014 [2014 :: 35 :: 2] -> 2" hvr_header="2 commits" hvr_content=" on Wednesday 3rd September 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="04.09.2014 [2014 :: 35 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 4th September 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="05.09.2014 [2014 :: 35 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 5th September 2014"/>
+<rect style="fill: #C2C7CB;" y="65" height="11" width="11" dbg_tag="06.09.2014 [2014 :: 35 :: 5] -> 2" hvr_header="2 commits" hvr_content=" on Saturday 6th September 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="07.09.2014 [2014 :: 35 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 7th September 2014"/>
+</g>
+<g transform="translate(468, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="08.09.2014 [2014 :: 36 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 8th September 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="09.09.2014 [2014 :: 36 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 9th September 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="10.09.2014 [2014 :: 36 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 10th September 2014"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="11.09.2014 [2014 :: 36 :: 3] -> 4" hvr_header="5 commits" hvr_content=" on Thursday 11th September 2014"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="12.09.2014 [2014 :: 36 :: 4] -> 4" hvr_header="6 commits" hvr_content=" on Friday 12th September 2014"/>
+<rect style="fill: #9099A2;" y="65" height="11" width="11" dbg_tag="13.09.2014 [2014 :: 36 :: 5] -> 4" hvr_header="6 commits" hvr_content=" on Saturday 13th September 2014"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="14.09.2014 [2014 :: 36 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 14th September 2014"/>
+</g>
+<g transform="translate(481, 0)">
+<rect style="fill: #DBDEE0;" y="0" height="11" width="11" dbg_tag="15.09.2014 [2014 :: 37 :: 0] -> 1" hvr_header="1 commits" hvr_content=" on Monday 15th September 2014"/>
+<rect style="fill: #77828E;" y="13" height="11" width="11" dbg_tag="16.09.2014 [2014 :: 37 :: 1] -> 5" hvr_header="7 commits" hvr_content=" on Tuesday 16th September 2014"/>
+<rect style="fill: #9099A2;" y="26" height="11" width="11" dbg_tag="17.09.2014 [2014 :: 37 :: 2] -> 4" hvr_header="5 commits" hvr_content=" on Wednesday 17th September 2014"/>
+<rect style="fill: #9099A2;" y="39" height="11" width="11" dbg_tag="18.09.2014 [2014 :: 37 :: 3] -> 4" hvr_header="5 commits" hvr_content=" on Thursday 18th September 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="19.09.2014 [2014 :: 37 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 19th September 2014"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="20.09.2014 [2014 :: 37 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 20th September 2014"/>
+<rect style="fill: #C2C7CB;" y="78" height="11" width="11" dbg_tag="21.09.2014 [2014 :: 37 :: 6] -> 2" hvr_header="2 commits" hvr_content=" on Sunday 21st September 2014"/>
+</g>
+<g transform="translate(494, 0)">
+<rect style="fill: #C2C7CB;" y="0" height="11" width="11" dbg_tag="22.09.2014 [2014 :: 38 :: 0] -> 2" hvr_header="2 commits" hvr_content=" on Monday 22nd September 2014"/>
+<rect style="fill: #AAB0B7;" y="13" height="11" width="11" dbg_tag="23.09.2014 [2014 :: 38 :: 1] -> 3" hvr_header="4 commits" hvr_content=" on Tuesday 23rd September 2014"/>
+<rect style="fill: #77828E;" y="26" height="11" width="11" dbg_tag="24.09.2014 [2014 :: 38 :: 2] -> 5" hvr_header="7 commits" hvr_content=" on Wednesday 24th September 2014"/>
+<rect style="fill: #DBDEE0;" y="39" height="11" width="11" dbg_tag="25.09.2014 [2014 :: 38 :: 3] -> 1" hvr_header="1 commits" hvr_content=" on Thursday 25th September 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="26.09.2014 [2014 :: 38 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 26th September 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="27.09.2014 [2014 :: 38 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 27th September 2014"/>
+<rect style="fill: #AAB0B7;" y="78" height="11" width="11" dbg_tag="28.09.2014 [2014 :: 38 :: 6] -> 3" hvr_header="3 commits" hvr_content=" on Sunday 28th September 2014"/>
+</g>
+<g transform="translate(507, 0)">
+<rect style="fill: #9099A2;" y="0" height="11" width="11" dbg_tag="29.09.2014 [2014 :: 39 :: 0] -> 4" hvr_header="5 commits" hvr_content=" on Monday 29th September 2014"/>
+<rect style="fill: #F5F5F5;" y="13" height="11" width="11" dbg_tag="30.09.2014 [2014 :: 39 :: 1] -> 0" hvr_header="0 commits" hvr_content=" on Tuesday 30th September 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="01.10.2014 [2014 :: 39 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 1st October 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="02.10.2014 [2014 :: 39 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 2nd October 2014"/>
+<rect style="fill: #9099A2;" y="52" height="11" width="11" dbg_tag="03.10.2014 [2014 :: 39 :: 4] -> 4" hvr_header="6 commits" hvr_content=" on Friday 3rd October 2014"/>
+<rect style="fill: #DBDEE0;" y="65" height="11" width="11" dbg_tag="04.10.2014 [2014 :: 39 :: 5] -> 1" hvr_header="1 commits" hvr_content=" on Saturday 4th October 2014"/>
+<rect style="fill: #F5F5F5;" y="78" height="11" width="11" dbg_tag="05.10.2014 [2014 :: 39 :: 6] -> 0" hvr_header="0 commits" hvr_content=" on Sunday 5th October 2014"/>
+</g>
+<g transform="translate(520, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="06.10.2014 [2014 :: 40 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 6th October 2014"/>
+<rect style="fill: #C2C7CB;" y="13" height="11" width="11" dbg_tag="07.10.2014 [2014 :: 40 :: 1] -> 2" hvr_header="2 commits" hvr_content=" on Tuesday 7th October 2014"/>
+<rect style="fill: #DBDEE0;" y="26" height="11" width="11" dbg_tag="08.10.2014 [2014 :: 40 :: 2] -> 1" hvr_header="1 commits" hvr_content=" on Wednesday 8th October 2014"/>
+<rect style="fill: #F5F5F5;" y="39" height="11" width="11" dbg_tag="09.10.2014 [2014 :: 40 :: 3] -> 0" hvr_header="0 commits" hvr_content=" on Thursday 9th October 2014"/>
+<rect style="fill: #F5F5F5;" y="52" height="11" width="11" dbg_tag="10.10.2014 [2014 :: 40 :: 4] -> 0" hvr_header="0 commits" hvr_content=" on Friday 10th October 2014"/>
+<rect style="fill: #F5F5F5;" y="65" height="11" width="11" dbg_tag="11.10.2014 [2014 :: 40 :: 5] -> 0" hvr_header="0 commits" hvr_content=" on Saturday 11th October 2014"/>
+<rect style="fill: #9099A2;" y="78" height="11" width="11" dbg_tag="12.10.2014 [2014 :: 40 :: 6] -> 4" hvr_header="5 commits" hvr_content=" on Sunday 12th October 2014"/>
+</g>
+<g transform="translate(533, 0)">
+<rect style="fill: #F5F5F5;" y="0" height="11" width="11" dbg_tag="13.10.2014 [2014 :: 41 :: 0] -> 0" hvr_header="0 commits" hvr_content=" on Monday 13th October 2014"/>
+<rect style="fill: #77828E;" y="13" height="11" width="11" dbg_tag="14.10.2014 [2014 :: 41 :: 1] -> 5" hvr_header="7 commits" hvr_content=" on Tuesday 14th October 2014"/>
+<rect style="fill: #F5F5F5;" y="26" height="11" width="11" dbg_tag="15.10.2014 [2014 :: 41 :: 2] -> 0" hvr_header="0 commits" hvr_content=" on Wednesday 15th October 2014"/>
+			</g>
+
+			<text y="-3" x="31.571428571429" style="text-anchor: middle" class="caption_month">Jan</text><text y="-3" x="86.357142857143" style="text-anchor: middle" class="caption_month">Feb</text><text y="-3" x="141.14285714286" style="text-anchor: middle" class="caption_month">Mar</text><text y="-3" x="197.78571428571" style="text-anchor: middle" class="caption_month">Apr</text><text y="-3" x="254.42857142857" style="text-anchor: middle" class="caption_month">May</text><text y="-3" x="311.07142857143" style="text-anchor: middle" class="caption_month">Jun</text><text y="-3" x="367.71428571429" style="text-anchor: middle" class="caption_month">Jul</text><text y="-3" x="425.28571428571" style="text-anchor: middle" class="caption_month">Aug</text><text y="-3" x="481.92857142857" style="text-anchor: middle" class="caption_month">Sep</text><text y="-3" x="536.71428571429" style="text-anchor: middle" class="caption_month">Oct</text><text y="5.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">M</text><text y="18.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">T</text><text y="31.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">W</text><text y="44.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">T</text><text y="57.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">F</text><text y="70.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">S</text><text y="83.5" x="-6" style="text-anchor: middle" class="caption_day" dominant-baseline="central">S</text><text  x="-10" y="-5" class="caption">2014</text>		</g>
+	</svg>
+
+	<div class="svg-tip n">
+		<strong>&nbsp;</strong><span>&nbsp;</span>
+	</div>
+
+	<div class="egg_footer">
+		<a href="/programs/view/ExtendedGitGraph">extendedGitGraph</a>
+	</div>
+</div><br />";}

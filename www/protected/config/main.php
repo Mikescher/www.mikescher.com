@@ -104,6 +104,8 @@ return ArrayX::merge(
 
 								'eulerproblem/' => 'eulerproblem/index',
 
+								'msmain/admin/egh/<commandcode>' => 'msmain/adminEGH',
+
 								'Highscores/list.php' => 'Highscores/list',				// Compatibility
 								'Highscores/insert.php' => 'Highscores/insert',			// Compatibility
 								'Highscores/update.php' => 'Highscores/update',			// Compatibility

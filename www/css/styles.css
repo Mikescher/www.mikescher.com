@@ -897,3 +897,14 @@ ul.nav li.dropdown-append:hover > ul.dropdown-menu {
     padding:0 6px;
     font-size:10.5px;
 }
+
+/* msmain/admin
+-------------------------------------------------- */
+
+#egh_ajaxOutput {
+    width: 90%;
+    height: 246px;
+    background-color: black;
+    font-family: monospace;
+    color: green;
+}

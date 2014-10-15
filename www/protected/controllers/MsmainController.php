@@ -25,7 +25,7 @@ class MSMainController extends MSController
 				'users'=>array('*'),
 			),
 			array('allow',
-				'actions'=>array('admin'),
+				'actions'=>array('admin', 'adminEGH'),
 				'users'=>array('admin'),
 			),
 			array('deny',
@@ -134,13 +134,36 @@ class MSMainController extends MSController
 
 	public function actionAdmin()
 	{
-		if (isset($_GET['do_egh_update']) && $_GET['do_egh_update'] == '1') {
-			$this->layout = null;
-			$this->render('admin_updateEGH', array());
-			return;
-		}
-
 		$this->render('admin', array());
+	}
+
+	public function actionAdminEGH($commandcode)
+	{
+		if (strtolower($commandcode) == 'ajaxstatus')
+		{
+			$this->layout = null;
+
+			if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+
+			echo $_SESSION['ajax_progress_egh_refresh'];
+
+		}
+		elseif (strtolower($commandcode) == 'ajaxreload')
+		{
+			$v = new ExtendedGitGraph('Mikescher');
+
+			$v->addSecondaryUsername("Sam-Development");
+			$v->addSecondaryRepository("Anastron/ColorRunner");
+
+			$v->setToken(MsHelper::getStringDBVar('egg_auth-token'));
+			$v->collect();
+
+			$v->generateAndSave();
+		}
+		else
+		{
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		}
 	}
 
 	public function actionLogout()
