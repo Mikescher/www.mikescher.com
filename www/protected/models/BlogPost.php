@@ -30,7 +30,7 @@ class BlogPost extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Date, Title, Content, ControllerID, Visible, Enabled', 'required'),
+			array('Date, Title, Content, Visible, Enabled', 'required'),
 			array('Visible, Enabled', 'numerical', 'integerOnly'=>true),
 
 			array('ID, Date, Title, Content, ControllerID, Visible, Enabled', 'safe', 'on'=>'search'),

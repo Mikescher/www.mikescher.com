@@ -167,7 +167,7 @@ class BlogPostController extends MSController
 		);
 	}
 
-	public function actionAjaxMarkdownPreview()
+	public function actionAjaxMarkdownPreview() //TODO-MS: BUG !! Can't preview/create blogposts that contain links (only on server ??)
 	{
 		if(Yii::app()->request->isAjaxRequest)
 		{
