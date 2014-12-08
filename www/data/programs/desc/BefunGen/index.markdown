@@ -1,12 +1,15 @@
-*BefunGen, a Befunge-93 code generator from a procedural C-like language*
+*BefunGen, a Befunge-93 code generator from a procedural C-like language*  
+**(Over time this has more become my collection of various Befunge tools. Many of them are quite useful alone but still, most are centered around BefunGen.)**
 
 > **NOTE:**  
 >  
 > BefunGen is a collection of multiple programs:  
+>
 > - **BefunGen**: A TextFunge to Befunge-93 compiler  
 > - **BefunExec**: A fast Befunge-93 interpreter  
 > - **BefunHighlight**: A intelligent Befunge-93 syntax-highlighter  
 > - **BefunWrite**: An IDE for TextFunge  
+> - **BefunRep**: An commandline tool to calculate number representations in Befunge
 
 &nbsp;
 
@@ -84,3 +87,43 @@ BefunHighlight tries to solve this by evaluating every possible path an program 
 Based on these informations it's now possible for another program to better highlight the source code.
 
 Be aware that **p**ut and **g**et operations will invalidate the calculated values and it is needed to update them.
+
+## BefunRep
+
+A common problem with Befunge is the *(efficient)* representation of big numbers. *(= putting a number on the stack with the least amount of instructions)*
+
+BefunRep is a commandline tool to generate a list of representations for all numbers in a specified range. I'm pretty sure the calculation of the optimal representation is a NP complete. But BefunRep tries to to find good representations for all numbers via various algorithms. And it does a pretty good job. It finds for all the numbers between -1 million and +1 million representations with a maximum of eleven characters.
+
+Here an example call to BefunRep:
+
+> **\> BefunRep.exe -lower=0 -upper=1000 -iterations=3 -stats=3 -q -safe="safe.bin" -out="out.csv" -reset**
+
+This calculates the numbers from **0** to **1000**.  
+With a maximum of  **3** iterations *(use -1 to calculate until no more improvmenets can be found)*
+Safe the results in binary format in the file **safe.bin**  
+If the safe already exists it will be reseted (-**reset**)
+And exports the results readable to **out.csv**  
+
+You can also update an existing safe
+
+> **\> BefunRep.exe -safe="safe.bin" -iterations=-1**
+
+Or don't calculate anything and only output an existing safe into another format
+
+> **\> BefunRep.exe -safe="safe.bin" -iterations=0 -stats=3 -out="out.json"**
+
+Here an example of a few calculated values:
+
+Number | Representation
+-------|----------------
+113564 | `"tY!"**3/`
+113565 | `"qC-"**3/`
+113566 | `"[' "**2-`
+113567 | `"[' "**1-`
+113568 | `"[' "**`
+113569 | `"~~U"++:*`
+113570 | `"[' "**2+`
+113571 | `"wj"*5+9*`
+113572 | `"[' "**4+`
+113573 | `"[' "**5+`
+113574 | `"E~(&"*+*`
