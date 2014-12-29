@@ -49,7 +49,7 @@ $monthlist = array_fill(0, 12, [0, 0]);
 						}
 
 						$c_count = $ymap[$date->format('Y-m-d')];
-						$color_idx = ceil(pow($c_count/$ymapmax, $exponent) * (count($COLORS)-1));
+						$color_idx = min((count($COLORS)-1), ceil(pow($c_count/$ymapmax, $exponent) * (count($COLORS)-1)));
 						$color = $COLORS[$color_idx];
 
 						$wday = ($date->format('N') - 1);

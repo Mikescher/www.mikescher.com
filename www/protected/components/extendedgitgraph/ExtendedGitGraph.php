@@ -14,6 +14,8 @@ class ExtendedGitGraph {
 
 	const PROGRESS_SESSION_COOKIE = 'ajax_progress_egh_refresh';
 
+	const COMMITCOUNT_COLOR_UPPERLIMIT = 16;
+
 	private $username;
 	private $token;
 	private $tokenHeader;
@@ -243,7 +245,7 @@ class ExtendedGitGraph {
 	public function generate($year) {
 		$ymap = $this->generateYearMap($year);  // unused on purpose (template.php needs it)
 
-		$ymapmax = $this->getMaxCommitCount();  // unused on purpose (template.php needs it)
+		$ymapmax = min($this->getMaxCommitCount(), self::COMMITCOUNT_COLOR_UPPERLIMIT);  // unused on purpose (template.php needs it)
 
 		ob_start();
 		include('template.php');
