@@ -1,15 +1,19 @@
-*BefunGen, a Befunge-93 code generator from a procedural C-like language*  
-**(Over time this has more become my collection of various Befunge tools. Many of them are quite useful alone but still, most are centered around BefunGen.)**
+This is my collection of tools and libraries for the esoteric programming language [Befunge](http://esolangs.org/wiki/Befunge).
 
-> **NOTE:**  
->  
-> BefunGen is a collection of multiple programs:  
->
-> - **BefunGen**: A TextFunge to Befunge-93 compiler  
-> - **BefunExec**: A fast Befunge-93 interpreter  
-> - **BefunHighlight**: A intelligent Befunge-93 syntax-highlighter  
-> - **BefunWrite**: An IDE for TextFunge  
-> - **BefunRep**: An commandline tool to calculate number representations in Befunge
+IT consists of the following components:
+
+###[BefunGen](https://github.com/Mikescher/BefunGen):  
+A library to automatically generate Befunge-93 programs out of a imperative-programming-language
+###[BefunGenTest](https://github.com/Mikescher/BefunGenTest):  
+A test set for BefunGen
+###[BefunWrite](https://github.com/Mikescher/BefunWrite):  
+A samll editor for Textfunge, the language used by BefunGen - use this if you want to try BefunGen for yourself
+###[BefunHighlight](https://github.com/Mikescher/BefunHighlight):  
+A dynamic Befunge-93 syntax highlighting library. Highlights your sourcecode intelligent and context-sensitive
+###[BefunExec](https://github.com/Mikescher/BefunExec):  
+A (fast) Befunge-93 interpreter and debugger
+###[BefunRep](https://github.com/Mikescher/BefunRep):  
+A tool to calculate (the best) number-representation in Befunge-93 space
 
 &nbsp;
 
