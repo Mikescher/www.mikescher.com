@@ -53,6 +53,9 @@
 						'items' =>
 							[
 								['label' => 'Home', 'url' => '/', 'active' => ($this->selectedNav === 'index')],
+
+								['label' => 'Project Euler', 'url' => '/blog/1/Project_Euler_with_Befunge', 'active' => false],
+
 								['label' => 'Blog', 'url' => '/blog', 'active' => ($this->selectedNav === 'blog')],
 								['label' => 'Programs', 'url' => '/programs', 'active' => ($this->selectedNav === 'prog')],
 								['label' => '', 'items' => ProgramHelper::GetProgDropDownList(), 'htmlOptions' => ['class' => 'dropdown-append']],
