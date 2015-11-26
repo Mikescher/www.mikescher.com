@@ -1,4 +1,4 @@
 .idea
 demos
-www/images/programs
+#www/images/programs
 workspace.xml
