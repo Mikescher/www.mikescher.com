@@ -36,7 +36,7 @@ $this->selectedNav = 'about';
 		<div class="gitbox-footer">
 			<div class="gitbox-footer-box">
 				<span class="gitbox-footer-box-header">Last Update</span>
-				<span class="gitbox-footer-box-number"><?php echo $egh['creation']->diff(new DateTime())->days + 1; ?> day<?php echo (($egh['creation']->diff(new DateTime())->days == 0) ? '' : 's')?> ago</span>
+				<span class="gitbox-footer-box-number"><?php echo $egh['creation']->diff(new DateTime())->format('%d') + 1; ?> day<?php echo (($egh['creation']->diff(new DateTime())->format('%d') == 0) ? '' : 's')?> ago</span>
 				<span class="gitbox-footer-box-footer"><?php echo $egh['creation']->format('M d Y'); ?></span>
 			</div>
 
