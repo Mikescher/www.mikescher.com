@@ -9,7 +9,7 @@ return [
 			'db' =>
 				ArrayX::merge(
 					[
-						'connectionString' => 'mysql:host=rdbms.strato.de;dbname=DB451718',
+						'connectionString' => 'mysql:host=localhost;dbname=website_main',
 						'enableProfiling' => false,
 						'enableParamLogging' => false,
 						'charset' => 'utf8',
