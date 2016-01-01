@@ -17,7 +17,7 @@ $this->selectedNav = 'about';
 	<?php if (isset($alerts_success)) foreach($alerts_success as $alert) echo MsHtml::alert(MsHtml::ALERT_COLOR_SUCCESS, $alert); ?>
 	<?php if (isset($alerts_error)) foreach($alerts_error as $alert) echo MsHtml::alert(MsHtml::ALERT_COLOR_ERROR, $alert); ?>
 
-	<?php echo MsHtml::pageHeader('About Mikescher.de', ''); ?>
+	<?php echo MsHtml::pageHeader('About Mikescher.com', ''); ?>
 
 	<div class="well cstm-well-light">
 		<p>Welcome to my private homepage.</p>

@@ -16,7 +16,7 @@ $this->selectedNav = '';
 
 <div class="container">
 
-	<?php echo MsHtml::pageHeader("Site-log", "Changelog and Blog for mikescher.de"); ?>
+	<?php echo MsHtml::pageHeader("Site-log", "Changelog and Blog for mikescher.com"); ?>
 
 	<div class="accordion" id="lca">
 		<?php

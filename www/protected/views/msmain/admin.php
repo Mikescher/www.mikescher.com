@@ -126,15 +126,23 @@ array_push($this->js_files, '/javascript/msmain_admin_script.js');
 
 	<div class="well well-small">
 		<?php
-		$egh = $egh = (new ExtendedGitGraph('Mikescher'))->loadFinishedData();
+		if (file_exists('protected/data/git_graph_data.dat'))
+		{
+			$egh = $egh = (new ExtendedGitGraph('Mikescher'))->loadFinishedData();
+		}
+		else
+		{
+			$egh = null;
+		}
+		
 		?>
 
 		<h2>ExtendedGitGraph</h2>
 		<hr>
 
-		<strong>Last Update: </strong> <?php echo $egh['creation']->format('d.m.Y H:i'); ?> <br>
-		<strong>Repositories: </strong> <?php echo $egh['repos']; ?> <br>
-		<strong>Commits: </strong> <?php echo $egh['total']; ?> <br>
+		<strong>Last Update: </strong> <?php if ($egh != null) { echo $egh['creation']->format('d.m.Y H:i'); } ?> <br>
+		<strong>Repositories: </strong> <?php if ($egh != null) {  echo $egh['repos']; } ?> <br>
+		<strong>Commits: </strong> <?php if ($egh != null) {  echo $egh['total']; } ?> <br>
 
 		<br><br>
 
@@ -154,9 +162,9 @@ array_push($this->js_files, '/javascript/msmain_admin_script.js');
 		<ul>
 			<li><a href="https://mikescher-de.disqus.com">Disqus Admin Panel</a></li>
 			<li><a href="https://www.strato.de/apps/CustomerService">Strato Customer Service</a></li>
-			<li><a href="http://v1.mikescher.de">Mikescher.de Wayback (v1)</a></li>
-			<li><a href="http://v2.mikescher.de">Mikescher.de Wayback (v2)</a></li>
-			<li><a href="http://v3.mikescher.de">Mikescher.de Wayback (v3)</a></li>
+			<li><a href="http://v1.mikescher.com">Mikescher Wayback (v1)</a></li>
+			<li><a href="http://v2.mikescher.com">Mikescher Wayback (v2)</a></li>
+			<li><a href="http://v3.mikescher.com">Mikescher Wayback (v3)</a></li>
 		</ul>
 	</div>
 	<div class="well well-small">
