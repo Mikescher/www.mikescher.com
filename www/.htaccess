@@ -1,9 +1,11 @@
 RewriteEngine on
 
-# Verwende Verzeichnis oder Datei, wenn sie vorhanden sind
+# Zugriff auf sog. dotfiles verhindern (.htaccess, .svn, .git, etc.)
+RedirectMatch 403 /\..*$
+
+# Existierende Verzeichnisse oder Dateien direkt ausliefern
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Leite andernfalls auf index.php um
+# ansonsten zu index.php weiterleiten
 RewriteRule . index.php
-

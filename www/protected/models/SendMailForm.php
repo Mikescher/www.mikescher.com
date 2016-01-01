@@ -25,7 +25,7 @@ class SendMailForm extends CFormModel {
 		$Browser = $_SERVER['HTTP_USER_AGENT'];
 
 		$empfaenger = "kundenservice@mikescher.de";
-		$betreff = "Neue Mail für Mikescher.de vom Typ Kontaktformular ($this->header)";
+		$betreff = "Neue Mail für Mikescher.com vom Typ Kontaktformular ($this->header)";
 		$text =
 "
 Name: $this->name

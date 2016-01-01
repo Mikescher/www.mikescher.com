@@ -13,7 +13,7 @@ return ArrayX::merge(
 	require_once('env/' . YII_CUSTOM_ENV . '.php'),
 	[
 		'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-		'name' => 'Mikescher.de',
+		'name' => 'Mikescher.com',
 
 		// preloading 'log' component
 		'preload' =>
