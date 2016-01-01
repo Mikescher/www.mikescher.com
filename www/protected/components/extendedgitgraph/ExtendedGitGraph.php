@@ -30,6 +30,12 @@ class ExtendedGitGraph {
 	private $startdate = null;
 	private $enddate = null;
 
+	private $sessionOutput = true;
+	private $basicAuth = null;
+
+	private $FILE_RAW_DATA      = 'protected/data/git_graph_raw.dat';
+	private $FILE_FINISHED_DATA = 'protected/data/git_graph_data.dat';
+
 	public function __construct($usr_name) {
 		$this->username = $usr_name;
 	}
@@ -43,6 +49,14 @@ class ExtendedGitGraph {
 
 		setToken($result);
 	}
+
+	public function setSessionOutput($sout) { $this->sessionOutput = $sout; }
+
+	public function setRawDataPath($rdp) { $this->FILE_RAW_DATA = $rdp; }
+
+	public function setFinDataPath($fdp) { $this->FILE_FINISHED_DATA = $fdp; }
+
+	public function setBasicAuthentication($usr, $passw) { $this->basicAuth = "Authorization: Basic " . base64_encode($usr . ":" . $passw); }
 
 	public function setToken($token) {
 		$this->token = $token;
@@ -117,7 +131,23 @@ class ExtendedGitGraph {
 	}
 
 	private function getJSON($url) {
-		$options  = array('http' => array('user_agent'=> $_SERVER['HTTP_USER_AGENT']));
+		if (array_key_exists('HTTP_USER_AGENT', $_SERVER)) {
+			$options  = ['http' => ['user_agent'=> $_SERVER['HTTP_USER_AGENT']]];
+		} else {
+			$options  = ['http' => ['user_agent'=> 'ExtendedGitGraph_for_mikescher.com']];
+		}
+
+		if ($this->basicAuth != null) {
+			$options  = 
+				[
+					'http' => 
+						[
+							'user_agent' => $options['http']['user_agent'],
+							'header'     => $this->basicAuth,
+						]
+				];
+		}
+		
 		$context  = stream_context_create($options);
 
 		$response = @file_get_contents($url, false, $context);
@@ -214,29 +244,36 @@ class ExtendedGitGraph {
 				'commits' => $this->commits,
 			]);
 
-		file_put_contents(self::FILE_RAW_DATA, $save);
+		file_put_contents($this->FILE_RAW_DATA, $save);
 
 		$this->output_flushed('Finished saving data');
 	}
 
 	public function output_flushed_clear()
 	{
-		if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+		if ($this->sessionOutput) {
+			if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
-		$_SESSION[self::PROGRESS_SESSION_COOKIE] = '';
-		session_commit();
+			$_SESSION[self::PROGRESS_SESSION_COOKIE] = '';
+			session_commit();
+		}
 	}
 
 	public function output_flushed($txt)
 	{
-		if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+		if ($this->sessionOutput) {
+			if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
-		$_SESSION[self::PROGRESS_SESSION_COOKIE] .= '[' . date('H:i.s') . '] ' . $txt . "\r\n";
-		session_commit();
+			$_SESSION[self::PROGRESS_SESSION_COOKIE] .= '[' . date('H:i.s') . '] ' . $txt . "\r\n";
+			session_commit();
+		} else {
+			print $txt;
+			print "\n";
+		}
 	}
 
 	public function loadData() {
-		$data = unserialize(file_get_contents(self::FILE_RAW_DATA));
+		$data = unserialize(file_get_contents($this->FILE_RAW_DATA));
 
 		$this->repositories = $data['repositories'];
 		$this->commits = $data['commits'];
@@ -265,7 +302,7 @@ class ExtendedGitGraph {
 
 		$this->generateCommitMap();
 
-		file_put_contents(self::FILE_FINISHED_DATA,
+		file_put_contents($this->FILE_FINISHED_DATA,
 			serialize(
 				[
 					'creation' => new DateTime(),
@@ -490,12 +527,12 @@ class ExtendedGitGraph {
 	}
 
 	public function loadFinishedContent() {
-		$data = unserialize(file_get_contents(self::FILE_FINISHED_DATA));
+		$data = unserialize(file_get_contents($this->FILE_FINISHED_DATA));
 		return $data['content'];
 	}
 
 	public function loadFinishedData() {
-		$data = unserialize(file_get_contents(self::FILE_FINISHED_DATA));
+		$data = unserialize(file_get_contents($this->FILE_FINISHED_DATA));
 		return $data;
 	}
 

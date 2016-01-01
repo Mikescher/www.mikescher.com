@@ -140,9 +140,10 @@ return ArrayX::merge(
 						'tablePrefix' => 'ms4_',
 					],
 
-				'counter' => array(
-					'class' => 'UserCounter',
-				),
+				'counter' => 
+					[
+						'class' => 'UserCounter',
+					],
 			],
 
 		// application-level parameters that can be accessed

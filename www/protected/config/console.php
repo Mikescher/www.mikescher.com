@@ -1,37 +1,64 @@
 <?php
 
-// This is the configuration for yiic console application.
-// Any writable CConsoleApplication properties can be configured here.
-return array(
-	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Console Application',
+return [
+		'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
+		'name' => 'Mikescher.com - Console',
 
-	// preloading 'log' component
-	'preload'=>array('log'),
+		// preloading 'log' component
+		'preload' =>
+			[
+				'log'
+			],
 
-	// application components
-	'components'=>array(
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
-		// uncomment the following to use a MySQL database
-		/*
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
-			'charset' => 'utf8',
-		),
-		*/
-		'log'=>array(
-			'class'=>'CLogRouter',
-			'routes'=>array(
-				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
-				),
-			),
-		),
-	),
-);
+		'aliases' =>
+			[
+				'bootstrap' => realpath(__DIR__ . '/../extensions/bootstrap'), // change this if necessary
+			],
+
+		// autoloading model and component classes
+		'import' =>
+			[
+				'application.models.*',
+				'application.extensions.*',
+				'application.components.*',
+				'application.components.widgets.*',
+				'application.components.extendedgitgraph.*',
+				'application.components.parsedown.*',
+				'bootstrap.components.*',
+				'bootstrap.behaviors.*',
+				'bootstrap.helpers.*',
+				'bootstrap.widgets.*',
+			],
+
+		'modules' =>
+			[
+				//
+			],
+
+		// application components
+		'components' =>
+			[
+				'log' =>
+					[
+						'class' => 'CLogRouter',
+						'routes' =>
+							[
+								[
+									'class' => 'CFileLogRoute',
+									'levels' => 'error, warning',
+								],
+							],
+					],
+			],
+
+		// application-level parameters that can be accessed
+		// using Yii::app()->params['paramName']
+		'params' =>
+			[
+				'yii.debug' => defined('YII_DEBUG'),
+				'yii.traceLevel' => 3,
+				'yii.handleErrors' => defined('YII_DEBUG'),
+				// this is used in contact page
+				'adminEmail' => 'kundenservice@mikescher.de',
+			],
+	];

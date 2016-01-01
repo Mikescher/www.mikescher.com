@@ -3,11 +3,11 @@
 include 'extendedGitGraph.php';
 
 $v = new ExtendedGitGraph('Mikescher');
+$v->setSessionOutput(true);
 
 //##########################################################
 
 $v->addSecondaryUsername("Sam-Development");
-
 $v->addSecondaryRepository("Anastron/ColorRunner");
 
 //##########################################################
