@@ -41,7 +41,7 @@ array_push($this->css_files, "/css/blogpost_ProjectEulerBefunge_style.css");
 
 		<h1><?php echo $model->Title ?></h1>
 
-		<p><a href="https://projecteuler.net/problems"><img src="http://projecteuler.net/profile/Mikescher.png" /></a></p>
+		<p><a href="https://projecteuler.net/problems"><img src="https://projecteuler.net/profile/Mikescher.png" /></a></p>
 
 		<p>A lot of you probably know <a href="https://projecteuler.net/">Project Euler</a>.<br />
 			For those who don't here a short explanation: Project Euler is a collection of mathematical/programming problems.
