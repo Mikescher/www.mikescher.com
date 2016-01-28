@@ -22,9 +22,11 @@ $this->selectedNav = 'about';
 	<div class="well cstm-well-light">
 		<p>Welcome to my private homepage.</p>
 
-		<p>My name is Mike Schwörer, and this is my homepage. Mainly I will upload my programs here and sometimes I write something for my blog </p>
+		<p>My name is Mike Schwörer, and this is my homepage. I use it to upload programs I have written and sometimes for a little blogging. </p>
 
 		<p>If you want you can look <?php echo MsHtml::link('here', '/programs'); ?> at the things I programmed </p>
+
+		<p> I have also a whole sectioned dedicated to <?php echo MsHtml::link('Project euler', '/blog/1/Project_Euler_with_Befunge'); ?> (in Befunge-93) </p>
 	</div>
 
 	<?php $egh = (new ExtendedGitGraph('Mikescher'))->loadFinishedData(); ?>
