@@ -1,3 +1,0 @@
-With Smart Directory Lister (*short* SDL) you can easily list all files or folder in a folder that match a pattern. After that you can export that list as plain text.
-
-As simple as that sounds its really useful to create a list of all your programs/movies/photos etc. Also because this programm creates no files and is pretty small you can just copy the executable into every folder you need to create a list f sometimes.
