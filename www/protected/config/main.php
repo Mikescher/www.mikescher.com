@@ -36,6 +36,7 @@ return ArrayX::merge(
 				'application.components.extendedgitgraph.*',
 				'application.components.parsedown.*',
 				'bootstrap.components.*',
+				'bootstrap.form.*',
 				'bootstrap.behaviors.*',
 				'bootstrap.helpers.*',
 				'bootstrap.widgets.*',
@@ -60,6 +61,7 @@ return ArrayX::merge(
 				'bootstrap' =>
 					[
 						'class' => 'bootstrap.components.TbApi',
+                        'cdnUrl'=>"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6",
 					],
 
 				'user' =>
