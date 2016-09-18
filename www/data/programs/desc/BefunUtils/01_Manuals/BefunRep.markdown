@@ -1,6 +1,6 @@
 BefunRep is an command line tool to calculate Befunge93 number representations
 
-![BEFUNREP_MAINWINDOW](/data/programs/desc/BefunGen/01_Manuals/BefunRep_Main.png)
+![](https://raw.githubusercontent.com/Mikescher/BefunUtils/master/README-FILES/BefunRep_Main.png)
 
 To execute BefunRep you need to open the windows command line (cmd.exe).
 

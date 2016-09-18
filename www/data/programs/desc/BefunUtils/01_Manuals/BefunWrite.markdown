@@ -1,6 +1,6 @@
 BefunWrite is an IDE to write and compile TextFunge, once started you will see the main window:
 
-![BEFUNWRITE_MAINWINDOW](/data/programs/desc/BefunGen/01_Manuals/BefunWrite_Main.png)
+![](https://raw.githubusercontent.com/Mikescher/BefunUtils/master/README-FILES/BefunWrite_Main.png)
 
 You can write your code in the center and see a summary of current constants/variables/methods on the right side. 
 On the bottom site you can also expand the tabs `Output` and `ErrorList`.
@@ -35,9 +35,9 @@ With the build configurations dialog you can modify the build process
 
  - **Name**
  
- ###Execution
+###Execution
  
- > BefunExec Settings
+####BefunExec Settings
  
  - **Debugging Enabled**: Enable debugging options (warnings on unexpected behaviours)
  - **Start Paused**: Starts the program non-running
@@ -51,9 +51,9 @@ With the build configurations dialog you can modify the build process
  - **Lifetime Tail**: The time (in ms) until the tail has faded away
  - **Start zoomed in on display**: Set the initial zoom fitting for the display
  
- ###Code Generation
+###Code Generation
  
- > BefunGen Settings
+####BefunGen Settings
  
   - **Number literal representation**: The used algorithm for presenting number literals
   - **Optimize double string-mode**: Try to combine two adjacent `"` together

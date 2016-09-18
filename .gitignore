@@ -3,3 +3,4 @@ demos
 #www/images/programs
 workspace.xml
 *.secret
+.idea/

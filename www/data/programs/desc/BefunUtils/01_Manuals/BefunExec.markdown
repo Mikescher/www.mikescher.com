@@ -1,6 +1,6 @@
 BefunExec is a fast Befunge-93 interpreter.
 
-![BEFUNEXEC_MAINWINDOW](/data/programs/desc/BefunGen/01_Manuals/BefunExec_Main.png)
+![](https://raw.githubusercontent.com/Mikescher/BefunUtils/master/README-FILES/BefunExec_Main.png)
 
 BefunExec can either be controlled over the menu or by keyboard shortcuts.
 You can read about the shortcuts and the command line parameters in the console window of BefunExec.
@@ -43,18 +43,8 @@ Over the menu you can change a few settings:
 
 ###Extended Syntax Highlighting
 
-![BEFUNEXEC_ESH](/data/programs/desc/BefunGen/01_Manuals/BefunExec_ESH_example.png)
+![](https://raw.githubusercontent.com/Mikescher/BefunUtils/master/README-FILES/BefunExec_ESH_example.png)
 
 BefunExec can use BefunHighlight to highlight the program (= extended Syntax highlighting).  
 It will automatically choose so if the program isn't too big and you haven't explicitly specified another highlighting method.
 Be aware that when you run on top speed and BefunExec is getting slowed down a lot by BefunHighlight it will automatically change the highlighting method.
- 
-##Additional
-
-###Capture GIF
-
-![BEFUNEXEC_CAPTUREGIFDIALOG](/data/programs/desc/BefunGen/01_Manuals/BefunExec_CaptureGifDialog.png)
-
-With the menu point "Capture GIF" you can create an animated .gif animation of your running program. 
-You can set the amount of steps to capture and the animation delay between the steps. You can also set the final delay before the animation restarts.
-There is also the "Automatic frame count" option, only use this if your program terminates in a reasonable amount of frames.
