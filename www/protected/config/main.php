@@ -90,7 +90,7 @@ return ArrayX::merge(
 								'update.php/<Name>' => 'api/update2',
 								'update' => 'api/update',
 								'update/<Name>' => 'api/update2',
-
+                                
 								'blog/' => 'blogPost/index',
 								'blog/ajaxMarkdownPreview' => 'blogPost/ajaxMarkdownPreview',
 								'blog/admin' => 'blogPost/admin',

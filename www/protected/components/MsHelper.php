@@ -11,6 +11,15 @@ class MsHelper {
 		return $val;
 	}
 
+
+    public static function setStringDBVar($name, $value)
+    {
+        $connection = Yii::app()->db;
+
+        $command=$connection->createCommand("REPLACE INTO {{othervalues}} (Name, SValue) VALUES ('$name', '$value')");
+        $command->query();
+    }
+
 	public static function getIntDBVar($name)
 	{
 		$connection = Yii::app()->db;

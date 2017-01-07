@@ -52,8 +52,62 @@ class APIController extends MSController
 			throw new CHttpException(404,'Invalid Request - [Name] not found');
 		}
 
+		$log = new ProgramUpdatesLog();
+        $log->programname = $data->Name;
+        $log->version = $data->Version;
+        $log->date = date('Y-m-d H:i:s');
+        $log->ip = $this->get_client_ip();
+
+        if ($log->ip == MsHelper::getStringDBVar('self_ip')) $log->ip = "self";
+
+        $log->save();
+
 		$this->render('update', ['data' => $data]);
 	}
+
+    public function actionSetSelfAdress()
+    {
+        if (! isset($_GET['ip'])) {
+            $ip = $this->get_client_ip();
+        } else {
+            $ip = $_GET['ip'];
+        }
+
+
+        MsHelper::setStringDBVar('self_ip', $ip);
+
+        echo 'Ok.';
+        return;
+    }
+
+    public function get_client_ip() {
+        if (getenv('HTTP_CLIENT_IP'))
+            return getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            return getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            return getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            return getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+            return getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            return getenv('REMOTE_ADDR');
+        else if (isset($_SERVER['HTTP_CLIENT_IP']))
+            return $_SERVER['HTTP_CLIENT_IP'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED']))
+            return $_SERVER['HTTP_X_FORWARDED'];
+        else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+            return $_SERVER['HTTP_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_FORWARDED']))
+            return $_SERVER['HTTP_FORWARDED'];
+        else if(isset($_SERVER['REMOTE_ADDR']))
+            return $_SERVER['REMOTE_ADDR'];
+        else
+            return 'UNKNOWN';
+    }
 
 	public function actionTest()
 	{
