@@ -49,7 +49,8 @@ class ProgramUpdates extends CActiveRecord
 				'ProgramUpdatesLog',
 				[
 					'programname' => 'Name'
-				]
+				],
+                'order'=>'date DESC'
 			],
 		);
 	}
