@@ -30,19 +30,4 @@ $this->breadcrumbs = array(
 		</div>
 	</div>
 
-	<div class="disqus_owner">
-		<?php
-		$this->widget(
-			'ext.YiiDisqusWidget.YiiDisqusWidget',
-			[
-				'shortname' => 'mikescher-de',
-				'identifier' => 'blog/view/' + $model->ID,
-				'title' => $model->Title,
-				'url' => $model->getAbsoluteLink(),
-				'category_id' => '3253401', // = blog/view
-			]
-		);
-		?>
-	</div>
-
 </div>

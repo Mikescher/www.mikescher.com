@@ -104,7 +104,7 @@ class MsHelper {
 	 * @param $after
 	 * @return mixed
 	 */
-	public function encloseLines($input, $before, $after)
+	public static function encloseLines($input, $before, $after)
 	{
 		$array = preg_split("/\r\n|\n|\r/", $input);
 

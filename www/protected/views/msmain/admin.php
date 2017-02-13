@@ -160,7 +160,7 @@ array_push($this->js_files, '/javascript/msmain_admin_script.js');
 		<hr>
 
 		<ul>
-			<li><a href="https://mikescher-de.disqus.com">Disqus Admin Panel</a></li>
+			<!--<li><a href="https://mikescher-de.disqus.com">Disqus Admin Panel</a></li>-->
 			<li><a href="https://www.strato.de/apps/CustomerService">Strato Customer Service</a></li>
 			<li><a href="http://v1.mikescher.com">Mikescher Wayback (v1)</a></li>
 			<li><a href="http://v2.mikescher.com">Mikescher Wayback (v2)</a></li>
