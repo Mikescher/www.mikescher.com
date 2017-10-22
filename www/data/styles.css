@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+}
+
+.headerdiv {
+    background-color: #353;
+    display: flex;
+}
+
+.headerdiv .logowrapper {
+    flex: initial;
+    margin: 0;
+    padding: 0;
+    height: 42px;
+}
+
+.headerdiv > .logowrapper > .logo {
+    height: 30px;
+    margin: 4px 0px 8px 6px;
+    flex: initial;
+}
+
+.tabrow {
+    display: flex;
+    flex: auto;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #888;
+    color: #FFF;
+    border: 1px solid black;
+    font-weight: bold;
+
+    margin: 5px 10px;
+    padding: 0px 5px;
+    min-width: 64px;
+    vertical-align: center;
+    text-align: center;
+
+    flex: initial;
+}
+
+.tab_github {
+    background-color: #4078c0;
+    color: black;
+}
+
+.tab_split {
+    flex: auto;
+}
+
+.tab:hover {
+    cursor: pointer;
+    color: blue;
+    background-color: #999;
+}
+
+.tab_github:hover {
+    background-color: #c9510c;
+    color: black;
+}
+
+@media (max-width: 800px) {
+
+    .logowrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .headerdiv {
+        flex-direction: column;
+    }
+
+    .tabrow {
+        flex-direction: column;
+    }
+
+}
+
+
