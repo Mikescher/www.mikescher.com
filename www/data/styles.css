@@ -1,8 +1,14 @@
 body {
     margin: 0;
-    background-color: #222;
+    background-color: #EEE;
     
     color: #CCC;
+}
+
+#content {
+    padding-top: 64px;
+    display: flex;
+    justify-content: center;
 }
 
 .headerdiv {
@@ -37,23 +43,29 @@ body {
     justify-content: center;
     align-items: center;
 
-    background-color: #111;
+    background-color: #222;
     color: #CCC;
-    border: 1px solid #CCC;
+    border-left:  1px solid #000;
+    border-right: 1px solid #000;
     font-weight: bold;
 
-    margin: 5px 10px;
+    margin: 0px 0px 0px 20px;
     padding: 2px 5px;
     min-width: 64px;
-    vertical-align: center;
     text-align: center;
 
     flex: initial;
 }
 
+.tab:hover {
+    cursor: pointer;
+    background-color: #555;
+}
+
 .tab_github {
     background-color: #4078c0;
-    border: 1px solid #111;
+    border-left:  1px solid #111;
+    border-right: 1px solid #111;
     color: black;
 }
 
@@ -61,17 +73,12 @@ body {
     flex: auto;
 }
 
-.tab:hover {
-    cursor: pointer;
-    background-color: #333;
-}
-
 .tab_github:hover {
     background-color: #c9510c;
     color: black;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
     .headerdiv {
         position: static;
@@ -91,7 +98,98 @@ body {
         flex-direction: column;
     }
 
+    .tab {
+        border: 1px solid #000;
+        font-weight: bold;
+
+        margin: 5px 10px;
+    }
+    
+    #content {
+        padding-top: 0px;
+    }
 }
 
 
- 
+/*############################################################################*/
+
+.euler_pnl_base {
+    display: inline-flex;
+    flex-direction: column;
+    
+    border: 1px solid #AAA;
+    border-radius: 5px 5px 0 0;
+    margin: 15px;
+}
+
+.euler_pnl_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: #222;
+    font-weight: bold;
+    padding: 4px;
+    background: #AAA;
+    
+    font-size: large;
+}
+
+.euler_pnl_content {
+    display: flex;
+    flex-direction: column;
+    
+    background: #DDD;
+    
+    padding: 6px;
+}
+
+.euler_pnl_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 850px) { .euler_pnl_row { flex-direction: column; } }
+
+.euler_pnl_row2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.euler_pnl_cell {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+    
+    margin: 3px;
+    
+    border: 1px solid #333;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.euler_pnl_cell a {
+    color: black;
+    text-decoration: none;
+}
+
+.euler_pnl_cell a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.euler_pnl_cell a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.euler_pnl_celltime_perfect { background: #98C398; }
+.euler_pnl_celltime_good    { background: #B9D89B; }
+.euler_pnl_celltime_ok      { background: #D8D898; }
+.euler_pnl_celltime_bad     { background: #D8B298; }
+.euler_pnl_celltime_fail    { background: #D89D9D; }
+.euler_pnl_cell_notexist    { background: #CCCCCC; }
+
