@@ -1,0 +1,2 @@
+Not much to say here, we save the factorial values to increase speed and operate almost entirely on the stack (also for speed).
+The rest is brute force. Our upper limit is `9!*7 = 2540160`, because `9!*8` has only 7 digits and so is impossible to be a curious number.

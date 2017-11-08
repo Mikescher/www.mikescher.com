@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require __DIR__ . '/../internals/backend.php' ?>
+<?php require __DIR__ . '/../internals/base.php' ?>
 <head>
     <meta charset="utf-8">
     <title>Mikescher.com</title>
@@ -14,7 +14,7 @@
 
     <div id="content">
 
-		<?php include (__DIR__ . '/../fragments/euler.php');  ?>
+		<?php include (__DIR__ . '/../fragments/eulerpanel.php');  ?>
 
     </div>
 

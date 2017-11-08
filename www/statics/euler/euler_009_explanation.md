@@ -1,0 +1,1 @@
+The brute-force approach is here taking quite a long time - but I think it's good enough - perhaps I will make an optimized version later

@@ -1,0 +1,1 @@
+Here I implemented a long multiplication algorithm. Then I took the value `1` and doubled it 1000 times. The calculation of the digit sum was then easy.

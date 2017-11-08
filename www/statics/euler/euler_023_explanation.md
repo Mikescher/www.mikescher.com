@@ -1,0 +1,2 @@
+The algorithm here is pretty ineffecient. First I brute force all the abundent numbers and then calculate every possible product of these numbers.  
+I used a little trick to store 2 boolean values per grid cell: The lowest bit represents if the value is abundent and the second-lowest if it can be written as two abundent numbers

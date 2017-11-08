@@ -1,0 +1,2 @@
+And for like the 5th time i implement an long addition algorithm. On the right side is the current number and on the left side the last number. 
+The only interesting thing here is probably that I calculate the next number and move the current to the left in a single cycle.

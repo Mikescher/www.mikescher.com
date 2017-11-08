@@ -1,0 +1,2 @@
+Most of the time is here spent in the NumberOfDivisors function. So we first cache every possible result of this function (from 0 to 10000).
+The rest is simple searching for numbers where a == D(D(a)) and a != D(a).

@@ -1,0 +1,1 @@
+Again a simple problem, we get the length of every sequence (= until they reach `1`) and print the highest.

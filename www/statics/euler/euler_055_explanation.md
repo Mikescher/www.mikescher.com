@@ -1,0 +1,2 @@
+Not much to say about this one. I reuse the isPalindrome code from P-36 and bruteforce through all the numbers.  
+I think it would be really useful to cache the intermediate results - but our befunge space is too small for such data structures :/

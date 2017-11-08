@@ -1,0 +1,1 @@
+Here I do simply do a column addition. After the sum is calculated, we take the first 10 digits and print them

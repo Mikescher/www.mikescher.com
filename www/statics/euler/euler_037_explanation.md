@@ -1,0 +1,2 @@
+The approach for this problem is to first iterate through the left-truncatable primes and test if these are right-truncatable. All with the help of our trusty companion the *sieve of Eratosthenes*.  
+Tricky was that the generation of left-truncatable primes, my original algorithm was recursive and I had to transform it to an iterative one for befunge.

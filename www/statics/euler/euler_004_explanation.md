@@ -1,0 +1,1 @@
+Again we can write our program fast enough to brute-force the solution. So we iterate through every possible 3-digit product and check if its a palindrom.

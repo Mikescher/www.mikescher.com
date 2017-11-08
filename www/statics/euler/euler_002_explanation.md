@@ -1,0 +1,1 @@
+Also the problem here was not the algorithm, but writing and compressing it in Befunge. The code calculates the Fibonacci sequence one after each other and remembers the sum while iterating.

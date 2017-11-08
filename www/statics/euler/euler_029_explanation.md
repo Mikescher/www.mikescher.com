@@ -1,0 +1,4 @@
+This problem is really not made for Befunge. The numbers become quickly too big to be stored in a 64 bit field, and you need to remember a lot of them.
+
+My solution is probably a bit hacky/cheaty: We calculate the numbers via long multiplication and 200 single fields. Then we calculate a hash of that number and store the hash.  
+The *cheaty* part is that I needed to be sure there are no hash collisions in our set of numbers - so I tested it beforehand in a quick C# solution. And on a side note: Its disturbing how easy these problems are in a high-level language after working with Befunge for such a log time :(

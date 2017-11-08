@@ -1,0 +1,2 @@
+We have the two formulas `a^2 + b^2 = c^2` and `a + b + c = p`. We can insert the second in the first and get `b = p*(p-2a) / 2*(p-a)` and `c = p-(b+a)`.  
+The we just go through all possible values for a and p and test if b is an integer. Then we search for the value of p with the most possible values of a.

@@ -1,0 +1,1 @@
+The solution here is pretty straight-forward, going through all numbers from 1-1000 and adding all multiples of 3 and 5 together. 
