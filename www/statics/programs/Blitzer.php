@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Blitzer_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/Blitzer.png',
+	'thumbnail_url'     => 'Blitzer.png',
 ];

@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/LAN-Control_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/LAN-Control.png',
+	'thumbnail_url'     => 'LAN-Control.png',
 ];

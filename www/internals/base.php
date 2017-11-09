@@ -1,20 +1,21 @@
 <?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
 
+global $CONFIG;
 $CONFIG = require 'config.php';
 
-$PDO = NULL;
-
-function connect()
+function startsWith($haystack, $needle)
 {
-	global $CONFIG;
-	global $PDO;
+	$length = strlen($needle);
+	return (substr($haystack, 0, $length) === $needle);
+}
 
-	$dsn = "mysql:host=" . $CONFIG['host'] . ";dbname=" . $CONFIG['database'] . ";charset=utf8";
-	$opt = [
-		PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-		PDO::ATTR_EMULATE_PREPARES   => false,
-	];
+function endsWith($haystack, $needle)
+{
+	$length = strlen($needle);
+	return $length === 0 || (substr($haystack, -$length) === $needle);
+}
 
-	$PDO = new PDO($dsn, $CONFIG['user'], $CONFIG['password'], $opt);
+function httpError($errorcode, $message)
+{
+	die($message);//TODO errorcode
 }

@@ -15,5 +15,5 @@ return
 		'wiki'        => 'https://github.com/Mikescher/BefunUtils/wiki',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/BefunUtils_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/BefunUtils.png',
+	'thumbnail_url'     => 'BefunUtils.png',
 ];

@@ -14,5 +14,5 @@ return
 	[
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Keygen Dancer_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/Keygen Dancer.png',
+	'thumbnail_url'     => 'Keygen Dancer.png',
 ];

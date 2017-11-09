@@ -15,5 +15,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Smart Directory Lister_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/Smart Directory Lister.png',
+	'thumbnail_url'     => 'Smart Directory Lister.png',
 ];

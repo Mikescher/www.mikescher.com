@@ -15,5 +15,5 @@ return
 		'github'      => 'https://github.com/Mikescher/HexSolver',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/HexSolver_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/HexSolver.png',
+	'thumbnail_url'     => 'HexSolver.png',
 ];

@@ -14,5 +14,5 @@ return
 		'github'      => 'https://github.com/Mikescher/jQCCounter',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/jQCCounter_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/jQCCounter.png',
+	'thumbnail_url'     => 'jQCCounter.png',
 ];

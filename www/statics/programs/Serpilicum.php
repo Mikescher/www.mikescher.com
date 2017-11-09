@@ -15,5 +15,5 @@ return
 		'github'      => 'https://github.com/Mikescher/Serpilicum',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Serpilicum_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/Serpilicum.png',
+	'thumbnail_url'     => 'Serpilicum.png',
 ];

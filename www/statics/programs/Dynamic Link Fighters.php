@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Dynamic Link Fighters_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/Dynamic Link Fighters.png',
+	'thumbnail_url'     => 'Dynamic Link Fighters.png',
 ];

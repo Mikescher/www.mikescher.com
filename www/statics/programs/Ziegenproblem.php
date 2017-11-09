@@ -15,5 +15,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Ziegenproblem_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/Ziegenproblem.png',
+	'thumbnail_url'     => 'Ziegenproblem.png',
 ];

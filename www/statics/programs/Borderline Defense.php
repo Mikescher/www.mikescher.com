@@ -15,5 +15,5 @@ return
 		'homepage'    => 'http://borderlinedefense.99k.org/',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Borderline Defense_description.md'); },
-	'thumbnail_url'     => '/images/program_thumbnails/Borderline Defense.png',
+	'thumbnail_url'     => 'Borderline Defense.png',
 ];
