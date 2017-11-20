@@ -14,4 +14,10 @@ class Programs
 		
 		return array_map(readSingle, $files);
 	}
+
+	public static function listUpdateData()
+	{
+		$a = require (__DIR__ . '/../statics/updates/programupdates.php');
+		return $a;
+	}
 }
