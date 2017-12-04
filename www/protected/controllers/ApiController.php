@@ -65,6 +65,36 @@ class APIController extends MSController
 		$this->render('update', ['data' => $data]);
 	}
 
+	public function actionStatsPing()
+	{
+		if (! isset($_GET['Name'])) { throw new CHttpException(404,'Invalid Request'); return; }
+		if (! isset($_GET['ClientID'])) { throw new CHttpException(404,'Invalid Request'); return; }
+		if (! isset($_GET['Version'])) { throw new CHttpException(404,'Invalid Request'); return; }
+		if (! isset($_GET['ProviderStr'])) { throw new CHttpException(404,'Invalid Request'); return; }
+		if (! isset($_GET['ProviderID'])) { throw new CHttpException(404,'Invalid Request'); return; }
+		if (! isset($_GET['NoteCount'])) { throw new CHttpException(404,'Invalid Request'); return; }
+
+		if ($_GET['Name'] == 'AlephNote') 
+		{
+			$connection = Yii::app()->db;
+
+			$command=$connection->createCommand("REPLACE INTO {{an_statslog}} (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid, :v, :pstr, :pid, :nc)");
+			$command->bindValues([
+				':cid' => $_GET['ClientID'],
+				':v' => $_GET['Version'],
+				':pstr' => $_GET['ProviderStr'],
+				':pid' => $_GET['ProviderID'],
+				':nc' => $_GET['NoteCount'],
+			]);
+			$command->query();
+			$this->render('stats', ['out' => '{"success":true}']);
+		}
+		else 
+		{
+			$this->render('stats', ['out' => '{"success":false}']);
+		}
+	}
+
     public function actionSetSelfAdress()
     {
         if (! isset($_GET['ip'])) {
