@@ -32,6 +32,7 @@ $URL_RULES =
 	[ 'url' => ['api', 'update', '?{Name}'],                 'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%URL%' ],                     ],
 	[ 'url' => ['api', 'test'],                              'target' => 'pages/api_test.php',               'options' => [],                                        ],
 	[ 'url' => ['api', 'setselfadress'],                     'target' => 'pages/api_setselfadress.php',      'options' => [],                                        ],
+	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
 	
 	[ 'url' => ['msmain', 'admin', 'egh', '?{commandcode}'], 'target' => 'pages/admin_egh.php',              'options' => [ 'commandcode' => '%URL%' ],              ],
 	[ 'url' => ['msmain', 'adminEGH'],                       'target' => 'pages/admin_egh.php',              'options' => [ 'commandcode' => '%GET%' ],              ],
@@ -129,3 +130,14 @@ foreach ($URL_RULES as $rule)
 	include 'pages/error_404.php';
 	return;
 }
+
+
+//TODO printed books 2 hp
+//TODO programs (sort out)
+//TODO befunge runner for bef-blog + euler
+//TODO fast
+//TODO gzip (?)
+//TODO better gh widget
+
+
+
