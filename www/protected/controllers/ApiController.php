@@ -78,7 +78,7 @@ class APIController extends MSController
 		{
 			$connection = Yii::app()->db;
 
-			$command=$connection->createCommand("REPLACE INTO {{an_statslog}} (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid, :v, :pstr, :pid, :nc)");
+			$command=$connection->createCommand("INSERT INTO {{an_statslog}} (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid, :v, :pstr, :pid, :nc) ON DUPLICATE KEY UPDATE Version=:v,ProviderStr=:pstr,ProviderID=:pid,NoteCount=:nc");
 			$command->bindValues([
 				':cid' => $_GET['ClientID'],
 				':v' => $_GET['Version'],
