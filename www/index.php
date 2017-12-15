@@ -138,6 +138,6 @@ foreach ($URL_RULES as $rule)
 //TODO fast
 //TODO gzip (?)
 //TODO better gh widget
-
+//TODO remove db table prefixes
 
 
