@@ -28,6 +28,12 @@ class Blog
 			[ 'id' => 9,  'date' => '2016-10-22', 'visible' => true,  'title' => 'A complete sudoku solver in Befunge-93', 'fragment' => 'sudoku_befunge.md',  'type' => 'markdown', 'cat' => 'blog' ],
 		];
 	}
+
+	public static function listAllOrderedDescending() {
+		$data = self::listAll();
+		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });
+		return $data;
+	}
 }
 
 

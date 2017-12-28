@@ -4,13 +4,13 @@
 	</div>
 
 	<div class="tabrow">
-		<div class="tab">Home</div>
-		<div class="tab">Project Euler</div>
-		<div class="tab">Blog</div>
-		<div class="tab">Programs</div>
-		<div class="tab">About</div>
+		<a class="tab" href="/">Home</a>
+		<a class="tab">Project Euler</a>
+		<a class="tab" href="/blog">Blog</a>
+		<a class="tab" href="/programs">Programs</a>
+		<a class="tab" href="/about">About</a>
 		<div class="tab_split" ></div>
-		<div class="tab tab_github">Github</div>
+		<a class="tab tab_github" href="https://github.com/Mikescher/">Github</a>
 	</div>
 
 </div>

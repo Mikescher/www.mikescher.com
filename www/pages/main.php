@@ -9,14 +9,16 @@
 	<link rel="stylesheet" href="/data/css/styles.css"/>
 </head>
 <body>
+
 	<?php include (__DIR__ . '/../fragments/header.php');  ?>
 
-	<div id="content">
+	<div id="content" class="content-responsive">
 
 		<?php include (__DIR__ . '/../fragments/eulerpanel.php');  ?>
 
 	</div>
 
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
+
 </body>
 </html>

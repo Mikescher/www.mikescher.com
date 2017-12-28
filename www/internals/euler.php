@@ -11,7 +11,8 @@ class Euler
 
 	public static function listAll()
 	{
-		$files = glob(__DIR__ . '/../statics/euler/euler_*.php');
+		$expr = __DIR__ . '/../statics/euler/Euler_Problem-*.php';
+		$files = glob($expr);
 		
 		return array_map('self::readSingle', $files);
 	}
