@@ -1,0 +1,103 @@
+@import 'styles_config';
+
+.headerdiv {
+  background-color: #333;
+  display: flex;
+  border-bottom: 1px solid #111;
+  box-shadow: 0 0 8px #000000;
+  position: fixed;
+  width: 100%;
+
+  .logowrapper {
+    flex: initial;
+    margin: 0;
+    padding: 0;
+    height: 42px;
+
+    .logo {
+      height: 30px;
+      margin: 4px 0px 8px 6px;
+      flex: initial;
+    }
+  }
+
+  .tabrow {
+    display: flex;
+    flex: auto;
+
+    .tab {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #222;
+      color: $COL_TEXT_NORMAL;
+      border-left:  1px solid #000;
+      border-right: 1px solid #000;
+      font-weight: bold;
+      text-decoration: none;
+
+      margin: 0px 0px 0px 20px;
+      padding: 2px 5px;
+      min-width: 64px;
+      text-align: center;
+
+      flex: initial;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #555;
+      }
+    }
+
+    .tab_split {
+      flex: auto;
+    }
+
+    .tab_github {
+      background-color: #4078c0;
+      border-left:  1px solid #111;
+      border-right: 1px solid #111;
+      color: black;
+
+      &:hover {
+        background-color: #c9510c;
+        color: black;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 850px) {
+
+  .headerdiv {
+    position: static;
+  }
+
+  .logowrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headerdiv {
+    flex-direction: column;
+  }
+
+  .tabrow {
+    flex-direction: column;
+  }
+
+  .tab {
+    border: 1px solid #000;
+    font-weight: bold;
+
+    margin: 5px 10px;
+  }
+
+  #content {
+    padding-top: 0px;
+  }
+}
+

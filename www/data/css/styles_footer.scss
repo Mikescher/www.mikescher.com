@@ -1,0 +1,19 @@
+@import 'styles_config';
+
+#footerdiv {
+  margin-top:auto;
+  padding-bottom: 10px;
+
+  background-color: transparent;
+  text-align: center;
+}
+
+#footerdiv hr {
+  margin-bottom: 5px;
+  display:block;
+  border:none;
+  color:white;
+  height:1px;
+  background: #CCCCCCFF;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from($COL_TEXT_NORMAL), to($COL_TRANSPARENT));
+}
