@@ -1,12 +1,41 @@
 @import 'styles_config';
 
-#footerdiv {
-  margin-top:auto;
-  padding-bottom: 10px;
-
-  background-color: transparent;
-  text-align: center;
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
 }
+
+// https://stackoverflow.com/a/19723677/1761622
+
+#mastercontainer {
+  min-height:100%;
+  position:relative;
+}
+#headerdiv {
+  //...
+}
+#content {
+  padding-bottom:60px;   /* Height of the footer */
+}
+#footerdiv {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:60px;   /* Height of the footer */
+  text-align: center;
+
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+//----------------------------------------------
+
+@media(max-width:767px) { #footerdiv { width: auto; } }
+@media(min-width:768px) { #footerdiv { width: auto; } }
+@media(min-width:992px) { #footerdiv { width: 724px; } }
+@media(min-width:1200px){ #footerdiv { width: 1170px; } }
 
 #footerdiv hr {
   margin-bottom: 5px;

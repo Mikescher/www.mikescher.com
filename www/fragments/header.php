@@ -1,4 +1,4 @@
-<div class="headerdiv">
+<div id="headerdiv">
 	<div class="logowrapper">
 		<img class="logo" src="/data/images/logo.png" />
 	</div>

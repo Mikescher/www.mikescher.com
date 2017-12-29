@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="/data/css/styles.css"/>
 </head>
 <body>
+<div id="mastercontainer">
 
 	<?php include (__DIR__ . '/../fragments/header.php');  ?>
 
@@ -20,5 +21,6 @@
 
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
+</div>
 </body>
 </html>

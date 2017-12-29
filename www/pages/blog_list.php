@@ -16,6 +16,7 @@ $allposts = Blog::listAllOrderedDescending();
 	<link rel="stylesheet" href="/data/css/styles.css"/>
 </head>
 <body>
+<div id="mastercontainer">
 
 <?php include (__DIR__ . '/../fragments/header.php');  ?>
 
@@ -47,5 +48,7 @@ $allposts = Blog::listAllOrderedDescending();
 </div>
 
 <?php include (__DIR__ . '/../fragments/footer.php');  ?>
+
+</div>
 </body>
 </html>

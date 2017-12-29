@@ -1,6 +1,6 @@
 @import 'styles_config';
 
-.headerdiv {
+#headerdiv {
   background-color: #333;
   display: flex;
   border-bottom: 1px solid #111;
@@ -16,7 +16,7 @@
 
     .logo {
       height: 30px;
-      margin: 4px 0px 8px 6px;
+      margin: 4px 0 8px 6px;
       flex: initial;
     }
   }
@@ -71,33 +71,30 @@
 
 @media (max-width: 850px) {
 
-  .headerdiv {
+  #headerdiv {
     position: static;
-  }
-
-  .logowrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .headerdiv {
     flex-direction: column;
-  }
 
-  .tabrow {
-    flex-direction: column;
-  }
+    .logowrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .tab {
-    border: 1px solid #000;
-    font-weight: bold;
+    .tabrow {
+      flex-direction: column;
 
-    margin: 5px 10px;
+      .tab {
+        border: 1px solid #000;
+        font-weight: bold;
+
+        margin: 5px 10px;
+      }
+    }
   }
 
   #content {
-    padding-top: 0px;
+    padding-top: 0;
   }
 }
 
