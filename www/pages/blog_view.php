@@ -4,7 +4,13 @@
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/blog.php');
 
-$allposts = Blog::listAllOrderedDescending();
+
+$id = $OPTIONS['id'];
+$subview = $OPTIONS['subview'];
+
+$post = Blog::getBlogpost($id);
+
+if ($post === NULL) httpError(404, 'blogpost not found');
 
 ?>
 <head>
@@ -23,24 +29,28 @@ $allposts = Blog::listAllOrderedDescending();
 
 	<div class="blockcontent">
 
-		<div class="contentheader"><h1>Blogposts and other stuff</h1><hr/></div>
+		<div class="contentheader"><h1><?php echo htmlspecialchars($post['title']); ?></h1><hr/></div>
 
-		<div class='bloglistelem_container'>
-			<?php
+		<?php
 
-			foreach ($allposts as $post)
-			{
-				if (!$post['visible']) continue;
+        if ($post['type'] === 'plain') {
 
-				if ($post['cat']=='blog')     echo "<a class='bloglistelem ble_blog' href='/blog/" . $post['id'] . "/" . urlencode($post['title']) . "'>";
-				else if ($post['cat']=='log') echo "<a class='bloglistelem ble_log' href='/log/"  . $post['id'] . "'>";
-				echo "<div class='ble_date'>"  . $post['date'] . "</div>";
-				echo "<div class='ble_title'>"  . $post['title'] . "</div>";
-				echo "</a>";
-			}
+			include (__DIR__ . '/../fragments/blogview_plain.php');
 
-			?>
-		</div>
+		} elseif ($post['type'] === 'markdown') {
+
+			include (__DIR__ . '/../fragments/blogview_markdown.php');
+
+		} elseif ($post['type'] === 'php') {
+
+			include (__DIR__ . '/../fragments/blogview_php.php');
+
+		} elseif ($post['type'] === 'euler') {
+
+			include (__DIR__ . '/../fragments/blogview_euler.php');
+
+		}
+		?>
 
 	</div>
 

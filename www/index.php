@@ -36,13 +36,18 @@ $URL_RULES =
 	
 	[ 'url' => ['msmain', 'admin', 'egh', '?{commandcode}'], 'target' => 'pages/admin_egh.php',              'options' => [ 'commandcode' => '%URL%' ],              ],
 	[ 'url' => ['msmain', 'adminEGH'],                       'target' => 'pages/admin_egh.php',              'options' => [ 'commandcode' => '%GET%' ],              ],
-	
+
 	[ 'url' => ['blog'],                                     'target' => 'pages/blog_list.php',              'options' => [],                                        ],
+	[ 'url' => ['log'],                                      'target' => 'pages/blog_list.php',              'options' => [],                                        ],
 	[ 'url' => ['blogpost', 'index'],                        'target' => 'pages/blog_list.php',              'options' => [],                                        ],
 	[ 'url' => ['blog', '?{id}'],                            'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '' ],      ],
 	[ 'url' => ['blog', '?{id}'],                            'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '' ],      ],
 	[ 'url' => ['blog', '?{id}', '?{name}'],                 'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '' ],      ],
 	[ 'url' => ['blog', '?{id}', '?{name}', '?{subview}'],   'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '%URL%' ], ],
+	[ 'url' => ['log', '?{id}'],                             'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '' ],      ],
+	[ 'url' => ['log', '?{id}'],                             'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '' ],      ],
+	[ 'url' => ['log', '?{id}', '?{name}'],                  'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '' ],      ],
+	[ 'url' => ['log', '?{id}', '?{name}', '?{subview}'],    'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '%URL%' ], ],
 	[ 'url' => ['blogpost', 'view'],                         'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%GET%', 'subview' => '' ],      ],
 	
 	[ 'url' => ['highscores', 'list.php'],                   'target' => 'pages/highscores_listentries.php', 'options' => [ 'gameid' => '%GET%' ],                   ],

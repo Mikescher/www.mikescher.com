@@ -6,9 +6,9 @@ class Blog
 	{
 		return 
 		[
-			[ 'id' => 5,  'date' => '2009-04-08', 'visible' => true,  'title' => 'Beginning the log',                      'fragment' => 'initial.md',         'type' => 'plain',    'cat' => 'log'  ],
+			[ 'id' => 5,  'date' => '2009-04-08', 'visible' => true,  'title' => 'Beginning the log',                      'fragment' => 'initial.md',         'type' => 'markdown', 'cat' => 'log'  ],
 			[ 'id' => 6,  'date' => '2009-05-01', 'visible' => false, 'title' => 'Mess with the best ...',                 'fragment' => 'hack.md',            'type' => 'markdown', 'cat' => 'log'  ],
-			[ 'id' => 4,  'date' => '2009-06-22', 'visible' => true,  'title' => 'New Layout!',                            'fragment' => 'newlayout.txt',      'type' => 'markdown', 'cat' => 'log'  ],
+			[ 'id' => 4,  'date' => '2009-06-22', 'visible' => true,  'title' => 'New Layout!',                            'fragment' => 'newlayout.txt',      'type' => 'plain',    'cat' => 'log'  ],
 			[ 'id' => 10, 'date' => '2009-06-28', 'visible' => true,  'title' => '"FUN" update',                           'fragment' => 'funupdate.md',       'type' => 'markdown', 'cat' => 'log'  ],
 			[ 'id' => 11, 'date' => '2009-07-05', 'visible' => true,  'title' => 'New Download: LAN Control 2.0',          'fragment' => 'lancontrol.md',      'type' => 'markdown', 'cat' => 'log'  ],
 			[ 'id' => 12, 'date' => '2009-09-07', 'visible' => false, 'title' => 'Airline BSOD',                           'fragment' => 'bsod.md',            'type' => 'markdown', 'cat' => 'log'  ],
@@ -33,6 +33,19 @@ class Blog
 		$data = self::listAll();
 		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });
 		return $data;
+	}
+
+	public static function getBlogpost($id)
+	{
+		foreach (self::listAll() as $post) {
+			if ($post['id'] == $id) return $post;
+		}
+		return null;
+	}
+
+	public static function getPostFragment($post)
+	{
+		return file_get_contents( __DIR__ . '/../statics/blog/' . $post['fragment']);
 	}
 }
 
