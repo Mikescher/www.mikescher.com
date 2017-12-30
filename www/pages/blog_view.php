@@ -18,7 +18,8 @@ if ($post === NULL) httpError(404, 'blogpost not found');
 	<title>Mikescher.com - Blog</title>
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<link rel="stylesheet" href="/data/css/styles.css"/>
+    <link rel="stylesheet" href="/data/css/styles.css"/>
+    <link rel="canonical" href="<?php echo $post['canonical']; ?>"/>
 </head>
 <body>
 <div id="mastercontainer">

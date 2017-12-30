@@ -1,6 +1,3 @@
-Let's do Befunge-93
-=====================
-
 Hello, this is my try to teach *you* a little bit of Befunge-93.
 
 Preamble

@@ -1,6 +1,3 @@
-Rapla Enhancement Script
-=====================
-
 ![rapla_logo](/data/blog/Rapscript/logo.png)
 
 I don't think many of you know [rapla](https://code.google.com/p/rapla/). And you should probably be thankful about that. But if you happen to study at the DHBW-KA, or any other place that uses rapla you could be interested in my enhancement-script.

@@ -32,8 +32,8 @@ $allposts = Blog::listAllOrderedDescending();
 			{
 				if (!$post['visible']) continue;
 
-				if ($post['cat']=='blog')     echo "<a class='bloglistelem ble_blog' href='/blog/" . $post['id'] . "/" . urlencode($post['title']) . "'>";
-				else if ($post['cat']=='log') echo "<a class='bloglistelem ble_log' href='/log/"  . $post['id'] . "'>";
+				if ($post['cat']=='blog')     echo "<a class='bloglistelem ble_blog' href='" . $post['url'] . "'>";
+				else if ($post['cat']=='log') echo "<a class='bloglistelem ble_log' href='"  . $post['url'] . "'>";
 				echo "<div class='ble_date'>"  . $post['date'] . "</div>";
 				echo "<div class='ble_title'>"  . $post['title'] . "</div>";
 				echo "</a>";

@@ -1,6 +1,3 @@
-My BFJoust bot
----------------------
-
 [Brainfuck Joust](http://esolangs.org/wiki/BF_Joust) is a tournament for Bots written in [brainfuck](http://esolangs.org/wiki/Brainfuck) *(or at least in a brainfuck-like language)*.
 
 The board consist of 10 to 30 fields, one player starts left and one player right. The value of every field goes from `-127` to `128` and then wraps around, every field has a value of zero, except the two starting fields (the "flags"), they have a value of `128`.

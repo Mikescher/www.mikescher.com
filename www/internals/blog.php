@@ -4,7 +4,7 @@ class Blog
 {
 	public static function listAll()
 	{
-		return 
+		$all =
 		[
 			[ 'id' => 5,  'date' => '2009-04-08', 'visible' => true,  'title' => 'Beginning the log',                      'fragment' => 'initial.md',         'type' => 'markdown', 'cat' => 'log'  ],
 			[ 'id' => 6,  'date' => '2009-05-01', 'visible' => false, 'title' => 'Mess with the best ...',                 'fragment' => 'hack.md',            'type' => 'markdown', 'cat' => 'log'  ],
@@ -27,9 +27,24 @@ class Blog
 			[ 'id' => 20, 'date' => '2015-01-09', 'visible' => true,  'title' => 'More Befunge with Project Euler',        'fragment' => 'more_euler.md',      'type' => 'markdown', 'cat' => 'log'  ],
 			[ 'id' => 9,  'date' => '2016-10-22', 'visible' => true,  'title' => 'A complete sudoku solver in Befunge-93', 'fragment' => 'sudoku_befunge.md',  'type' => 'markdown', 'cat' => 'blog' ],
 		];
+
+		return array_map('self::completeSingle', $all);
 	}
 
-	public static function listAllOrderedDescending() {
+	private static function completeSingle($d)
+	{
+		if ($d['cat']==='blog')
+			$d['url'] = "/blog/" . $d['id'] . "/" . destructiveUrlEncode($d['title']);
+		else if ($d['cat']==='log')
+			$d['url'] = "/log/" . $d['id'] . "/" . destructiveUrlEncode($d['title']);
+
+		$d['canonical'] = "https://www.mikescher.com" . $d['url'];
+
+		return $d;
+	}
+
+	public static function listAllOrderedDescending()
+	{
 		$data = self::listAll();
 		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });
 		return $data;

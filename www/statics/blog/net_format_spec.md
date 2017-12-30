@@ -1,6 +1,3 @@
-.Net format specifier Cheat Sheet
-============================
-
 Here my (growing) collection of C# format specifier, this is not a complete list but rather a collection of specifier I needed in the past:
 
 ###Short syntax summary

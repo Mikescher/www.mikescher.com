@@ -1,6 +1,3 @@
-A sudoku solver in Befunge-93
-=======================
-
 ![sudoku debug](/data/blog/SudokuSolver/sudoku.png)
 
 Because of [this project euler puzzle](https://www.mikescher.com/blog/1/Project_Euler_with_Befunge/problem-096) I spend the last few days implementing a sudoku solver in befunge-93 (as always I ignored the 80x25 size restriction because otherwise befunge-93 would be not turing-complete and I'm pretty sure this problem impossible).

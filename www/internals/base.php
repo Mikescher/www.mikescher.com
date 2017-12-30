@@ -19,3 +19,10 @@ function httpError($errorcode, $message)
 {
 	die($message);//TODO errorcode
 }
+
+function destructiveUrlEncode($str) {
+	$str = str_replace(' ', '_', $str);
+	$str = str_replace('+', '_', $str);
+	$str = str_replace('.', '', $str);
+	return urlencode($str);
+}
