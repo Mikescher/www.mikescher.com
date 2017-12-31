@@ -5,7 +5,7 @@
 
 	<div class="tabrow">
 		<a class="tab" href="/">Home</a>
-		<a class="tab">Project Euler</a>
+		<a class="tab" href="/blog/1/Project_Euler_with_Befunge">Project Euler</a>
 		<a class="tab" href="/blog">Blog</a>
 		<a class="tab" href="/programs">Programs</a>
 		<a class="tab" href="/about">About</a>

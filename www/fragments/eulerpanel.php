@@ -1,5 +1,5 @@
 <?php
-	require __DIR__ . '/../internals/euler.php';
+	require_once(__DIR__ . '/../internals/euler.php');
 	
 	$euler = Euler::listAll();
 

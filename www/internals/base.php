@@ -26,3 +26,35 @@ function destructiveUrlEncode($str) {
 	$str = str_replace('.', '', $str);
 	return urlencode($str);
 }
+
+function formatMilliseconds($millis)
+{
+	if ($millis < 1000)
+	{
+		return $millis . 'ms';
+	}
+	else if ($millis < 10 * 1000)
+	{
+		return number_format($millis / (1000), 2) . 's';
+	}
+	else if ($millis < 60 * 1000)
+	{
+		return floor($millis / (1000)) . 's';
+	}
+	else if ($millis < 10 * 60 * 1000)
+	{
+		return floor($millis / (60 * 1000)) . 'min ' . floor(($millis % (60 * 1000)) / 1000) . 's';
+	}
+	else if ($millis < 60 * 60 * 1000)
+	{
+		return floor($millis / (60 * 1000)) . 'min';
+	}
+	else if ($millis < 10 * 60 * 60 * 1000)
+	{
+		return number_format($millis / (60 * 60 * 1000), 2) . ' hours';
+	}
+	else
+	{
+		return floor($millis / (60 * 60 * 1000)) . ' hours';
+	}
+}

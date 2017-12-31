@@ -6,6 +6,9 @@ class Euler
 	{
 		$a = require $f;
 		$a['rating'] = self::rateTime($a);
+		$a['url'] = '/blog/1/Project_Euler_with_Befunge/problem-' . str_pad($a['number'], 3, '0', STR_PAD_LEFT);
+		$a['canonical'] = "https://www.mikescher.com" . $a['url'];
+		$a['is93'] = ($a['width'] <= 80 AND $a['height'] <= 25);
 		return $a;
 	}
 

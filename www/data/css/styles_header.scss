@@ -1,6 +1,7 @@
 @import 'styles_config';
 
 #headerdiv {
+  z-index: 999;
   background-color: #333;
   display: flex;
   border-bottom: 1px solid #111;

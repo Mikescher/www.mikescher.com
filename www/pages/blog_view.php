@@ -19,7 +19,7 @@ if ($post === NULL) httpError(404, 'blogpost not found');
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
     <link rel="stylesheet" href="/data/css/styles.css"/>
-    <link rel="canonical" href="<?php echo $post['canonical']; ?>"/>
+    <link rel="canonical" href="<?php echo (($subview !== '') ? ($post['canonical']) : ($post['canonical'] . '/' . $subview)); ?>"/>
 </head>
 <body>
 <div id="mastercontainer">
@@ -48,7 +48,8 @@ if ($post === NULL) httpError(404, 'blogpost not found');
 
 		} elseif ($post['type'] === 'euler') {
 
-			include (__DIR__ . '/../fragments/blogview_euler.php');
+			if ($subview === '') include (__DIR__ . '/../fragments/blogview_euler_list.php');
+			else                 include (__DIR__ . '/../fragments/blogview_euler_single.php');
 
 		}
 		?>
