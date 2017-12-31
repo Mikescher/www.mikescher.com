@@ -19,7 +19,7 @@
 }
 
 .bc_markdown code {
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: $FONT_CODE;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -42,7 +42,7 @@
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre-wrap;
-  background-color: #F8F8F8;
+  background-color: $COL_BACKGROUND_3;
   color: black;
   border: 1px solid rgba(0,0,0,.15);
   -webkit-border-radius: 2px;

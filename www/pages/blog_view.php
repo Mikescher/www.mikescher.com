@@ -42,9 +42,9 @@ if ($post === NULL) httpError(404, 'blogpost not found');
 
 			include (__DIR__ . '/../fragments/blogview_markdown.php');
 
-		} elseif ($post['type'] === 'php') {
+		} elseif ($post['type'] === 'bfjoust') {
 
-			include (__DIR__ . '/../fragments/blogview_php.php');
+			include (__DIR__ . '/../fragments/blogview_bfjoust.php');
 
 		} elseif ($post['type'] === 'euler') {
 

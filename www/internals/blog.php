@@ -22,7 +22,7 @@ class Blog
 			[ 'id' => 1,  'date' => '2014-07-10', 'visible' => true,  'title' => 'Project Euler with Befunge',             'fragment' => '',                   'type' => 'euler',    'cat' => 'blog' ],
 			[ 'id' => 3,  'date' => '2014-07-15', 'visible' => true,  'title' => '.Net format specifier Cheat Sheet',      'fragment' => 'net_format_spec.md', 'type' => 'markdown', 'cat' => 'blog' ],
 			[ 'id' => 19, 'date' => '2014-08-04', 'visible' => true,  'title' => 'I am Number Four',                       'fragment' => 'v4.md',              'type' => 'markdown', 'cat' => 'log'  ],
-			[ 'id' => 7,  'date' => '2014-09-28', 'visible' => true,  'title' => 'My BFJoust arena and battle-bot',        'fragment' => 'bfjoust.php',        'type' => 'php',      'cat' => 'blog' ],
+			[ 'id' => 7,  'date' => '2014-09-28', 'visible' => true,  'title' => 'My BFJoust arena and battle-bot',        'fragment' => '',                   'type' => 'bfjoust',  'cat' => 'blog' ],
 			[ 'id' => 8,  'date' => '2014-11-05', 'visible' => true,  'title' => 'Rapla Enhancement Script',               'fragment' => 'rapla_css.md',       'type' => 'markdown', 'cat' => 'blog' ],
 			[ 'id' => 20, 'date' => '2015-01-09', 'visible' => true,  'title' => 'More Befunge with Project Euler',        'fragment' => 'more_euler.md',      'type' => 'markdown', 'cat' => 'log'  ],
 			[ 'id' => 9,  'date' => '2016-10-22', 'visible' => true,  'title' => 'A complete sudoku solver in Befunge-93', 'fragment' => 'sudoku_befunge.md',  'type' => 'markdown', 'cat' => 'blog' ],

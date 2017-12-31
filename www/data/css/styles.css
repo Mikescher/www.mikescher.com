@@ -94,7 +94,7 @@ body {
     #headerdiv .tabrow .tab_github {
       background-color: #4078c0;
       border-left: 1px solid #111;
-      border-right: 1px solid #111;
+      border-right: none;
       color: black; }
       #headerdiv .tabrow .tab_github:hover {
         background-color: #c9510c;
@@ -220,7 +220,7 @@ html, body {
   padding: 8px; }
 
 .bc_markdown code {
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -343,5 +343,82 @@ html, body {
 
 .euler_pnl_cell_notexist {
   background: #CCCCCC; }
+
+.bfjoust_runner_owner {
+  border: 1px solid #888;
+  background: #F8F8F8;
+  padding: 6px; }
+  .bfjoust_runner_owner .hsplit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; }
+  .bfjoust_runner_owner .hsplit_1 {
+    flex: 1;
+    margin: 4px; }
+  .bfjoust_runner_owner .hsplit_2 {
+    flex: 1;
+    margin: 4px; }
+  .bfjoust_runner_owner textarea {
+    font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
+    display: block; }
+  .bfjoust_runner_owner .source {
+    height: 350px; }
+  .bfjoust_runner_owner .sink {
+    height: 100px; }
+  .bfjoust_runner_owner .bottomelem {
+    height: 200px; }
+  @media (max-width: 767px) {
+    .bfjoust_runner_owner .hsplit {
+      display: block; }
+    .bfjoust_runner_owner .hsplit_1 {
+      display: block;
+      width: calc(100% - 8px); }
+    .bfjoust_runner_owner .hsplit_2 {
+      display: block;
+      width: calc(100% - 8px); }
+    .bfjoust_runner_owner textarea {
+      margin-left: auto;
+      margin-right: auto; } }
+  .bfjoust_runner_owner #commandpanel {
+    text-align: center;
+    background-color: lightgray;
+    border-radius: 3px;
+    border: 1px solid gray;
+    display: table;
+    width: calc(100% - 8px);
+    margin: 4px;
+    padding: 5px 0; }
+    .bfjoust_runner_owner #commandpanel a {
+      color: #FFF;
+      background-color: #000;
+      border-radius: 3px;
+      padding: 4px 8px;
+      text-decoration: none; }
+      .bfjoust_runner_owner #commandpanel a:hover {
+        text-decoration: none;
+        background-color: #666; }
+    .bfjoust_runner_owner #commandpanel #a_run {
+      background-color: #080; }
+      .bfjoust_runner_owner #commandpanel #a_run:hover {
+        text-decoration: none;
+        background-color: #666; }
+    .bfjoust_runner_owner #commandpanel #a_stop {
+      background-color: #F00; }
+      .bfjoust_runner_owner #commandpanel #a_stop:hover {
+        text-decoration: none;
+        background-color: #666; }
+    .bfjoust_runner_owner #commandpanel #a_arena {
+      background-color: #F80; }
+      .bfjoust_runner_owner #commandpanel #a_arena:hover {
+        text-decoration: none;
+        background-color: #666; }
+  .bfjoust_runner_owner #run_size {
+    width: 40px; }
+  .bfjoust_runner_owner #run_speed {
+    width: 70px; }
+  .bfjoust_runner_owner #board {
+    background-color: #FFF;
+    border-radius: 6px;
+    border: 1px solid #CCC; }
 
 /*# sourceMappingURL=styles.css.map */

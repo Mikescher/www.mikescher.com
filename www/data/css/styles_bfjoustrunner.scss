@@ -1,0 +1,84 @@
+@import 'styles_config';
+
+.bfjoust_runner_owner {
+
+  border: 1px solid #888;
+  background: #F8F8F8;
+  padding: 6px;
+
+  .hsplit {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .hsplit_1 { flex: 1; margin: 4px; }
+  .hsplit_2 { flex: 1; margin: 4px; }
+
+  textarea { font-family: $FONT_CODE; display:block; }
+
+  .source       { height: 350px; }
+  .sink         { height: 100px; }
+  .bottomelem   { height: 200px; }
+
+  @media (max-width: 767px) {
+    .hsplit { display:block; }
+    .hsplit_1 { display:block; width: calc(100% - 8px); }
+    .hsplit_2 { display:block; width: calc(100% - 8px); }
+    textarea { margin-left: auto; margin-right: auto; }
+  }
+
+  #commandpanel {
+    text-align: center;
+    background-color: lightgray;
+
+    border-radius: 3px;
+    border: 1px solid gray;
+
+    display: table;
+    width: calc(100% - 8px);;
+
+    margin: 4px;
+    padding: 5px 0;
+
+    a {
+      color: #FFF;
+      background-color: #000;
+      border-radius: 3px;
+      padding: 4px 8px;
+      text-decoration: none;
+      &:hover { text-decoration: none; background-color: #666; }
+    }
+
+    #a_run {
+      background-color: #080;
+      &:hover { text-decoration: none; background-color: #666; }
+    }
+
+    #a_stop {
+      background-color: #F00;
+      &:hover { text-decoration: none; background-color: #666; }
+    }
+
+    #a_arena {
+      background-color: #F80;
+      &:hover { text-decoration: none; background-color: #666; }
+    }
+  }
+
+  #run_size {
+    width: 40px;
+  }
+
+  #run_speed {
+    width: 70px;
+  }
+
+  #board {
+    background-color: #FFF;
+    border-radius: 6px;
+
+    border:1px solid #CCC;
+  }
+
+}
