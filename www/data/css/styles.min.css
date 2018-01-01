@@ -51,16 +51,19 @@ html,body{margin:0;padding:0;height:100%}
 .bc_markdown code{font-family:Consolas,Monaco,"Courier New",Menlo,monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}
 .bc_markdown pre{font-size:14px;display:block;padding:9.5px;margin:0 0 10px;line-height:20px;word-break:break-all;word-wrap:break-word;white-space:pre-wrap;background-color:#f8f8f8;color:black;border:1px solid rgba(0,0,0,0.15);-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px}
 .bc_markdown blockquote{padding:0 0 0 15px;margin:0 0 20px;border-left:5px solid #CCC}
+.bc_markdown img{max-width:100%}
+.bc_markdown table{border-collapse:collapse;text-align:left;width:100%;border:1px solid #666}
+.bc_markdown table td,.bc_markdown table th{padding:3px 10px}
+.bc_markdown table thead th{background-color:#7d7d7d;color:#fff;font-weight:bold;border-left:1px solid #444}
+.bc_markdown table thead th:first-child{border:0}
+.bc_markdown table tbody td{border-left:1px solid #666;font-weight:normal}
+.bc_markdown table tbody .alt td{background:#ebebeb}
+.bc_markdown table tbody td:first-child{border-left:0}
+.bc_markdown table tbody tr:last-child td{border-bottom:0}
+.bc_markdown table tbody tr:nth-child(odd){background-color:#ccc}
 .mdtable_container{overflow-x:auto}
-.mdtable{border-collapse:collapse;text-align:left;width:100%;border:1px solid #666}
-.mdtable td,.mdtable th{padding:3px 10px}
-.mdtable thead th{background-color:#7d7d7d;color:#fff;font-weight:bold;border-left:1px solid #444}
-.mdtable thead th:first-child{border:0}
-.mdtable tbody td{border-left:1px solid #666;font-weight:normal}
-.mdtable tbody .alt td{background:#ebebeb}
-.mdtable tbody td:first-child{border-left:0}
-.mdtable tbody tr:last-child td{border-bottom:0}
-.mdtable tbody tr:nth-child(odd){background-color:#ccc}
+.notable{width:unset !important;border:none !important}
+.notable th,.notable td,.notable tr{border:none !important;background:transparent !important}
 #PEB_tableProblems .PEB_tablerowProblems:hover{background-color:#888}
 #PEB_tableProblems .PEB_TC_Value{font-family:Consolas,Monaco,"Courier New",Menlo,monospace}
 #PEB_tableProblems .PEB_TC_Value:not(:hover){color:transparent;-o-transition:.5s;-ms-transition:.5s;-moz-transition:.5s;-webkit-transition:.5s;transition:.5s}
@@ -160,7 +163,7 @@ html,body{margin:0;padding:0;height:100%}
 .bfjoust_runner_owner #run_speed{width:70px}
 .bfjoust_runner_owner #board{background-color:#FFF;border-radius:6px;border:1px solid #CCC}
 .bce_code{background:#f8f8f8;color:black;border:1px solid rgba(0,0,0,0.15)}
-.bce_code .bce_code_data{overflow-x:auto;white-space:pre;font-family:Consolas,Monaco,"Courier New",Menlo,monospace;padding:9.5px;font-size:11pt}
+.bce_code .bce_code_data{overflow-x:auto;white-space:pre;font-family:Consolas,Monaco,"Courier New",Menlo,monospace;padding:9.5px;font-size:10pt}
 .bce_code .bce_code_ctrl{background:#BBB;display:flex;flex-direction:row}
 .bce_code .bce_code_ctrl .ctrl_btn_left,.bce_code .bce_code_ctrl .ctrl_btn_right{display:flex;flex-direction:row}
 .bce_code .bce_code_ctrl .ctrl_btn_left{margin-right:auto}

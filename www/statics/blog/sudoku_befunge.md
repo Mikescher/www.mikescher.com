@@ -1,4 +1,4 @@
-![sudoku debug](/data/blog/SudokuSolver/sudoku.png)
+![sudoku debug](/data/images/blog/sudoku.png)
 
 Because of [this project euler puzzle](https://www.mikescher.com/blog/1/Project_Euler_with_Befunge/problem-096) I spend the last few days implementing a sudoku solver in befunge-93 (as always I ignored the 80x25 size restriction because otherwise befunge-93 would be not turing-complete and I'm pretty sure this problem impossible).
 
@@ -7,7 +7,7 @@ My solver is universal and can solve both ones. If there are no obvious cells it
 
 Below i try to describe my general approach and a few caveats I stumbled across. You can look at the full up-to-date source code on [github](https://github.com/Mikescher/BefungePrograms).
 
-~~~
+~~~befungerunner
 v XX    ###########  ###########  #############################        #############################
  C    C #36  2  89#  #         #  #                           #        #                           #
  PPPPP  #   361   #  #         #  #                           #        #                           #

@@ -1,10 +1,10 @@
-![rapla_logo](/data/blog/Rapscript/logo.png)
+![rapla_logo](/data/images/blog/rapla_logo.png)
 
 I don't think many of you know [rapla](https://code.google.com/p/rapla/). And you should probably be thankful about that. But if you happen to study at the DHBW-KA, or any other place that uses rapla you could be interested in my enhancement-script.
 
 Rapla is a Resource scheduling and event planing software (mostly used for timetables), and my rapscript enhances the *(not very good)* online view.
 
-![full_preview](/data/blog/Rapscript/preview.png)
+![full_preview](/data/images/blog/rapla_preview.png)
 
 It contains the following features:
 
@@ -18,5 +18,5 @@ It contains the following features:
 
 The script works on [Greasemonkey](https://addons.mozilla.org/de/firefox/addon/greasemonkey/) for Firefox or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) for Google Chrome and can be downloaded from this Gist:
 
-[Open Gist](https://gist.github.com/Mikescher/f3d51a40dd0c5228df86)
+# [Open Gist](https://gist.github.com/Mikescher/f3d51a40dd0c5228df86)
 

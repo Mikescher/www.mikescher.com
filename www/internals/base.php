@@ -5,6 +5,9 @@ $CONFIG = require 'config.php';
 
 $CSS_BASE = ($CONFIG['prod']) ? ('styles.min.css') : ('styles.css');
 
+global $REGISTERED_SCRIPTS;
+$REGISTERED_SCRIPTS = [];
+
 function startsWith($haystack, $needle)
 {
 	$length = strlen($needle);
@@ -58,5 +61,24 @@ function formatMilliseconds($millis)
 	else
 	{
 		return floor($millis / (60 * 60 * 1000)) . ' hours';
+	}
+}
+
+function includeScriptOnce($script, $echo = true)
+{
+	global $REGISTERED_SCRIPTS;
+
+	if ($echo)
+	{
+		if (in_array($script, $REGISTERED_SCRIPTS)) return false;
+		$REGISTERED_SCRIPTS []= $script;
+		echo "<script src=\"$script\" type=\"text/javascript\"></script>";
+		return true;
+	}
+	else
+	{
+		if (in_array($script, $REGISTERED_SCRIPTS)) return '';
+		$REGISTERED_SCRIPTS []= $script;
+		return "<script src=\"$script\" type=\"text/javascript\"></script>";
 	}
 }

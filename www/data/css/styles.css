@@ -234,7 +234,6 @@ html, body {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none; }
-
 .bc_markdown pre {
   font-size: 14px;
   display: block;
@@ -250,40 +249,47 @@ html, body {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px; }
-
 .bc_markdown blockquote {
   padding: 0 0 0 15px;
   margin: 0 0 20px;
   border-left: 5px solid #CCC; }
-
-.mdtable_container {
-  overflow-x: auto; }
-
-.mdtable {
+.bc_markdown img {
+  max-width: 100%; }
+.bc_markdown table {
   border-collapse: collapse;
   text-align: left;
   width: 100%;
   border: 1px solid #666; }
-  .mdtable td, .mdtable th {
+  .bc_markdown table td, .bc_markdown table th {
     padding: 3px 10px; }
-  .mdtable thead th {
+  .bc_markdown table thead th {
     background-color: #7D7D7D;
     color: #FFFFFF;
     font-weight: bold;
     border-left: 1px solid #444; }
-  .mdtable thead th:first-child {
+  .bc_markdown table thead th:first-child {
     border: none; }
-  .mdtable tbody td {
+  .bc_markdown table tbody td {
     border-left: 1px solid #666;
     font-weight: normal; }
-  .mdtable tbody .alt td {
+  .bc_markdown table tbody .alt td {
     background: #EBEBEB; }
-  .mdtable tbody td:first-child {
+  .bc_markdown table tbody td:first-child {
     border-left: none; }
-  .mdtable tbody tr:last-child td {
+  .bc_markdown table tbody tr:last-child td {
     border-bottom: none; }
-  .mdtable tbody tr:nth-child(odd) {
+  .bc_markdown table tbody tr:nth-child(odd) {
     background-color: #ccc; }
+
+.mdtable_container {
+  overflow-x: auto; }
+
+.notable {
+  width: unset !important;
+  border: none !important; }
+  .notable th, .notable td, .notable tr {
+    border: none !important;
+    background: transparent !important; }
 
 #PEB_tableProblems .PEB_tablerowProblems:hover {
   background-color: #888; }
@@ -611,7 +617,7 @@ html, body {
     white-space: pre;
     font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
     padding: 9.5px;
-    font-size: 11pt; }
+    font-size: 10pt; }
   .bce_code .bce_code_ctrl {
     background: #BBB;
     display: flex;

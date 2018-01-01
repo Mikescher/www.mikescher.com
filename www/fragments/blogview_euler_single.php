@@ -2,7 +2,7 @@
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/blog.php');
 require_once (__DIR__ . '/../internals/euler.php');
-require_once (__DIR__ . '/../extern/Parsedown.php');
+require_once (__DIR__ . '/../internals/ParsedownCustom.php');
 
 $subview = $OPTIONS['subview'];
 
@@ -11,7 +11,7 @@ $problem = Euler::getEulerProblem(intval(explode('-', $subview)[1]));
 
 if ($post === NULL) httpError(404, 'problem not found');
 
-$pd = new Parsedown();
+$pd = new ParsedownCustom();
 
 
 $arr = [];
@@ -29,7 +29,7 @@ $max = ceil($max / 20) * 20;
 
     <div style="position: relative;">
         <a href="https://github.com/Mikescher/Project-Euler_Befunge" style="position: absolute; top: 0; right: 0; border: 0;">
-            <img src="/data/images/github_band.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+            <img src="/data/images/blog/github_band.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
         </a>
     </div>
 
@@ -45,44 +45,22 @@ $max = ceil($max / 20) * 20;
         <div class="bce_description"><?php echo $pd->text(file_get_contents($problem['file_description'])); ?></div>
         <br/>
 
-		<?php if ($problem['abbreviated']): ?>
-
-            <b>Solution:</b>
-            <div class="bce_code">
-                    <div class="bce_code_data"><?php echo htmlspecialchars(file_get_contents($problem['file_code'])); ?></div>
-                <div class="bce_code_ctrl">
-                    <div class="ctrl_btn_right">
-                        <a class="ctrl_btn" href="<?php echo $problem['url_raw']; ?>" download target="_blank">Download</a>
-                    </div>
-                </div>
-            </div>
-            <br/>
-
-		<?php else: ?>
-
-            <b>Solution:</b>
-            <div class="bce_code">
-                <div class="bce_code_data"><?php echo htmlspecialchars(file_get_contents($problem['file_code'])); ?></div>
-                <div class="bce_code_ctrl">
-                    <div class="ctrl_btn_left">
-                        <div class="ctrl_btn">Start</div>
-                        <div class="ctrl_btn">Stop</div>
-                        <div class="ctrl_btn">Reset</div>
-                    </div>
-                    <div class="ctrl_btn_right">
-                        <a class="ctrl_btn" href="<?php echo $problem['url_raw']; ?>" download target="_blank">Download</a>
-                    </div>
-                </div>
-            </div>
-            <br/>
-
-		<?php endif; ?>
+        <b>Solution:</b>
+		<?php
+            global $PARAM_CODE;
+            global $PARAM_URL;
+            $PARAM_CODE = file_get_contents($problem['file_code']);
+            $PARAM_URL = $problem['url_raw'];
+            $PARAM_INTERACTIVE = !$problem['abbreviated'];
+            echo require (__DIR__ . '/../fragments/befunge93_runner.php');
+		?>
+        <br/>
 
         <b>Explanation:</b>
         <div class="bce_explanation"><?php echo $pd->text(file_get_contents($problem['file_explanation'])); ?></div>
         <br/>
 
-        <table>
+        <table class="notable">
             <tr>
                 <td><b>Interpreter steps:</b></td>
                 <td><?php echo number_format($problem['steps'], 0, null, ' '); ?></td>

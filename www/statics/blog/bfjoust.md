@@ -9,7 +9,50 @@ The thing that surprised me the most is the [strategically depth](http://esolang
 So here is my own bot *(originally made for [stackexchange](http://codegolf.stackexchange.com/questions/36645/brainfedbotsforbattling-a-brainf-tournament))*, it can't really keep up with the big ones from egojoust but I'm fairly proud of it:
 
 ```
-{{CODE}}
+>                     # Build 9 big decoys
+(-)*4>(+)*4>          # A few small ones
+(>)*6
+
+(<(-)*80<(+)*80)*3    # And more big ones 
+<(+)*76               # For Confusion :/
+<(-)*76
+
+<(-)*28               # Just for you, Wall E
+
+(>)*10
+
+(                     # Walk forwards and clear everything
+  ([+                 # clear pos decoys
+  {
+    (-)*16
+    (-[               # clear neg decoys
+    {
+      (-)*112         # Big decoy / flag clearen: 128~16=112
+      [+]
+    }
+    ])%16
+  }
+  ])%16
+  [-]                 # Counter DecoyBot ~_~
+  (+)*2               # Leave a small trail behind
+  >  
+
+  ([-                 # The same thing with reversed polarity
+  {
+    (+)*16
+    (+[
+    {
+      (+)*112
+      [-]
+    }
+    ])%16
+  }
+  ])%16
+  [+]
+  (-)*2
+  >
+
+)*11
 ```
 
 A few notes to the BFJoust extensions to the brainfuck language:
@@ -28,3 +71,53 @@ I wrote a little [BFJoust script](https://maximum-sonata.codio.io/index.html) wh
 And at last a few words to the arena: In BFJoust there are 40 different settings, every board length two times. One time normal and one time with one bot inverted (`+` <-> `-`). This way you can eliminate luck and see which bot performs better.
 
 
+```bfjoustrunner
+>                     # Build 9 big decoys
+(-)*4>(+)*4>          # A few small ones
+(>)*6
+
+(<(-)*80<(+)*80)*3    # And more big ones 
+<(+)*76               # For Confusion :/
+<(-)*76
+
+<(-)*28               # Just for you, Wall E
+
+(>)*10
+
+(                     # Walk forwards and clear everything
+  ([+                 # clear pos decoys
+  {
+    (-)*16
+    (-[               # clear neg decoys
+    {
+      (-)*112         # Big decoy / flag clearen: 128~16=112
+      [+]
+    }
+    ])%16
+  }
+  ])%16
+  [-]                 # Counter DecoyBot ~_~
+  (+)*2               # Leave a small trail behind
+  >  
+
+  ([-                 # The same thing with reversed polarity
+  {
+    (+)*16
+    (+[
+    {
+      (+)*112
+      [-]
+    }
+    ])%16
+  }
+  ])%16
+  [+]
+  (-)*2
+  >
+
+)*11
+------------------------------------------------------------------------------------------------------------------------
+#Patashu_lazy from #esoteric hill
+
+>(+)*5>(-)*5>(+)*5>(-)*5>(-)*5>(+)*5>(+)*5>(-)*5(>(-.)*128)*21[-]((-)*2048(+)*2048.)*2 
+```

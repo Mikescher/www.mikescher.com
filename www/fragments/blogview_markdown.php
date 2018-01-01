@@ -1,7 +1,7 @@
 <?php
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/blog.php');
-require_once (__DIR__ . '/../extern/Parsedown.php');
+require_once (__DIR__ . '/../internals/ParsedownCustom.php');
 ?>
 
 <div class="blogcontent bc_markdown">
@@ -12,7 +12,7 @@ require_once (__DIR__ . '/../extern/Parsedown.php');
 
 	<div class="bc_data">
 		<?php
-		    $pd = new Parsedown();
+		    $pd = new ParsedownCustom();
 		    echo $pd->text(Blog::getPostFragment($post));
         ?>
 	</div>
