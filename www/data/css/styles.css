@@ -246,8 +246,6 @@ html, body {
   background-color: #F8F8F8;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
   border-radius: 2px; }
 .bc_markdown blockquote {
   padding: 0 0 0 15px;
@@ -614,9 +612,8 @@ html, body {
   border: 1px solid rgba(0, 0, 0, 0.15); }
   .bce_code .bce_code_data {
     overflow-x: auto;
-    white-space: pre;
     font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
-    padding: 9.5px;
+    padding: 5px 9.5px;
     font-size: 10pt; }
   .bce_code .bce_code_ctrl {
     background: #BBB;
@@ -630,6 +627,7 @@ html, body {
     .bce_code .bce_code_ctrl .ctrl_btn_right {
       margin-left: auto; }
     .bce_code .bce_code_ctrl .ctrl_btn {
+      user-select: none;
       display: block;
       border: 1px solid #000;
       background: #444;
@@ -666,5 +664,42 @@ html, body {
     display: flex;
     flex-direction: column;
     margin: 0; } }
+.bce_code_out {
+  display: flex;
+  flex-direction: row;
+  background: #BBB; }
+  .bce_code_out .bce_code_out_text {
+    font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
+    overflow-y: auto;
+    overflow-x: auto;
+    background: #FFF;
+    color: #000;
+    flex-grow: 1;
+    margin: 0 4px 4px 4px;
+    border: 1px solid #888;
+    min-height: 200px; }
+  .bce_code_out .bce_code_out_stack {
+    font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
+    overflow-y: scroll;
+    overflow-x: auto;
+    background: #FFF;
+    color: #000;
+    margin: 0 4px 4px 4px;
+    width: 200px;
+    border: 1px solid #888;
+    min-height: 200px; }
+
+@media (max-width: 767px) {
+  .bce_code_out {
+    flex-direction: column; }
+    .bce_code_out .bce_code_out_text {
+      flex-grow: 0;
+      min-height: 100px; }
+    .bce_code_out .bce_code_out_stack {
+      width: auto;
+      min-height: 150px; } }
+.b93rnr_outpanel_hidden {
+  visibility: collapse;
+  display: none; }
 
 /*# sourceMappingURL=styles.css.map */
