@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 34,
+	'date'        => '2014-09-23',
 	'title'       => 'Digit factorials',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-034_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-034.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-034_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=034',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-034.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => false,
 	'steps'       => 493980359,
 	'time'        => 80933,

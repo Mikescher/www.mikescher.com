@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 37,
+	'date'        => '2014-09-24',
 	'title'       => 'Truncatable primes',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-037_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-037.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-037_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=037',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-037.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => true,
 	'steps'       => 128154558,
 	'time'        => 20717,

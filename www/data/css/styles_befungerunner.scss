@@ -1,0 +1,70 @@
+@import 'styles_config';
+
+.bce_code {
+  background: #F8F8F8;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+  .bce_code_data {
+    overflow-x: auto;
+    white-space: pre;
+    font-family: $FONT_CODE;
+    padding: 9.5px;
+
+    font-size: 11pt;
+  }
+
+  .bce_code_ctrl {
+    background: #BBB;
+    display: flex;
+    flex-direction: row;
+
+    .ctrl_btn_left, .ctrl_btn_right {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .ctrl_btn_left {
+      margin-right: auto;
+    }
+
+    .ctrl_btn_right {
+      margin-left: auto;
+    }
+
+    .ctrl_btn {
+      display: block;
+      border: 1px solid #000;
+      background: #444;
+      color: #BBB;
+      margin: 4px;
+      padding: 0 5px;
+      min-width: 65px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        cursor: pointer;
+        background: #333;
+        color: #FFF;
+        border: 1px solid black;
+      }
+    }
+
+    .ctrl_btn_disabled       { background: #999; color: #BBB; }
+    .ctrl_btn_disabled:hover { background: #999; color: #BBB; cursor: default; }
+  }
+}
+
+@media (max-width: 767px) {
+  .bce_code {
+    .bce_code_ctrl{
+
+      display: flex; flex-direction: column; margin: 0;
+
+      .ctrl_btn_left, .ctrl_btn_right { display: flex; flex-direction: column; margin: 0; }
+
+    } .ctrl_btn_left, .ctrl_btn_right { display: flex; flex-direction: column; margin: 0; }
+  }
+}

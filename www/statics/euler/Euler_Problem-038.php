@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 38,
+	'date'        => '2014-09-24',
 	'title'       => 'Pandigital multiples',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-038_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-038.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-038_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=038',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-038.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => false,
 	'steps'       => 3567967,
 	'time'        => 624,

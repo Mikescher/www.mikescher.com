@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 98,
+	'date'        => '2016-12-11',
 	'title'       => 'Anagramic squares',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-098_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-098.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-098_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=098',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-098.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => true,
 	'steps'       => 145592567,
 	'time'        => 22714,

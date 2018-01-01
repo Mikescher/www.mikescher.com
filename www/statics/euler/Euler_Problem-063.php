@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 63,
+	'date'        => '2015-07-08',
 	'title'       => 'Powerful digit counts',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-063_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-063.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-063_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=063',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-063.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => false,
 	'steps'       => 8880369,
 	'time'        => 2762,

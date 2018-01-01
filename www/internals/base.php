@@ -3,6 +3,8 @@
 global $CONFIG;
 $CONFIG = require 'config.php';
 
+$CSS_BASE = ($CONFIG['prod']) ? ('styles.min.css') : ('styles.css');
+
 function startsWith($haystack, $needle)
 {
 	$length = strlen($needle);

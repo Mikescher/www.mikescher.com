@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 29,
+	'date'        => '2014-09-20',
 	'title'       => 'Distinct powers',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-029_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-029.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-029_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=029',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-029.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => true,
 	'steps'       => 6439429168,
 	'time'        => 1423681,

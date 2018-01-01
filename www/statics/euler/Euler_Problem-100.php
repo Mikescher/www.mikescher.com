@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 100,
+	'date'        => '2017-05-03',
 	'title'       => 'Arranged probability',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-100_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-100.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-100_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=100',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-100.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => false,
 	'steps'       => 1649,
 	'time'        => 0,

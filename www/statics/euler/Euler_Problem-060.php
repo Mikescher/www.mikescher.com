@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 60,
+	'date'        => '2015-06-06',
 	'title'       => 'Prime pair sets',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-060_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-060.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-060_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=060',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-060.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => true,
 	'steps'       => 8609996835,
 	'time'        => 2032350,

@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 17,
+	'date'        => '2014-09-12',
 	'title'       => 'Number letter counts',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-017_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-017.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-017_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=017',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-017.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => false,
 	'steps'       => 179076,
 	'time'        => 47,

@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 45,
+	'date'        => '2014-12-11',
 	'title'       => 'Triangular, pentagonal, and hexagonal',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-045_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-045.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-045_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=045',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-045.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => false,
 	'steps'       => 25312679,
 	'time'        => 3494,

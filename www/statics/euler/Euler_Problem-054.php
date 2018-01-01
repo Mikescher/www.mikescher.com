@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 54,
+	'date'        => '2015-01-28',
 	'title'       => 'Poker hands',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-054_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-054.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-054_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=054',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-054.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => true,
 	'steps'       => 5949695,
 	'time'        => 2543,

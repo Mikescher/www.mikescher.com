@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 71,
+	'date'        => '2015-08-19',
 	'title'       => 'Ordered fractions',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-071_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-071.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-071_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=071',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-071.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => false,
 	'steps'       => 77428679,
 	'time'        => 11981,

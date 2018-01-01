@@ -3,13 +3,8 @@
 return 
 [
 	'number'      => 55,
+	'date'        => '2015-04-28',
 	'title'       => 'Lychrel numbers',
-	'description' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-055_description.md'); },
-	'code'        => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-055.b93');        },
-	'explanation' => function(){ return file_get_contents(__DIR__ . '/Euler_Problem-055_explanation.md'); },
-	'url_euler'   => 'http://projecteuler.net/problem=055',
-	'url_raw'     => 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-055.b93',
-	'url_github'  => 'https://github.com/Mikescher/Project-Euler_Befunge',
 	'abbreviated' => false,
 	'steps'       => 10470329,
 	'time'        => 2215,
