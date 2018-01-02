@@ -11,6 +11,8 @@ function fmtBef($str) {
 	$str = join("\n", array_map(function($p){return rtrim($p);}, explode("\n", $str)));
 	$str = str_replace(' ', '&nbsp;', $str);
 	$str = nl2br($str);
+	$str = str_replace("\r", '', $str);
+	$str = str_replace("\n", '', $str);
 	return $str;
 }
 

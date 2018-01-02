@@ -628,6 +628,9 @@ html, body {
       margin-left: auto; }
     .bce_code .bce_code_ctrl .ctrl_btn {
       user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
       display: block;
       border: 1px solid #000;
       background: #444;
@@ -677,7 +680,7 @@ html, body {
     flex-grow: 1;
     margin: 0 4px 4px 4px;
     border: 1px solid #888;
-    min-height: 200px; }
+    height: 200px; }
   .bce_code_out .bce_code_out_stack {
     font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
     overflow-y: scroll;
@@ -687,17 +690,17 @@ html, body {
     margin: 0 4px 4px 4px;
     width: 200px;
     border: 1px solid #888;
-    min-height: 200px; }
+    height: 200px; }
 
 @media (max-width: 767px) {
   .bce_code_out {
     flex-direction: column; }
     .bce_code_out .bce_code_out_text {
       flex-grow: 0;
-      min-height: 100px; }
+      height: 100px; }
     .bce_code_out .bce_code_out_stack {
       width: auto;
-      min-height: 150px; } }
+      height: 150px; } }
 .b93rnr_outpanel_hidden {
   visibility: collapse;
   display: none; }

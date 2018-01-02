@@ -92,13 +92,13 @@ $max = ceil($max / 20) * 20;
                 $break = false;
                 for($i1=0;;$i1++)
                 {
-                    echo "<div class='bce_pag20'>";
+                    echo "<div class='bce_pag20'>\n";
 					for($i2=0;$i2<2;$i2++)
 					{
-						echo "<div class='bce_pag10'>";
+						echo "<div class='bce_pag10'>\n";
 						for($i3=0;$i3<2;$i3++)
 						{
-							echo "<div class='bce_pag05'>";
+							echo "<div class='bce_pag05'>\n";
 							for($i4=0;$i4<5;$i4++)
 							{
                                 $ii = $i1*20 + $i2*10 + $i3*5 + $i4 + 1;
@@ -107,19 +107,19 @@ $max = ceil($max / 20) * 20;
                                 $pii = str_pad($ii, 3, '0', STR_PAD_LEFT);
 
 								if ($ii == $problem['number'])
-									echo "<div class='bce_pagbtn bce_pagbtn_active'>" . $pii . "</div>";
+									echo "<div class='bce_pagbtn bce_pagbtn_active'>" . $pii . "</div>\n";
 								else if (key_exists($ii, $arr))
-                                    echo "<a class='bce_pagbtn' href='/blog/1/Project_Euler_with_Befunge/problem-" . $pii . "'>" . $pii . "</a>";
+                                    echo "<a class='bce_pagbtn' href='/blog/1/Project_Euler_with_Befunge/problem-" . $pii . "'>" . $pii . "</a>\n";
                                 else
-									echo "<div class='bce_pagbtn bce_pagbtn_disabled'>" . $pii . "</div>";
+									echo "<div class='bce_pagbtn bce_pagbtn_disabled'>" . $pii . "</div>\n";
 							}
-							echo "</div>";
+							echo "</div>\n";
 							if ($break) break;
 						}
-						echo "</div>";
+						echo "</div>\n";
 						if ($break) break;
 					}
-					echo "</div>";
+					echo "</div>\n";
 					if ($break) break;
                 }
             ?>
