@@ -33,7 +33,7 @@ function BefObject(domBase) {
 
     this.state    = BefState.INITIAL;
     this.initial  = atob(this.pnlCode.getAttribute('data-b93rnr_code'));
-    this.simspeed = BefSpeed.get(domBase.hasAttribute('data-b93rnr_initialspeed') ? domBase.getAttribute('data-b93rnr_initialspeed') : '4');
+    this.simspeed = BefSpeed.get(domBase.hasAttribute('data-b93rnr_initialspeed') ? domBase.getAttribute('data-b93rnr_initialspeed') : BefSpeed.SUPERFAST.val);
     this.code     = [];
     this.width    = 0;
     this.height   = 0;
@@ -172,7 +172,7 @@ BefObject.prototype.step = function() {
 
         let t0 = performance.now();
         let stepc = 0;
-        while(this.state=== BefState.RUNNING && (stepc===0 || (performance.now() - t0 < 16)) && stepc < 128) // 16ms == 60FPS
+        while(this.state=== BefState.RUNNING && (stepc===0 || (performance.now() - t0 < 16)) && stepc < 1024) // 16ms == 60FPS
         {
             this.stepSingle();
             stepc++;
@@ -364,13 +364,16 @@ BefObject.prototype.getDisplayHTML = function() {
         for (let x=0; x < this.width; x++) {
             let cc = this.code[y][x];
             let chr  = String.fromCharCode(cc);
-            if (chr === '&') chr = '&amp;';
-            if (chr === '<') chr = '&lt;';
-            if (chr === '>') chr = '&gt;';
-            if (chr === ' ') chr = '&nbsp;';
-            if (cc===0) chr = '<span style="color:#888">0</span>';
-            else if (cc>127 || cc<32) chr = '<span style="background:black;color:#888;">?</span>';
-            if (x === this.position[0] && y === this.position[1]) chr = '<span style="background: dodgerblue">' + chr + '</span>';
+
+                 if (chr === '&')     chr = '&amp;';
+            else if (chr === '<')     chr = '&lt;';
+            else if (chr === '>')     chr = '&gt;';
+            else if (cc  === 32 )     chr = '&#32;';
+            else if (cc<10 && cc>=0 ) chr = '<span style="background:#BBB;color:#888">'+cc+'</span>';
+            else if (cc<32 && cc>=10) chr = '<span style="background:#BBB;color:#888">'+String.fromCharCode(65+cc)+'</span>';
+            else if (cc>127 || cc<0 ) chr = '<span style="background:#BBB;color:#888;">X</span>';
+
+            if (x === this.position[0] && y === this.position[1]) chr = '<span style="background:dodgerblue">' + chr + '</span>';
             str += chr;
         }
         str += '<br/>';
@@ -400,18 +403,19 @@ BefObject.prototype.updateDisplay = function() {
 };
 
 BefObject.prototype.parseBef = function(str) {
-    const lines = str.replace('\r\n', '\n').split('\n').map(function(str){return str.replace(/\s+$/, '')});
+    const lines = str.replace('\r', '').split('\n');
     let max = 0;
     for (let line of lines) max = Math.max(max, line.length);
 
     let result = [];
 
-    for (let line of lines)
+    for (let _line of lines)
     {
+        let line = _line.replace('\r', '').replace('\n', '');
         let row = [];
         for(let i=0; i < max; i++)
         {
-            row.push((i < line.length ? (line[i]) : ' ').charCodeAt(0));
+            row.push((i < line.length ? (line[i].charCodeAt(0)) : 32));
         }
         result.push(row)
     }

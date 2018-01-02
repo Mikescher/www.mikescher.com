@@ -623,6 +623,8 @@ html, body {
     padding: 5px 9.5px;
     line-height: 12pt;
     font-size: 10pt; }
+  .bce_code .bce_code_data {
+    white-space: pre; }
   .bce_code .bce_code_editarea {
     display: block;
     resize: none;

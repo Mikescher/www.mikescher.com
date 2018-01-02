@@ -53,7 +53,7 @@ $max = ceil($max / 20) * 20;
 				'code'        => file_get_contents($problem['file_code']),
 				'url'         => $problem['url_raw'],
 				'interactive' => !$problem['abbreviated'],
-				'speed'       => null,
+				'speed'       => $problem['steps'] < 500000 ? 2 : 3,
 				'editable'    => false,
 			];
             echo require (__DIR__ . '/../fragments/befunge93_runner.php');
@@ -73,7 +73,7 @@ $max = ceil($max / 20) * 20;
             </tr>
             <tr>
                 <td><b>Execution time</b> (<a href="/programs/view/BefunGen">BefunExec</a>):</td>
-                <td><?php echo $problem['time'] . ' ms <i>(=' . (($problem['time']===0) ? '?' : number_format(($problem['steps']/$problem['time'])/1000, 2, '.', '')) . ' MHz)</i>'; ?></td>
+                <td><?php echo formatMilliseconds($problem['time']) . ' <i>(' . (($problem['time']===0) ? '?' : number_format(($problem['steps']/$problem['time'])/1000, 2, '.', '')) . ' MHz)</i>'; ?></td>
             </tr>
             <tr>
                 <td><b>Program size:</b></td>

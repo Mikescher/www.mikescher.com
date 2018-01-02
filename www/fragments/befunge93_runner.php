@@ -11,7 +11,7 @@ $editable    = $PARAM_BEFUNGE93RUNNER['editable'];
 
 function fmtBef($str) {
 	$str = htmlspecialchars($str);
-	$str = str_replace("\r\n", "\n", $str);
+	$str = str_replace("\r", "", $str);
 	$str = join("\n", array_map(function($p){return rtrim($p);}, explode("\n", $str)));
 	$str = str_replace(' ', '&nbsp;', $str);
 	$str = nl2br($str);
