@@ -7,7 +7,7 @@ require_once (__DIR__ . '/../internals/ParsedownCustom.php');
 $subview = $OPTIONS['subview'];
 
 $euler   = Euler::listAll();
-$problem = Euler::getEulerProblem(intval(explode('-', $subview)[1]));
+$problem = Euler::getEulerProblemFromStrIdent($subview);
 
 if ($post === NULL) httpError(404, 'problem not found');
 

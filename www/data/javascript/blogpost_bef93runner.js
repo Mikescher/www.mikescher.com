@@ -1,5 +1,6 @@
 
 const BefState = Object.freeze ({ UNINIITIALIZED: {}, INITIAL: {}, RUNNING: {}, PAUSED: {} });
+const BefSpeed = Object.freeze ({ NORMAL: {str:'+'}, FAST: {str:'++'}, SUPERFAST: {str:'3+'}, MAX: {str:'4+'} });
 
 Array.prototype.peek = function() { return this[this.length - 1]; };
 Array.prototype.revjoin = function(sep) {
@@ -9,15 +10,17 @@ Array.prototype.revjoin = function(sep) {
 };
 
 function BefObject(domBase) {
-    this.btnStart  = domBase.getElementsByClassName('b93rnr_start')[0];
-    this.btnStop   = domBase.getElementsByClassName('b93rnr_pause')[0];
-    this.btnReset  = domBase.getElementsByClassName('b93rnr_reset')[0];
-    this.pnlCode   = domBase.getElementsByClassName('b93rnr_data')[0];
-    this.pnlBottom = domBase.getElementsByClassName('b93rnr_outpanel')[0];
-    this.pnlOutput = domBase.getElementsByClassName('b93rnr_output')[0];
-    this.pnlStack  = domBase.getElementsByClassName('b93rnr_stack')[0];
+    this.btnStart     = domBase.getElementsByClassName('b93rnr_start')[0];
+    this.btnStop      = domBase.getElementsByClassName('b93rnr_pause')[0];
+    this.btnReset     = domBase.getElementsByClassName('b93rnr_reset')[0];
+    this.btnSpeed     = domBase.getElementsByClassName('b93rnr_speed')[0];
+    this.pnlCode      = domBase.getElementsByClassName('b93rnr_data')[0];
+    this.pnlBottom    = domBase.getElementsByClassName('b93rnr_outpanel')[0];
+    this.pnlOutput    = domBase.getElementsByClassName('b93rnr_output')[0];
+    this.pnlStack     = domBase.getElementsByClassName('b93rnr_stack')[0];
+    this.lblStackSize = domBase.getElementsByClassName('b93rnr_stacksize')[0];
 
-    this.state = BefState.UNINIITIALIZED;
+    this.state    = BefState.UNINIITIALIZED;
     this.initial  = atob(this.pnlCode.getAttribute('data-befcode'));
     this.code     = [];
     this.width    = 0;
@@ -29,6 +32,7 @@ function BefObject(domBase) {
     this.stack    = [];
     this.timer    = null;
     this.psteps   = 0;
+    this.simspeed = BefSpeed.SUPERFAST;
 }
 
 BefObject.prototype.Init = function() {
@@ -81,8 +85,6 @@ BefObject.prototype.stop = function() {
 BefObject.prototype.reset = function() {
     if (this.state === BefState.RUNNING) this.stop();
 
-    //reset
-
     this.state = BefState.INITIAL;
     this.Init();
     this.state = BefState.INITIAL;
@@ -91,36 +93,69 @@ BefObject.prototype.reset = function() {
     this.updateDisplay();
 };
 
-BefObject.prototype.step = function() {
+BefObject.prototype.incSpeed = function() {
 
-    let t0 = performance.now();
-    let first = true;
-
-    let steps = 0;
-    while(steps===0 || (performance.now() - t0 < 33)) // 32ms == 30FPS
-    {
-        first = false;
-
-        let chr = this.code[this.position[1]][this.position[0]];
-        this.exec(chr);
-        this.move();
-
-        if (this.delta[0]===0 && this.delta[1]===0) {
-            console.log('Finished in ' + this.psteps + ' steps');
-            this.stop();
-            return;
-        }
-        steps++;
-    }
+         if (this.simspeed === BefSpeed.NORMAL)    this.simspeed = BefSpeed.FAST;
+    else if (this.simspeed === BefSpeed.FAST)      this.simspeed = BefSpeed.SUPERFAST;
+    else if (this.simspeed === BefSpeed.SUPERFAST) this.simspeed = BefSpeed.MAX;
+    else if (this.simspeed === BefSpeed.MAX)       this.simspeed = BefSpeed.NORMAL;
 
     this.updateUI();
+};
+
+BefObject.prototype.step = function() {
+
+    if (this.simspeed === BefSpeed.NORMAL) {
+
+        this.stepSingle();
+
+    } else if (this.simspeed === BefSpeed.FAST) {
+
+        let t0 = performance.now();
+        let stepc = 0;
+        while(this.state=== BefState.RUNNING && (stepc===0 || (performance.now() - t0 < 16)) && stepc < 128) // 16ms == 60FPS
+        {
+            this.stepSingle();
+            stepc++;
+        }
+
+    } else if (this.simspeed === BefSpeed.SUPERFAST) {
+
+        let t0 = performance.now();
+        let first = true;
+        while(this.state=== BefState.RUNNING && (first || (performance.now() - t0 < 16))) // 16ms == 60FPS
+        {
+            this.stepSingle();
+            first = false;
+        }
+
+    } else if (this.simspeed === BefSpeed.MAX) {
+
+        let t0 = performance.now();
+        let first = true;
+        while(this.state=== BefState.RUNNING && (first || (performance.now() - t0 < 33))) // 32ms == 30FPS
+        {
+            this.stepSingle();
+            first = false;
+        }
+    }
+
+    if (this.state !== BefState.RUNNING) this.updateUI();
     this.updateDisplay();
 };
 
+BefObject.prototype.stepSingle = function() {
+    let chr = this.code[this.position[1]][this.position[0]];
+    this.exec(chr);
+    this.move();
+
+    if (this.delta[0]===0 && this.delta[1]===0) {
+        console.log('Finished in ' + this.psteps + ' steps');
+        this.stop();
+    }
+};
+
 BefObject.prototype.exec = function(chr) {
-
-
-
     if (this.strmode)
     {
         this.psteps++;
@@ -197,7 +232,6 @@ BefObject.prototype.pop_i     = function()      { return this.stack.pop(); };
 BefObject.prototype.peek_i    = function()      { return this.stack.peek(); };
 BefObject.prototype.push_b    = function(v)     { this.stack.push(v?1:0); };
 BefObject.prototype.pop_b     = function()      { return this.stack.pop()!==0; };
-BefObject.prototype.peek_b    = function()      { return this.stack.peek()!==0; };
 BefObject.prototype.push_c    = function(v)     { this.stack.push(v.charCodeAt(0)); };
 BefObject.prototype.gridset_i = function(x,y,c) { if (x < 0 || y < 0 || x >= this.width || y >= this.height) return; this.code[y][x]=String.fromCharCode(c); };
 BefObject.prototype.gridget_i = function(x,y)   { if (x < 0 || y < 0 || x >= this.width || y >= this.height) return 0; return this.code[y][x].charCodeAt(0); };
@@ -209,6 +243,8 @@ BefObject.prototype.updateUI = function() {
     classListSet(this.btnReset, 'ctrl_btn_disabled', this.state === BefState.UNINIITIALIZED || this.state === BefState.INITIAL);
 
     classListSet(this.pnlBottom, 'b93rnr_outpanel_hidden', this.state === BefState.UNINIITIALIZED || this.state === BefState.INITIAL);
+
+    this.btnSpeed.innerHTML = this.simspeed.str;
 };
 
 BefObject.prototype.updateDisplay = function() {
@@ -233,6 +269,8 @@ BefObject.prototype.updateDisplay = function() {
     this.pnlOutput.innerHTML = htmlescape(this.output);
 
     this.pnlStack.innerHTML = this.stack.revjoin("<br/>");
+
+    this.lblStackSize.innerHTML = "(" + this.stack.length + ")";
 };
 
 BefObject.prototype.parseBef = function(str) {
@@ -285,5 +323,6 @@ window.onload = function ()
         befungeObject.btnStart.onclick = function () { if (befungeObject.btnStart.classList.contains('ctrl_btn_disabled')) return; befungeObject.start(); };
         befungeObject.btnStop.onclick  = function () { if (befungeObject.btnStop.classList.contains('ctrl_btn_disabled'))  return; befungeObject.stop(); };
         befungeObject.btnReset.onclick = function () { if (befungeObject.btnReset.classList.contains('ctrl_btn_disabled')) return; befungeObject.reset(); };
+        befungeObject.btnSpeed.onclick = function () { if (befungeObject.btnSpeed.classList.contains('ctrl_btn_disabled')) return; befungeObject.incSpeed(); };
     }
 };

@@ -23,7 +23,10 @@ if ($PARAM_INTERACTIVE) {
 	$result .= '	<div class="bce_code_data b93rnr_data" data-befcode="' . base64_encode($PARAM_CODE) . '">' . fmtBef($PARAM_CODE) . '</div>' . "\n";
 	$result .= '	<div class="bce_code_ctrl">' . "\n";
 	$result .= '		<div class="ctrl_btn_left">' . "\n";
-	$result .= '			<div class="ctrl_btn b93rnr_start">Start</div>' . "\n";
+	$result .= '			<div class="ctrl_btn_group">' . "\n";
+	$result .= '				<div class="ctrl_btn ctrl_btn_ll b93rnr_start">Start</div>' . "\n";
+	$result .= '				<div class="ctrl_btn ctrl_btn_rr b93rnr_speed">3+</div>' . "\n";
+	$result .= '			</div>' . "\n";
 	$result .= '			<div class="ctrl_btn b93rnr_pause ctrl_btn_disabled">Pause</div>' . "\n";
 	$result .= '			<div class="ctrl_btn b93rnr_reset ctrl_btn_disabled">Reset</div>' . "\n";
 	$result .= '		</div>' . "\n";
@@ -34,8 +37,14 @@ if ($PARAM_INTERACTIVE) {
 	}
 	$result .= '	</div>' . "\n";
 	$result .= '	<div class="bce_code_out b93rnr_outpanel b93rnr_outpanel_hidden">' . "\n";
-	$result .= '		<div class="bce_code_out_text b93rnr_output"></div>' . "\n";
-	$result .= '		<div class="bce_code_out_stack b93rnr_stack"></div>' . "\n";
+	$result .= '		<div class="bce_code_out_left">' . "\n";
+	$result .= '			<b>Output:</b>' . "\n";
+	$result .= '			<div class="bce_code_out_text b93rnr_output"></div>' . "\n";
+	$result .= '		</div>' . "\n";
+	$result .= '		<div class="bce_code_out_right">' . "\n";
+	$result .= '			<span><b>Stack:</b>&nbsp;&nbsp;&nbsp;<i class="b93rnr_stacksize">(0)</i></span>' . "\n";
+	$result .= '			<div class="bce_code_out_stack b93rnr_stack"></div>' . "\n";
+	$result .= '		</div>' . "\n";
 	$result .= '	</div>' . "\n";
 	$result .= '</div>' . "\n";
 

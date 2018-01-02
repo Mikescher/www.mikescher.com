@@ -19,7 +19,19 @@ if ($post === NULL) httpError(404, 'blogpost not found');
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
     <link rel="stylesheet" href="/data/css/styles.css"/>
-    <link rel="canonical" href="<?php echo (($subview !== '') ? ($post['canonical']) : ($post['canonical'] . '/' . $subview)); ?>"/>
+	<?php
+    if ($post['type'] === 'euler' && $subview !== '')
+	{
+		require_once(__DIR__ . '/../internals/euler.php');
+		$problem = Euler::getEulerProblemFromStrIdent($subview);
+		if ($problem !== NULL) echo '<link rel="canonical" href="' . $problem['canonical'] . '"/>';
+	}
+	else
+    {
+        echo '<link rel="canonical" href="' . $post['canonical'] . '"/>';
+    }
+    ?>
+
 </head>
 <body>
 <div id="mastercontainer">

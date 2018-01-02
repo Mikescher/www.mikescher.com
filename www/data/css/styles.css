@@ -646,6 +646,19 @@ html, body {
         background: #333;
         color: #FFF;
         border: 1px solid black; }
+    .bce_code .bce_code_ctrl .ctrl_btn_group {
+      display: flex;
+      flex-direction: row; }
+    .bce_code .bce_code_ctrl .ctrl_btn_ll {
+      margin-right: 0;
+      flex-grow: 1; }
+    .bce_code .bce_code_ctrl .ctrl_btn_rr {
+      margin-left: 0;
+      flex-grow: 0;
+      min-width: 25px;
+      border-left: none; }
+      .bce_code .bce_code_ctrl .ctrl_btn_rr:hover {
+        border-left: none; }
     .bce_code .bce_code_ctrl .ctrl_btn_disabled {
       background: #999;
       color: #BBB; }
@@ -677,28 +690,36 @@ html, body {
     overflow-x: auto;
     background: #FFF;
     color: #000;
-    flex-grow: 1;
-    margin: 0 4px 4px 4px;
     border: 1px solid #888;
-    height: 200px; }
+    flex-grow: 1; }
   .bce_code_out .bce_code_out_stack {
     font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
     overflow-y: scroll;
     overflow-x: auto;
     background: #FFF;
     color: #000;
-    margin: 0 4px 4px 4px;
-    width: 200px;
     border: 1px solid #888;
-    height: 200px; }
+    flex-grow: 1; }
+  .bce_code_out .bce_code_out_left {
+    flex-grow: 1;
+    margin: 0 4px 4px 4px;
+    height: 200px;
+    display: flex;
+    flex-direction: column; }
+  .bce_code_out .bce_code_out_right {
+    height: 200px;
+    width: 200px;
+    margin: 0 4px 4px 4px;
+    display: flex;
+    flex-direction: column; }
 
 @media (max-width: 767px) {
   .bce_code_out {
     flex-direction: column; }
-    .bce_code_out .bce_code_out_text {
+    .bce_code_out .bce_code_out_left {
       flex-grow: 0;
       height: 100px; }
-    .bce_code_out .bce_code_out_stack {
+    .bce_code_out .b93rnr_outpanel_right {
       width: auto;
       height: 150px; } }
 .b93rnr_outpanel_hidden {

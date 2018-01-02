@@ -55,6 +55,14 @@
       }
     }
 
+    .ctrl_btn_group {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .ctrl_btn_ll {margin-right: 0; flex-grow: 1; }
+    .ctrl_btn_rr {margin-left: 0; flex-grow: 0; min-width: 25px; border-left: none; &:hover { border-left: none; } }
+
     .ctrl_btn_disabled       { background: #999; color: #BBB; }
     .ctrl_btn_disabled:hover { background: #999; color: #BBB; cursor: default; }
   }
@@ -83,10 +91,8 @@
     overflow-x: auto;
     background: #FFF;
     color: #000;
-    flex-grow: 1;
-    margin: 0 4px 4px 4px;
     border: 1px solid #888;
-    height: 200px;
+    flex-grow: 1;
   }
 
   .bce_code_out_stack {
@@ -95,18 +101,32 @@
     overflow-x: auto;
     background: #FFF;
     color: #000;
-    margin: 0 4px 4px 4px;
-    width: 200px;
     border: 1px solid #888;
+    flex-grow: 1;
+  }
+
+  .bce_code_out_left {
+    flex-grow: 1;
+    margin: 0 4px 4px 4px;
     height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bce_code_out_right {
+    height: 200px;
+    width: 200px;
+    margin: 0 4px 4px 4px;
+    display: flex;
+    flex-direction: column;
   }
 }
 @media (max-width: 767px) {
   .bce_code_out {
     flex-direction: column;
 
-    .bce_code_out_text { flex-grow: 0; height: 100px;}
-    .bce_code_out_stack { width: auto; height: 150px;}
+    .bce_code_out_left { flex-grow: 0; height: 100px;}
+    .bce_code_out_right { width: auto; height: 150px;}
   }
 }
 

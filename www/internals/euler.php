@@ -35,6 +35,17 @@ class Euler
 		return array_map('self::readSingle', $files);
 	}
 
+	public static function getEulerProblemFromStrIdent($ident)
+	{
+		$e = explode('-', $ident, 2);
+		if (count($e)!==2) return null;
+
+		$i = intval($e[1], 10);
+		if ($i == 0) return null;
+
+		return self::getEulerProblem($i);
+	}
+
 	public static function getEulerProblem($num)
 	{
 		foreach (self::listAll() as $ep) {
