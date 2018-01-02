@@ -53,6 +53,13 @@ body {
   display: block;
   width: 100%; }
 
+.generic_hidden {
+  visibility: hidden   !important; }
+
+.generic_collapsed {
+  visibility: collapse !important;
+  display: none !important; }
+
 #headerdiv {
   z-index: 999;
   background-color: #333;
@@ -610,10 +617,17 @@ html, body {
   background: #F8F8F8;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.15); }
-  .bce_code .bce_code_data {
+  .bce_code .bce_code_data, .bce_code .bce_code_editarea {
     overflow-x: auto;
     font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
     padding: 5px 9.5px;
+    line-height: 12pt;
+    font-size: 10pt; }
+  .bce_code .bce_code_editarea {
+    display: block;
+    resize: none;
+    box-sizing: border-box;
+    line-height: 12pt;
     font-size: 10pt; }
   .bce_code .bce_code_ctrl {
     background: #BBB;
@@ -722,8 +736,5 @@ html, body {
     .bce_code_out .bce_code_out_right {
       width: auto;
       height: 150px; } }
-.b93rnr_outpanel_hidden {
-  visibility: collapse;
-  display: none; }
 
 /*# sourceMappingURL=styles.css.map */

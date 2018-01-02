@@ -57,3 +57,6 @@ body {
   display: block;
   width: 100%;
 }
+
+.generic_hidden    { visibility: hidden   !important;                           }
+.generic_collapsed { visibility: collapse !important; display: none !important; }

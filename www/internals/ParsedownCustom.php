@@ -22,15 +22,36 @@ class ParsedownCustom extends ParsedownExtra
 
 		$Block['custom'] = false;
 
-		if (isset($Block['element']['text']['attributes']) && in_array('language-befungerunner', $Block['element']['text']['attributes']))
+		if (isset($Block['element']['text']['attributes']))
 		{
-			$Block['element']['handler'] = 'handleBef93';
-			$Block['custom'] = true;
-		}
-		else if (isset($Block['element']['text']['attributes']) && in_array('language-bfjoustrunner', $Block['element']['text']['attributes']))
-		{
-			$Block['element']['handler'] = 'handleBFJoust';
-			$Block['custom'] = true;
+			foreach ($Block['element']['text']['attributes'] as $attr)
+			{
+				$spl = explode('__', $attr);
+
+				if ($spl[0] === 'language-befungerunner')
+				{
+					$Block['element']['handler'] = 'handleBef93';
+					$Block['custom'] = true;
+					$Block['element']['text']['b93_speed'] = null;
+					$Block['element']['text']['b93_interactive'] = true;
+					$Block['element']['text']['b93_editable'] = true;
+
+					foreach ($spl as $param)
+					{
+						if (startsWith($param, 'speed-'))       $Block['element']['text']['b93_speed']       = intval( substr($param, strlen('speed-')));
+						if (startsWith($param, 'interactive-')) $Block['element']['text']['b93_interactive'] = boolval(substr($param, strlen('interactive-')));
+						if (startsWith($param, 'editable-'))    $Block['element']['text']['b93_editable']    = boolval(substr($param, strlen('editable-')));
+					}
+
+					return $Block;
+				}
+				else if ($spl[0] === 'language-bfjoustrunner')
+				{
+					$Block['element']['handler'] = 'handleBFJoust';
+					$Block['custom'] = true;
+					return $Block;
+				}
+			}
 		}
 
 		return $Block;
@@ -60,14 +81,15 @@ class ParsedownCustom extends ParsedownExtra
 
 	protected function handleBef93(array $Element)
 	{
-		global $PARAM_CODE;
-		global $PARAM_URL;
-		global $PARAM_INTERACTIVE;
-
-		$PARAM_CODE = $Element['text'];
-		$PARAM_URL = '';
-		$PARAM_INTERACTIVE = true;
-
+		global $PARAM_BEFUNGE93RUNNER;
+		$PARAM_BEFUNGE93RUNNER =
+		[
+			'code'        => $Element['text'],
+			'url'         => '',
+			'interactive' => $Element['b93_interactive'],
+			'speed'       => $Element['b93_speed'],
+			'editable'    => $Element['b93_editable'],
+		];
 		return require (__DIR__ . '/../fragments/befunge93_runner.php');
 	}
 }

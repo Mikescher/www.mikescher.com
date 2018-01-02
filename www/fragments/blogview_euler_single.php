@@ -47,12 +47,18 @@ $max = ceil($max / 20) * 20;
 
         <b>Solution:</b>
 		<?php
-            global $PARAM_CODE;
-            global $PARAM_URL;
-            $PARAM_CODE = file_get_contents($problem['file_code']);
-            $PARAM_URL = $problem['url_raw'];
-            $PARAM_INTERACTIVE = !$problem['abbreviated'];
+		    global $PARAM_BEFUNGE93RUNNER;
+		    $PARAM_BEFUNGE93RUNNER =
+			[
+				'code'        => file_get_contents($problem['file_code']),
+				'url'         => $problem['url_raw'],
+				'interactive' => !$problem['abbreviated'],
+				'speed'       => null,
+				'editable'    => false,
+			];
             echo require (__DIR__ . '/../fragments/befunge93_runner.php');
+
+            if ($problem['abbreviated']) echo '<i>This program is too big to display/execute here, click [download] to get the full program. </i><br/>';
 		?>
         <br/>
 
@@ -67,7 +73,7 @@ $max = ceil($max / 20) * 20;
             </tr>
             <tr>
                 <td><b>Execution time</b> (<a href="/programs/view/BefunGen">BefunExec</a>):</td>
-                <td><?php echo $problem['time'] . ' ms <i>(=' . number_format(($problem['steps']/$problem['time'])/1000, 2, '.', '') . ' MHz)</i>'; ?></td>
+                <td><?php echo $problem['time'] . ' ms <i>(=' . (($problem['time']===0) ? '?' : number_format(($problem['steps']/$problem['time'])/1000, 2, '.', '')) . ' MHz)</i>'; ?></td>
             </tr>
             <tr>
                 <td><b>Program size:</b></td>

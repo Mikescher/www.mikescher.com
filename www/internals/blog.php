@@ -26,6 +26,7 @@ class Blog
 			[ 'id' => 8,  'date' => '2014-11-05', 'visible' => true,  'title' => 'Rapla Enhancement Script',               'fragment' => 'rapla_css.md',       'type' => 'markdown', 'cat' => 'blog' ],
 			[ 'id' => 20, 'date' => '2015-01-09', 'visible' => true,  'title' => 'More Befunge with Project Euler',        'fragment' => 'more_euler.md',      'type' => 'markdown', 'cat' => 'log'  ],
 			[ 'id' => 9,  'date' => '2016-10-22', 'visible' => true,  'title' => 'A complete sudoku solver in Befunge-93', 'fragment' => 'sudoku_befunge.md',  'type' => 'markdown', 'cat' => 'blog' ],
+			[ 'id' => 21, 'date' => '2018-01-02', 'visible' => true,  'title' => 'A simple javascript befunge-93 runner',  'fragment' => 'js_befrunner.md',    'type' => 'markdown', 'cat' => 'blog' ],
 		];
 
 		return array_map('self::completeSingle', $all);

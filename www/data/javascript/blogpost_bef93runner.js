@@ -1,6 +1,15 @@
 
-const BefState = Object.freeze ({ UNINIITIALIZED: {}, INITIAL: {}, RUNNING: {}, PAUSED: {} });
-const BefSpeed = Object.freeze ({ SLOW: {str:'0'}, NORMAL: {str:'+'}, FAST: {str:'++'}, SUPERFAST: {str:'3+'}, MAX: {str:'4+'} });
+const BefState = Object.freeze ({ INITIAL: {}, RUNNING: {}, PAUSED: {}, FINISHED: {}, EDIT: {} });
+const BefSpeed = Object.freeze (
+    {
+        SLOW:      {val:0,str:'0' },
+        NORMAL:    {val:1,str:'+' },
+        FAST:      {val:2,str:'++'},
+        SUPERFAST: {val:3,str:'3+'},
+        MAX:       {val:4,str:'4+'},
+        get: function(i){             for (let x of Object.values(BefSpeed)) if (typeof(x)==='object' && String(x.val) === String(i)) return x;              return null; },
+        max: function( ){let max = 0; for (let x of Object.values(BefSpeed)) if (typeof(x)==='object'                               ) max = Math.max(x.val); return max;  },
+    });
 
 Array.prototype.peek = function() { return this[this.length - 1]; };
 Array.prototype.revjoin = function(sep) {
@@ -14,14 +23,17 @@ function BefObject(domBase) {
     this.btnStop      = domBase.getElementsByClassName('b93rnr_pause')[0];
     this.btnReset     = domBase.getElementsByClassName('b93rnr_reset')[0];
     this.btnSpeed     = domBase.getElementsByClassName('b93rnr_speed')[0];
+    this.btnEdit      = domBase.getElementsByClassName('b93rnr_edit')[0];
     this.pnlCode      = domBase.getElementsByClassName('b93rnr_data')[0];
+    this.pnlEditArea  = domBase.getElementsByClassName('b93rnr_editarea')[0];
     this.pnlBottom    = domBase.getElementsByClassName('b93rnr_outpanel')[0];
     this.pnlOutput    = domBase.getElementsByClassName('b93rnr_output')[0];
     this.pnlStack     = domBase.getElementsByClassName('b93rnr_stack')[0];
     this.lblStackSize = domBase.getElementsByClassName('b93rnr_stacksize')[0];
 
-    this.state    = BefState.UNINIITIALIZED;
-    this.initial  = atob(this.pnlCode.getAttribute('data-befcode'));
+    this.state    = BefState.INITIAL;
+    this.initial  = atob(this.pnlCode.getAttribute('data-b93rnr_code'));
+    this.simspeed = BefSpeed.get(domBase.hasAttribute('data-b93rnr_initialspeed') ? domBase.getAttribute('data-b93rnr_initialspeed') : '4');
     this.code     = [];
     this.width    = 0;
     this.height   = 0;
@@ -32,10 +44,13 @@ function BefObject(domBase) {
     this.stack    = [];
     this.timer    = null;
     this.psteps   = 0;
-    this.simspeed = BefSpeed.SUPERFAST;
+
+    this.init();
+
+    this.updateUI();
 }
 
-BefObject.prototype.Init = function() {
+BefObject.prototype.init = function() {
     this.state = BefState.INITIAL;
 
     let parse = this.parseBef(this.initial);
@@ -51,8 +66,21 @@ BefObject.prototype.Init = function() {
     this.psteps   = 0;
 };
 
+BefObject.prototype.setTimer = function() {
+    let me = this;
+
+    let delay = (this.simspeed === BefSpeed.SLOW) ? 50 : 0;
+
+    this.timer = setTimeout(function()
+    {
+        me.step();
+        if (me.state!==BefState.RUNNING) return;
+        me.setTimer();
+    }, delay);
+};
+
 BefObject.prototype.start = function() {
-    if (this.state === BefState.UNINIITIALIZED) this.Init();
+    if (this.state === BefState.EDIT) { this.finishEdit(); return; }
 
     if (this.delta[0]===0 && this.delta[1]===0) {
         this.updateUI();
@@ -68,34 +96,27 @@ BefObject.prototype.start = function() {
     this.setTimer();
 };
 
-BefObject.prototype.setTimer = function() {
-    let me = this;
-
-    let delay = (this.simspeed === BefSpeed.SLOW) ? 50 : 0;
-
-    this.timer = setTimeout(function()
-    {
-        me.step();
-        if (me.state!==BefState.RUNNING) return;
-        me.setTimer();
-    }, delay);
-};
-
 BefObject.prototype.stop = function() {
     this.state = BefState.PAUSED;
     clearTimeout(this.timer);
-    // pause
+
+    this.updateUI();
+    this.updateDisplay();
+};
+
+BefObject.prototype.finishRun = function() {
+    this.state = BefState.FINISHED;
+    clearTimeout(this.timer);
 
     this.updateUI();
     this.updateDisplay();
 };
 
 BefObject.prototype.reset = function() {
+    if (this.state === BefState.EDIT) { this.abortEdit(); return; }
     if (this.state === BefState.RUNNING) this.stop();
 
-    this.state = BefState.INITIAL;
-    this.Init();
-    this.state = BefState.INITIAL;
+    this.init();
 
     this.updateUI();
     this.updateDisplay();
@@ -103,13 +124,42 @@ BefObject.prototype.reset = function() {
 
 BefObject.prototype.incSpeed = function() {
 
-         if (this.simspeed === BefSpeed.SLOW)      this.simspeed = BefSpeed.NORMAL;
-    else if (this.simspeed === BefSpeed.NORMAL)    this.simspeed = BefSpeed.FAST;
-    else if (this.simspeed === BefSpeed.FAST)      this.simspeed = BefSpeed.SUPERFAST;
-    else if (this.simspeed === BefSpeed.SUPERFAST) this.simspeed = BefSpeed.MAX;
-    else if (this.simspeed === BefSpeed.MAX)       this.simspeed = BefSpeed.SLOW;
+    this.simspeed = BefSpeed.get((this.simspeed.val + 1) % (BefSpeed.max()+1));
 
     this.updateUI();
+};
+
+BefObject.prototype.startEdit = function() {
+    if (this.state === BefState.RUNNING) this.stop();
+
+    this.pnlEditArea.value = this.getDisplayRaw();
+
+    this.pnlEditArea.style.width  = this.pnlCode.clientWidth + 'px';
+    this.pnlEditArea.style.height = this.pnlCode.clientHeight + 'px';
+
+    this.state = BefState.EDIT;
+
+    this.updateUI();
+};
+
+BefObject.prototype.finishEdit = function() {
+    if (this.state !== BefState.EDIT) return;
+
+    this.initial = this.pnlEditArea.value;
+    this.init();
+
+    this.updateUI();
+    this.updateDisplay();
+};
+
+BefObject.prototype.abortEdit = function() {
+    if (this.state !== BefState.EDIT) return;
+
+    this.pnlEditArea.value = '';
+    this.init();
+
+    this.updateUI();
+    this.updateDisplay();
 };
 
 BefObject.prototype.step = function() {
@@ -160,7 +210,7 @@ BefObject.prototype.stepSingle = function() {
 
     if (this.delta[0]===0 && this.delta[1]===0) {
         console.log('Finished in ' + this.psteps + ' steps');
-        this.stop();
+        this.finishRun();
     }
 };
 
@@ -252,16 +302,63 @@ BefObject.prototype.gridget_i = function(x,y)   { if (x < 0 || y < 0 || x >= thi
 
 BefObject.prototype.updateUI = function() {
 
-    classListSet(this.btnStart, 'ctrl_btn_disabled', this.state === BefState.RUNNING || this.state === BefState.PAUSED);
-    classListSet(this.btnStop,  'ctrl_btn_disabled', this.state === BefState.UNINIITIALIZED || this.state === BefState.INITIAL);
-    classListSet(this.btnReset, 'ctrl_btn_disabled', this.state === BefState.UNINIITIALIZED || this.state === BefState.INITIAL);
-
-    classListSet(this.pnlBottom, 'b93rnr_outpanel_hidden', this.state === BefState.UNINIITIALIZED || this.state === BefState.INITIAL);
+    switch (this.state) {
+        case BefState.INITIAL:
+            cssCtrlState(this.btnStart,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnSpeed,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnStop,     'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnReset,    'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnEdit,     'ctrl_btn_disabled',      true);
+            cssCtrlState(this.pnlBottom,   'generic_collapsed',      false);
+            cssCtrlState(this.pnlEditArea, 'generic_collapsed',      false);
+            cssCtrlState(this.pnlCode,     'generic_collapsed',      true);
+            break;
+        case BefState.RUNNING:
+            cssCtrlState(this.btnStart,    'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnSpeed,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnStop,     'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnReset,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnEdit,     'ctrl_btn_disabled',      false);
+            cssCtrlState(this.pnlBottom,   'generic_collapsed',      true);
+            cssCtrlState(this.pnlEditArea, 'generic_collapsed',      false);
+            cssCtrlState(this.pnlCode,     'generic_collapsed',      true);
+            break;
+        case BefState.PAUSED:
+            cssCtrlState(this.btnStart,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnSpeed,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnStop,     'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnReset,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnEdit,     'ctrl_btn_disabled',      false);
+            cssCtrlState(this.pnlBottom,   'generic_collapsed',      true);
+            cssCtrlState(this.pnlEditArea, 'generic_collapsed',      false);
+            cssCtrlState(this.pnlCode,     'generic_collapsed',      true);
+            break;
+        case BefState.FINISHED:
+            cssCtrlState(this.btnStart,    'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnSpeed,    'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnStop,     'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnReset,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnEdit,     'ctrl_btn_disabled',      false);
+            cssCtrlState(this.pnlBottom,   'generic_collapsed',      true);
+            cssCtrlState(this.pnlEditArea, 'generic_collapsed',      false);
+            cssCtrlState(this.pnlCode,     'generic_collapsed',      true);
+            break;
+        case BefState.EDIT:
+            cssCtrlState(this.btnStart,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnSpeed,    'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnStop,     'ctrl_btn_disabled',      false);
+            cssCtrlState(this.btnReset,    'ctrl_btn_disabled',      true);
+            cssCtrlState(this.btnEdit,     'ctrl_btn_disabled',      false);
+            cssCtrlState(this.pnlBottom,   'generic_collapsed',      false);
+            cssCtrlState(this.pnlEditArea, 'generic_collapsed',      true);
+            cssCtrlState(this.pnlCode,     'generic_collapsed',      false);
+            break;
+    }
 
     this.btnSpeed.innerHTML = this.simspeed.str;
 };
 
-BefObject.prototype.updateDisplay = function() {
+BefObject.prototype.getDisplayHTML = function() {
     let str = '';
     for (let y=0; y < this.height; y++) {
         for (let x=0; x < this.width; x++) {
@@ -278,7 +375,22 @@ BefObject.prototype.updateDisplay = function() {
         }
         str += '<br/>';
     }
-    this.pnlCode.innerHTML = str;
+    return str;
+};
+
+BefObject.prototype.getDisplayRaw = function() {
+    let str = '';
+    for (let y=0; y < this.height; y++) {
+        for (let x=0; x < this.width; x++) {
+            str += String.fromCharCode(this.code[y][x]);
+        }
+        str += '\n';
+    }
+    return str;
+};
+
+BefObject.prototype.updateDisplay = function() {
+    this.pnlCode.innerHTML = this.getDisplayHTML();
 
     this.pnlOutput.innerHTML = htmlescape(this.output);
 
@@ -307,13 +419,16 @@ BefObject.prototype.parseBef = function(str) {
     return [result, max, result.length];
 };
 
-function classListSet(e, cls, active) {
-    if (active) {
-        if (e.classList.contains(cls)) return;
-        e.classList.add(cls);
-    } else {
+function cssCtrlState(e, cls, state) {
+
+    if (e === undefined) return;
+
+    if (state) {
         if (!e.classList.contains(cls)) return;
         e.classList.remove(cls);
+    } else {
+        if (e.classList.contains(cls)) return;
+        e.classList.add(cls);
     }
 }
 
@@ -334,9 +449,19 @@ window.onload = function ()
 
         let befungeObject = new BefObject(elem);
 
-        befungeObject.btnStart.onclick = function () { if (befungeObject.btnStart.classList.contains('ctrl_btn_disabled')) return; befungeObject.start(); };
-        befungeObject.btnStop.onclick  = function () { if (befungeObject.btnStop.classList.contains('ctrl_btn_disabled'))  return; befungeObject.stop(); };
-        befungeObject.btnReset.onclick = function () { if (befungeObject.btnReset.classList.contains('ctrl_btn_disabled')) return; befungeObject.reset(); };
-        befungeObject.btnSpeed.onclick = function () { if (befungeObject.btnSpeed.classList.contains('ctrl_btn_disabled')) return; befungeObject.incSpeed(); };
+        if (befungeObject.btnStart !== undefined)
+            befungeObject.btnStart.onclick = function () { if (befungeObject.btnStart.classList.contains('ctrl_btn_disabled')) return; befungeObject.start(); };
+
+        if (befungeObject.btnStop !== undefined)
+            befungeObject.btnStop.onclick  = function () { if (befungeObject.btnStop.classList.contains('ctrl_btn_disabled'))  return; befungeObject.stop(); };
+
+        if (befungeObject.btnReset !== undefined)
+            befungeObject.btnReset.onclick = function () { if (befungeObject.btnReset.classList.contains('ctrl_btn_disabled')) return; befungeObject.reset(); };
+
+        if (befungeObject.btnSpeed !== undefined)
+            befungeObject.btnSpeed.onclick = function () { if (befungeObject.btnSpeed.classList.contains('ctrl_btn_disabled')) return; befungeObject.incSpeed(); };
+
+        if (befungeObject.btnEdit !== undefined)
+            befungeObject.btnEdit.onclick  = function () { if (befungeObject.btnEdit.classList.contains('ctrl_btn_disabled')) return; befungeObject.startEdit(); };
     }
 };
