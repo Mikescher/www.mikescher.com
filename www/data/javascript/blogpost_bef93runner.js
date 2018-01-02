@@ -1,6 +1,6 @@
 
 const BefState = Object.freeze ({ UNINIITIALIZED: {}, INITIAL: {}, RUNNING: {}, PAUSED: {} });
-const BefSpeed = Object.freeze ({ NORMAL: {str:'+'}, FAST: {str:'++'}, SUPERFAST: {str:'3+'}, MAX: {str:'4+'} });
+const BefSpeed = Object.freeze ({ SLOW: {str:'0'}, NORMAL: {str:'+'}, FAST: {str:'++'}, SUPERFAST: {str:'3+'}, MAX: {str:'4+'} });
 
 Array.prototype.peek = function() { return this[this.length - 1]; };
 Array.prototype.revjoin = function(sep) {
@@ -70,7 +70,15 @@ BefObject.prototype.start = function() {
 
 BefObject.prototype.setTimer = function() {
     let me = this;
-    this.timer = setTimeout(function() { me.step(); if (me.state!==BefState.RUNNING)return; me.setTimer(); }, 0);
+
+    let delay = (this.simspeed === BefSpeed.SLOW) ? 50 : 0;
+
+    this.timer = setTimeout(function()
+    {
+        me.step();
+        if (me.state!==BefState.RUNNING) return;
+        me.setTimer();
+    }, delay);
 };
 
 BefObject.prototype.stop = function() {
@@ -95,17 +103,18 @@ BefObject.prototype.reset = function() {
 
 BefObject.prototype.incSpeed = function() {
 
-         if (this.simspeed === BefSpeed.NORMAL)    this.simspeed = BefSpeed.FAST;
+         if (this.simspeed === BefSpeed.SLOW)      this.simspeed = BefSpeed.NORMAL;
+    else if (this.simspeed === BefSpeed.NORMAL)    this.simspeed = BefSpeed.FAST;
     else if (this.simspeed === BefSpeed.FAST)      this.simspeed = BefSpeed.SUPERFAST;
     else if (this.simspeed === BefSpeed.SUPERFAST) this.simspeed = BefSpeed.MAX;
-    else if (this.simspeed === BefSpeed.MAX)       this.simspeed = BefSpeed.NORMAL;
+    else if (this.simspeed === BefSpeed.MAX)       this.simspeed = BefSpeed.SLOW;
 
     this.updateUI();
 };
 
 BefObject.prototype.step = function() {
 
-    if (this.simspeed === BefSpeed.NORMAL) {
+    if (this.simspeed === BefSpeed.NORMAL || this.simspeed === BefSpeed.SLOW) {
 
         this.stepSingle();
 
@@ -155,13 +164,18 @@ BefObject.prototype.stepSingle = function() {
     }
 };
 
-BefObject.prototype.exec = function(chr) {
+BefObject.prototype.exec = function(ichr) {
+
+    let cchr = String.fromCharCode(ichr);
+
     if (this.strmode)
     {
         this.psteps++;
 
-        if (chr === '"') this.strmode = false;
-        else this.push_c(chr);
+        if (cchr === '"')
+            this.strmode = false;
+        else
+            this.push_i(ichr);
     }
     else
     {
@@ -169,16 +183,16 @@ BefObject.prototype.exec = function(chr) {
         let t2=0;
         let t3=0;
 
-        if (chr !== ' ') this.psteps++;
+        if (cchr !== ' ') this.psteps++;
 
-        switch (chr)
+        switch (cchr)
         {
             case ' ':  /* NOP */ break;
-            case '+':  this.push_i(this.pop_i()+this.pop_i()); break;
-            case '-':  t1 = this.pop_i(); this.push_i(this.pop_i()-t1); break;
-            case '*':  this.push_i(this.pop_i()*this.pop_i()); break;
-            case '/':  t1 = this.pop_i(); t2 = this.pop_i(); this.push_i(  (t1 === 0) ? (0) : Math.floor(t2/t1)  ); break;
-            case '%':  t1 = this.pop_i(); t2 = this.pop_i(); this.push_i(  (t1 === 0) ? (0) : (t2%t1)  ); break;
+            case '+':  t1 = this.pop_i(); t2 = this.pop_i(); t3=t2+t1;                          this.push_i(t3); break;
+            case '-':  t1 = this.pop_i(); t2 = this.pop_i(); t3=t2-t1;                          this.push_i(t3); break;
+            case '*':  t1 = this.pop_i(); t2 = this.pop_i(); t3=t2*t1;                          this.push_i(t3); break;
+            case '/':  t1 = this.pop_i(); t2 = this.pop_i(); t3=(t1===0)?(0):Math.floor(t2/t1); this.push_i(t3); break;
+            case '%':  t1 = this.pop_i(); t2 = this.pop_i(); t3=(t1===0)?(0):Math.floor(t2%t1); this.push_i(t3); break;
             case '!':  this.push_b(!this.pop_b()); break;
             case '`':  t1 = this.pop_i(); t2 = this.pop_i(); this.push_b(t2 > t1); break;
             case '>':  this.delta = [+1,0]; break;
@@ -210,7 +224,7 @@ BefObject.prototype.exec = function(chr) {
             case '7':  this.push_i(7); break;
             case '8':  this.push_i(8); break;
             case '9':  this.push_i(9); break;
-            default:   window.log('BefRunner: Undefinied command: ' + chr.charCodeAt(0));
+            default:   window.log('BefRunner: Undefinied command: ' + ichr);
         }
     }
 };
@@ -233,8 +247,8 @@ BefObject.prototype.peek_i    = function()      { return this.stack.peek(); };
 BefObject.prototype.push_b    = function(v)     { this.stack.push(v?1:0); };
 BefObject.prototype.pop_b     = function()      { return this.stack.pop()!==0; };
 BefObject.prototype.push_c    = function(v)     { this.stack.push(v.charCodeAt(0)); };
-BefObject.prototype.gridset_i = function(x,y,c) { if (x < 0 || y < 0 || x >= this.width || y >= this.height) return; this.code[y][x]=String.fromCharCode(c); };
-BefObject.prototype.gridget_i = function(x,y)   { if (x < 0 || y < 0 || x >= this.width || y >= this.height) return 0; return this.code[y][x].charCodeAt(0); };
+BefObject.prototype.gridset_i = function(x,y,c) { if (x < 0 || y < 0 || x >= this.width || y >= this.height) return; this.code[y][x]=c; };
+BefObject.prototype.gridget_i = function(x,y)   { if (x < 0 || y < 0 || x >= this.width || y >= this.height) return 0; return this.code[y][x]; };
 
 BefObject.prototype.updateUI = function() {
 
@@ -251,8 +265,8 @@ BefObject.prototype.updateDisplay = function() {
     let str = '';
     for (let y=0; y < this.height; y++) {
         for (let x=0; x < this.width; x++) {
-            let chr = this.code[y][x];
-            let cc  = chr.charCodeAt(0);
+            let cc = this.code[y][x];
+            let chr  = String.fromCharCode(cc);
             if (chr === '&') chr = '&amp;';
             if (chr === '<') chr = '&lt;';
             if (chr === '>') chr = '&gt;';
@@ -285,7 +299,7 @@ BefObject.prototype.parseBef = function(str) {
         let row = [];
         for(let i=0; i < max; i++)
         {
-            row.push((i < line.length ? (line[i]) : ' '));
+            row.push((i < line.length ? (line[i]) : ' ').charCodeAt(0));
         }
         result.push(row)
     }
