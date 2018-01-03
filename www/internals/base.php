@@ -3,10 +3,27 @@
 global $CONFIG;
 $CONFIG = require 'config.php';
 
-$CSS_BASE = ($CONFIG['prod']) ? ('styles.min.css') : ('styles.css');
+global $CSS_BASE;
+$CSS_BASE = ($CONFIG['prod']) ? ('/data/css/styles.min.css') : ('/data/css/styles.css');
 
 global $REGISTERED_SCRIPTS;
 $REGISTERED_SCRIPTS = [];
+
+function InitPHP() {
+
+	set_error_handler("exception_error_handler"); // errors as exceptions for global catch
+
+	ob_start(); // buffer outpt so it can be discarded in httpError
+
+}
+
+function exception_error_handler($severity, $message, $file, $line) {
+	if (!(error_reporting() & $severity)) {
+		// This error code is not included in error_reporting
+		return;
+	}
+	throw new ErrorException($message, 0, $severity, $file, $line);
+}
 
 function startsWith($haystack, $needle)
 {
@@ -22,7 +39,12 @@ function endsWith($haystack, $needle)
 
 function httpError($errorcode, $message)
 {
-	die($message);//TODO errorcode
+	ob_clean();
+
+	global $OPTIONS;
+	$OPTIONS = [ 'code' => $errorcode, 'message' => $message ];
+	require (__DIR__ . '/../pages/errorview.php');
+	die();
 }
 
 function destructiveUrlEncode($str) {
@@ -81,4 +103,14 @@ function includeScriptOnce($script, $echo = true)
 		$REGISTERED_SCRIPTS []= $script;
 		return "<script src=\"$script\" type=\"text/javascript\"></script>";
 	}
+}
+
+function printCSS() {
+	global $CSS_BASE;
+	echo   '<link rel="stylesheet" href="' . $CSS_BASE . '"/>';
+}
+
+function isProd() {
+	global $CONFIG;
+	return $CONFIG['prod'];
 }

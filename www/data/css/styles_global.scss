@@ -24,6 +24,8 @@ body {
 @media(min-width:992px) { .content-responsive { width: 724px; } }
 @media(min-width:1200px){ .content-responsive { width: 1170px; } }
 
+.content-fullheight { flex-grow: 1;}
+
 .contentheader {
   width: 100%;
   color: $COL_TEXT_DARK;

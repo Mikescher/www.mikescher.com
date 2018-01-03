@@ -12,7 +12,7 @@ $allposts = Blog::listAllOrderedDescending();
 	<title>Mikescher.com - Blog</title>
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<link rel="stylesheet" href="/data/css/styles.css"/>
+	<link rel="stylesheet" href="<?php printCSS(); ?>"/>
 </head>
 <body>
 <div id="mastercontainer">

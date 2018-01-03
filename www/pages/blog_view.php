@@ -10,7 +10,7 @@ $subview = $OPTIONS['subview'];
 
 $post = Blog::getBlogpost($id);
 
-if ($post === NULL) httpError(404, 'blogpost not found');
+if ($post === NULL) httpError(404, 'Blogpost not found');
 
 ?>
 <head>
@@ -18,7 +18,7 @@ if ($post === NULL) httpError(404, 'blogpost not found');
 	<title>Mikescher.com - Blog</title>
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-    <link rel="stylesheet" href="/data/css/styles.css"/>
+	<?php printCSS(); ?>
 	<?php
     if ($post['type'] === 'euler' && $subview !== '')
 	{

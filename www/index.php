@@ -70,73 +70,89 @@ $URL_RULES =
 
 //#############################################################################
 
-$path      = strtolower(parse_url($_SERVER['REQUEST_URI'])['path']);
-$pathparts = preg_split('@/@', $path, NULL, PREG_SPLIT_NO_EMPTY);
-$partcount = count($pathparts);
+try {
+	InitPHP();
 
-global $OPTIONS;
-global $HEADER_ACTIVE;
+	$path      = strtolower(parse_url($_SERVER['REQUEST_URI'])['path']);
+	$pathparts = preg_split('@/@', $path, NULL, PREG_SPLIT_NO_EMPTY);
+	$partcount = count($pathparts);
 
-$HEADER_ACTIVE = 'none';
+	global $OPTIONS;
+	global $HEADER_ACTIVE;
 
-foreach ($URL_RULES as $rule)
-{
-	if ($partcount !== count($rule['url'])) continue;
-	
-	$urlparams = [];
-	
-	$match = true;
-	for($i = 0; $i < $partcount; $i++)
+	$HEADER_ACTIVE = 'none';
+
+	foreach ($URL_RULES as $rule)
 	{
-		$comp = $rule['url'][$i];
-		if (startsWith($comp, '?{') && endsWith($comp, '}'))
-		{
-			$ident = substr($comp, 2, strlen($comp)-3);
-			$urlparams[$ident] = $pathparts[$i];
-		}
-		else
-		{
-			if (strtolower($comp) !== strtolower($pathparts[$i])) { $match = false; break; }
-		}
-	}
-	if (!$match) continue;
-	
-	$opt = [];
-	foreach($rule['options'] as $optname => $optvalue)
-	{
-		$value = $optvalue;
-		
-		if ($value === '%GET%')
-		{
-			if (!isset($_GET[$optname])) { $match = false; break; }
-			$value = $_GET[$optname];
-		}
-		else if ($value === '%POST%')
-		{
-			if (!isset($_POST[$optname])) { $match = false; break; }
-			$value = $_POST[$optname];
-		}
-		else if ($value === '%URL%')
-		{
-			if (!isset($urlparams[$optname])) { $match = false; break; }
-			$value = $urlparams[$optname];
-		}
-		
-		$opt[strtolower($optname)] = $value;
-	}
-	if (!$match) continue;
-	
-	$OPTIONS = $opt;
-	include $rule['target'];
-	return;
-	
-}
+		if ($partcount !== count($rule['url'])) continue;
 
-{
-	// [404] - Page Not Found
-	$OPTIONS = [];
-	include 'pages/error_404.php';
-	return;
+		$urlparams = [];
+
+		$match = true;
+		for($i = 0; $i < $partcount; $i++)
+		{
+			$comp = $rule['url'][$i];
+			if (startsWith($comp, '?{') && endsWith($comp, '}'))
+			{
+				$ident = substr($comp, 2, strlen($comp)-3);
+				$urlparams[$ident] = $pathparts[$i];
+			}
+			else
+			{
+				if (strtolower($comp) !== strtolower($pathparts[$i])) { $match = false; break; }
+			}
+		}
+		if (!$match) continue;
+
+		$opt = [];
+		foreach($rule['options'] as $optname => $optvalue)
+		{
+			$value = $optvalue;
+
+			if ($value === '%GET%')
+			{
+				if (!isset($_GET[$optname])) { $match = false; break; }
+				$value = $_GET[$optname];
+			}
+			else if ($value === '%POST%')
+			{
+				if (!isset($_POST[$optname])) { $match = false; break; }
+				$value = $_POST[$optname];
+			}
+			else if ($value === '%URL%')
+			{
+				if (!isset($urlparams[$optname])) { $match = false; break; }
+				$value = $urlparams[$optname];
+			}
+
+			$opt[strtolower($optname)] = $value;
+		}
+		if (!$match) continue;
+
+		$OPTIONS = $opt;
+		include $rule['target'];
+		return;
+
+	}
+
+	{
+		// [404] - Page Not Found
+		$OPTIONS = [];
+		httpError('404', 'Page not found');
+		return;
+	}
+
+} catch (Exception $e) {
+
+	if (isProd())
+	{
+		httpError('500 ', 'Internal server error');
+	}
+	else
+	{
+		echo '<table class="xdebug-error xe-uncaught-exception" dir="ltr" border="1" cellspacing="0" cellpadding="1">'.$e->xdebug_message.'</table>';
+	}
+
 }
 
 

@@ -25,6 +25,9 @@ body {
 @media (min-width: 1200px) {
   .content-responsive {
     width: 1170px; } }
+.content-fullheight {
+  flex-grow: 1; }
+
 .contentheader {
   width: 100%;
   color: #333;
@@ -134,6 +137,8 @@ html, body {
   height: 100%; }
 
 #mastercontainer {
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
   position: relative; }
 
@@ -448,6 +453,27 @@ html, body {
 
   .bce_pag05 {
     flex-direction: row; } }
+.ev_master {
+  align-self: center; }
+  @media (min-width: 850px) {
+    .ev_master {
+      padding-bottom: 80px; } }
+  .ev_master .ev_code {
+    color: #000;
+    text-align: center;
+    font-size: 150pt;
+    font-weight: 500;
+    font-family: Consolas, Monaco, "Courier New", Menlo, monospace; }
+  .ev_master .ev_msg {
+    color: #888;
+    text-align: center;
+    font-size: 25pt; }
+  @media (max-width: 767px) {
+    .ev_master .ev_code {
+      font-size: 75pt; }
+    .ev_master .ev_msg {
+      font-size: 15pt; } }
+
 .euler_pnl_base {
   display: inline-flex;
   flex-direction: column;

@@ -9,7 +9,7 @@ $subview = $OPTIONS['subview'];
 $euler   = Euler::listAll();
 $problem = Euler::getEulerProblemFromStrIdent($subview);
 
-if ($post === NULL) httpError(404, 'problem not found');
+if ($problem === NULL) httpError(404, 'Project Euler entry not found');
 
 $pd = new ParsedownCustom();
 
