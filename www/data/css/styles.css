@@ -98,6 +98,8 @@ body {
       #headerdiv .tabrow .tab:hover {
         cursor: pointer;
         background-color: #555; }
+    #headerdiv .tabrow .tab_active {
+      background-color: #422; }
     #headerdiv .tabrow .tab_split {
       flex: auto; }
     #headerdiv .tabrow .tab_github {

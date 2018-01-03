@@ -75,6 +75,9 @@ $pathparts = preg_split('@/@', $path, NULL, PREG_SPLIT_NO_EMPTY);
 $partcount = count($pathparts);
 
 global $OPTIONS;
+global $HEADER_ACTIVE;
+
+$HEADER_ACTIVE = 'none';
 
 foreach ($URL_RULES as $rule)
 {

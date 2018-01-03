@@ -17,7 +17,7 @@ $allposts = Blog::listAllOrderedDescending();
 <body>
 <div id="mastercontainer">
 
-<?php include (__DIR__ . '/../fragments/header.php');  ?>
+<?php $HEADER_ACTIVE='blog'; include (__DIR__ . '/../fragments/header.php');  ?>
 
 <div id="content" class="content-responsive">
 

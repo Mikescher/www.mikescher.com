@@ -36,7 +36,7 @@ if ($post === NULL) httpError(404, 'blogpost not found');
 <body>
 <div id="mastercontainer">
 
-<?php include (__DIR__ . '/../fragments/header.php');  ?>
+<?php $HEADER_ACTIVE = ($post['type']==='euler' && $subview==='') ? 'euler' : 'none'; include (__DIR__ . '/../fragments/header.php'); ?>
 
 <div id="content" class="content-responsive">
 

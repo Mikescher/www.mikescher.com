@@ -11,7 +11,7 @@
 <body>
 <div id="mastercontainer">
 
-	<?php include (__DIR__ . '/../fragments/header.php');  ?>
+	<?php $HEADER_ACTIVE='home'; include (__DIR__ . '/../fragments/header.php');  ?>
 
 	<div id="content" class="content-responsive">
 
