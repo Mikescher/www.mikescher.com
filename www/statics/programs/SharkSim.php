@@ -13,5 +13,5 @@ return
 	[
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/SharkSim_description.md'); },
-	'thumbnail_url'     => 'SharkSim.png',
+	'thumbnail_name'    => 'SharkSim.png',
 ];

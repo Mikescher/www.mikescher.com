@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Sieb des Eratosthenes_description.md'); },
-	'thumbnail_url'     => 'Sieb des Eratosthenes.png',
+	'thumbnail_name'    => 'Sieb des Eratosthenes.png',
 ];

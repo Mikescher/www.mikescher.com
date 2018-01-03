@@ -15,5 +15,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Beepster_description.md'); },
-	'thumbnail_url'     => 'Beepster.png',
+	'thumbnail_name'    => 'Beepster.png',
 ];

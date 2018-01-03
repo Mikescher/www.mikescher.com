@@ -9,7 +9,7 @@
 <div class="euler_pnl_base">
 
 	<div class="euler_pnl_header">
-        <a href="">Project Euler with Befunge-93</a>
+        <a href="/blog/1/Project_Euler_with_Befunge">Project Euler with Befunge-93</a>
 	</div>
 	<div class="euler_pnl_content">
 

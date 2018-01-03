@@ -15,5 +15,5 @@ return
 		'github'      => 'https://github.com/Mikescher/SuperBitBros',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/SuperBitBros_description.md'); },
-	'thumbnail_url'     => 'SuperBitBros.png',
+	'thumbnail_name'    => 'SuperBitBros.png',
 ];

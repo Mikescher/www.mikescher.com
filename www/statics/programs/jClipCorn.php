@@ -16,5 +16,5 @@ return
 		'wiki'        => 'https://github.com/Mikescher/jClipCorn/wiki',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/jClipCorn_description.md'); },
-	'thumbnail_url'     => 'jClipCorn.png',
+	'thumbnail_name'    => 'jClipCorn.png',
 ];

@@ -72,7 +72,7 @@ void Do(int ID, string Name, string Thumbnailname, int Downloads, string Kategor
 	if (!string.IsNullOrWhiteSpace(github_url)) b.AppendLine($"\t\t'github'      => '{ToLiteral(github_url)}',");
 	b.AppendLine($"\t],");
 	b.AppendLine($"\t'long_description'  => function(){{ return file_get_contents(__DIR__ . '/{Name}_description.md'); }},");
-	b.AppendLine($"\t'thumbnail_url'     => '/images/program_thumbnails/{Name}.png',");
+	b.AppendLine($"\t'thumbnail_name'    => '/images/program_thumbnails/{Name}.png',");
 	b.AppendLine($"];");
 
 	File.WriteAllText(@"C:\Users\schwoerm\Desktop\M\hp\v4\www\rawdata\programs\" + $"{Name}.php", b.ToString(), ENC);

@@ -14,5 +14,5 @@
 
 for ($i = 0; $i < count($entries); $i++)
 {
-	print($entries[$i]['POINTS'] . '||' . htmlentities($entries[$i]['PLAYER']) . "\r\n");
+	print($entries[$i]['POINTS'] . '||' . htmlspecialchars($entries[$i]['PLAYER']) . "\r\n");
 }

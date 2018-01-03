@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Deal or no Deal_description.md'); },
-	'thumbnail_url'     => 'Deal or no Deal.png',
+	'thumbnail_name'    => 'Deal or no Deal.png',
 ];

@@ -15,5 +15,5 @@ return
 		'sourceforge' => 'http://sourceforge.net/projects/jcircuits/',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/jCircuits_description.md'); },
-	'thumbnail_url'     => 'jCircuits.png',
+	'thumbnail_name'    => 'jCircuits.png',
 ];

@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Graveyard of Numbers_description.md'); },
-	'thumbnail_url'     => 'Graveyard of Numbers.png',
+	'thumbnail_name'    => 'Graveyard of Numbers.png',
 ];

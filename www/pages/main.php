@@ -17,6 +17,8 @@
 
 		<?php include (__DIR__ . '/../fragments/eulerpanel.php');  ?>
 
+		<?php include (__DIR__ . '/../fragments/programspanel.php');  ?>
+
 	</div>
 
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>

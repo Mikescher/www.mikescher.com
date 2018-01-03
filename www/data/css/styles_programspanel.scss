@@ -1,0 +1,130 @@
+@import 'styles_config';
+
+.programs_pnl_base {
+  display: inline-flex;
+  flex-direction: column;
+
+  border: 1px solid #AAA;
+  border-radius: 5px 5px 0 0;
+  margin: 15px;
+
+  width: 652px;
+}
+
+.programs_pnl_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px;
+  background: #AAA;
+}
+
+.programs_pnl_header a {
+  color: #222;
+  text-decoration: none;
+
+
+  font-family: $FONT_HEADER;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.programs_pnl_content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  background: #DDD;
+
+  padding: 6px;
+
+  .programs_pnl_entry {
+    display: flex;
+    flex-direction: column;
+
+    width: 190px;
+
+    border: 1px solid #333;
+    background: #AAA;
+    color: #000;
+    text-decoration: none;
+
+    margin: 4px;
+
+    &:hover {
+      box-shadow: 0 0 8px #000000;
+    }
+  }
+
+  .programs_pnl_img {
+    min-height: 140px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin: 4px;
+  }
+
+  .programs_pnl_img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .programs_pnl_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: black;
+    font-weight: bolder;
+    font-size: 16pt;
+
+    flex-grow: 1;
+  }
+
+  .programs_pnl_bottom {
+    background: #888;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .programs_pnl_bottom_1, .programs_pnl_bottom_2 {
+    flex-grow: 1;
+    text-align: center;
+
+    display:flex;
+    flex-direction: column;
+  }
+
+  .programs_pnl_bottom_sub_top {
+    color: #444;
+  }
+
+  .programs_pnl_bottom_sub_bot {
+    color: #111;
+    font-weight: bolder;
+  }
+}
+
+@media (max-width: 850px) {
+  .programs_pnl_base {
+    width: 320px;
+
+    .programs_pnl_entry {
+      width: 100%;
+    }
+
+    .programs_pnl_bottom_sub_top {
+      margin-left:  4px;
+      margin-right: 6px;
+    }
+
+    .programs_pnl_bottom_1, .programs_pnl_bottom_2 {
+      flex-direction: row;
+    }
+  }
+}
+

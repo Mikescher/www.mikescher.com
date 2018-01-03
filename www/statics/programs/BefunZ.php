@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/BefunZ_description.md'); },
-	'thumbnail_url'     => 'BefunZ.png',
+	'thumbnail_name'    => 'BefunZ.png',
 ];

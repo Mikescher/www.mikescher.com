@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Crystal Grid_description.md'); },
-	'thumbnail_url'     => 'Crystal Grid.png',
+	'thumbnail_name'    => 'Crystal Grid.png',
 ];

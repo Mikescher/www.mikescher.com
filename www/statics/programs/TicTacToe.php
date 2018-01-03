@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/TicTacToe_description.md'); },
-	'thumbnail_url'     => 'TicTacToe.png',
+	'thumbnail_name'    => 'TicTacToe.png',
 ];

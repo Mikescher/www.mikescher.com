@@ -14,5 +14,5 @@ return
 		'download'    => 'https://github.com/Mikescher/extendedGitGraph/',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/ExtendedGitGraph_description.md'); },
-	'thumbnail_url'     => 'ExtendedGitGraph.png',
+	'thumbnail_name'    => 'ExtendedGitGraph.png',
 ];

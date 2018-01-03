@@ -7,13 +7,12 @@ return
 	'stars'             => 2,
 	'ui_language'       => 'German',
 	'prog_language'     => 'Delphi',
-	'short_description' => 'List all files in a folder that match a specific pattern and export them in plain" +
-    "text.',
+	'short_description' => 'List all files in a folder that match a specific pattern and export them in plaintext.',
 	'add_date'          => '2010-01-12',
 	'urls'              =>
 	[
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Smart Directory Lister_description.md'); },
-	'thumbnail_url'     => 'Smart Directory Lister.png',
+	'thumbnail_name'    => 'Smart Directory Lister.png',
 ];

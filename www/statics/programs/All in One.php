@@ -14,5 +14,5 @@ return
 		'download'    => 'direkt',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/All in One_description.md'); },
-	'thumbnail_url'     => 'All in One.png',
+	'thumbnail_name'    => 'All in One.png',
 ];

@@ -15,5 +15,5 @@ return
 		'github'      => 'https://github.com/Mikescher/Passpad',
 	],
 	'long_description'  => function(){ return file_get_contents(__DIR__ . '/Passpad_description.md'); },
-	'thumbnail_url'     => 'Passpad.png',
+	'thumbnail_name'    => 'Passpad.png',
 ];
