@@ -2,10 +2,8 @@
 
 class Programs
 {
-	public static function readSingle($f)
+	public static function readSingle($a)
 	{
-		$a = require $f;
-
 		$a['thumbnail_url'] = '/data/images/program_thumbnails/' . $a['thumbnail_name'];
 		$a['url'] = '/programs/view/' . $a['name'];
 
@@ -14,9 +12,9 @@ class Programs
 
 	public static function listAll()
 	{
-		$files = glob(__DIR__ . '/../statics/programs/*.php');
-		
-		return array_map('self::readSingle', $files);
+		$all = require (__DIR__ . '/../statics/programs/__all.php');
+
+		return array_map('self::readSingle', $all);
 	}
 
 	public static function listAllNewestFirst()

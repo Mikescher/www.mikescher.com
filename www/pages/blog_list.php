@@ -12,7 +12,7 @@ $allposts = Blog::listAllOrderedDescending();
 	<title>Mikescher.com - Blog</title>
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<link rel="stylesheet" href="<?php printCSS(); ?>"/>
+	<?php printCSS(); ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -32,11 +32,11 @@ $allposts = Blog::listAllOrderedDescending();
 			{
 				if (!$post['visible']) continue;
 
-				if ($post['cat']=='blog')     echo "<a class='bloglistelem ble_blog' href='" . $post['url'] . "'>";
-				else if ($post['cat']=='log') echo "<a class='bloglistelem ble_log' href='"  . $post['url'] . "'>";
-				echo "<div class='ble_date'>"  . $post['date'] . "</div>";
-				echo "<div class='ble_title'>"  . $post['title'] . "</div>";
-				echo "</a>";
+				if ($post['cat']=='blog')     echo "<a class='bloglistelem ble_blog' href='" . $post['url'] . "'>\n";
+				else if ($post['cat']=='log') echo "<a class='bloglistelem ble_log' href='"  . $post['url'] . "'>\n";
+				echo "<div class='ble_date'>"  . $post['date'] . "</div>\n";
+				echo "<div class='ble_title'>"  . $post['title'] . "</div>\n";
+				echo "</a>\n";
 			}
 
 			?>

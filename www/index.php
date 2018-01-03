@@ -73,7 +73,14 @@ $URL_RULES =
 try {
 	InitPHP();
 
-	$path      = strtolower(parse_url($_SERVER['REQUEST_URI'])['path']);
+	if (isProd())
+		$requri = $_SERVER['REQUEST_URI'];
+	else
+		$requri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : 'localhost:80/';
+
+	$parse = parse_url($requri);
+
+	$path      = strtolower(isset($parse['path']) ? $parse['path'] : '');
 	$pathparts = preg_split('@/@', $path, NULL, PREG_SPLIT_NO_EMPTY);
 	$partcount = count($pathparts);
 

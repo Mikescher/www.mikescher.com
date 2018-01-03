@@ -2,10 +2,8 @@
 
 class Euler
 {
-	public static function readSingle($f)
+	public static function readSingle($a)
 	{
-		$a = require $f;
-
 		$n3p = str_pad($a['number'], 3, '0', STR_PAD_LEFT);
 		$a['number3'] = $n3p;
 
@@ -29,10 +27,9 @@ class Euler
 
 	public static function listAll()
 	{
-		$expr = __DIR__ . '/../statics/euler/Euler_Problem-*.php';
-		$files = glob($expr);
-		
-		return array_map('self::readSingle', $files);
+		$all = require (__DIR__ . '/../statics/euler/__all.php');
+
+		return array_map('self::readSingle', $all);
 	}
 
 	public static function getEulerProblemFromStrIdent($ident)
