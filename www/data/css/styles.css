@@ -625,8 +625,9 @@ html, body {
     text-align: center;
     color: black;
     font-weight: bolder;
-    font-size: 16pt;
-    flex-grow: 1; }
+    font-size: 15pt;
+    flex-grow: 1;
+    margin: 0 2px; }
   .programs_pnl_content .programs_pnl_bottom {
     background: #888;
     display: flex;

@@ -4,8 +4,10 @@ class Programs
 {
 	public static function readSingle($a)
 	{
-		$a['thumbnail_url'] = '/data/images/program_thumbnails/' . $a['thumbnail_name'];
-		$a['url'] = '/programs/view/' . $a['name'];
+		$a['thumbnail_url']        = '/data/images/program_thumbnails/' . $a['internal_name'] . '.png';
+		$a['file_longdescription'] = (__DIR__ . '/../statics/programs/' . $a['internal_name'] . '_descrition.md');
+		$a['url']                  = '/programs/view/' . $a['internal_name'];
+
 
 		return $a;
 	}

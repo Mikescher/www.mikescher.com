@@ -4,6 +4,7 @@ return
 [
 	[
 		'name'              => 'absCanvas',
+		'internal_name'     => 'absCanvas',
 		'category'          => 'Engine',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -14,13 +15,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/absCanvas_description.md'); },
-		'thumbnail_name'    => 'absCanvas.png',
 	],
 
 
 	[
 		'name'              => 'All in One',
+		'internal_name'     => 'All in One',
 		'category'          => 'Tool',
 		'stars'             => 1,
 		'ui_language'       => 'German',
@@ -31,13 +31,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/All in One_description.md'); },
-		'thumbnail_name'    => 'All in One.png',
 	],
 
 
 	[
 		'name'              => 'Beepster',
+		'internal_name'     => 'Beepster',
 		'category'          => 'Hoax',
 		'stars'             => 0,
 		'ui_language'       => 'English',
@@ -48,13 +47,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Beepster_description.md'); },
-		'thumbnail_name'    => 'Beepster.png',
 	],
 
 
 	[
 		'name'              => 'BefunUtils',
+		'internal_name'     => 'BefunUtils',
 		'category'          => 'Compiler',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -66,13 +64,12 @@ return
 				'github'      => 'https://github.com/Mikescher/BefunUtils',
 				'wiki'        => 'https://github.com/Mikescher/BefunUtils/wiki',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/BefunUtils_description.md'); },
-		'thumbnail_name'    => 'BefunUtils.png',
 	],
 
 
 	[
 		'name'              => 'BefunZ',
+		'internal_name'     => 'BefunZ',
 		'category'          => 'Interpreter',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -83,13 +80,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/BefunZ_description.md'); },
-		'thumbnail_name'    => 'BefunZ.png',
 	],
 
 
 	[
 		'name'              => 'Blitzer',
+		'internal_name'     => 'Blitzer',
 		'category'          => 'Hoax',
 		'stars'             => 0,
 		'ui_language'       => 'English',
@@ -100,13 +96,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Blitzer_description.md'); },
-		'thumbnail_name'    => 'Blitzer.png',
 	],
 
 
 	[
 		'name'              => 'Borderline Defense',
+		'internal_name'     => 'Borderline Defense',
 		'category'          => 'Game',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -118,13 +113,12 @@ return
 				'download'    => 'direkt',
 				'homepage'    => 'http://borderlinedefense.99k.org/',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Borderline Defense_description.md'); },
-		'thumbnail_name'    => 'Borderline Defense.png',
 	],
 
 
 	[
 		'name'              => 'Crystal Grid',
+		'internal_name'     => 'Crystal Grid',
 		'category'          => 'Game',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -135,13 +129,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Crystal Grid_description.md'); },
-		'thumbnail_name'    => 'Crystal Grid.png',
 	],
 
 
 	[
 		'name'              => 'Deal or no Deal',
+		'internal_name'     => 'Deal or no Deal',
 		'category'          => 'Game',
 		'stars'             => 0,
 		'ui_language'       => 'German',
@@ -152,13 +145,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Deal or no Deal_description.md'); },
-		'thumbnail_name'    => 'Deal or no Deal.png',
 	],
 
 
 	[
 		'name'              => 'Dynamic Link Fighters',
+		'internal_name'     => 'Dynamic Link Fighters',
 		'category'          => 'Game',
 		'stars'             => 1,
 		'ui_language'       => 'English|German',
@@ -169,13 +161,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Dynamic Link Fighters_description.md'); },
-		'thumbnail_name'    => 'Dynamic Link Fighters.png',
 	],
 
 
 	[
 		'name'              => 'exeExtract',
+		'internal_name'     => 'exeExtract',
 		'category'          => 'Tool',
 		'stars'             => 0,
 		'ui_language'       => 'English',
@@ -186,13 +177,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/exeExtract_description.md'); },
-		'thumbnail_name'    => 'exeExtract.png',
 	],
 
 
 	[
 		'name'              => 'ExtendedGitGraph',
+		'internal_name'     => 'ExtendedGitGraph',
 		'category'          => 'Library',
 		'stars'             => 2,
 		'ui_language'       => 'English',
@@ -203,13 +193,12 @@ return
 			[
 				'download'    => 'https://github.com/Mikescher/extendedGitGraph/',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/ExtendedGitGraph_description.md'); },
-		'thumbnail_name'    => 'ExtendedGitGraph.png',
 	],
 
 
 	[
 		'name'              => 'Graveyard of Numbers',
+		'internal_name'     => 'Graveyard of Numbers',
 		'category'          => 'Tool',
 		'stars'             => 0,
 		'ui_language'       => 'German',
@@ -220,13 +209,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Graveyard of Numbers_description.md'); },
-		'thumbnail_name'    => 'Graveyard of Numbers.png',
 	],
 
 
 	[
-		'name'              => 'H2O',
+		'name'              => 'H²O',
+		'internal_name'     => 'H2O',
 		'category'          => 'Game',
 		'stars'             => 2,
 		'ui_language'       => 'English',
@@ -237,13 +225,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/H2O_description.md'); },
-		'thumbnail_name'    => 'H2O.png',
 	],
 
 
 	[
 		'name'              => 'HexSolver',
+		'internal_name'     => 'HexSolver',
 		'category'          => 'Tool',
 		'stars'             => 5,
 		'ui_language'       => 'English',
@@ -253,14 +240,14 @@ return
 		'urls'              =>
 			[
 				'github'      => 'https://github.com/Mikescher/HexSolver',
+				'download'    => 'https://github.com/Mikescher/HexSolver/releases',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/HexSolver_description.md'); },
-		'thumbnail_name'    => 'HexSolver.png',
 	],
 
 
 	[
 		'name'              => 'Infinity Tournament',
+		'internal_name'     => 'Infinity Tournament',
 		'category'          => 'Game',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -271,13 +258,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Infinity Tournament_description.md'); },
-		'thumbnail_name'    => 'Infinity Tournament.png',
 	],
 
 
 	[
 		'name'              => 'jCircuits',
+		'internal_name'     => 'jCircuits',
 		'category'          => 'Simulation',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -289,13 +275,12 @@ return
 				'download'    => 'direkt',
 				'sourceforge' => 'http://sourceforge.net/projects/jcircuits/',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/jCircuits_description.md'); },
-		'thumbnail_name'    => 'jCircuits.png',
 	],
 
 
 	[
 		'name'              => 'jClipCorn',
+		'internal_name'     => 'jClipCorn',
 		'category'          => 'Tool',
 		'stars'             => 4,
 		'ui_language'       => 'English|German',
@@ -308,13 +293,12 @@ return
 				'github'      => 'https://github.com/Mikescher/jClipCorn/',
 				'wiki'        => 'https://github.com/Mikescher/jClipCorn/wiki',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/jClipCorn_description.md'); },
-		'thumbnail_name'    => 'jClipCorn.png',
 	],
 
 
 	[
 		'name'              => 'jQCCounter',
+		'internal_name'     => 'jQCCounter',
 		'category'          => 'Tool',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -324,14 +308,14 @@ return
 		'urls'              =>
 			[
 				'github'      => 'https://github.com/Mikescher/jQCCounter',
+				'download'    => 'https://github.com/Mikescher/jQCCounter/releases',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/jQCCounter_description.md'); },
-		'thumbnail_name'    => 'jQCCounter.png',
 	],
 
 
 	[
 		'name'              => 'Keygen Dancer',
+		'internal_name'     => 'Keygen Dancer',
 		'category'          => 'Gadget',
 		'stars'             => 2,
 		'ui_language'       => 'English',
@@ -340,14 +324,14 @@ return
 		'add_date'          => '2010-03-16',
 		'urls'              =>
 			[
+				//TODO url
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Keygen Dancer_description.md'); },
-		'thumbnail_name'    => 'Keygen Dancer.png',
 	],
 
 
 	[
 		'name'              => 'LAN-Control',
+		'internal_name'     => 'LAN-Control',
 		'category'          => 'Network administration',
 		'stars'             => 1,
 		'ui_language'       => 'German',
@@ -358,13 +342,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/LAN-Control_description.md'); },
-		'thumbnail_name'    => 'LAN-Control.png',
 	],
 
 
 	[
 		'name'              => 'LightShow',
+		'internal_name'     => 'LightShow',
 		'category'          => 'Hoax',
 		'stars'             => 0,
 		'ui_language'       => 'German',
@@ -375,13 +358,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/LightShow_description.md'); },
-		'thumbnail_name'    => 'LightShow.png',
 	],
 
 
 	[
 		'name'              => 'Logistixx',
+		'internal_name'     => 'Logistixx',
 		'category'          => 'Mathematics',
 		'stars'             => 1,
 		'ui_language'       => 'German',
@@ -392,13 +374,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Logistixx_description.md'); },
-		'thumbnail_name'    => 'Logistixx.png',
 	],
 
 
 	[
 		'name'              => 'NedSchend',
+		'internal_name'     => 'NedSchend',
 		'category'          => 'Hoax',
 		'stars'             => 1,
 		'ui_language'       => 'German',
@@ -409,13 +390,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/NedSchend_description.md'); },
-		'thumbnail_name'    => 'NedSchend.png',
 	],
 
 
 	[
 		'name'              => 'Passpad',
+		'internal_name'     => 'Passpad',
 		'category'          => 'Tool',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -427,13 +407,12 @@ return
 				'download'    => 'https://github.com/Mikescher/Passpad/releases',
 				'github'      => 'https://github.com/Mikescher/Passpad',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Passpad_description.md'); },
-		'thumbnail_name'    => 'Passpad.png',
 	],
 
 
 	[
 		'name'              => 'Serpilicum',
+		'internal_name'     => 'Serpilicum',
 		'category'          => 'Game',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -445,13 +424,12 @@ return
 				'download'    => 'direkt',
 				'github'      => 'https://github.com/Mikescher/Serpilicum',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Serpilicum_description.md'); },
-		'thumbnail_name'    => 'Serpilicum.png',
 	],
 
 
 	[
 		'name'              => 'SharkSim',
+		'internal_name'     => 'SharkSim',
 		'category'          => 'Simulation',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -460,14 +438,14 @@ return
 		'add_date'          => '2013-07-12',
 		'urls'              =>
 			[
+				'github' => 'https://github.com/Mikescher/SharkSim',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/SharkSim_description.md'); },
-		'thumbnail_name'    => 'SharkSim.png',
 	],
 
 
 	[
 		'name'              => 'Sieb des Eratosthenes',
+		'internal_name'     => 'Sieb des Eratosthenes',
 		'category'          => 'Mathematics',
 		'stars'             => 1,
 		'ui_language'       => 'German',
@@ -478,13 +456,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Sieb des Eratosthenes_description.md'); },
-		'thumbnail_name'    => 'Sieb des Eratosthenes.png',
 	],
 
 
 	[
 		'name'              => 'Smart Directory Lister',
+		'internal_name'     => 'Smart Directory Lister',
 		'category'          => 'Tool',
 		'stars'             => 2,
 		'ui_language'       => 'German',
@@ -495,13 +472,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Smart Directory Lister_description.md'); },
-		'thumbnail_name'    => 'Smart Directory Lister.png',
 	],
 
 
 	[
 		'name'              => 'SuperBitBros',
+		'internal_name'     => 'SuperBitBros',
 		'category'          => 'Game',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -513,13 +489,12 @@ return
 				'download'    => 'direkt',
 				'github'      => 'https://github.com/Mikescher/SuperBitBros',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/SuperBitBros_description.md'); },
-		'thumbnail_name'    => 'SuperBitBros.png',
 	],
 
 
 	[
 		'name'              => 'TicTacToe',
+		'internal_name'     => 'TicTacToe',
 		'category'          => 'Game',
 		'stars'             => 1,
 		'ui_language'       => 'English',
@@ -530,13 +505,12 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/TicTacToe_description.md'); },
-		'thumbnail_name'    => 'TicTacToe.png',
 	],
 
 
 	[
 		'name'              => 'Ziegenproblem',
+		'internal_name'     => 'Ziegenproblem',
 		'category'          => 'Mathematics',
 		'stars'             => 0,
 		'ui_language'       => 'German',
@@ -547,7 +521,22 @@ return
 			[
 				'download'    => 'direkt',
 			],
-		'long_description'  => function(){ return file_get_contents(__DIR__ . '/Ziegenproblem_description.md'); },
-		'thumbnail_name'    => 'Ziegenproblem.png',
+	],
+
+
+	[
+		'name'              => 'Quick HiddenFolder Toggle',
+		'internal_name'     => 'QuickHiddenFolderToggle',
+		'category'          => 'Tool',
+		'stars'             => 3,
+		'ui_language'       => 'English',
+		'prog_language'     => 'C#',
+		'short_description' => 'Quickly toggle the explorer option "Show hidden files/folders" via the taskbar',
+		'add_date'          => '2016-01-03',
+		'urls'              =>
+			[
+				'download'    => 'https://github.com/Mikescher/QuickHiddenFolderToggle/releases',
+				'github'      => 'https://github.com/Mikescher/QuickHiddenFolderToggle',
+			],
 	],
 ];
