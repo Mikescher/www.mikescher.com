@@ -8,7 +8,6 @@ class Programs
 		$a['file_longdescription'] = (__DIR__ . '/../statics/programs/' . $a['internal_name'] . '_descrition.md');
 		$a['url']                  = '/programs/view/' . $a['internal_name'];
 
-
 		return $a;
 	}
 

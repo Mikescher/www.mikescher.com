@@ -172,6 +172,5 @@ try {
 //TODO remove db table prefixes
 //TODO highlight active header TAB
 
-//TODO +QuickHiddenFolderToggle
 //TODO +AlephNote
 //TODO +CannonConquest

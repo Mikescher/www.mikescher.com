@@ -539,4 +539,24 @@ return
 				'github'      => 'https://github.com/Mikescher/QuickHiddenFolderToggle',
 			],
 	],
+
+
+	[
+		'name'              => 'Cannon Conquest',
+		'internal_name'     => 'CannonConquest',
+		'category'          => 'Game',
+		'stars'             => 5,
+		'ui_language'       => 'English|German|French|Italian|Spanish',
+		'prog_language'     => 'C#',
+		'short_description' => 'A 2D tactical puzzler, free with over 100 levels. Made with Xamarin for android/iPhone/WinPhone',
+		'add_date'          => '2017-09-01',
+		'urls'              =>
+			[
+				'playstore'      => 'https://play.google.com/store/apps/details?id=com.blackforestbytes.griddominance.iab',
+				'amazonappstore' => 'https://www.amazon.com/gp/product/B075QMHZV7',
+				'windowsstore'   => 'https://www.microsoft.com/de-de/store/p/cannon-conquest/9nx24pbs19rp?rtc=1',
+				'itunesstore'    => 'https://itunes.apple.com/us/app/cannon-conquest/id1303565192',
+				'github'         => 'https://github.com/Mikescher/GridDominance',
+			],
+	],
 ];

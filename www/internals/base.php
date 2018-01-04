@@ -41,6 +41,8 @@ function httpError($errorcode, $message)
 {
 	ob_clean();
 
+	http_response_code($errorcode);
+
 	global $OPTIONS;
 	$OPTIONS = [ 'code' => $errorcode, 'message' => $message ];
 	require (__DIR__ . '/../pages/errorview.php');
