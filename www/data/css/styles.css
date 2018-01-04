@@ -610,7 +610,6 @@ html, body {
     .programs_pnl_content .programs_pnl_entry:hover {
       box-shadow: 0 0 8px #000000; }
   .programs_pnl_content .programs_pnl_img {
-    min-height: 140px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -621,7 +620,7 @@ html, body {
   .programs_pnl_content .programs_pnl_center {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     text-align: center;
     color: black;
     font-weight: bolder;

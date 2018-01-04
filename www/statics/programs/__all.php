@@ -559,4 +559,22 @@ return
 				'github'         => 'https://github.com/Mikescher/GridDominance',
 			],
 	],
+
+
+	[
+		'name'              => 'AlephNote',
+		'internal_name'     => 'AlephNote',
+		'category'          => 'Tool',
+		'stars'             => 5,
+		'ui_language'       => 'English',
+		'prog_language'     => 'C#',
+		'short_description' => 'Lightweight note taking client for Simplenote/Standard-Notes/Nextcloud/Local',
+		'add_date'          => '2017-02-26',
+		'urls'              =>
+			[
+				'download'    => 'https://github.com/Mikescher/AlephNote//releases',
+				'github'      => 'https://github.com/Mikescher/AlephNote/',
+				'homepage'    => 'https://mikescher.github.io/AlephNote/',
+			],
+	],
 ];

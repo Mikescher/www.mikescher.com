@@ -59,7 +59,6 @@
   }
 
   .programs_pnl_img {
-    min-height: 140px;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -75,7 +74,7 @@
   .programs_pnl_center {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     text-align: center;
 
     color: black;

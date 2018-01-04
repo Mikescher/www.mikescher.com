@@ -165,12 +165,7 @@ try {
 
 //TODO printed books 2 hp
 //TODO programs (sort out)
-//TODO befunge runner for bef-blog + euler
 //TODO fast
 //TODO gzip (?)
 //TODO better gh widget
 //TODO remove db table prefixes
-//TODO highlight active header TAB
-
-//TODO +AlephNote
-//TODO +CannonConquest
