@@ -12,6 +12,7 @@ $allposts = Blog::listAllOrderedDescending();
 	<title>Mikescher.com - Blog</title>
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
+    <link rel="canonical" href="https://www.mikescher.com/blog"/>
 	<?php printCSS(); ?>
 </head>
 <body>

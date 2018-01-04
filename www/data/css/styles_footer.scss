@@ -49,3 +49,7 @@ html, body {
   background: #CCCCCCFF;
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from($COL_TEXT_NORMAL), to($COL_TRANSPARENT));
 }
+
+@media (max-width: 850px) {
+  #footerdiv .footerspan2 {display: none;  visibility: collapse;}
+}

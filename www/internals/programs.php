@@ -18,10 +18,11 @@ class Programs
 		return array_map('self::readSingle', $all);
 	}
 
-	public static function listAllNewestFirst()
+	public static function listAllNewestFirst($filter = '')
 	{
 		$data = self::listAll();
 		usort($data, function($a, $b) { return strcasecmp($b['add_date'], $a['add_date']); });
+		if ($filter !== '') $data = array_filter($data, function($a) use($filter) { return strtolower($a['category']) === strtolower($filter); });
 		return $data;
 	}
 
