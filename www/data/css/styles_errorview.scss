@@ -4,7 +4,7 @@
 
   align-self: center;
 
-  @media(min-width:850px) {padding-bottom: 80px;}
+  @include rdmedia_range(2,4) {padding-bottom: 80px;}
 
   .ev_code {
     color: #000;
@@ -20,9 +20,9 @@
     font-size: 25pt;
   }
 
-  @media(max-width:767px) {
-    .ev_code {  font-size: 75pt; }
-    .ev_msg { font-size: 15pt; }
+  @include rdmedia(0) {
+    .ev_code { font-size: 75pt; }
+    .ev_msg  { font-size: 15pt; }
   }
 
 }

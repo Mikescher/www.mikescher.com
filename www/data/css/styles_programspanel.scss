@@ -110,7 +110,7 @@
   }
 }
 
-@media (max-width: 850px) {
+@include rdmedia_range(0,1) {
   .programs_pnl_base {
     width: 320px;
 

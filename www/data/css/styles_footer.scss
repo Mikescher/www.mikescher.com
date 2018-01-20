@@ -35,10 +35,11 @@ html, body {
 
 //----------------------------------------------
 
-@media(max-width:767px) { #footerdiv { width: auto; } }
-@media(min-width:768px) { #footerdiv { width: auto; } }
-@media(min-width:992px) { #footerdiv { width: 724px; } }
-@media(min-width:1200px){ #footerdiv { width: 1170px; } }
+@include rdmedia(0) { #footerdiv { width: auto;   } }
+@include rdmedia(1) { #footerdiv { width: auto;   } }
+@include rdmedia(2) { #footerdiv { width: auto;   } }
+@include rdmedia(3) { #footerdiv { width: 724px;  } }
+@include rdmedia(4) { #footerdiv { width: 1170px; } }
 
 #footerdiv hr {
   margin-bottom: 5px;
@@ -50,6 +51,6 @@ html, body {
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from($COL_TEXT_NORMAL), to($COL_TRANSPARENT));
 }
 
-@media (max-width: 850px) {
+@include rdmedia_range(0,1) {
   #footerdiv .footerspan2 {display: none;  visibility: collapse;}
 }

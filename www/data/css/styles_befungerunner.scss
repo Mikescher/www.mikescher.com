@@ -80,7 +80,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@include rdmedia(0) {
   .bce_code {
     .bce_code_ctrl{
 
@@ -133,7 +133,7 @@
     flex-direction: column;
   }
 }
-@media (max-width: 767px) {
+@include rdmedia(0) {
   .bce_code_out {
     flex-direction: column;
 

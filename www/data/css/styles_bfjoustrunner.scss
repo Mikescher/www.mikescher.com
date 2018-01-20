@@ -21,7 +21,7 @@
   .sink         { height: 100px; }
   .bottomelem   { height: 200px; }
 
-  @media (max-width: 767px) {
+  @include rdmedia(0) {
     .hsplit { display:block; }
     .hsplit_1 { display:block; width: calc(100% - 8px); }
     .hsplit_2 { display:block; width: calc(100% - 8px); }

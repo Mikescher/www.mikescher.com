@@ -607,9 +607,10 @@ return
 		'add_date'          => '2017-02-26',
 		'urls'              =>
 			[
-				'download'    => 'https://github.com/Mikescher/AlephNote/releases',
-				'github'      => 'https://github.com/Mikescher/AlephNote/',
-				'homepage'    => 'https://mikescher.github.io/AlephNote/',
+				'download'      => 'https://github.com/Mikescher/AlephNote/releases',
+				'github'        => 'https://github.com/Mikescher/AlephNote/',
+				'homepage'      => 'https://mikescher.github.io/AlephNote/',
+				'alternativeto' => 'https://alternativeto.net/software/alephnote/',
 			],
 	],
 ];

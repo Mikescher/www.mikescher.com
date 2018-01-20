@@ -6,6 +6,8 @@
   flex-direction: column;
 }
 
+@include rdmedia_range(0,1) { .prgl_parent {align-items: center;} }
+
 .prgl_elem {
   display: flex;
   flex-direction: row;
@@ -97,7 +99,7 @@
 }
 
 
-@media(max-width:1199px)
+@include rdmedia_range(0,3)
 {
   .prgl_elem_title {
     font-size: 22pt;
@@ -116,7 +118,7 @@
     margin-bottom: 10px;
   }
 }
-@media (max-width: 850px)
+@include rdmedia_range(0,1)
 {
   .prgl_elem {
     flex-direction: column;

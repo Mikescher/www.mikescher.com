@@ -72,7 +72,7 @@
 }
 
 
-@media (max-width: 850px) {
+@include rdmedia_range(0,1) {
 
   #headerdiv {
     position: static;
