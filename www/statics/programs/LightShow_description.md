@@ -1,2 +1,2 @@
-LIghtShow generates literally a light show with the LED's on your keyboard. I'm not really sure if this has any practical use, but it looks kinda nice.  
+LightShow generates literally a light show with the LED's on your keyboard. I'm not really sure if this has any practical use, but it looks kinda nice.  
 Perhaps you could impress someone with the cool things your keybaord is able to do

@@ -8,7 +8,7 @@ $problems = Euler::listAll();
 
 ?>
 
-<div class="blogcontent bc_euler bc_markdown">
+<div class="blogcontent bc_euler base_markdown">
 
     <div style="position: relative;">
         <a href="https://github.com/Mikescher/Project-Euler_Befunge" style="position: absolute; top: 0; right: 0; border: 0;">
@@ -40,6 +40,10 @@ $problems = Euler::listAll();
                 <strong>Note:</strong><br />
                 Similar to most Befunge content on this site I only used the Befunge-93 instruction-set but ignored the 80x25 size restriction.<br />
                 Still I tries to keep the programs in the Befunge-93 grid size, but that wasn't possible for all. So I guess some programs are <i>technically</i> Befunge-98.
+            </p>
+            <p>
+                Also the original <a href="https://github.com/catseye/Befunge-93/blob/master/doc/Befunge-93.markdown">befunge-93 spec</a> didn't specify the word size of the stack or the grid<br />
+                So, while most programs run happily with 32bit integers some need an interpreter that supports 64bit integers for both stack and grid.
             </p>
         </blockquote>
         <p>

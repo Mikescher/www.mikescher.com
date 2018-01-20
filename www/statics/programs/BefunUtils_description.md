@@ -1,6 +1,3 @@
-BefunUtils
-========
-
 This is my collection of tools, libraries and transcompilers for the esoteric programming language [Befunge](http://esolangs.org/wiki/Befunge).	
 
 It consists of the following core components:

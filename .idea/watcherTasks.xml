@@ -25,7 +25,7 @@
       <option name="arguments" value="&quot;F:\Eigene Dateien\Dropbox\Programming\Web\Website - Mikescher\Source\data\css_compress\compress.py&quot; &quot;$FileDir$\styles.scss&quot; &quot;$FileDir$\styles.css&quot; &quot;$FileDir$\styles.min.css&quot;" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
-      <option name="exitCodeBehavior" value="ALWAYS" />
+      <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="scss" />
       <option name="immediateSync" value="true" />
       <option name="name" value="SCSS + Minimize" />

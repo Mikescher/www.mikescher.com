@@ -129,7 +129,7 @@ try {
 			else if ($value === '%URL%')
 			{
 				if (!isset($urlparams[$optname])) { $match = false; break; }
-				$value = $urlparams[$optname];
+				$value = urldecode($urlparams[$optname]);
 			}
 
 			$opt[strtolower($optname)] = $value;
@@ -169,3 +169,8 @@ try {
 //TODO gzip (?)
 //TODO better gh widget
 //TODO remove db table prefixes
+//TODO euler insert+show 32bit | 64bit mode
+//TODO euler best of on top of list (?)
+//TODO optimize image sizes for display/download (? - auto?)
+//TODO send cache header (?)
+//TODO programs add [license]

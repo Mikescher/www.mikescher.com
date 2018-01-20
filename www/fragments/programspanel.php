@@ -7,7 +7,7 @@
 <div class="programs_pnl_base">
 
 	<div class="programs_pnl_header">
-        <a href="/programs">Newest Programs by me</a>
+        <a href="/programs">Newly added software</a>
 	</div>
 	<div class="programs_pnl_content">
 

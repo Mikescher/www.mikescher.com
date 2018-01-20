@@ -12,7 +12,7 @@
 
   border: solid 1px #444;
   margin: 10px 5px;
-  color: #333;
+  color: $COL_TEXT_DARK;
   text-decoration: none;
 }
 
@@ -23,8 +23,11 @@
 .ble_blog { background-color: #BBB; }
 .ble_log  { background-color: #DDD; }
 
-.ble_blog .ble_date { background-color: #AAA; }
-.ble_log  .ble_date { background-color: #CCC; }
+.ble_blog .ble_date { background-color: #AAA; color: $COL_TEXT_DARK; }
+.ble_log  .ble_date { background-color: #CCC; color: $COL_TEXT_DARK; }
+
+.ble_log           { color: $COL_TEXT_DARK_LIGHTER; }
+.ble_log:hover     { color: $COL_TEXT_DARK; }
 
 .ble_date {
   background-color: #AAA;

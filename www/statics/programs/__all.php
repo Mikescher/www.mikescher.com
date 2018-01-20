@@ -5,6 +5,7 @@ return
 	[
 		'name'              => 'absCanvas',
 		'internal_name'     => 'absCanvas',
+		'internal_name_alt' => null,
 		'category'          => 'Engine',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -20,12 +21,13 @@ return
 
 	[
 		'name'              => 'All in One',
-		'internal_name'     => 'All in One',
+		'internal_name'     => 'All_in_One',
+		'internal_name_alt' => 'All in One',
 		'category'          => 'Tool',
 		'stars'             => 1,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'A little \"swiss army knife\" programm with over 100 different functionalities',
+		'short_description' => 'A little "swiss army knife" programm with over 100 different functionalities',
 		'add_date'          => '2008-11-26',
 		'urls'              =>
 			[
@@ -37,6 +39,7 @@ return
 	[
 		'name'              => 'Beepster',
 		'internal_name'     => 'Beepster',
+		'internal_name_alt' => null,
 		'category'          => 'Hoax',
 		'stars'             => 0,
 		'ui_language'       => 'English',
@@ -53,11 +56,12 @@ return
 	[
 		'name'              => 'BefunUtils',
 		'internal_name'     => 'BefunUtils',
+		'internal_name_alt' => null,
 		'category'          => 'Compiler',
 		'stars'             => 4,
 		'ui_language'       => 'English',
 		'prog_language'     => 'C#',
-		'short_description' => 'My selfmade Code-to-Befunge93 compiler, with a few little extras.',
+		'short_description' => 'My collection of befunge93 tools. Including an interpreter, a transpiler, an compiler, an highlighter and more',
 		'add_date'          => '2014-08-04',
 		'urls'              =>
 			[
@@ -70,11 +74,12 @@ return
 	[
 		'name'              => 'BefunZ',
 		'internal_name'     => 'BefunZ',
+		'internal_name_alt' => null,
 		'category'          => 'Interpreter',
 		'stars'             => 3,
 		'ui_language'       => 'English',
 		'prog_language'     => 'C#',
-		'short_description' => 'A Befunge-93 Interpreter compatible with Befunge-98 dimensions.',
+		'short_description' => 'A (very) simple visual Befunge-93 commandline interpreter',
 		'add_date'          => '2013-05-03',
 		'urls'              =>
 			[
@@ -86,6 +91,7 @@ return
 	[
 		'name'              => 'Blitzer',
 		'internal_name'     => 'Blitzer',
+		'internal_name_alt' => null,
 		'category'          => 'Hoax',
 		'stars'             => 0,
 		'ui_language'       => 'English',
@@ -101,7 +107,8 @@ return
 
 	[
 		'name'              => 'Borderline Defense',
-		'internal_name'     => 'Borderline Defense',
+		'internal_name'     => 'BorderlineDefense',
+		'internal_name_alt' => 'Borderline Defense',
 		'category'          => 'Game',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -118,7 +125,8 @@ return
 
 	[
 		'name'              => 'Crystal Grid',
-		'internal_name'     => 'Crystal Grid',
+		'internal_name'     => 'CrystalGrid',
+		'internal_name_alt' => 'Crystal Grid',
 		'category'          => 'Game',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -134,7 +142,8 @@ return
 
 	[
 		'name'              => 'Deal or no Deal',
-		'internal_name'     => 'Deal or no Deal',
+		'internal_name'     => 'Deal_or_no_Deal',
+		'internal_name_alt' => 'Deal or no Deal',
 		'category'          => 'Game',
 		'stars'             => 0,
 		'ui_language'       => 'German',
@@ -150,7 +159,8 @@ return
 
 	[
 		'name'              => 'Dynamic Link Fighters',
-		'internal_name'     => 'Dynamic Link Fighters',
+		'internal_name'     => 'DLF',
+		'internal_name_alt' => 'Dynamic Link Fighters',
 		'category'          => 'Game',
 		'stars'             => 1,
 		'ui_language'       => 'English|German',
@@ -167,6 +177,7 @@ return
 	[
 		'name'              => 'exeExtract',
 		'internal_name'     => 'exeExtract',
+		'internal_name_alt' => null,
 		'category'          => 'Tool',
 		'stars'             => 0,
 		'ui_language'       => 'English',
@@ -183,11 +194,12 @@ return
 	[
 		'name'              => 'ExtendedGitGraph',
 		'internal_name'     => 'ExtendedGitGraph',
+		'internal_name_alt' => null,
 		'category'          => 'Library',
 		'stars'             => 2,
 		'ui_language'       => 'English',
 		'prog_language'     => 'PHP',
-		'short_description' => 'A simple php module to display a overview of you github commits',
+		'short_description' => 'A simple php module to display an overview of you github commits',
 		'add_date'          => '2014-06-08',
 		'urls'              =>
 			[
@@ -198,12 +210,13 @@ return
 
 	[
 		'name'              => 'Graveyard of Numbers',
-		'internal_name'     => 'Graveyard of Numbers',
+		'internal_name'     => 'Graveyard_of_Numbers',
+		'internal_name_alt' => 'Graveyard of Numbers',
 		'category'          => 'Tool',
 		'stars'             => 0,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'A little tool to continuously rename files.',
+		'short_description' => 'A little tool to rename multiple files with increasing numbers.',
 		'add_date'          => '2008-10-01',
 		'urls'              =>
 			[
@@ -215,6 +228,7 @@ return
 	[
 		'name'              => 'H²O',
 		'internal_name'     => 'H2O',
+		'internal_name_alt' => null,
 		'category'          => 'Game',
 		'stars'             => 2,
 		'ui_language'       => 'English',
@@ -231,6 +245,7 @@ return
 	[
 		'name'              => 'HexSolver',
 		'internal_name'     => 'HexSolver',
+		'internal_name_alt' => null,
 		'category'          => 'Tool',
 		'stars'             => 5,
 		'ui_language'       => 'English',
@@ -247,7 +262,8 @@ return
 
 	[
 		'name'              => 'Infinity Tournament',
-		'internal_name'     => 'Infinity Tournament',
+		'internal_name'     => 'InfinityTournament',
+		'internal_name_alt' => 'Infinity Tournament',
 		'category'          => 'Game',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -264,6 +280,7 @@ return
 	[
 		'name'              => 'jCircuits',
 		'internal_name'     => 'jCircuits',
+		'internal_name_alt' => null,
 		'category'          => 'Simulation',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -281,6 +298,7 @@ return
 	[
 		'name'              => 'jClipCorn',
 		'internal_name'     => 'jClipCorn',
+		'internal_name_alt' => null,
 		'category'          => 'Tool',
 		'stars'             => 4,
 		'ui_language'       => 'English|German',
@@ -299,11 +317,12 @@ return
 	[
 		'name'              => 'jQCCounter',
 		'internal_name'     => 'jQCCounter',
+		'internal_name_alt' => null,
 		'category'          => 'Tool',
 		'stars'             => 3,
 		'ui_language'       => 'English',
 		'prog_language'     => 'Java',
-		'short_description' => 'A little tool to find the \"line of codes\" of multiple projects',
+		'short_description' => 'A little tool to find the "line of codes" of multiple projects',
 		'add_date'          => '2014-04-27',
 		'urls'              =>
 			[
@@ -315,7 +334,8 @@ return
 
 	[
 		'name'              => 'Keygen Dancer',
-		'internal_name'     => 'Keygen Dancer',
+		'internal_name'     => 'KeygenDancer',
+		'internal_name_alt' => 'Keygen Dancer',
 		'category'          => 'Gadget',
 		'stars'             => 2,
 		'ui_language'       => 'English',
@@ -331,7 +351,8 @@ return
 
 	[
 		'name'              => 'LAN-Control',
-		'internal_name'     => 'LAN-Control',
+		'internal_name'     => 'LanControl',
+		'internal_name_alt' => 'LAN-Control',
 		'category'          => 'Network administration',
 		'stars'             => 1,
 		'ui_language'       => 'German',
@@ -348,11 +369,12 @@ return
 	[
 		'name'              => 'LightShow',
 		'internal_name'     => 'LightShow',
+		'internal_name_alt' => null,
 		'category'          => 'Hoax',
 		'stars'             => 0,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Turn you keyboard-LED\"s into a little lightshow',
+		'short_description' => 'Turn you keyboard LED\'s into a little lightshow',
 		'add_date'          => '2008-10-12',
 		'urls'              =>
 			[
@@ -364,6 +386,7 @@ return
 	[
 		'name'              => 'Logistixx',
 		'internal_name'     => 'Logistixx',
+		'internal_name_alt' => null,
 		'category'          => 'Mathematics',
 		'stars'             => 1,
 		'ui_language'       => 'German',
@@ -380,11 +403,12 @@ return
 	[
 		'name'              => 'NedSchend',
 		'internal_name'     => 'NedSchend',
+		'internal_name_alt' => null,
 		'category'          => 'Hoax',
 		'stars'             => 1,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Send anonymous messages over the Windows Messenger service to other pc\"s in your LAN',
+		'short_description' => 'Send anonymous messages over the Windows Messenger service to other pc\'s in your LAN',
 		'add_date'          => '2009-02-11',
 		'urls'              =>
 			[
@@ -396,6 +420,7 @@ return
 	[
 		'name'              => 'Passpad',
 		'internal_name'     => 'Passpad',
+		'internal_name_alt' => null,
 		'category'          => 'Tool',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -413,11 +438,12 @@ return
 	[
 		'name'              => 'Serpilicum',
 		'internal_name'     => 'Serpilicum',
+		'internal_name_alt' => null,
 		'category'          => 'Game',
 		'stars'             => 3,
 		'ui_language'       => 'English',
 		'prog_language'     => 'C++',
-		'short_description' => 'A crazy little Snake with an \"Console\" Style',
+		'short_description' => 'A crazy little snake with an "console" style',
 		'add_date'          => '2013-07-08',
 		'urls'              =>
 			[
@@ -430,6 +456,7 @@ return
 	[
 		'name'              => 'SharkSim',
 		'internal_name'     => 'SharkSim',
+		'internal_name_alt' => null,
 		'category'          => 'Simulation',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -445,12 +472,13 @@ return
 
 	[
 		'name'              => 'Sieb des Eratosthenes',
-		'internal_name'     => 'Sieb des Eratosthenes',
+		'internal_name'     => 'Sieb_des_Eratosthenes',
+		'internal_name_alt' => 'Sieb des Eratosthenes',
 		'category'          => 'Mathematics',
 		'stars'             => 1,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Visualize the prime number calculation with the Sieve of Erastothenes algorithm.',
+		'short_description' => 'Visualize the prime number calculation with the Sieve Of Erastothenes algorithm.',
 		'add_date'          => '2009-01-22',
 		'urls'              =>
 			[
@@ -461,7 +489,8 @@ return
 
 	[
 		'name'              => 'Smart Directory Lister',
-		'internal_name'     => 'Smart Directory Lister',
+		'internal_name'     => 'SDL',
+		'internal_name_alt' => 'Smart Directory Lister',
 		'category'          => 'Tool',
 		'stars'             => 2,
 		'ui_language'       => 'German',
@@ -478,6 +507,7 @@ return
 	[
 		'name'              => 'SuperBitBros',
 		'internal_name'     => 'SuperBitBros',
+		'internal_name_alt' => null,
 		'category'          => 'Game',
 		'stars'             => 4,
 		'ui_language'       => 'English',
@@ -495,6 +525,7 @@ return
 	[
 		'name'              => 'TicTacToe',
 		'internal_name'     => 'TicTacToe',
+		'internal_name_alt' => null,
 		'category'          => 'Game',
 		'stars'             => 1,
 		'ui_language'       => 'English',
@@ -511,6 +542,7 @@ return
 	[
 		'name'              => 'Ziegenproblem',
 		'internal_name'     => 'Ziegenproblem',
+		'internal_name_alt' => null,
 		'category'          => 'Mathematics',
 		'stars'             => 0,
 		'ui_language'       => 'German',
@@ -527,6 +559,7 @@ return
 	[
 		'name'              => 'Quick HiddenFolder Toggle',
 		'internal_name'     => 'QuickHiddenFolderToggle',
+		'internal_name_alt' => null,
 		'category'          => 'Tool',
 		'stars'             => 3,
 		'ui_language'       => 'English',
@@ -544,6 +577,7 @@ return
 	[
 		'name'              => 'Cannon Conquest',
 		'internal_name'     => 'CannonConquest',
+		'internal_name_alt' => null,
 		'category'          => 'Game',
 		'stars'             => 5,
 		'ui_language'       => 'English|German|French|Italian|Spanish',
@@ -564,6 +598,7 @@ return
 	[
 		'name'              => 'AlephNote',
 		'internal_name'     => 'AlephNote',
+		'internal_name_alt' => null,
 		'category'          => 'Tool',
 		'stars'             => 5,
 		'ui_language'       => 'English',
@@ -572,7 +607,7 @@ return
 		'add_date'          => '2017-02-26',
 		'urls'              =>
 			[
-				'download'    => 'https://github.com/Mikescher/AlephNote//releases',
+				'download'    => 'https://github.com/Mikescher/AlephNote/releases',
 				'github'      => 'https://github.com/Mikescher/AlephNote/',
 				'homepage'    => 'https://mikescher.github.io/AlephNote/',
 			],

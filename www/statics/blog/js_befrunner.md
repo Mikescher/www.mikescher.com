@@ -6,7 +6,7 @@ The code is note really optimized and will only run on newer browsers, but it's 
 Press **[Start]** to run the code, **[Edit]** to change the code and change the interpreter speed with the button on the right side of the **[Start]** button.
 
 
-~~~befungerunner__speed-2
+~~~befungerunner__speed-1
 0".omed s"v
           "                       >v
           i                        8

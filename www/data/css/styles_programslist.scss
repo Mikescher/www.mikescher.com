@@ -39,10 +39,24 @@
 }
 
 .prgl_elem_title {
-  color: #222;
+  color: $COL_TEXT_DARK_DARKER;
   font-size: 40pt;
   font-weight: bolder;
   flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prgl_elem_sdesc {
+  color: $COL_TEXT_DARK_LIGHTER;
+  font-size: 14pt;
+  flex-grow: 1;
+
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 
   display: flex;
   justify-content: center;
@@ -97,6 +111,10 @@
   .prgl_elem_subinfo_caption {
     text-align: center;
   }
+  .prgl_elem_sdesc {
+    font-size: 12pt;
+    margin-bottom: 10px;
+  }
 }
 @media (max-width: 850px)
 {
@@ -121,6 +139,10 @@
   }
   .prgl_elem_subinfo {
     flex-direction: row;
+  }
+  .prgl_elem_sdesc {
+    display: none;
+    visibility: hidden;
   }
 }
 

@@ -51,14 +51,14 @@
       }
     }
 
-    .tab_active { background-color: #422; }
+    .tab_active { background-color: $COL_HIGHLIGHT_RED; }
 
     .tab_split {
       flex: auto;
     }
 
     .tab_github {
-      background-color: #4078c0;
+      background-color: $COL_GITHUB;
       border-left:  1px solid #111;
       border-right: none;
       color: black;

@@ -25,7 +25,7 @@ $max = ceil($max / 20) * 20;
 
 ?>
 
-<div class="blogcontent bc_euler bc_markdown">
+<div class="blogcontent bc_euler base_markdown">
 
     <div style="position: relative;">
         <a href="https://github.com/Mikescher/Project-Euler_Befunge" style="position: absolute; top: 0; right: 0; border: 0;">

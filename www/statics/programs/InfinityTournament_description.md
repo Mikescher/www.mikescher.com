@@ -1,4 +1,4 @@
-A while ago a friend and I developed a game for school. It was a Towerdefence game and i think it was pretty nice.  
+A long time ago a friend and I developed a game for school. It was a Towerdefence game and i think it was pretty nice.  
 The problem was that we developed it in Greenfoot - and we reached pretty fast the limitations of this framework.
 
 So after all that I decided to rewrite it completely new in my own game-framework [absCanvas](/programs/view/absCanvas).  

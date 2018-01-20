@@ -38,8 +38,8 @@ print();
 print();
 
 print('======== CALL SCSS ========');
-out = subprocess.run(['C:/TOOLS/Ruby/bin/scss.bat', '--no-cache', '--update', fsource + ':' + finput], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-print('> C:/TOOLS/Ruby/bin/scss.bat --no-cache --update ' + fsource + ':' + finput)
+out = subprocess.run(['scss.bat', '--no-cache', '--update', fsource + ':' + finput], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+print('> scss.bat --no-cache --update ' + fsource + ':' + finput)
 print('STDOUT:')
 print(out.stdout.decode('utf-8'))
 print('STDERR:')
@@ -50,8 +50,8 @@ print('')
 
 
 print('======== CALL YUI ========');
-out = subprocess.run(['java', '-jar', 'yuicompressor.jar', finput, '-o', ftemp], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-print('> java -jar yuicompressor.jar "'+finput+'" -o "'+ftemp+'"')
+out = subprocess.run(['java', '-jar', 'yuicompressor.jar', '--verbose', finput, '-o', ftemp], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+print('> java -jar yuicompressor.jar --verbose "'+finput+'" -o "'+ftemp+'"')
 print('STDOUT:');
 print(out.stdout.decode('utf-8'))
 print('STDERR:');
@@ -63,6 +63,7 @@ print('')
 print('======== READ ========');
 with open(ftemp, 'r') as tf:
     data = tf.read()
+    print(str(len(data)) + ' characters read from ' + ftemp)
 
 print('')
 print('')
@@ -70,6 +71,7 @@ print('')
 print('======== REM ========');
 try:
     os.remove(ftemp);
+    print(ftemp + ' deleted')
 except e:
     print(e)
 
@@ -78,6 +80,8 @@ print('')
 
 print('======== REGEX ========');
 data = re.sub(r'(\}*\})', '\g<1>\n', data);
+
+print('css data modified (1)')
 
 print('')
 print('')
@@ -99,6 +103,7 @@ for i in range(len(data)):
                 tp =(i+1, '\t')
                 ins.append( tp )
         ins.append((cclose, '\n'))
+        print('media query at idx:' + str(i) + ' formatted')
 
 for (l, c) in reversed(ins):
     data = data[:l] + c + data[l:]
@@ -109,7 +114,8 @@ print('')
 print('======== WRITE ========');
 with open(foutput, "w") as tf:
     tf.write(data)
+    print(str(len(data)) + ' characters written to ' + foutput)
 
 print('')
 print('')
-print('Sinished.')
+print('Finished.')
