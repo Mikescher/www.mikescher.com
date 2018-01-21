@@ -104,3 +104,19 @@ body {
     padding: 8px;
   }
 }
+
+.button {
+
+  color: #DDD;
+  text-decoration: none;
+  background-color: #222;
+  font-size: 1rem;
+  border: 1px solid black;
+  height: 36px;
+  line-height: 36px;
+  padding: 2px 2rem;
+}
+
+.button:hover {
+  background-color: #555;
+}

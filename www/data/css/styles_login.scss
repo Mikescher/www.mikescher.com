@@ -1,0 +1,19 @@
+@import 'styles_config';
+
+#loginform div {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginform div button {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.loginerror {
+  display: flex;
+  background: #FF4444;
+  font-weight: bold;
+  padding: 0 5px;
+  margin: 5px 0 20px 0;
+}

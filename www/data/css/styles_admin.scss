@@ -1,0 +1,23 @@
+@import 'styles_config';
+
+.admincontent {
+  display: block;
+  width: 100%;
+}
+
+.admincontent .boxedcontent{
+  margin-bottom: 20px;
+}
+
+.egh_ajaxOutput {
+  display: flex;
+  box-sizing: border-box;
+
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  resize: none;
+  height: 300px;
+}

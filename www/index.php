@@ -10,7 +10,8 @@ $URL_RULES =
 	[ 'url' => ['msmain', 'index'],                          'target' => 'pages/main.php',                   'options' => [],                                        ],
 	[ 'url' => ['about'],                                    'target' => 'pages/about.php',                  'options' => [],                                        ],
 	[ 'url' => ['msmain', 'about'],                          'target' => 'pages/about.php',                  'options' => [],                                        ],
-	
+	[ 'url' => ['login'],                                    'target' => 'pages/login.php',                  'options' => [ 'login_target' => '/' ],                 ],
+
 	[ 'url' => ['programs'],                                 'target' => 'pages/programs_list.php',          'options' => [ 'categoryfilter' => '' ],                ],
 	[ 'url' => ['programs', 'index'],                        'target' => 'pages/programs_list.php',          'options' => [ 'categoryfilter' => '%GET%' ],           ],
 	[ 'url' => ['programs', 'index'],                        'target' => 'pages/programs_list.php',          'options' => [ 'categoryfilter' => '' ],                ],
@@ -33,9 +34,9 @@ $URL_RULES =
 	[ 'url' => ['api', 'test'],                              'target' => 'pages/api_test.php',               'options' => [],                                        ],
 	[ 'url' => ['api', 'setselfadress'],                     'target' => 'pages/api_setselfadress.php',      'options' => [],                                        ],
 	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
-	
-	[ 'url' => ['msmain', 'admin', 'egh', '?{commandcode}'], 'target' => 'pages/admin_egh.php',              'options' => [ 'commandcode' => '%URL%' ],              ],
-	[ 'url' => ['msmain', 'adminEGH'],                       'target' => 'pages/admin_egh.php',              'options' => [ 'commandcode' => '%GET%' ],              ],
+
+	[ 'url' => ['admin'],                                    'target' => 'pages/admin.php',                  'options' => [ '_opt' => 'password'],                   ],
+	[ 'url' => ['admin', 'egh', '?{cmd}'],                   'target' => 'pages/admin_egh.php',              'options' => [ 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
 
 	[ 'url' => ['blog'],                                     'target' => 'pages/blog_list.php',              'options' => [],                                        ],
 	[ 'url' => ['log'],                                      'target' => 'pages/blog_list.php',              'options' => [],                                        ],
@@ -94,6 +95,8 @@ try {
 		if ($partcount !== count($rule['url'])) continue;
 
 		$urlparams = [];
+		$opt       = key_exists('_opt', $rule['options']) ? explode($rule['options']['_opt'], '|') : [];
+		$target    = $rule['target'];
 
 		$match = true;
 		for($i = 0; $i < $partcount; $i++)
@@ -136,8 +139,26 @@ try {
 		}
 		if (!$match) continue;
 
+		if (in_array('disabled', $opt)) continue;
+
+		if (in_array('password', $opt))
+		{
+			$auth = hash('sha256', $CONFIG['admin_username'] . ';' . $CONFIG['admin_password']);
+
+			if (!key_exists('mikescher_auth', $_COOKIE))
+			{
+				$opt['login_target'] = $path;
+				$target = 'pages/login.php';
+			}
+			else if ($auth !== $_COOKIE['mikescher_auth'])
+			{
+				$opt['login_target'] = $path;
+				$target = 'pages/login.php';
+			}
+		}
+
 		$OPTIONS = $opt;
-		include $rule['target'];
+		include $target;
 		return;
 
 	}
@@ -174,5 +195,4 @@ try {
 //TODO optimize image sizes for display/download (? - auto?)
 //TODO send cache header (?)
 //TODO programs add [license]
-//TODO admin
 //TODO last 3 blog entries on /index/ (?)

@@ -66,11 +66,9 @@ class ExtendedGitGraph
 			$_SESSION[self::PROGRESS_SESSION_COOKIE] .= $txt . "\r\n";
 			session_commit();
 		}
-		else if ($this->outputMode === self::OUT_STDOUT)
-		{
-			print $txt;
-			print "\r\n";
-		}
+
+		print $txt;
+		print "\r\n";
 
 		$logfile = Utils::sharpFormat($this->logFilePath, ['num'=>'']);
 		file_put_contents($logfile, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
@@ -180,5 +178,12 @@ class ExtendedGitGraph
 	public function get()
 	{
 		return $this->renderedHTML;
+	}
+
+	public function getAll()
+	{
+		$all = '';
+		foreach ($this->get() as $year => $html) $all .= $html . "\n";
+		return $all;
 	}
 }
