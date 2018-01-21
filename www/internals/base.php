@@ -88,7 +88,7 @@ function formatMilliseconds($millis)
 	}
 }
 
-function includeScriptOnce($script, $echo = true)
+function includeScriptOnce($script, $echo = true, $attr=false)
 {
 	global $REGISTERED_SCRIPTS;
 
@@ -96,14 +96,14 @@ function includeScriptOnce($script, $echo = true)
 	{
 		if (in_array($script, $REGISTERED_SCRIPTS)) return false;
 		$REGISTERED_SCRIPTS []= $script;
-		echo "<script src=\"$script\" type=\"text/javascript\"></script>";
+		echo "<script src=\"$script\" type=\"text/javascript\" $attr></script>";
 		return true;
 	}
 	else
 	{
 		if (in_array($script, $REGISTERED_SCRIPTS)) return '';
 		$REGISTERED_SCRIPTS []= $script;
-		return "<script src=\"$script\" type=\"text/javascript\"></script>";
+		return "<script src=\"$script\" type=\"text/javascript\" $attr></script>";
 	}
 }
 

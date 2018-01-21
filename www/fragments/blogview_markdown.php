@@ -4,7 +4,7 @@ require_once (__DIR__ . '/../internals/blog.php');
 require_once (__DIR__ . '/../internals/ParsedownCustom.php');
 ?>
 
-<div class="blogcontent base_markdown">
+<div class="boxedcontent blogcontent_markdown base_markdown">
 
 	<div class="bc_header">
 		<?php echo $post['date']; ?>

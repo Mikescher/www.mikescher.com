@@ -1,23 +1,5 @@
 @import 'styles_config';
 
-.blogcontent {
-  color: $COL_TEXT_DARK;
-  border: 1px solid black;
-  background-color: $COL_BACKGROUND_2;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.bc_header {
-  background-color: #BBB;
-  padding: 0 4px;
-}
-
-.bc_data {
-  padding: 8px;
-}
-
 .base_markdown {
 
   code {
@@ -115,3 +97,5 @@
     background: transparent !important;
   }
 }
+
+.blogcontent_euler, .blogcontent_markdown, .blogcontent_plain { width: 90%;}

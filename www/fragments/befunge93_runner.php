@@ -58,7 +58,7 @@ if ($interactive) {
 	$result .= '	</div>' . "\n";
 	$result .= '</div>' . "\n";
 
-	$result .= includeScriptOnce("/data/javascript/blogpost_bef93runner.js", false) . "\n";
+	$result .= includeScriptOnce("/data/javascript/blogpost_bef93runner.js", false, '') . "\n";
 }
 else
 {

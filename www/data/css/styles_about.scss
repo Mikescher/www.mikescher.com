@@ -1,0 +1,104 @@
+@import 'styles_config';
+
+.aboutcontent {
+  display: block;
+  width: 100%;
+}
+
+.aboutcontent .boxedcontent{
+  margin-bottom: 20px;
+}
+
+.about_egh_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.git_list {
+  display: inline-block;
+  width: 715px;
+  height: 115px;
+  overflow: visible;
+}
+
+@include rdmedia_range(0,2) {
+  .git_list { width: 100%; height: auto; }
+  .extGitGraphContainer { width: 95%; width: calc(100% - 16px); }
+}
+
+.git_list text.caption {
+  font-size: 10px;
+  fill: #666;
+}
+
+.git_list text.caption_month {
+  font-size: 8px;
+  fill: #BBB;
+}
+
+.git_list text.caption_day {
+  font-size: 8px;
+  fill: #BBB;
+}
+
+.svg-tip:after {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  height: 5px;
+  width: 5px;
+  bottom: -10px;
+  margin: 0 0 0px -5px;
+  content: " ";
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+}
+
+.svg-tip {
+  padding: 5px;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+  color: #BBB;
+  font-size: 12px;
+  position: absolute;
+  z-index: 99999;
+  text-align: center;
+  border-radius: 3px;
+  box-sizing: border-box;
+  opacity: 0;
+}
+
+.extGitGraphContainer {
+  background-color: #FCFCFC;
+  margin: 10px;
+  display: inline-block;
+
+  border: 1px solid #222;
+  border-radius: 0;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25) inset;
+}
+
+.egg_footer {
+  margin-top: 5px;
+
+  text-align: right;
+  margin-right: 5px;
+  margin-bottom: 5px;
+
+  color: #888;
+}
+
+.egg_footer > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.egg_footer > a:hover {
+  text-decoration: none;
+  color: #22F;
+}

@@ -174,3 +174,5 @@ try {
 //TODO optimize image sizes for display/download (? - auto?)
 //TODO send cache header (?)
 //TODO programs add [license]
+//TODO admin
+//TODO last 3 blog entries on /index/ (?)

@@ -3,7 +3,7 @@ require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/blog.php');
 ?>
 
-<div class="blogcontent bc_plain">
+<div class="boxedcontent blogcontent_plain">
 
 	<div class="bc_header">
 		<?php echo $post['date']; ?>
