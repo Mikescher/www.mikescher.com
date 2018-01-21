@@ -154,3 +154,31 @@ function convertLanguageToFlag($lang) {
 
 	return null;
 }
+
+function setLoginCookie($user, $pass)
+{
+	$expires = time() + (24*60*60); // 24h
+	$hash = hash('sha256', $user . ';' . $pass);
+	setcookie('mikescher_auth', $hash, $expires);
+}
+
+function isLoggedInByCookie()
+{
+	static $_loginCache = null;
+	if ($_loginCache !== null) return $_loginCache;
+
+	global $CONFIG;
+	if (key_exists('mikescher_auth', $_COOKIE))
+	{
+		if (strlen($_COOKIE['mikescher_auth']) !== 64) return $_loginCache = false;
+		$auth = hash('sha256', $CONFIG['admin_username'] . ';' . $CONFIG['admin_password']);
+		if ($auth === $_COOKIE['mikescher_auth']) return $_loginCache = true;
+	}
+
+	return $_loginCache = false;
+}
+
+function clearLoginCookie()
+{
+	setcookie("mikescher_auth", "", time()+30);
+}

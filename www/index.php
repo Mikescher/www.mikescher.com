@@ -10,7 +10,8 @@ $URL_RULES =
 	[ 'url' => ['msmain', 'index'],                          'target' => 'pages/main.php',                   'options' => [],                                        ],
 	[ 'url' => ['about'],                                    'target' => 'pages/about.php',                  'options' => [],                                        ],
 	[ 'url' => ['msmain', 'about'],                          'target' => 'pages/about.php',                  'options' => [],                                        ],
-	[ 'url' => ['login'],                                    'target' => 'pages/login.php',                  'options' => [ 'login_target' => '/' ],                 ],
+	[ 'url' => ['login'],                                    'target' => 'pages/login.php',                  'options' => [ 'login_target'  => '/' ],                ],
+	[ 'url' => ['logout'],                                   'target' => 'pages/logout.php',                 'options' => [ 'logout_target' => '/' ],                ],
 
 	[ 'url' => ['programs'],                                 'target' => 'pages/programs_list.php',          'options' => [ 'categoryfilter' => '' ],                ],
 	[ 'url' => ['programs', 'index'],                        'target' => 'pages/programs_list.php',          'options' => [ 'categoryfilter' => '%GET%' ],           ],
@@ -143,14 +144,7 @@ try {
 
 		if (in_array('password', $opt))
 		{
-			$auth = hash('sha256', $CONFIG['admin_username'] . ';' . $CONFIG['admin_password']);
-
-			if (!key_exists('mikescher_auth', $_COOKIE))
-			{
-				$opt['login_target'] = $path;
-				$target = 'pages/login.php';
-			}
-			else if ($auth !== $_COOKIE['mikescher_auth'])
+			if (!isLoggedInByCookie())
 			{
 				$opt['login_target'] = $path;
 				$target = 'pages/login.php';

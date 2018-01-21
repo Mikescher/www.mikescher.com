@@ -16,6 +16,7 @@
     height: 42px;
 
     .logo {
+      min-width: 197.5px; // prevents flickering after DOM load
       height: 30px;
       margin: 4px 0 8px 6px;
       flex: initial;
@@ -59,6 +60,18 @@
 
     .tab_github {
       background-color: $COL_GITHUB;
+      border-left:  1px solid #111;
+      border-right: none;
+      color: black;
+
+      &:hover {
+        background-color: #c9510c;
+        color: black;
+      }
+    }
+
+    .tab_logout {
+      background-color: #A00;
       border-left:  1px solid #111;
       border-right: none;
       color: black;

@@ -25,7 +25,7 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 .button:hover{background-color:#555}
 #headerdiv{z-index:999;background-color:#333;display:flex;border-bottom:1px solid #111;box-shadow:0 0 8px #000;position:fixed;width:100%}
 #headerdiv .logowrapper{flex:initial;margin:0;padding:0;height:42px}
-#headerdiv .logowrapper .logo{height:30px;margin:4px 0 8px 6px;flex:initial}
+#headerdiv .logowrapper .logo{min-width:197.5px;height:30px;margin:4px 0 8px 6px;flex:initial}
 #headerdiv .tabrow{display:flex;flex:auto}
 #headerdiv .tabrow .tab{display:flex;justify-content:center;align-items:center;background-color:#222;color:#CCC;border-left:1px solid #000;border-right:1px solid #000;font-weight:bold;text-decoration:none;margin:0 0 0 20px;padding:2px 5px;min-width:64px;text-align:center;flex:initial}
 #headerdiv .tabrow .tab:hover{cursor:pointer;background-color:#555}
@@ -33,6 +33,8 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 #headerdiv .tabrow .tab_split{flex:auto}
 #headerdiv .tabrow .tab_github{background-color:#4078c0;border-left:1px solid #111;border-right:0;color:black}
 #headerdiv .tabrow .tab_github:hover{background-color:#c9510c;color:black}
+#headerdiv .tabrow .tab_logout{background-color:#A00;border-left:1px solid #111;border-right:0;color:black}
+#headerdiv .tabrow .tab_logout:hover{background-color:#c9510c;color:black}
 @media(max-width:850px){
 	#headerdiv{position:static;flex-direction:column}
 	#headerdiv .logowrapper{display:flex;align-items:center;justify-content:center}

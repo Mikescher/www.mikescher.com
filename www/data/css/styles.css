@@ -130,6 +130,7 @@ body {
     padding: 0;
     height: 42px; }
     #headerdiv .logowrapper .logo {
+      min-width: 197.5px;
       height: 30px;
       margin: 4px 0 8px 6px;
       flex: initial; }
@@ -164,6 +165,14 @@ body {
       border-right: none;
       color: black; }
       #headerdiv .tabrow .tab_github:hover {
+        background-color: #c9510c;
+        color: black; }
+    #headerdiv .tabrow .tab_logout {
+      background-color: #A00;
+      border-left: 1px solid #111;
+      border-right: none;
+      color: black; }
+      #headerdiv .tabrow .tab_logout:hover {
         background-color: #c9510c;
         color: black; }
 

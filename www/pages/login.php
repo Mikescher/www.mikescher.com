@@ -9,11 +9,8 @@ $err = false;
 if (key_exists('username', $_GET) && key_exists('password', $_GET) && key_exists('redirect', $_GET))
 {
 	if ($_GET['username'] === $CONFIG['admin_username'] && $_GET['password'] === $CONFIG['admin_password'])
-	{
-		$expires = time() + (24*60*60); // 24h
-		$hash = hash('sha256', $_GET['username'] . ';' . $_GET['password']);
-		setcookie('mikescher_auth', $hash, $expires);
-
+    {
+	    setLoginCookie($_GET['username'], $_GET['password']);
 		header('Location: ' . $_GET['redirect']);
 		die();
 	}
