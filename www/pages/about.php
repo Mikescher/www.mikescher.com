@@ -23,18 +23,23 @@ global $OPTIONS;
 
 			<div class="contentheader"><h1>About mikescher.com</h1><hr/></div>
 
+            <!------------------------------------------>
+
 			<div class="boxedcontent">
 				<div class="bc_header">About me</div>
 
 				<div class="bc_data">
 
-					<p>Welcome to my private homepage.</p>
-					<p>My name is Mike, and this is my homepage. I use it to upload programs I have written and sometimes for a little bit of blogging.</p>
-					<p>There are also sections about Project Euler, self-printed books and more</p>
+					<p>Welcome to my Mikescher.com</p>
+					<p>This is my personal homepage, I use it to upload programs I have written, web serials I have style-setted and sometimes for a little bit of blogging.</p>
+					<p>Its mostly just a collection of stuff I wanted to put only, but I guess thats the core of most personal homepages</p>
+
 
 				</div>
 
 			</div>
+
+            <!------------------------------------------>
 
 			<div class="boxedcontent">
 				<div class="bc_header">My git timeline</div>
@@ -46,6 +51,48 @@ global $OPTIONS;
 				</div>
 
 			</div>
+
+            <!------------------------------------------>
+
+            <div class="boxedcontent">
+                <div class="bc_header">Other addresses</div>
+
+                <div class="bc_data about_circles">
+
+                    <a class="iconbutton" href="https://github.com/Mikescher">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                            <use xlink:href="/data/images/icons.svg#github"></use>
+                        </svg>
+                        <span>Github</span>
+                    </a>
+                    <a class="iconbutton" href="https://www.goodreads.com/C4terpillar">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                            <use xlink:href="/data/images/icons.svg#goodreads"></use>
+                        </svg>
+                        <span>Goodreads</span>
+                    </a>
+                    <a class="iconbutton" href="https://stackoverflow.com/users/1761622/mikescher">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                            <use xlink:href="/data/images/icons.svg#stackoverflow"></use>
+                        </svg>
+                        <span>Stackoverflow</span>
+                    </a>
+                    <a class="iconbutton" href="https://www.reddit.com/user/M1kescher/">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                            <use xlink:href="/data/images/icons.svg#reddit"></use>
+                        </svg>
+                        <span>Reddit</span>
+                    </a>
+                    <a class="iconbutton" href="http://www.delphipraxis.net/members/46235-mikescher.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                            <use xlink:href="/data/images/icons.svg#delphipraxis"></use>
+                        </svg>
+                        <span>Delphi-Praxis</span>
+                    </a>
+
+                </div>
+
+            </div>
 
 		</div>
 

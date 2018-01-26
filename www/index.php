@@ -191,4 +191,3 @@ try {
 //TODO programs add [license]
 //TODO last 3 blog entries on /index/ (?)
 //TODO global uncached error logger -> send by mail
-//TODO crosslinks to /about/ (goodreads, github, reddit, gitea, delphipraxis, stackoverflow)

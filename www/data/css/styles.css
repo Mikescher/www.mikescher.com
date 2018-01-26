@@ -115,6 +115,31 @@ body {
 .button:hover {
   background-color: #555; }
 
+.iconbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  color: #CCC;
+  text-decoration: none;
+  border: 1px solid #000;
+  margin: 5px 0; }
+
+.iconbutton:hover {
+  cursor: pointer;
+  background-color: #555; }
+
+.iconbutton svg {
+  width: 14pt;
+  height: 14pt;
+  margin: 0 4px;
+  fill: #CCC; }
+
+.iconbutton span {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 14pt; }
+
 /* 400px */
 #headerdiv {
   z-index: 999;
@@ -805,36 +830,11 @@ html, body {
   display: flex;
   justify-content: right; }
 
-.prgv_dl_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #222;
-  color: #CCC;
-  text-decoration: none;
-  border: 1px solid #000;
-  margin: 5px 0; }
-
 .prgv_dl_download {
   background: #442222; }
 
 .prgv_dl_github {
   background: #4078C0; }
-
-.prgv_dl_btn:hover {
-  cursor: pointer;
-  background-color: #555; }
-
-.prgv_dl_btn svg {
-  width: 14pt;
-  height: 14pt;
-  margin: 0 4px;
-  fill: #CCC; }
-
-.prgv_dl_btn span {
-  flex-grow: 1;
-  text-align: center;
-  font-size: 14pt; }
 
 .prgv_right_lang img {
   display: inline;
@@ -968,6 +968,15 @@ html, body {
 .egg_footer > a:hover {
   text-decoration: none;
   color: #22F; }
+
+.about_circles {
+  display: flex;
+  flex-direction: column; }
+
+.about_circles a {
+  margin: 5px 0; }
+.about_circles .iconbutton span {
+  text-align: left; }
 
 /* 400px */
 .admincontent {

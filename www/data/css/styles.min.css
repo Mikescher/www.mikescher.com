@@ -23,6 +23,10 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 .boxedcontent .bc_data{padding:8px}
 .button{color:#DDD;text-decoration:none;background-color:#222;font-size:1rem;border:1px solid black;height:36px;line-height:36px;padding:2px 2rem}
 .button:hover{background-color:#555}
+.iconbutton{display:flex;justify-content:center;align-items:center;background:#222;color:#CCC;text-decoration:none;border:1px solid #000;margin:5px 0}
+.iconbutton:hover{cursor:pointer;background-color:#555}
+.iconbutton svg{width:14pt;height:14pt;margin:0 4px;fill:#CCC}
+.iconbutton span{flex-grow:1;text-align:center;font-size:14pt}
 #headerdiv{z-index:999;background-color:#333;display:flex;border-bottom:1px solid #111;box-shadow:0 0 8px #000;position:fixed;width:100%}
 #headerdiv .logowrapper{flex:initial;margin:0;padding:0;height:42px}
 #headerdiv .logowrapper .logo{min-width:197.5px;height:30px;margin:4px 0 8px 6px;flex:initial}
@@ -204,12 +208,8 @@ html,body{margin:0;padding:0;height:100%}
 .prgv_right_value a:hover{color:#339;text-decoration:none}
 .prgv_right_comb{grid-column:1 / span 2}
 .prgv_right_lang{display:flex;justify-content:right}
-.prgv_dl_btn{display:flex;justify-content:center;align-items:center;background:#222;color:#CCC;text-decoration:none;border:1px solid #000;margin:5px 0}
 .prgv_dl_download{background:#422}
 .prgv_dl_github{background:#4078c0}
-.prgv_dl_btn:hover{cursor:pointer;background-color:#555}
-.prgv_dl_btn svg{width:14pt;height:14pt;margin:0 4px;fill:#CCC}
-.prgv_dl_btn span{flex-grow:1;text-align:center;font-size:14pt}
 .prgv_right_lang img{display:inline;height:16pt;max-width:32px;margin:1px 2px 0 2px}
 .prgv_center{margin:0 8px 8px 8px;padding:16px;background:#EEE;border:1px solid rgba(0,0,0,0.15)}
 .prgv_sep{margin:40px 0 40px 0;display:block;border:0;color:white;height:1px;background:#666666FF;background:-moz-radial-gradient(circle,#666,#FFFFFF00);background:-webkit-radial-gradient(circle,#666 0,#FFFFFF00 100%)}
@@ -238,6 +238,9 @@ html,body{margin:0;padding:0;height:100%}
 .egg_footer{margin-top:5px;text-align:right;margin-right:5px;margin-bottom:5px;color:#888}
 .egg_footer>a{text-decoration:none;color:inherit}
 .egg_footer>a:hover{text-decoration:none;color:#22F}
+.about_circles{display:flex;flex-direction:column}
+.about_circles a{margin:5px 0}
+.about_circles .iconbutton span{text-align:left}
 .admincontent{display:block;width:100%}
 .admincontent .boxedcontent{margin-bottom:20px}
 .egh_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;justify-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}

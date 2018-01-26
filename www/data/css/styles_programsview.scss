@@ -84,41 +84,8 @@
   justify-content: right;
 }
 
-.prgv_dl_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: #222;
-  color: $COL_TEXT_NORMAL;
-  text-decoration: none;
-  border: 1px solid #000;
-
-  margin: 5px 0;
-}
-
 .prgv_dl_download { background: #442222; }
 .prgv_dl_github   { background: $COL_GITHUB; }
-
-.prgv_dl_btn:hover {
-  cursor: pointer;
-  background-color: #555;
-}
-
-.prgv_dl_btn svg {
-  width: 14pt;
-  height: 14pt;
-  margin: 0 4px;
-
-  fill: $COL_TEXT_NORMAL;
-}
-
-.prgv_dl_btn span {
-  flex-grow: 1;
-  text-align: center;
-
-  font-size: 14pt;
-}
 
 .prgv_right_lang img {
   display: inline;

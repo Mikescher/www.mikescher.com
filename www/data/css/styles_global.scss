@@ -120,3 +120,36 @@ body {
 .button:hover {
   background-color: #555;
 }
+
+.iconbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #222;
+  color: $COL_TEXT_NORMAL;
+  text-decoration: none;
+  border: 1px solid #000;
+
+  margin: 5px 0;
+}
+
+.iconbutton:hover {
+  cursor: pointer;
+  background-color: #555;
+}
+
+.iconbutton svg {
+  width: 14pt;
+  height: 14pt;
+  margin: 0 4px;
+
+  fill: $COL_TEXT_NORMAL;
+}
+
+.iconbutton span {
+  flex-grow: 1;
+  text-align: center;
+
+  font-size: 14pt;
+}
