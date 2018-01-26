@@ -53,3 +53,20 @@ function startAjaxRedraw(secret)
         async:   true
     });
 }
+
+function startAjaxReplace(target, url)
+{
+    $(target).html("Waiting ...");
+    jQuery.ajax({
+        url:    url,
+        success: function(result)
+        {
+            $(target).html(result);
+        },
+        error: function( jqXHR, textStatus, errorThrown)
+        {
+            $(target).html('AN ERROR OCCURED:' + '<br/>' + textStatus);
+        },
+        async:   true
+    });
+}

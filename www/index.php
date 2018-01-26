@@ -37,7 +37,10 @@ $URL_RULES =
 	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
 
 	[ 'url' => ['admin'],                                    'target' => 'pages/admin.php',                  'options' => [ '_opt' => 'password'],                   ],
-	[ 'url' => ['admin', 'egh', '?{cmd}'],                   'target' => 'pages/admin_egh.php',              'options' => [ 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
+
+	[ 'url' => ['admin', 'egh', '?{cmd}'],                   'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => 'egh', 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
+	[ 'url' => ['su_ajax', '?{cmd}'],                        'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '',    'cmd' => '%URL%', 'secret' => '%GET%' ], ],
+	[ 'url' => ['su_ajax'],                                  'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '',    'cmd' => '%GET%', 'secret' => '%GET%' ], ],
 
 	[ 'url' => ['blog'],                                     'target' => 'pages/blog_list.php',              'options' => [],                                        ],
 	[ 'url' => ['log'],                                      'target' => 'pages/blog_list.php',              'options' => [],                                        ],

@@ -31,6 +31,16 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 .iconbutton_light:hover{cursor:pointer;background-color:#555}
 .iconbutton_light svg{width:14pt;height:14pt;margin:0 4px;fill:#000}
 .iconbutton_light span{flex-grow:1;text-align:center;font-size:14pt}
+.stripedtable_container{overflow-x:auto}
+.stripedtable{border-collapse:collapse;text-align:left;width:100%;border:1px solid #666}
+.stripedtable td,.stripedtable th{padding:3px 10px}
+.stripedtable thead th{background-color:#7d7d7d;color:#fff;font-weight:bold;border-left:1px solid #444}
+.stripedtable thead th:first-child{border:0}
+.stripedtable tbody td{border-left:1px solid #666;font-weight:normal}
+.stripedtable tbody .alt td{background:#ebebeb}
+.stripedtable tbody td:first-child{border-left:0}
+.stripedtable tbody tr:last-child td{border-bottom:0}
+.stripedtable tbody tr:nth-child(odd){background-color:#ccc}
 #headerdiv{z-index:999;background-color:#333;display:flex;border-bottom:1px solid #111;box-shadow:0 0 8px #000;position:fixed;width:100%}
 #headerdiv .logowrapper{flex:initial;margin:0;padding:0;height:42px}
 #headerdiv .logowrapper .logo{min-width:197.5px;height:30px;margin:4px 0 8px 6px;flex:initial}

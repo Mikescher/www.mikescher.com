@@ -159,6 +159,35 @@ body {
     text-align: center;
     font-size: 14pt; }
 
+.stripedtable_container {
+  overflow-x: auto; }
+
+.stripedtable {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+  border: 1px solid #666; }
+  .stripedtable td, .stripedtable th {
+    padding: 3px 10px; }
+  .stripedtable thead th {
+    background-color: #7D7D7D;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-left: 1px solid #444; }
+  .stripedtable thead th:first-child {
+    border: none; }
+  .stripedtable tbody td {
+    border-left: 1px solid #666;
+    font-weight: normal; }
+  .stripedtable tbody .alt td {
+    background: #EBEBEB; }
+  .stripedtable tbody td:first-child {
+    border-left: none; }
+  .stripedtable tbody tr:last-child td {
+    border-bottom: none; }
+  .stripedtable tbody tr:nth-child(odd) {
+    background-color: #ccc; }
+
 /* 400px */
 #headerdiv {
   z-index: 999;

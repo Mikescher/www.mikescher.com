@@ -62,14 +62,15 @@ Database::connect();
 
                 <div class="bc_data">
                     <div class="keyvaluelist kvl_200">
-                        <div><span>Total users:</span> <span><?php echo 0; ?></span></div>
-                        <div><span>Users on latest version:</span> <span><?php echo 0; ?></span></div>
-                        <div><span>Active users:</span> <span><?php echo 0; ?></span></div>
+                        <div><span>Total users:</span> <span><?php echo AlephNoteStatistics::getTotalUserCount(); ?></span></div>
+                        <div><span>Users on latest version:</span> <span><?php echo AlephNoteStatistics::getUserCountFromLastVersion(); ?></span></div>
+                        <div><span>Active users:</span> <span><?php echo AlephNoteStatistics::getActiveUserCount(32); ?></span></div>
                     </div>
-
+                    <br/>
                     <div id="an_ajax_target"></div>
+                    <br/>
 
-                    <a class="button" href="javascript:showAlephNoteData('<?php echo $CONFIG['ajax_secret'] ?>')">Show</a>
+                    <a class="button" href="javascript:startAjaxReplace('#an_ajax_target', '/su_ajax/alephNoteTable?secret=<?php echo $CONFIG['ajax_secret'] ?>')">Show</a>
 
                 </div>
 
