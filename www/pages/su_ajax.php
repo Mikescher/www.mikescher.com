@@ -6,7 +6,7 @@ require_once (__DIR__ . '/../extern/egh/ExtendedGitGraph.php');
 $cmd = $OPTIONS['cmd'];
 $secret = $OPTIONS['secret'];
 
-if (isset($OPTIONS['suffix'])) $cmd = $OPTIONS['suffix'] . '::' . $cmd;
+if (isset($OPTIONS['suffix']) && $OPTIONS['suffix'] !== '') $cmd = $OPTIONS['suffix'] . '::' . $cmd;
 $cmd = strtolower($cmd);
 
 if ($secret !== $CONFIG['ajax_secret']) die('Unauthorized.');

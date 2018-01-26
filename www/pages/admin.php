@@ -57,6 +57,8 @@ Database::connect();
 
             </div>
 
+            <!------------------------------------------>
+
             <div class="boxedcontent">
                 <div class="bc_header">AlephNote</div>
 
@@ -68,13 +70,12 @@ Database::connect();
                     </div>
                     <br/>
                     <div id="an_ajax_target"></div>
-                    <br/>
-
                     <a class="button" href="javascript:startAjaxReplace('#an_ajax_target', '/su_ajax/alephNoteTable?secret=<?php echo $CONFIG['ajax_secret'] ?>')">Show</a>
-
                 </div>
 
             </div>
+
+            <!------------------------------------------>
 
             <div class="boxedcontent">
                 <div class="bc_header">Highscores</div>
@@ -93,6 +94,21 @@ Database::connect();
                         <hr />
 
                     <?php endforeach; ?>
+
+                </div>
+
+            </div>
+
+            <!------------------------------------------>
+
+            <div class="boxedcontent">
+                <div class="bc_header">Configuration</div>
+
+                <div class="bc_data keyvaluelist kvl_200">
+
+					<?php foreach ($CONFIG as $key => $value): ?>
+                        <div><span><?php echo $key; ?></span> <span><?php echo var_export($value, true); ?></span></div>
+					<?php endforeach; ?>
 
                 </div>
 

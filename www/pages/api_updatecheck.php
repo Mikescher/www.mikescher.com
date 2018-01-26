@@ -6,7 +6,7 @@
 
 	$name = $OPTIONS['name'];
 
-	$updatedata = listUpdateData();
+	$updatedata = Programs::listUpdateData();
 
 	if (! array_key_exists($name, $updatedata)) httpError(404, 'Invalid Request - [Name] not found');
 
