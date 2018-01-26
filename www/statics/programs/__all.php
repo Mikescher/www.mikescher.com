@@ -29,7 +29,7 @@ return
 		'stars'             => 1,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'A little "swiss army knife" programm with over 100 different functionalities',
+		'short_description' => 'A little "swiss army knife" programm with over 100 different functionalities.',
 		'add_date'          => '2008-11-26',
 		'license'           => null,
 		'urls'              =>
@@ -47,7 +47,7 @@ return
 		'stars'             => 0,
 		'ui_language'       => 'English',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Annoy your teachers/freinds with a very high pitched sound, even without external speakers.',
+		'short_description' => 'Continuously plays a beep sound over the internal pc speakers.',
 		'add_date'          => '2008-06-04',
 		'license'           => null,
 		'urls'              =>
@@ -77,24 +77,6 @@ return
 
 
 	[
-		'name'              => 'BefunZ',
-		'internal_name'     => 'BefunZ',
-		'internal_name_alt' => null,
-		'category'          => 'Interpreter',
-		'stars'             => 3,
-		'ui_language'       => 'English',
-		'prog_language'     => 'C#',
-		'short_description' => 'A (very) simple visual Befunge-93 commandline interpreter',
-		'add_date'          => '2013-05-03',
-		'license'           => null,
-		'urls'              =>
-			[
-				'download'    => 'direkt',
-			],
-	],
-
-
-	[
 		'name'              => 'Blitzer',
 		'internal_name'     => 'Blitzer',
 		'internal_name_alt' => null,
@@ -102,7 +84,7 @@ return
 		'stars'             => 0,
 		'ui_language'       => 'English',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Hoax you teachers/friends with flashing lights on your monitor.',
+		'short_description' => 'A fullscreen black/white flicker effect.',
 		'add_date'          => '2008-05-05',
 		'license'           => null,
 		'urls'              =>
@@ -150,24 +132,6 @@ return
 
 
 	[
-		'name'              => 'Deal or no Deal',
-		'internal_name'     => 'Deal_or_no_Deal',
-		'internal_name_alt' => 'Deal or no Deal',
-		'category'          => 'Game',
-		'stars'             => 0,
-		'ui_language'       => 'German',
-		'prog_language'     => 'Delphi',
-		'short_description' => 'A digital version of the same-named german tv-show game.',
-		'add_date'          => '2008-10-08',
-		'license'           => null,
-		'urls'              =>
-			[
-				'download'    => 'direkt',
-			],
-	],
-
-
-	[
 		'name'              => 'Dynamic Link Fighters',
 		'internal_name'     => 'DLF',
 		'internal_name_alt' => 'Dynamic Link Fighters',
@@ -175,7 +139,7 @@ return
 		'stars'             => 1,
 		'ui_language'       => 'English|German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Program your own KI and let it fight against others in a brutal deathmatch.',
+		'short_description' => 'Program your own KI in Delphi and let it fight against others.',
 		'add_date'          => '2010-12-04',
 		'license'           => null,
 		'urls'              =>
@@ -193,7 +157,7 @@ return
 		'stars'             => 0,
 		'ui_language'       => 'English',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'A simple tool to copy all files of a specific extension from a folder.',
+		'short_description' => 'A simple tool to copy all files of a specific extension to another directory.',
 		'add_date'          => '2008-03-26',
 		'license'           => null,
 		'urls'              =>
@@ -247,7 +211,7 @@ return
 		'stars'             => 2,
 		'ui_language'       => 'English',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Try creating the biggest chain reaction and see yourself climb up in the global leaderboard.',
+		'short_description' => 'A game about creating big chain reactions. Complete with online highscore',
 		'add_date'          => '2009-01-24',
 		'license'           => null,
 		'urls'              =>
@@ -360,30 +324,12 @@ return
 		'stars'             => 2,
 		'ui_language'       => 'English',
 		'prog_language'     => 'Delphi',
-		'short_description' => '40 of the best keygen themes together with a funny little keygen dance animation.',
+		'short_description' => 'Plays 40 different keygen themes and shows a little keygen dance animation.',
 		'add_date'          => '2010-03-16',
 		'license'           => null,
 		'urls'              =>
 			[
 				//TODO url
-			],
-	],
-
-
-	[
-		'name'              => 'LAN-Control',
-		'internal_name'     => 'LanControl',
-		'internal_name_alt' => 'LAN-Control',
-		'category'          => 'Network administration',
-		'stars'             => 1,
-		'ui_language'       => 'German',
-		'prog_language'     => 'Delphi',
-		'short_description' => 'Controll essential features of an other computer over the LAN',
-		'add_date'          => '2011-07-05',
-		'license'           => null,
-		'urls'              =>
-			[
-				'download'    => 'direkt',
 			],
 	],
 
@@ -414,7 +360,7 @@ return
 		'stars'             => 1,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Find the trick to escape the seemingly escape-proof maze.',
+		'short_description' => 'A proof-of-concept maze game. The trick to win is ... not obvious',
 		'add_date'          => '2008-12-20',
 		'license'           => null,
 		'urls'              =>
@@ -432,7 +378,7 @@ return
 		'stars'             => 1,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Send anonymous messages over the Windows Messenger service to other pc\'s in your LAN',
+		'short_description' => 'Send anonymous messages over the Windows Messenger service to other pc\'s in your LAN.',
 		'add_date'          => '2009-02-11',
 		'license'           => null,
 		'urls'              =>
@@ -469,7 +415,7 @@ return
 		'stars'             => 3,
 		'ui_language'       => 'English',
 		'prog_language'     => 'C++',
-		'short_description' => 'A crazy little snake with an "console" style',
+		'short_description' => 'A small "console style" snake a friend and I made for a college course',
 		'add_date'          => '2013-07-08',
 		'license'           => 'Unlicense',
 		'urls'              =>
@@ -506,7 +452,7 @@ return
 		'stars'             => 1,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Visualize the prime number calculation with the Sieve Of Erastothenes algorithm.',
+		'short_description' => 'Visualization of the "Sieve Of Erastothenes" algorithm.',
 		'add_date'          => '2009-01-22',
 		'license'           => null,
 		'urls'              =>
@@ -524,7 +470,7 @@ return
 		'stars'             => 2,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'List all files in a folder that match a specific pattern and export them in plaintext.',
+		'short_description' => 'Lists all files in a folder that match a specific pattern and exports them in plaintext.',
 		'add_date'          => '2010-01-12',
 		'license'           => null,
 		'urls'              =>
@@ -561,7 +507,7 @@ return
 		'stars'             => 1,
 		'ui_language'       => 'English',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'The classical Tic-Tac-Toe, complete with perfect KI and Sourcecode.',
+		'short_description' => 'A simple Tic-Tac-Toe, complete with KI and Sourcecode.',
 		'add_date'          => '2011-01-19',
 		'license'           => null,
 		'urls'              =>
@@ -579,7 +525,7 @@ return
 		'stars'             => 0,
 		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
-		'short_description' => 'Simulate the popular Monty Hall problem (ger: Ziegenproblem) with this program for yourself.',
+		'short_description' => 'A simulation of the Monty Hall problem.',
 		'add_date'          => '2008-04-10',
 		'license'           => null,
 		'urls'              =>
@@ -640,7 +586,7 @@ return
 		'prog_language'     => 'C#',
 		'short_description' => 'Lightweight note taking client for Simplenote/Standard-Notes/Nextcloud/Local',
 		'add_date'          => '2017-02-26',
-		'license'           => 'MIT',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'      => 'https://github.com/Mikescher/AlephNote/releases',

@@ -179,7 +179,6 @@ try {
 
 
 //TODO printed books 2 hp
-//TODO programs (sort out)
 //TODO fast
 //TODO gzip (?)
 //TODO better gh widget
