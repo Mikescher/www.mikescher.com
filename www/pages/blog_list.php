@@ -4,7 +4,7 @@
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/blog.php');
 
-$allposts = Blog::listAllOrderedDescending();
+$allposts = Blog::listAllNewestFirst();
 
 ?>
 <head>

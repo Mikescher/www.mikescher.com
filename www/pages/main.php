@@ -16,9 +16,11 @@
 
 	<div id="content" class="content-responsive">
 
-		<?php include (__DIR__ . '/../fragments/eulerpanel.php');  ?>
+		<?php include (__DIR__ . '/../fragments/panel_euler.php');  ?>
 
-		<?php include (__DIR__ . '/../fragments/programspanel.php');  ?>
+		<?php include (__DIR__ . '/../fragments/panel_programs.php');  ?>
+
+		<?php include (__DIR__ . '/../fragments/panel_blog.php');  ?>
 
 	</div>
 

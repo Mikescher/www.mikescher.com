@@ -189,5 +189,4 @@ try {
 //TODO optimize image sizes for display/download (? - auto?)
 //TODO send cache header (?)
 //TODO programs add [license]
-//TODO last 3 blog entries on /index/ (?)
 //TODO global uncached error logger -> send by mail

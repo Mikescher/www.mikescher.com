@@ -1153,6 +1153,50 @@ html, body {
   .programs_pnl_bottom_1, .programs_pnl_bottom_2 {
     flex-direction: row; } }
 /* 400px */
+.blog_pnl_content {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+.blogpnl_base {
+  width: 100%;
+  border: solid 1px #444;
+  margin: 10px 5px;
+  color: #333;
+  text-decoration: none;
+  background-color: #BBB; }
+
+.blogpnl_date {
+  background-color: #AAA;
+  color: #333; }
+
+.blogpnl_base:hover {
+  border: solid 1px black;
+  background-color: white;
+  color: black; }
+
+.blogpnl_base:hover .blogpnl_date {
+  background-color: white;
+  color: black;
+  border-bottom: 1px solid black; }
+
+.blogpnl_date {
+  background-color: #AAA;
+  border-bottom: 1px solid transparent;
+  padding: 2px;
+  font-size: 0.8em;
+  font-style: italic; }
+
+.blogpnl_title {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: left;
+  margin: 2px 0 2px 10px; }
+
+@media (max-width: 850px) {
+  .blogpnl_title {
+    text-align: center; } }
+/* 400px */
 .bfjoust_runner_owner {
   border: 1px solid #888;
   background: #F8F8F8;

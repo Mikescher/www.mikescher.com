@@ -21,7 +21,7 @@ class Blog
 		return $d;
 	}
 
-	public static function listAllOrderedDescending()
+	public static function listAllNewestFirst()
 	{
 		$data = self::listAll();
 		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });

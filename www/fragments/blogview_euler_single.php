@@ -56,7 +56,7 @@ $max = ceil($max / 20) * 20;
 				'speed'       => $problem['steps'] < 500000 ? 2 : 3,
 				'editable'    => false,
 			];
-            echo require (__DIR__ . '/../fragments/befunge93_runner.php');
+            echo require (__DIR__ . '/../fragments/widget_befunge93.php');
 
             if ($problem['abbreviated']) echo '<i>This program is too big to display/execute here, click [download] to get the full program. </i><br/>';
 		?>

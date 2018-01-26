@@ -76,7 +76,7 @@ class ParsedownCustom extends ParsedownExtra
 		$PARAM_CODE_LEFT  = trim($split[0]);
 		$PARAM_CODE_RIGHT = trim($split[1]);
 
-		return require (__DIR__ . '/../fragments/bfjoust_runner.php');
+		return require (__DIR__ . '/../fragments/widget_bfjoust.php');
 	}
 
 	protected function handleBef93(array $Element)
@@ -90,6 +90,6 @@ class ParsedownCustom extends ParsedownExtra
 			'speed'       => $Element['b93_speed'],
 			'editable'    => $Element['b93_editable'],
 		];
-		return require (__DIR__ . '/../fragments/befunge93_runner.php');
+		return require (__DIR__ . '/../fragments/widget_befunge93.php');
 	}
 }
