@@ -53,7 +53,7 @@ $max = ceil($max / 20) * 20;
 				'code'        => file_get_contents($problem['file_code']),
 				'url'         => $problem['url_raw'],
 				'interactive' => !$problem['abbreviated'],
-				'speed'       => $problem['steps'] < 500000 ? 2 : 3,
+				'speed'       => $problem['steps'] < 15000 ? 1 : ($problem['steps'] < 500000 ? 2 : 3),
 				'editable'    => false,
 			];
             echo require (__DIR__ . '/../fragments/widget_befunge93.php');

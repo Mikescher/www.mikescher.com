@@ -185,7 +185,6 @@ try {
 //TODO better gh widget
 //TODO remove db table prefixes
 //TODO euler insert+show 32bit | 64bit mode
-//TODO euler best of on top of list (?)
 //TODO optimize image sizes for display/download (? - auto?)
 //TODO send cache header (?)
 //TODO global uncached error logger -> send by mail

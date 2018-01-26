@@ -52,6 +52,23 @@ $problems = Euler::listAll();
             I recommend using <a href="/programs/view/BefunUtils">BefunExec</a>. I specially made that interpreter for this project. It can run befunge code with around 6.5 MHz <i>(on my machine)</i>
         </p>
 
+        <h1>My favorites:</h1>
+
+        <ul>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-101">Problem 101 - Optimum polynomial</a></li>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-098">Problem 098 - Anagramic squares</a></li>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-091">Problem 091 - Right triangles with integer coordinates</a></li>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-079">Problem 079 - Passcode derivation</a></li>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-059">Problem 059 - XOR decryption</a></li>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-053">Problem 053 - Combinatoric selections</a></li>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-043">Problem 043 - Sub-string divisibility</a></li>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-017">Problem 017 - Number letter counts</a></li>
+            <li><a href="/blog/1/Project_Euler_with_Befunge/problem-015">Problem 015 - Lattice paths</a></li>
+
+
+        </ul>
+
+        <h1>All solved problems</h1>
         <div class="mdtable_container">
             <table id="PEB_tableProblems" class="mdtable">
                 <thead>

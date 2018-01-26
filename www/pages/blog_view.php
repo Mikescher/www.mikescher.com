@@ -12,31 +12,29 @@ $post = Blog::getBlogpost($id);
 
 if ($post === NULL) httpError(404, 'Blogpost not found');
 
+$isSubEuler = ($post['type'] === 'euler' && $subview !== '');
+$eulerproblem = null;
+if ($isSubEuler)
+{
+	require_once(__DIR__ . '/../internals/euler.php');
+	$eulerproblem = Euler::getEulerProblemFromStrIdent($subview);
+}
+if ($eulerproblem === null) $isSubEuler = false;
+
 ?>
 <head>
 	<meta charset="utf-8">
-	<title>Mikescher.com - Blog</title>
+	<title>Mikescher.com - <?php echo ($isSubEuler ? $eulerproblem['title'] : $post['title']); ?></title>
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<?php printCSS(); ?>
-	<?php
-    if ($post['type'] === 'euler' && $subview !== '')
-	{
-		require_once(__DIR__ . '/../internals/euler.php');
-		$problem = Euler::getEulerProblemFromStrIdent($subview);
-		if ($problem !== NULL) echo '<link rel="canonical" href="' . $problem['canonical'] . '"/>';
-	}
-	else
-    {
-        echo '<link rel="canonical" href="' . $post['canonical'] . '"/>';
-    }
-    ?>
+	<?php echo '<link rel="canonical" href="' . ($isSubEuler ? $eulerproblem['canonical'] : $post['canonical']) . '"/>'; ?>
 
 </head>
 <body>
 <div id="mastercontainer">
 
-<?php $HEADER_ACTIVE = ($post['type']==='euler' && $subview==='') ? 'euler' : 'none'; include (__DIR__ . '/../fragments/header.php'); ?>
+<?php $HEADER_ACTIVE = ($isSubEuler ? 'euler' : 'none'); include (__DIR__ . '/../fragments/header.php'); ?>
 
 <div id="content" class="content-responsive">
 
