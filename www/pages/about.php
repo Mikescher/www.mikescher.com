@@ -59,31 +59,31 @@ global $OPTIONS;
 
                 <div class="bc_data about_circles">
 
-                    <a class="iconbutton" href="https://github.com/Mikescher">
+                    <a class="iconbutton_light" href="https://github.com/Mikescher">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
                             <use xlink:href="/data/images/icons.svg#github"></use>
                         </svg>
                         <span>Github</span>
                     </a>
-                    <a class="iconbutton" href="https://www.goodreads.com/C4terpillar">
+                    <a class="iconbutton_light" href="https://www.goodreads.com/C4terpillar">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
                             <use xlink:href="/data/images/icons.svg#goodreads"></use>
                         </svg>
                         <span>Goodreads</span>
                     </a>
-                    <a class="iconbutton" href="https://stackoverflow.com/users/1761622/mikescher">
+                    <a class="iconbutton_light" href="https://stackoverflow.com/users/1761622/mikescher">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
                             <use xlink:href="/data/images/icons.svg#stackoverflow"></use>
                         </svg>
                         <span>Stackoverflow</span>
                     </a>
-                    <a class="iconbutton" href="https://www.reddit.com/user/M1kescher/">
+                    <a class="iconbutton_light" href="https://www.reddit.com/user/M1kescher/">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
                             <use xlink:href="/data/images/icons.svg#reddit"></use>
                         </svg>
                         <span>Reddit</span>
                     </a>
-                    <a class="iconbutton" href="http://www.delphipraxis.net/members/46235-mikescher.html">
+                    <a class="iconbutton_light" href="http://www.delphipraxis.net/members/46235-mikescher.html">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
                             <use xlink:href="/data/images/icons.svg#delphipraxis"></use>
                         </svg>

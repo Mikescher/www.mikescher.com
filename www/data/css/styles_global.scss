@@ -132,24 +132,55 @@ body {
   border: 1px solid #000;
 
   margin: 5px 0;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #555;
+  }
+  svg {
+    width: 14pt;
+    height: 14pt;
+    margin: 0 4px;
+
+    fill: $COL_TEXT_NORMAL;
+  }
+  span {
+    flex-grow: 1;
+    text-align: center;
+
+    font-size: 14pt;
+  }
+
 }
 
-.iconbutton:hover {
-  cursor: pointer;
-  background-color: #555;
-}
+.iconbutton_light {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.iconbutton svg {
-  width: 14pt;
-  height: 14pt;
-  margin: 0 4px;
+  background: #888;
+  color: $COL_TEXT_DARK_DARKER;
+  text-decoration: none;
+  border: 1px solid #000;
 
-  fill: $COL_TEXT_NORMAL;
-}
+  margin: 5px 0;
 
-.iconbutton span {
-  flex-grow: 1;
-  text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: #555;
+  }
+  svg {
+    width: 14pt;
+    height: 14pt;
+    margin: 0 4px;
 
-  font-size: 14pt;
+    fill: #000;
+  }
+  span {
+    flex-grow: 1;
+    text-align: center;
+
+    font-size: 14pt;
+  }
+
 }

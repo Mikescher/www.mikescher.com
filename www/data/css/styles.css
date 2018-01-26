@@ -124,21 +124,40 @@ body {
   text-decoration: none;
   border: 1px solid #000;
   margin: 5px 0; }
+  .iconbutton:hover {
+    cursor: pointer;
+    background-color: #555; }
+  .iconbutton svg {
+    width: 14pt;
+    height: 14pt;
+    margin: 0 4px;
+    fill: #CCC; }
+  .iconbutton span {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 14pt; }
 
-.iconbutton:hover {
-  cursor: pointer;
-  background-color: #555; }
-
-.iconbutton svg {
-  width: 14pt;
-  height: 14pt;
-  margin: 0 4px;
-  fill: #CCC; }
-
-.iconbutton span {
-  flex-grow: 1;
-  text-align: center;
-  font-size: 14pt; }
+.iconbutton_light {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #888;
+  color: #222;
+  text-decoration: none;
+  border: 1px solid #000;
+  margin: 5px 0; }
+  .iconbutton_light:hover {
+    cursor: pointer;
+    background-color: #555; }
+  .iconbutton_light svg {
+    width: 14pt;
+    height: 14pt;
+    margin: 0 4px;
+    fill: #000; }
+  .iconbutton_light span {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 14pt; }
 
 /* 400px */
 #headerdiv {
@@ -975,7 +994,7 @@ html, body {
 
 .about_circles a {
   margin: 5px 0; }
-.about_circles .iconbutton span {
+.about_circles .iconbutton_light span {
   text-align: left; }
 
 /* 400px */
@@ -996,6 +1015,25 @@ html, body {
   margin-right: auto;
   resize: none;
   height: 300px; }
+
+.keyvaluelist {
+  display: flex;
+  flex-direction: column; }
+  .keyvaluelist div {
+    display: flex;
+    flex-direction: row; }
+    .keyvaluelist div span:first-child {
+      font-weight: bold;
+      min-width: 500px; }
+
+.kvl_100 div span:first-child {
+  min-width: 100px; }
+
+.kvl_200 div span:first-child {
+  min-width: 200px; }
+
+.kvl_300 div span:first-child {
+  min-width: 300px; }
 
 /* 400px */
 #loginform div {

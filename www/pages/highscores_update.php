@@ -18,48 +18,21 @@
 	if (! is_numeric($nameid)) httpError(400, 'Invalid Request');
 	if (! is_numeric($points)) httpError(400, 'Invalid Request');
 
-	$game = Database::sql_query_single_prep('SELECT * FROM ms4_highscoregames WHERE ID = :id', 
-	[
-		[ ':id', $OPTIONS['gameid'], PDO::PARAM_INT ],
-	]);
+	$game = Highscores::getGameByID($OPTIONS['gameid']);
 	if ($game == NULL) httpError(400, 'Invalid Request');
 
 	$checksum_generated = Highscores::generateChecksum($rand, $name, $nameid, $points, $game['SALT']);
 	if ($checksum_generated != $check) die('Nice try !');
 
-	$old = Database::sql_query_single_prep('SELECT * FROM ms4_highscoreentries WHERE GAME_ID = :gid AND PLAYERID = :pid', 
-	[
-		[ ':gid', $OPTIONS['gameid'], PDO::PARAM_INT ],
-		[ ':pid', $OPTIONS['nameid'], PDO::PARAM_INT ],
-	]);
+	$old = Highscores::getSpecificScore($gameid, $nameid);
 
 	if ($old == null)
 	{
-		Database::sql_exec_prep('INSERT INTO ms4_highscoreentries (GAME_ID, POINTS, PLAYER, PLAYERID, CHECKSUM, TIMESTAMP, IP) VALUES (:gid, :p, :pn, :pid, :cs, :ts, :ip)',
-		[
-			[':gid', $gameid, PDO::PARAM_INT],
-			[':p',   $points, PDO::PARAM_INT],
-			[':pn',  $name, PDO::PARAM_STR],
-			[':pid', $nameid, PDO::PARAM_INT],
-			[':cs',  $check, PDO::PARAM_STR],
-			[':ts',  time(), PDO::PARAM_STR],
-			[':ip',  $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR],
-		]);
-
+		Highscores::insert($gameid, $points, $name, $nameid, $check, date("Y-m-d H:m:s", time()), $_SERVER['REMOTE_ADDR']);
 		echo 'ok.';
 	}
 	else 
 	{
-		Database::sql_exec_prep('UPDATE ms4_highscoreentries SET POINTS = :p, PLAYER = :pn, CHECKSUM = :cs, IP = :ip, TIMESTAMP = :ts WHERE GAME_ID = :gid AND PLAYERID = :pid',
-		[
-			[':gid', $gameid, PDO::PARAM_INT],
-			[':p',   $points, PDO::PARAM_INT],
-			[':pn',  $name, PDO::PARAM_STR],
-			[':pid', $nameid, PDO::PARAM_INT],
-			[':cs',  $check], PDO::PARAM_STR,
-			[':ts',  time(), PDO::PARAM_STR],
-			[':ip',  $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR],
-		]);
-
+		Highscores::update($gameid, $points, $name, $nameid, $check, date("Y-m-d H:m:s", time()), $_SERVER['REMOTE_ADDR']);
 		echo 'ok.';
 	}

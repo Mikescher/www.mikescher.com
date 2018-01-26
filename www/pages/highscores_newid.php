@@ -7,10 +7,7 @@
 
 	Database::connect();
 
-	$newid = Database::sql_query_num_prep('SELECT MAX(PLAYERID)+1 AS NID FROM ms4_highscoreentries WHERE GAME_ID = :gid', 
-	[
-		[ ':id', $OPTIONS['gameid'], PDO::PARAM_INT ]
-	]);
+	$newid = Highscores::getNextPlayerID($OPTIONS['gameid']);
 	
 	if ($newid < 1024) $newid = 1024;
 

@@ -22,16 +22,9 @@
 		$highlight= intval(htmlspecialchars($_GET["highlight"]));
 	}
 
-	$game = Database::sql_query_single_prep('SELECT * FROM ms4_highscoregames WHERE ID = :id', 
-	[
-		[ ':id', $OPTIONS['gameid'], PDO::PARAM_INT ]
-	]);
+    $game = Highscores::getGameByID($OPTIONS['gameid']);
 
-	$entries = Database::sql_query_assoc_prep('SELECT * FROM ms4_highscoreentries WHERE GAME_ID = :id ORDER BY POINTS DESC',
-	[
-		[ ':id', $OPTIONS['gameid'], PDO::PARAM_INT ]
-	]);
-	
+    $entries = Highscores::getOrderedEntriesFromGame($OPTIONS['gameid']);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

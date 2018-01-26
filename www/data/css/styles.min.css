@@ -27,6 +27,10 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 .iconbutton:hover{cursor:pointer;background-color:#555}
 .iconbutton svg{width:14pt;height:14pt;margin:0 4px;fill:#CCC}
 .iconbutton span{flex-grow:1;text-align:center;font-size:14pt}
+.iconbutton_light{display:flex;justify-content:center;align-items:center;background:#888;color:#222;text-decoration:none;border:1px solid #000;margin:5px 0}
+.iconbutton_light:hover{cursor:pointer;background-color:#555}
+.iconbutton_light svg{width:14pt;height:14pt;margin:0 4px;fill:#000}
+.iconbutton_light span{flex-grow:1;text-align:center;font-size:14pt}
 #headerdiv{z-index:999;background-color:#333;display:flex;border-bottom:1px solid #111;box-shadow:0 0 8px #000;position:fixed;width:100%}
 #headerdiv .logowrapper{flex:initial;margin:0;padding:0;height:42px}
 #headerdiv .logowrapper .logo{min-width:197.5px;height:30px;margin:4px 0 8px 6px;flex:initial}
@@ -240,10 +244,16 @@ html,body{margin:0;padding:0;height:100%}
 .egg_footer>a:hover{text-decoration:none;color:#22F}
 .about_circles{display:flex;flex-direction:column}
 .about_circles a{margin:5px 0}
-.about_circles .iconbutton span{text-align:left}
+.about_circles .iconbutton_light span{text-align:left}
 .admincontent{display:block;width:100%}
 .admincontent .boxedcontent{margin-bottom:20px}
 .egh_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;justify-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}
+.keyvaluelist{display:flex;flex-direction:column}
+.keyvaluelist div{display:flex;flex-direction:row}
+.keyvaluelist div span:first-child{font-weight:bold;min-width:500px}
+.kvl_100 div span:first-child{min-width:100px}
+.kvl_200 div span:first-child{min-width:200px}
+.kvl_300 div span:first-child{min-width:300px}
 #loginform div{display:flex;flex-direction:column}
 #loginform div button{margin:10px 0;padding:0}
 .loginerror{display:flex;background:#f44;font-weight:bold;padding:0 5px;margin:5px 0 20px 0}

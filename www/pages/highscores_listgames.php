@@ -7,7 +7,7 @@
 
 	Database::connect();
 
-	$games = Database::sql_query_assoc('SELECT * FROM ms4_highscoregames');
+	$games = Highscores::getAllGames();
 
 ?>
 <html>

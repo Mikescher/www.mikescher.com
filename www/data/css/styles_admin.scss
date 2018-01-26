@@ -21,3 +21,27 @@
   resize: none;
   height: 300px;
 }
+
+.keyvaluelist {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    flex-direction: row;
+
+    span:first-child {
+      font-weight: bold;
+      min-width: 500px;
+    }
+
+    span:last-child {
+
+    }
+
+  }
+}
+
+.kvl_100 div span:first-child { min-width: 100px; }
+.kvl_200 div span:first-child { min-width: 200px; }
+.kvl_300 div span:first-child { min-width: 300px; }
