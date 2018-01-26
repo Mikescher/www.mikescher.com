@@ -43,7 +43,7 @@ class HighscoresController extends MSController //TODO-MS Test online if it all 
 		$entry->PLAYER = $name;
 		$entry->PLAYERID = -1;
 		$entry->CHECKSUM = $check;
-		$entry->TIMESTAMP = time();
+		$entry->TIMESTAMP = date("Y-m-d H:m:s", time());
 		$entry->IP = $_SERVER['REMOTE_ADDR'];
 
 		if ($entry->checkChecksum($rand))
@@ -151,7 +151,7 @@ class HighscoresController extends MSController //TODO-MS Test online if it all 
 			$entry->PLAYER = $name;
 			$entry->PLAYERID = -1;
 			$entry->CHECKSUM = $check;
-			$entry->TIMESTAMP = time();
+			$entry->TIMESTAMP = date("Y-m-d H:m:s", time());
 			$entry->IP = $_SERVER['REMOTE_ADDR'];
 
 			if ($entry->checkChecksum($rand))
