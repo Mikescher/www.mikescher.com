@@ -2,6 +2,31 @@
 
 class Programs
 {
+	const URL_ORDER =
+	[
+		'github',
+		'sourceforge',
+
+		'download',
+		'playstore',
+		'amazonappstore',
+		'windowsstore',
+		'itunesstore',
+
+		'homepage',
+		'wiki',
+		'alternativeto',
+	];
+
+	const LICENSES =
+	[
+		'MIT'         => 'https://choosealicense.com/licenses/mit/',
+		'Unlicense'   => 'https://choosealicense.com/licenses/unlicense/',
+		'GPL-3.0'     => 'https://choosealicense.com/licenses/gpl-3.0/',
+		'Apache-2.0'  => 'https://choosealicense.com/licenses/apache-2.0/',
+		'Mozilla-2.0' => 'https://choosealicense.com/licenses/mpl-2.0/',
+	];
+
 	public static function readSingle($a)
 	{
 		$a['thumbnail_url']        = '/data/images/program_thumbnails/' . $a['internal_name'] . '.png';
@@ -44,5 +69,29 @@ class Programs
 	public static function getProgramDescription($prog)
 	{
 		return file_get_contents($prog['file_longdescription']);
+	}
+
+	public static function urlComparator($a, $b)
+	{
+		$ia = array_search($a, Programs::URL_ORDER);
+		$ib = array_search($b, Programs::URL_ORDER);
+
+		if ($ia === false && $ib === false) return strcasecmp($a, $b);
+		if ($ia === false && $ib !== false) return +1; // sort [IA | IB]
+		if ($ia !== false && $ib === false) return -1; // sort [IB | IA]
+
+		return ($ia < $ib) ? -1 : +1;
+
+	}
+
+	public static function sortUrls($urls)
+	{
+		uksort($urls, 'self::urlComparator');
+		return $urls;
+	}
+
+	public static function getLicenseUrl($license)
+	{
+		return self::LICENSES[$license];
 	}
 }

@@ -12,9 +12,11 @@ return
 		'prog_language'     => 'Java',
 		'short_description' => 'A powerful 2D Tiled-Game-Engine for java. Completely in canvas and with network support.',
 		'add_date'          => '2012-05-28',
+		'license'           => 'GPL-3.0',
 		'urls'              =>
 			[
 				'download'    => 'direkt',
+				'github'      => 'https://github.com/Mikescher/AbsCanvas',
 			],
 	],
 
@@ -29,6 +31,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'A little "swiss army knife" programm with over 100 different functionalities',
 		'add_date'          => '2008-11-26',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -46,6 +49,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Annoy your teachers/freinds with a very high pitched sound, even without external speakers.',
 		'add_date'          => '2008-06-04',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -63,6 +67,7 @@ return
 		'prog_language'     => 'C#',
 		'short_description' => 'My collection of befunge93 tools. Including an interpreter, a transpiler, an compiler, an highlighter and more',
 		'add_date'          => '2014-08-04',
+		'license'           => 'MIT',
 		'urls'              =>
 			[
 				'github'      => 'https://github.com/Mikescher/BefunUtils',
@@ -81,6 +86,7 @@ return
 		'prog_language'     => 'C#',
 		'short_description' => 'A (very) simple visual Befunge-93 commandline interpreter',
 		'add_date'          => '2013-05-03',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -98,6 +104,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Hoax you teachers/friends with flashing lights on your monitor.',
 		'add_date'          => '2008-05-05',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -115,6 +122,7 @@ return
 		'prog_language'     => 'Java',
 		'short_description' => 'A improved Space-Invaders clone - programmed from the Java-AG, Oken.',
 		'add_date'          => '2012-05-24',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -133,6 +141,7 @@ return
 		'prog_language'     => 'Java',
 		'short_description' => 'A challenging, tactical mini-game in blueprint-style.',
 		'add_date'          => '2013-01-03',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -150,6 +159,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'A digital version of the same-named german tv-show game.',
 		'add_date'          => '2008-10-08',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -167,6 +177,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Program your own KI and let it fight against others in a brutal deathmatch.',
 		'add_date'          => '2010-12-04',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -184,6 +195,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'A simple tool to copy all files of a specific extension from a folder.',
 		'add_date'          => '2008-03-26',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -201,6 +213,7 @@ return
 		'prog_language'     => 'PHP',
 		'short_description' => 'A simple php module to display an overview of you github commits',
 		'add_date'          => '2014-06-08',
+		'license'           => 'MIT',
 		'urls'              =>
 			[
 				'download'    => 'https://github.com/Mikescher/extendedGitGraph/',
@@ -218,6 +231,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'A little tool to rename multiple files with increasing numbers.',
 		'add_date'          => '2008-10-01',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -235,6 +249,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Try creating the biggest chain reaction and see yourself climb up in the global leaderboard.',
 		'add_date'          => '2009-01-24',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -252,6 +267,7 @@ return
 		'prog_language'     => 'C#',
 		'short_description' => 'An automatic parser and solver for Hexcells, Hexcells Plus and Hexcells Infinite.',
 		'add_date'          => '2015-05-06',
+		'license'           => 'MIT',
 		'urls'              =>
 			[
 				'github'      => 'https://github.com/Mikescher/HexSolver',
@@ -270,6 +286,7 @@ return
 		'prog_language'     => 'Java',
 		'short_description' => 'A never ending Tower Defense where you fight against your own score.',
 		'add_date'          => '2012-04-14',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -287,6 +304,7 @@ return
 		'prog_language'     => 'Java',
 		'short_description' => 'A fully featured logical circuit simulator with many prebuild components',
 		'add_date'          => '2011-12-16',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -305,6 +323,7 @@ return
 		'prog_language'     => 'Java',
 		'short_description' => 'Organize your movies and series on an external hard drive.',
 		'add_date'          => '2012-10-28',
+		'license'           => 'GPL-3.0',
 		'urls'              =>
 			[
 				'download'    => 'https://github.com/Mikescher/jClipCorn/releases',
@@ -324,6 +343,7 @@ return
 		'prog_language'     => 'Java',
 		'short_description' => 'A little tool to find the "line of codes" of multiple projects',
 		'add_date'          => '2014-04-27',
+		'license'           => 'Unlicense',
 		'urls'              =>
 			[
 				'github'      => 'https://github.com/Mikescher/jQCCounter',
@@ -342,6 +362,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => '40 of the best keygen themes together with a funny little keygen dance animation.',
 		'add_date'          => '2010-03-16',
+		'license'           => null,
 		'urls'              =>
 			[
 				//TODO url
@@ -359,6 +380,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Controll essential features of an other computer over the LAN',
 		'add_date'          => '2011-07-05',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -376,6 +398,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Turn you keyboard LED\'s into a little lightshow',
 		'add_date'          => '2008-10-12',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -393,6 +416,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Find the trick to escape the seemingly escape-proof maze.',
 		'add_date'          => '2008-12-20',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -410,6 +434,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Send anonymous messages over the Windows Messenger service to other pc\'s in your LAN',
 		'add_date'          => '2009-02-11',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -427,6 +452,7 @@ return
 		'prog_language'     => 'C#',
 		'short_description' => 'A texteditor for encrypted textfiles (AES, Twofish, Blowfish, ...)',
 		'add_date'          => '2015-11-26',
+		'license'           => 'GPL-3.0',
 		'urls'              =>
 			[
 				'download'    => 'https://github.com/Mikescher/Passpad/releases',
@@ -445,6 +471,7 @@ return
 		'prog_language'     => 'C++',
 		'short_description' => 'A crazy little snake with an "console" style',
 		'add_date'          => '2013-07-08',
+		'license'           => 'Unlicense',
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -463,6 +490,7 @@ return
 		'prog_language'     => 'C++',
 		'short_description' => 'A simple implementation of the Wa-Tor cellular automaton',
 		'add_date'          => '2013-07-12',
+		'license'           => 'Unlicense',
 		'urls'              =>
 			[
 				'github' => 'https://github.com/Mikescher/SharkSim',
@@ -480,6 +508,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Visualize the prime number calculation with the Sieve Of Erastothenes algorithm.',
 		'add_date'          => '2009-01-22',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -497,6 +526,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'List all files in a folder that match a specific pattern and export them in plaintext.',
 		'add_date'          => '2010-01-12',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -514,6 +544,7 @@ return
 		'prog_language'     => 'C#',
 		'short_description' => 'A clone of all original SuperMarioBros (NES) levels, with a few tweaks.',
 		'add_date'          => '2013-10-17',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -532,6 +563,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'The classical Tic-Tac-Toe, complete with perfect KI and Sourcecode.',
 		'add_date'          => '2011-01-19',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -549,6 +581,7 @@ return
 		'prog_language'     => 'Delphi',
 		'short_description' => 'Simulate the popular Monty Hall problem (ger: Ziegenproblem) with this program for yourself.',
 		'add_date'          => '2008-04-10',
+		'license'           => null,
 		'urls'              =>
 			[
 				'download'    => 'direkt',
@@ -566,6 +599,7 @@ return
 		'prog_language'     => 'C#',
 		'short_description' => 'Quickly toggle the explorer option "Show hidden files/folders" via the taskbar',
 		'add_date'          => '2016-01-03',
+		'license'           => 'Unlicense',
 		'urls'              =>
 			[
 				'download'    => 'https://github.com/Mikescher/QuickHiddenFolderToggle/releases',
@@ -577,13 +611,14 @@ return
 	[
 		'name'              => 'Cannon Conquest',
 		'internal_name'     => 'CannonConquest',
-		'internal_name_alt' => null,
+		'internal_name_alt' => 'GridDominance',
 		'category'          => 'Game',
 		'stars'             => 5,
 		'ui_language'       => 'English|German|French|Italian|Spanish',
 		'prog_language'     => 'C#',
 		'short_description' => 'A 2D tactical puzzler, free with over 100 levels. Made with Xamarin for android/iPhone/WinPhone',
 		'add_date'          => '2017-09-01',
+		'license'           => null,
 		'urls'              =>
 			[
 				'playstore'      => 'https://play.google.com/store/apps/details?id=com.blackforestbytes.griddominance.iab',
@@ -605,6 +640,7 @@ return
 		'prog_language'     => 'C#',
 		'short_description' => 'Lightweight note taking client for Simplenote/Standard-Notes/Nextcloud/Local',
 		'add_date'          => '2017-02-26',
+		'license'           => 'MIT',
 		'urls'              =>
 			[
 				'download'      => 'https://github.com/Mikescher/AlephNote/releases',

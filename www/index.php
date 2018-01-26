@@ -188,5 +188,4 @@ try {
 //TODO euler best of on top of list (?)
 //TODO optimize image sizes for display/download (? - auto?)
 //TODO send cache header (?)
-//TODO programs add [license]
 //TODO global uncached error logger -> send by mail

@@ -42,16 +42,23 @@ if ($prog === NULL) httpError(404, 'Program not found');
 						<div class="prgv_right_key"   style="grid-row:2">Language:</div>
 						<div class="prgv_right_value" style="grid-row:2"><?php echo htmlspecialchars($prog['prog_language']) ?></div>
 
-						<div class="prgv_right_key"   style="grid-row:3">Category:</div>
-						<div class="prgv_right_value" style="grid-row:3"><?php echo htmlspecialchars($prog['category']) ?></div>
+						<?php if ($prog['license'] !== null): ?>
+                        <div class="prgv_right_key"   style="grid-row:3">License:</div>
+                        <div class="prgv_right_value" style="grid-row:3"><?php echo '<a href="'.Programs::getLicenseUrl($prog['license']).'">'.$prog['license'].'</a>' ?></div>
+						<?php endif; ?>
 
-						<div class="prgv_right_key"   style="grid-row:4">Date:</div>
-						<div class="prgv_right_value" style="grid-row:4"><?php echo htmlspecialchars($prog['add_date']) ?></div>
+						<div class="prgv_right_key"   style="grid-row:4">Category:</div>
+						<div class="prgv_right_value" style="grid-row:4"><?php echo htmlspecialchars($prog['category']) ?></div>
 
-						<div class="prgv_right_comb"  style="grid-row:5">
+						<div class="prgv_right_key"   style="grid-row:5">Date:</div>
+						<div class="prgv_right_value" style="grid-row:5"><?php echo htmlspecialchars($prog['add_date']) ?></div>
+
+						<div class="prgv_right_comb"  style="grid-row:6">
 							<?php
-							foreach ($prog['urls'] as $type => $url)
+							foreach (Programs::sortUrls($prog['urls']) as $type => $url)
 							{
+							    if ($type === 'download' && $url === 'direkt') $url = '/data/binaries/'.$prog['internal_name'].'.zip';
+
 								if ($type === 'download')       echo '<a class="iconbutton prgv_dl_download"      href="'.$url.'"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"     /></svg><span>Download</span></a>';
 								if ($type === 'github')         echo '<a class="iconbutton prgv_dl_github"        href="'.$url.'"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#github"       /></svg><span>Github</span></a>';
 								if ($type === 'homepage')       echo '<a class="iconbutton prgv_dl_homepage"      href="'.$url.'"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#home"         /></svg><span>Homepage</span></a>';
@@ -66,7 +73,7 @@ if ($prog === NULL) httpError(404, 'Program not found');
 							?>
 						</div>
 
-						<div class="prgv_right_comb prgv_right_lang" style="grid-row:7">
+						<div class="prgv_right_comb prgv_right_lang" style="grid-row:8">
 							<?php
 							foreach (explode('|', $prog['ui_language']) as $lang)
 							{
