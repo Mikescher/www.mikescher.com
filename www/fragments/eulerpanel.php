@@ -6,12 +6,12 @@
 	$RATING_CLASSES = ['euler_pnl_celltime_perfect', 'euler_pnl_celltime_good', 'euler_pnl_celltime_ok', 'euler_pnl_celltime_bad', 'euler_pnl_celltime_fail'];
 ?>
 
-<div class="euler_pnl_base">
+<div class="index_pnl_base">
 
-	<div class="euler_pnl_header">
+	<div class="index_pnl_header">
         <a href="/blog/1/Project_Euler_with_Befunge">Project Euler with Befunge-93</a>
 	</div>
-	<div class="euler_pnl_content">
+	<div class="index_pnl_content">
 
 	<?php
 

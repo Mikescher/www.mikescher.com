@@ -18,8 +18,12 @@
   margin: 5px 0;
 
   &:hover {
-    background: #999;
-    box-shadow: 0 0 4px #000000;
+    background: $COL_COMPLEXHOVER_BG;
+    color: $COL_COMPLEXHOVER_FG;
+    border: solid 1px $COL_COMPLEXHOVER_BRD;
+    .prgl_elem_sdesc { color: $COL_COMPLEXHOVER_FG; }
+    .prgl_elem_subinfo_caption { color: $COL_COMPLEXHOVER_FG; }
+    .prgl_elem_subinfo_data { color: $COL_COMPLEXHOVER_FG; }
   }
 }
 

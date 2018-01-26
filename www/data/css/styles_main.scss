@@ -1,0 +1,48 @@
+@import 'styles_config';
+
+.index_pnl_base {
+  display: inline-flex;
+  flex-direction: column;
+
+  border: 1px solid black;
+  margin: 15px;
+
+  width: 652px;
+}
+
+.index_pnl_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px;
+  background: #AAA;
+}
+
+.index_pnl_header a {
+  color: $COL_TEXT_DARK_DARKER;
+  text-decoration: none;
+
+  font-family: $FONT_HEADER;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+@include rdmedia_range(0,1) { .index_pnl_header a { font-size: 16px; } }
+
+.index_pnl_header a:hover {
+  text-decoration: underline;
+}
+
+.index_pnl_content {
+  display: flex;
+  flex-direction: column;
+
+  background: #DDD;
+
+  padding: 6px;
+}
+
+@include rdmedia_range(0,1) {
+  .index_pnl_base { width: 330px; }
+}

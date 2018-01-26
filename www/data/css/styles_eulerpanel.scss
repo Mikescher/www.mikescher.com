@@ -1,48 +1,5 @@
 @import 'styles_config';
 
-.euler_pnl_base {
-  display: inline-flex;
-  flex-direction: column;
-
-  border: 1px solid #AAA;
-  border-radius: 5px 5px 0 0;
-  margin: 15px;
-}
-
-.euler_pnl_header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 4px;
-  background: #AAA;
-}
-
-.euler_pnl_header a {
-  color: $COL_TEXT_DARK_DARKER;
-  text-decoration: none;
-
-
-  font-family: $FONT_HEADER;
-  font-size: 22px;
-  font-weight: 900;
-}
-
-@include rdmedia_range(0,1) { .euler_pnl_header a { font-size: 16px; } }
-
-.euler_pnl_header a:hover {
-  text-decoration: underline;
-}
-
-.euler_pnl_content {
-  display: flex;
-  flex-direction: column;
-
-  background: #DDD;
-
-  padding: 6px;
-}
-
 .euler_pnl_row {
   display: flex;
   flex-direction: row;
@@ -71,7 +28,9 @@
 }
 
 .euler_pnl_cell:hover {
-  box-shadow: 0 0 4px #000000;
+  background-color: $COL_COMPLEXHOVER_BG;
+  color: $COL_COMPLEXHOVER_FG;
+  border: 1px solid $COL_COMPLEXHOVER_BRD;
 }
 
 .euler_pnl_cell a {

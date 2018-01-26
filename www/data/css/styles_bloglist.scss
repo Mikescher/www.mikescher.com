@@ -16,21 +16,23 @@
   text-decoration: none;
 }
 
-.bloglistelem:hover {
-  box-shadow: 0 0 4px #000000;
-}
-
 .ble_blog { background-color: #BBB; }
 .ble_log  { background-color: #DDD; }
 
 .ble_blog .ble_date { background-color: #AAA; color: $COL_TEXT_DARK; }
 .ble_log  .ble_date { background-color: #CCC; color: $COL_TEXT_DARK; }
 
-.ble_log           { color: $COL_TEXT_DARK_LIGHTER; }
-.ble_log:hover     { color: $COL_TEXT_DARK; }
+.ble_log            { color: $COL_TEXT_DARK_LIGHTER; }
+
+.bloglistelem:hover       { border: solid 1px $COL_COMPLEXHOVER_BRD; }
+.ble_blog:hover           { background-color: $COL_COMPLEXHOVER_BG; color: $COL_COMPLEXHOVER_FG; }
+.ble_log:hover            { background-color: $COL_COMPLEXHOVER_BG; color: $COL_COMPLEXHOVER_FG; }
+.ble_blog:hover .ble_date { background-color: $COL_COMPLEXHOVER_BG; color: $COL_COMPLEXHOVER_FG; border-bottom: 1px solid $COL_COMPLEXHOVER_BRD; }
+.ble_log:hover  .ble_date { background-color: $COL_COMPLEXHOVER_BG; color: $COL_COMPLEXHOVER_FG; border-bottom: 1px solid $COL_COMPLEXHOVER_BRD; }
 
 .ble_date {
   background-color: #AAA;
+  border-bottom: 1px solid transparent;
   padding: 2px;
   font-size: 0.8em;
   font-style: italic;
