@@ -12,7 +12,9 @@ $post = Blog::getBlogpost($id);
 
 if ($post === NULL) httpError(404, 'Blogpost not found');
 
-$isSubEuler = ($post['type'] === 'euler' && $subview !== '');
+$isSubEuler  = ($post['type'] === 'euler' && $subview !== '');
+$isBaseEuler = ($post['type'] === 'euler');
+
 $eulerproblem = null;
 if ($isSubEuler)
 {
@@ -34,7 +36,7 @@ if ($eulerproblem === null) $isSubEuler = false;
 <body>
 <div id="mastercontainer">
 
-<?php $HEADER_ACTIVE = ($isSubEuler ? 'euler' : 'none'); include (__DIR__ . '/../fragments/header.php'); ?>
+<?php $HEADER_ACTIVE = (($isSubEuler || $isBaseEuler) ? 'euler' : 'blog'); include (__DIR__ . '/../fragments/header.php'); ?>
 
 <div id="content" class="content-responsive">
 

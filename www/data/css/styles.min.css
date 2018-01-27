@@ -43,6 +43,7 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 .stripedtable tbody tr:nth-child(odd){background-color:#ccc}
 #headerdiv{z-index:999;background-color:#333;display:flex;border-bottom:1px solid #111;box-shadow:0 0 8px #000;position:fixed;width:100%}
 #headerdiv .logowrapper{flex:initial;margin:0;padding:0;height:42px}
+#headerdiv .logowrapper a{cursor:default}
 #headerdiv .logowrapper .logo{min-width:197.5px;height:30px;margin:4px 0 8px 6px;flex:initial}
 #headerdiv .tabrow{display:flex;flex:auto}
 #headerdiv .tabrow .tab{display:flex;justify-content:center;align-items:center;background-color:#222;color:#CCC;border-left:1px solid #000;border-right:1px solid #000;font-weight:bold;text-decoration:none;margin:0 0 0 20px;padding:2px 5px;min-width:64px;text-align:center;flex:initial}
@@ -185,6 +186,7 @@ html,body{margin:0;padding:0;height:100%}
 .prgl_elem:hover .prgl_elem_sdesc{color:black}
 .prgl_elem:hover .prgl_elem_subinfo_caption{color:black}
 .prgl_elem:hover .prgl_elem_subinfo_data{color:black}
+.prgl_elem:hover .prgl_elem_left img{filter:grayscale(100%)}
 .prgl_elem_left{padding:4px;display:flex}
 .prgl_elem_left img{width:250px;height:100%;min-height:100px}
 .prgl_elem_right{display:flex;flex-direction:column;flex-grow:1}
@@ -235,6 +237,25 @@ html,body{margin:0;padding:0;height:100%}
 	.prgv_right{min-height:0;min-width:0}
 	.prgv_right_lang{justify-content:space-evenly}
 	#prgv_header h1{font-size:28pt}
+}
+.booklst_entry{display:flex;flex-direction:row;text-decoration:none;background:#BBB;border:solid 1px #444;margin:5px 0}
+.booklst_entry:hover{background:white;color:black;border:solid 1px black}
+.booklst_entry:hover .booklst_date{color:black}
+.booklst_entry:hover .booklst_title{color:black}
+.booklst_entry:hover .booklst_left img{filter:grayscale(100%)}
+.booklst_entry:hover .booklst_date span{background:white;border-left:1px solid black;border-bottom:1px solid black}
+.booklst_left{padding:4px;display:flex}
+.booklst_left img{width:150px;height:auto}
+.booklst_right{display:flex;flex-direction:column;flex-grow:1}
+.booklst_title{color:#222;font-size:40pt;font-weight:bolder;flex-grow:1;display:flex;justify-content:center;align-items:center;text-align:center}
+.booklst_date{display:flex;flex-direction:row-reverse;color:#222}
+.booklst_date span{background:#AAA;padding:0 3px;border-left:1px solid transparent;border-bottom:1px solid transparent}
+.booklst_content p{color:#333}
+@media(max-width:767px){
+	.booklst_left{flex-direction:column;align-items:center}
+	.booklst_entry{flex-direction:column}
+	.booklst_date{display:none;visibility:hidden}
+	.booklst_title{font-size:32pt}
 }
 .aboutcontent{display:block;width:100%}
 .aboutcontent .boxedcontent{margin-bottom:20px}
@@ -292,6 +313,7 @@ html,body{margin:0;padding:0;height:100%}
 .programs_pnl_entry:hover{background:white;color:black;border:1px solid black}
 .programs_pnl_entry:hover .programs_pnl_center{color:black}
 .programs_pnl_entry:hover .programs_pnl_bottom{background:white;border-top:1px solid black}
+.programs_pnl_entry:hover .programs_pnl_img img{filter:grayscale(100%)}
 .programs_pnl_img{display:flex;flex-direction:column;justify-content:flex-start;margin:4px}
 .programs_pnl_img img{width:100%;height:auto}
 .programs_pnl_center{display:flex;justify-content:center;align-items:flex-end;text-align:center;color:black;font-weight:bolder;font-size:15pt;flex-grow:1;margin:0 2px}
@@ -312,6 +334,14 @@ html,body{margin:0;padding:0;height:100%}
 .blogpnl_date{background-color:#AAA;border-bottom:1px solid transparent;padding:2px;font-size:.8em;font-style:italic}
 .blogpnl_title{font-weight:bold;font-size:1.2em;text-align:left;margin:2px 0 2px 10px}
 @media(max-width:850px){.blogpnl_title{text-align:center}}
+.books_pnl_content{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-evenly}
+.books_pnl_entry{display:flex;flex-direction:column;margin:4px;border:1px solid #333;background:#AAA;text-decoration:none}
+.books_pnl_entry img{margin:4px;width:150px;height:auto}
+.books_pnl_entry div{display:flex;justify-content:center;align-items:flex-end;flex-grow:1;border-top:1px solid transparent;text-align:center;font-weight:bold;color:#222;text-decoration:none}
+@media(max-width:850px){.books_pnl_extra{display:none;visibility:collapse}}
+.books_pnl_entry:hover{border:1px solid black;background:white}
+.books_pnl_entry:hover div{color:black}
+.books_pnl_entry:hover img{filter:grayscale(100%)}
 .bfjoust_runner_owner{border:1px solid #888;background:#f8f8f8;padding:6px}
 .bfjoust_runner_owner .hsplit{display:flex;flex-direction:row;flex-wrap:nowrap}
 .bfjoust_runner_owner .hsplit_1{flex:1;margin:4px}

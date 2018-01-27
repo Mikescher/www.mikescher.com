@@ -202,6 +202,8 @@ body {
     margin: 0;
     padding: 0;
     height: 42px; }
+    #headerdiv .logowrapper a {
+      cursor: default; }
     #headerdiv .logowrapper .logo {
       min-width: 197.5px;
       height: 30px;
@@ -709,6 +711,8 @@ html, body {
       color: black; }
     .prgl_elem:hover .prgl_elem_subinfo_data {
       color: black; }
+    .prgl_elem:hover .prgl_elem_left img {
+      filter: grayscale(100%); }
 
 .prgl_elem_left {
   padding: 4px;
@@ -928,6 +932,80 @@ html, body {
 
   #prgv_header h1 {
     font-size: 28pt; } }
+/* 400px */
+.booklst_entry {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  background: #BBB;
+  border: solid 1px #444;
+  margin: 5px 0; }
+  .booklst_entry:hover {
+    background: white;
+    color: black;
+    border: solid 1px black; }
+    .booklst_entry:hover .booklst_date {
+      color: black; }
+    .booklst_entry:hover .booklst_title {
+      color: black; }
+    .booklst_entry:hover .booklst_left img {
+      filter: grayscale(100%); }
+    .booklst_entry:hover .booklst_date span {
+      background: white;
+      border-left: 1px solid black;
+      border-bottom: 1px solid black; }
+
+.booklst_left {
+  padding: 4px;
+  display: flex; }
+
+.booklst_left img {
+  width: 150px;
+  height: auto; }
+
+.booklst_right {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; }
+
+.booklst_title {
+  color: #222;
+  font-size: 40pt;
+  font-weight: bolder;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+
+.booklst_date {
+  display: flex;
+  flex-direction: row-reverse;
+  color: #222; }
+
+.booklst_date span {
+  background: #AAA;
+  padding: 0 3px;
+  border-left: 1px solid transparent;
+  border-bottom: 1px solid transparent; }
+
+.booklst_content p {
+  color: #333; }
+
+@media (max-width: 767px) {
+  .booklst_left {
+    flex-direction: column;
+    align-items: center; }
+
+  .booklst_entry {
+    flex-direction: column; }
+
+  .booklst_date {
+    display: none;
+    visibility: hidden; }
+
+  .booklst_title {
+    font-size: 32pt; } }
 /* 400px */
 .aboutcontent {
   display: block;
@@ -1187,6 +1265,8 @@ html, body {
     .programs_pnl_entry:hover .programs_pnl_bottom {
       background: white;
       border-top: 1px solid black; }
+    .programs_pnl_entry:hover .programs_pnl_img img {
+      filter: grayscale(100%); }
 
 .programs_pnl_img {
   display: flex;
@@ -1282,6 +1362,51 @@ html, body {
 @media (max-width: 850px) {
   .blogpnl_title {
     text-align: center; } }
+/* 400px */
+.books_pnl_content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+.books_pnl_entry {
+  display: flex;
+  flex-direction: column;
+  margin: 4px;
+  border: 1px solid #333;
+  background: #AAA;
+  text-decoration: none; }
+
+.books_pnl_entry img {
+  margin: 4px;
+  width: 150px;
+  height: auto; }
+
+.books_pnl_entry div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-grow: 1;
+  border-top: 1px solid transparent;
+  text-align: center;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none; }
+
+@media (max-width: 850px) {
+  .books_pnl_extra {
+    display: none;
+    visibility: collapse; } }
+.books_pnl_entry:hover {
+  border: 1px solid black;
+  background: white; }
+
+.books_pnl_entry:hover div {
+  color: black; }
+
+.books_pnl_entry:hover img {
+  filter: grayscale(100%); }
+
 /* 400px */
 .bfjoust_runner_owner {
   border: 1px solid #888;

@@ -9,14 +9,17 @@ require_once (__DIR__ . '/../internals/euler.php');
 require_once (__DIR__ . '/../internals/highscores.php');
 require_once (__DIR__ . '/../internals/mikeschergitgraph.php');
 require_once (__DIR__ . '/../internals/programs.php');
+require_once (__DIR__ . '/../internals/books.php');
 
 Database::connect();
 
 $consistency_blog    = Blog::checkConsistency();
 $consistency_prog    = Programs::checkConsistency();
 $consistency_euler   = Euler::checkConsistency();
+$consistency_books   = Books::checkConsistency();
 $consistency_egh     = MikescherGitGraph::checkConsistency();
 $consistency_progimg = Programs::checkThumbnails();
+$consistency_bookimg = Books::checkThumbnails();
 
 ?>
 <?php
@@ -68,12 +71,13 @@ function dumpConsistency($c) {
 
                 <div class="bc_data">
                     <div class="keyvaluelist kvl_200">
-                        <div><span>Program thumbnails:</span> <?php dumpConsistency($consistency_progimg);    ?></div>
-                        <div><span>ExtendedGitGraph:</span>   <?php dumpConsistency($consistency_egh);    ?></div>
-                        <div><span>Book thumbnails:</span>    <span>?</span></div>
+                        <div><span>Program thumbnails:</span> <?php dumpConsistency($consistency_progimg); ?></div>
+                        <div><span>ExtendedGitGraph:</span>   <?php dumpConsistency($consistency_egh);     ?></div>
+                        <div><span>Book thumbnails:</span>    <?php dumpConsistency($consistency_bookimg); ?></div>
                         <div><span>Blog data:</span>          <?php dumpConsistency($consistency_blog);    ?></div>
                         <div><span>Euler data:</span>         <?php dumpConsistency($consistency_euler);   ?></div>
                         <div><span>Programs data:</span>      <?php dumpConsistency($consistency_prog);    ?></div>
+                        <div><span>Books data:</span>         <?php dumpConsistency($consistency_books);   ?></div>
                     </div>
                     <br/>
                     <a class="button" href="/admin/cmd/createProgramThumbnails">Update Program Thumbnails</a>

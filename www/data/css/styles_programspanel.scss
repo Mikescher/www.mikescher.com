@@ -27,6 +27,7 @@
 
     .programs_pnl_center { color: $COL_COMPLEXHOVER_FG; }
     .programs_pnl_bottom { background: $COL_COMPLEXHOVER_BG; border-top: 1px solid $COL_COMPLEXHOVER_BRD; }
+    .programs_pnl_img img { filter: grayscale(100%); }
   }
 }
 

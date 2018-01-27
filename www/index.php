@@ -24,7 +24,11 @@ $URL_RULES =
 	[ 'url' => ['downloads', '?{id}'],                       'target' => 'pages/programs_download.php',      'options' => [ 'id' => '%URL%' ],                       ],
 	[ 'url' => ['programs', 'download', '?{id}'],            'target' => 'pages/programs_download.php',      'options' => [ 'id' => '%URL%' ],                       ],
 	[ 'url' => ['programs', 'download'],                     'target' => 'pages/programs_download.php',      'options' => [ 'id' => '%GET%' ],                       ],
-	
+
+	[ 'url' => ['books'],                                    'target' => 'pages/books_list.php',             'options' => [],                                        ],
+	[ 'url' => ['books', 'list'],                            'target' => 'pages/books_list.php',             'options' => [],                                        ],
+	[ 'url' => ['books', 'view', '?{id}'],                   'target' => 'pages/books_view.php',             'options' => [ 'id' => '%GET%' ],                       ],
+
 	[ 'url' => ['update.php'],                               'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%GET%' ],                     ],
 	[ 'url' => ['update.php', '?{Name}'],                    'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%URL%' ],                     ],
 	[ 'url' => ['update'],                                   'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%GET%' ],                     ],

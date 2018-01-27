@@ -22,6 +22,8 @@
 
 		<?php include (__DIR__ . '/../fragments/panel_blog.php');  ?>
 
+		<?php include (__DIR__ . '/../fragments/panel_books.php');  ?>
+
 	</div>
 
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
