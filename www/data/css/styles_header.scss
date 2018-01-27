@@ -53,6 +53,7 @@
     }
 
     .tab_active { background-color: $COL_HIGHLIGHT_RED; }
+    .tab_admin {  background-color: $COL_HIGHLIGHT_BLUE; }
 
     .tab_split {
       flex: auto;

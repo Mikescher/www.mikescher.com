@@ -26,4 +26,26 @@ class MikescherGitGraph
 
 		return $v;
 	}
+
+	public static function getPathRenderedData()
+	{
+		return __DIR__ . '/../dynamic/egh.html';
+	}
+
+	public static function includeRender()
+	{
+		if (file_exists(__DIR__ . '/../dynamic/egh.html'))
+			include __DIR__ . '/../dynamic/egh.html';
+	}
+
+	public static function checkConsistency()
+	{
+		$p = self::getPathRenderedData();
+
+		if (!file($p)) return ['result'=>'err', 'message' => 'Rendered data not found'];
+
+		if (filemtime($p) < time()-(3*7*24*60*60)) return ['result'=>'warn', 'message' => 'Rendered data is older than 3 weeks'];
+
+		return ['result'=>'ok', 'message' => ''];
+	}
 }

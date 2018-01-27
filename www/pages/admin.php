@@ -4,13 +4,33 @@
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/highscores.php');
 require_once (__DIR__ . '/../internals/alephnoteStatistics.php');
+require_once (__DIR__ . '/../internals/blog.php');
+require_once (__DIR__ . '/../internals/euler.php');
+require_once (__DIR__ . '/../internals/highscores.php');
+require_once (__DIR__ . '/../internals/mikeschergitgraph.php');
+require_once (__DIR__ . '/../internals/programs.php');
 
 Database::connect();
+
+$consistency_blog    = Blog::checkConsistency();
+$consistency_prog    = Programs::checkConsistency();
+$consistency_euler   = Euler::checkConsistency();
+$consistency_egh     = MikescherGitGraph::checkConsistency();
+$consistency_progimg = Programs::checkThumbnails();
+
+?>
+<?php
+
+function dumpConsistency($c) {
+	if ($c['result']==='ok') echo "<span class='consistency_result_ok'>OK</span>";
+	else if ($c['result']==='warn') echo "<span class='consistency_result_warn'>".$c['message']."</span>";
+	else echo "<span class='consistency_result_err'>".$c['message']."</span>";
+}
 
 ?>
 <head>
 	<meta charset="utf-8">
-	<title>Mikescher.com - About</title>
+	<title>Mikescher.com - Admin</title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<link rel="canonical" href="https://www.mikescher.com/about"/>
 	<?php printCSS(); ?>
@@ -30,8 +50,8 @@ Database::connect();
 
             <!------------------------------------------>
 
-			<div class="boxedcontent">
-				<div class="bc_header">Version</div>
+            <div class="boxedcontent">
+                <div class="bc_header">Version</div>
 
                 <div class="bc_data keyvaluelist kvl_100">
                     <div><span>Branch:</span> <span><?php echo exec('git rev-parse --abbrev-ref HEAD'); ?></span></div>
@@ -39,8 +59,28 @@ Database::connect();
                     <div><span>Date:</span>   <span><?php echo exec('git log -1 --format=%cd'); ?></span></div>
                     <div><span>Message:</span><span><?php echo nl2br(trim(exec('git log -1'))); ?></span></div>
                 </div>
+            </div>
 
-			</div>
+            <!------------------------------------------>
+
+            <div class="boxedcontent">
+                <div class="bc_header">Self test</div>
+
+                <div class="bc_data">
+                    <div class="keyvaluelist kvl_200">
+                        <div><span>Program thumbnails:</span> <?php dumpConsistency($consistency_progimg);    ?></div>
+                        <div><span>ExtendedGitGraph:</span>   <?php dumpConsistency($consistency_egh);    ?></div>
+                        <div><span>Book thumbnails:</span>    <span>?</span></div>
+                        <div><span>Blog data:</span>          <?php dumpConsistency($consistency_blog);    ?></div>
+                        <div><span>Euler data:</span>         <?php dumpConsistency($consistency_euler);   ?></div>
+                        <div><span>Programs data:</span>      <?php dumpConsistency($consistency_prog);    ?></div>
+                    </div>
+                    <br/>
+                    <a class="button" href="/admin/cmd/createProgramThumbnails">Update Program Thumbnails</a>
+                    <a class="button" href="/admin/cmd/createBookThumbnails">Update Book Thumbnails</a>
+
+                </div>
+            </div>
 
             <!------------------------------------------>
 

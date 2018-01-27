@@ -19,7 +19,7 @@
 
 			echo '<a href="' . $prog['url'] . '" class="programs_pnl_entry">' . "\n";
 			echo '  <div class="programs_pnl_img">' . "\n";
-			echo '    <img src="' . $prog['thumbnail_url'] . '" alt="Thumbnail '  . $prog['name'] . ' " />' . "\n";
+			echo '    <img src="' . $prog['preview_url'] . '" alt="Thumbnail '  . $prog['name'] . ' " />' . "\n";
 			echo '  </div>' . "\n";
 			echo '  <div class="programs_pnl_center">' . "\n";
 			echo htmlspecialchars($prog['name']) . "\n";

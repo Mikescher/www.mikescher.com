@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 require_once (__DIR__ . '/../internals/base.php');
+require_once (__DIR__ . '/../internals/mikeschergitgraph.php');
 global $OPTIONS;
 ?>
 <head>
@@ -46,7 +47,7 @@ global $OPTIONS;
 
 				<div class="bc_data about_egh_container">
 
-					<?php if (file_exists(__DIR__ . '/../dynamic/egh.html')) include __DIR__ . '/../dynamic/egh.html' ?>
+					<?php MikescherGitGraph::includeRender(); ?>
 
 				</div>
 

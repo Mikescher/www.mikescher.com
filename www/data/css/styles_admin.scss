@@ -29,7 +29,7 @@
   div {
     display: flex;
     flex-direction: row;
-
+    span {align-self: center;}
     span:first-child {
       font-weight: bold;
       min-width: 500px;
@@ -45,3 +45,13 @@
 .kvl_100 div span:first-child { min-width: 100px; }
 .kvl_200 div span:first-child { min-width: 200px; }
 .kvl_300 div span:first-child { min-width: 300px; }
+
+.consistency_result_ok, .consistency_result_warn, .consistency_result_err {
+  min-width: 400px;
+  border: 1px solid #888;
+  padding: 0 5px;
+  margin: 1px 0;
+}
+.consistency_result_ok   { background: #0F0; }
+.consistency_result_warn { background: #FF0; }
+.consistency_result_err  { background: #F00; }

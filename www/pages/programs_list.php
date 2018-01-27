@@ -38,7 +38,7 @@ $allprograms = Programs::listAllNewestFirst($filter);
 
 				echo '<a class="prgl_elem" href="'.$prog['url'].'">';
 				echo '  <div class="prgl_elem_left">';
-				echo '    <img src="' . $prog['thumbnail_url'] . '" alt="Thumbnail '  . $prog['name'] . '" />';
+				echo '    <img src="' . $prog['preview_url'] . '" alt="Thumbnail '  . $prog['name'] . '" />';
 				echo '  </div>';
 				echo '  <div class="prgl_elem_right">';
 				echo '    <div class="prgl_elem_title">' . htmlspecialchars($prog['name']) . '</div>';

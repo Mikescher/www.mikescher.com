@@ -15,7 +15,7 @@ return
 		'license'           => 'GPL-3.0',
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'https://github.com/Mikescher/AbsCanvas/releases',
 				'github'      => 'https://github.com/Mikescher/AbsCanvas',
 			],
 	],
@@ -34,7 +34,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -52,7 +52,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -72,6 +72,12 @@ return
 			[
 				'github'      => 'https://github.com/Mikescher/BefunUtils',
 				'wiki'        => 'https://github.com/Mikescher/BefunUtils/wiki',
+				'download#1'  => ['caption'=>'BefunExec',  'url'=>'https://ci.appveyor.com/project/Mikescher/BefunExec/build/artifacts' ],
+				'download#2'  => ['caption'=>'BefunGen',   'url'=>'https://ci.appveyor.com/project/Mikescher/BefunGen/build/artifacts'  ],
+				'download#3'  => ['caption'=>'BefunWrite', 'url'=>'https://ci.appveyor.com/project/Mikescher/BefunWrite/build/artifacts'],
+				'download#4'  => ['caption'=>'BefunRep',   'url'=>'https://ci.appveyor.com/project/Mikescher/BefunRep/build/artifacts'  ],
+				'download#5'  => ['caption'=>'BefunRun',   'url'=>'https://ci.appveyor.com/project/Mikescher/BefunRun/build/artifacts'  ],
+				'download#6'  => ['caption'=>'BefunDebug', 'url'=>'https://ci.appveyor.com/project/Mikescher/BefunDebug/build/artifacts'],
 			],
 	],
 
@@ -89,7 +95,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -107,7 +113,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 				'homepage'    => 'http://borderlinedefense.99k.org/',
 			],
 	],
@@ -126,7 +132,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -144,7 +150,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -162,7 +168,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -198,7 +204,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -216,7 +222,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -253,7 +259,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -271,7 +277,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 				'sourceforge' => 'http://sourceforge.net/projects/jcircuits/',
 			],
 	],
@@ -329,7 +335,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				//TODO url
+				'download'    => 'direct',
 			],
 	],
 
@@ -347,7 +353,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -365,7 +371,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -383,7 +389,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -420,7 +426,7 @@ return
 		'license'           => 'Unlicense',
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'https://github.com/Mikescher/Serpilicum/releases',
 				'github'      => 'https://github.com/Mikescher/Serpilicum',
 			],
 	],
@@ -439,7 +445,8 @@ return
 		'license'           => 'Unlicense',
 		'urls'              =>
 			[
-				'github' => 'https://github.com/Mikescher/SharkSim',
+				'github'      => 'https://github.com/Mikescher/SharkSim',
+				'download'    => 'https://github.com/Mikescher/SharkSim/releases',
 			],
 	],
 
@@ -457,7 +464,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -475,7 +482,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -493,7 +500,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'https://github.com/Mikescher/SuperBitBros/releases',
 				'github'      => 'https://github.com/Mikescher/SuperBitBros',
 			],
 	],
@@ -512,7 +519,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 
@@ -530,7 +537,7 @@ return
 		'license'           => null,
 		'urls'              =>
 			[
-				'download'    => 'direkt',
+				'download'    => 'direct',
 			],
 	],
 

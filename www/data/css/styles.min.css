@@ -48,6 +48,7 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 #headerdiv .tabrow .tab{display:flex;justify-content:center;align-items:center;background-color:#222;color:#CCC;border-left:1px solid #000;border-right:1px solid #000;font-weight:bold;text-decoration:none;margin:0 0 0 20px;padding:2px 5px;min-width:64px;text-align:center;flex:initial}
 #headerdiv .tabrow .tab:hover{cursor:pointer;background-color:#555}
 #headerdiv .tabrow .tab_active{background-color:#422}
+#headerdiv .tabrow .tab_admin{background-color:#224}
 #headerdiv .tabrow .tab_split{flex:auto}
 #headerdiv .tabrow .tab_github{background-color:#4078c0;border-left:1px solid #111;border-right:0;color:black}
 #headerdiv .tabrow .tab_github:hover{background-color:#c9510c;color:black}
@@ -260,10 +261,15 @@ html,body{margin:0;padding:0;height:100%}
 .egh_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;justify-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}
 .keyvaluelist{display:flex;flex-direction:column}
 .keyvaluelist div{display:flex;flex-direction:row}
+.keyvaluelist div span{align-self:center}
 .keyvaluelist div span:first-child{font-weight:bold;min-width:500px}
 .kvl_100 div span:first-child{min-width:100px}
 .kvl_200 div span:first-child{min-width:200px}
 .kvl_300 div span:first-child{min-width:300px}
+.consistency_result_ok,.consistency_result_warn,.consistency_result_err{min-width:400px;border:1px solid #888;padding:0 5px;margin:1px 0}
+.consistency_result_ok{background:#0F0}
+.consistency_result_warn{background:#FF0}
+.consistency_result_err{background:#F00}
 #loginform div{display:flex;flex-direction:column}
 #loginform div button{margin:10px 0;padding:0}
 .loginerror{display:flex;background:#f44;font-weight:bold;padding:0 5px;margin:5px 0 20px 0}

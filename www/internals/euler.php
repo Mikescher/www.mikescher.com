@@ -67,5 +67,29 @@ class Euler
 
 		return 4;
 	}
+
+	public static function checkConsistency()
+	{
+		$warn = null;
+
+		$numbers = [];
+		$realname = [];
+
+		foreach (self::listAll() as $ep)
+		{
+			if (in_array($ep['number'], $numbers)) return ['result'=>'err', 'message' => 'Duplicate number ' . $ep['number']];
+			$numbers []= $ep['number'];
+
+			if (in_array($ep['title'], $realname)) return ['result'=>'err', 'message' => 'Duplicate title ' . $ep['title']];
+			$realname []= $ep['title'];
+
+			if (!file_exists($ep['file_description'])) return ['result'=>'err', 'message' => 'file_description not found ' . $ep['file_description']];
+			if (!file_exists($ep['file_code']))        return ['result'=>'err', 'message' => 'file_code not found ' .        $ep['file_code']];
+			if (!file_exists($ep['file_explanation'])) return ['result'=>'err', 'message' => 'file_explanation not found ' . $ep['file_explanation']];
+		}
+
+		if ($warn != null) return $warn;
+		return ['result'=>'ok', 'message' => ''];
+	}
 }
 

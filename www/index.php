@@ -37,8 +37,9 @@ $URL_RULES =
 	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
 
 	[ 'url' => ['admin'],                                    'target' => 'pages/admin.php',                  'options' => [ '_opt' => 'password'],                   ],
-
+	[ 'url' => ['admin', 'cmd', '?{cmd}'],                   'target' => 'pages/admin_cmd.php',              'options' => [ '_opt' => 'password', 'cmd' => '%URL%'], ],
 	[ 'url' => ['admin', 'egh', '?{cmd}'],                   'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => 'egh', 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
+
 	[ 'url' => ['su_ajax', '?{cmd}'],                        'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '',    'cmd' => '%URL%', 'secret' => '%GET%' ], ],
 	[ 'url' => ['su_ajax'],                                  'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '',    'cmd' => '%GET%', 'secret' => '%GET%' ], ],
 
@@ -85,7 +86,7 @@ try {
 
 	$parse = parse_url($requri);
 
-	$path      = strtolower(isset($parse['path']) ? $parse['path'] : '');
+	$path      = isset($parse['path']) ? $parse['path'] : '';
 	$pathparts = preg_split('@/@', $path, NULL, PREG_SPLIT_NO_EMPTY);
 	$partcount = count($pathparts);
 
@@ -187,6 +188,5 @@ try {
 //TODO better gh widget
 //TODO remove db table prefixes
 //TODO euler insert+show 32bit | 64bit mode
-//TODO optimize image sizes for display/download (? - auto?)
 //TODO send cache header (?)
 //TODO global uncached error logger -> send by mail

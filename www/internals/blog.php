@@ -18,6 +18,8 @@ class Blog
 
 		$d['canonical'] = "https://www.mikescher.com" . $d['url'];
 
+		$d['file_fragment'] = __DIR__ . '/../statics/blog/' . $d['fragment'];
+
 		return $d;
 	}
 
@@ -38,7 +40,40 @@ class Blog
 
 	public static function getPostFragment($post)
 	{
-		return file_get_contents( __DIR__ . '/../statics/blog/' . $post['fragment']);
+		return file_get_contents($post['file_fragment']);
+	}
+
+	public static function checkConsistency()
+	{
+		$keys = [];
+
+		foreach (self::listAll() as $post)
+		{
+			if (in_array($post['id'], $keys)) return ['result'=>'err', 'message' => 'Duplicate key ' . $post['id']];
+			$keys []= $post['id'];
+
+			if ($post['cat'] !== 'log' && $post['cat'] !== 'blog') return ['result'=>'err', 'message' => 'Unknown cat ' . $post['cat']];
+
+			if ($post['type'] === 'markdown') {
+
+				if (!file_exists($post['file_fragment'])) return ['result'=>'err', 'message' => 'Fragment not found ' . $post['fragment']];
+
+			} else if ($post['type'] === 'plain') {
+
+				if (!file_exists($post['file_fragment'])) return ['result'=>'err', 'message' => 'Fragment not found ' . $post['fragment']];
+
+			} else if ($post['type'] === 'euler') {
+
+				// aok
+
+			} else {
+
+				return ['result'=>'err', 'message' => 'Unknown type ' . $post['type']];
+
+			}
+		}
+
+		return ['result'=>'ok', 'message' => ''];
 	}
 }
 

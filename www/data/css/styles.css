@@ -230,6 +230,8 @@ body {
         background-color: #555; }
     #headerdiv .tabrow .tab_active {
       background-color: #442222; }
+    #headerdiv .tabrow .tab_admin {
+      background-color: #222244; }
     #headerdiv .tabrow .tab_split {
       flex: auto; }
     #headerdiv .tabrow .tab_github {
@@ -1051,6 +1053,8 @@ html, body {
   .keyvaluelist div {
     display: flex;
     flex-direction: row; }
+    .keyvaluelist div span {
+      align-self: center; }
     .keyvaluelist div span:first-child {
       font-weight: bold;
       min-width: 500px; }
@@ -1063,6 +1067,21 @@ html, body {
 
 .kvl_300 div span:first-child {
   min-width: 300px; }
+
+.consistency_result_ok, .consistency_result_warn, .consistency_result_err {
+  min-width: 400px;
+  border: 1px solid #888;
+  padding: 0 5px;
+  margin: 1px 0; }
+
+.consistency_result_ok {
+  background: #0F0; }
+
+.consistency_result_warn {
+  background: #FF0; }
+
+.consistency_result_err {
+  background: #F00; }
 
 /* 400px */
 #loginform div {
