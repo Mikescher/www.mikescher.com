@@ -17,7 +17,7 @@ if ($prog === NULL) httpError(404, 'Program not found');
 	<meta charset="utf-8">
 	<title>Mikescher.com - <?php echo $prog['name']; ?></title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<link rel="canonical" href="https://www.mikescher.com/programs/view/<?php echo $prog['internal_name']; ?>"/>
+	<link rel="canonical" href="<?php echo $prog['url']; ?>"/>
 	<?php printCSS(); ?>
 </head>
 <body>

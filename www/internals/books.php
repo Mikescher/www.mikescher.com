@@ -6,16 +6,25 @@ class Books
 {
 	public static function readSingle($a)
 	{
-		$a['imgfront_url']  =              '/data/images/book_img/' . $a['id'] . '_front.png';
-		$a['imgfront_path'] = __DIR__ . '/../data/images/book_img/' . $a['id'] . '_front.png';
+		$a['imgfront_url']      =              '/data/images/book_img/' . $a['id'] . '_front.png';
+		$a['imgfront_path']     = __DIR__ . '/../data/images/book_img/' . $a['id'] . '_front.png';
 
-		$a['imgfull_url']   =              '/data/images/book_img/' . $a['id'] . '_full.png';
-		$a['imgfull_path']  = __DIR__ . '/../data/images/book_img/' . $a['id'] . '_full.png';
+		$a['imgfull_url']       =              '/data/images/book_img/' . $a['id'] . '_full.png';
+		$a['imgfull_path']      = __DIR__ . '/../data/images/book_img/' . $a['id'] . '_full.png';
 
-		$a['preview_url']   =              '/data/dynamic/bookprev_' . $a['id'] . '.png';
-		$a['preview_path']  = __DIR__ . '/../data/dynamic/bookprev_' . $a['id'] . '.png';
+		$a['preview_url']       =              '/data/dynamic/bookprev_' . $a['id'] . '.png';
+		$a['preview_path']      = __DIR__ . '/../data/dynamic/bookprev_' . $a['id'] . '.png';
 
-		$a['url']           = '/books/view/' . $a['id'];
+		$a['url']               = '/books/view/' . $a['id'] . '/' . destructiveUrlEncode($a['title']);
+
+		$a['extraimages_urls']  = [];
+		$a['extraimages_paths'] = [];
+
+		for ($i=1; $i <= $a['imagecount']; $i++)
+		{
+			$a['extraimages_urls']  []=              '/data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
+			$a['extraimages_paths'] []= __DIR__ . '/../data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
+		}
 
 		return $a;
 	}
@@ -69,5 +78,13 @@ class Books
 		$dst = $prog['preview_path'];
 
 		smart_resize_image($src , null, 200, 0, true, $dst, 100);
+	}
+
+	public static function getBook($id)
+	{
+		foreach (self::listAll() as $book) {
+			if ($book['id'] == $id) return $book;
+		}
+		return null;
 	}
 }

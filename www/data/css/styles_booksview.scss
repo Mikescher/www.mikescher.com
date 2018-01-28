@@ -1,0 +1,158 @@
+@import 'styles_config';
+
+.bookv_content {
+  display: flex;
+  flex-direction: column;
+
+  color: $COL_TEXT_DARK;
+  border: 1px solid black;
+  background-color: #E0E0E0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#bookv_header h1 {
+  font-size: 48pt;
+  text-align: center;
+  margin-top: 5px;
+}
+
+#bookv_header hr {
+  background: -moz-radial-gradient(   circle, $COL_TEXT_NORMAL,   $COL_TRANSPARENT);
+  background: -webkit-radial-gradient(circle, $COL_TEXT_NORMAL 0%,$COL_TRANSPARENT 100%);
+}
+
+.bookv_top {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  padding-bottom: 10px;
+}
+
+.bookv_left {
+  display: inline-flex;
+  justify-content: center;
+
+  flex-grow: 1;
+  margin-left: 10px;
+
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.bookv_left img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.bookv_right {
+  background: #BBB;
+  border: 1px solid #666;
+  margin: 0 10px;
+  padding: 8px 5px 2px 5px;
+
+  min-height: 250px;
+  min-width:  200px;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto auto auto auto 1fr auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 2px;
+}
+
+.bookv_right_key {
+  font-weight: bold;
+}
+
+.bookv_right_value a {
+  color: $COL_TEXT_DARK;
+  text-decoration: none;
+}
+
+.bookv_right_value a:hover {
+  color: #339;
+  text-decoration: none;
+}
+
+.bookv_right_comb {
+  grid-column: 1 / span 2;
+}
+
+.bookv_right_lang {
+  display: flex;
+  justify-content: right;
+}
+
+.bookv_dl_download { background: #442222; }
+.bookv_dl_github   { background: $COL_GITHUB; }
+
+.bookv_right_lang img {
+  display: inline;
+  height: 16pt;
+  max-width: 32px;
+  margin: 1px 2px 0 2px;
+}
+
+.bookv_center {
+  margin: 0 8px 8px 8px;
+  padding: 16px;
+  background: #EEE;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.bookv_sep {
+  margin: 40px 0 40px 0;
+  display: block;
+  border: none;
+  color: white;
+  height: 1px;
+  background: #666666FF;
+  background: -moz-radial-gradient(   circle, #666,    #FFFFFF00);
+  background: -webkit-radial-gradient(circle, #666 0%, #FFFFFF00 100%);
+}
+
+@include rdmedia_range(0,2)  {
+  .bookv_content { border: none; }
+  #bookv_header h1 { font-size: 28pt; }
+}
+
+@include rdmedia_range(0,3)  {
+  #bookv_header h1 { font-size: 28pt; }
+}
+
+@include rdmedia(0)  {
+
+  .bookv_top {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .bookv_left {
+    margin: 0 10px 10px 10px;
+  }
+
+  .bookv_right {
+    min-height: 0;
+    min-width:  0;
+  }
+
+  .bookv_right_lang {
+    justify-content: space-evenly;
+  }
+
+  #bookv_header h1 {
+    font-size: 18pt;
+  }
+}
+
+.bookv_extra {
+  height: 500px;
+  border: 1px solid #333;
+  margin: 10px;
+}
+
+.bookv_extra img {
+
+}

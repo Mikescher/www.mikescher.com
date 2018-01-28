@@ -27,7 +27,6 @@ if ($eulerproblem === null) $isSubEuler = false;
 <head>
 	<meta charset="utf-8">
 	<title>Mikescher.com - <?php echo ($isSubEuler ? $eulerproblem['title'] : $post['title']); ?></title>
-	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<?php printCSS(); ?>
 	<?php echo '<link rel="canonical" href="' . ($isSubEuler ? $eulerproblem['canonical'] : $post['canonical']) . '"/>'; ?>

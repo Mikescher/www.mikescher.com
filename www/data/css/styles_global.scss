@@ -230,3 +230,45 @@ body {
     background-color: #ccc;
   }
 }
+
+.imgcarousel_parent {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+
+  padding: 5px;
+
+  background: #BBB;
+}
+
+.imgcarousel_content {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+
+.imgcarousel_prev, .imgcarousel_next
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imgcarousel_prev
+{
+  margin-right: 5px;
+}
+
+.imgcarousel_next
+{
+  margin-left: 5px;
+}
+
+.imgcarousel_prev svg { width: 48px; height: 48px; border: 1px solid black; background: #333; fill: #DDD; }
+.imgcarousel_next svg { width: 48px; height: 48px; border: 1px solid black; background: #333; fill: #DDD; }
+.imgcarousel_prev:hover svg { background: #000; fill: #FFF; cursor: pointer; }
+.imgcarousel_next:hover svg { background: #000; fill: #FFF; cursor: pointer; }

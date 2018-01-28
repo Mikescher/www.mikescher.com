@@ -3,20 +3,26 @@
 @import 'styles_footer';
 
 @import 'styles_main';
-@import 'styles_bloglist';
-@import 'styles_blogview';
-@import 'styles_blogview_euler';
-@import 'styles_errorview';
-@import 'styles_programslist';
-@import 'styles_programsview';
-@import 'styles_bookslist';
 @import 'styles_about';
 @import 'styles_admin';
 @import 'styles_login';
+
+@import 'styles_bloglist';
+@import 'styles_blogview';
+@import 'styles_blogview_euler';
+
+@import 'styles_programslist';
+@import 'styles_programsview';
+
+@import 'styles_bookslist';
+@import 'styles_booksview';
+
+@import 'styles_errorview';
 
 @import 'styles_eulerpanel';
 @import 'styles_programspanel';
 @import 'styles_blogpanel';
 @import 'styles_bookspanel';
+
 @import 'styles_bfjoustrunner';
 @import 'styles_befungerunner';

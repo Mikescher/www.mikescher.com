@@ -41,6 +41,15 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 .stripedtable tbody td:first-child{border-left:0}
 .stripedtable tbody tr:last-child td{border-bottom:0}
 .stripedtable tbody tr:nth-child(odd){background-color:#ccc}
+.imgcarousel_parent{display:flex;flex-direction:row;align-content:center;justify-content:center;padding:5px;background:#BBB}
+.imgcarousel_content{background-size:contain;background-position:center;background-repeat:no-repeat;height:100%;width:100%}
+.imgcarousel_prev,.imgcarousel_next{display:flex;flex-direction:column;justify-content:center}
+.imgcarousel_prev{margin-right:5px}
+.imgcarousel_next{margin-left:5px}
+.imgcarousel_prev svg{width:48px;height:48px;border:1px solid black;background:#333;fill:#DDD}
+.imgcarousel_next svg{width:48px;height:48px;border:1px solid black;background:#333;fill:#DDD}
+.imgcarousel_prev:hover svg{background:#000;fill:#FFF;cursor:pointer}
+.imgcarousel_next:hover svg{background:#000;fill:#FFF;cursor:pointer}
 #headerdiv{z-index:999;background-color:#333;display:flex;border-bottom:1px solid #111;box-shadow:0 0 8px #000;position:fixed;width:100%}
 #headerdiv .logowrapper{flex:initial;margin:0;padding:0;height:42px}
 #headerdiv .logowrapper a{cursor:default}
@@ -80,6 +89,43 @@ html,body{margin:0;padding:0;height:100%}
 .index_pnl_header a:hover{text-decoration:underline}
 .index_pnl_content{display:flex;flex-direction:column;background:#DDD;padding:6px}
 @media(max-width:850px){.index_pnl_base{width:330px}}
+.aboutcontent{display:block;width:100%}
+.aboutcontent .boxedcontent{margin-bottom:20px}
+.about_egh_container{display:flex;flex-direction:column;align-items:center}
+.git_list{display:inline-block;width:715px;height:115px;overflow:visible}
+@media(max-width:991px){
+	.git_list{width:100%;height:auto}
+	.extGitGraphContainer{width:95%;width:calc(100% - 16px)}
+}
+.git_list text.caption{font-size:10px;fill:#666}
+.git_list text.caption_month{font-size:8px;fill:#BBB}
+.git_list text.caption_day{font-size:8px;fill:#BBB}
+.svg-tip:after{box-sizing:border-box;position:absolute;left:50%;height:5px;width:5px;bottom:-10px;margin:0 0 0 -5px;content:" ";border:5px solid transparent;border-top-color:rgba(0,0,0,0.8);-moz-border-top-colors:none;-moz-border-right-colors:none;-moz-border-bottom-colors:none;-moz-border-left-colors:none;border-image:none}
+.svg-tip{padding:5px;background:none repeat scroll 0 0 rgba(0,0,0,0.8);color:#BBB;font-size:12px;position:absolute;z-index:99999;text-align:center;border-radius:3px;box-sizing:border-box;opacity:0}
+.extGitGraphContainer{background-color:#fcfcfc;margin:10px;display:inline-block;border:1px solid #222;border-radius:0;box-shadow:0 0 1px rgba(0,0,0,0.25) inset}
+.egg_footer{margin-top:5px;text-align:right;margin-right:5px;margin-bottom:5px;color:#888}
+.egg_footer>a{text-decoration:none;color:inherit}
+.egg_footer>a:hover{text-decoration:none;color:#22F}
+.about_circles{display:flex;flex-direction:column}
+.about_circles a{margin:5px 0}
+.about_circles .iconbutton_light span{text-align:left}
+.admincontent{display:block;width:100%}
+.admincontent .boxedcontent{margin-bottom:20px}
+.egh_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;justify-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}
+.keyvaluelist{display:flex;flex-direction:column}
+.keyvaluelist div{display:flex;flex-direction:row}
+.keyvaluelist div span{align-self:center}
+.keyvaluelist div span:first-child{font-weight:bold;min-width:500px}
+.kvl_100 div span:first-child{min-width:100px}
+.kvl_200 div span:first-child{min-width:200px}
+.kvl_300 div span:first-child{min-width:300px}
+.consistency_result_ok,.consistency_result_warn,.consistency_result_err{min-width:400px;border:1px solid #888;padding:0 5px;margin:1px 0}
+.consistency_result_ok{background:#0F0}
+.consistency_result_warn{background:#FF0}
+.consistency_result_err{background:#F00}
+#loginform div{display:flex;flex-direction:column}
+#loginform div button{margin:10px 0;padding:0}
+.loginerror{display:flex;background:#f44;font-weight:bold;padding:0 5px;margin:5px 0 20px 0}
 .bloglistelem_container{display:flex;align-items:center;flex-direction:column}
 .bloglistelem{width:100%;border:solid 1px #444;margin:10px 5px;color:#333;text-decoration:none}
 .ble_blog{background-color:#BBB}
@@ -171,14 +217,6 @@ html,body{margin:0;padding:0;height:100%}
 	.bce_pag10{flex-direction:row}
 	.bce_pag05{flex-direction:row}
 }
-.ev_master{align-self:center}
-@media(min-width:851px){.ev_master{padding-bottom:80px}}
-.ev_master .ev_code{color:#000;text-align:center;font-size:150pt;font-weight:500;font-family:Consolas,Monaco,"Courier New",Menlo,monospace}
-.ev_master .ev_msg{color:#888;text-align:center;font-size:25pt}
-@media(max-width:767px){
-	.ev_master .ev_code{font-size:75pt}
-	.ev_master .ev_msg{font-size:15pt}
-}
 .prgl_parent{display:flex;flex-direction:column}
 @media(max-width:850px){.prgl_parent{align-items:center}}
 .prgl_elem{display:flex;flex-direction:row;text-decoration:none;background:#BBB;border:solid 1px #444;margin:5px 0}
@@ -257,43 +295,44 @@ html,body{margin:0;padding:0;height:100%}
 	.booklst_date{display:none;visibility:hidden}
 	.booklst_title{font-size:32pt}
 }
-.aboutcontent{display:block;width:100%}
-.aboutcontent .boxedcontent{margin-bottom:20px}
-.about_egh_container{display:flex;flex-direction:column;align-items:center}
-.git_list{display:inline-block;width:715px;height:115px;overflow:visible}
+.bookv_content{display:flex;flex-direction:column;color:#333;border:1px solid black;background-color:#e0e0e0;width:100%;margin-left:auto;margin-right:auto}
+#bookv_header h1{font-size:48pt;text-align:center;margin-top:5px}
+#bookv_header hr{background:-moz-radial-gradient(circle,#CCC,#FFFFFF00);background:-webkit-radial-gradient(circle,#CCC 0,#FFFFFF00 100%)}
+.bookv_top{display:flex;flex-direction:row;margin-top:15px;padding-bottom:10px}
+.bookv_left{display:inline-flex;justify-content:center;flex-grow:1;margin-left:10px;margin-top:auto;margin-bottom:auto}
+.bookv_left img{max-height:100%;max-width:100%}
+.bookv_right{background:#BBB;border:1px solid #666;margin:0 10px;padding:8px 5px 2px 5px;min-height:250px;min-width:200px;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto auto auto auto 1fr auto;grid-column-gap:15px;grid-row-gap:2px}
+.bookv_right_key{font-weight:bold}
+.bookv_right_value a{color:#333;text-decoration:none}
+.bookv_right_value a:hover{color:#339;text-decoration:none}
+.bookv_right_comb{grid-column:1 / span 2}
+.bookv_right_lang{display:flex;justify-content:right}
+.bookv_dl_download{background:#422}
+.bookv_dl_github{background:#4078c0}
+.bookv_right_lang img{display:inline;height:16pt;max-width:32px;margin:1px 2px 0 2px}
+.bookv_center{margin:0 8px 8px 8px;padding:16px;background:#EEE;border:1px solid rgba(0,0,0,0.15)}
+.bookv_sep{margin:40px 0 40px 0;display:block;border:0;color:white;height:1px;background:#666666FF;background:-moz-radial-gradient(circle,#666,#FFFFFF00);background:-webkit-radial-gradient(circle,#666 0,#FFFFFF00 100%)}
 @media(max-width:991px){
-	.git_list{width:100%;height:auto}
-	.extGitGraphContainer{width:95%;width:calc(100% - 16px)}
+	.bookv_content{border:0}
+	#bookv_header h1{font-size:28pt}
 }
-.git_list text.caption{font-size:10px;fill:#666}
-.git_list text.caption_month{font-size:8px;fill:#BBB}
-.git_list text.caption_day{font-size:8px;fill:#BBB}
-.svg-tip:after{box-sizing:border-box;position:absolute;left:50%;height:5px;width:5px;bottom:-10px;margin:0 0 0 -5px;content:" ";border:5px solid transparent;border-top-color:rgba(0,0,0,0.8);-moz-border-top-colors:none;-moz-border-right-colors:none;-moz-border-bottom-colors:none;-moz-border-left-colors:none;border-image:none}
-.svg-tip{padding:5px;background:none repeat scroll 0 0 rgba(0,0,0,0.8);color:#BBB;font-size:12px;position:absolute;z-index:99999;text-align:center;border-radius:3px;box-sizing:border-box;opacity:0}
-.extGitGraphContainer{background-color:#fcfcfc;margin:10px;display:inline-block;border:1px solid #222;border-radius:0;box-shadow:0 0 1px rgba(0,0,0,0.25) inset}
-.egg_footer{margin-top:5px;text-align:right;margin-right:5px;margin-bottom:5px;color:#888}
-.egg_footer>a{text-decoration:none;color:inherit}
-.egg_footer>a:hover{text-decoration:none;color:#22F}
-.about_circles{display:flex;flex-direction:column}
-.about_circles a{margin:5px 0}
-.about_circles .iconbutton_light span{text-align:left}
-.admincontent{display:block;width:100%}
-.admincontent .boxedcontent{margin-bottom:20px}
-.egh_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;justify-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}
-.keyvaluelist{display:flex;flex-direction:column}
-.keyvaluelist div{display:flex;flex-direction:row}
-.keyvaluelist div span{align-self:center}
-.keyvaluelist div span:first-child{font-weight:bold;min-width:500px}
-.kvl_100 div span:first-child{min-width:100px}
-.kvl_200 div span:first-child{min-width:200px}
-.kvl_300 div span:first-child{min-width:300px}
-.consistency_result_ok,.consistency_result_warn,.consistency_result_err{min-width:400px;border:1px solid #888;padding:0 5px;margin:1px 0}
-.consistency_result_ok{background:#0F0}
-.consistency_result_warn{background:#FF0}
-.consistency_result_err{background:#F00}
-#loginform div{display:flex;flex-direction:column}
-#loginform div button{margin:10px 0;padding:0}
-.loginerror{display:flex;background:#f44;font-weight:bold;padding:0 5px;margin:5px 0 20px 0}
+@media(max-width:1199px){#bookv_header h1{font-size:28pt}}
+@media(max-width:767px){
+	.bookv_top{flex-direction:column;margin-top:0}
+	.bookv_left{margin:0 10px 10px 10px}
+	.bookv_right{min-height:0;min-width:0}
+	.bookv_right_lang{justify-content:space-evenly}
+	#bookv_header h1{font-size:18pt}
+}
+.bookv_extra{height:500px;border:1px solid #333;margin:10px}
+.ev_master{align-self:center}
+@media(min-width:851px){.ev_master{padding-bottom:80px}}
+.ev_master .ev_code{color:#000;text-align:center;font-size:150pt;font-weight:500;font-family:Consolas,Monaco,"Courier New",Menlo,monospace}
+.ev_master .ev_msg{color:#888;text-align:center;font-size:25pt}
+@media(max-width:767px){
+	.ev_master .ev_code{font-size:75pt}
+	.ev_master .ev_msg{font-size:15pt}
+}
 .euler_pnl_row{display:flex;flex-direction:row;flex-wrap:wrap}
 @media(max-width:850px){.euler_pnl_row{flex-direction:column}}
 .euler_pnl_row2{display:flex;flex-direction:row}

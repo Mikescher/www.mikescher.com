@@ -28,6 +28,7 @@ $URL_RULES =
 	[ 'url' => ['books'],                                    'target' => 'pages/books_list.php',             'options' => [],                                        ],
 	[ 'url' => ['books', 'list'],                            'target' => 'pages/books_list.php',             'options' => [],                                        ],
 	[ 'url' => ['books', 'view', '?{id}'],                   'target' => 'pages/books_view.php',             'options' => [ 'id' => '%GET%' ],                       ],
+	[ 'url' => ['books', 'view', '?{id}', '*'],              'target' => 'pages/books_view.php',             'options' => [ 'id' => '%URL%' ],                       ],
 
 	[ 'url' => ['update.php'],                               'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%GET%' ],                     ],
 	[ 'url' => ['update.php', '?{Name}'],                    'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%URL%' ],                     ],
@@ -116,6 +117,10 @@ try {
 				$ident = substr($comp, 2, strlen($comp)-3);
 				$urlparams[$ident] = $pathparts[$i];
 			}
+			else if ($comp === '*')
+			{
+				// ok
+			}
 			else
 			{
 				if (strtolower($comp) !== strtolower($pathparts[$i])) { $match = false; break; }
@@ -194,3 +199,9 @@ try {
 //TODO euler insert+show 32bit | 64bit mode
 //TODO send cache header (?)
 //TODO global uncached error logger -> send by mail
+
+//TODO chrome test
+// - books view image height
+// - program list image height changes on hover
+//
+//
