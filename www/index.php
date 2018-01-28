@@ -199,9 +199,3 @@ try {
 //TODO euler insert+show 32bit | 64bit mode
 //TODO send cache header (?)
 //TODO global uncached error logger -> send by mail
-
-//TODO chrome test
-// - books view image height
-// - program list image height changes on hover
-//
-//

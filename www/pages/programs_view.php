@@ -34,7 +34,9 @@ if ($prog === NULL) httpError(404, 'Program not found');
 				<div class="contentheader" id="prgv_header"><h1><?php echo htmlspecialchars($prog['name']); ?></h1><hr/></div>
 
 				<div class="prgv_top">
+
 					<div class="prgv_left"><img src="<?php echo $prog['mainimage_url']; ?>" alt="Thumbnail (<?php echo $prog['name'] ?>)" /></div>
+
 					<div class="prgv_right">
 						<div class="prgv_right_key"   style="grid-row:1">Name:</div>
 						<div class="prgv_right_value" style="grid-row:1"><a href="<?php echo $prog['url']; ?>"><?php echo htmlspecialchars($prog['name']) ?></a></div>

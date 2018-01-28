@@ -31,7 +31,8 @@
 
 .booklst_left img {
   width: 150px;
-  height: auto;
+  height: 200px;
+  object-fit: contain;
 }
 
 .booklst_right {
