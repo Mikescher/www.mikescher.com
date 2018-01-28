@@ -181,6 +181,7 @@ try {
 
 	if (isProd())
 	{
+		sendExceptionMail($e);
 		httpError('500 ', 'Internal server error');
 	}
 	else
@@ -191,11 +192,9 @@ try {
 }
 
 
-//TODO printed books 2 hp
 //TODO fast
 //TODO gzip (?)
 //TODO better gh widget
 //TODO remove db table prefixes
 //TODO euler insert+show 32bit | 64bit mode
 //TODO send cache header (?)
-//TODO global uncached error logger -> send by mail
