@@ -198,3 +198,6 @@ try {
 //TODO remove db table prefixes
 //TODO euler insert+show 32bit | 64bit mode
 //TODO send cache header (?)
+//TODO self update (admin+webhook)
+//TODO v4 subdomain+static
+//TODO redirect t https except for old hs scripts (by _opt)

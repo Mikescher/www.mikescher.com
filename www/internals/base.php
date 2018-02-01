@@ -159,7 +159,7 @@ function convertLanguageToFlag($lang) {
 function setLoginCookie($user, $pass)
 {
 	$expires = time() + (24*60*60); // 24h
-	$hash = hash('sha256', $user . ';' . $pass);
+	$hash = hash('sha256', $user . ';' . $pass . ';' . gmdate('Y-m-d'));
 	setcookie('mikescher_auth', $hash, $expires);
 }
 
@@ -172,7 +172,7 @@ function isLoggedInByCookie()
 	if (key_exists('mikescher_auth', $_COOKIE))
 	{
 		if (strlen($_COOKIE['mikescher_auth']) !== 64) return $_loginCache = false;
-		$auth = hash('sha256', $CONFIG['admin_username'] . ';' . $CONFIG['admin_password']);
+		$auth = hash('sha256', $CONFIG['admin_username'] . ';' . $CONFIG['admin_password'] . ';' . gmdate('Y-m-d'));
 		if ($auth === $_COOKIE['mikescher_auth']) return $_loginCache = true;
 	}
 
