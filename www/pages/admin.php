@@ -10,6 +10,7 @@ require_once (__DIR__ . '/../internals/highscores.php');
 require_once (__DIR__ . '/../internals/mikeschergitgraph.php');
 require_once (__DIR__ . '/../internals/programs.php');
 require_once (__DIR__ . '/../internals/books.php');
+require_once (__DIR__ . '/../internals/updateslog.php');
 
 Database::connect();
 
@@ -154,13 +155,30 @@ function dumpConsistency($c) {
             <!------------------------------------------>
 
             <div class="boxedcontent">
+                <div class="bc_header">UpdatesLog</div>
+
+                <div class="bc_data keyvaluelist kvl_300">
+					<?php foreach (UpdatesLog::listProgramsInformation() as $info): ?>
+                        <div><span><?php echo '[' . $info['name'] . '] Count:' ?></span> <span><a href="javascript:startAjaxReplace('#ul_ajax_target', '/su_ajax/updateslog?secret=<?php echo $CONFIG['ajax_secret'] ?>&ulname=<?php echo $info['name'] ?>')"><?php echo $info['count_total']; ?></a></span></div>
+                        <div><span><?php echo '[' . $info['name'] . '] Last query:' ?></span> <span><?php echo $info['last_query']; ?></span></div>
+                        <div><span><?php echo '[' . $info['name'] . '] Count (1 week):' ?></span> <span><?php echo $info['count_week']; ?></span></div>
+                        <hr />
+					<?php endforeach; ?>
+                    <br/>
+                    <div id="ul_ajax_target"></div>
+                </div>
+            </div>
+
+            <!------------------------------------------>
+
+            <div class="boxedcontent">
                 <div class="bc_header">Highscores</div>
 
                 <div class="bc_data keyvaluelist kvl_300">
 
                     <?php foreach (Highscores::getAllGames() as $game): ?>
 
-                        <div><span><?php echo '[' . $game['NAME'] . '] Entries:' ?></span> <span><a href="/Highscores/list?gameid=<?php echo $game['ID']; ?>"><?php echo Highscores::getEntryCountFromGame($game['ID']); ?></a></span></div>
+                        <div><span><?php echo '[' . $game['NAME'] . '] Entries:' ?></span> <span><a href=""><?php echo Highscores::getEntryCountFromGame($game['ID']); ?></a></span></div>
                         <div><span><?php echo '[' . $game['NAME'] . '] Highscore:' ?></span> <span><?php
                                 $hs = Highscores::getOrderedEntriesFromGame($game['ID'], 1)[0];
                                 echo $hs['POINTS'] . ' (' . $hs['PLAYER'] . ') @ ' . $hs['TIMESTAMP'];

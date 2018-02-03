@@ -3,6 +3,7 @@
 
 	require_once (__DIR__ . '/../internals/base.php');
 	require_once (__DIR__ . '/../internals/programs.php');
+	require_once (__DIR__ . '/../internals/updateslog.php');
 
 	$name = $OPTIONS['name'];
 
@@ -12,4 +13,6 @@
 
 	$data = $updatedata[$name];
 
-	print($data['Name']."<hr>".$data['Version']."<hr>".$data['Link']);
+	UpdatesLog::insert($name, $data['version']);
+
+	print($name."<hr>".$data['version']."<hr>".$data['url']);

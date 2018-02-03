@@ -16,5 +16,6 @@ if ($cmd === 'egh::refresh') { include (__DIR__ . '/../ajax/egh_refresh.php'); e
 if ($cmd === 'egh::redraw')  { include (__DIR__ . '/../ajax/egh_redraw.php');  exit; }
 
 if ($cmd === 'alephnotetable')  { include (__DIR__ . '/../ajax/an_activeusers.php');  exit; }
+if ($cmd === 'updateslog')      { include (__DIR__ . '/../ajax/ul_entries.php');  exit; }
 
 die('Wrong command.');

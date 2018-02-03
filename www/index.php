@@ -43,6 +43,7 @@ $URL_RULES =
 	[ 'url' => ['api', 'webhook', '${target}'],              'target' => 'pages/api_webhook.php',            'options' => [ '_opt' => 'http', 'target' => '%URL%', 'secret' => '%GET%', ],],
 
 	[ 'url' => ['admin'],                                    'target' => 'pages/admin.php',                  'options' => [ '_opt' => 'password'],                   ],
+	[ 'url' => ['admin', 'updateslog', '${name}'],           'target' => 'pages/admin_ul-list.php',          'options' => [ '_opt' => 'password', 'name' => '%URL%'],],
 	[ 'url' => ['admin', 'cmd', '?{cmd}'],                   'target' => 'pages/admin_cmd.php',              'options' => [ '_opt' => 'password', 'cmd' => '%URL%'], ],
 	[ 'url' => ['admin', 'egh', '?{cmd}'],                   'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => 'egh', 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
 
