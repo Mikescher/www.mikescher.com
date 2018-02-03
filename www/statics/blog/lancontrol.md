@@ -1,4 +1,4 @@
-I have uploaded another of my older programs:  [LAN-Control 2.0](/programs/view/LAN-Control).  
+I have uploaded another of my older programs:  LAN-Control 2.0.  
 You probably didn't even know the 1.0 version, because i never came to publish that version either.  
 And, to be quite frankly, it wasn't really a thing i would show others.
 
