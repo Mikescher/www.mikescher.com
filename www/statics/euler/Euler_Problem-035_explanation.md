@@ -1,2 +1,2 @@
-Thats one big [sieve](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), even though not as big as the on in problem 10.
+Thats one big [sieve](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), even though not as big as the on in problem 10.
 Here we needed a way to "rotate" a number: `value = value%10 * 10^digitcount + value/10`. The rest is standard befunge stuff and trying to optimize it.

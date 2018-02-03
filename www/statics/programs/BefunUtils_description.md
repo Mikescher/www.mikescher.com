@@ -1,4 +1,4 @@
-This is my collection of tools, libraries and transcompilers for the esoteric programming language [Befunge](http://esolangs.org/wiki/Befunge).	
+This is my collection of tools, libraries and transcompilers for the esoteric programming language [Befunge](https://esolangs.org/wiki/Befunge).	
 
 It consists of the following core components:
 
@@ -30,7 +30,7 @@ It consists of the following core components:
 Set up
 ==========
 
-You can either download the binaries from [www.mikescher.com](http://www.mikescher.com/programs/view/BefunUtils).
+You can either download the binaries from [www.mikescher.com](https://www.mikescher.com/programs/view/BefunUtils).
 
 Or you can setup the Solution by yourself:
 

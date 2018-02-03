@@ -1,4 +1,4 @@
-Luckily there is a simple formula to generate [Pythagorean triples](http://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple).
+Luckily there is a simple formula to generate [Pythagorean triples](https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple).
 
 ~~~
 a = k * (m*m - n*n);

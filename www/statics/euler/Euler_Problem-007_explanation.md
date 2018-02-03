@@ -1,1 +1,1 @@
-Finally a opportunity to use my favorite algorithm: [The sieve of Eratosthenes.](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+Finally a opportunity to use my favorite algorithm: [The sieve of Eratosthenes.](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)

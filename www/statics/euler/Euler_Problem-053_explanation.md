@@ -1,17 +1,17 @@
 *That* is the kind of problem I really like. There is a lot of depth in the solution and a proper algorithm solves this in no time.
 
-The algorithm idea here is that we use the properties of [Pascal's Triangle](http://en.wikipedia.org/wiki/Pascal%27s_triangle).
+The algorithm idea here is that we use the properties of [Pascal's Triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle).
 As you probably know this triangle starts at its top with a `1`. Then every cell is calculated as the sum of the two cells above it.
 
 ~~~
 cell[y][x] = cell[y-1][x-1] + cell[y-1][x]
 ~~~
 
-![Animated GIF of Pascals Triangle. (c) by Wikimedia Foundation](http://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
+![Animated GIF of Pascals Triangle. (c) by Wikimedia Foundation](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 
 When we calculate `C(n, r)` this is nothing more than the number at row *n* and column *r*.
 
-So what we do is build [Pascal's Triangle](http://en.wikipedia.org/wiki/Pascal%27s_triangle) up to a height of one-hundred and look at the cells with values greater than one million.
+So what we do is build [Pascal's Triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle) up to a height of one-hundred and look at the cells with values greater than one million.
 The obvious problem is that the numbers grow extremely big, and sooner or later *(probably sooner)* the numbers will overflow. So what we do is use a little trick:  
 As soon as a cell is over `1 000 000` we mark her *(= put a zero in that cell)*. When we create a new cell out of its two parents we check if one of the parents has the mark *(= is zero)* and then the children gets also marked. Because if one of the parents (or both) is over one million then all of its children will also be over one million.
 

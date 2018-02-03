@@ -41,7 +41,7 @@ Linux version
 ## Special Features
 
  - Fully featured [scintilla editor](http://www.scintilla.org/) for text display
- - In-editor markdown rendering (similar to [qownnotes](http://www.qownnotes.org/))
+ - In-editor markdown rendering (similar to [qownnotes](https://www.qownnotes.org/))
  - Interactive highlighting of checkbox lists (e.g. TODO lists)
  - Clickable + highlighted links
  - Drop files/text directly into app to create notes

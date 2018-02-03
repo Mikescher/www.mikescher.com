@@ -5,7 +5,7 @@ Displays a Commit Table for every of your github-years.
 This is practically a copy of githubs Commit-Graph functionality. 
 But with the extra feature of showing commits older than a year, from private repositories abd from other git remotes.
 
-*See it live in action [here](http://www.mikescher.de/about)*
+*See it live in action [here](https://www.mikescher.de/about)*
 
 ### How to use:
 
@@ -114,7 +114,7 @@ Below a crappy example implementation with jQuerys Ajax calls:
 	<head>
 		<meta charset="utf-8">
 
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="/style.css">
 		<script type="text/javascript" language="JavaScript">

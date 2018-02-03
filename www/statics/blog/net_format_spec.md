@@ -66,7 +66,7 @@ Here my (growing) collection of C# format specifier, this is not a complete list
 "{0:#,##0,,, bill}"  // (number/1000/1000/1000) billion
 ```
 
-> **see: ** [stackoverflow.com](http://stackoverflow.com/questions/11731996/string-format-numbers-thousands-123k-millions-123m-billions-123b)
+> **see: ** [stackoverflow.com](https://stackoverflow.com/questions/11731996/string-format-numbers-thousands-123k-millions-123m-billions-123b)
 
 ###Right align currency
 
@@ -74,7 +74,7 @@ Here my (growing) collection of C# format specifier, this is not a complete list
 "{0,10:#,##0.00}" // Right aligned & always 2 decimal places
 ```
 
-> **see: ** [stackoverflow.com](http://stackoverflow.com/questions/7422625/right-align-currency-in-string-format)
+> **see: ** [stackoverflow.com](https://stackoverflow.com/questions/7422625/right-align-currency-in-string-format)
 
 ###Align strings
 

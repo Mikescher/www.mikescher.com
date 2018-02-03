@@ -27,7 +27,7 @@ $allbooks = Books::listAllNewestFirst();
 
             <p>
                 These are some books I read but that do not have an official print version.<br />
-                So I type-setted them myself (mostly in <a href="http://www.lyx.org/">LyX</a>) and printed them <a href="https://www.epubli.de/">online</a>.<br />
+                So I type-setted them myself (mostly in <a href="https://www.lyx.org/">LyX</a>) and printed them <a href="https://www.epubli.de/">online</a>.<br />
                 I do <b>not</b> own the rights of any of these books.<br />
                 The LyX files and generated PDF's are public and everyone who wants can print them on his own.
             </p>

@@ -38,7 +38,7 @@ function dumpConsistency($c) {
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<link rel="canonical" href="https://www.mikescher.com/about"/>
 	<?php printCSS(); ?>
-	<?php includeScriptOnce("http://code.jquery.com/jquery-latest.min.js", true, '') ?>
+	<?php includeScriptOnce("https://code.jquery.com/jquery-latest.min.js", true, '') ?>
 	<?php includeScriptOnce("/data/javascript/admin.js", true, 'defer') ?>
 </head>
 <body>

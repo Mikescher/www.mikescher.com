@@ -2,7 +2,7 @@ An automatic solver for [Hexcells](http://www.matthewbrowngames.com/hexcells.htm
 The idea is to automatically parse the game state, find the next (valid) step and execute it.  
 *(Rinse and Repeat until everything is solved)*
 
-### [> Animation](http://gfycat.com/GrotesqueRecklessAcornbarnacle)
+### [> Animation](https://gfycat.com/GrotesqueRecklessAcornbarnacle)
 
 ##Usage
 
@@ -29,6 +29,6 @@ The idea is to automatically parse the game state, find the next (valid) step an
  - Dynamically finding the hexagon layout
  - With an custom crafted OCR module recognition of the cell values
  - 3-Step solving of the current configuration (tested on the original levels and many of the generated ones)
- - Finding the optimal execution path by solving the corresponding [TSP](http://en.wikipedia.org/wiki/Travelling_salesman_problem)
+ - Finding the optimal execution path by solving the corresponding [TSP](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
  - Automatic execution by programmatically moving the mouse
  - Saving the current (captured) state as an [*.hexcells](https://github.com/BlaXpirit/sixcells) file

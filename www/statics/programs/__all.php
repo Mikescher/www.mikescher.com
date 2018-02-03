@@ -278,7 +278,7 @@ return
 		'urls'              =>
 			[
 				'download'    => 'direct',
-				'sourceforge' => 'http://sourceforge.net/projects/jcircuits/',
+				'sourceforge' => 'https://sourceforge.net/projects/jcircuits/',
 			],
 	],
 

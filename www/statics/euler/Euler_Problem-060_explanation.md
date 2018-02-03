@@ -7,7 +7,7 @@ We generate primes from `1` to `3300` and save verified pairs in an Hashmap.
 And when I say Hashmap I mean an *fucking* `3000x3000` array where every possible pair has an field (yay for befunge).
 
 I had to use quite a few codesnippets from older project:
-My standard [sieve of eratosthenes](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), an implementation of the [Miller-Rabin primality test](http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) and method to [concatenate two numbers](http://www.mathblog.dk/files/euler/Problem60.cs).
+My standard [sieve of eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes), an implementation of the [Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) and method to [concatenate two numbers](http://www.mathblog.dk/files/euler/Problem60.cs).
 
 In the end is to say that in befunge the program size is normally an good indicator for the runtime (not really, but its kinda correct for all my programs).
 So as you probably guessed this program takes a pretty loooooong time to complete.

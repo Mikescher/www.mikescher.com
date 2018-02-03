@@ -31,7 +31,7 @@ x % 3  == 2
 **Sources:**
  - [ask-math.com](http://www.ask-math.com/properties-of-square-numbers.html)
  - [johndcook.com](http://www.johndcook.com/blog/2008/11/17/fast-way-to-test-whether-a-number-is-a-square/)
- - [stackoverflow.com](http://stackoverflow.com/questions/295579/fastest-way-to-determine-if-an-integers-square-root-is-an-integer)
+ - [stackoverflow.com](https://stackoverflow.com/questions/295579/fastest-way-to-determine-if-an-integers-square-root-is-an-integer)
 
 If none of this pre-conditions is true we have to manually test the number.
 We use the same the same [integer-squareroot](https://en.wikipedia.org/wiki/Integer_square_root) algorithm as in previous problems.

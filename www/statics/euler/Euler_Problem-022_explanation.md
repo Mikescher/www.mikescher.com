@@ -1,2 +1,2 @@
-The main thing here was sorting the list. I used [bubble sort](http://en.wikipedia.org/wiki/Bubble_sort), which is not the fastest algorithm but was pretty easy to implement in befunge.
+The main thing here was sorting the list. I used [bubble sort](https://en.wikipedia.org/wiki/Bubble_sort), which is not the fastest algorithm but was pretty easy to implement in befunge.
 The rest is just calculating the single scores.

@@ -474,9 +474,9 @@ Character           | Name    | Description
 [^pfix]: Postfix = [Postfix notation][6]
 
 
-  [1]: http://i.imgur.com/Jkks7Uy.gif?1
-  [2]: http://i.imgur.com/Z5Ljr5Z.gif?1
-  [3]: http://i.imgur.com/82FKwkM.gif?1
-  [4]: http://i.imgur.com/AqpsPRW.gif?1
-  [5]: http://i.imgur.com/rxqZhIJ.gif?1
-  [6]: http://en.wikipedia.org/wiki/Reverse_Polish_notation
+  [1]: https://i.imgur.com/Jkks7Uy.gif?1
+  [2]: https://i.imgur.com/Z5Ljr5Z.gif?1
+  [3]: https://i.imgur.com/82FKwkM.gif?1
+  [4]: https://i.imgur.com/AqpsPRW.gif?1
+  [5]: https://i.imgur.com/rxqZhIJ.gif?1
+  [6]: https://en.wikipedia.org/wiki/Reverse_Polish_notation

@@ -14,7 +14,7 @@ jClipCorn
 
  - Fully portable - leave the program, the database and the settings on the same *(external)* drive as your movies
  - Multi language (German & English), if you want you can help me translate it into other languages.
- - Parse meta data from the [IMDB](http://www.imdb.com/)
+ - Parse meta data from the [IMDB](https://www.imdb.com/)
  - Filter your movies by many different criterias (date, genre, name, film series, quality, language, MPAA rating ...)
  - Remember which movies you have watched and where you are in a series
  - Automatically generate nice file names and folder structures for your movies and series
@@ -22,8 +22,8 @@ jClipCorn
  - Tag and rate your watched movies
  - Works under Windows, Linux *(and probably OS X)*
 
-#[> DOWNLOAD](http://www.github.com/Mikescher/jClipCorn/releases)
-###[> HOMEPAGE](http://www.mikescher.com/programs/view/jClipCorn)
+#[> DOWNLOAD](https://www.github.com/Mikescher/jClipCorn/releases)
+###[> HOMEPAGE](https://www.mikescher.com/programs/view/jClipCorn)
 ###[> GITHUB WIKI](https://github.com/Mikescher/jClipCorn/wiki)
 ###[> CHANGELOG](https://raw.githubusercontent.com/Mikescher/jClipCorn/master/changelog.txt)
 
@@ -70,7 +70,7 @@ At first you should look into the settings and eventually change a few things, i
 
  - UI Language
  - Look'n'Feel (It's recommended to either use *Windows* or *Metal*)
- - VLC Path (path to *vlc.exe*, for playing. You can also use another player - but it works best with the [VLC player](http://www.videolan.org/vlc/))
+ - VLC Path (path to *vlc.exe*, for playing. You can also use another player - but it works best with the [VLC player](https://www.videolan.org/vlc/))
  - The backup settings (I recommend to **enable** automatic backups *(like every 7 days or so)*)
  - Automatic relative paths (this should really stay active - otherwise paths will be absolute and everything can go havoc if ClipCorn runs on an external drive)
 
