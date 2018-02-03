@@ -30,23 +30,23 @@ $URL_RULES =
 	[ 'url' => ['books', 'view', '?{id}'],                   'target' => 'pages/books_view.php',             'options' => [ 'id' => '%GET%' ],                       ],
 	[ 'url' => ['books', 'view', '?{id}', '*'],              'target' => 'pages/books_view.php',             'options' => [ 'id' => '%URL%' ],                       ],
 
-	[ 'url' => ['update.php'],                               'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%GET%' ],                     ],
-	[ 'url' => ['update.php', '?{Name}'],                    'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%URL%' ],                     ],
-	[ 'url' => ['update'],                                   'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%GET%' ],                     ],
-	[ 'url' => ['update', '?{Name}'],                        'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%URL%' ],                     ],
-	[ 'url' => ['update2'],                                  'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%GET%' ],                     ],
-	[ 'url' => ['api', 'update'],                            'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%GET%' ],                     ],
-	[ 'url' => ['api', 'update', '?{Name}'],                 'target' => 'pages/api_updatecheck.php',        'options' => [ 'Name' => '%URL%' ],                     ],
-	[ 'url' => ['api', 'test'],                              'target' => 'pages/api_test.php',               'options' => [],                                        ],
-	[ 'url' => ['api', 'setselfadress'],                     'target' => 'pages/api_setselfadress.php',      'options' => [],                                        ],
-	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
+	[ 'url' => ['update.php'],                               'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%GET%' ],   ],
+	[ 'url' => ['update.php', '?{Name}'],                    'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%URL%' ],   ],
+	[ 'url' => ['update'],                                   'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%GET%' ],   ],
+	[ 'url' => ['update', '?{Name}'],                        'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%URL%' ],   ],
+	[ 'url' => ['update2'],                                  'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%GET%' ],   ],
+	[ 'url' => ['api', 'update'],                            'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%GET%' ],   ],
+	[ 'url' => ['api', 'update', '?{Name}'],                 'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%URL%' ],   ],
+	[ 'url' => ['api', 'test'],                              'target' => 'pages/api_test.php',               'options' => [ '_opt' => 'http', ],                     ],
+	[ 'url' => ['api', 'setselfadress'],                     'target' => 'pages/api_setselfadress.php',      'options' => [ '_opt' => 'http', ],                     ],
+	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ '_opt' => 'http', 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
 
 	[ 'url' => ['admin'],                                    'target' => 'pages/admin.php',                  'options' => [ '_opt' => 'password'],                   ],
 	[ 'url' => ['admin', 'cmd', '?{cmd}'],                   'target' => 'pages/admin_cmd.php',              'options' => [ '_opt' => 'password', 'cmd' => '%URL%'], ],
 	[ 'url' => ['admin', 'egh', '?{cmd}'],                   'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => 'egh', 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
 
-	[ 'url' => ['su_ajax', '?{cmd}'],                        'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '',    'cmd' => '%URL%', 'secret' => '%GET%' ], ],
-	[ 'url' => ['su_ajax'],                                  'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '',    'cmd' => '%GET%', 'secret' => '%GET%' ], ],
+	[ 'url' => ['su_ajax', '?{cmd}'],                        'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '', 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
+	[ 'url' => ['su_ajax'],                                  'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '', 'cmd' => '%GET%', 'secret' => '%GET%' ], ],
 
 	[ 'url' => ['blog'],                                     'target' => 'pages/blog_list.php',              'options' => [],                                        ],
 	[ 'url' => ['log'],                                      'target' => 'pages/blog_list.php',              'options' => [],                                        ],
@@ -61,20 +61,20 @@ $URL_RULES =
 	[ 'url' => ['log', '?{id}', '?{name}', '?{subview}'],    'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '%URL%' ], ],
 	[ 'url' => ['blogpost', 'view'],                         'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%GET%', 'subview' => '' ],      ],
 	
-	[ 'url' => ['highscores', 'list.php'],                   'target' => 'pages/highscores_listentries.php', 'options' => [ 'gameid' => '%GET%' ],                   ],
-	[ 'url' => ['highscores', 'list'],                       'target' => 'pages/highscores_listentries.php', 'options' => [ 'gameid' => '%GET%' ],                   ],
-	[ 'url' => ['highscores', 'listentries'],                'target' => 'pages/highscores_listentries.php', 'options' => [ 'gameid' => '%GET%' ],                   ],
-	[ 'url' => ['highscores', 'list.php'],                   'target' => 'pages/highscores_listgames.php',   'options' => [],                                        ],
-	[ 'url' => ['highscores', 'list'],                       'target' => 'pages/highscores_listgames.php',   'options' => [],                                        ],
-	[ 'url' => ['highscores', 'listgames'],                  'target' => 'pages/highscores_listgames.php',   'options' => [],                                        ],
-	[ 'url' => ['highscores', 'insert.php'],                 'target' => 'pages/highscores_insert.php',      'options' => [ 'gameid' => '%GET%', 'check' => '%GET%', 'name' => '%GET%', 'rand' => '%GET%', 'points' => '%GET%' ], ],
-	[ 'url' => ['highscores', 'insert'],                     'target' => 'pages/highscores_insert.php',      'options' => [ 'gameid' => '%GET%', 'check' => '%GET%', 'name' => '%GET%', 'rand' => '%GET%', 'points' => '%GET%' ], ],
-	[ 'url' => ['highscores', 'update.php'],                 'target' => 'pages/highscores_update.php',      'options' => [ 'gameid' => '%GET%', 'check' => '%GET%', 'name' => '%GET%', 'rand' => '%GET%', 'points' => '%GET%', 'nameid' => '%GET%' ], ],
-	[ 'url' => ['highscores', 'update'],                     'target' => 'pages/highscores_update.php',      'options' => [ 'gameid' => '%GET%', 'check' => '%GET%', 'name' => '%GET%', 'rand' => '%GET%', 'points' => '%GET%', 'nameid' => '%GET%' ], ],
-	[ 'url' => ['highscores', 'list_top50.php'],             'target' => 'pages/highscores_top50.php',       'options' => [ 'gameid' => '%GET%' ],                   ],
-	[ 'url' => ['highscores', 'list_top50'],                 'target' => 'pages/highscores_top50.php',       'options' => [ 'gameid' => '%GET%' ],                   ],
-	[ 'url' => ['highscores', 'getNewID.php'],               'target' => 'pages/highscores_newid.php',       'options' => [ 'gameid' => '%GET%' ],                   ],
-	[ 'url' => ['highscores', 'newid'],                      'target' => 'pages/highscores_newid.php',       'options' => [ 'gameid' => '%GET%' ],                   ],
+	[ 'url' => ['highscores', 'list.php'],                   'target' => 'pages/highscores_listentries.php', 'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'list'],                       'target' => 'pages/highscores_listentries.php', 'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'listentries'],                'target' => 'pages/highscores_listentries.php', 'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'list.php'],                   'target' => 'pages/highscores_listgames.php',   'options' => [ '_opt' => 'http' ],                      ],
+	[ 'url' => ['highscores', 'list'],                       'target' => 'pages/highscores_listgames.php',   'options' => [ '_opt' => 'http' ],                      ],
+	[ 'url' => ['highscores', 'listgames'],                  'target' => 'pages/highscores_listgames.php',   'options' => [ '_opt' => 'http' ],                      ],
+	[ 'url' => ['highscores', 'insert.php'],                 'target' => 'pages/highscores_insert.php',      'options' => [ '_opt' => 'http', 'gameid' => '%GET%', 'check' => '%GET%', 'name' => '%GET%', 'rand' => '%GET%', 'points' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'insert'],                     'target' => 'pages/highscores_insert.php',      'options' => [ '_opt' => 'http', 'gameid' => '%GET%', 'check' => '%GET%', 'name' => '%GET%', 'rand' => '%GET%', 'points' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'update.php'],                 'target' => 'pages/highscores_update.php',      'options' => [ '_opt' => 'http', 'gameid' => '%GET%', 'check' => '%GET%', 'name' => '%GET%', 'rand' => '%GET%', 'points' => '%GET%', 'nameid' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'update'],                     'target' => 'pages/highscores_update.php',      'options' => [ '_opt' => 'http', 'gameid' => '%GET%', 'check' => '%GET%', 'name' => '%GET%', 'rand' => '%GET%', 'points' => '%GET%', 'nameid' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'list_top50.php'],             'target' => 'pages/highscores_top50.php',       'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'list_top50'],                 'target' => 'pages/highscores_top50.php',       'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'getNewID.php'],               'target' => 'pages/highscores_newid.php',       'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
+	[ 'url' => ['highscores', 'newid'],                      'target' => 'pages/highscores_newid.php',       'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
 	
 	[ 'url' => ['404'],                                      'target' => 'pages/error_404.php',              'options' => [],                                        ],
 ];
@@ -164,6 +164,17 @@ try {
 			}
 		}
 
+		$is_http = (!isset($_SERVER['HTTPS'])) || empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off";
+
+		if ($is_http && !in_array('http', $opt))
+		{
+			ob_clean();
+			$redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+			header('HTTP/1.1 301 Moved Permanently');
+			header('Location: ' . $redirect);
+			exit();
+		}
+
 		$OPTIONS = $opt;
 		include $target;
 		return;
@@ -200,4 +211,3 @@ try {
 //TODO send cache header (?)
 //TODO self update (admin+webhook)
 //TODO v4 subdomain+static
-//TODO redirect t https except for old hs scripts (by _opt)
