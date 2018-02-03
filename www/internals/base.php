@@ -296,7 +296,16 @@ function smart_resize_image($file, $width = 0, $height = 0, $proportional, $outp
  */
 function magick_resize_image($file, $width, $height, $output)
 {
-	$cmd = 'convert "' . $file . '" -strip -resize ' . $width . 'x' . $height . ' "' . $output . '"';
+	list($width_old, $height_old) = getimagesize($file);
+
+	if      ($width  == 0)  $factor = $height/$height_old;
+	elseif  ($height == 0)  $factor = $width/$width_old;
+	else                    $factor = min( $width / $width_old, $height / $height_old );
+
+	$final_width  = round( $width_old * $factor );
+	$final_height = round( $height_old * $factor );
+
+	$cmd = 'convert "' . $file . '" -strip -resize ' . $final_width . 'x' . $final_height . ' "' . $output . '"';
 
 	shell_exec($cmd);
 }
