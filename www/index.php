@@ -203,11 +203,7 @@ try {
 
 }
 
-
-//TODO fast
 //TODO gzip (?)
-//TODO better gh widget
-//TODO remove db table prefixes
 //TODO euler insert+show 32bit | 64bit mode
 //TODO send cache header (?)
 //TODO v4 subdomain+static

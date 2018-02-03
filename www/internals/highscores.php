@@ -14,7 +14,7 @@ class Highscores
 
 	public static function insert($gameid, $points, $name, $playerid, $check, $time, $ip)
 	{
-		return Database::sql_exec_prep('INSERT INTO ms4_highscoreentries (GAME_ID, POINTS, PLAYER, PLAYERID, CHECKSUM, TIMESTAMP, IP) VALUES (:gid, :p, :pn, :pid, :cs, :ts, :ip)',
+		return Database::sql_exec_prep('INSERT INTO highscoreentries (GAME_ID, POINTS, PLAYER, PLAYERID, CHECKSUM, TIMESTAMP, IP) VALUES (:gid, :p, :pn, :pid, :cs, :ts, :ip)',
 			[
 				[':gid', $gameid,   PDO::PARAM_INT],
 				[':p',   $points,   PDO::PARAM_INT],
@@ -28,7 +28,7 @@ class Highscores
 
 	public static function update($gameid, $points, $name, $playerid, $check, $time, $ip)
 	{
-		return Database::sql_exec_prep('UPDATE ms4_highscoreentries SET POINTS = :p, PLAYER = :pn, CHECKSUM = :cs, IP = :ip, TIMESTAMP = :ts WHERE GAME_ID = :gid AND PLAYERID = :pid',
+		return Database::sql_exec_prep('UPDATE highscoreentries SET POINTS = :p, PLAYER = :pn, CHECKSUM = :cs, IP = :ip, TIMESTAMP = :ts WHERE GAME_ID = :gid AND PLAYERID = :pid',
 			[
 				[':gid', $gameid,   PDO::PARAM_INT],
 				[':p',   $points,   PDO::PARAM_INT],
@@ -42,7 +42,7 @@ class Highscores
 
 	public static function getGameByID($gameid)
 	{
-		return Database::sql_query_single_prep('SELECT * FROM ms4_highscoregames WHERE ID = :id',
+		return Database::sql_query_single_prep('SELECT * FROM highscoregames WHERE ID = :id',
 			[
 				[ ':id', $gameid, PDO::PARAM_INT ],
 			]);
@@ -50,7 +50,7 @@ class Highscores
 
 	public static function getOrderedEntriesFromGame($gameid, $limit = null)
 	{
-		$sql = 'SELECT * FROM ms4_highscoreentries WHERE GAME_ID = :id ORDER BY POINTS DESC';
+		$sql = 'SELECT * FROM highscoreentries WHERE GAME_ID = :id ORDER BY POINTS DESC';
 		if ($limit !== null) $sql .= " LIMIT $limit";
 
 		return Database::sql_query_assoc_prep($sql,
@@ -61,7 +61,7 @@ class Highscores
 
 	public static function getNewestEntriesFromGame($gameid, $limit = null)
 	{
-		$sql = 'SELECT * FROM ms4_highscoreentries WHERE GAME_ID = :id ORDER BY TIMESTAMP DESC';
+		$sql = 'SELECT * FROM highscoreentries WHERE GAME_ID = :id ORDER BY TIMESTAMP DESC';
 		if ($limit !== null) $sql .= " LIMIT $limit";
 
 		return Database::sql_query_assoc_prep($sql,
@@ -72,7 +72,7 @@ class Highscores
 
 	public static function getEntryCountFromGame($gameid)
 	{
-		return Database::sql_query_num_prep('SELECT COUNT(*) FROM ms4_highscoreentries WHERE GAME_ID = :id',
+		return Database::sql_query_num_prep('SELECT COUNT(*) FROM highscoreentries WHERE GAME_ID = :id',
 			[
 				[ ':id', $gameid, PDO::PARAM_INT ]
 			]);
@@ -80,12 +80,12 @@ class Highscores
 
 	public static function getAllGames()
 	{
-		return Database::sql_query_assoc('SELECT * FROM ms4_highscoregames');
+		return Database::sql_query_assoc('SELECT * FROM highscoregames');
 	}
 
 	public static function getNextPlayerID($gameid)
 	{
-		return Database::sql_query_num_prep('SELECT MAX(PLAYERID)+1 AS NID FROM ms4_highscoreentries WHERE GAME_ID = :gid',
+		return Database::sql_query_num_prep('SELECT MAX(PLAYERID)+1 AS NID FROM highscoreentries WHERE GAME_ID = :gid',
 			[
 				[ ':id', $gameid, PDO::PARAM_INT ]
 			]);
@@ -93,7 +93,7 @@ class Highscores
 
 	public static function getSpecificScore($gameid, $playerid)
 	{
-		return Database::sql_query_single_prep('SELECT * FROM ms4_highscoreentries WHERE GAME_ID = :gid AND PLAYERID = :pid',
+		return Database::sql_query_single_prep('SELECT * FROM highscoreentries WHERE GAME_ID = :gid AND PLAYERID = :pid',
 			[
 				[ ':gid', $gameid,   PDO::PARAM_INT ],
 				[ ':pid', $playerid, PDO::PARAM_INT ],

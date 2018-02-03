@@ -6,21 +6,21 @@ class AlephNoteStatistics
 {
 	public static function getTotalUserCount()
 	{
-		return Database::sql_query_num('SELECT COUNT(*) FROM ms4_an_statslog WHERE NoteCount>0');
+		return Database::sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0');
 	}
 
 	public static function getUserCountFromLastVersion()
 	{
-		return Database::sql_query_num('SELECT COUNT(*) FROM ms4_an_statslog WHERE NoteCount>0 AND Version = (SELECT Version FROM ms4_an_statslog ORDER BY Version DESC LIMIT 1)');
+		return Database::sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0 AND Version = (SELECT Version FROM an_statslog ORDER BY Version DESC LIMIT 1)');
 	}
 
 	public static function getActiveUserCount($days)
 	{
-		return Database::sql_query_num('SELECT COUNT(*) FROM ms4_an_statslog WHERE NoteCount>0 AND LastChanged > NOW() - INTERVAL '.$days.' DAY');
+		return Database::sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0 AND LastChanged > NOW() - INTERVAL '.$days.' DAY');
 	}
 
 	public static function getAllActiveEntriesOrdered()
 	{
-		return Database::sql_query_assoc('SELECT * FROM ms4_an_statslog WHERE NoteCount>0 ORDER BY LastChanged DESC');
+		return Database::sql_query_assoc('SELECT * FROM an_statslog WHERE NoteCount>0 ORDER BY LastChanged DESC');
 	}
 }

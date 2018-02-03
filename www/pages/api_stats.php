@@ -16,7 +16,7 @@
 	{
 		Database::connect();
 		
-		Database::sql_exec_prep('INSERT INTO ms4_an_statslog (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid, :ver, :prv, :pid, :tnc) ON DUPLICATE KEY UPDATE Version=:v,ProviderStr=:pstr,ProviderID=:pid,NoteCount=:nc',
+		Database::sql_exec_prep('INSERT INTO an_statslog (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid, :ver, :prv, :pid, :tnc) ON DUPLICATE KEY UPDATE Version=:v,ProviderStr=:pstr,ProviderID=:pid,NoteCount=:nc',
 		[
 			[':cid', $cid, PDO::PARAM_STR],
 			[':ver', $ver, PDO::PARAM_STR],
