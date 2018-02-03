@@ -107,7 +107,7 @@ try {
 		if ($partcount !== count($rule['url'])) continue;
 
 		$urlparams = [];
-		$ctrlOpt   = key_exists('_opt', $rule['options']) ? explode($rule['options']['_opt'], '|') : [];
+		$ctrlOpt   = key_exists('_opt', $rule['options']) ? explode('|', $rule['options']['_opt']) : [];
 		$target    = $rule['target'];
 
 		$match = true;
