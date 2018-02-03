@@ -28,7 +28,7 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 .iconbutton svg{width:14pt;height:14pt;margin:0 4px;fill:#CCC}
 .iconbutton span{flex-grow:1;text-align:center;font-size:14pt}
 .iconbutton_light{display:flex;justify-content:center;align-items:center;background:#888;color:#222;text-decoration:none;border:1px solid #000;margin:5px 0}
-.iconbutton_light:hover{cursor:pointer;background-color:#555}
+.iconbutton_light:hover{cursor:pointer;background-color:#555;color:#CCC}
 .iconbutton_light svg{width:14pt;height:14pt;margin:0 4px;fill:#000}
 .iconbutton_light span{flex-grow:1;text-align:center;font-size:14pt}
 .stripedtable_container{overflow-x:auto}
