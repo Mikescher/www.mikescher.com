@@ -8,7 +8,7 @@ jClipCorn
 > Use this software only in a country which allows for private copies of your bought DVD's.  
 > Use this software only to manage copies of movies which you own.  
 
-![main-view](README-FILES/main-view.png)
+![main-view](https://raw.githubusercontent.com/Mikescher/jClipCorn/master/README-FILES/main-view.png)
 
 ### Main Features
 
@@ -25,7 +25,7 @@ jClipCorn
 #[> DOWNLOAD](https://www.github.com/Mikescher/jClipCorn/releases)
 ###[> HOMEPAGE](https://www.mikescher.com/programs/view/jClipCorn)
 ###[> GITHUB WIKI](https://github.com/Mikescher/jClipCorn/wiki)
-###[> CHANGELOG](https://raw.githubusercontent.com/Mikescher/jClipCorn/master/changelog.txt)
+###[> CHANGELOG](https://raw.githubusercontent.com/Mikescher/jClipCorn/master/CHANGELOG.txt)
 
 ### Organization
 

@@ -10,6 +10,6 @@ Here is a little overview over the past versions:
 
 **v3.0:** ![version 3][3]
 
-  [1]: /images/log/ms_de_v1.jpg
-  [2]: /images/log/ms_de_v2.jpg
-  [3]: /images/log/ms_de_v3.jpg
+  [1]: /data/images/log/ms_de_v1.jpg
+  [2]: /data/images/log/ms_de_v2.jpg
+  [3]: /data/images/log/ms_de_v3.jpg

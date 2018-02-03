@@ -1,4 +1,4 @@
-An automatic solver for [Hexcells](http://www.matthewbrowngames.com/hexcells.html), [Hexcells Plus](http://www.matthewbrowngames.com/hexcellsplus.html) and [Hexcells Infinite](http://www.matthewbrowngames.com/hexcellsinfinite.html).  
+An automatic solver for [Hexcells](http://www.matthewbrowngames.com), [Hexcells Plus](http://www.matthewbrowngames.com) and [Hexcells Infinite](http://www.matthewbrowngames.com).  
 The idea is to automatically parse the game state, find the next (valid) step and execute it.  
 *(Rinse and Repeat until everything is solved)*
 

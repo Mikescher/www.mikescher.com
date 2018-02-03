@@ -6,5 +6,5 @@ Some people say flying gets safer and safer ... But see for your self:
 
 I think I will use the train :D
 
-  [1]: /images/log/bsod_1.jpg
-  [2]: /images/log/bsod_2.jpg
+  [1]: /data/images/log/bsod_1.jpg
+  [2]: /data/images/log/bsod_2.jpg

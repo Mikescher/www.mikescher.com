@@ -5,7 +5,7 @@ Displays a Commit Table for every of your github-years.
 This is practically a copy of githubs Commit-Graph functionality. 
 But with the extra feature of showing commits older than a year, from private repositories abd from other git remotes.
 
-*See it live in action [here](https://www.mikescher.de/about)*
+*See it live in action [here](https://www.mikescher.com/about)*
 
 ### How to use:
 

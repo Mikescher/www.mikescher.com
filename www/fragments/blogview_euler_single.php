@@ -72,7 +72,7 @@ $max = ceil($max / 20) * 20;
                 <td><?php echo number_format($problem['steps'], 0, null, ' '); ?></td>
             </tr>
             <tr>
-                <td><b>Execution time</b> (<a href="/programs/view/BefunGen">BefunExec</a>):</td>
+                <td><b>Execution time</b> (<a href="/programs/view/BefunUtils">BefunExec</a>):</td>
                 <td><?php echo formatMilliseconds($problem['time']) . ' <i>(' . (($problem['time']===0) ? '?' : number_format(($problem['steps']/$problem['time'])/1000, 2, '.', '')) . ' MHz)</i>'; ?></td>
             </tr>
             <tr>

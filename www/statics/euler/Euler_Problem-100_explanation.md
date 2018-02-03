@@ -24,7 +24,7 @@ b = 1/2 ( sqrt(2n^2 - 2n + 1) + 1 )
 
 For the last formula we search for integer solutions.
 We can now either solve this manually with diophantine equations,
-or we ask [Wolfram|Alpha](www.wolframalpha.com/input/?i=2*b*b-2b+%3D+n*n-n).
+or we ask [Wolfram|Alpha](https://www.wolframalpha.com/input/?i=2*b*b-2b+%3D+n*n-n).
 Which gives us the following two formulas:
 
 ~~~

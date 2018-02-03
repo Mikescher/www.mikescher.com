@@ -4,7 +4,7 @@ The board consist of 10 to 30 fields, one player starts left and one player righ
 
 Your goal is to zero the enemy flag for two consecutive cycles and you loose if you either leave the board or the enemy zeroes your flag first. Of course the bots are written in brainfuck, which adds a whole lot of interesting limitations due to brainfucks minimalistic (7) set of operations.
 
-The thing that surprised me the most is the [strategically depth](https://esolangs.org/wiki/BF_Joust_strategies) of the game (despite the simple rules and language) and the fact that there are [extremely efficient and complex programs](https://codu.org/eso/bfjoust/in_egobot/) out there.
+The thing that surprised me the most is the [strategically depth](https://esolangs.org/wiki/BF_Joust_strategies) of the game (despite the simple rules and language) and the fact that there are [extremely efficient and complex programs](http://codu.org/eso/bfjoust/in_egobot/) out there.
 
 So here is my own bot *(originally made for [stackexchange](https://codegolf.stackexchange.com/questions/36645/brainfedbotsforbattling-a-brainf-tournament))*, it can't really keep up with the big ones from egojoust but I'm fairly proud of it:
 
