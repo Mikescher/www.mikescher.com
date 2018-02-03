@@ -140,6 +140,20 @@ function dumpConsistency($c) {
             <!------------------------------------------>
 
             <div class="boxedcontent">
+                <div class="bc_header">Statics</div>
+
+                <div class="bc_data keyvaluelist kvl_200">
+                    <div><span>Blog entries:</span> <span><?php    echo count(Blog::listAll()); ?></span></div>
+                    <div><span>Book entries:</span> <span><?php    echo count(Books::listAll()); ?></span></div>
+                    <div><span>Euler entries:</span> <span><?php   echo count(Euler::listAll()); ?></span></div>
+                    <div><span>Program entries:</span> <span><?php echo count(Programs::listAll()); ?></span></div>
+                    <div><span>Update entries:</span> <span><?php  echo count(Programs::listUpdateData()); ?></span></div>
+                </div>
+            </div>
+
+            <!------------------------------------------>
+
+            <div class="boxedcontent">
                 <div class="bc_header">Highscores</div>
 
                 <div class="bc_data keyvaluelist kvl_300">

@@ -63,7 +63,7 @@ class Programs
 
 	public static function listUpdateData()
 	{
-		$a = require (__DIR__ . '/../statics/updates/programupdates.php');
+		$a = require (__DIR__ . '/../statics/updates/_all.php');
 		return $a;
 	}
 

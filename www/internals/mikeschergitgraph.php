@@ -42,7 +42,7 @@ class MikescherGitGraph
 	{
 		$p = self::getPathRenderedData();
 
-		if (!file($p)) return ['result'=>'err', 'message' => 'Rendered data not found'];
+		if (!file_exists($p)) return ['result'=>'err', 'message' => 'Rendered data not found'];
 
 		if (filemtime($p) < time()-(3*7*24*60*60)) return ['result'=>'warn', 'message' => 'Rendered data is older than 3 weeks'];
 

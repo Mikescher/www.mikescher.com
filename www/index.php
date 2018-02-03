@@ -106,7 +106,7 @@ try {
 		if ($partcount !== count($rule['url'])) continue;
 
 		$urlparams = [];
-		$opt       = key_exists('_opt', $rule['options']) ? explode($rule['options']['_opt'], '|') : [];
+		$ctrlOpt   = key_exists('_opt', $rule['options']) ? explode($rule['options']['_opt'], '|') : [];
 		$target    = $rule['target'];
 
 		$match = true;
@@ -129,7 +129,7 @@ try {
 		}
 		if (!$match) continue;
 
-		$opt = [];
+		$opt = [ 'controllerOptions' => $ctrlOpt, 'uri' => $requri ];
 		foreach($rule['options'] as $optname => $optvalue)
 		{
 			$value = $optvalue;
@@ -154,9 +154,9 @@ try {
 		}
 		if (!$match) continue;
 
-		if (in_array('disabled', $opt)) continue;
+		if (in_array('disabled', $ctrlOpt)) continue;
 
-		if (in_array('password', $opt))
+		if (in_array('password', $ctrlOpt))
 		{
 			if (!isLoggedInByCookie())
 			{
@@ -167,7 +167,7 @@ try {
 
 		$is_http = (!isset($_SERVER['HTTPS'])) || empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off";
 
-		if ($is_http && !in_array('http', $opt))
+		if (isProd() && $is_http && !in_array('http', $ctrlOpt))
 		{
 			ob_clean();
 			$redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -210,5 +210,4 @@ try {
 //TODO remove db table prefixes
 //TODO euler insert+show 32bit | 64bit mode
 //TODO send cache header (?)
-//TODO self update (admin+webhook)
 //TODO v4 subdomain+static
