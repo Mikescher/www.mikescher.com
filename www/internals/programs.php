@@ -240,9 +240,14 @@ class Programs
 
 	public static function createPreview($prog)
 	{
+		global $CONFIG;
+
 		$src = $prog['mainimage_path'];
 		$dst = $prog['preview_path'];
 
-		smart_resize_image($src , null, 250, 0, true, $dst, 100);
+		if ($CONFIG['use_magick'])
+			magick_resize_image($src, 250, 0, $dst);
+		else
+			smart_resize_image($src, 250, 0, true, $dst);
 	}
 }

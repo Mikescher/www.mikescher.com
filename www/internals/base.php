@@ -187,23 +187,20 @@ function clearLoginCookie()
 /**
  * easy image resize function
  * @author http://www.nimrodstech.com/php-image-resize/
- * @param  $file - file name to resize
- * @param  $string - The image data, as a string
- * @param  $width - new image width
- * @param  $height - new image height
- * @param  $proportional - keep image proportional, default is no
- * @param  $output - name of the new file (include path if needed)
- * @param  $quality - enter 1-100 (100 is best quality) default is 100
+ * @param  string $file - file name to resize
+ * @param  int $width - new image width
+ * @param  int $height - new image height
+ * @param  boolean $proportional - keep image proportional, default is no
+ * @param  string $output - name of the new file (include path if needed)
  * @return boolean|resource
  */
-function smart_resize_image($file, $string = null, $width = 0, $height = 0, $proportional = false, $output = 'file', $quality = 100
-) {
-
+function smart_resize_image($file, $width = 0, $height = 0, $proportional, $output)
+{
 	if ( $height <= 0 && $width <= 0 ) return false;
-	if ( $file === null && $string === null ) return false;
+	if ( $file === null) return false;
 
 	# Setting defaults and meta
-	$info                         = $file !== null ? getimagesize($file) : getimagesizefromstring($string);
+	$info                         = getimagesize($file);
 	$image                        = '';
 	$final_width                  = 0;
 	$final_height                 = 0;
@@ -232,9 +229,9 @@ function smart_resize_image($file, $string = null, $width = 0, $height = 0, $pro
 
 	# Loading image to memory according to type
 	switch ( $info[2] ) {
-		case IMAGETYPE_JPEG:  $file !== null ? $image = imagecreatefromjpeg($file) : $image = imagecreatefromstring($string);  break;
-		case IMAGETYPE_GIF:   $file !== null ? $image = imagecreatefromgif($file)  : $image = imagecreatefromstring($string);  break;
-		case IMAGETYPE_PNG:   $file !== null ? $image = imagecreatefrompng($file)  : $image = imagecreatefromstring($string);  break;
+		case IMAGETYPE_JPEG:  $image = imagecreatefromjpeg($file); break;
+		case IMAGETYPE_GIF:   $image = imagecreatefromgif($file);  break;
+		case IMAGETYPE_PNG:   $image = imagecreatefrompng($file);  break;
 		default: return false;
 	}
 
@@ -280,15 +277,28 @@ function smart_resize_image($file, $string = null, $width = 0, $height = 0, $pro
 	# Writing image according to type to the output destination and image quality
 	switch ( $info[2] ) {
 		case IMAGETYPE_GIF:   imagegif($image_resized, $output);    break;
-		case IMAGETYPE_JPEG:  imagejpeg($image_resized, $output, $quality);   break;
+		case IMAGETYPE_JPEG:  imagejpeg($image_resized, $output, 100);   break;
 		case IMAGETYPE_PNG:
-			$quality = 9 - (int)((0.9*$quality)/10.0);
+			$quality = 9 - (int)((0.9*100)/10.0);
 			imagepng($image_resized, $output, $quality);
 			break;
 		default: return false;
 	}
 
 	return true;
+}
+
+/**
+ * @param  string $file - file name to resize
+ * @param  int $width - new image width
+ * @param  int $height - new image height
+ * @param  string $output - name of the new file (include path if needed)
+ */
+function magick_resize_image($file, $width, $height, $output)
+{
+	$cmd = 'convert "' . $file . '" -strip -resize ' . $width . 'x' . $height . ' "' . $output . '"';
+
+	shell_exec($cmd);
 }
 
 function sendMail($subject, $content, $to, $from) {

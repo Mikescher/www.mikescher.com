@@ -74,10 +74,16 @@ class Books
 
 	public static function createPreview($prog)
 	{
+		global $CONFIG;
+
 		$src = $prog['imgfront_path'];
 		$dst = $prog['preview_path'];
 
-		smart_resize_image($src , null, 200, 0, true, $dst, 100);
+		if ($CONFIG['use_magick'])
+			magick_resize_image($src, 200, 0, $dst);
+		else
+			smart_resize_image($src, 200, 0, true, $dst);
+
 	}
 
 	public static function getBook($id)
