@@ -6,4 +6,4 @@ Btw, i took the "fun" path and tried writing my own captcha code, here you can s
 
 ![Captcha][1]
 
-  [1]: /images/log/captcha_img.png
+  [1]: /data/images/log/captcha_img.png

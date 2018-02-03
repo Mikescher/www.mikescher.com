@@ -3,7 +3,7 @@ and a fly, **F**, sits in the opposite corner.
 By travelling on the surfaces of the room the shortest "straight line" 
 distance from **S** to **F** is 10 and the path is shown on the diagram.
 
-![img](/data/blog/Befunge/p086.gif)
+![img](/data/images/blog/p085.gif)
 
 However, there are up to three "shortest" path candidates for any given cuboid and 
 the shortest route doesn't always have integer length.
