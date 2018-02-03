@@ -18,7 +18,7 @@ function startAjaxRefresh(secret)
     val = setInterval(function(){ queryStatus('', secret); }, 500);
 
     jQuery.ajax({
-        url:    '/admin/egh/reload?secret='+secret,
+        url:    '/admin/egh/refresh?secret='+secret,
         success: function(result)
         {
             clearInterval(val);
