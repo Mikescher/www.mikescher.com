@@ -63,7 +63,7 @@ body {
   border: none;
   color: white;
   height: 1px;
-  background: #CCCCCCFF;
+  background-color: #CCCCCCFF;
   background: -moz-linear-gradient(left, #CCC, #FFFFFF00);
   background: -webkit-linear-gradient(left, #CCC 0%, #FFFFFF00 100%); }
 
@@ -369,7 +369,7 @@ html, body {
   border: none;
   color: white;
   height: 1px;
-  background: #CCCCCCFF;
+  background-color: #CCCCCCFF;
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#CCC), to(#FFFFFF00)); }
 
 @media (max-width: 850px) {
@@ -526,7 +526,6 @@ html, body {
   box-sizing: border-box;
   width: 100%;
   align-self: center;
-  justify-self: center;
   margin-left: auto;
   margin-right: auto;
   resize: none;
@@ -1084,7 +1083,7 @@ html, body {
 
 .prgv_right_lang {
   display: flex;
-  justify-content: right; }
+  justify-content: flex-end; }
 
 .prgv_dl_download {
   background: #442222; }
@@ -1110,7 +1109,7 @@ html, body {
   border: none;
   color: white;
   height: 1px;
-  background: #666666FF;
+  background-color: #666666FF;
   background: -moz-radial-gradient(circle, #666, #FFFFFF00);
   background: -webkit-radial-gradient(circle, #666 0%, #FFFFFF00 100%); }
 
@@ -1277,7 +1276,7 @@ html, body {
 
 .bookv_right_lang {
   display: flex;
-  justify-content: right; }
+  justify-content: flex-end; }
 
 .bookv_dl_download {
   background: #442222; }
@@ -1303,7 +1302,7 @@ html, body {
   border: none;
   color: white;
   height: 1px;
-  background: #666666FF;
+  background-color: #666666FF;
   background: -moz-radial-gradient(circle, #666, #FFFFFF00);
   background: -webkit-radial-gradient(circle, #666 0%, #FFFFFF00 100%); }
 

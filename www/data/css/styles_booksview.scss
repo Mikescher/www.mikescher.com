@@ -83,7 +83,7 @@
 
 .bookv_right_lang {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
 }
 
 .bookv_dl_download { background: #442222; }
@@ -109,7 +109,7 @@
   border: none;
   color: white;
   height: 1px;
-  background: #666666FF;
+  background-color: #666666FF;
   background: -moz-radial-gradient(   circle, #666,    #FFFFFF00);
   background: -webkit-radial-gradient(circle, #666 0%, #FFFFFF00 100%);
 }
