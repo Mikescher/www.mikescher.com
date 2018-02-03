@@ -25,7 +25,7 @@ class UpdatesLog
 	public static function listProgramsInformation()
 	{
 		Database::connect();
-		return Database::sql_query_assoc('SELECT programname AS name, Count(*) as count_total, MAX(date) AS last_query, (SELECT COUNT(*) FROM UpdatesLog AS u1 WHERE u1.programname=u0.programname AND NOW() - INTERVAL 7 DAY < u1.date) AS count_week FROM UpdatesLog AS u0 GROUP BY programname');
+		return Database::sql_query_assoc('SELECT programname AS name, Count(*) as count_total, MAX(date) AS last_query, (SELECT COUNT(*) FROM updateslog AS u1 WHERE u1.programname=u0.programname AND NOW() - INTERVAL 7 DAY < u1.date) AS count_week FROM updateslog AS u0 GROUP BY programname');
 	}
 
 	public static function getEntries($name, $limit)
