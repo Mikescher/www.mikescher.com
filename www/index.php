@@ -40,6 +40,7 @@ $URL_RULES =
 	[ 'url' => ['api', 'test'],                              'target' => 'pages/api_test.php',               'options' => [ '_opt' => 'http', ],                     ],
 	[ 'url' => ['api', 'setselfadress'],                     'target' => 'pages/api_setselfadress.php',      'options' => [ '_opt' => 'http', ],                     ],
 	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ '_opt' => 'http', 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
+	[ 'url' => ['api', 'webhook', '${target}'],              'target' => 'pages/api_webhook.php',            'options' => [ '_opt' => 'http', 'target' => '%URL%', 'secret' => '%GET%', ],],
 
 	[ 'url' => ['admin'],                                    'target' => 'pages/admin.php',                  'options' => [ '_opt' => 'password'],                   ],
 	[ 'url' => ['admin', 'cmd', '?{cmd}'],                   'target' => 'pages/admin_cmd.php',              'options' => [ '_opt' => 'password', 'cmd' => '%URL%'], ],
