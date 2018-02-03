@@ -89,6 +89,24 @@ function dumpConsistency($c) {
             <!------------------------------------------>
 
             <div class="boxedcontent">
+                <div class="bc_header">Self IP Addr</div>
+
+                <?php
+                $ippath = __DIR__ . '/../dynamic/self_ip_address.auto.cfg';
+                $self_ip = file_exists($ippath) ? file_get_contents($ippath) : 'N/A';
+                $real_ip = get_client_ip();
+                $me = $real_ip == $self_ip
+                ?>
+
+                <div class="bc_data keyvaluelist kvl_200">
+                    <div><span>Registered IP:</span> <span><?php echo $self_ip; ?></span></div>
+                    <div><span>Current IP:</span> <span><?php echo $real_ip; ?></span></div>
+                </div>
+            </div>
+
+            <!------------------------------------------>
+
+            <div class="boxedcontent">
                 <div class="bc_header">ExtendedGitGraph</div>
 
                 <div class="bc_data">
