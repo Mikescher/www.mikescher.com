@@ -4,13 +4,12 @@
 	require_once (__DIR__ . '/../internals/base.php');
 	require_once (__DIR__ . '/../internals/database.php');
 
-	$nam = $OPTIONS['Name'];
-	$cid = $OPTIONS['ClientID'];
-	$ver = $OPTIONS['Version'];
-	$prv = $OPTIONS['ProviderStr'];
-	$pid = $OPTIONS['ProviderID'];
-    $tnc = $OPTIONS['NoteCount'];
-    $uip = $OPTIONS['NoteCount'];
+	$nam = $OPTIONS['name'];
+	$cid = $OPTIONS['clientid'];
+	$ver = $OPTIONS['version'];
+	$prv = $OPTIONS['providerstr'];
+	$pid = $OPTIONS['providerid'];
+    $tnc = $OPTIONS['notecount'];
 
 	if ($nam === 'AlephNote')
 	{
