@@ -15,13 +15,18 @@
 	{
 		Database::connect();
 		
-		Database::sql_exec_prep('INSERT INTO an_statslog (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid, :ver, :prv, :pid, :tnc) ON DUPLICATE KEY UPDATE Version=:ver,ProviderStr=:prv,ProviderID=:pid,NoteCount=:tnc',
+		Database::sql_exec_prep('INSERT INTO an_statslog (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid1, :ver1, :prv1, :pid1, :tnc1) ON DUPLICATE KEY UPDATE Version=:ver2,ProviderStr=:prv2,ProviderID=:pid2,NoteCount=:tnc2',
 		[
-			[':cid', $cid, PDO::PARAM_STR],
-			[':ver', $ver, PDO::PARAM_STR],
-			[':prv', $prv, PDO::PARAM_STR],
-			[':pid', $pid, PDO::PARAM_STR],
-			[':tnc', $tnc, PDO::PARAM_INT],
+			[':cid1', $cid, PDO::PARAM_STR],
+			[':ver1', $ver, PDO::PARAM_STR],
+			[':prv1', $prv, PDO::PARAM_STR],
+			[':pid1', $pid, PDO::PARAM_STR],
+			[':tnc1', $tnc, PDO::PARAM_INT],
+
+			[':ver2', $ver, PDO::PARAM_STR],
+			[':prv2', $prv, PDO::PARAM_STR],
+			[':pid2', $pid, PDO::PARAM_STR],
+			[':tnc2', $tnc, PDO::PARAM_INT],
 		]);
 		
 		print('{"success":true}');
