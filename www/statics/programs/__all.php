@@ -79,6 +79,7 @@ return
 				'download#5'  => ['caption'=>'BefunRun',   'url'=>'https://ci.appveyor.com/project/Mikescher/BefunRun/build/artifacts'  ],
 				'download#6'  => ['caption'=>'BefunDebug', 'url'=>'https://ci.appveyor.com/project/Mikescher/BefunDebug/build/artifacts'],
 			],
+		'extra_images'      => ['BefunUtils_01.png', 'BefunUtils_02.png', 'BefunUtils_03.png', 'BefunUtils_04.png', 'BefunUtils_05.png', 'BefunUtils_06.png', 'BefunUtils_07.png', 'BefunUtils_08.png', 'BefunUtils_09.png'],
 	],
 
 
