@@ -161,7 +161,7 @@ return
 		'internal_name_alt' => null,
 		'category'          => 'Tool',
 		'stars'             => 0,
-		'ui_language'       => 'English',
+		'ui_language'       => 'German',
 		'prog_language'     => 'Delphi',
 		'short_description' => 'A simple tool to copy all files of a specific extension to another directory.',
 		'add_date'          => '2008-03-26',
