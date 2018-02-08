@@ -204,7 +204,5 @@ try {
 
 }
 
-//TODO gzip (?)
 //TODO euler insert+show 32bit | 64bit mode
-//TODO send cache header (?)
-//TODO v4 subdomain+static
+//TODO show extra_images (+webm) in programs (carousel ?)

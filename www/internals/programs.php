@@ -20,6 +20,8 @@ class Programs
 		'homepage',
 		'wiki',
 		'alternativeto',
+
+		'changelog',
 	];
 
 	const LICENSES =
@@ -128,6 +130,7 @@ class Programs
 			if ($type === 'itunesstore')    { $caption = 'App Store';        $css = 'prgv_dl_appstore';      $svg = 'apple';         }
 			if ($type === 'sourceforge')    { $caption = 'Sourceforge';      $css = 'prgv_dl_sourceforge';   $svg = 'sourceforge';   }
 			if ($type === 'alternativeto')  { $caption = 'AlternativeTo';    $css = 'prgv_dl_alternativeto'; $svg = 'alternativeto'; }
+			if ($type === 'changelog')      { $caption = 'Changelog';        $css = 'prgv_dl_changelog';     $svg = 'changelog';     }
 
 			if (is_array($urldata))
 			{
