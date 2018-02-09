@@ -1,3 +1,10 @@
+window.addEventListener("load", function()
+{
+
+    imgcarousel_init();
+
+},false);
+
 function findParent(el, selector) {
     let retval = null;
     while (el) {
@@ -19,14 +26,51 @@ function findChild(el, selector) {
     return null;
 }
 
+function imgcarousel_init() {
+    for (let carousel of document.getElementsByClassName("imgcarousel_parent"))
+    {
+        let images   = JSON.parse(carousel.getAttribute('data-imgcarousel-images'));
+
+        let btnPrev = findChild(carousel, '.imgcarousel_prev');
+        let btnNext = findChild(carousel, '.imgcarousel_next');
+
+        btnPrev.setAttribute('href', "javascript:void(0)");
+        btnNext.setAttribute('href', "javascript:void(0)");
+
+        btnPrev.onclick = function () { imgcarousel_move(carousel, -1); };
+        btnNext.onclick = function () { imgcarousel_move(carousel, +1); };
+
+        if (images.length <= 1)
+        {
+            btnPrev.setAttribute('style', 'visibility:hidden');
+            btnNext.setAttribute('style', 'visibility:hidden');
+        }
+
+        imgcarousel_move(carousel, 0);
+    }
+}
+
 function imgcarousel_move(source, delta) {
-    let carousel = findParent(source, ".imgcarousel_parent");
+    let carousel = findParent(source, ".imgcarousel_parent"); // <div>
     let index    = parseInt(carousel.getAttribute('data-imgcarousel-index'));
     let images   = JSON.parse(carousel.getAttribute('data-imgcarousel-images'));
-    let content  = findChild(carousel, '.imgcarousel_content');
+    let content  = findChild(carousel, '.imgcarousel_content'); // <img>
 
     index = (index + delta +  images.length) % images.length;
 
+    let img = images[index];
+
     carousel.setAttribute('data-imgcarousel-index', index);
-    content.setAttribute('style', 'background-image: url(' + images[index] + ');');
+
+    if (img.toLowerCase().endsWith('.webm'))
+    {
+        content.setAttribute('style', '');
+        content.innerHTML = '<video autoplay loop muted><source src="' + img + '"></video>';
+    }
+    else
+    {
+        content.setAttribute('style', 'background-image: url(' + img + ');');
+        content.innerHTML = '';
+    }
+
 }

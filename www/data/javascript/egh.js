@@ -15,7 +15,7 @@ function formatDate(date) {
     return wday + ' ' + day + suffix + ' ' + monthNames[monthIndex] + ', ' + year;
 }
 
-window.onload = function ()
+window.addEventListener("load",function ()
 {
     let svgtips = document.getElementsByClassName("svg-tip");
     let rects   = document.getElementsByClassName("egg_rect");
@@ -54,4 +54,4 @@ window.onload = function ()
             masterTip.style.display = 'none';
         });
     }
-};
+},false);

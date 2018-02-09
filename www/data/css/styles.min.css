@@ -42,10 +42,12 @@ body{background-color:#EEE;color:#CCC;font-family:serif}
 .stripedtable tbody tr:last-child td{border-bottom:0}
 .stripedtable tbody tr:nth-child(odd){background-color:#ccc}
 .imgcarousel_parent{display:flex;flex-direction:row;align-content:center;justify-content:center;padding:5px;background:#BBB}
-.imgcarousel_content{background-size:contain;background-position:center;background-repeat:no-repeat;height:100%;width:100%}
+.imgcarousel_content{background-size:contain;background-position:center;background-repeat:no-repeat;height:100%;width:100%;display:flex}
+.imgcarousel_content video{object-fit:contain;width:100%;height:auto;max-height:100%;align-self:center}
 .imgcarousel_prev,.imgcarousel_next{display:flex;flex-direction:column;justify-content:center}
 .imgcarousel_prev{margin-right:5px}
 .imgcarousel_next{margin-left:5px}
+.imgcarousel_next,.imgcarousel_prev{outline:0}
 .imgcarousel_prev svg{width:48px;height:48px;border:1px solid black;background:#333;fill:#DDD}
 .imgcarousel_next svg{width:48px;height:48px;border:1px solid black;background:#333;fill:#DDD}
 .imgcarousel_prev:hover svg{background:#000;fill:#FFF;cursor:pointer}
@@ -276,6 +278,7 @@ html,body{margin:0;padding:0;height:100%}
 	.prgv_right_lang{justify-content:space-evenly}
 	#prgv_header h1{font-size:28pt}
 }
+.progv_extra{height:500px;border:1px solid #333;margin:10px}
 .booklst_entry{display:flex;flex-direction:row;text-decoration:none;background:#BBB;border:solid 1px #444;margin:5px 0}
 .booklst_entry:hover{background:white;color:black;border:solid 1px black}
 .booklst_entry:hover .booklst_date{color:black}

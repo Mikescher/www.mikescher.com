@@ -45,6 +45,20 @@ class Programs
 
 		$a['url']                  = '/programs/view/' . $a['internal_name'];
 
+		$a['has_extra_images']     = array_key_exists('extra_images', $a) && count($a['extra_images'])>0;
+
+		$a['extraimages_urls']  = [];
+		$a['extraimages_paths'] = [];
+
+		if ($a['has_extra_images'])
+		{
+			foreach ($a['extra_images'] as $fn)
+			{
+				$a['extraimages_urls']  []=              '/data/images/program_img/' . $fn;
+				$a['extraimages_paths'] []= __DIR__ . '/../data/images/program_img/' . $fn;
+			}
+		}
+
 		return $a;
 	}
 
@@ -225,6 +239,11 @@ class Programs
 			if (!file_exists($prog['mainimage_path'])) return ['result'=>'err', 'message' => 'Image not found ' . $prog['name']];
 
 			if (!file_exists($prog['file_longdescription'])) return ['result'=>'err', 'message' => 'Description not found ' . $prog['name']];
+
+			foreach ($prog['extraimages_paths'] as $eipath)
+			{
+				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['title_short']];
+			}
 		}
 
 		if ($warn != null) return $warn;

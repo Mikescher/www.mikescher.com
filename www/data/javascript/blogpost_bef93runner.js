@@ -445,7 +445,7 @@ function htmlescape(str) {
     return str;
 }
 
-window.onload = function ()
+window.addEventListener("load",function ()
 {
     let elements = document.getElementsByClassName("b93rnr_base");
 
@@ -468,4 +468,4 @@ window.onload = function ()
         if (befungeObject.btnEdit !== undefined)
             befungeObject.btnEdit.onclick  = function () { if (befungeObject.btnEdit.classList.contains('ctrl_btn_disabled')) return; befungeObject.startEdit(); };
     }
-};
+},false);

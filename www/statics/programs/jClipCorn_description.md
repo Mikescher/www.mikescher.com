@@ -8,8 +8,6 @@ jClipCorn
 > Use this software only in a country which allows for private copies of your bought DVD's.  
 > Use this software only to manage copies of movies which you own.  
 
-![main-view](https://raw.githubusercontent.com/Mikescher/jClipCorn/master/README-FILES/main-view.png)
-
 ### Main Features
 
  - Fully portable - leave the program, the database and the settings on the same *(external)* drive as your movies
@@ -60,11 +58,7 @@ First copy the executable (either jClipCorn.jar or jClipCorn.exe) into the folde
 
 On the first start it should create a folder "*ClipCornDB*" where the database is stored.
 
-![main-empty-metal](https://raw.githubusercontent.com/wiki/Mikescher/jClipCorn/FILES/main-empty-metal.png)
-
 You can see this in the log view (icon in the bottom status bar, to the right of the progress bar).
-
-![log-recreate](https://raw.githubusercontent.com/wiki/Mikescher/jClipCorn/FILES/log-recreate.png)
 
 At first you should look into the settings and eventually change a few things, important are:
 

@@ -19,6 +19,7 @@ if ($prog === NULL) httpError(404, 'Program not found');
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<link rel="canonical" href="<?php echo $prog['url']; ?>"/>
 	<?php printCSS(); ?>
+	<?php if ($prog['has_extra_images']) includeScriptOnce("/data/javascript/ms_basic.js", true, 'defer') ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -80,7 +81,25 @@ if ($prog === NULL) httpError(404, 'Program not found');
 					</div>
 				</div>
 
-				<hr class="prgv_sep" />
+				<?php if ($prog['has_extra_images']): ?>
+
+                    <div class="progv_extra imgcarousel_parent" data-imgcarousel-index="0" data-imgcarousel-images="<?php echo htmlspecialchars(json_encode($prog['extraimages_urls'])); ?>" >
+                        <a class="imgcarousel_prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                                <use xlink:href="/data/images/icons.svg#arrow_left"/>
+                            </svg>
+                        </a>
+                        <div class="imgcarousel_content" style="background-image: url(<?php echo $prog['extraimages_urls'][0]; ?>);"></div>
+                        <a class="imgcarousel_next">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                                <use xlink:href="/data/images/icons.svg#arrow_right"/>
+                            </svg>
+                        </a>
+                    </div>
+
+				<?php endif; ?>
+
+                <hr class="prgv_sep" />
 
 				<div class="prgv_center base_markdown">
 					<?php

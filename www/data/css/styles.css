@@ -202,7 +202,15 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  display: flex; }
+
+.imgcarousel_content video {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  align-self: center; }
 
 .imgcarousel_prev, .imgcarousel_next {
   display: flex;
@@ -214,6 +222,9 @@ body {
 
 .imgcarousel_next {
   margin-left: 5px; }
+
+.imgcarousel_next, .imgcarousel_prev {
+  outline: none; }
 
 .imgcarousel_prev svg {
   width: 48px;
@@ -1133,6 +1144,11 @@ html, body {
 
   #prgv_header h1 {
     font-size: 28pt; } }
+.progv_extra {
+  height: 500px;
+  border: 1px solid #333;
+  margin: 10px; }
+
 /* 400px */
 .booklst_entry {
   display: flex;

@@ -79,7 +79,12 @@ return
 				'download#5'  => ['caption'=>'BefunRun',   'url'=>'https://ci.appveyor.com/project/Mikescher/BefunRun/build/artifacts'  ],
 				'download#6'  => ['caption'=>'BefunDebug', 'url'=>'https://ci.appveyor.com/project/Mikescher/BefunDebug/build/artifacts'],
 			],
-		'extra_images'      => ['BefunUtils_01.png', 'BefunUtils_02.png', 'BefunUtils_03.png', 'BefunUtils_04.png', 'BefunUtils_05.png', 'BefunUtils_06.png', 'BefunUtils_07.png', 'BefunUtils_08.png', 'BefunUtils_09.png'],
+		'extra_images'      =>
+			[
+				'BefunUtils_01.png', 'BefunUtils_02.png', 'BefunUtils_03.png',
+				'BefunUtils_04.png', 'BefunUtils_05.png', 'BefunUtils_06.png',
+				'BefunUtils_07.png', 'BefunUtils_08.png', 'BefunUtils_09.png'
+			],
 	],
 
 
@@ -244,7 +249,13 @@ return
 				'github'      => 'https://github.com/Mikescher/HexSolver',
 				'download'    => 'https://github.com/Mikescher/HexSolver/releases',
 			],
-		'extra_images'      => ['HexSolver_01.webm'],
+		'extra_images'      =>
+			[
+				'HexSolver_01.webm', 'HexSolver_02.png', 'HexSolver_03.png',
+				'HexSolver_04.png',  'HexSolver_05.png', 'HexSolver_06.png',
+				'HexSolver_07.png',  'HexSolver_08.png', 'HexSolver_09.png',
+				'HexSolver_10.png',  'HexSolver_11.png'
+			],
 	],
 
 
@@ -303,7 +314,13 @@ return
 				'wiki'        => 'https://github.com/Mikescher/jClipCorn/wiki',
 				'changelog'   => 'https://raw.githubusercontent.com/Mikescher/jClipCorn/master/CHANGELOG.txt',
 			],
-		'extra_images'      => ['jClipCorn_01.png','jClipCorn_02.png','jClipCorn_03.png','jClipCorn_04.png','jClipCorn_05.png','jClipCorn_06.png','jClipCorn_07.png','jClipCorn_08.png'],
+		'extra_images'      =>
+			[
+				'jClipCorn_01.png','jClipCorn_02.png',
+				'jClipCorn_03.png','jClipCorn_04.png',
+				'jClipCorn_05.png','jClipCorn_06.png',
+				'jClipCorn_07.png','jClipCorn_08.png'
+			],
 	],
 
 
@@ -585,7 +602,12 @@ return
 				'github'         => 'https://github.com/Mikescher/GridDominance',
 				'changelog'      => 'https://github.com/Mikescher/GridDominance/tree/master/Data/changelogs'
 			],
-		'extra_images'      => ['CannonConquest_01.png', 'CannonConquest_02.png', 'CannonConquest_03.png', 'CannonConquest_04.png', 'CannonConquest_05.png', 'CannonConquest_06.png'],
+		'extra_images'      =>
+			[
+				'CannonConquest_01.webm', 'CannonConquest_02.png', 'CannonConquest_03.png', 'CannonConquest_04.png',
+				'CannonConquest_05.png',  'CannonConquest_06.png', 'CannonConquest_07.png', 'CannonConquest_08.png',
+				'CannonConquest_09.png',  'CannonConquest_10.png', 'CannonConquest_11.png', 'CannonConquest_12.png'
+			],
 	],
 
 
@@ -607,6 +629,10 @@ return
 				'homepage'      => 'https://mikescher.github.io/AlephNote/',
 				'alternativeto' => 'https://alternativeto.net/software/alephnote/',
 			],
-		'extra_images'      => ['AlephNote_01.png', 'AlephNote_02.png', 'AlephNote_03.png', 'AlephNote_04.png', 'AlephNote_05.png', 'AlephNote_06.png'],
+		'extra_images'      =>
+			[
+				'AlephNote_01.png', 'AlephNote_02.png', 'AlephNote_03.png',
+				'AlephNote_04.png', 'AlephNote_05.png', 'AlephNote_06.png'
+			],
 	],
 ];

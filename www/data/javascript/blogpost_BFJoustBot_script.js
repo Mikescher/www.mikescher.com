@@ -770,14 +770,14 @@ function collapse(code) {
     
 //######################################################
 
-window.onload = function ()
+window.addEventListener("load",function ()
 {
     document.getElementById("a_expand").onclick   = onExpandClicked;
     document.getElementById("a_collapse").onclick = onCollapseClicked;
     document.getElementById("a_run").onclick      = onRunClicked;
     document.getElementById("a_stop").onclick     = onStopClicked;
     document.getElementById("a_arena").onclick    = onArenaClicked;
-};
+},false);
 
 
 function onExpandClicked() {

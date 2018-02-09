@@ -76,13 +76,13 @@ if ($book === NULL) httpError(404, 'Book not found');
             </div>
 
             <div class="bookv_extra imgcarousel_parent" data-imgcarousel-index="0" data-imgcarousel-images="<?php echo htmlspecialchars(json_encode($book['extraimages_urls'])); ?>" >
-                <a class="imgcarousel_prev" href="javascript:void(0)" onclick="imgcarousel_move(this, -1);">
+                <a class="imgcarousel_prev">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
                         <use xlink:href="/data/images/icons.svg#arrow_left"/>
                     </svg>
                 </a>
                 <div class="imgcarousel_content" style="background-image: url(<?php echo $book['extraimages_urls'][0]; ?>);"></div>
-                <a class="imgcarousel_next" href="javascript:void(0)" onclick="imgcarousel_move(this, +1);">
+                <a class="imgcarousel_next">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
                         <use xlink:href="/data/images/icons.svg#arrow_right"/>
                     </svg>

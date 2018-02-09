@@ -56,6 +56,11 @@ class Books
 
 			if (!file_exists($prog['imgfront_path'])) return ['result'=>'err', 'message' => 'Image not found ' . $prog['title_short']];
 			if (!file_exists($prog['imgfull_path']))  return ['result'=>'err', 'message' => 'Image not found ' . $prog['title_short']];
+
+			foreach ($prog['extraimages_paths'] as $eipath)
+			{
+				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['title_short']];
+			}
 		}
 
 		if ($warn != null) return $warn;
