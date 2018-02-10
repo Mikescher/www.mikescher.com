@@ -47,6 +47,7 @@ function imgcarousel_init() {
         }
 
         imgcarousel_move(carousel, 0);
+        imgcarousel_preload(carousel);
     }
 }
 
@@ -72,5 +73,29 @@ function imgcarousel_move(source, delta) {
         content.setAttribute('style', 'background-image: url(' + img + ');');
         content.innerHTML = '';
     }
+}
 
+function imgcarousel_preload(source) {
+    let carousel = findParent(source, ".imgcarousel_parent"); // <div>
+    let images = JSON.parse(carousel.getAttribute('data-imgcarousel-images'));
+
+    setTimeout(function () {
+        let preload_img = [];
+
+        let i = 0;
+        for (let img of images)
+        {
+            if (img.toLowerCase().endsWith('.webm'))
+            {
+                // ???
+            }
+            else
+            {
+                preload_img[i] = new Image();
+                preload_img[i].src = img;
+                i++;
+            }
+        }
+
+    }, 1000);
 }

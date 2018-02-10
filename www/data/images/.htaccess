@@ -4,5 +4,8 @@ ExpiresByType image/jpg     "access plus 1 week"
 ExpiresByType image/jpeg    "access plus 1 week"
 ExpiresByType image/gif     "access plus 1 week"
 ExpiresByType image/png     "access plus 1 week"
+ExpiresByType video/webm    "access plus 1 week"
+ExpiresByType video/mp4     "access plus 1 week"
+ExpiresByType video/ogg     "access plus 1 week"
 ExpiresByType image/svg+xml "access plus 1 day"
 </IfModule>
