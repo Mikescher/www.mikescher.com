@@ -2,8 +2,6 @@ An automatic solver for [Hexcells](http://www.matthewbrowngames.com), [Hexcells 
 The idea is to automatically parse the game state, find the next (valid) step and execute it.  
 *(Rinse and Repeat until everything is solved)*
 
-### [> Animation](https://gfycat.com/GrotesqueRecklessAcornbarnacle)
-
 ##Usage
 
  - Start HexCells Infinite *(should also work with the other Hexcell games)*
