@@ -11,7 +11,7 @@ class AlephNoteStatistics
 
 	public static function getUserCountFromLastVersion()
 	{
-		return Database::sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0 AND Version = (SELECT Version FROM an_statslog ORDER BY Version DESC LIMIT 1)');
+		return Database::sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0 GROUP BY Version ORDER BY INET_ATON(Version) DESC LIMIT 1');
 	}
 
 	public static function getActiveUserCount($days)
