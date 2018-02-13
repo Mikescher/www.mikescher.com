@@ -52,7 +52,7 @@ function dumpConsistency($c) {
 
 			<div class="contentheader"><h1>Admin</h1><hr/></div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">Version</div>
@@ -65,7 +65,7 @@ function dumpConsistency($c) {
                 </div>
             </div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">Self test</div>
@@ -87,7 +87,7 @@ function dumpConsistency($c) {
                 </div>
             </div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">Self IP Addr</div>
@@ -105,7 +105,7 @@ function dumpConsistency($c) {
                 </div>
             </div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">ExtendedGitGraph</div>
@@ -120,7 +120,7 @@ function dumpConsistency($c) {
 
             </div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">AlephNote</div>
@@ -138,7 +138,7 @@ function dumpConsistency($c) {
 
             </div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">Statics</div>
@@ -152,7 +152,7 @@ function dumpConsistency($c) {
                 </div>
             </div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">UpdatesLog</div>
@@ -169,7 +169,7 @@ function dumpConsistency($c) {
                 </div>
             </div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">Highscores</div>
@@ -178,7 +178,7 @@ function dumpConsistency($c) {
 
                     <?php foreach (Highscores::getAllGames() as $game): ?>
 
-                        <div><span><?php echo '[' . $game['NAME'] . '] Entries:' ?></span> <span><a href=""><?php echo Highscores::getEntryCountFromGame($game['ID']); ?></a></span></div>
+                        <div><span><?php echo '[' . $game['NAME'] . '] Entries:' ?></span> <span><a href="/highscores/list?gameid=<?php echo $game['ID']; ?>"><?php echo Highscores::getEntryCountFromGame($game['ID']); ?></a></span></div>
                         <div><span><?php echo '[' . $game['NAME'] . '] Highscore:' ?></span> <span><?php
                                 $hs = Highscores::getOrderedEntriesFromGame($game['ID'], 1)[0];
                                 echo $hs['POINTS'] . ' (' . $hs['PLAYER'] . ') @ ' . $hs['TIMESTAMP'];
@@ -193,7 +193,7 @@ function dumpConsistency($c) {
 
             </div>
 
-            <!------------------------------------------>
+            <!-- -------------------------------------- -->
 
             <div class="boxedcontent">
                 <div class="bc_header">Configuration</div>

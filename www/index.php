@@ -205,4 +205,6 @@ try {
 }
 
 //TODO euler insert+show 32bit | 64bit mode
-//TODO show extra_images (+webm) in programs (carousel ?)
+//TODO support for different color schemes
+//     should be possible to change with just a few constant in config.scss
+//     a (little) bit more hue in default scheme
