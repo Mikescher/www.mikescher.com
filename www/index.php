@@ -41,6 +41,7 @@ $URL_RULES =
 	[ 'url' => ['api', 'setselfadress'],                     'target' => 'pages/api_setselfadress.php',      'options' => [ '_opt' => 'http', ],                     ],
 	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ '_opt' => 'http', 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
 	[ 'url' => ['api', 'webhook', '?{target}'],              'target' => 'pages/api_webhook.php',            'options' => [ '_opt' => 'http', 'target' => '%URL%', 'secret' => '%GET%', ],],
+	[ 'url' => ['api', 'backupupload'],                      'target' => 'pages/api_backupupload.php',       'options' => [ '_opt' => 'http', 'folder' => '%GET%', 'filename' => '%GET%', 'secret' => '%GET%', ],],
 
 	[ 'url' => ['admin'],                                    'target' => 'pages/admin.php',                  'options' => [ '_opt' => 'password'],                   ],
 	[ 'url' => ['admin', 'updateslog', '${name}'],           'target' => 'pages/admin_ul-list.php',          'options' => [ '_opt' => 'password', 'name' => '%URL%'],],
@@ -208,3 +209,6 @@ try {
 //TODO support for different color schemes
 //     should be possible to change with just a few constant in config.scss
 //     a (little) bit more hue in default scheme
+//TODO Add easing cookbook
+//TODO add befunrep query
+//TODO evtl webapp section (?)
