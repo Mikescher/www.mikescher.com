@@ -98,4 +98,18 @@ class Books
 		}
 		return null;
 	}
+
+	public static function getRepositoryHost($book)
+	{
+		$r = $book['repository'];
+		if (startsWith($r, "http://")) $r = substr($r, strlen("http://"));
+		if (startsWith($r, "https://")) $r = substr($r, strlen("https://"));
+		if (startsWith($r, "www.")) $r = substr($r, strlen("www."));
+
+		if (startsWith(strtolower($r), "gitlab"))    return "Gitlab";
+		if (startsWith(strtolower($r), "github"))    return "Github";
+		if (startsWith(strtolower($r), "bitbucket")) return "Bitbucket";
+
+		return "Online";
+	}
 }

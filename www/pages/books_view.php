@@ -52,11 +52,11 @@ if ($book === NULL) httpError(404, 'Book not found');
 
                     <div class="bookv_right_comb"  style="grid-row:6">
 
-                        <a class="iconbutton" href="<?php echo $book['github'] ?>">
+                        <a class="iconbutton" href="<?php echo $book['repository'] ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
                                 <use xlink:href="/data/images/icons.svg#github"/>
                             </svg>
-                            <span>Github</span>
+                            <span><?php echo Books::getRepositoryHost($book);  ?></span>
                         </a>
                         <a class="iconbutton" href="<?php echo $book['online'] ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
