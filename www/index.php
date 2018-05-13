@@ -63,7 +63,9 @@ $URL_RULES =
 	[ 'url' => ['log', '?{id}', '?{name}'],                  'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '' ],      ],
 	[ 'url' => ['log', '?{id}', '?{name}', '?{subview}'],    'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%URL%', 'subview' => '%URL%' ], ],
 	[ 'url' => ['blogpost', 'view'],                         'target' => 'pages/blog_view.php',              'options' => [ 'id' => '%GET%', 'subview' => '' ],      ],
-	
+
+	[ 'url' => ['webapps'],                                  'target' => 'pages/webapps_list.php',           'options' => [],                                        ],
+
 	[ 'url' => ['highscores', 'list.php'],                   'target' => 'pages/highscores_listentries.php', 'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
 	[ 'url' => ['highscores', 'list'],                       'target' => 'pages/highscores_listentries.php', 'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
 	[ 'url' => ['highscores', 'listentries'],                'target' => 'pages/highscores_listentries.php', 'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
@@ -209,6 +211,3 @@ try {
 //TODO support for different color schemes
 //     should be possible to change with just a few constant in config.scss
 //     a (little) bit more hue in default scheme
-//TODO Add easing cookbook
-//TODO add befunrep query
-//TODO evtl webapp section (?)

@@ -328,6 +328,16 @@ html,body{margin:0;padding:0;height:100%}
 	#bookv_header h1{font-size:18pt}
 }
 .bookv_extra{height:500px;border:1px solid #333;margin:10px}
+.webapplistelem_container{display:flex;align-items:center;flex-direction:column}
+.webapplistelem{width:100%;border:solid 1px #444;margin:10px 5px;color:#333;text-decoration:none}
+.webapplistelem{background-color:#BBB}
+.webapplistelem .wle_date{background-color:#AAA;color:#333}
+.webapplistelem:hover{border:solid 1px black}
+.webapplistelem:hover{background-color:white;color:black}
+.webapplistelem:hover .wle_date{background-color:white;color:black;border-bottom:1px solid black}
+.wle_date{background-color:#AAA;border-bottom:1px solid transparent;padding:2px;font-size:.8em;font-style:italic}
+.wle_title{font-weight:bold;font-size:1.2em;text-align:left;margin:2px 0 2px 10px}
+@media(max-width:767px){.wle_title{font-size:1.25em}}
 .ev_master{align-self:center}
 @media(min-width:851px){.ev_master{padding-bottom:80px}}
 .ev_master .ev_code{color:#000;text-align:center;font-size:150pt;font-weight:500;font-family:Consolas,Monaco,"Courier New",Menlo,monospace}
