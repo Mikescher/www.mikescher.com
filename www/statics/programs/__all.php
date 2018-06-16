@@ -600,6 +600,7 @@ return
 				'windowsstore'   => 'https://www.microsoft.com/de-de/store/p/cannon-conquest/9nx24pbs19rp?rtc=1',
 				'itunesstore'    => 'https://itunes.apple.com/us/app/cannon-conquest/id1303565192',
 				'github'         => 'https://github.com/Mikescher/GridDominance',
+				'homepage'       => 'https://www.cannonconquest.net/',
 				'changelog'      => 'https://github.com/Mikescher/GridDominance/tree/master/Data/changelogs'
 			],
 		'extra_images'      =>
