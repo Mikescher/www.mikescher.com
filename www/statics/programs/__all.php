@@ -601,7 +601,7 @@ return
 				'itunesstore'    => 'https://itunes.apple.com/us/app/cannon-conquest/id1303565192',
 				'github'         => 'https://github.com/Mikescher/GridDominance',
 				'homepage'       => 'https://www.cannonconquest.net/',
-				'changelog'      => 'https://github.com/Mikescher/GridDominance/tree/master/Data/changelogs'
+				'changelog'      => 'https://github.com/Mikescher/GridDominance/tree/master/Data/online/changelogs'
 			],
 		'extra_images'      =>
 			[
