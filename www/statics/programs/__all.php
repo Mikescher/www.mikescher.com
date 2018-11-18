@@ -636,4 +636,29 @@ return
 				'AlephNote_04.png', 'AlephNote_05.png', 'AlephNote_06.png'
 			],
 	],
+
+
+	[
+		'name'              => 'SimpleCloudNotifier',
+		'internal_name'     => 'SCN',
+		'internal_name_alt' => null,
+		'category'          => 'Tool',
+		'stars'             => 4,
+		'ui_language'       => 'English',
+		'prog_language'     => 'Java',
+		'short_description' => 'SimpleCloudNotifier is a app to display messages that you can send to your phone with a simple POST request.',
+		'add_date'          => '2018-11-19',
+		'license'           => null,
+		'urls'              =>
+			[
+				'playstore'      => 'https://play.google.com/store/apps/details?id=com.blackforestbytes.simplecloudnotifier',
+				'homepage'       => 'https://simplecloudnotifier.blackforestbytes.com/',
+			],
+		'extra_images'      =>
+			[
+				'SCN_01.png',
+				'SCN_02.png',
+				'SCN_03.png',
+			],
+	],
 ];
