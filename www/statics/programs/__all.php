@@ -652,6 +652,7 @@ return
 		'urls'              =>
 			[
 				'playstore'      => 'https://play.google.com/store/apps/details?id=com.blackforestbytes.simplecloudnotifier',
+				'github'         => 'https://github.com/Mikescher/SimpleCloudNotifier/',
 				'homepage'       => 'https://simplecloudnotifier.blackforestbytes.com/',
 			],
 		'extra_images'      =>
