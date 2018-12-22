@@ -2,7 +2,7 @@
 body {
   background-color: #EEE;
   color: #CCC;
-  font-family: serif;
+  font-family: "Times New Roman", serif;
 }
 
 #content {
@@ -956,7 +956,7 @@ html, body {
 }
 #PEB_tableProblems .PEB_TC_Size_93 {
   float: right;
-  font-family: serif;
+  font-family: "Times New Roman", serif;
   border-radius: 1px;
   background-color: #0A0;
   display: inline-block;
@@ -964,7 +964,7 @@ html, body {
 }
 #PEB_tableProblems .PEB_TC_Size_98 {
   float: right;
-  font-family: serif;
+  font-family: "Times New Roman", serif;
   border-radius: 1px;
   background-color: #FF0;
   display: inline-block;

@@ -22,7 +22,7 @@
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="&quot;F:\Eigene Dateien\Dropbox\Programming\Web\Website - Mikescher\Source\data\css_compress\compress.py&quot; &quot;$FileDir$\styles.scss&quot; &quot;$FileDir$\styles.css&quot; &quot;$FileDir$\styles.min.css&quot;" />
+      <option name="arguments" value="&quot;$ProjectFileDir$\data\css_compress\compress.py&quot; &quot;$FileDir$\styles.scss&quot; &quot;$FileDir$\styles.css&quot; &quot;$FileDir$\styles.min.css&quot;" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
@@ -34,7 +34,7 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="C:/TOOLS/python3/python.exe" />
+      <option name="program" value="python" />
       <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />

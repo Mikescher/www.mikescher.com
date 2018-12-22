@@ -1,4 +1,4 @@
-body{background-color:#EEE;color:#CCC;font-family:serif}
+body{background-color:#EEE;color:#CCC;font-family:"Times New Roman",serif}
 #content{padding-top:64px;display:flex;justify-content:center;line-height:1.4;flex-direction:column;align-items:center}
 .content-responsive{margin-left:auto;margin-right:auto}
 @media(max-width:767px){.content-responsive{width:95%;width:calc(100% - 20px);margin-left:auto;margin-right:auto}}
@@ -171,8 +171,8 @@ html,body{margin:0;padding:0;height:100%}
 #PEB_tableProblems .PEB_TC_Timelevel_3{background-color:#F60 !important}
 #PEB_tableProblems .PEB_TC_Timelevel_4{background-color:#F11 !important}
 #PEB_tableProblems .PEB_TC_Size{font-family:Consolas,Monaco,"Courier New",Menlo,monospace}
-#PEB_tableProblems .PEB_TC_Size_93{float:right;font-family:serif;border-radius:1px;background-color:#0A0;display:inline-block;padding:1px 6px}
-#PEB_tableProblems .PEB_TC_Size_98{float:right;font-family:serif;border-radius:1px;background-color:#FF0;display:inline-block;padding:1px 6px}
+#PEB_tableProblems .PEB_TC_Size_93{float:right;font-family:"Times New Roman",serif;border-radius:1px;background-color:#0A0;display:inline-block;padding:1px 6px}
+#PEB_tableProblems .PEB_TC_Size_98{float:right;font-family:"Times New Roman",serif;border-radius:1px;background-color:#FF0;display:inline-block;padding:1px 6px}
 #PEB_tableProblems a{color:#333;display:block;text-decoration:none}
 #PEB_tableProblems .PEB_TC_Title a{text-decoration:underline}
 @media(max-width:1199px){#PEB_tableProblems tr td:nth-child(1),#PEB_tableProblems tr th:nth-child(1){display:none}}
