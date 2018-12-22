@@ -202,7 +202,8 @@ try {
 	}
 	else
 	{
-		echo '<table class="xdebug-error xe-uncaught-exception" dir="ltr" border="1" cellspacing="0" cellpadding="1">'.$e->xdebug_message.'</table>';
+		if (isset($e->xdebug_message)) echo '<table class="xdebug-error xe-uncaught-exception" dir="ltr" border="1" cellspacing="0" cellpadding="1">'.$e->xdebug_message.'</table>';
+		else echo nl2br($e);
 	}
 
 }
