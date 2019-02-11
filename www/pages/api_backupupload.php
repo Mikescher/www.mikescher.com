@@ -28,4 +28,4 @@ $content = "REQUEST: " . $uri            . "\r\n\r\n" .
 	       "TARGET:  " . $reltarget      . "\r\n\r\n" .
 	       "OUTPUT:  " . $std            . "\r\n\r\n";
 
-sendMail("Fileupload to '$folder' triggered", $content, 'virtualadmin@mikescher.de', 'webserver-error@mikescher.com');
+sendMail("Fileupload to '$folder' triggered", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');

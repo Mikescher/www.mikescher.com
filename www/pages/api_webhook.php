@@ -25,4 +25,4 @@ $content = "REQUEST: " . $uri . "\r\n\r\n" .
 	       "TARGET:  " . $hook . "\r\n\r\n" .
 	       "OUTPUT:  " . $std . "\r\n\r\n";
 
-sendMail("Webhook '$hook' triggered", $content, 'virtualadmin@mikescher.de', 'webserver-error@mikescher.com');
+sendMail("Webhook '$hook' triggered", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
