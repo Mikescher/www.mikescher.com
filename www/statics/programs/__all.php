@@ -648,7 +648,7 @@ return
 		'prog_language'     => 'Java',
 		'short_description' => 'SimpleCloudNotifier is a app to display messages that you can send to your phone with a simple POST request.',
 		'add_date'          => '2018-11-19',
-		'license'           => null,
+		'license'           => 'MIT',
 		'urls'              =>
 			[
 				'playstore'      => 'https://play.google.com/store/apps/details?id=com.blackforestbytes.simplecloudnotifier',
@@ -660,6 +660,25 @@ return
 				'SCN_01.png',
 				'SCN_02.png',
 				'SCN_03.png',
+			],
+	],
+
+
+	[
+		'name'              => 'SynoCtrl',
+		'internal_name'     => 'SynoCtrl',
+		'internal_name_alt' => null,
+		'category'          => 'Commandline',
+		'stars'             => 4,
+		'ui_language'       => 'English',
+		'prog_language'     => 'C#',
+		'short_description' => 'A command-line interface to remotely control your Synology NAS',
+		'add_date'          => '2019-03-19',
+		'license'           => 'MIT',
+		'urls'              =>
+			[
+				'github'         => 'https://github.com/Mikescher/SynoCtrl',
+				'download'       => 'https://github.com/Mikescher/SynoCtrl/releases',
 			],
 	],
 ];
