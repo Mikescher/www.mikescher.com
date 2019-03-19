@@ -72,12 +72,12 @@ return
 			[
 				'github'      => 'https://github.com/Mikescher/BefunUtils',
 				'wiki'        => 'https://github.com/Mikescher/BefunUtils/wiki',
-				'download#1'  => ['caption'=>'BefunExec',  'url'=>'https://ci.appveyor.com/project/Mikescher/BefunExec/build/artifacts' ],
-				'download#2'  => ['caption'=>'BefunGen',   'url'=>'https://ci.appveyor.com/project/Mikescher/BefunGen/build/artifacts'  ],
-				'download#3'  => ['caption'=>'BefunWrite', 'url'=>'https://ci.appveyor.com/project/Mikescher/BefunWrite/build/artifacts'],
-				'download#4'  => ['caption'=>'BefunRep',   'url'=>'https://ci.appveyor.com/project/Mikescher/BefunRep/build/artifacts'  ],
-				'download#5'  => ['caption'=>'BefunRun',   'url'=>'https://ci.appveyor.com/project/Mikescher/BefunRun/build/artifacts'  ],
-				'download#6'  => ['caption'=>'BefunDebug', 'url'=>'https://ci.appveyor.com/project/Mikescher/BefunDebug/build/artifacts'],
+				'download#1'  => ['caption'=>'BefunExec',  'url'=>'https://github.com/Mikescher/BefunExec/releases/latest' ],
+				'download#2'  => ['caption'=>'BefunGen',   'url'=>'https://github.com/Mikescher/BefunGen/releases/latest'  ],
+				'download#3'  => ['caption'=>'BefunWrite', 'url'=>'https://github.com/Mikescher/BefunWrite/releases/latest'],
+				'download#4'  => ['caption'=>'BefunRep',   'url'=>'https://github.com/Mikescher/BefunRep/releases/latest'  ],
+				'download#5'  => ['caption'=>'BefunRun',   'url'=>'https://github.com/Mikescher/BefunRun/releases/latest'  ],
+				'download#6'  => ['caption'=>'BefunDebug', 'url'=>'https://github.com/Mikescher/BefunDebug/releases/latest'],
 			],
 		'extra_images'      =>
 			[
