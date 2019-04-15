@@ -10,5 +10,5 @@ return
 	'InfinityTournament' => [ 'version' => '1.5',    'url' => 'https://www.mikescher.com/programs/view/Infinity Tournament', ],
 	'absCanvas' =>          [ 'version' => '0.64',   'url' => 'https://www.mikescher.com/programs/view/absCanvas', ],
 	'CrystalGrid' =>        [ 'version' => '1.2',    'url' => 'https://www.mikescher.com/programs/view/Crystal Grid', ],
-	'jClipCorn' =>          [ 'version' => '1.10.3', 'url' => 'https://github.com/Mikescher/jClipCorn/releases', ],
+	'jClipCorn' =>          [ 'version' => '1.10.6', 'url' => 'https://github.com/Mikescher/jClipCorn/releases', ],
 ];
