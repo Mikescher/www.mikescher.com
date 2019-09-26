@@ -17,7 +17,7 @@ You can probably see the pattern here. The rest of the algorithm is simply loop 
 I have this little code to calculate the sum of stack values until a zero is encountered:
 
 ```befunge
->+\:#<_$
+>\# :#+_+
 ```
 
 Perhaps it's useful for someone else.
