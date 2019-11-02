@@ -13,7 +13,8 @@
 
         <?php
 
-        for ($i=0; $i<3; $i++)
+        $c=0;
+        for ($i=0; $i < count($allposts); $i++)
         {
 			$post = $allposts[$i];
 
@@ -24,6 +25,8 @@
 			echo "<div class='blogpnl_title'>"  . $post['title'] . "</div>\n";
 			echo "</a>\n";
 
+            $c++;
+            if ($c >= 3) break;
         }
 
         ?>

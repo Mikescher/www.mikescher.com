@@ -12,7 +12,7 @@
         <?php if (isLoggedInByCookie()): ?><a class="tab tab_admin" href="/admin">Admin</a><?php endif; ?>
 		<a class="tab <?php if ($HEADER_ACTIVE === 'about')    echo 'tab_active'; ?>" href="/about">About</a>
 		<div class="tab_split" ></div>
-		<?php if (isLoggedInByCookie()): ?><a class="tab tab_logout" href="/logout">{Logout}</a><?php endif; ?>
+		<?php if (isLoggedInByCookie()): ?><a class="tab tab_logout" href="/logout"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-8 0 40 32"><path d="m 18,24 0,4 -14,0 0,-24 14,0 0,4 4,0 0,-8 -22,0 0,32 22,0 0,-8 z m -6,-4.003 0,-8 12,0 0,-4 8,8 -8,8 0,-4 z"></path></svg></a><?php endif; ?>
         <a class="tab tab_github" href="https://github.com/Mikescher/">Github</a>
 	</div>
 

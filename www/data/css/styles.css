@@ -382,6 +382,7 @@ body {
   border-left: 1px solid #111;
   border-right: none;
   color: black;
+  min-width: 38px;
 }
 #headerdiv .tabrow .tab_logout:hover {
   background-color: #c9510c;
