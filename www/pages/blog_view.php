@@ -31,9 +31,9 @@ if ($isSubAdventOfCode)
 }
 if ($adventofcodeday === null) $isSubAdventOfCode = false;
 
-$title = $post['title'];
-if ($isSubEuler) $title = $eulerproblem['title'];
-if ($isSubAdventOfCode) $title = $adventofcodeday['title'];
+$htmltitle = $post['title'];
+if ($isSubEuler) $htmltitle = $eulerproblem['title'];
+if ($isSubAdventOfCode) $htmltitle = $adventofcodeday['title'];
 
 $canonical = $post['canonical'];
 if ($isSubEuler) $canonical = $eulerproblem['canonical'];
@@ -42,7 +42,7 @@ if ($isSubAdventOfCode) $canonical = $adventofcodeday['canonical'];
 ?>
 <head>
 	<meta charset="utf-8">
-	<title>Mikescher.com - <?php echo $title; ?></title>
+	<title>Mikescher.com - <?php echo $htmltitle; ?></title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<?php printCSS(); ?>
 	<?php echo '<link rel="canonical" href="' . $canonical . '"/>'; ?>

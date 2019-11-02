@@ -10,7 +10,15 @@ class AdventOfCode
 
 	const LANGUAGES =
 	[
-		'cs' => ['ext'=>'linq', 'css'=>'language-csharp', 'name'=>'C#'],
+		'cs'   => ['ext'=>'linq', 'css'=>'language-csharp',        'name'=>'C#'],
+		'java' => ['ext'=>'java', 'css'=>'language-java',          'name'=>'Java'],
+		'bef'  => ['ext'=>'b93',  'css'=>'language-befungerunner', 'name'=>'Befunge-93+'],
+		'cpp'  => ['ext'=>'cpp',  'css'=>'language-cpp',           'name'=>'C++'],
+		'pyth' => ['ext'=>'py',   'css'=>'language-python',        'name'=>'Python'],
+		'rust' => ['ext'=>'rs',   'css'=>'language-rust',          'name'=>'Rust'],
+		'go'   => ['ext'=>'go',   'css'=>'language-go',            'name'=>'Go'],
+		'js'   => ['ext'=>'js',   'css'=>'language-javascript',    'name'=>'Javascript'],
+		'pas'  => ['ext'=>'pas',  'css'=>'language-pascal',        'name'=>'Pascal/Delphi'],
 	];
 
 	public static function listAllFromAllYears()
@@ -26,7 +34,25 @@ class AdventOfCode
 	{
 		$all = require (__DIR__ . '/../statics/aoc/__all.php');
 
-		return array_map('self::readSingle', $all[$year]);
+		$result = $all[$year];
+
+		array_walk($result, function(&$value) use ($year) { $value = self::readSingle($year, $value); });
+
+		return $result;
+	}
+
+	public static function listSingleYearAssociative($year)
+	{
+		$all = self::listSingleYear($year);
+
+		$result = array_fill(0, 25, null);
+
+		foreach ($all as $d)
+		{
+			$result[$d['day']-1] = $d;
+		}
+
+		return $result;
 	}
 
 	public static function listYears()
@@ -85,6 +111,38 @@ class AdventOfCode
 		return null;
 	}
 
+	public static function getGithubLink($year)
+	{
+		return self::YEARS['' . $year]['github'];
+	}
+
+	public static function getURLForYear($year)
+	{
+		return '/blog/' . self::YEARS[''.$year]['blog-id'] . '/Advent_of_Code_' . $year . '/';
+	}
+
+	public static function getPrevYear($year)
+	{
+		$last = null;
+		foreach (self::YEARS as $y => $d)
+		{
+			if ($y == $year) return $last;
+			$last = $y;
+		}
+		return null;
+	}
+
+	public static function getNextYear($year)
+	{
+		$found = false;
+		foreach (self::YEARS as $y => $d)
+		{
+			if ($found) return $y;
+			if ($y == $year) $found = true;
+		}
+		return null;
+	}
+
 	public static function checkConsistency()
 	{
 		$warn = null;
@@ -103,6 +161,8 @@ class AdventOfCode
 
 				if (in_array($aocdata['title'], $titlelist)) return ['result'=>'err', 'message' => 'Duplicate title ' . $aocdata['title']];
 				$titlelist []= $aocdata['title'];
+
+				if ($aocdata['day'] < 1 || $aocdata['day'] > 25) return ['result'=>'err', 'message' => 'Invali [day]-value title ' . $aocdata['day']];
 
 				if (count($aocdata['solutions']) !== $aocdata['parts'])      return ['result'=>'err', 'message' => 'Not enough solution-values in day' . $aocdata['day']];
 				if (count($aocdata['file_solutions']) !== $aocdata['parts']) return ['result'=>'err', 'message' => 'Not enough solution-files in day' . $aocdata['day']];

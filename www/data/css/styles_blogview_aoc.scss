@@ -1,0 +1,120 @@
+@import 'styles_config';
+
+$COL_CHRISTMAS_YELLOW:    #F8B229;
+$COL_CHRISTMAS_WHITE:     #EFEFEF;
+$COL_CHRISTMAS_GREEN:     #165B33;
+$COL_CHRISTMAS_GREEN_ALT: #165B00;
+$COL_CHRISTMAS_RED:       #BB2528;
+
+// ==================== AdventOfCode Blog  Listing ==================== //
+
+.aoc_calendar_parent {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 1em;
+  padding-bottom: 1.5em;
+}
+
+.aoc_calendar_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 0.5em;
+
+  background: $COL_CHRISTMAS_YELLOW;
+}
+
+.aoc_calendar_header_link {
+  display: flex;
+
+  color: #000000;
+  text-decoration: none;
+}
+
+.aoc_calendar_header_title {
+  flex-grow: 0;
+  display: flex;
+
+  color: #000000;
+  font-family: $FONT_HEADER;
+  font-weight: bold;
+}
+
+.aoc_calendar_header_link.aoc_prev {
+  flex-grow: 0;
+  padding-left: 0.5em;
+}
+
+.aoc_calendar_header_link.aoc_next {
+  flex-grow: 0;
+  padding-right: 0.5em;
+}
+
+.aoc_calendar_header_link.aoc_link_hidden {
+  visibility: hidden;
+}
+
+.aoc_calendar {
+  display: flex;
+  flex-direction: column;
+
+  background: $COL_CHRISTMAS_WHITE;
+
+  font-size: xx-large;
+  font-family: $FONT_CODE;
+
+  border: 1px solid #000000;
+
+  padding-bottom: 0.5em;
+}
+
+.aoc_calendar_row {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+
+  margin-left:  0.5em;
+  margin-right: 0.5em;
+}
+
+.aoc_calendar_field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2em;
+  height: 2em;
+
+  margin: 4px;
+
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.aoc_calendar_field.aoc_enabled {
+  background: $COL_CHRISTMAS_GREEN;
+  color: $COL_CHRISTMAS_RED;
+  border: 1px solid #FFFFFF;
+  text-shadow: 0 0 0.2em #222;
+  font-weight: bold;
+}
+
+.aoc_calendar_field.aoc_enabled:hover {
+  background: $COL_CHRISTMAS_GREEN_ALT;
+  color: $COL_CHRISTMAS_RED;
+  border: 1px solid $COL_CHRISTMAS_RED;
+  text-shadow: 0 0 0 #000;
+}
+
+.aoc_calendar_field.aoc_disabled {
+  background: #444;
+  color: #888;
+  border: 1px solid #888;
+  cursor: default;
+  font-weight: normal;
+}
+
+// ==================== AdventOfCode Blog - Single Day View ==================== //

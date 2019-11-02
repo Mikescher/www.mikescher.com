@@ -219,6 +219,19 @@ html,body{margin:0;padding:0;height:100%}
 	.bce_pag10{flex-direction:row}
 	.bce_pag05{flex-direction:row}
 }
+.aoc_calendar_parent{display:flex;justify-content:center;margin-top:1em;padding-bottom:1.5em}
+.aoc_calendar_header{display:flex;flex-direction:row;justify-content:space-between;margin-bottom:.5em;background:#f8b229}
+.aoc_calendar_header_link{display:flex;color:#000;text-decoration:none}
+.aoc_calendar_header_title{flex-grow:0;display:flex;color:#000;font-family:Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:bold}
+.aoc_calendar_header_link.aoc_prev{flex-grow:0;padding-left:.5em}
+.aoc_calendar_header_link.aoc_next{flex-grow:0;padding-right:.5em}
+.aoc_calendar_header_link.aoc_link_hidden{visibility:hidden}
+.aoc_calendar{display:flex;flex-direction:column;background:#efefef;font-size:xx-large;font-family:Consolas,Monaco,"Courier New",Menlo,monospace;border:1px solid #000;padding-bottom:.5em}
+.aoc_calendar_row{display:flex;flex-direction:row;justify-content:center;margin-left:.5em;margin-right:.5em}
+.aoc_calendar_field{display:flex;align-items:center;justify-content:center;width:2em;height:2em;margin:4px;text-decoration:none;font-weight:bold}
+.aoc_calendar_field.aoc_enabled{background:#165b33;color:#bb2528;border:1px solid #fff;text-shadow:0 0 .2em #222;font-weight:bold}
+.aoc_calendar_field.aoc_enabled:hover{background:#165b00;color:#bb2528;border:1px solid #bb2528;text-shadow:0 0 0 #000}
+.aoc_calendar_field.aoc_disabled{background:#444;color:#888;border:1px solid #888;cursor:default;font-weight:normal}
 .prgl_parent{display:flex;flex-direction:column}
 @media(max-width:850px){.prgl_parent{align-items:center}}
 .prgl_elem{display:flex;flex-direction:row;text-decoration:none;background:#BBB;border:solid 1px #444;margin:5px 0}

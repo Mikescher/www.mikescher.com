@@ -1,0 +1,5 @@
+This is the first year I'm participating in the advent of code programming challenges.
+
+I intend to solve the puzzles with C# and Linqpad 5, just because that's the configuration I'm most confortable at writing small one-off scripts.
+
+If you haven't solved them by yourself be aware that clicking on the days below will spoiler the solutions and the second daily challenges...
