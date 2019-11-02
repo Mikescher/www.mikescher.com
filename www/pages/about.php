@@ -24,7 +24,7 @@ global $OPTIONS;
 
 			<div class="contentheader"><h1>About mikescher.com</h1><hr/></div>
 
-            <!-- -------------------------------------- -->
+            <!-- - - - - - - - - - - - - - - - - - - - - -->
 
 			<div class="boxedcontent">
 				<div class="bc_header">About me</div>
@@ -40,7 +40,7 @@ global $OPTIONS;
 
 			</div>
 
-            <!-- -------------------------------------- -->
+            <!-- - - - - - - - - - - - - - - - - - - - - -->
 
 			<div class="boxedcontent">
 				<div class="bc_header">My git timeline</div>
@@ -53,7 +53,7 @@ global $OPTIONS;
 
 			</div>
 
-            <!-- -------------------------------------- -->
+            <!-- - - - - - - - - - - - - - - - - - - - - -->
 
             <div class="boxedcontent">
                 <div class="bc_header">Other addresses</div>

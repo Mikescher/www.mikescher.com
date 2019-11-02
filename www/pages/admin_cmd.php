@@ -17,7 +17,7 @@ if ($cmd === 'createProgramThumbnails')
 	echo '<title>Mikescher.com - AdminExec</title>';
 	echo '<link rel="icon" type="image/png" href="/data/images/favicon.png"/>';
 	echo '<link rel="canonical" href="https://www.mikescher.com/logout"/>';
-	echo '<meta http-equiv="refresh" content="3; url=/admin; ?>" />';
+	echo '<meta http-equiv="refresh" content="3;url=/admin;"/>';
 	echo '</head>';
 	echo '<body>';
 
