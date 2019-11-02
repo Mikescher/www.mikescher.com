@@ -6,6 +6,7 @@ require_once (__DIR__ . '/../internals/highscores.php');
 require_once (__DIR__ . '/../internals/alephnoteStatistics.php');
 require_once (__DIR__ . '/../internals/blog.php');
 require_once (__DIR__ . '/../internals/euler.php');
+require_once (__DIR__ . '/../internals/adventofcode.php');
 require_once (__DIR__ . '/../internals/highscores.php');
 require_once (__DIR__ . '/../internals/mikeschergitgraph.php');
 require_once (__DIR__ . '/../internals/programs.php');
@@ -21,6 +22,7 @@ $consistency_books   = Books::checkConsistency();
 $consistency_egh     = MikescherGitGraph::checkConsistency();
 $consistency_progimg = Programs::checkThumbnails();
 $consistency_bookimg = Books::checkThumbnails();
+$consistency_aoc     = AdventOfCode::checkConsistency();
 
 ?>
 <?php
@@ -77,6 +79,7 @@ function dumpConsistency($c) {
                         <div><span>Book thumbnails:</span>    <?php dumpConsistency($consistency_bookimg); ?></div>
                         <div><span>Blog data:</span>          <?php dumpConsistency($consistency_blog);    ?></div>
                         <div><span>Euler data:</span>         <?php dumpConsistency($consistency_euler);   ?></div>
+                        <div><span>AdventOfCode data:</span>  <?php dumpConsistency($consistency_aoc);     ?></div>
                         <div><span>Programs data:</span>      <?php dumpConsistency($consistency_prog);    ?></div>
                         <div><span>Books data:</span>         <?php dumpConsistency($consistency_books);   ?></div>
                     </div>

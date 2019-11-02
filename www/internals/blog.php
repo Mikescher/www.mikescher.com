@@ -6,10 +6,10 @@ class Blog
 	{
 		$all = require (__DIR__ . '/../statics/blog/__all.php');
 
-		return array_map('self::completeSingle', $all);
+		return array_map('self::readSingle', $all);
 	}
 
-	private static function completeSingle($d)
+	private static function readSingle($d)
 	{
 		if ($d['cat']==='blog')
 			$d['url'] = "/blog/" . $d['id'] . "/" . destructiveUrlEncode($d['title']);
@@ -19,6 +19,8 @@ class Blog
 		$d['canonical'] = "https://www.mikescher.com" . $d['url'];
 
 		$d['file_fragment'] = __DIR__ . '/../statics/blog/' . $d['fragment'];
+
+		if (!array_key_exists('extras', $d)) $d['extras'] = [];
 
 		return $d;
 	}
@@ -63,6 +65,12 @@ class Blog
 				if (!file_exists($post['file_fragment'])) return ['result'=>'err', 'message' => 'Fragment not found ' . $post['fragment']];
 
 			} else if ($post['type'] === 'euler') {
+
+				// aok
+
+			} else if ($post['type'] === 'aoc') {
+
+				if (!array_key_exists('aoc:year', $post['extras'])) return ['result'=>'err', 'message' => 'AdventOfCode metadata [aoc:year] missing: ' . $post['title']];
 
 				// aok
 

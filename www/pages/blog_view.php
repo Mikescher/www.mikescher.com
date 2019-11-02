@@ -9,12 +9,10 @@ $id = $OPTIONS['id'];
 $subview = $OPTIONS['subview'];
 
 $post = Blog::getBlogpost($id);
-
 if ($post === NULL) httpError(404, 'Blogpost not found');
 
 $isSubEuler  = ($post['type'] === 'euler' && $subview !== '');
 $isBaseEuler = ($post['type'] === 'euler');
-
 $eulerproblem = null;
 if ($isSubEuler)
 {
@@ -23,13 +21,31 @@ if ($isSubEuler)
 }
 if ($eulerproblem === null) $isSubEuler = false;
 
+$isSubAdventOfCode = ($post['type'] === 'aoc' && $subview !== '');
+$isAdventOfCode    = ($post['type'] === 'aoc');
+$adventofcodeday = null;
+if ($isSubAdventOfCode)
+{
+	require_once(__DIR__ . '/../internals/adventofcode.php');
+	$adventofcodeday = AdventOfCode::getDayFromStrIdent($post['extras']['aoc:year'], $subview);
+}
+if ($adventofcodeday === null) $isSubAdventOfCode = false;
+
+$title = $post['title'];
+if ($isSubEuler) $title = $eulerproblem['title'];
+if ($isSubAdventOfCode) $title = $adventofcodeday['title'];
+
+$canonical = $post['canonical'];
+if ($isSubEuler) $canonical = $eulerproblem['canonical'];
+if ($isSubAdventOfCode) $canonical = $adventofcodeday['canonical'];
+
 ?>
 <head>
 	<meta charset="utf-8">
-	<title>Mikescher.com - <?php echo ($isSubEuler ? $eulerproblem['title'] : $post['title']); ?></title>
+	<title>Mikescher.com - <?php echo $title; ?></title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<?php printCSS(); ?>
-	<?php echo '<link rel="canonical" href="' . ($isSubEuler ? $eulerproblem['canonical'] : $post['canonical']) . '"/>'; ?>
+	<?php echo '<link rel="canonical" href="' . $canonical . '"/>'; ?>
 
 </head>
 <body>
@@ -53,14 +69,15 @@ if ($eulerproblem === null) $isSubEuler = false;
 
 			include (__DIR__ . '/../fragments/blogview_markdown.php');
 
-		} elseif ($post['type'] === 'bfjoust') {
-
-			include (__DIR__ . '/../fragments/blogview_bfjoust.php');
-
 		} elseif ($post['type'] === 'euler') {
 
 			if ($subview === '') include (__DIR__ . '/../fragments/blogview_euler_list.php');
 			else                 include (__DIR__ . '/../fragments/blogview_euler_single.php');
+
+		} elseif ($post['type'] === 'aoc') {
+
+			if ($subview === '') include (__DIR__ . '/../fragments/blogview_aoc_list.php');
+			else                 include (__DIR__ . '/../fragments/blogview_aoc_single.php');
 
 		}
 		?>

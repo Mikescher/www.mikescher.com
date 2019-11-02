@@ -34,7 +34,7 @@ class Euler
 
 	public static function getEulerProblemFromStrIdent($ident)
 	{
-		$e = explode('-', $ident, 2);
+		$e = explode('-', $ident, 2); // problem-xxx
 		if (count($e)!==2) return null;
 
 		$i = intval($e[1], 10);
