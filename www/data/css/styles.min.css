@@ -102,7 +102,7 @@ html,body{margin:0;padding:0;height:100%}
 .git_list text.caption{font-size:10px;fill:#666}
 .git_list text.caption_month{font-size:8px;fill:#BBB}
 .git_list text.caption_day{font-size:8px;fill:#BBB}
-.svg-tip:after{box-sizing:border-box;position:absolute;left:50%;height:5px;width:5px;bottom:-10px;margin:0 0 0 -5px;content:" ";border:5px solid transparent;border-top-color:rgba(0,0,0,0.8);-moz-border-top-colors:none;-moz-border-right-colors:none;-moz-border-bottom-colors:none;-moz-border-left-colors:none;border-image:none}
+.svg-tip:after{box-sizing:border-box;position:absolute;left:50%;height:5px;width:5px;bottom:-10px;margin:0 0 0 -5px;content:" ";border:5px solid transparent;border-top-color:rgba(0,0,0,0.8);border-image:none}
 .svg-tip{padding:5px;background:none repeat scroll 0 0 rgba(0,0,0,0.8);color:#BBB;font-size:12px;position:absolute;z-index:99999;text-align:center;border-radius:3px;box-sizing:border-box;opacity:0}
 .extGitGraphContainer{background-color:#fcfcfc;margin:10px;display:inline-block;border:1px solid #222;border-radius:0;box-shadow:0 0 1px rgba(0,0,0,0.25) inset}
 .egg_footer{margin-top:5px;text-align:right;margin-right:5px;margin-bottom:5px;color:#888}
