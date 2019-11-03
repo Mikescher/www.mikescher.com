@@ -39,9 +39,9 @@ function dumpConsistency($c) {
 	<title>Mikescher.com - Admin</title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<link rel="canonical" href="https://www.mikescher.com/about"/>
-	<?php printCSS(); ?>
-	<?php includeScriptOnce("https://code.jquery.com/jquery-latest.min.js", true, '') ?>
-	<?php includeScriptOnce("/data/javascript/admin.js", true, 'defer') ?>
+	<?php printHeaderCSS(); ?>
+	<?php includeAdditionalScript("https://code.jquery.com/jquery-latest.min.js", '', true) ?>
+	<?php includeAdditionalScript("/data/javascript/admin.js", 'defer', true) ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -218,5 +218,7 @@ function dumpConsistency($c) {
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

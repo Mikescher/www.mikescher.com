@@ -77,14 +77,13 @@ class AdventOfCode
 		$a['file_challenge'] = (__DIR__ . '/../statics/aoc/'.$year.'/'.$n2p.'_challenge.txt');
 		$a['file_input']     = (__DIR__ . '/../statics/aoc/'.$year.'/'.$n2p.'_input.txt');
 
+		$a['date']     = $year . '-' . 12 . '-' . $n2p;
+
 		$solutionfiles = [];
 
-		foreach ($a['languages'] as $language)
+		for ($i=1; $i <= $a['parts']; $i++)
 		{
-			for ($i=1; $i <= $a['parts']; $i++)
-			{
-				$solutionfiles []= (__DIR__ . '/../statics/aoc/' . $year . '/' . $n2p . '-' . $i . '.' . self::LANGUAGES[$language]['ext']);
-			}
+			$solutionfiles []= (__DIR__ . '/../statics/aoc/' . $year . '/' . $n2p . '-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
 		}
 
 		$a['file_solutions'] = $solutionfiles;
@@ -143,6 +142,27 @@ class AdventOfCode
 		return null;
 	}
 
+	public static function getLanguageCSS($data)
+	{
+		return self::LANGUAGES[$data['language']]['css'];
+	}
+
+	public static function getSolutionCode($data, $i)
+	{
+		$raw = file_get_contents($data['file_solutions'][$i]);
+
+		if ($data['language'] === 'cs')
+		{
+			$raw = trim($raw);
+			if (startsWith($raw, '<Query Kind="Program" />'))    $raw = substr($raw, strlen('<Query Kind="Program" />'));
+			if (startsWith($raw, '<Query Kind="Expression" />')) $raw = substr($raw, strlen('<Query Kind="Expression" />'));
+			if (startsWith($raw, '<Query Kind="Statements" />')) $raw = substr($raw, strlen('<Query Kind="Statements" />'));
+			$raw = trim($raw);
+		}
+
+		return $raw;
+	}
+
 	public static function checkConsistency()
 	{
 		$warn = null;
@@ -175,10 +195,7 @@ class AdventOfCode
 					if (!file_exists($sfile)) return ['result'=>'err', 'message' => 'file_solution[?] not found ' . $sfile];
 				}
 
-				foreach ($aocdata['languages'] as $lang)
-				{
-					if (!array_key_exists($lang, self::LANGUAGES)) return ['result'=>'err', 'message' => 'Unknown language ' . $lang];
-				}
+				if (!array_key_exists($aocdata['language'], self::LANGUAGES)) return ['result'=>'err', 'message' => 'Unknown language ' . $aocdata['language']];
 			}
 		}
 

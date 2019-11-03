@@ -232,6 +232,12 @@ html,body{margin:0;padding:0;height:100%}
 .aoc_calendar_field.aoc_enabled{background:#165b33;color:#bb2528;border:1px solid #fff;text-shadow:0 0 .2em #222;font-weight:bold}
 .aoc_calendar_field.aoc_enabled:hover{background:#165b00;color:#bb2528;border:1px solid #bb2528;text-shadow:0 0 0 #000}
 .aoc_calendar_field.aoc_disabled{background:#444;color:#888;border:1px solid #888;cursor:default;font-weight:normal}
+.bc_aoc_description{font-family:Consolas,Monaco,"Courier New",Menlo,monospace;background-color:#333;color:#DDD;padding:1ch;max-width:82ch}
+.bc_aoc_input{font-family:Consolas,Monaco,"Courier New",Menlo,monospace;border:1px solid #000;padding:1em;max-height:150px;overflow-y:scroll;background:#f8f8f8}
+.bc_aoc_solution_parent{border:1px solid #000}
+.bc_aoc_solution_code{padding:0}
+.bc_aoc_solution_code pre{margin:0;border:0}
+.bc_aoc_solution_value{background:#AAA}
 .prgl_parent{display:flex;flex-direction:column}
 @media(max-width:850px){.prgl_parent{align-items:center}}
 .prgl_elem{display:flex;flex-direction:row;text-decoration:none;background:#BBB;border:solid 1px #444;margin:5px 0}

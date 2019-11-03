@@ -18,8 +18,8 @@ if ($prog === NULL) httpError(404, 'Program not found');
 	<title>Mikescher.com - <?php echo $prog['name']; ?></title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<link rel="canonical" href="<?php echo $prog['url']; ?>"/>
-	<?php printCSS(); ?>
-	<?php if ($prog['has_extra_images']) includeScriptOnce("/data/javascript/ms_basic.js", true, 'defer') ?>
+	<?php printHeaderCSS(); ?>
+	<?php if ($prog['has_extra_images']) includeAdditionalScript("/data/javascript/ms_basic.js", 'defer', true) ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -117,5 +117,7 @@ if ($prog === NULL) httpError(404, 'Program not found');
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

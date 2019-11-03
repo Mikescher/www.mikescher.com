@@ -14,7 +14,7 @@ $allprograms = Programs::listAllNewestFirst($filter);
 	<title>Mikescher.com - Programs</title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
     <link rel="canonical" href="https://www.mikescher.com/programs"/>
-	<?php printCSS(); ?>
+	<?php printHeaderCSS(); ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -63,5 +63,7 @@ $allprograms = Programs::listAllNewestFirst($filter);
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

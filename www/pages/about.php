@@ -10,8 +10,8 @@ global $OPTIONS;
 	<title>Mikescher.com - About</title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<link rel="canonical" href="https://www.mikescher.com/about"/>
-	<?php printCSS(); ?>
-	<?php includeScriptOnce("/data/javascript/egh.js", true, 'defer') ?>
+	<?php printHeaderCSS(); ?>
+	<?php includeAdditionalScript("/data/javascript/egh.js", 'defer', true) ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -102,5 +102,7 @@ global $OPTIONS;
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

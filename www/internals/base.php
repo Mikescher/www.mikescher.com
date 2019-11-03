@@ -6,8 +6,10 @@ $CONFIG = require 'config.php';
 global $CSS_BASE;
 $CSS_BASE = ($CONFIG['prod']) ? ('/data/css/styles.min.css') : ('/data/css/styles.css');
 
-global $REGISTERED_SCRIPTS;
-$REGISTERED_SCRIPTS = [];
+global $ADDITIONAL_SCRIPTS;
+global $ADDITIONAL_STYLESHEETS;
+$ADDITIONAL_SCRIPTS     = [];
+$ADDITIONAL_STYLESHEETS = [];
 
 function InitPHP() {
 
@@ -89,28 +91,59 @@ function formatMilliseconds($millis)
 	}
 }
 
-function includeScriptOnce($script, $echo = true, $attr=false)
-{
-	global $REGISTERED_SCRIPTS;
+function includeAdditionalScript($script, $attr='', $printImmediately = false) {
+	global $ADDITIONAL_SCRIPTS;
 
-	if ($echo)
-	{
-		if (in_array($script, $REGISTERED_SCRIPTS)) return false;
-		$REGISTERED_SCRIPTS []= $script;
-		echo "<script src=\"$script\" type=\"text/javascript\" $attr></script>";
+	if (in_array($script, $ADDITIONAL_SCRIPTS)) return false;
+
+	if ($printImmediately) {
+		$ADDITIONAL_SCRIPTS[$script] = ['src' => $script, 'attr' => $attr, 'consumed' => true];
+		echo '<script src="'.$script.'" type="text/javascript" '.$attr.'></script>';
 		return true;
-	}
-	else
-	{
-		if (in_array($script, $REGISTERED_SCRIPTS)) return '';
-		$REGISTERED_SCRIPTS []= $script;
-		return "<script src=\"$script\" type=\"text/javascript\" $attr></script>";
+	} else {
+		$ADDITIONAL_SCRIPTS[$script] = ['src' => $script, 'attr' => $attr, 'consumed' => false];
+		return true;
 	}
 }
 
-function printCSS() {
+function includeAdditionalStylesheet($sheet, $attr='', $printImmediately = false) {
+	global $ADDITIONAL_STYLESHEETS;
+
+	if (in_array($sheet, $ADDITIONAL_STYLESHEETS)) return false;
+
+	if ($printImmediately) {
+		$ADDITIONAL_STYLESHEETS[$sheet] = ['src' => $sheet, 'attr' => $attr, 'consumed' => true];
+		echo '<link rel="stylesheet" href="' . $sheet . '" '.$attr.'/>';
+		return true;
+	} else {
+		$ADDITIONAL_STYLESHEETS[$sheet] = ['src' => $sheet, 'attr' => $attr, 'consumed' => false];
+		return true;
+	}
+}
+
+function printHeaderCSS() {
 	global $CSS_BASE;
-	echo   '<link rel="stylesheet" href="' . $CSS_BASE . '"/>';
+	includeAdditionalStylesheet($CSS_BASE, '', true);
+}
+
+function printAdditionalScripts()  {
+	global $ADDITIONAL_SCRIPTS;
+
+	foreach ($ADDITIONAL_SCRIPTS as $d) {
+		if ($d['consumed']) continue;
+		echo '<script src="' . $d['src'] . '" type="text/javascript" ' . $d['attr'] . '></script>';
+		$d['consumed'] = true;
+	}
+}
+
+function printAdditionalStylesheets()  {
+	global $ADDITIONAL_STYLESHEETS;
+
+	foreach ($ADDITIONAL_STYLESHEETS as $d) {
+		if ($d['consumed']) continue;
+		echo '<link rel="stylesheet" href="' . $d['src'] . '" ' . $d['attr'] . '/>';
+		$d['consumed'] = true;
+	}
 }
 
 function isProd() {

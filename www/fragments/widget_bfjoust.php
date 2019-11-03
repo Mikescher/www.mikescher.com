@@ -35,6 +35,6 @@ $result .= '</div>' . "\n";
 
 $result .= '' . "\n";
 
-$result .= includeScriptOnce("/data/javascript/blogpost_BFJoustBot_script.js", false, '') . "\n";
+includeAdditionalScript("/data/javascript/blogpost_BFJoustBot_script.js");
 
 return $result;

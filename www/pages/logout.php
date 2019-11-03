@@ -21,5 +21,7 @@ You have been logged out
 <script>
     setTimeout(function () { window.location.href = "<?php echo $redirect; ?>"; }, 1000);
 </script>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

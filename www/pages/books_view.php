@@ -15,9 +15,9 @@ if ($book === NULL) httpError(404, 'Book not found');
 	<meta charset="utf-8">
 	<title>Mikescher.com - <?php echo $book['title']; ?></title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<?php printCSS(); ?>
+	<?php printHeaderCSS(); ?>
 	<?php echo '<link rel="canonical" href="' . $book['url'] . '"/>'; ?>
-	<?php includeScriptOnce("/data/javascript/ms_basic.js", true, 'defer') ?>
+	<?php includeAdditionalScript("/data/javascript/ms_basic.js", 'defer', true) ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -96,5 +96,7 @@ if ($book === NULL) httpError(404, 'Book not found');
 <?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

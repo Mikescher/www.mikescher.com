@@ -7,7 +7,7 @@
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
     <link rel="canonical" href="https://www.mikescher.com/"/>
-	<?php printCSS(); ?>
+	<?php printHeaderCSS(); ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -29,5 +29,7 @@
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

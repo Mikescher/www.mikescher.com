@@ -12,7 +12,7 @@ $allbooks = Books::listAllNewestFirst();
 	<title>Mikescher.com - Converted Books</title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
     <link rel="canonical" href="https://www.mikescher.com/books"/>
-	<?php printCSS(); ?>
+	<?php printHeaderCSS(); ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -58,5 +58,7 @@ $allbooks = Books::listAllNewestFirst();
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

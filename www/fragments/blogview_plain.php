@@ -10,7 +10,7 @@ require_once (__DIR__ . '/../internals/blog.php');
 	</div>
 
 	<div class="bc_data">
-		<?php echo nl2br(Blog::getPostFragment($post)); ?>
+		<?php echo nl2br(htmlspecialchars(Blog::getPostFragment($post))); ?>
 	</div>
 
 </div>

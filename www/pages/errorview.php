@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 	<title>Mikescher.com - <?php echo $errormsg; ?></title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-    <?php printCSS(); ?>
+    <?php printHeaderCSS(); ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -28,5 +28,7 @@
 </div>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

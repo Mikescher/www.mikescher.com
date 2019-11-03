@@ -44,9 +44,8 @@ if ($isSubAdventOfCode) $canonical = $adventofcodeday['canonical'];
 	<meta charset="utf-8">
 	<title>Mikescher.com - <?php echo $htmltitle; ?></title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<?php printCSS(); ?>
+	<?php printHeaderCSS(); ?>
 	<?php echo '<link rel="canonical" href="' . $canonical . '"/>'; ?>
-
 </head>
 <body>
 <div id="mastercontainer">
@@ -89,5 +88,7 @@ if ($isSubAdventOfCode) $canonical = $adventofcodeday['canonical'];
 <?php include (__DIR__ . '/../fragments/footer.php');  ?>
 
 </div>
+<?php printAdditionalScripts(); ?>
+<?php printAdditionalStylesheets(); ?>
 </body>
 </html>

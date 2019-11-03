@@ -1221,6 +1221,40 @@ html, body {
   font-weight: normal;
 }
 
+.bc_aoc_description {
+  font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
+  background-color: #333;
+  color: #DDD;
+  padding: 1ch;
+  max-width: 82ch;
+}
+
+.bc_aoc_input {
+  font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
+  border: 1px solid #000;
+  padding: 1em;
+  max-height: 150px;
+  overflow-y: scroll;
+  background: #F8F8F8;
+}
+
+.bc_aoc_solution_parent {
+  border: 1px solid #000;
+}
+
+.bc_aoc_solution_code {
+  padding: 0;
+}
+
+.bc_aoc_solution_code pre {
+  margin: 0;
+  border: none;
+}
+
+.bc_aoc_solution_value {
+  background: #AAA;
+}
+
 /* 400px */
 .prgl_parent {
   display: flex;
