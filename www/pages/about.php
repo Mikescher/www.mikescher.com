@@ -90,6 +90,12 @@ global $OPTIONS;
                         </svg>
                         <span>Delphi-Praxis</span>
                     </a>
+                    <a class="iconbutton_light" href="mailto:website_mailto@mikescher.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                            <use xlink:href="/data/images/icons.svg#email"></use>
+                        </svg>
+                        <span>E-Mail</span>
+                    </a>
 
                 </div>
 
