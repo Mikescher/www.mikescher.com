@@ -59,7 +59,7 @@ $pd = new ParsedownCustom();
 
         <?php
             global $PARAM_AOCCALENDAR;
-            $PARAM_AOCCALENDAR = ['year' => $year];
+            $PARAM_AOCCALENDAR = ['year' => $year, 'nav'=>false];
             require (__DIR__ . '/../fragments/panel_aoc_calendar.php')
         ?>
 

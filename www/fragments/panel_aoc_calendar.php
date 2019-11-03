@@ -2,11 +2,12 @@
 
 global $PARAM_AOCCALENDAR;
 
-$year      = $PARAM_AOCCALENDAR['year'];
+$year    = $PARAM_AOCCALENDAR['year'];
+$shownav = $PARAM_AOCCALENDAR['nav'];
 
 $assocdays = AdventOfCode::listSingleYearAssociative($year);
-$prev_year = AdventOfCode::getPrevYear($year);
-$next_year = AdventOfCode::getNextYear($year);
+$prev_year = $shownav ? AdventOfCode::getPrevYear($year) : null;
+$next_year = $shownav ? AdventOfCode::getNextYear($year) : null;
 
 ?>
 

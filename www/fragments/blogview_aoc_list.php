@@ -26,7 +26,7 @@ $year = $post['extras']['aoc:year'];
 
 		<?php
             global $PARAM_AOCCALENDAR;
-            $PARAM_AOCCALENDAR = ['year' => $year];
+            $PARAM_AOCCALENDAR = ['year' => $year, 'nav'=>true];
             require (__DIR__ . '/../fragments/panel_aoc_calendar.php')
 		?>
 

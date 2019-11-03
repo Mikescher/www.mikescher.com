@@ -24,6 +24,9 @@
 
 		<?php include (__DIR__ . '/../fragments/panel_books.php');  ?>
 
+		<?php /* global $PARAM_AOCPANEL; $PARAM_AOCPANEL=['year'=>2018]; include (__DIR__ . '/../fragments/panel_aoc.php'); */  ?>
+		<?php global $PARAM_AOCPANEL; $PARAM_AOCPANEL=['year'=>2019]; include (__DIR__ . '/../fragments/panel_aoc.php');  ?>
+
 	</div>
 
 	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
