@@ -10,21 +10,20 @@
 .blogpnl_base {
   width: 100%;
 
-  border: solid 1px #444;
+  border: $LAYER2_BORDER;
   margin: 10px 5px;
-  color: $COL_TEXT_DARK;
+  color: $LAYER2_FG;
   text-decoration: none;
 
-  background-color: #BBB;
+  background-color: $LAYER2_BG;
 }
 
-.blogpnl_date { background-color: #AAA; color: $COL_TEXT_DARK; }
+.blogpnl_date { background-color: $LAYER2_HEADER_BG; color: $LAYER2_HEADER_FG; }
 
 .blogpnl_base:hover               { border: solid 1px $COL_COMPLEXHOVER_BRD; background-color: $COL_COMPLEXHOVER_BG; color: $COL_COMPLEXHOVER_FG; }
 .blogpnl_base:hover .blogpnl_date { background-color: $COL_COMPLEXHOVER_BG; color: $COL_COMPLEXHOVER_FG; border-bottom: 1px solid $COL_COMPLEXHOVER_BRD; }
 
 .blogpnl_date {
-  background-color: #AAA;
   border-bottom: 1px solid transparent;
   padding: 2px;
   font-size: 0.8em;

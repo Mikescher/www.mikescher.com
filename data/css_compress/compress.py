@@ -56,16 +56,16 @@ if os.path.isfile(finput):
 	try:
 		os.remove(finput);
 		print(finput + ' deleted')
-	except e:
-		print(e)
+	except:
+		print(sys.exc_info()[0])
 else:
 		print(finput + ' does not exist')
 if os.path.isfile(foutput):
 	try:
 		os.remove(foutput);
 		print(foutput + ' deleted')
-	except e:
-		print(e)
+	except:
+		print(sys.exc_info()[0])
 else:
 		print(foutput + ' does not exist')
 print();
@@ -124,8 +124,8 @@ try:
     print(ftemp1 + ' deleted')
     os.remove(ftemp2);
     print(ftemp2 + ' deleted')
-except e:
-    print(e)
+except:
+    print(sys.exc_info()[0])
 
 print('')
 print('')

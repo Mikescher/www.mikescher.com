@@ -28,6 +28,8 @@ html, body {
   height:60px;   /* Height of the footer */
   text-align: center;
 
+  color: $COL_FOOTER_FG;
+
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -47,8 +49,8 @@ html, body {
   border:none;
   color:white;
   height:1px;
-  background-color: #CCCCCCFF;
-  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from($COL_TEXT_NORMAL), to($COL_TRANSPARENT));
+  background: $COL_FOOTER_FG;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from($COL_RADIAL_UNDERLINE_START), to($COL_RADIAL_UNDERLINE_END));
 }
 
 @include rdmedia_range(0,1) {

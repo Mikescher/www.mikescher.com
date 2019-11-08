@@ -13,9 +13,9 @@
 
   width: 190px;
 
-  border: 1px solid #333;
-  background: #AAA;
-  color: #000;
+  border: $LAYER2_BORDER;
+  background: $LAYER2_BG;
+  color: $LAYER2_FG;
   text-decoration: none;
 
   margin: 4px;
@@ -50,7 +50,7 @@
   align-items: flex-end;
   text-align: center;
 
-  color: black;
+  color: $LAYER2_FG;
   font-weight: bolder;
   font-size: 15pt;
 
@@ -60,7 +60,7 @@
 }
 
 .programs_pnl_bottom {
-  background: #888;
+  background: $LAYER2_HEADER_BG;
   border-top: 1px solid transparent;
 
   display: flex;
@@ -76,11 +76,11 @@
 }
 
 .programs_pnl_bottom_sub_top {
-  color: #444;
+  color: $LAYER2_FG_LIGHT;
 }
 
 .programs_pnl_bottom_sub_bot {
-  color: #111;
+  color: $LAYER2_FG;
   font-weight: bolder;
 }
 

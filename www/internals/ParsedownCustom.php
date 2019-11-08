@@ -92,4 +92,18 @@ class ParsedownCustom extends ParsedownExtra
 		];
 		return require (__DIR__ . '/../fragments/widget_befunge93.php');
 	}
+
+	protected function blockTable($Line, array $Block = null)
+	{
+		// https://stackoverflow.com/a/46346412/1761622
+
+		$Block = parent::blockTable($Line, $Block);
+
+		if ($Block === null) return $Block;
+		if (!key_exists('element', $Block)) return $Block;
+
+		$Block['element']['attributes']['class'] = 'stripedtable';
+
+		return $Block;
+	}
 }

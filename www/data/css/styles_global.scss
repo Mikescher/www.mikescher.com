@@ -1,8 +1,8 @@
 @import 'styles_config';
 
 body {
-  background-color: $COL_BACKGROUND;
-  color: $COL_TEXT_NORMAL;
+  background-color: $LAYER0_BG;
+  color: $LAYER0_FG;
   font-family: $FONT_DEFAULT;
 }
 
@@ -32,17 +32,15 @@ body {
 
 .contentheader {
   width: 100%;
-  color: $COL_TEXT_DARK;
+  color: $LAYER0_FG;
   font-size: large;
 }
 
 .contentheader h1 {
-
   font-family: $FONT_HEADER;
   font-size: 32px;
   font-weight: 900;
   margin-bottom: 0;
-
 }
 
 @include rdmedia(0) { .contentheader h1 { font-size: 32px; } }
@@ -50,13 +48,13 @@ body {
 .contentheader hr {
   margin: 0 0 25px 0;
 
-  display:block;
-  border:none;
-  color:white;
-  height:1px;
-  background-color: #CCCCCCFF;
-  background: -moz-linear-gradient(   left, $COL_TEXT_NORMAL,   $COL_TRANSPARENT);
-  background: -webkit-linear-gradient(left, $COL_TEXT_NORMAL 0%,$COL_TRANSPARENT 100%);
+  display: block;
+  border: none;
+  color: white;
+  height: 1px;
+  background-color: $COL_RADIAL_UNDERLINE_START;
+  background: -moz-linear-gradient(   left, $COL_RADIAL_UNDERLINE_START,   $COL_RADIAL_UNDERLINE_END);
+  background: -webkit-linear-gradient(left, $COL_RADIAL_UNDERLINE_START 0%,$COL_RADIAL_UNDERLINE_END 100%);
 }
 
 @include rdmedia_range(0,2)  {
@@ -66,8 +64,8 @@ body {
     margin-right: 10px;
   }
   .contentheader hr {
-    background: -moz-radial-gradient(   circle, $COL_TEXT_NORMAL,   $COL_TRANSPARENT);
-    background: -webkit-radial-gradient(circle, $COL_TEXT_NORMAL 0%,$COL_TRANSPARENT 100%);
+    background: -moz-radial-gradient(   circle, $COL_RADIAL_UNDERLINE_START,   $COL_RADIAL_UNDERLINE_END);
+    background: -webkit-radial-gradient(circle, $COL_RADIAL_UNDERLINE_START 0%,$COL_RADIAL_UNDERLINE_END 100%);
   }
 }
 
@@ -88,15 +86,16 @@ body {
 }
 
 .boxedcontent {
-  color: $COL_TEXT_DARK;
-  border: 1px solid black;
-  background-color: $COL_BACKGROUND_2;
+  color: $LAYER1_FG;
+  border: $LAYER1_BORDER;
+  background: $LAYER1_BG;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 
   .bc_header {
-    background-color: #BBB;
+    background-color: $LAYER1_HEADER_BG;
+    color: $LAYER1_HEADER_FG;
     padding: 0 4px;
   }
 
@@ -107,9 +106,9 @@ body {
 
 .button {
 
-  color: #DDD;
+  color: $COL_BUTTON_GENERIC_FG;
   text-decoration: none;
-  background-color: #222;
+  background-color: $COL_BUTTON_GENERIC_BG;
   font-size: 1rem;
   border: 1px solid black;
   height: 36px;
@@ -118,7 +117,7 @@ body {
 }
 
 .button:hover {
-  background-color: #555;
+  background-color: $COL_BUTTON_GENERIC_HOVER;
 }
 
 .iconbutton {
@@ -126,8 +125,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: #222;
-  color: $COL_TEXT_NORMAL;
+  background: $COL_BUTTON_DOWNLOAD_DARK_BG;
+  color: $COL_BUTTON_DOWNLOAD_DARK_FG;
   text-decoration: none;
   border: 1px solid #000;
 
@@ -135,14 +134,15 @@ body {
 
   &:hover {
     cursor: pointer;
-    background-color: #555;
+    background-color: $COL_BUTTON_DOWNLOAD_DARK_HOVER_BG;
+    color: $COL_BUTTON_DOWNLOAD_DARK_HOVER_FG;
   }
   svg {
     width: 14pt;
     height: 14pt;
     margin: 0 4px;
 
-    fill: $COL_TEXT_NORMAL;
+    fill: $COL_BUTTON_DOWNLOAD_DARK_FG;
   }
   span {
     flex-grow: 1;
@@ -158,8 +158,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: #888;
-  color: $COL_TEXT_DARK_DARKER;
+  background: $COL_BUTTON_DOWNLOAD_LIGHT_BG;
+  color: $COL_BUTTON_DOWNLOAD_LIGHT_FG;
   text-decoration: none;
   border: 1px solid #000;
 
@@ -167,15 +167,15 @@ body {
 
   &:hover {
     cursor: pointer;
-    background-color: #555;
-    color:#CCC;
+    background-color: $COL_BUTTON_DOWNLOAD_LIGHT_HOVER_BG;
+    color:$COL_BUTTON_DOWNLOAD_LIGHT_HOVER_FG;
   }
   svg {
     width: 14pt;
     height: 14pt;
     margin: 0 4px;
 
-    fill: #000;
+    fill: $COL_BUTTON_DOWNLOAD_LIGHT_FG;
   }
   span {
     flex-grow: 1;
@@ -188,22 +188,23 @@ body {
 .stripedtable_container {
   overflow-x: auto;
 }
+
 .stripedtable
 {
   border-collapse: collapse;
   text-align: left;
   width: 100%;
-  border: 1px solid #666;
+  border: $LAYER2_TABLE_BORDER_OUTER;
 
   td, th {
     padding: 3px 10px;
   }
 
   thead th {
-    background-color: #7D7D7D;
-    color: #FFFFFF;
+    background-color: $LAYER2_TABLE_TH_BG;
+    color: $LAYER2_TABLE_TH_FG;
     font-weight: bold;
-    border-left: 1px solid #444;
+    border-left: 1px solid $LAYER2_TABLE_BORDER_INNER_TH;
   }
 
   thead th:first-child {
@@ -211,12 +212,8 @@ body {
   }
 
   tbody td {
-    border-left: 1px solid #666;
+    border-left: 1px solid $LAYER2_TABLE_BORDER_INNER_TD;
     font-weight: normal;
-  }
-
-  tbody .alt td {
-    background: #EBEBEB;
   }
 
   tbody td:first-child {
@@ -227,9 +224,8 @@ body {
     border-bottom: none;
   }
 
-  tbody tr:nth-child(odd) {
-    background-color: #ccc;
-  }
+  tbody tr:nth-child(odd)  { background-color: $LAYER2_TABLE_BACKGROUND_ODD; }
+  tbody tr:nth-child(even) { background-color: $LAYER2_TABLE_BACKGROUND_EVEN; }
 }
 
 .imgcarousel_parent {
@@ -239,8 +235,6 @@ body {
   justify-content: center;
 
   padding: 5px;
-
-  background: #BBB;
 }
 
 .imgcarousel_content {
@@ -282,7 +276,7 @@ body {
   outline: none;
 }
 
-.imgcarousel_prev svg { width: 48px; height: 48px; border: 1px solid black; background: #333; fill: #DDD; }
-.imgcarousel_next svg { width: 48px; height: 48px; border: 1px solid black; background: #333; fill: #DDD; }
-.imgcarousel_prev:hover svg { background: #000; fill: #FFF; cursor: pointer; }
-.imgcarousel_next:hover svg { background: #000; fill: #FFF; cursor: pointer; }
+.imgcarousel_prev svg { width: 48px; height: 48px; border: 1px solid black; background: $COL_BUTTON_CAROUSEL_BG; fill: $COL_BUTTON_CAROUSEL_FG; }
+.imgcarousel_next svg { width: 48px; height: 48px; border: 1px solid black; background: $COL_BUTTON_CAROUSEL_BG; fill: $COL_BUTTON_CAROUSEL_FG; }
+.imgcarousel_prev:hover svg { background: $COL_BUTTON_CAROUSEL_BG_HOVER; fill: $COL_BUTTON_CAROUSEL_FG_HOVER; cursor: pointer; }
+.imgcarousel_next:hover svg { background: $COL_BUTTON_CAROUSEL_BG_HOVER; fill: $COL_BUTTON_CAROUSEL_FG_HOVER; cursor: pointer; }

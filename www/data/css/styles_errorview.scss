@@ -7,7 +7,7 @@
   @include rdmedia_range(2,4) {padding-bottom: 80px;}
 
   .ev_code {
-    color: #000;
+    color: $LAYER0_FG;
     text-align: center;
     font-size: 150pt;
     font-weight: 500;
@@ -15,7 +15,7 @@
   }
 
   .ev_msg {
-    color: #888;
+    color: $LAYER0_FG_LIGHTER;
     text-align: center;
     font-size: 25pt;
   }

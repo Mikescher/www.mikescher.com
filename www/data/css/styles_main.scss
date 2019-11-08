@@ -4,7 +4,7 @@
   display: inline-flex;
   flex-direction: column;
 
-  border: 1px solid black;
+  border: $LAYER1_BORDER;
   margin: 15px;
 
   width: 652px;
@@ -16,11 +16,11 @@
   justify-content: center;
 
   padding: 4px;
-  background: #AAA;
+  background: $LAYER1_HEADER_BG;
 }
 
 .index_pnl_header a {
-  color: $COL_TEXT_DARK_DARKER;
+  color: $LAYER1_HEADER_FG;
   text-decoration: none;
 
   font-family: $FONT_HEADER;
@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: column;
 
-  background: #DDD;
+  background: $LAYER1_BG;
 
   padding: 6px;
 }

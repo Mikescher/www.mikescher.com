@@ -33,11 +33,6 @@
       font-weight: bold;
       min-width: 500px;
     }
-
-    span:last-child {
-
-    }
-
   }
 }
 
@@ -47,10 +42,22 @@
 
 .consistency_result_ok, .consistency_result_warn, .consistency_result_err {
   min-width: 400px;
-  border: 1px solid #888;
+  color: $COL_ADMIN_STATUS_FG;
+  border: $COL_ADMIN_STATUS_BORDER;
   padding: 0 5px;
   margin: 1px 0;
 }
-.consistency_result_ok   { background: #0F0; }
-.consistency_result_warn { background: #FF0; }
-.consistency_result_err  { background: #F00; }
+
+.consistency_result_ok   { background: $COL_ADMIN_OK; }
+.consistency_result_warn { background: $COL_ADMIN_WARN; }
+.consistency_result_err  { background: $COL_ADMIN_ERROR; }
+
+
+.admincontent .boxedcontent hr {
+  width: 95%;
+  height: 1px;
+  border: none;
+  color: $COL_TRANSPARENT;
+  background: -moz-radial-gradient(   circle, rgba(0, 0, 0, 0.1),   rgba(0, 0, 0, 0.0));
+  background: -webkit-radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%,rgba(0, 0, 0, 0.0) 100%);
+}

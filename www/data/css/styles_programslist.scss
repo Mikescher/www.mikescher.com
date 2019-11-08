@@ -13,8 +13,9 @@
   flex-direction: row;
   text-decoration: none;
 
-  background: #BBB;
-  border: solid 1px #444;
+  background: $LAYER1_BG_DARKER;
+  border: $LAYER1_BORDER;
+  color: $LAYER1_FG;
   margin: 5px 0;
 
   &:hover {
@@ -46,7 +47,7 @@
 }
 
 .prgl_elem_title {
-  color: $COL_TEXT_DARK_DARKER;
+  color: $LAYER1_FG;
   font-size: 40pt;
   font-weight: bolder;
   flex-grow: 1;
@@ -57,7 +58,7 @@
 }
 
 .prgl_elem_sdesc {
-  color: $COL_TEXT_DARK_LIGHTER;
+  color: $LAYER1_FG_LIGHT;
   font-size: 14pt;
   flex-grow: 1;
 
@@ -83,13 +84,13 @@
 }
 
 .prgl_elem_subinfo_caption {
-  color: #111;
+  color: $LAYER1_FG;
   font-weight: bold;
   margin: 0 5px 0 10px;
 }
 
 .prgl_elem_subinfo_data {
-  color: #555;
+  color: $LAYER1_FG_LIGHT;
 
   display: flex;
   flex-direction: row;

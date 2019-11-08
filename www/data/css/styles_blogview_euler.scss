@@ -3,7 +3,7 @@
 
 #PEB_tableProblems {
   .PEB_tablerowProblems {  }
-  .PEB_tablerowProblems:hover {  background-color: #999;  }
+  .PEB_tablerowProblems:hover {  background-color: $LAYER2_TABLE_ROW_HOVER;  }
 
   .PEB_tablecellProblems {  }
 
@@ -20,7 +20,7 @@
   }
 
   .PEB_TC_Value:hover {
-    color: $COL_TEXT_DARK;
+    color: $LAYER2_FG;
 
     -o-transition:.5s;
     -ms-transition:.5s;
@@ -38,13 +38,15 @@
     min-width: 60px;
   }
 
-  .PEB_TC_Timelevel_0 { background-color: #0A0 !important; }
-  .PEB_TC_Timelevel_1 { background-color: #84FF0A !important; }
-  .PEB_TC_Timelevel_2 { background-color: #FF0 !important; }
-  .PEB_TC_Timelevel_3 { background-color: #F60 !important; }
-  .PEB_TC_Timelevel_4 { background-color: #F11 !important; }
+  .PEB_TC_Timelevel_0 { background-color: $COL_EULER_TIME_0_SAT !important; }
+  .PEB_TC_Timelevel_1 { background-color: $COL_EULER_TIME_1_SAT !important; }
+  .PEB_TC_Timelevel_2 { background-color: $COL_EULER_TIME_2_SAT !important; }
+  .PEB_TC_Timelevel_3 { background-color: $COL_EULER_TIME_3_SAT !important; }
+  .PEB_TC_Timelevel_4 { background-color: $COL_EULER_TIME_4_SAT !important; }
 
   .PEB_TC_Size { font-family: $FONT_CODE; }
+
+  .PEB_TC_Size_93, .PEB_TC_Size_98 { min-width: 7ch; }
 
   .PEB_TC_Size_93 {
     float: right;
@@ -69,7 +71,7 @@
   }
 
   a {
-    color: $COL_TEXT_DARK;
+    color: $LAYER2_FG;
     display: block;
     text-decoration: none;
   }
@@ -89,8 +91,9 @@
 }
 
 .bce_description, .bce_explanation {
-  background: #EEE;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: $LAYER2_TXTBLOCK_BG;
+  color: $LAYER2_TXTBLOCK_FG;
+  border: $LAYER2_TXTBLOCK_BORDER;
   padding: 0 5px;
 }
 
@@ -110,14 +113,14 @@
   }
   .bce_pagbtn {
     display: block;
-    color: #000;
+    color: $BUTTON_PAGINATION_FG;
     text-decoration: none;
     min-width: 1.8em;
     padding: 0 5px;
     margin: 0 4px;
     border-radius: 2px;
-    border: 1px solid #777;
-    background: #AAA;
+    border: $BUTTON_PAGINATION_BORDER;
+    background: $BUTTON_PAGINATION_BG;
     text-align: center;
   }
   .bce_pagbtn_disabled {
@@ -125,9 +128,9 @@
     background: #BBB;
   }
   .bce_pagbtn_active {
-    color: #000;
-    background: #666;
-    border: 1px solid #000;
+    color: $BUTTON_PAGINATION_DISABLED_FG;
+    background: $BUTTON_PAGINATION_DISABLED_BG;
+    border: $BUTTON_PAGINATION_DISABLED_BORDER;
   }
 
 }

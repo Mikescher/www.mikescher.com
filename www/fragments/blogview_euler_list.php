@@ -70,7 +70,7 @@ $problems = Euler::listAll();
 
         <h1>All solved problems</h1>
         <div class="mdtable_container">
-            <table id="PEB_tableProblems" class="mdtable">
+            <table id="PEB_tableProblems" class="stripedtable mdtable">
                 <thead>
                     <tr>
                         <th>Number</th> <th>Title</th> <th>Time</th> <th>Size</th> <th>Solution (hover to reveal)</th>
@@ -107,7 +107,7 @@ $problems = Euler::listAll();
 					echo '<a href="' . $problem['url'] . '">';
 					echo $problem['width'] . 'x' . $problem['height'];
 					echo '<div class="PEB_TC_Size_' . ($problem['is93'] ? '93' : '98') . '">';
-					echo ($problem['is93'] ? 'Bef-93' : 'Bef-98');
+					echo ($problem['is93'] ? 'Bef-93' : 'Bef-93+');
 					echo '</div>';
 					echo '</a>';
 					echo '</td>' . "\r\n";

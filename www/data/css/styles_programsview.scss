@@ -4,9 +4,9 @@
   display: flex;
   flex-direction: column;
 
-  color: $COL_TEXT_DARK;
-  border: 1px solid black;
-  background-color: #E0E0E0;
+  color:  $LAYER1_FG;
+  border: $LAYER1_BORDER;
+  background-color: $LAYER1_BG;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -19,8 +19,8 @@
 }
 
 #prgv_header hr {
-  background: -moz-radial-gradient(   circle, $COL_TEXT_NORMAL,   $COL_TRANSPARENT);
-  background: -webkit-radial-gradient(circle, $COL_TEXT_NORMAL 0%,$COL_TRANSPARENT 100%);
+  background: -moz-radial-gradient(   circle, $COL_RADIAL_UNDERLINE_START,   $COL_RADIAL_UNDERLINE_END);
+  background: -webkit-radial-gradient(circle, $COL_RADIAL_UNDERLINE_START 0%,$COL_RADIAL_UNDERLINE_END 100%);
 }
 
 .prgv_top {
@@ -32,6 +32,8 @@
 .prgv_left {
   display: inline-flex;
   justify-content: center;
+
+  border: $LAYER2_BORDER;
 
   flex-grow: 1;
   margin-left: 10px;
@@ -47,8 +49,9 @@
 }
 
 .prgv_right {
-  background: #BBB;
-  border: 1px solid #666;
+  background: $LAYER2_BG;
+  border: $LAYER2_BORDER;
+  color: $LAYER2_FG;
   margin: 0 10px;
   padding: 8px 5px 2px 5px;
 
@@ -67,12 +70,12 @@
 }
 
 .prgv_right_value a {
-  color: $COL_TEXT_DARK;
+  color: $LAYER2_FG;
   text-decoration: none;
 }
 
 .prgv_right_value a:hover {
-  color: #339;
+  color: $LAYER2_FG_LINKHOVER;
   text-decoration: none;
 }
 
@@ -85,8 +88,8 @@
   justify-content: flex-end;
 }
 
-.prgv_dl_download { background: #442222; }
-.prgv_dl_github   { background: $COL_GITHUB; }
+.prgv_dl_download { background: $COL_BUTTON_DOWNLOAD_PRIMARY; }
+.prgv_dl_github   { background: $COL_BUTTON_DOWNLOAD_GITHUB; }
 
 .prgv_right_lang img {
   display: inline;
@@ -98,8 +101,9 @@
 .prgv_center {
   margin: 0 8px 8px 8px;
   padding: 16px;
-  background: #EEE;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: $LAYER2_TXTBLOCK_BG;
+  color: $LAYER2_TXTBLOCK_FG;
+  border:$LAYER2_TXTBLOCK_BORDER;
 }
 
 .prgv_sep {
@@ -108,9 +112,9 @@
   border: none;
   color: white;
   height: 1px;
-  background-color: #666666FF;
-  background: -moz-radial-gradient(   circle, #666,    #FFFFFF00);
-  background: -webkit-radial-gradient(circle, #666 0%, #FFFFFF00 100%);
+  background-color: $COL_RADIAL_UNDERLINE_START;
+  background: -moz-radial-gradient(   circle, $COL_RADIAL_UNDERLINE_START,   $COL_RADIAL_UNDERLINE_END);
+  background: -webkit-radial-gradient(circle, $COL_RADIAL_UNDERLINE_START 0%,$COL_RADIAL_UNDERLINE_END 100%);
 }
 
 @include rdmedia_range(0,2)  {
@@ -144,6 +148,7 @@
 
 .progv_extra {
   height: 500px;
-  border: 1px solid #333;
+  border: $LAYER2_BORDER;
+  background: $LAYER2_BG;
   margin: 10px;
 }

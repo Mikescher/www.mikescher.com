@@ -12,7 +12,10 @@
 
 .loginerror {
   display: flex;
-  background: #FF4444;
+  background: $COL_TOAST_ERROR_BG;
+  color: $COL_TOAST_ERROR_FG;
+  border: $COL_TOAST_ERROR_BORDER;
+  border-radius: 2px;
   font-weight: bold;
   padding: 0 5px;
   margin: 5px 0 20px 0;

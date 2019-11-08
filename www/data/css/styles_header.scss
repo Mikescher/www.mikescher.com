@@ -2,7 +2,7 @@
 
 #headerdiv {
   z-index: 999;
-  background-color: #333;
+  background-color: $COL_HEADER_BG;
   display: flex;
   border-bottom: 1px solid #111;
   box-shadow: 0 0 8px #000000;
@@ -34,8 +34,8 @@
       justify-content: center;
       align-items: center;
 
-      background-color: #222;
-      color: $COL_TEXT_NORMAL;
+      background-color: $COL_HEADER_BTN_BG;
+      color: $COL_HEADER_FG;
       border-left:  1px solid #000;
       border-right: 1px solid #000;
       font-weight: bold;
@@ -50,31 +50,31 @@
 
       &:hover {
         cursor: pointer;
-        background-color: #555;
+        background-color: $COL_HEADER_HOVER;
       }
     }
 
-    .tab_active { background-color: $COL_HIGHLIGHT_RED; }
-    .tab_admin {  background-color: $COL_HIGHLIGHT_BLUE; }
+    .tab_active { background-color: $COL_HEADER_HIGHLIGHT; }
+    .tab_admin {  background-color: $COL_HEADER_ADMIN; }
 
     .tab_split {
       flex: auto;
     }
 
     .tab_github {
-      background-color: $COL_GITHUB;
+      background-color: $COL_HEADER_GITHUB;
       border-left:  1px solid #111;
       border-right: none;
       color: black;
 
       &:hover {
-        background-color: #c9510c;
+        background-color: $COL_HEADER_GITHUB_HOVER;
         color: black;
       }
     }
 
     .tab_logout {
-      background-color: #A00;
+      background-color: $COL_HEADER_LOGOUT;
       border-left:  1px solid #111;
       border-right: none;
       color: black;
@@ -82,7 +82,7 @@
       min-width: 38px;
 
       &:hover {
-        background-color: #c9510c;
+        background-color: $COL_HEADER_LOGOUT_HOVER;
         color: black;
       }
     }

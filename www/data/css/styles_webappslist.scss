@@ -9,22 +9,21 @@
 .webapplistelem {
   width: 100%;
 
-  border: solid 1px #444;
+  border: $LAYER1_BORDER;
   margin: 10px 5px;
-  color: $COL_TEXT_DARK;
+  color: $LAYER1_FG;
   text-decoration: none;
 }
 
-.webapplistelem { background-color: #BBB; }
+.webapplistelem { background-color: $LAYER1_BG_DARKER; }
 
-.webapplistelem .wle_date { background-color: #AAA; color: $COL_TEXT_DARK; }
+.webapplistelem .wle_date { background-color: $LAYER1_HEADER_BG_DARKER; color: $LAYER1_HEADER_FG; }
 
 .webapplistelem:hover           { border: solid 1px $COL_COMPLEXHOVER_BRD; }
 .webapplistelem:hover           { background-color: $COL_COMPLEXHOVER_BG; color: $COL_COMPLEXHOVER_FG; }
 .webapplistelem:hover .wle_date { background-color: $COL_COMPLEXHOVER_BG; color: $COL_COMPLEXHOVER_FG; border-bottom: 1px solid $COL_COMPLEXHOVER_BRD; }
 
 .wle_date {
-  background-color: #AAA;
   border-bottom: 1px solid transparent;
   padding: 2px;
   font-size: 0.8em;

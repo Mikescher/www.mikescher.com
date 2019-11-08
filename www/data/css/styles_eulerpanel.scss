@@ -53,9 +53,9 @@
   text-decoration: none;
 }
 
-.euler_pnl_celltime_perfect { background: #98C398; }
-.euler_pnl_celltime_good    { background: #B9D89B; }
-.euler_pnl_celltime_ok      { background: #D8D898; }
-.euler_pnl_celltime_bad     { background: #D8B298; }
-.euler_pnl_celltime_fail    { background: #D89D9D; }
-.euler_pnl_cell_notexist    { background: #CCCCCC; }
+.euler_pnl_celltime_perfect { background: $COL_EULER_TIME_0_LIT;    }
+.euler_pnl_celltime_good    { background: $COL_EULER_TIME_1_LIT;    }
+.euler_pnl_celltime_ok      { background: $COL_EULER_TIME_2_LIT;    }
+.euler_pnl_celltime_bad     { background: $COL_EULER_TIME_3_LIT;    }
+.euler_pnl_celltime_fail    { background: $COL_EULER_TIME_4_LIT;    }
+.euler_pnl_cell_notexist    { background: $COL_EULER_TIME_NONE_LIT; }
