@@ -19,6 +19,7 @@ class AdventOfCode
 		'go'   => ['ext'=>'go',   'css'=>'language-go',            'name'=>'Go'],
 		'js'   => ['ext'=>'js',   'css'=>'language-javascript',    'name'=>'Javascript'],
 		'pas'  => ['ext'=>'pas',  'css'=>'language-pascal',        'name'=>'Pascal/Delphi'],
+		'ts'   => ['ext'=>'ts',   'css'=>'language-typescript',    'name'=>'Typescript'],
 	];
 
 	public static function listAllFromAllYears()

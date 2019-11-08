@@ -310,6 +310,141 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 767px) {
+  .pagination {
+    flex-direction: column;
+  }
+
+  .pag20 {
+    flex-direction: column;
+  }
+
+  .pag10 {
+    flex-direction: column;
+  }
+
+  .pag05 {
+    flex-direction: row;
+  }
+}
+@media (min-width: 768px) and (max-width: 850px) {
+  .pagination {
+    flex-direction: column;
+  }
+
+  .pag20 {
+    flex-direction: column;
+  }
+
+  .pag10 {
+    flex-direction: row;
+  }
+
+  .pag05 {
+    flex-direction: row;
+  }
+}
+@media (min-width: 851px) and (max-width: 991px) {
+  .pagination {
+    flex-direction: column;
+  }
+
+  .pag20 {
+    flex-direction: column;
+  }
+
+  .pag10 {
+    flex-direction: row;
+  }
+
+  .pag05 {
+    flex-direction: row;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .pagination {
+    flex-direction: column;
+  }
+
+  .pag20 {
+    flex-direction: column;
+  }
+
+  .pag10 {
+    flex-direction: row;
+  }
+
+  .pag05 {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1200px) {
+  .pagination {
+    flex-direction: column;
+  }
+
+  .pag20 {
+    flex-direction: row;
+  }
+
+  .pag10 {
+    flex-direction: row;
+  }
+
+  .pag05 {
+    flex-direction: row;
+  }
+}
+.pagination {
+  display: flex;
+}
+.pagination .pagAny {
+  display: flex;
+  align-self: center;
+}
+.pagination .pag20 {
+  display: flex;
+  align-self: center;
+}
+.pagination .pag10 {
+  display: flex;
+}
+.pagination .pag05 {
+  display: flex;
+  margin: 4px 0;
+}
+.pagination .pagbtn {
+  display: block;
+  text-decoration: none;
+  min-width: 1.8em;
+  padding: 0 5px;
+  margin: 0 4px;
+  border-radius: 2px;
+  text-align: center;
+  color: #000000;
+  background: #AAAAAA;
+  border: 1px solid #777777;
+}
+.pagination .pagAny .pagbtn {
+  margin: 4px;
+}
+.pagination .pagbtn_disabled {
+  color: #888888;
+  background: #BBBBBB;
+  border: 1px solid #777777;
+}
+.pagination .pagbtn.pagbtn_disabled:hover {
+  border: 1px solid #777777;
+}
+.pagination .pagbtn_active {
+  color: #000000;
+  background: #666666;
+  border: 1px solid #000000;
+}
+.pagination .pagbtn:hover {
+  border: 1px solid #000000;
+}
+
 /* 400px */
 #headerdiv {
   z-index: 999;
@@ -988,127 +1123,6 @@ html, body {
   padding: 0 5px;
 }
 
-.bce_pagination {
-  display: flex;
-}
-.bce_pagination .bce_pag20 {
-  display: flex;
-  align-self: center;
-}
-.bce_pagination .bce_pag10 {
-  display: flex;
-}
-.bce_pagination .bce_pag05 {
-  display: flex;
-  margin: 4px 0;
-}
-.bce_pagination .bce_pagbtn {
-  display: block;
-  color: #000000;
-  text-decoration: none;
-  min-width: 1.8em;
-  padding: 0 5px;
-  margin: 0 4px;
-  border-radius: 2px;
-  border: 1px solid #777777;
-  background: #AAAAAA;
-  text-align: center;
-}
-.bce_pagination .bce_pagbtn_disabled {
-  color: #888;
-  background: #BBB;
-}
-.bce_pagination .bce_pagbtn_active {
-  color: #000000;
-  background: #666666;
-  border: 1px solid #000;
-}
-
-@media (max-width: 767px) {
-  .bce_pagination {
-    flex-direction: column;
-  }
-
-  .bce_pag20 {
-    flex-direction: column;
-  }
-
-  .bce_pag10 {
-    flex-direction: column;
-  }
-
-  .bce_pag05 {
-    flex-direction: row;
-  }
-}
-@media (min-width: 768px) and (max-width: 850px) {
-  .bce_pagination {
-    flex-direction: column;
-  }
-
-  .bce_pag20 {
-    flex-direction: column;
-  }
-
-  .bce_pag10 {
-    flex-direction: row;
-  }
-
-  .bce_pag05 {
-    flex-direction: row;
-  }
-}
-@media (min-width: 851px) and (max-width: 991px) {
-  .bce_pagination {
-    flex-direction: column;
-  }
-
-  .bce_pag20 {
-    flex-direction: column;
-  }
-
-  .bce_pag10 {
-    flex-direction: row;
-  }
-
-  .bce_pag05 {
-    flex-direction: row;
-  }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-  .bce_pagination {
-    flex-direction: column;
-  }
-
-  .bce_pag20 {
-    flex-direction: column;
-  }
-
-  .bce_pag10 {
-    flex-direction: row;
-  }
-
-  .bce_pag05 {
-    flex-direction: row;
-  }
-}
-@media (min-width: 1200px) {
-  .bce_pagination {
-    flex-direction: column;
-  }
-
-  .bce_pag20 {
-    flex-direction: row;
-  }
-
-  .bce_pag10 {
-    flex-direction: row;
-  }
-
-  .bce_pag05 {
-    flex-direction: row;
-  }
-}
 /* 400px */
 .aoc_calendar_parent {
   display: flex;
@@ -1122,7 +1136,7 @@ html, body {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 0.5em;
-  background: #F8B229;
+  background: #888888;
 }
 
 .aoc_calendar_header_link {
@@ -1156,10 +1170,10 @@ html, body {
 .aoc_calendar {
   display: flex;
   flex-direction: column;
-  background: #EFEFEF;
+  background: #AAAAAA;
   font-size: xx-large;
   font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
-  border: 1px solid #000000;
+  border: 1px solid #333333;
   padding-bottom: 0.5em;
 }
 
@@ -1183,10 +1197,10 @@ html, body {
 }
 
 .aoc_calendar_field.aoc_enabled {
-  background: #165B33;
+  background: #2D4E3B;
   color: #BB2528;
   border: 1px solid #FFFFFF;
-  text-shadow: 0 0 0.2em #222;
+  text-shadow: 0 0 0.2em #222222;
   font-weight: bold;
 }
 
@@ -1198,32 +1212,36 @@ html, body {
 }
 
 .aoc_calendar_field.aoc_disabled {
-  background: #444;
-  color: #888;
+  background: #444444;
+  color: #888888;
   border: 1px solid #888;
   cursor: default;
   font-weight: normal;
 }
 
+.bc_aoc_description_parent {
+  background-color: #333333;
+  color: #DDDDDD;
+}
+
 .bc_aoc_description {
   font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
-  background-color: #333;
-  color: #DDD;
   padding: 1ch;
   max-width: 82ch;
 }
 
 .bc_aoc_input {
   font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
-  border: 1px solid #000;
+  border: 1px solid #333333;
   padding: 1em;
   max-height: 150px;
   overflow-y: scroll;
   background: #F8F8F8;
+  color: #000000;
 }
 
 .bc_aoc_solution_parent {
-  border: 1px solid #000;
+  border: 1px solid #333333;
 }
 
 .bc_aoc_solution_code {
@@ -1231,12 +1249,13 @@ html, body {
 }
 
 .bc_aoc_solution_code pre {
-  margin: 0;
+  margin: 0 !important;
   border: none;
 }
 
 .bc_aoc_solution_value {
-  background: #AAA;
+  background: #888888;
+  color: #000000;
 }
 
 /* 400px */

@@ -280,3 +280,103 @@ body {
 .imgcarousel_next svg { width: 48px; height: 48px; border: 1px solid black; background: $COL_BUTTON_CAROUSEL_BG; fill: $COL_BUTTON_CAROUSEL_FG; }
 .imgcarousel_prev:hover svg { background: $COL_BUTTON_CAROUSEL_BG_HOVER; fill: $COL_BUTTON_CAROUSEL_FG_HOVER; cursor: pointer; }
 .imgcarousel_next:hover svg { background: $COL_BUTTON_CAROUSEL_BG_HOVER; fill: $COL_BUTTON_CAROUSEL_FG_HOVER; cursor: pointer; }
+
+
+@include rdmedia(0)
+{
+  .pagination { flex-direction: column; }
+  .pag20      { flex-direction: column; }
+  .pag10      { flex-direction: column; }
+  .pag05      { flex-direction: row;    }
+}
+
+@include rdmedia(1)
+{
+  .pagination { flex-direction: column; }
+  .pag20      { flex-direction: column; }
+  .pag10      { flex-direction: row;    }
+  .pag05      { flex-direction: row;    }
+}
+
+@include rdmedia(2)
+{
+  .pagination { flex-direction: column; }
+  .pag20      { flex-direction: column; }
+  .pag10      { flex-direction: row;    }
+  .pag05      { flex-direction: row;    }
+}
+
+@include rdmedia(3)
+{
+  .pagination { flex-direction: column; }
+  .pag20      { flex-direction: column; }
+  .pag10      { flex-direction: row;    }
+  .pag05      { flex-direction: row;    }
+}
+
+@include rdmedia(4)
+{
+  .pagination { flex-direction: column; }
+  .pag20      { flex-direction: row;    }
+  .pag10      { flex-direction: row;    }
+  .pag05      { flex-direction: row;    }
+}
+
+
+.pagination {
+  display:flex;
+
+  .pagAny {
+    display:flex;
+    align-self: center;
+  }
+
+  .pag20 {
+    display:flex;
+    align-self: center;
+  }
+
+  .pag10 {
+    display:flex;
+  }
+
+  .pag05 {
+    display:flex;
+    margin: 4px 0;
+  }
+
+  .pagbtn {
+    display: block;
+    text-decoration: none;
+    min-width: 1.8em;
+    padding: 0 5px;
+    margin: 0 4px;
+    border-radius: 2px;
+    text-align: center;
+
+    color:      $BUTTON_PAGINATION_FG;
+    background: $BUTTON_PAGINATION_BG;
+    border:     $BUTTON_PAGINATION_BORDER;
+  }
+
+  .pagAny .pagbtn { margin: 4px; }
+
+  .pagbtn_disabled {
+    color:      $BUTTON_PAGINATION_DISABLED_FG;
+    background: $BUTTON_PAGINATION_DISABLED_BG;
+    border:     $BUTTON_PAGINATION_DISABLED_BORDER;
+  }
+
+  .pagbtn.pagbtn_disabled:hover {border: $BUTTON_PAGINATION_DISABLED_BORDER; }
+
+  .pagbtn_active {
+    color:      $BUTTON_PAGINATION_HIGHLIGHT_FG;
+    background: $BUTTON_PAGINATION_HIGHLIGHT_BG;
+    border:     $BUTTON_PAGINATION_HIGHLIGHT_BORDER;
+  }
+
+  .pagbtn:hover {
+    border:     $BUTTON_PAGINATION_HOVER_BORDER;
+  }
+
+}

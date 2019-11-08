@@ -52,6 +52,47 @@ body{background-color:#eee;color:#333;font-family:"Times New Roman",serif}
 .imgcarousel_next svg{width:48px;height:48px;border:1px solid black;background:#333;fill:#ddd}
 .imgcarousel_prev:hover svg{background:#000;fill:#fff;cursor:pointer}
 .imgcarousel_next:hover svg{background:#000;fill:#fff;cursor:pointer}
+@media(max-width:767px){
+	.pagination{flex-direction:column}
+	.pag20{flex-direction:column}
+	.pag10{flex-direction:column}
+	.pag05{flex-direction:row}
+}
+@media(min-width:768px) and (max-width:850px){
+	.pagination{flex-direction:column}
+	.pag20{flex-direction:column}
+	.pag10{flex-direction:row}
+	.pag05{flex-direction:row}
+}
+@media(min-width:851px) and (max-width:991px){
+	.pagination{flex-direction:column}
+	.pag20{flex-direction:column}
+	.pag10{flex-direction:row}
+	.pag05{flex-direction:row}
+}
+@media(min-width:992px) and (max-width:1199px){
+	.pagination{flex-direction:column}
+	.pag20{flex-direction:column}
+	.pag10{flex-direction:row}
+	.pag05{flex-direction:row}
+}
+@media(min-width:1200px){
+	.pagination{flex-direction:column}
+	.pag20{flex-direction:row}
+	.pag10{flex-direction:row}
+	.pag05{flex-direction:row}
+}
+.pagination{display:flex}
+.pagination .pagAny{display:flex;align-self:center}
+.pagination .pag20{display:flex;align-self:center}
+.pagination .pag10{display:flex}
+.pagination .pag05{display:flex;margin:4px 0}
+.pagination .pagbtn{display:block;text-decoration:none;min-width:1.8em;padding:0 5px;margin:0 4px;border-radius:2px;text-align:center;color:#000;background:#aaa;border:1px solid #777}
+.pagination .pagAny .pagbtn{margin:4px}
+.pagination .pagbtn_disabled{color:#888;background:#bbb;border:1px solid #777}
+.pagination .pagbtn.pagbtn_disabled:hover{border:1px solid #777}
+.pagination .pagbtn_active{color:#000;background:#666;border:1px solid #000}
+.pagination .pagbtn:hover{border:1px solid #000}
 #headerdiv{z-index:999;background-color:#333;display:flex;border-bottom:1px solid #111;box-shadow:0 0 8px #000;position:fixed;width:100%}
 #headerdiv .logowrapper{flex:initial;margin:0;padding:0;height:42px}
 #headerdiv .logowrapper a{cursor:default}
@@ -176,62 +217,26 @@ html,body{margin:0;padding:0;height:100%}
 	#PEB_tableProblems tr td:nth-child(4),#PEB_tableProblems tr th:nth-child(4){display:none}
 }
 .bce_description,.bce_explanation{background:#eee;color:#333;border:1px solid rgba(0,0,0,0.15);padding:0 5px}
-.bce_pagination{display:flex}
-.bce_pagination .bce_pag20{display:flex;align-self:center}
-.bce_pagination .bce_pag10{display:flex}
-.bce_pagination .bce_pag05{display:flex;margin:4px 0}
-.bce_pagination .bce_pagbtn{display:block;color:#000;text-decoration:none;min-width:1.8em;padding:0 5px;margin:0 4px;border-radius:2px;border:1px solid #777;background:#aaa;text-align:center}
-.bce_pagination .bce_pagbtn_disabled{color:#888;background:#BBB}
-.bce_pagination .bce_pagbtn_active{color:#000;background:#666;border:1px solid #000}
-@media(max-width:767px){
-	.bce_pagination{flex-direction:column}
-	.bce_pag20{flex-direction:column}
-	.bce_pag10{flex-direction:column}
-	.bce_pag05{flex-direction:row}
-}
-@media(min-width:768px) and (max-width:850px){
-	.bce_pagination{flex-direction:column}
-	.bce_pag20{flex-direction:column}
-	.bce_pag10{flex-direction:row}
-	.bce_pag05{flex-direction:row}
-}
-@media(min-width:851px) and (max-width:991px){
-	.bce_pagination{flex-direction:column}
-	.bce_pag20{flex-direction:column}
-	.bce_pag10{flex-direction:row}
-	.bce_pag05{flex-direction:row}
-}
-@media(min-width:992px) and (max-width:1199px){
-	.bce_pagination{flex-direction:column}
-	.bce_pag20{flex-direction:column}
-	.bce_pag10{flex-direction:row}
-	.bce_pag05{flex-direction:row}
-}
-@media(min-width:1200px){
-	.bce_pagination{flex-direction:column}
-	.bce_pag20{flex-direction:row}
-	.bce_pag10{flex-direction:row}
-	.bce_pag05{flex-direction:row}
-}
 .aoc_calendar_parent{display:flex;justify-content:center;margin-top:1em;padding-bottom:1.5em}
-.aoc_calendar_header{display:flex;flex-direction:row;justify-content:space-between;margin-bottom:.5em;background:#f8b229}
+.aoc_calendar_header{display:flex;flex-direction:row;justify-content:space-between;margin-bottom:.5em;background:#888}
 .aoc_calendar_header_link{display:flex;color:#000;text-decoration:none}
 .aoc_calendar_header_title{flex-grow:0;display:flex;color:#000;font-family:Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:bold}
 .aoc_calendar_header_link.aoc_prev{flex-grow:0;padding-left:.5em}
 .aoc_calendar_header_link.aoc_next{flex-grow:0;padding-right:.5em}
 .aoc_calendar_header_link.aoc_link_hidden{visibility:hidden}
-.aoc_calendar{display:flex;flex-direction:column;background:#efefef;font-size:xx-large;font-family:Consolas,Monaco,"Courier New",Menlo,monospace;border:1px solid #000;padding-bottom:.5em}
+.aoc_calendar{display:flex;flex-direction:column;background:#aaa;font-size:xx-large;font-family:Consolas,Monaco,"Courier New",Menlo,monospace;border:1px solid #333;padding-bottom:.5em}
 .aoc_calendar_row{display:flex;flex-direction:row;justify-content:center;margin-left:.5em;margin-right:.5em}
 .aoc_calendar_field{display:flex;align-items:center;justify-content:center;width:2em;height:2em;margin:4px;text-decoration:none;font-weight:bold}
-.aoc_calendar_field.aoc_enabled{background:#165b33;color:#bb2528;border:1px solid #fff;text-shadow:0 0 .2em #222;font-weight:bold}
+.aoc_calendar_field.aoc_enabled{background:#2d4e3b;color:#bb2528;border:1px solid #fff;text-shadow:0 0 .2em #222;font-weight:bold}
 .aoc_calendar_field.aoc_enabled:hover{background:#165b00;color:#bb2528;border:1px solid #bb2528;text-shadow:0 0 0 #000}
 .aoc_calendar_field.aoc_disabled{background:#444;color:#888;border:1px solid #888;cursor:default;font-weight:normal}
-.bc_aoc_description{font-family:Consolas,Monaco,"Courier New",Menlo,monospace;background-color:#333;color:#DDD;padding:1ch;max-width:82ch}
-.bc_aoc_input{font-family:Consolas,Monaco,"Courier New",Menlo,monospace;border:1px solid #000;padding:1em;max-height:150px;overflow-y:scroll;background:#f8f8f8}
-.bc_aoc_solution_parent{border:1px solid #000}
+.bc_aoc_description_parent{background-color:#333;color:#ddd}
+.bc_aoc_description{font-family:Consolas,Monaco,"Courier New",Menlo,monospace;padding:1ch;max-width:82ch}
+.bc_aoc_input{font-family:Consolas,Monaco,"Courier New",Menlo,monospace;border:1px solid #333;padding:1em;max-height:150px;overflow-y:scroll;background:#f8f8f8;color:#000}
+.bc_aoc_solution_parent{border:1px solid #333}
 .bc_aoc_solution_code{padding:0}
-.bc_aoc_solution_code pre{margin:0;border:0}
-.bc_aoc_solution_value{background:#AAA}
+.bc_aoc_solution_code pre{margin:0 !important;border:0}
+.bc_aoc_solution_value{background:#888;color:#000}
 .prgl_parent{display:flex;flex-direction:column}
 @media(max-width:850px){.prgl_parent{align-items:center}}
 .prgl_elem{display:flex;flex-direction:row;text-decoration:none;background:#bbb;border:1px solid #444;color:#333;margin:5px 0}

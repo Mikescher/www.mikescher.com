@@ -1,11 +1,5 @@
 @import 'styles_config';
 
-$COL_CHRISTMAS_YELLOW:    #F8B229;
-$COL_CHRISTMAS_WHITE:     #EFEFEF;
-$COL_CHRISTMAS_GREEN:     #165B33;
-$COL_CHRISTMAS_GREEN_ALT: #165B00;
-$COL_CHRISTMAS_RED:       #BB2528;
-
 // ==================== AdventOfCode Blog  Listing ==================== //
 
 .aoc_calendar_parent {
@@ -23,13 +17,13 @@ $COL_CHRISTMAS_RED:       #BB2528;
 
   margin-bottom: 0.5em;
 
-  background: $COL_CHRISTMAS_YELLOW;
+  background: $LAYER2_HEADER_BG;
 }
 
 .aoc_calendar_header_link {
   display: flex;
 
-  color: #000000;
+  color: $LAYER2_HEADER_FG;
   text-decoration: none;
 }
 
@@ -37,7 +31,7 @@ $COL_CHRISTMAS_RED:       #BB2528;
   flex-grow: 0;
   display: flex;
 
-  color: #000000;
+  color: $LAYER2_HEADER_FG;
   font-family: $FONT_HEADER;
   font-weight: bold;
 }
@@ -60,12 +54,12 @@ $COL_CHRISTMAS_RED:       #BB2528;
   display: flex;
   flex-direction: column;
 
-  background: $COL_CHRISTMAS_WHITE;
+  background: $LAYER2_BG;
 
   font-size: xx-large;
   font-family: $FONT_CODE;
 
-  border: 1px solid #000000;
+  border: $LAYER2_BORDER;
 
   padding-bottom: 0.5em;
 }
@@ -95,23 +89,23 @@ $COL_CHRISTMAS_RED:       #BB2528;
 }
 
 .aoc_calendar_field.aoc_enabled {
-  background: $COL_CHRISTMAS_GREEN;
-  color: $COL_CHRISTMAS_RED;
+  background: $AOC_FIELD_GREEN;
+  color: $AOC_FIELD_RED;
   border: 1px solid #FFFFFF;
-  text-shadow: 0 0 0.2em #222;
+  text-shadow: 0 0 0.2em #222222;
   font-weight: bold;
 }
 
 .aoc_calendar_field.aoc_enabled:hover {
-  background: $COL_CHRISTMAS_GREEN_ALT;
-  color: $COL_CHRISTMAS_RED;
-  border: 1px solid $COL_CHRISTMAS_RED;
+  background: $AOC_FIELD_GREEN_ALT;
+  color: $AOC_FIELD_RED;
+  border: 1px solid $AOC_FIELD_RED;
   text-shadow: 0 0 0 #000;
 }
 
 .aoc_calendar_field.aoc_disabled {
-  background: #444;
-  color: #888;
+  background: $AOC_FIELD_DISABLED_BG;
+  color: $AOC_FIELD_DISABLED_FG;
   border: 1px solid #888;
   cursor: default;
   font-weight: normal;
@@ -119,25 +113,29 @@ $COL_CHRISTMAS_RED:       #BB2528;
 
 // ==================== AdventOfCode Blog - Single Day View ==================== //
 
+.bc_aoc_description_parent {
+  background-color: $AOC_DESCRIPTION_BG;
+  color: $AOC_DESCRIPTION_FG;
+}
+
 .bc_aoc_description {
   font-family: $FONT_CODE;
-  background-color: #333;
-  color: #DDD;
   padding: 1ch;
   max-width: 82ch;
 }
 
 .bc_aoc_input {
   font-family: $FONT_CODE;
-  border: 1px solid #000;
+  border: $LAYER2_BORDER;
   padding: 1em;
   max-height: 150px;
   overflow-y: scroll;
-  background: #F8F8F8;
+  background: $LAYER2_CODE_BG;
+  color:      $LAYER2_CODE_FG;
 }
 
 .bc_aoc_solution_parent {
-  border: 1px solid #000;
+  border: $LAYER2_BORDER;
 }
 
 .bc_aoc_solution_code {
@@ -145,10 +143,11 @@ $COL_CHRISTMAS_RED:       #BB2528;
 }
 
 .bc_aoc_solution_code pre {
-  margin: 0;
+  margin: 0 !important;
   border: none;
 }
 
 .bc_aoc_solution_value {
-  background: #AAA;
+  background: $LAYER2_HEADER_BG;
+  color:      $LAYER2_HEADER_FG;
 }

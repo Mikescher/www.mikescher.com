@@ -1,0 +1,5 @@
+> "The same procedure as last year, Miss Sophie?"
+> "The same procedure as every year, James!"
+
+This year I will try to solve the challenges with typescript. Originally I wanted to use Befunge, but the problems don't really work that well in Befunge.
+Especially big input files are annoying to realize without I/O functions...

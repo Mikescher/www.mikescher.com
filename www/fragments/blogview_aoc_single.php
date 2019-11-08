@@ -31,7 +31,7 @@ $pd = new ParsedownCustom();
         <div class="bce_header"><h1><a href="<?php echo $day['url_aoc']; ?>">Day <?php echo $day['day-padded']; ?></a>: <?php echo htmlspecialchars($day['title']); ?></h1></div>
 
         <b>Description:</b>
-        <div class="bc_aoc_description"><?php echo nl2br(htmlspecialchars(file_get_contents($day['file_challenge']))); ?></div>
+        <div class="bc_aoc_description_parent"><div class="bc_aoc_description"><?php echo nl2br(htmlspecialchars(file_get_contents($day['file_challenge']))); ?></div></div>
         <br/>
 
         <b>Input:</b>
@@ -54,14 +54,24 @@ $pd = new ParsedownCustom();
 		<?php includeAdditionalScript("/data/javascript/prism.js", 'defer'); ?>
 		<?php includeAdditionalStylesheet("/data/rawcss/prism.css"); ?>
 
-        <br />
-        <br />
+        <div class="pagination">
+            <?php
+            $assocdays = AdventOfCode::listSingleYearAssociative($year);
 
-        <?php
-            global $PARAM_AOCCALENDAR;
-            $PARAM_AOCCALENDAR = ['year' => $year, 'nav'=>false];
-            require (__DIR__ . '/../fragments/panel_aoc_calendar.php')
-        ?>
+            echo "<div class='pagAny'>";
+            for($i=0; $i < 25; $i++)
+            {
+                if ($i>0 && $i%5 == 0) echo "</div><div class='pagAny'>";
+
+                if ($assocdays[$i] === null) echo "<div class='pagbtn pagbtn_disabled'>" . ($i+1) . "</div>\n";
+                else if ($i+1 === $day['day']) echo "<a class='pagbtn pagbtn_active' href='" . $assocdays[$i]['url'] . "'>" . ($i+1) . "</a>\n";
+                else echo "<a class='pagbtn' href='" . $assocdays[$i]['url'] . "'>" . ($i+1) . "</a>\n";
+            }
+            echo "</div>";
+
+
+            ?>
+        </div>
 
 	</div>
 </div>
