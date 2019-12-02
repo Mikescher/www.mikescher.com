@@ -25,5 +25,5 @@ return
 	[ 'id' => 21, 'date' => '2018-01-02', 'visible' => true,  'title' => 'A simple javascript befunge-93 runner',  'fragment' => 'js_befrunner.md',    'type' => 'markdown', 'cat' => 'blog' ],
 	[ 'id' => 22, 'date' => '2018-02-06', 'visible' => true,  'title' => 'Homepage iteration 5',                   'fragment' => 'v5.md',              'type' => 'markdown', 'cat' => 'log'  ],
 	[ 'id' => 23, 'date' => '2019-11-02', 'visible' => true,  'title' => 'Advent of Code 2018',                    'fragment' => 'aoc2018.txt',        'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2018'] ],
-	[ 'id' => 24, 'date' => '2019-12-01', 'visible' => false, 'title' => 'Advent of Code 2019',                    'fragment' => 'aoc2019.txt',        'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2019'] ],
+	[ 'id' => 24, 'date' => '2019-12-01', 'visible' => true,  'title' => 'Advent of Code 2019',                    'fragment' => 'aoc2019.txt',        'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2019'] ],
 ];

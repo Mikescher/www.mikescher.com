@@ -84,7 +84,7 @@ class AdventOfCode
 
 		for ($i=1; $i <= $a['parts']; $i++)
 		{
-			$solutionfiles []= (__DIR__ . '/../statics/aoc/' . $year . '/' . $n2p . '-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
+			$solutionfiles []= (__DIR__ . '/../statics/aoc/' . $year . '/' . $n2p . '_solution-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
 		}
 
 		$a['file_solutions'] = $solutionfiles;

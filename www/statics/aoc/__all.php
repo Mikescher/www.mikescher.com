@@ -32,6 +32,8 @@ return
 		],
 		'2019' =>
 		[
-			//
+			['day' =>  1, 'parts' => 2, 'title' => 'The Tyranny of the Rocket Equation',   'language' => 'ts', 'solutions' => ['3464458', '5193796'] ],
+			['day' =>  2, 'parts' => 2, 'title' => '1202 Program Alarm',                   'language' => 'ts', 'solutions' => ['3267740', '7870'] ],
+
 		],
 	];
