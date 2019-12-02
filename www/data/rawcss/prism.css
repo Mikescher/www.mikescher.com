@@ -182,3 +182,6 @@ pre[class*="language-"].line-numbers > code {
     text-align: right;
 }
 
+/* =========== CUSTOM ADDITIONS ================= */
+
+pre[class*="language-"] .token { background: none; }
