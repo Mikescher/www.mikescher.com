@@ -40,6 +40,45 @@ class Blog
 		return null;
 	}
 
+	public static function getFullBlogpost($id, $subview, &$error)
+	{
+		$post = self::getBlogpost($id);
+		if ($post === null) { $error="Blogpost not found"; return null; }
+
+		$post['issubview'] = false;
+
+		$isSubEuler  = ($post['type'] === 'euler' && $subview !== '');
+		$eulerproblem = null;
+		if ($isSubEuler)
+		{
+			require_once(__DIR__ . '/../internals/euler.php');
+			$eulerproblem = Euler::getEulerProblemFromStrIdent($subview);
+			if ($eulerproblem === null) { $error="Project Euler entry not found"; return null; }
+			$post['submodel'] = $eulerproblem;
+			$post['issubview'] = true;
+		}
+
+		$isSubAdventOfCode = ($post['type'] === 'aoc' && $subview !== '');
+		$adventofcodeday = null;
+		if ($isSubAdventOfCode)
+		{
+			require_once(__DIR__ . '/../internals/adventofcode.php');
+			$adventofcodeday = AdventOfCode::getDayFromStrIdent($post['extras']['aoc:year'], $subview);
+			if ($adventofcodeday === null) { $error="AdventOfCode entry not found"; return null; }
+			$post['submodel'] = $adventofcodeday;
+			$post['issubview'] = true;
+		}
+
+		if ($isSubEuler)        $post['title'] = $eulerproblem['title'];
+		if ($isSubAdventOfCode) $post['title'] = $adventofcodeday['title'];
+
+		if ($isSubEuler)        $post['canonical'] = $eulerproblem['canonical'];
+		if ($isSubAdventOfCode) $post['canonical'] = $adventofcodeday['canonical'];
+
+		return $post;
+
+	}
+
 	public static function getPostFragment($post)
 	{
 		return file_get_contents($post['file_fragment']);

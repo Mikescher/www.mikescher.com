@@ -8,49 +8,27 @@ require_once (__DIR__ . '/../internals/blog.php');
 $id = $OPTIONS['id'];
 $subview = $OPTIONS['subview'];
 
-$post = Blog::getBlogpost($id);
-if ($post === NULL) httpError(404, 'Blogpost not found');
-
-$isSubEuler  = ($post['type'] === 'euler' && $subview !== '');
-$isBaseEuler = ($post['type'] === 'euler');
-$eulerproblem = null;
-if ($isSubEuler)
-{
-	require_once(__DIR__ . '/../internals/euler.php');
-	$eulerproblem = Euler::getEulerProblemFromStrIdent($subview);
-}
-if ($eulerproblem === null) $isSubEuler = false;
-
-$isSubAdventOfCode = ($post['type'] === 'aoc' && $subview !== '');
-$isAdventOfCode    = ($post['type'] === 'aoc');
-$adventofcodeday = null;
-if ($isSubAdventOfCode)
-{
-	require_once(__DIR__ . '/../internals/adventofcode.php');
-	$adventofcodeday = AdventOfCode::getDayFromStrIdent($post['extras']['aoc:year'], $subview);
-}
-if ($adventofcodeday === null) $isSubAdventOfCode = false;
-
-$htmltitle = $post['title'];
-if ($isSubEuler) $htmltitle = $eulerproblem['title'];
-if ($isSubAdventOfCode) $htmltitle = $adventofcodeday['title'];
-
-$canonical = $post['canonical'];
-if ($isSubEuler) $canonical = $eulerproblem['canonical'];
-if ($isSubAdventOfCode) $canonical = $adventofcodeday['canonical'];
+$post = Blog::getFullBlogpost($id, $subview, $err);
+if ($post === null) httpError(404, $err);
 
 ?>
 <head>
 	<meta charset="utf-8">
-	<title>Mikescher.com - <?php echo $htmltitle; ?></title>
+	<title>Mikescher.com - <?php echo htmlspecialchars($post['title']); ?></title>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<?php printHeaderCSS(); ?>
-	<?php echo '<link rel="canonical" href="' . $canonical . '"/>'; ?>
+	<?php echo '<link rel="canonical" href="' . $post['canonical'] . '"/>'; ?>
 </head>
 <body>
 <div id="mastercontainer">
 
-<?php $HEADER_ACTIVE = (($isSubEuler || $isBaseEuler) ? 'euler' : 'blog'); include (__DIR__ . '/../fragments/header.php'); ?>
+<?php
+if      ($post['type'] == 'euler')                       $HEADER_ACTIVE = 'euler';
+else if ($post['type'] == 'euler' && $post['issubview']) $HEADER_ACTIVE = 'aoc';
+else                                                     $HEADER_ACTIVE = 'blog';
+
+include (__DIR__ . '/../fragments/header.php');
+?>
 
 <div id="content" class="content-responsive">
 
