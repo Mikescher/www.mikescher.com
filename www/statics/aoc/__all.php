@@ -35,6 +35,8 @@ return
 			['day' =>  1, 'parts' => 2, 'title' => 'The Tyranny of the Rocket Equation',   'language' => 'ts', 'solutions' => ['3464458', '5193796'] ],
 			['day' =>  2, 'parts' => 2, 'title' => '1202 Program Alarm',                   'language' => 'ts', 'solutions' => ['3267740', '7870'] ],
 			['day' =>  3, 'parts' => 2, 'title' => 'Crossed Wires',                        'language' => 'ts', 'solutions' => ['399', '15678'] ],
+			['day' =>  4, 'parts' => 2, 'title' => 'Secure Container',                     'language' => 'ts', 'solutions' => ['979', '635'] ],
+			['day' =>  5, 'parts' => 2, 'title' => 'Sunny with a Chance of Asteroids',     'language' => 'ts', 'solutions' => ['8332629', '8805067'] ],
 
 		],
 	];
