@@ -37,6 +37,9 @@ return
 			['day' =>  3, 'parts' => 2, 'title' => 'Crossed Wires',                        'language' => 'ts', 'solutions' => ['399', '15678'] ],
 			['day' =>  4, 'parts' => 2, 'title' => 'Secure Container',                     'language' => 'ts', 'solutions' => ['979', '635'] ],
 			['day' =>  5, 'parts' => 2, 'title' => 'Sunny with a Chance of Asteroids',     'language' => 'ts', 'solutions' => ['8332629', '8805067'] ],
-
+			['day' =>  6, 'parts' => 2, 'title' => 'Universal Orbit Map',                  'language' => 'ts', 'solutions' => ['333679', '370'] ],
+			['day' =>  7, 'parts' => 2, 'title' => 'Amplification Circuit',                'language' => 'ts', 'solutions' => ['844468', '4215746'] ],
+			['day' =>  8, 'parts' => 2, 'title' => 'Space Image Format',                   'language' => 'ts', 'solutions' => ['2286', 'CJZLP'] ],
+			['day' =>  9, 'parts' => 2, 'title' => 'Sensor Boost',                         'language' => 'ts', 'solutions' => ['2738720997', '50894'] ],
 		],
 	];
