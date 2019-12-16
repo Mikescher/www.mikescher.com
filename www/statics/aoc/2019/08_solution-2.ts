@@ -36,7 +36,7 @@ namespace AdventOfCode2019_08_2
 			if (r[i]===2) str += ".";
 		}
 
-		console.log(str);
+		await AdventOfCode.outputIntermed(str);
 
 		AdventOfCode.output(DAY, PROBLEM, "CJZLP"); // OCR -.-
 	}

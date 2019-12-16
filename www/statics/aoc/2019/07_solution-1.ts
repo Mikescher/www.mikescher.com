@@ -39,7 +39,7 @@ namespace AdventOfCode2019_07_1
 			runner5.run();
 			
 			outputs.push(runner5.output[0]);
-			console.log([a1,a2,a3,a4,a5].toString() + "  -->  " + runner1.output[0] + " |> " + runner2.output[0] + " |> " + runner3.output[0] + " |> " + runner4.output[0] + " |> " + runner5.output[0]);
+			AdventOfCode.outputConsole([a1,a2,a3,a4,a5].toString() + "  -->  " + runner1.output[0] + " |> " + runner2.output[0] + " |> " + runner3.output[0] + " |> " + runner4.output[0] + " |> " + runner5.output[0]);
 		}
 
 		const max = outputs.sort((a, b) => a - b).reverse()[0];
@@ -99,7 +99,7 @@ namespace AdventOfCode2019_07_1
 				{
 					const p0 = cmd.getParameter(this, 0);
 					this.output.push(p0);
-					//console.log("# " + p0);
+					//AdventOfCode.outputConsole("# " + p0);
 				}
 				else if (cmd.opcode == OpCode.TJMP)
 				{

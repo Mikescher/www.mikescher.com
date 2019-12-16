@@ -22,7 +22,7 @@ namespace AdventOfCode2019_08_1
 			const _zc = layers[i].filter(p => p==0).length;
 			const _vv = layers[i].filter(p => p==1).length * layers[i].filter(p => p==2).length;
 
-			console.log("["+i+"] => "+_zc+"  ("+_vv+")");
+			AdventOfCode.outputConsole("["+i+"] => "+_zc+"  ("+_vv+")");
 			if (_zc < zc) { zc=_zc; vv = _vv; }
 		}
 

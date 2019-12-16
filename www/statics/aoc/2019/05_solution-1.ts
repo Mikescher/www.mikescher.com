@@ -65,7 +65,7 @@ namespace AdventOfCode2019_05_1
 				{
 					const p0 = cmd.getParameter(this, 0);
 					this.output.push(p0);
-					console.log("# " + p0);
+					AdventOfCode.outputConsole("# " + p0);
 				}
 				else throw "Unknown Op: " + cmd.opcode + " @ " + this.instructionpointer;
 

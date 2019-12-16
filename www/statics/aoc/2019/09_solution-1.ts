@@ -70,7 +70,7 @@ namespace AdventOfCode2019_09_1
 				{
 					const p0 = cmd.getParameter(this, 0);
 					this.output.push(p0);
-					console.log("# " + p0);
+					AdventOfCode.outputConsole("# " + p0);
 				}
 				else if (cmd.opcode == OpCode.TJMP)
 				{

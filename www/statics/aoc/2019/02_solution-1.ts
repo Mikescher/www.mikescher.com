@@ -18,7 +18,7 @@ namespace AdventOfCode2019_02_1
 			const arg1 = automata[automata[i+1]];
 			const arg2 = automata[automata[i+2]];
 			const dest = automata[i+3];
-			console.log("["+dest+"] <- "+arg1+" {"+op+"} "+arg2)
+			AdventOfCode.outputConsole("["+dest+"] <- "+arg1+" {"+op+"} "+arg2)
 			if (op==1) automata[dest] = arg1 + arg2;
 			else if (op==2) automata[dest] = arg1 * arg2;
 			else break;

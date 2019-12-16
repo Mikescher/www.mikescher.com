@@ -41,5 +41,12 @@ return
 			['day' =>  7, 'parts' => 2, 'title' => 'Amplification Circuit',                'language' => 'ts', 'solutions' => ['844468', '4215746'] ],
 			['day' =>  8, 'parts' => 2, 'title' => 'Space Image Format',                   'language' => 'ts', 'solutions' => ['2286', 'CJZLP'] ],
 			['day' =>  9, 'parts' => 2, 'title' => 'Sensor Boost',                         'language' => 'ts', 'solutions' => ['2738720997', '50894'] ],
+			['day' => 10, 'parts' => 2, 'title' => 'Monitoring Station',                   'language' => 'ts', 'solutions' => ['344', '2732'] ],
+			['day' => 11, 'parts' => 2, 'title' => 'Space Police',                         'language' => 'ts', 'solutions' => ['2021', 'LBJHEKLH'] ],
+			['day' => 12, 'parts' => 2, 'title' => 'The N-Body Problem',                   'language' => 'ts', 'solutions' => ['9999', '282399002133976'] ],
+			['day' => 13, 'parts' => 2, 'title' => 'Care Package',                         'language' => 'ts', 'solutions' => ['326', '15988'] ],
+			['day' => 14, 'parts' => 2, 'title' => 'Space Stoichiometry',                  'language' => 'ts', 'solutions' => ['168046', '6972986'] ],
+			['day' => 15, 'parts' => 2, 'title' => 'Oxygen System',                        'language' => 'ts', 'solutions' => ['244', '278'] ],
+			['day' => 16, 'parts' => 2, 'title' => 'Flawed Frequency Transmission',        'language' => 'ts', 'solutions' => ['69549155', '83253465'] ],
 		],
 	];
