@@ -23,7 +23,7 @@ namespace AdventOfCode2019_16_2
 			step = StupidBigFFT(step);
 
 			AdventOfCode.outputConsole(`[${i}] ` + step.slice(0, 8).map(p=>p.toString()).reduce((a,b)=>a+b));
-			await AdventOfCode.sleep(0);
+			await AdventOfCode.sleepIfConsole(0);
 		}
 
 		AdventOfCode.output(DAY, PROBLEM, step.slice(0, 8).map(p=>p.toString()).reduce((a,b)=>a+b));
