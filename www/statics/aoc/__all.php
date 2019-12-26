@@ -55,6 +55,7 @@ return
             ['day' => 21, 'parts' => 2, 'title' => 'Springdroid Adventure',                'language' => 'ts', 'solutions' => ['19361023', '1141457530'] ],
             ['day' => 22, 'parts' => 2, 'title' => 'Slam Shuffle',                         'language' => 'ts', 'solutions' => ['1252', '46116012647793'] ],
             ['day' => 23, 'parts' => 2, 'title' => 'Category Six',                         'language' => 'ts', 'solutions' => ['27061', '19406'] ],
-            ['day' => 24, 'parts' => 2, 'title' => 'Planet of Discord',                    'language' => 'ts', 'solutions' => ['25719471', '1916'] ],
+			['day' => 24, 'parts' => 2, 'title' => 'Planet of Discord',                    'language' => 'ts', 'solutions' => ['25719471', '1916'] ],
+			['day' => 25, 'parts' => 1, 'title' => 'Cryostasis',                           'language' => 'ts', 'solutions' => ['2236672'] ],
 		],
 	];
