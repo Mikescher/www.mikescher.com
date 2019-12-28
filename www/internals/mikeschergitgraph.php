@@ -1,7 +1,7 @@
 <?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
 
 require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../extern/egh/ExtendedGitGraph2.php');
+require_once (__DIR__ . '/../extern/egg/ExtendedGitGraph2.php');
 
 class MikescherGitGraph
 {

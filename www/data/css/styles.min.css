@@ -134,7 +134,7 @@ html,body{margin:0;padding:0;height:100%}
 @media(max-width:850px){.index_pnl_base{width:330px}}
 .aboutcontent{display:block;width:100%}
 .aboutcontent .boxedcontent{margin-bottom:20px}
-.about_egh_container{display:flex;flex-direction:column;align-items:center}
+.about_egg_container{display:flex;flex-direction:column;align-items:center}
 .git_list{display:inline-block;width:715px;height:115px;overflow:visible}
 @media(max-width:991px){
 	.git_list{width:100%;height:auto}
@@ -159,7 +159,7 @@ html,body{margin:0;padding:0;height:100%}
 .egg_col_x5_4{fill:#003958}
 .admincontent{display:block;width:100%}
 .admincontent .boxedcontent{margin-bottom:20px}
-.egh_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}
+.egg_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}
 .keyvaluelist{display:flex;flex-direction:column}
 .keyvaluelist div{display:flex;flex-direction:row}
 .keyvaluelist div span{align-self:center}

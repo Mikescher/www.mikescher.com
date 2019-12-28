@@ -1,8 +1,8 @@
 <?php
 
-if (session_status() !== PHP_SESSION_ACTIVE) session_start();
-
 global $CONFIG;
+
+if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
 if (isset($_GET['clear']))
 {

@@ -19,7 +19,7 @@ $consistency_blog    = Blog::checkConsistency();
 $consistency_prog    = Programs::checkConsistency();
 $consistency_euler   = Euler::checkConsistency();
 $consistency_books   = Books::checkConsistency();
-$consistency_egh     = MikescherGitGraph::checkConsistency();
+$consistency_egg     = MikescherGitGraph::checkConsistency();
 $consistency_progimg = Programs::checkThumbnails();
 $consistency_bookimg = Books::checkThumbnails();
 $consistency_aoc     = AdventOfCode::checkConsistency();
@@ -75,7 +75,7 @@ function dumpConsistency($c) {
                 <div class="bc_data">
                     <div class="keyvaluelist kvl_200">
                         <div><span>Program thumbnails:</span> <?php dumpConsistency($consistency_progimg); ?></div>
-                        <div><span>ExtendedGitGraph:</span>   <?php dumpConsistency($consistency_egh);     ?></div>
+                        <div><span>ExtendedGitGraph:</span>   <?php dumpConsistency($consistency_egg);     ?></div>
                         <div><span>Book thumbnails:</span>    <?php dumpConsistency($consistency_bookimg); ?></div>
                         <div><span>Blog data:</span>          <?php dumpConsistency($consistency_blog);    ?></div>
                         <div><span>Euler data:</span>         <?php dumpConsistency($consistency_euler);   ?></div>
@@ -84,8 +84,8 @@ function dumpConsistency($c) {
                         <div><span>Books data:</span>         <?php dumpConsistency($consistency_books);   ?></div>
                     </div>
                     <br/>
-                    <a class="button" href="/admin/cmd/createProgramThumbnails">Update Program Thumbnails</a>
-                    <a class="button" href="/admin/cmd/createBookThumbnails">Update Book Thumbnails</a>
+                    <a class="button" href="/api/site::createProgramThumbnails">Update Program Thumbnails</a>
+                    <a class="button" href="/api/site::createBookThumbnails">Update Book Thumbnails</a>
 
                 </div>
             </div>
@@ -115,7 +115,7 @@ function dumpConsistency($c) {
 
                 <div class="bc_data">
 
-                    <textarea class="egh_ajaxOutput" id="egh_ajaxOutput" readonly="readonly"></textarea>
+                    <textarea class="egg_ajaxOutput" id="egg_ajaxOutput" readonly="readonly"></textarea>
                     <a class="button" href="javascript:startAjaxRefresh('<?php echo $CONFIG['ajax_secret'] ?>')">Update</a>
                     <a class="button" href="javascript:startAjaxRedraw('<?php echo $CONFIG['ajax_secret'] ?>')">Redraw</a>
 
@@ -136,7 +136,7 @@ function dumpConsistency($c) {
                     </div>
                     <br/>
                     <div id="an_ajax_target"></div>
-                    <a class="button" href="javascript:startAjaxReplace('#an_ajax_target', '/su_ajax/alephNoteTable?secret=<?php echo $CONFIG['ajax_secret'] ?>')">Show</a>
+                    <a class="button" href="javascript:startAjaxReplace('#an_ajax_target', '/api/alephnote::show?secret=<?php echo $CONFIG['ajax_secret'] ?>')">Show</a>
                 </div>
 
             </div>
@@ -162,7 +162,7 @@ function dumpConsistency($c) {
 
                 <div class="bc_data keyvaluelist kvl_300">
 					<?php foreach (UpdatesLog::listProgramsInformation() as $info): ?>
-                        <div><span><?php echo '[' . $info['name'] . '] Count:' ?></span> <span><a href="javascript:startAjaxReplace('#ul_ajax_target', '/su_ajax/updateslog?secret=<?php echo $CONFIG['ajax_secret'] ?>&ulname=<?php echo $info['name'] ?>')"><?php echo $info['count_total']; ?></a></span></div>
+                        <div><span><?php echo '[' . $info['name'] . '] Count:' ?></span> <span><a href="javascript:startAjaxReplace('#ul_ajax_target', '/admin/updates::show?secret=<?php echo $CONFIG['ajax_secret'] ?>&ulname=<?php echo $info['name'] ?>')"><?php echo $info['count_total']; ?></a></span></div>
                         <div><span><?php echo '[' . $info['name'] . '] Last query:' ?></span> <span><?php echo $info['last_query']; ?></span></div>
                         <div><span><?php echo '[' . $info['name'] . '] Count (1 week):' ?></span> <span><?php echo $info['count_week']; ?></span></div>
                         <hr />

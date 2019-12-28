@@ -30,26 +30,21 @@ $URL_RULES =
 	[ 'url' => ['books', 'view', '?{id}'],                   'target' => 'pages/books_view.php',             'options' => [ 'id' => '%GET%' ],                       ],
 	[ 'url' => ['books', 'view', '?{id}', '*'],              'target' => 'pages/books_view.php',             'options' => [ 'id' => '%URL%' ],                       ],
 
-	[ 'url' => ['update.php'],                               'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%GET%' ],   ],
-	[ 'url' => ['update.php', '?{Name}'],                    'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%URL%' ],   ],
-	[ 'url' => ['update'],                                   'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%GET%' ],   ],
-	[ 'url' => ['update', '?{Name}'],                        'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%URL%' ],   ],
-	[ 'url' => ['update2'],                                  'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%GET%' ],   ],
-	[ 'url' => ['api', 'update'],                            'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%GET%' ],   ],
-	[ 'url' => ['api', 'update', '?{Name}'],                 'target' => 'pages/api_updatecheck.php',        'options' => [ '_opt' => 'http', 'Name' => '%URL%' ],   ],
-	[ 'url' => ['api', 'test'],                              'target' => 'pages/api_test.php',               'options' => [ '_opt' => 'http', ],                     ],
-	[ 'url' => ['api', 'setselfadress'],                     'target' => 'pages/api_setselfadress.php',      'options' => [ '_opt' => 'http', ],                     ],
-	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api_stats.php',              'options' => [ '_opt' => 'http', 'Name' => '%GET%', 'ClientID' => '%GET%', 'Version' => '%GET%', 'ProviderStr' => '%GET%', 'ProviderID' => '%GET%', 'NoteCount' => '%GET%', ], ],
-	[ 'url' => ['api', 'webhook', '?{target}'],              'target' => 'pages/api_webhook.php',            'options' => [ '_opt' => 'http', 'target' => '%URL%', 'secret' => '%GET%', ],],
-	[ 'url' => ['api', 'backupupload'],                      'target' => 'pages/api_backupupload.php',       'options' => [ '_opt' => 'http', 'folder' => '%GET%', 'filename' => '%GET%', 'secret' => '%GET%', ],],
+	[ 'url' => ['update.php'],                               'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'progs::updatecheck' ],            ],
+	[ 'url' => ['update.php', '?{Name}'],                    'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'progs::updatecheck' ],            ],
+	[ 'url' => ['update'],                                   'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'progs::updatecheck' ],            ],
+	[ 'url' => ['update', '?{Name}'],                        'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'progs::updatecheck' ],            ],
+	[ 'url' => ['update2'],                                  'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'progs::updatecheck' ],            ],
+	[ 'url' => ['api', 'update'],                            'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'progs::updatecheck' ],            ],
+	[ 'url' => ['api', 'update', '?{Name}'],                 'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'progs::updatecheck' ],            ],
+	[ 'url' => ['api', 'test'],                              'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'base::test' ],                    ],
+	[ 'url' => ['api', 'setselfadress'],                     'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'server::setselfaddress' ],        ],
+	[ 'url' => ['api', 'statsping'],                         'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'alephnote::statsping' ],          ],
+	[ 'url' => ['api', 'webhook', '?{target}'],              'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'server::gitwebhook' ],            ],
+	[ 'url' => ['api', 'backupupload'],                      'target' => 'pages/api.php',                    'options' => [ '_opt' => 'http',     'cmd' => 'server::backupupload' ],          ],
+	[ 'url' => ['api', '?{cmd}'],                            'target' => 'pages/api.php',                    'options' => [                       'cmd' => '%URL%' ],                         ],
 
 	[ 'url' => ['admin'],                                    'target' => 'pages/admin.php',                  'options' => [ '_opt' => 'password'],                   ],
-	[ 'url' => ['admin', 'updateslog', '${name}'],           'target' => 'pages/admin_ul-list.php',          'options' => [ '_opt' => 'password', 'name' => '%URL%'],],
-	[ 'url' => ['admin', 'cmd', '?{cmd}'],                   'target' => 'pages/admin_cmd.php',              'options' => [ '_opt' => 'password', 'cmd' => '%URL%'], ],
-	[ 'url' => ['admin', 'egh', '?{cmd}'],                   'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => 'egh', 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
-
-	[ 'url' => ['su_ajax', '?{cmd}'],                        'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '', 'cmd' => '%URL%', 'secret' => '%GET%' ], ],
-	[ 'url' => ['su_ajax'],                                  'target' => 'pages/su_ajax.php',                'options' => [ 'suffix' => '', 'cmd' => '%GET%', 'secret' => '%GET%' ], ],
 
 	[ 'url' => ['blog'],                                     'target' => 'pages/blog_list.php',              'options' => [],                                        ],
 	[ 'url' => ['log'],                                      'target' => 'pages/blog_list.php',              'options' => [],                                        ],
@@ -80,7 +75,7 @@ $URL_RULES =
 	[ 'url' => ['highscores', 'list_top50'],                 'target' => 'pages/highscores_top50.php',       'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
 	[ 'url' => ['highscores', 'getNewID.php'],               'target' => 'pages/highscores_newid.php',       'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
 	[ 'url' => ['highscores', 'newid'],                      'target' => 'pages/highscores_newid.php',       'options' => [ '_opt' => 'http', 'gameid' => '%GET%' ], ],
-	
+
 	[ 'url' => ['404'],                                      'target' => 'pages/error_404.php',              'options' => [],                                        ],
 ];
 
@@ -156,6 +151,10 @@ try {
 
 			$opt[strtolower($optname)] = $value;
 		}
+
+		$opt['_urlparams'] = [];
+		foreach ($urlparams as $name => $value) $opt['_urlparams'][strtolower($name)] = urldecode($value);
+
 		if (!$match) continue;
 
 		if (in_array('disabled', $ctrlOpt)) continue;
@@ -181,7 +180,9 @@ try {
 		}
 
 		$OPTIONS = $opt;
-			include $target;
+
+		/** @noinspection PhpIncludeInspection */
+		include $target;
 		return;
 
 	}

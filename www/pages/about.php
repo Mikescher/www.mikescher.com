@@ -45,7 +45,7 @@ global $OPTIONS;
 			<div class="boxedcontent">
 				<div class="bc_header">My git timeline</div>
 
-				<div class="bc_data about_egh_container">
+				<div class="bc_data about_egg_container">
 
 					<?php print(MikescherGitGraph::get()); ?>
 

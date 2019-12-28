@@ -1,7 +1,7 @@
 function queryStatus(appendix, secret)
 {
     jQuery.ajax({
-        url:    '/admin/egh/status?secret='+secret,
+        url:    '/api/extendedgitgraph::status?secret='+secret,
         success: function(result)
         {
             let ajaxOutput = $('#egh_ajaxOutput');
@@ -14,11 +14,11 @@ function queryStatus(appendix, secret)
 
 function startAjaxRefresh(secret)
 {
-    $('#egh_ajaxOutput').val("Started.");
+    $('#egg_ajaxOutput').val("Started.");
     val = setInterval(function(){ queryStatus('', secret); }, 500);
 
     jQuery.ajax({
-        url:    '/admin/egh/refresh?secret='+secret,
+        url:    '/api/extendedgitgraph::refresh?secret='+secret,
         success: function(result)
         {
             clearInterval(val);
@@ -35,11 +35,11 @@ function startAjaxRefresh(secret)
 
 function startAjaxRedraw(secret)
 {
-    $('#egh_ajaxOutput').val("Started.");
+    $('#egg_ajaxOutput').val("Started.");
     val = setInterval(function(){ queryStatus('', secret); }, 500);
 
     jQuery.ajax({
-        url:    '/admin/egh/redraw?secret='+secret,
+        url:    '/api/extendedgitgraph::redraw?secret='+secret,
         success: function(result)
         {
             clearInterval(val);
