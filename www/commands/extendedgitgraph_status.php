@@ -4,15 +4,19 @@ global $CONFIG;
 
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
-if (isset($_GET['clear']))
-{
-	if (key_exists($CONFIG['extendedgitgraph']['session_var'], $_SESSION)) $_SESSION[$CONFIG['extendedgitgraph']['session_var']] = '';
-}
+$svar = $CONFIG['extendedgitgraph']['session_var'];
 
-if (key_exists($CONFIG['extendedgitgraph']['session_var'], $_SESSION))
-	echo $_SESSION[$CONFIG['extendedgitgraph']['session_var']];
+if (isset($_GET['clear'])) if (key_exists($svar, $_SESSION)) $_SESSION[$svar] = '';
+
+if (key_exists($svar, $_SESSION))
+{
+	if ($_SESSION[$svar] === '') echo '[[ NO OUTPUT ]]';
+	else echo $_SESSION[$svar] === '';
+}
 else
+{
 	echo '[[ NO SESSION STARTED ]]';
+}
 
 
 return;
