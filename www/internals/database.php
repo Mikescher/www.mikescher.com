@@ -21,6 +21,16 @@ class Database
 		self::$PDO = new PDO($dsn, $CONFIG['user'], $CONFIG['password'], $opt);
 	}
 
+	public static function tryconnect()
+	{
+		try {
+			self::connect();
+			return true;
+		} catch (exception $e) {
+			return false;
+		}
+	}
+
 	public static function sql_query_num($query)
 	{
 		$r = self::$PDO->query($query)->fetch(PDO::FETCH_NUM)[0];

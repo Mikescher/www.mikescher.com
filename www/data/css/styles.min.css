@@ -152,6 +152,7 @@ html,body{margin:0;padding:0;height:100%}
 .about_circles{display:flex;flex-direction:column}
 .about_circles a{margin:5px 0}
 .about_circles .iconbutton_light span{text-align:left}
+.boxedcontent.alertbox{background-color:#F52;font-weight:bold;text-align:center}
 .egg_col_x5_0{fill:#eee}
 .egg_col_x5_1{fill:#6bcdff}
 .egg_col_x5_2{fill:#00a1f3}
@@ -163,7 +164,7 @@ html,body{margin:0;padding:0;height:100%}
 .keyvaluelist{display:flex;flex-direction:column}
 .keyvaluelist div{display:flex;flex-direction:row}
 .keyvaluelist div span{align-self:center}
-.keyvaluelist div span:first-child{font-weight:bold;min-width:500px}
+.keyvaluelist div span:first-child{font-weight:bold;min-width:500px;align-self:start}
 .kvl_100 div span:first-child{min-width:100px}
 .kvl_200 div span:first-child{min-width:200px}
 .kvl_300 div span:first-child{min-width:300px}

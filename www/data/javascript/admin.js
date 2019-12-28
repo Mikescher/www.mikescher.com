@@ -4,7 +4,7 @@ function queryStatus(appendix, secret)
         url:    '/api/extendedgitgraph::status?secret='+secret,
         success: function(result)
         {
-            let ajaxOutput = $('#egh_ajaxOutput');
+            let ajaxOutput = $('#egg_ajaxOutput');
             ajaxOutput.val(result + '\r\n' + appendix);
             ajaxOutput.scrollTop(ajaxOutput[0].scrollHeight);
         },

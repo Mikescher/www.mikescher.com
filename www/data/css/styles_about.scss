@@ -112,6 +112,12 @@
 
 }
 
+.boxedcontent.alertbox {
+  background-color: #F52;
+  font-weight: bold;
+  text-align: center;
+}
+
 @if $CFG_EGG_THEME == 'standard'
 {
   // ==== STANDARD ====

@@ -21,6 +21,7 @@ if (key_exists('username', $_GET) && key_exists('password', $_GET) && key_exists
 }
 
 $redirect = $OPTIONS['login_target'];
+if (($redirect === '/' || $redirect === '') && isset($_GET['redirect'])) $redirect = $_GET['redirect'];
 
 ?>
 <head>

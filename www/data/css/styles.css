@@ -782,6 +782,12 @@ html, body {
   text-align: left;
 }
 
+.boxedcontent.alertbox {
+  background-color: #F52;
+  font-weight: bold;
+  text-align: center;
+}
+
 .egg_col_x5_0 {
   fill: #eeeeee;
 }
@@ -837,6 +843,7 @@ html, body {
 .keyvaluelist div span:first-child {
   font-weight: bold;
   min-width: 500px;
+  align-self: start;
 }
 
 .kvl_100 div span:first-child {
