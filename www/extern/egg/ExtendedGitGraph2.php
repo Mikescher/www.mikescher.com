@@ -30,6 +30,7 @@ class ExtendedGitGraph2 implements ILogger
 		if ($config['output_session']) $this->logger []= new SessionLogger($config['session_var']);
 		if ($config['output_stdout'])  $this->logger []= new OutputLogger();
 		if ($config['output_logfile']) $this->logger []= new FileLogger($config['logfile'], $config['logfile_count']);
+		if ($config['output_file'])    $this->logger []= new SingleFileLogger($config['output_filepath']);
 
 		$this->sources = [];
 

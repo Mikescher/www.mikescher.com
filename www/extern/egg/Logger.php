@@ -42,6 +42,26 @@ class FileLogger implements ILogger
 	}
 }
 
+class SingleFileLogger implements ILogger
+{
+	/** @var string $path */
+	private $path;
+
+	/**
+	 * @var string $filename
+	 */
+	public function __construct($filename)
+	{
+		$this->path = $filename;
+		file_put_contents($this->path, '', FILE_TEXT);
+	}
+
+	public function proclog($text)
+	{
+		file_put_contents($this->path, $text . PHP_EOL , FILE_APPEND | LOCK_EX);
+	}
+}
+
 class SessionLogger implements ILogger
 {
 	/** @var string $sessionvar */
@@ -64,6 +84,8 @@ class SessionLogger implements ILogger
 	{
 		if (session_status() === PHP_SESSION_DISABLED) return;
 
+			if (session_status() !== PHP_SESSION_ACTIVE) session_start();
+		if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 		$_SESSION[$this->sessionvar] .= $text . "\r\n";
 		session_commit();
 	}

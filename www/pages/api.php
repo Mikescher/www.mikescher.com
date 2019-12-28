@@ -76,7 +76,6 @@ $API_OPTIONS = [];
 foreach ($_GET as $k => $v) $API_OPTIONS[strtolower($k)] = $v;
 foreach ($OPTIONS['_urlparams'] as $k => $v) $API_OPTIONS[strtolower($k)] = $v;
 
-
 try
 {
 	/** @noinspection PhpIncludeInspection */
@@ -86,4 +85,13 @@ catch (exception $e)
 {
 	print("API Command failed with exception");
 	print($e);
+
+	$content =
+		"REQUEST: " . var_export($_REQUEST) . "\r\n\r\n" .
+		"IP:      " . get_client_ip()       . "\r\n\r\n" .
+		"ERROR:   " . $e                    . "\r\n\r\n";
+
+	sendMail("Website API call failed", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
+
+	httpDie(500, 'Error.');
 }
