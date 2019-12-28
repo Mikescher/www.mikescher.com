@@ -1,41 +1,35 @@
 <?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
 
 require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../extern/egh/ExtendedGitGraph.php');
+require_once (__DIR__ . '/../extern/egh/ExtendedGitGraph2.php');
 
 class MikescherGitGraph
 {
+	/**
+	 * @return ExtendedGitGraph2
+	 * @throws Exception
+	 */
 	public static function create()
 	{
 		global $CONFIG;
 
-		$v = new ExtendedGitGraph(__DIR__ . '/../temp/egh_cache.bin', ExtendedGitGraph::OUT_SESSION, __DIR__ . '/../temp/egh_log{num}.log');
-
-		$v->addRemote('github-user',       null, 'Mikescher', 'Mikescher');
-		//$v->addRemote('github-user',       null, 'Mikescher', 'Sam-Development');
-		//$v->addRemote('github-repository', null, 'Mikescher', 'Anastron/ColorRunner');
-		$v->addRemote('gitea-repository',  null, 'Mikescher', 'Mikescher/server-scripts');
-		$v->addRemote('gitea-repository',  null, 'Mikescher', 'Mikescher/apache-sites');
-		$v->addRemote('gitea-repository',  null, 'Mikescher', 'Mikescher/MVU_API');
-
-		$v->setColorScheme($CONFIG['egh_theme']);
-
-		$v->ConnectionGithub->setAPIToken($CONFIG['egh_token']);
-
-		$v->ConnectionGitea->setURL('https://gogs.mikescher.com');
-
-		return $v;
+		return new ExtendedGitGraph2($CONFIG['extendedgitgraph']);
 	}
 
 	public static function getPathRenderedData()
 	{
-		return __DIR__ . '/../dynamic/egh.html';
+		return __DIR__ . '/../dynamic/egg/cache_fullrenderer.html';
 	}
 
-	public static function includeRender()
+	/**
+	 * @return string|null
+	 * @throws Exception
+	 */
+	public static function get()
 	{
-		if (file_exists(__DIR__ . '/../dynamic/egh.html'))
-			include __DIR__ . '/../dynamic/egh.html';
+		$d = self::create()->loadFromCache();
+		if ($d === null) return "";
+		return $d;
 	}
 
 	public static function checkConsistency()

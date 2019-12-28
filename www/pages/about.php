@@ -47,7 +47,7 @@ global $OPTIONS;
 
 				<div class="bc_data about_egh_container">
 
-					<?php MikescherGitGraph::includeRender(); ?>
+					<?php print(MikescherGitGraph::get()); ?>
 
 				</div>
 
