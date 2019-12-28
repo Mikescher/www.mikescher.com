@@ -22,7 +22,7 @@
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="&quot;$ProjectFileDir$\data\css_compress\compress.py&quot; &quot;$FileDir$\styles.scss&quot; &quot;$FileDir$\styles.css&quot; &quot;$FileDir$\styles.min.css&quot;" />
+      <option name="arguments" value="&quot;$ProjectFileDir$/data/css_compress/compress.py&quot; &quot;$FileDir$/styles.scss&quot; &quot;$FileDir$/styles.css&quot; &quot;$FileDir$/styles.min.css&quot;" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />

@@ -152,6 +152,11 @@ html,body{margin:0;padding:0;height:100%}
 .about_circles{display:flex;flex-direction:column}
 .about_circles a{margin:5px 0}
 .about_circles .iconbutton_light span{text-align:left}
+.egg_col_x5_0{fill:#eee}
+.egg_col_x5_1{fill:#6bcdff}
+.egg_col_x5_2{fill:#00a1f3}
+.egg_col_x5_3{fill:#0079b7}
+.egg_col_x5_4{fill:#003958}
 .admincontent{display:block;width:100%}
 .admincontent .boxedcontent{margin-bottom:20px}
 .egh_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}

@@ -111,3 +111,81 @@
   .iconbutton_light span {text-align: left;}
 
 }
+
+@if $CFG_EGG_THEME == 'standard'
+{
+  // ==== STANDARD ====
+  .egg_col_x5_0 { fill: #ebedf0; }
+  .egg_col_x5_1 { fill: #c6e48b; }
+  .egg_col_x5_2 { fill: #7bc96f; }
+  .egg_col_x5_3 { fill: #239a3b; }
+  .egg_col_x5_4 { fill: #196127; }
+}
+@elseif $CFG_EGG_THEME == 'modern'
+{
+  .egg_col_x5_0 { fill: #afaca8; }
+  .egg_col_x5_1 { fill: #d6e685; }
+  .egg_col_x5_2 { fill: #8cc665; }
+  .egg_col_x5_3 { fill: #44a340; }
+  .egg_col_x5_4 { fill: #1e6823; }
+}
+@elseif $CFG_EGG_THEME == 'gray'
+{
+  .egg_col_x5_0 { fill: #eeeeee; }
+  .egg_col_x5_1 { fill: #bdbdbd; }
+  .egg_col_x5_2 { fill: #9e9e9e; }
+  .egg_col_x5_3 { fill: #616161; }
+  .egg_col_x5_4 { fill: #212121; }
+}
+@elseif $CFG_EGG_THEME == 'red'
+{
+  .egg_col_x5_0 { fill: #eeeeee; }
+  .egg_col_x5_1 { fill: #ff7171; }
+  .egg_col_x5_2 { fill: #ff0000; }
+  .egg_col_x5_3 { fill: #b70000; }
+  .egg_col_x5_4 { fill: #830000; }
+}
+@elseif $CFG_EGG_THEME == 'blue'
+{
+  .egg_col_x5_0 { fill: #eeeeee; }
+  .egg_col_x5_1 { fill: #6bcdff; }
+  .egg_col_x5_2 { fill: #00a1f3; }
+  .egg_col_x5_3 { fill: #0079b7; }
+  .egg_col_x5_4 { fill: #003958; }
+}
+@elseif $CFG_EGG_THEME == 'purple'
+{
+  .egg_col_x5_0 { fill: #eeeeee; }
+  .egg_col_x5_1 { fill: #d2ace6; }
+  .egg_col_x5_2 { fill: #aa66cc; }
+  .egg_col_x5_3 { fill: #660099; }
+  .egg_col_x5_4 { fill: #4f2266; }
+}
+@elseif $CFG_EGG_THEME == 'orange'
+{
+  .egg_col_x5_0 { fill: #eeeeee; }
+  .egg_col_x5_1 { fill: #ffcc80; }
+  .egg_col_x5_2 { fill: #ffa726; }
+  .egg_col_x5_3 { fill: #fb8c00; }
+  .egg_col_x5_4 { fill: #e65100; }
+}
+@elseif $CFG_EGG_THEME == 'halloween'
+{
+  .egg_col_x5_0 { fill: #eeeeee; }
+  .egg_col_x5_1 { fill: #ffee4a; }
+  .egg_col_x5_2 { fill: #ffc501; }
+  .egg_col_x5_3 { fill: #fe9600; }
+  .egg_col_x5_4 { fill: #03001c; }
+}
+@elseif $CFG_EGG_THEME == 'custom'
+{
+  .egg_col_x9_0 { fill: #F5F5F5; }
+  .egg_col_x9_1 { fill: #DBDEE0; }
+  .egg_col_x9_2 { fill: #C2C7CB; }
+  .egg_col_x9_3 { fill: #AAB0B7; }
+  .egg_col_x9_4 { fill: #9099A2; }
+  .egg_col_x9_5 { fill: #77828E; }
+  .egg_col_x9_6 { fill: #5E6B79; }
+  .egg_col_x9_7 { fill: #455464; }
+  .egg_col_x9_8 { fill: #2C3E50; }
+}

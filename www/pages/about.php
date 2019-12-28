@@ -11,7 +11,7 @@ global $OPTIONS;
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<link rel="canonical" href="https://www.mikescher.com/about"/>
 	<?php printHeaderCSS(); ?>
-	<?php includeAdditionalScript("/data/javascript/egh.js", 'defer', true) ?>
+	<?php includeAdditionalScript("/data/javascript/extendedgitgraph.js", 'defer', true) ?>
 </head>
 <body>
 <div id="mastercontainer">

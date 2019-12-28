@@ -782,6 +782,26 @@ html, body {
   text-align: left;
 }
 
+.egg_col_x5_0 {
+  fill: #eeeeee;
+}
+
+.egg_col_x5_1 {
+  fill: #6bcdff;
+}
+
+.egg_col_x5_2 {
+  fill: #00a1f3;
+}
+
+.egg_col_x5_3 {
+  fill: #0079b7;
+}
+
+.egg_col_x5_4 {
+  fill: #003958;
+}
+
 /* 400px */
 .admincontent {
   display: block;
