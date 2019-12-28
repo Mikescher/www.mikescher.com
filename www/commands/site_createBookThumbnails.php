@@ -27,6 +27,3 @@ echo 'Finished.' . '<br/>' . "\n";
 echo '<script>setTimeout(function () { window.location.href = "/admin"; }, 3000);</script>';
 echo '</body>';
 echo '</html>';
-
-
-die('Wrong command.');

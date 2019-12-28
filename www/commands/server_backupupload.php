@@ -1,19 +1,17 @@
 <?php
 
 global $API_OPTIONS;
+global $OPTIONS;
 
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/database.php');
 
-if (!isset($API_OPTIONS['folder']))   die("Wrong parameters.");
-if (!isset($API_OPTIONS['filename'])) die("Wrong parameters.");
-if (!isset($API_OPTIONS['secret']))   die("Wrong parameters.");
-if (!isset($API_OPTIONS['uri']))      die("Wrong parameters.");
+if (!isset($API_OPTIONS['folder']))   httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['filename'])) httpDie(400, "Wrong parameters.");
 
 $folder   = $API_OPTIONS['folder'];
 $filename = $API_OPTIONS['filename'];
-$secret   = $API_OPTIONS['secret'];
-$uri      = $API_OPTIONS['uri'];
+$uri      = $OPTIONS['uri'];
 
 $reltarget = "Backup/$folder/$filename";
 

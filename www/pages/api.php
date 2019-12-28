@@ -56,7 +56,7 @@ if (!array_key_exists($cmd, $API_COMMANDS))
 	print("     ::::::`:::::;'  /  /   `#                      \n");
 	print("                                                    \n");
 	print("                                                    \n");
-	die('Wrong command.');
+	httpDie(400, 'Wrong command.');
 }
 
 $config = $API_COMMANDS[$cmd];
@@ -64,10 +64,10 @@ $config = $API_COMMANDS[$cmd];
 
 $secret = isset($_GET['secret']) ? $_GET['secret'] : '';
 
-if ($config['auth'] === 'webhook_secret' && $secret !== $CONFIG['webhook_secret']) die('Unauthorized.');
-if ($config['auth'] === 'ajax_secret'    && $secret !== $CONFIG['ajax_secret'])    die('Unauthorized.');
-if ($config['auth'] === 'upload_secret'  && $secret !== $CONFIG['upload_secret'])  die('Unauthorized.');
-if ($config['auth'] === 'admin'          && !isLoggedInByCookie())                 die('Unauthorized.');
+if ($config['auth'] === 'webhook_secret' && $secret !== $CONFIG['webhook_secret']) httpDie(401, 'Unauthorized.');
+if ($config['auth'] === 'ajax_secret'    && $secret !== $CONFIG['ajax_secret'])    httpDie(401, 'Unauthorized.');
+if ($config['auth'] === 'upload_secret'  && $secret !== $CONFIG['upload_secret'])  httpDie(401, 'Unauthorized.');
+if ($config['auth'] === 'admin'          && !isLoggedInByCookie())                 httpDie(401, 'Unauthorized.');
 
 
 global $API_OPTIONS;

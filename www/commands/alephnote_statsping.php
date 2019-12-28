@@ -5,12 +5,12 @@ global $API_OPTIONS;
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/database.php');
 
-if (!isset($API_OPTIONS['name']))        die("Wrong parameters.");
-if (!isset($API_OPTIONS['clientid']))    die("Wrong parameters.");
-if (!isset($API_OPTIONS['version']))     die("Wrong parameters.");
-if (!isset($API_OPTIONS['providerstr'])) die("Wrong parameters.");
-if (!isset($API_OPTIONS['providerid']))  die("Wrong parameters.");
-if (!isset($API_OPTIONS['notecount']))   die("Wrong parameters.");
+if (!isset($API_OPTIONS['name']))        httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['clientid']))    httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['version']))     httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['providerstr'])) httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['providerid']))  httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['notecount']))   httpDie(400, "Wrong parameters.");
 
 $nam = $API_OPTIONS['name'];
 $cid = $API_OPTIONS['clientid'];

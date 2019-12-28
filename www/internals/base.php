@@ -51,6 +51,14 @@ function httpError($errorcode, $message)
 	die();
 }
 
+function httpDie($errorcode, $message)
+{
+	ob_clean();
+	http_response_code($errorcode);
+	die($message);
+
+}
+
 function destructiveUrlEncode($str) {
 	$str = str_replace(' ', '_', $str);
 	$str = str_replace('+', '_', $str);
