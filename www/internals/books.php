@@ -26,6 +26,8 @@ class Books
 			$a['extraimages_paths'] []= __DIR__ . '/../data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
 		}
 
+		$a['book_count'] = is_array($a['pdf']) ? count($a['pdf']) : 1;
+
 		return $a;
 	}
 
@@ -61,6 +63,16 @@ class Books
 			{
 				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['title_short']];
 			}
+
+			if ($prog['book_count'] <= 0) return ['result'=>'err', 'message' => 'BookCount must be greater than zero ' . $prog['title_short']];
+
+			if ($prog['book_count'] > 1 && !is_array($prog['pdf'])) return ['result'=>'err', 'message' => 'Attribute [pdf] must be an array ' . $prog['title_short']];
+			if ($prog['book_count'] > 1 && count($prog['pdf']) !== $prog['book_count']) return ['result'=>'err', 'message' => 'Attribute [pdf] must be the correct size ' . $prog['title_short']];
+			if ($prog['book_count'] === 1 && !is_string($prog['pdf'])) return ['result'=>'err', 'message' => 'Attribute [pdf] must be an string ' . $prog['title_short']];
+
+			if ($prog['book_count'] > 1 && !is_array($prog['pages'])) return ['result'=>'err', 'message' => 'Attribute [pages] must be an array ' . $prog['title_short']];
+			if ($prog['book_count'] > 1 && count($prog['pages']) !== $prog['book_count']) return ['result'=>'err', 'message' => 'Attribute [pages] must be the correct size ' . $prog['title_short']];
+			if ($prog['book_count'] === 1 && !is_string($prog['pages'])) return ['result'=>'err', 'message' => 'Attribute [pages] must be an string ' . $prog['title_short']];
 		}
 
 		if ($warn != null) return $warn;

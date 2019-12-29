@@ -39,7 +39,21 @@ if ($book === NULL) httpError(404, 'Book not found');
                     <div class="bookv_right_value" style="grid-row:1"><?php echo htmlspecialchars($book['title_short']) ?></div>
 
                     <div class="bookv_right_key"   style="grid-row:2">Pages:</div>
-                    <div class="bookv_right_value" style="grid-row:2"><?php echo $book['pages'] ?></div>
+                    <div class="bookv_right_value" style="grid-row:2"><?php
+                        if (is_string($book['pages']))
+                        {
+                            echo $book['pages'];
+                        }
+                        else
+                        {
+                            $pagi = 1;
+                            foreach ($book['pages'] as $page)
+                            {
+								echo 'Buch ' . $pagi . ': ' . $page . '<br/>';
+								$pagi++;
+                            }
+                        }
+                    ?></div>
 
                     <div class="bookv_right_key"   style="grid-row:3">Author:</div>
                     <div class="bookv_right_value" style="grid-row:3"><?php echo htmlspecialchars($book['author']) ?></div>
@@ -64,12 +78,23 @@ if ($book === NULL) httpError(404, 'Book not found');
                             </svg>
                             <span>Homepage</span>
                         </a>
-                        <a class="iconbutton" href="<?php echo $book['pdf'] ?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
-                                <use xlink:href="/data/images/icons.svg#pdf"/>
-                            </svg>
-                            <span>PDF</span>
-                        </a>
+						<?php if (is_string($book['pdf'])): ?>
+                            <a class="iconbutton" href="<?php echo $book['pdf'] ?>">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                                    <use xlink:href="/data/images/icons.svg#pdf"/>
+                                </svg>
+                                <span>PDF</span>
+                            </a>
+						<?php else: ?>
+							<?php $pdfi = 1; foreach ($book['pdf'] as $pdf): ?>
+                                <a class="iconbutton" href="<?php echo $pdf ?>">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                                        <use xlink:href="/data/images/icons.svg#pdf"/>
+                                    </svg>
+                                    <span>PDF (Buch <?php echo $pdfi; $pdfi++; ?>)</span>
+                                </a>
+							<?php endforeach; ?>
+                        <?php endif; ?>
 
                     </div>
                 </div>
