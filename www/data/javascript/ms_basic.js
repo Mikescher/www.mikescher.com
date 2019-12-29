@@ -66,11 +66,13 @@ function imgcarousel_move(source, delta) {
     if (img.toLowerCase().endsWith('.webm'))
     {
         content.setAttribute('style', '');
+        content.setAttribute('onclick', 'javascript:void()');
         content.innerHTML = '<video autoplay loop muted><source src="' + img + '"></video>';
     }
     else
     {
-        content.setAttribute('style', 'background-image: url(' + img + ');');
+        content.setAttribute('style', 'background-image: url(' + img + '); cursor: pointer;');
+        content.setAttribute('onclick', 'javascript:window.open("' + img + '","_blank");');
         content.innerHTML = '';
     }
 }
