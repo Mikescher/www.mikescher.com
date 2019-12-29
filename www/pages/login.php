@@ -54,7 +54,7 @@ if (($redirect === '/' || $redirect === '') && isset($_GET['redirect'])) $redire
 
 							<div>
 								<label for="username" class="required">Username</label>
-								<input name="username" id="username" type="text">
+								<input name="username" id="username" type="text" autofocus >
 							</div>
 
 							<div>

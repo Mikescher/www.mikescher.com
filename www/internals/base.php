@@ -53,7 +53,7 @@ function httpError($errorcode, $message)
 
 function httpDie($errorcode, $message)
 {
-	ob_clean();
+	ob_flush();
 	http_response_code($errorcode);
 	die($message);
 

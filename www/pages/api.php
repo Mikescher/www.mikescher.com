@@ -10,8 +10,8 @@ $API_COMMANDS =
 
 	'progs::updatecheck'            => [ 'src' => __DIR__.'/../commands/progs_updatecheck.php',            'auth' => 'none'           ],
 
-	'site::createProgramThumbnails' => [ 'src' => __DIR__.'/../commands/site_createProgramThumbnails.php', 'auth' => 'admin'          ],
-	'site::createBookThumbnails'    => [ 'src' => __DIR__.'/../commands/site_createBookThumbnails.php',    'auth' => 'admin'          ],
+	'site::createprogramthumbnails' => [ 'src' => __DIR__.'/../commands/site_createProgramThumbnails.php', 'auth' => 'admin'          ],
+	'site::createbookthumbnails'    => [ 'src' => __DIR__.'/../commands/site_createBookThumbnails.php',    'auth' => 'admin'          ],
 
 	'server::setselfaddress'        => [ 'src' => __DIR__.'/../commands/server_setselfaddress.php',        'auth' => 'none'           ],
 	'server::gitwebhook'            => [ 'src' => __DIR__.'/../commands/server_gitwebhook.php',            'auth' => 'webhook_secret' ],
