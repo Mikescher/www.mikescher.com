@@ -1180,6 +1180,12 @@ html, body {
   font-weight: bold;
 }
 
+.aoc_calendar_header_title a {
+  color: #000000;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+}
+
 .aoc_calendar_header_link.aoc_prev {
   flex-grow: 0;
   padding-left: 0.5em;

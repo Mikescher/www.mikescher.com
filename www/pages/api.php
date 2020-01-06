@@ -25,6 +25,8 @@ $API_COMMANDS =
 	'alephnote::show'               => [ 'src' => __DIR__.'/../commands/alephnote_show.php',               'auth' => 'ajax_secret'    ],
 
 	'updates::show'                 => [ 'src' => __DIR__.'/../commands/updates_show.php',                 'auth' => 'ajax_secret'    ],
+
+	'html::panel_aoc_calendar'      => [ 'src' => __DIR__.'/../commands/html_panel-aoc-calendar.php',      'auth' => 'none'           ],
 ];
 
 $cmd = strtolower($OPTIONS['cmd']);
@@ -91,7 +93,7 @@ catch (exception $e)
 		"IP:      " . get_client_ip()       . "\r\n\r\n" .
 		"ERROR:   " . $e                    . "\r\n\r\n";
 
-	sendMail("Website API call failed", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
+	if (isProd()) sendMail("Website API call failed", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
 
 	httpDie(500, 'Error.');
 }

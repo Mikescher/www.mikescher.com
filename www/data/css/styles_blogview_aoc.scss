@@ -36,6 +36,12 @@
   font-weight: bold;
 }
 
+.aoc_calendar_header_title a {
+  color: $LAYER2_HEADER_FG;
+  font-family: $FONT_HEADER;
+  text-decoration: none;
+}
+
 .aoc_calendar_header_link.aoc_prev {
   flex-grow: 0;
   padding-left: 0.5em;

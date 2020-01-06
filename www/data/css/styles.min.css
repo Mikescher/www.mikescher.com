@@ -227,6 +227,7 @@ html,body{margin:0;padding:0;height:100%}
 .aoc_calendar_header{display:flex;flex-direction:row;justify-content:space-between;margin-bottom:.5em;background:#888}
 .aoc_calendar_header_link{display:flex;color:#000;text-decoration:none}
 .aoc_calendar_header_title{flex-grow:0;display:flex;color:#000;font-family:Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:bold}
+.aoc_calendar_header_title a{color:#000;font-family:Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;text-decoration:none}
 .aoc_calendar_header_link.aoc_prev{flex-grow:0;padding-left:.5em}
 .aoc_calendar_header_link.aoc_next{flex-grow:0;padding-right:.5em}
 .aoc_calendar_header_link.aoc_link_hidden{visibility:hidden}
