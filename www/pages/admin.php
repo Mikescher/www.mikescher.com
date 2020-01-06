@@ -173,7 +173,7 @@ function dumpConsistency($c) {
 				<?php if ($connected): ?>
                     <div class="bc_data keyvaluelist kvl_300">
                         <?php foreach (UpdatesLog::listProgramsInformation() as $info): ?>
-                            <div><span><?php echo '[' . $info['name'] . '] Count:' ?></span> <span><a href="javascript:startAjaxReplace('#ul_ajax_target', '/admin/updates::show?secret=<?php echo $CONFIG['ajax_secret'] ?>&ulname=<?php echo $info['name'] ?>')"><?php echo $info['count_total']; ?></a></span></div>
+                            <div><span><?php echo '[' . $info['name'] . '] Count:' ?></span> <span><a href="javascript:startAjaxReplace('#ul_ajax_target', '/api/updates::show?secret=<?php echo $CONFIG['ajax_secret'] ?>&ulname=<?php echo $info['name'] ?>')"><?php echo $info['count_total']; ?></a></span></div>
                             <div><span><?php echo '[' . $info['name'] . '] Last query:' ?></span> <span><?php echo $info['last_query']; ?></span></div>
                             <div><span><?php echo '[' . $info['name'] . '] Count (1 week):' ?></span> <span><?php echo $info['count_week']; ?></span></div>
                             <hr />
