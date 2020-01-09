@@ -2,6 +2,7 @@
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../internals/blog.php');
 require_once (__DIR__ . '/../internals/adventofcode.php');
+require_once (__DIR__ . '/../internals/ParsedownCustom.php');
 
 $year = $post['extras']['aoc:year'];
 
@@ -20,10 +21,11 @@ $year = $post['extras']['aoc:year'];
 	</div>
 
     <div class="bc_data">
-
-		<?php echo nl2br(htmlspecialchars(Blog::getPostFragment($post))); ?>
-
-
+		<?php
+		$pd = new ParsedownCustom();
+		echo $pd->text(Blog::getPostFragment($post));
+		?>
+        <br/>
 		<?php
             global $PARAM_AOCCALENDAR;
             $PARAM_AOCCALENDAR = ['year' => $year, 'nav'=>true, 'linkheader'=>false, 'ajax'=>false];

@@ -23,7 +23,7 @@ $allapps = WebApps::listAllNewestFirst();
 
 	<div class="blockcontent">
 
-		<div class="contentheader"><h1>Online tools and web apps</h1><hr/></div>
+		<div class="contentheader"><h1>Online tools, web apps and more</h1><hr/></div>
 
 		<div class='webapplistelem_container'>
 			<?php
