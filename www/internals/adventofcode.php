@@ -4,6 +4,7 @@ class AdventOfCode
 {
 	const YEARS =
 	[
+		'2017' => [ 'url-aoc'=>'https://adventofcode.com/2017/day/', 'blog-id' => 25, 'github' => 'https://github.com/Mikescher/AdventOfCode2017' ],
 		'2018' => [ 'url-aoc'=>'https://adventofcode.com/2018/day/', 'blog-id' => 23, 'github' => 'https://github.com/Mikescher/AdventOfCode2018' ],
 		'2019' => [ 'url-aoc'=>'https://adventofcode.com/2019/day/', 'blog-id' => 24, 'github' => 'https://github.com/Mikescher/AdventOfCode2019' ],
 	];
