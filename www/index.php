@@ -1,6 +1,9 @@
 <?php
 
-require_once (__DIR__ . '/internals/base.php');
+require_once (__DIR__ . '/internals/website.php');
+
+$site = new Website();
+$site->init();
 
 $URL_RULES =
 [
@@ -78,6 +81,8 @@ $URL_RULES =
 
 	[ 'url' => ['404'],                                      'target' => 'pages/error_404.php',              'options' => [],                                        ],
 ];
+
+$site->serve($URL_RULES);
 
 //#############################################################################
 

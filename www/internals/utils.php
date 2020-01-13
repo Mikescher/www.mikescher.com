@@ -11,22 +11,6 @@ global $ADDITIONAL_STYLESHEETS;
 $ADDITIONAL_SCRIPTS     = [];
 $ADDITIONAL_STYLESHEETS = [];
 
-function InitPHP() {
-
-	set_error_handler("exception_error_handler"); // errors as exceptions for global catch
-
-	ob_start(); // buffer outpt so it can be discarded in httpError
-
-}
-
-function exception_error_handler($severity, $message, $file, $line) {
-	if (!(error_reporting() & $severity)) {
-		// This error code is not included in error_reporting
-		return;
-	}
-	throw new ErrorException($message, 0, $severity, $file, $line);
-}
-
 function startsWith($haystack, $needle)
 {
 	$length = strlen($needle);
