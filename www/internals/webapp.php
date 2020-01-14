@@ -1,22 +1,32 @@
 <?php
 
+require_once 'website.php';
+
 class WebApps
 {
-	public static function listAll()
+	/** @var array */
+	private $staticData;
+
+	public function __construct()
+	{
+		$this->load();
+	}
+
+	private function load()
 	{
 		$all = require (__DIR__ . '/../statics/webapps/__all.php');
 
-		return array_map('self::readSingle', $all);
+		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
 	}
 
-	public static function readSingle($a)
+	private static function readSingle($a)
 	{
 		return $a;
 	}
 
-	public static function listAllNewestFirst()
+	public function listAllNewestFirst()
 	{
-		$data = self::listAll();
+		$data = $this->staticData;
 		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });
 		return $data;
 	}

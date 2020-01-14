@@ -14,7 +14,7 @@ class Books
 
 	private function load()
 	{
-		$all = require (__DIR__ . '/../statics/blog/__all.php');
+		$all = require (__DIR__ . '/../statics/books/__all.php');
 
 		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
 	}

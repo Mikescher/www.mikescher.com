@@ -22,6 +22,7 @@ class Website
 	/** @var Programs|null */            private $programs = null;
 	/** @var AlephNoteStatistics|null */ private $anstats = null;
 	/** @var UpdatesLog|null */          private $updateslog = null;
+	/** @var WebApps|null */             private $webapps = null;
 
 	public function init()
 	{
@@ -165,46 +166,52 @@ class Website
 		return $this->database;
 	}
 
-	public function AdventOfCode()
+	public function AdventOfCode(): AdventOfCode
 	{
 		if ($this->adventOfCode === null) { require_once 'adventofcode.php'; $this->adventOfCode = new AdventOfCode(); }
 		return $this->adventOfCode;
 	}
 
-	public function Blog()
+	public function Blog(): Blog
 	{
 		if ($this->blog === null) { require_once 'blog.php'; $this->blog = new Blog(); }
 		return $this->blog;
 	}
 
-	public function Books()
+	public function Books(): Books
 	{
 		if ($this->books === null) { require_once 'books.php'; $this->books = new Books(); }
 		return $this->books;
 	}
 
-	public function Euler()
+	public function Euler(): Euler
 	{
 		if ($this->euler === null) { require_once 'euler.php'; $this->euler = new Euler(); }
 		return $this->euler;
 	}
 
-	public function Programs()
+	public function Programs(): Programs
 	{
 		if ($this->programs === null) { require_once 'programs.php'; $this->programs = new Programs(); }
 		return $this->programs;
 	}
 
-	public function AlephNoteStatistics()
+	public function AlephNoteStatistics(): AlephNoteStatistics
 	{
 		if ($this->anstats === null) { require_once 'alephnoteStatistics.php'; $this->anstats = new AlephNoteStatistics($this); }
 		return $this->anstats;
 	}
 
-	public function UpdatesLog()
+	public function UpdatesLog(): UpdatesLog
 	{
 		if ($this->updateslog === null) { require_once 'updateslog.php'; $this->updateslog = new UpdatesLog($this); }
 		return $this->updateslog;
+	}
+
+	public function WebApps(): WebApps
+	{
+		if ($this->webapps === null) { require_once 'webapp.php'; $this->webapps = new WebApps(); }
+		return $this->webapps;
 	}
 
 	/**
