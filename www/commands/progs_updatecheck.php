@@ -10,7 +10,7 @@ if (!isset($API_OPTIONS['name'])) httpDie(400, "Wrong parameters.");
 
 $name = $API_OPTIONS['name'];
 
-$updatedata = Programs::listUpdateData();
+$updatedata = UpdatesLog::listUpdateData();
 
 if (!array_key_exists($name, $updatedata)) httpError(404, 'Invalid Request - [Name] not found');
 

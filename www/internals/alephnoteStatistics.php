@@ -10,8 +10,6 @@ class AlephNoteStatistics
 	public function __construct(Website $site)
 	{
 		$this->site = $site;
-
-		$site->Database();
 	}
 
 	public function getTotalUserCount()

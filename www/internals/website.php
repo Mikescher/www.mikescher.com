@@ -21,6 +21,7 @@ class Website
 	/** @var Euler|null */               private $euler = null;
 	/** @var Programs|null */            private $programs = null;
 	/** @var AlephNoteStatistics|null */ private $anstats = null;
+	/** @var UpdatesLog|null */          private $updateslog = null;
 
 	public function init()
 	{
@@ -196,8 +197,14 @@ class Website
 
 	public function AlephNoteStatistics()
 	{
-		if ($this->anstats === null) { require_once 'alephnoteStatistics.php'; $this->anstats = new AlephNoteStatistics(); }
+		if ($this->anstats === null) { require_once 'alephnoteStatistics.php'; $this->anstats = new AlephNoteStatistics($this); }
 		return $this->anstats;
+	}
+
+	public function UpdatesLog()
+	{
+		if ($this->updateslog === null) { require_once 'updateslog.php'; $this->updateslog = new UpdatesLog($this); }
+		return $this->updateslog;
 	}
 
 	/**
