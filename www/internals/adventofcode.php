@@ -71,7 +71,7 @@ class AdventOfCode
 		return array_keys($this->staticData);
 	}
 
-	public static function readSingle($year, $a)
+	private static function readSingle($year, $a)
 	{
 		$yeardata = self::YEARS[$year];
 

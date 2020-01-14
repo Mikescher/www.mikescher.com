@@ -21,6 +21,7 @@ class Website
 	/** @var AdventOfCode|null */ private $adventOfCode = null;
 	/** @var Blog|null */         private $blog = null;
 	/** @var Books|null */        private $books = null;
+	/** @var Euler|null */        private $euler = null;
 
 	public function init()
 	{
@@ -180,6 +181,12 @@ class Website
 	{
 		if ($this->books === null) { require_once 'books.php'; $this->books = new Books(); }
 		return $this->books;
+	}
+
+	public function Euler()
+	{
+		if ($this->euler === null) { require_once 'euler.php'; $this->euler = new Euler(); }
+		return $this->euler;
 	}
 
 

@@ -19,7 +19,7 @@ class Books
 		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
 	}
 
-	public static function readSingle($a)
+	private static function readSingle($a)
 	{
 		$a['imgfront_url']      =              '/data/images/book_img/' . $a['id'] . '_front.png';
 		$a['imgfront_path']     = __DIR__ . '/../data/images/book_img/' . $a['id'] . '_front.png';
