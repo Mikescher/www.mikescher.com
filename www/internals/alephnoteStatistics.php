@@ -1,26 +1,36 @@
 <?php
 
-require_once (__DIR__ . '/../internals/database.php');
+require_once 'website.php';
 
 class AlephNoteStatistics
 {
-	public static function getTotalUserCount()
+	/** @var Website */
+	private $site;
+
+	public function __construct(Website $site)
 	{
-		return Database::sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0');
+		$this->site = $site;
+
+		$site->Database();
 	}
 
-	public static function getUserCountFromLastVersion()
+	public function getTotalUserCount()
 	{
-		return Database::sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0 GROUP BY Version ORDER BY INET_ATON(Version) DESC LIMIT 1');
+		return $this->site->Database()->sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0');
 	}
 
-	public static function getActiveUserCount($days)
+	public function getUserCountFromLastVersion()
 	{
-		return Database::sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0 AND LastChanged > NOW() - INTERVAL '.$days.' DAY');
+		return $this->site->Database()->sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0 GROUP BY Version ORDER BY INET_ATON(Version) DESC LIMIT 1');
 	}
 
-	public static function getAllActiveEntriesOrdered()
+	public function getActiveUserCount($days)
 	{
-		return Database::sql_query_assoc('SELECT * FROM an_statslog WHERE NoteCount>0 ORDER BY LastChanged DESC');
+		return $this->site->Database()->sql_query_num('SELECT COUNT(*) FROM an_statslog WHERE NoteCount>0 AND LastChanged > NOW() - INTERVAL '.$days.' DAY');
+	}
+
+	public function getAllActiveEntriesOrdered()
+	{
+		return $this->site->Database()->sql_query_assoc('SELECT * FROM an_statslog WHERE NoteCount>0 ORDER BY LastChanged DESC');
 	}
 }

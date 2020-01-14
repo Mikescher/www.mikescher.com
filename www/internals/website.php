@@ -6,9 +6,6 @@ require_once 'pageframeoptions.php';
 
 require_once 'utils.php';
 
-require_once 'mikeschergitgraph.php';
-require_once 'parsedowncustom.php';
-
 class Website
 {
 	/** @var Website */
@@ -17,12 +14,13 @@ class Website
 	/** @var array */
 	public $config;
 
-	/** @var Database|null */     private $database = null;
-	/** @var AdventOfCode|null */ private $adventOfCode = null;
-	/** @var Blog|null */         private $blog = null;
-	/** @var Books|null */        private $books = null;
-	/** @var Euler|null */        private $euler = null;
-	/** @var Programs|null */     private $programs = null;
+	/** @var Database|null */            private $database = null;
+	/** @var AdventOfCode|null */        private $adventOfCode = null;
+	/** @var Blog|null */                private $blog = null;
+	/** @var Books|null */               private $books = null;
+	/** @var Euler|null */               private $euler = null;
+	/** @var Programs|null */            private $programs = null;
+	/** @var AlephNoteStatistics|null */ private $anstats = null;
 
 	public function init()
 	{
@@ -194,6 +192,12 @@ class Website
 	{
 		if ($this->programs === null) { require_once 'programs.php'; $this->programs = new Programs(); }
 		return $this->programs;
+	}
+
+	public function AlephNoteStatistics()
+	{
+		if ($this->anstats === null) { require_once 'alephnoteStatistics.php'; $this->anstats = new AlephNoteStatistics(); }
+		return $this->anstats;
 	}
 
 	/**

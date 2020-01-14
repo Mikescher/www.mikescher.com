@@ -1,6 +1,6 @@
 <?php
 
-require_once (__DIR__ . '/../internals/base.php');
+require_once 'website.php';
 require_once (__DIR__ . '/../extern/egg/ExtendedGitGraph2.php');
 
 class MikescherGitGraph
