@@ -22,6 +22,7 @@ class Website
 	/** @var Blog|null */         private $blog = null;
 	/** @var Books|null */        private $books = null;
 	/** @var Euler|null */        private $euler = null;
+	/** @var Programs|null */     private $programs = null;
 
 	public function init()
 	{
@@ -189,7 +190,11 @@ class Website
 		return $this->euler;
 	}
 
-
+	public function Programs()
+	{
+		if ($this->programs === null) { require_once 'programs.php'; $this->programs = new Programs(); }
+		return $this->programs;
+	}
 
 	/**
 	 * @return bool

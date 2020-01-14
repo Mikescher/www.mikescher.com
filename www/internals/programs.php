@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/base.php';
+require_once 'website.php';
 
 class Programs
 {
@@ -33,7 +33,22 @@ class Programs
 		'Mozilla-2.0' => 'https://choosealicense.com/licenses/mpl-2.0/',
 	];
 
-	public static function readSingle($a)
+	/** @var array */
+	private $staticData;
+
+	public function __construct()
+	{
+		$this->load();
+	}
+
+	private function load()
+	{
+		$all = require (__DIR__ . '/../statics/blog/__all.php');
+
+		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
+	}
+
+	private static function readSingle($a)
 	{
 		$a['mainimage_url']        =              '/data/images/program_img/' . $a['internal_name'] . '.png';
 		$a['mainimage_path']       = __DIR__ . '/../data/images/program_img/' . $a['internal_name'] . '.png';
@@ -62,42 +77,34 @@ class Programs
 		return $a;
 	}
 
-	public static function listAll()
+	public function listAll()
 	{
-		$all = require (__DIR__ . '/../statics/programs/__all.php');
-
-		return array_map('self::readSingle', $all);
+		return $this->staticData;
 	}
 
-	public static function listAllNewestFirst($filter = '')
+	public function listAllNewestFirst($filter = '')
 	{
-		$data = self::listAll();
+		$data = $this->staticData;
 		usort($data, function($a, $b) { return strcasecmp($b['add_date'], $a['add_date']); });
 		if ($filter !== '') $data = array_filter($data, function($a) use($filter) { return strtolower($a['category']) === strtolower($filter); });
 		return $data;
 	}
 
-	public static function listUpdateData()
+	public function getProgramByInternalName($id)
 	{
-		$a = require (__DIR__ . '/../statics/updates/_all.php');
-		return $a;
-	}
-
-	public static function getProgramByInternalName($id)
-	{
-		foreach (self::listAll() as $prog) {
+		foreach ($this->staticData as $prog) {
 			if (strcasecmp($prog['internal_name'], $id) === 0) return $prog;
 			if ($prog['internal_name_alt'] !== null && strcasecmp($prog['internal_name_alt'], $id) === 0) return $prog;
 		}
 		return null;
 	}
 
-	public static function getProgramDescription($prog)
+	public function getProgramDescription($prog)
 	{
 		return file_get_contents($prog['file_longdescription']);
 	}
 
-	public static function urlComparator($a, $b)
+	private static function urlComparator($a, $b)
 	{
 		$na = 0;
 		$nb = 0;
@@ -118,10 +125,10 @@ class Programs
 
 	}
 
-	public static function getURLs($prog)
+	public function getURLs($prog)
 	{
 		$urls = $prog['urls'];
-		uksort($urls, 'self::urlComparator');
+		uksort($urls, function($a,$b){return self::urlComparator($a,$b);});
 
 		$result = [];
 		foreach ($urls as $fulltype => $urldata)
@@ -178,29 +185,31 @@ class Programs
 		return $result;
 	}
 
-	public static function getLicenseUrl($license)
+	public function getLicenseUrl($license)
 	{
 		return self::LICENSES[$license];
 	}
 
-	public static function getDirectDownloadURL($prog)
+	public function getDirectDownloadURL($prog)
 	{
 		return '/data/binaries/'.$prog['internal_name'].'.zip';
 	}
 
-	public static function getDirectDownloadPath($prog)
+	public function getDirectDownloadPath($prog)
 	{
 		return (__DIR__ . '/../data/binaries/'.$prog['internal_name'].'.zip');
 	}
 
-	public static function checkConsistency()
+	public function checkConsistency()
 	{
 		$warn = null;
+
+		$this->load();
 
 		$intname = [];
 		$realname = [];
 
-		foreach (self::listAll() as $prog)
+		foreach ($this->staticData as $prog)
 		{
 			if (in_array($prog['internal_name'], $intname)) return ['result'=>'err', 'message' => 'Duplicate internal_name ' . $prog['name']];
 			$intname []= $prog['internal_name'];
@@ -250,9 +259,9 @@ class Programs
 		return ['result'=>'ok', 'message' => ''];
 	}
 
-	public static function checkThumbnails()
+	public function checkThumbnails()
 	{
-		foreach (self::listAll() as $prog)
+		foreach ($this->staticData as $prog)
 		{
 			if (!file_exists($prog['preview_path'])) return ['result'=>'err', 'message' => 'Preview not found ' . $prog['name']];
 		}
@@ -260,14 +269,12 @@ class Programs
 		return ['result'=>'ok', 'message' => ''];
 	}
 
-	public static function createPreview($prog)
+	public function createPreview($prog)
 	{
-		global $CONFIG;
-
 		$src = $prog['mainimage_path'];
 		$dst = $prog['preview_path'];
 
-		if ($CONFIG['use_magick'])
+		if (Website::inst()->config['use_magick'])
 			magick_resize_image($src, 250, 0, $dst);
 		else
 			smart_resize_image($src, 250, 0, true, $dst);
