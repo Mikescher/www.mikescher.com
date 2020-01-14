@@ -1,46 +1,35 @@
 <?php
 
+require_once 'website.php';
+
 class Database
 {
-	/* @var PDO $PDO */
-	public static $PDO = NULL;
+	/* @var PDO $pdo */
+	private $pdo = NULL;
 
-	public static function connect()
+	public function __construct(Website $site)
 	{
-		global $CONFIG;
-
-		if (self::$PDO !== NULL) return;
-
-		$dsn = "mysql:host=" . $CONFIG['host'] . ";dbname=" . $CONFIG['database'] . ";charset=utf8";
-		$opt = [
+		$dsn = "mysql:host=" . $site->config['host'] . ";dbname=" . $site->config['database'] . ";charset=utf8";
+		$opt =
+		[
 			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
 			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 			PDO::ATTR_EMULATE_PREPARES   => false,
 		];
 
-		self::$PDO = new PDO($dsn, $CONFIG['user'], $CONFIG['password'], $opt);
+		$this->pdo = new PDO($dsn, $site->config['user'], $site->config['password'], $opt);
 	}
 
-	public static function tryconnect()
+	public function sql_query_num($query)
 	{
-		try {
-			self::connect();
-			return true;
-		} catch (exception $e) {
-			return false;
-		}
-	}
-
-	public static function sql_query_num($query)
-	{
-		$r = self::$PDO->query($query)->fetch(PDO::FETCH_NUM)[0];
+		$r = $this->pdo->query($query)->fetch(PDO::FETCH_NUM)[0];
 
 		return $r;
 	}
 
-	public static function sql_query_num_prep($query, $params)
+	public function sql_query_num_prep($query, $params)
 	{
-		$stmt = self::$PDO->prepare($query);
+		$stmt = $this->pdo->prepare($query);
 		
 		foreach ($params as $p) 
 		{
@@ -53,16 +42,16 @@ class Database
 		return $r;
 	}
 
-	public static function sql_query_assoc($query)
+	public function sql_query_assoc($query)
 	{
-		$r = self::$PDO->query($query)->fetchAll(PDO::FETCH_ASSOC);
+		$r = $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
 		return $r;
 	}
 
-	public static function sql_query_assoc_prep($query, $params)
+	public  function sql_query_assoc_prep($query, $params)
 	{
-		$stmt = self::$PDO->prepare($query);
+		$stmt = $this->pdo->prepare($query);
 		
 		foreach ($params as $p) 
 		{
@@ -70,21 +59,17 @@ class Database
 		}
 
 		$stmt->execute();
-		$r = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-		return $r;
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public static function sql_query_single($query)
+	public function sql_query_single($query)
 	{
-		$r = self::$PDO->query($query)->fetch(PDO::FETCH_ASSOC);
-
-		return $r;
+		return $this->pdo->query($query)->fetch(PDO::FETCH_ASSOC);
 	}
 
-	public static function sql_query_single_prep($query, $params)
+	public function sql_query_single_prep($query, $params)
 	{
-		$stmt = self::$PDO->prepare($query);
+		$stmt = $this->pdo->prepare($query);
 		
 		foreach ($params as $p) 
 		{
@@ -92,14 +77,12 @@ class Database
 		}
 
 		$stmt->execute();
-		$r = $stmt->fetch(PDO::FETCH_ASSOC);
-
-		return $r;
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
-	public static function sql_exec_prep($query, $params)
+	public function sql_exec_prep($query, $params)
 	{
-		$stmt = self::$PDO->prepare($query);
+		$stmt = $this->pdo->prepare($query);
 
 		foreach ($params as $p)
 		{

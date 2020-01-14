@@ -6,17 +6,6 @@ require_once 'pageframeoptions.php';
 
 require_once 'utils.php';
 
-require_once 'database.php';
-require_once 'adventofcode.php';
-require_once 'alephnoteStatistics.php';
-require_once 'blog.php';
-require_once 'books.php';
-require_once 'euler.php';
-require_once 'highscores.php';
-require_once 'programs.php';
-require_once 'updateslog.php';
-require_once 'webapp.php';
-
 require_once 'mikeschergitgraph.php';
 require_once 'parsedowncustom.php';
 
@@ -26,7 +15,10 @@ class Website
 	private static $instance;
 
 	/** @var array */
-	private $config;
+	public $config;
+
+	/** @var Database|null */
+	private $database = null;
 
 	public function init()
 	{
@@ -166,6 +158,16 @@ class Website
 
 		/** @noinspection PhpIncludeInspection */
 		require __DIR__ . '/../pages/frame/' . $FRAME_OPTIONS->frame;
+	}
+
+	public function database()
+	{
+		if ($this->database === null)
+		{
+			require_once 'database.php';
+			$this->database = new Database($this);
+		}
+		return $this->database;
 	}
 
 	/**
