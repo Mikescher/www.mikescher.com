@@ -5,18 +5,16 @@ require_once (__DIR__ . '/../extern/egg/ExtendedGitGraph2.php');
 
 class MikescherGitGraph
 {
-	/**
-	 * @return ExtendedGitGraph2
-	 * @throws Exception
-	 */
-	public static function create()
-	{
-		global $CONFIG;
+	/** @var ExtendedGitGraph2 */
+	private $extgitgraph;
 
-		return new ExtendedGitGraph2($CONFIG['extendedgitgraph']);
+	/** @noinspection PhpUnhandledExceptionInspection */
+	public function __construct(Website $site)
+	{
+		$this->extgitgraph = new ExtendedGitGraph2($site->config['extendedgitgraph']);
 	}
 
-	public static function getPathRenderedData()
+	public function getPathRenderedData()
 	{
 		return __DIR__ . '/../dynamic/egg/cache_fullrenderer.html';
 	}
@@ -25,16 +23,16 @@ class MikescherGitGraph
 	 * @return string|null
 	 * @throws Exception
 	 */
-	public static function get()
+	public function get()
 	{
-		$d = self::create()->loadFromCache();
+		$d = $this->extgitgraph->loadFromCache();
 		if ($d === null) return "";
 		return $d;
 	}
 
-	public static function checkConsistency()
+	public function checkConsistency()
 	{
-		$p = self::getPathRenderedData();
+		$p =$this->getPathRenderedData();
 
 		if (!file_exists($p)) return ['result'=>'err', 'message' => 'Rendered data not found'];
 

@@ -6,3 +6,5 @@ runtime/
 **/.idea/tasks.xml
 
 **/.idea/dataSources*
+
+config.php

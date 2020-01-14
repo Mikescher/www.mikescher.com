@@ -23,6 +23,7 @@ class Website
 	/** @var AlephNoteStatistics|null */ private $anstats = null;
 	/** @var UpdatesLog|null */          private $updateslog = null;
 	/** @var WebApps|null */             private $webapps = null;
+	/** @var MikescherGitGraph|null */   private $extendedgitgraph = null;
 
 	public function init()
 	{
@@ -30,15 +31,8 @@ class Website
 
 		try
 		{
-			$this->config = require (__DIR__ . "/config.php");
-		}
-		catch (exception $e)
-		{
-			$this->serveServerError("config.php not found", formatException($e), null);
-		}
+			$this->config = require (__DIR__ . "/../config.php");
 
-		try
-		{
 			if (!$this->config['prod'])
 			{
 				ini_set('display_errors', 1);
@@ -210,8 +204,14 @@ class Website
 
 	public function WebApps(): WebApps
 	{
-		if ($this->webapps === null) { require_once 'webapp.php'; $this->webapps = new WebApps(); }
+		if ($this->webapps === null) { require_once 'webapps.php'; $this->webapps = new WebApps(); }
 		return $this->webapps;
+	}
+
+	public function ExtendedGitGraph(): MikescherGitGraph
+	{
+		if ($this->extendedgitgraph === null) { require_once 'mikeschergitgraph.php'; $this->extendedgitgraph = new MikescherGitGraph($this); }
+		return $this->extendedgitgraph;
 	}
 
 	/**
