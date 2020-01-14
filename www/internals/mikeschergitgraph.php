@@ -1,4 +1,4 @@
-<?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+<?php
 
 require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../extern/egg/ExtendedGitGraph2.php');

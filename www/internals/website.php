@@ -1,8 +1,24 @@
-<?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+<?php
 
 require_once 'ruleengine.php';
 require_once 'urlroute.php';
 require_once 'pageframeoptions.php';
+
+require_once 'utils.php';
+
+require_once 'database.php';
+require_once 'adventofcode.php';
+require_once 'alephnoteStatistics.php';
+require_once 'blog.php';
+require_once 'books.php';
+require_once 'euler.php';
+require_once 'highscores.php';
+require_once 'programs.php';
+require_once 'updateslog.php';
+require_once 'webapp.php';
+
+require_once 'mikeschergitgraph.php';
+require_once 'parsedowncustom.php';
 
 class Website
 {

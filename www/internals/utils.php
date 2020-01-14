@@ -1,4 +1,4 @@
-<?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+<?php
 
 global $CONFIG;
 $CONFIG = require 'config.php';
@@ -40,7 +40,6 @@ function httpDie($errorcode, $message)
 	ob_flush();
 	http_response_code($errorcode);
 	die($message);
-
 }
 
 function destructiveUrlEncode($str) {
@@ -403,4 +402,35 @@ function getRandomToken($length = 32)
 	catch (Exception $e) { throw new InvalidArgumentException($e); }
 
 	throw new InvalidArgumentException("No random");
+}
+
+function isHTTPRequest()
+{
+	return (!isset($_SERVER['HTTPS'])) || empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off";
+}
+
+function formatException($e)
+{
+	if ($e === null) return "NULL";
+
+	if ($e instanceof Exception)
+	{
+		$r = '';
+		$r .= $e->getMessage() . "\n\n";
+		$r .= $e->getFile() . "\n\n";
+		$r .= $e->getTraceAsString() . "\n\n";
+		if (isset($e->xdebug_message))
+		{
+			$xdbg = $e->xdebug_message;
+			$xdbg = str_replace('<br />', "\n", $xdbg);
+			$xdbg = str_replace('<br/>', "\n", $xdbg);
+			$xdbg = str_replace('<br>', "\n", $xdbg);
+			$xdbg = strip_tags($xdbg);
+			$xdbg = htmlspecialchars($xdbg);
+			$r .= $xdbg . "\n";
+		}
+		return $r;
+	}
+
+	return 'object';
 }

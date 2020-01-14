@@ -1,7 +1,6 @@
-<?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+<?php
 
 require_once "website.php";
-require_once "utils.php";
 
 class RuleEngine
 {
@@ -28,11 +27,7 @@ class RuleEngine
 			$route = self::testRule($app, $rule, $requri, $pathparts, $partcount);
 			if ($route === null) continue;
 
-			if ($app->getCurrentRights() >= $route->minimal_access_rights) return $route;
-
-			if ($app->isLoggedIn()) return URLRoute::getInsufficentRightsRoute($requri);
-
-			if (!$app->isLoggedIn()) return URLRoute::getLoginRoute($route, $requri);
+			if ($route->needsAdminLogin && !$app->isLoggedIn()) return URLRoute::getLoginRoute($route, $requri);
 		}
 
 		return URLRoute::getNotFoundRoute($requri);
@@ -98,9 +93,9 @@ class RuleEngine
 
 		if (isset($ctrlOpt['method']) && $_SERVER["REQUEST_METHOD"] !== $ctrlOpt['method']) return null;
 
-		$route->minimal_access_rights = (($rule['rights']===null) ? 0 : $rule['rights']);
+		$route->needsAdminLogin = isset($ctrlOpt['password']);
 
-		if ($app->isProd() && $app->config->app_enforce_https && isHTTPRequest() && !in_array('http', $ctrlOpt))
+		if ($app->isProd() && isHTTPRequest() && !in_array('http', $ctrlOpt))
 		{
 			// enforce https
 			$redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];

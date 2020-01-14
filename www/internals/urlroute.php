@@ -1,6 +1,6 @@
-<?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+<?php
 
-require_once "URLRoute.php";
+require_once "website.php";
 
 class URLRoute
 {
@@ -14,7 +14,7 @@ class URLRoute
 	public $parameter;
 
 	/** @var int */
-	public $minimal_access_rights;
+	public $needsAdminLogin;
 
 	/** @var int */
 	public $isAPI;
@@ -24,19 +24,19 @@ class URLRoute
 		$this->targetpath = __DIR__ . '/../pages/' . $target;
 		$this->full_url = $url;
 		$this->parameter = [];
-		$this->minimal_access_rights = 0;
+		$this->needsAdminLogin = false;
 		$this->isAPI = false;
 	}
 
 	/**
-	 * @param VApp $app
+	 * @param Website $app
 	 * @return PageFrameOptions
 	 */
 	public function get(Website $app): PageFrameOptions
 	{
 		$pfo = new PageFrameOptions();
 
-		$pfo->title = $app->config->verein_kurzel . " Orga"; // default title
+		$pfo->title = 'Mikescher.com'; // default title
 		if ($this->isAPI)
 		{
 			$pfo->frame = 'no_frame.php';
@@ -72,18 +72,6 @@ class URLRoute
 	}
 
 	/**
-	 * @param string $requri
-	 * @return URLRoute
-	 */
-	public static function getInsufficentRightsRoute(string $requri): URLRoute
-	{
-		$r = new URLRoute('errors/insufficent_rights.php', $requri);
-		$r->parameter = [];
-		$r->minimal_access_rights = 0;
-		return $r;
-	}
-
-	/**
 	 * @param URLRoute $route
 	 * @param string $requri
 	 * @return URLRoute
@@ -92,7 +80,6 @@ class URLRoute
 	{
 		$r = new URLRoute('login.php', $requri);
 		$r->parameter = [ 'redirect' => $route->full_url ];
-		$r->minimal_access_rights = 0;
 		return $r;
 	}
 
@@ -104,7 +91,6 @@ class URLRoute
 	{
 		$r = new URLRoute('errors/not_found.php', $requri);
 		$r->parameter = [];
-		$r->minimal_access_rights = 0;
 		return $r;
 	}
 
@@ -116,7 +102,6 @@ class URLRoute
 	{
 		$r = new URLRoute('errors/server_error.php', $requri);
 		$r->parameter = [];
-		$r->minimal_access_rights = 0;
 		return $r;
 	}
 }
