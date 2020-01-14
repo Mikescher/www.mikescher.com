@@ -9,7 +9,12 @@ class Database
 
 	public function __construct(Website $site)
 	{
-		$dsn = "mysql:host=" . $site->config['host'] . ";dbname=" . $site->config['database'] . ";charset=utf8";
+		$this->connect($site->config);
+	}
+
+	private function connect(array $config)
+	{
+		$dsn = "mysql:host=" . $config['host'] . ";dbname=" . $config['database'] . ";charset=utf8";
 		$opt =
 		[
 			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -17,14 +22,12 @@ class Database
 			PDO::ATTR_EMULATE_PREPARES   => false,
 		];
 
-		$this->pdo = new PDO($dsn, $site->config['user'], $site->config['password'], $opt);
+		$this->pdo = new PDO($dsn, $config['user'], $config['password'], $opt);
 	}
 
 	public function sql_query_num($query)
 	{
-		$r = $this->pdo->query($query)->fetch(PDO::FETCH_NUM)[0];
-
-		return $r;
+		return $this->pdo->query($query)->fetch(PDO::FETCH_NUM)[0];
 	}
 
 	public function sql_query_num_prep($query, $params)
@@ -37,16 +40,13 @@ class Database
 		}
 
 		$stmt->execute();
-		$r = $stmt->fetch(PDO::FETCH_NUM)[0];
 
-		return $r;
+		return $stmt->fetch(PDO::FETCH_NUM)[0];
 	}
 
 	public function sql_query_assoc($query)
 	{
-		$r = $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
-
-		return $r;
+		return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public  function sql_query_assoc_prep($query, $params)

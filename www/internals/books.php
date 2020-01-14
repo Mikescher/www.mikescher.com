@@ -1,9 +1,24 @@
 <?php
 
-require_once __DIR__ . '/base.php';
+require_once 'website.php';
 
 class Books
 {
+	/** @var array */
+	private $staticData;
+
+	public function __construct()
+	{
+		$this->load();
+	}
+
+	private function load()
+	{
+		$all = require (__DIR__ . '/../statics/blog/__all.php');
+
+		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
+	}
+
 	public static function readSingle($a)
 	{
 		$a['imgfront_url']      =              '/data/images/book_img/' . $a['id'] . '_front.png';
@@ -31,27 +46,27 @@ class Books
 		return $a;
 	}
 
-	public static function listAll()
+	public function listAll()
 	{
-		$all = require (__DIR__ . '/../statics/books/__all.php');
-
-		return array_map('self::readSingle', $all);
+		return $this->staticData;
 	}
 
-	public static function listAllNewestFirst()
+	public function listAllNewestFirst()
 	{
-		$data = self::listAll();
+		$data = $this->staticData;
 		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });
 		return $data;
 	}
 
-	public static function checkConsistency()
+	public function checkConsistency()
 	{
 		$warn = null;
 
+		$this->load();
+
 		$ids = [];
 
-		foreach (self::listAll() as $prog)
+		foreach ($this->staticData as $prog)
 		{
 			if (in_array($prog['id'], $ids)) return ['result'=>'err', 'message' => 'Duplicate id ' . $prog['id']];
 			$ids []= $prog['id'];
@@ -79,7 +94,7 @@ class Books
 		return ['result'=>'ok', 'message' => ''];
 	}
 
-	public static function checkThumbnails()
+	public function checkThumbnails()
 	{
 		foreach (self::listAll() as $book)
 		{
@@ -89,7 +104,7 @@ class Books
 		return ['result'=>'ok', 'message' => ''];
 	}
 
-	public static function createPreview($prog)
+	public function createPreview($prog)
 	{
 		global $CONFIG;
 
@@ -103,7 +118,7 @@ class Books
 
 	}
 
-	public static function getBook($id)
+	public function getBook($id)
 	{
 		foreach (self::listAll() as $book) {
 			if ($book['id'] == $id) return $book;
@@ -111,7 +126,7 @@ class Books
 		return null;
 	}
 
-	public static function getRepositoryHost($book)
+	public function getRepositoryHost($book)
 	{
 		$r = $book['repository'];
 		if (startsWith($r, "http://")) $r = substr($r, strlen("http://"));

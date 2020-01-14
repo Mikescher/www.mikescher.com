@@ -17,8 +17,10 @@ class Website
 	/** @var array */
 	public $config;
 
-	/** @var Database|null */
-	private $database = null;
+	/** @var Database|null */     private $database = null;
+	/** @var AdventOfCode|null */ private $adventOfCode = null;
+	/** @var Blog|null */         private $blog = null;
+	/** @var Books|null */        private $books = null;
 
 	public function init()
 	{
@@ -50,7 +52,7 @@ class Website
 		}
 	}
 
-	public static function getInstance()
+	public static function inst()
 	{
 		return self::$instance;
 	}
@@ -140,10 +142,6 @@ class Website
 		exit();
 	}
 
-	/**
-	 * @param PageFrameOptions $pfo
-	 * @param URLRoute $route
-	 */
 	private function output(PageFrameOptions $pfo, URLRoute $route)
 	{
 		if ($pfo->contentType !== null) header('Content-Type: ' . $pfo->contentType);
@@ -160,15 +158,31 @@ class Website
 		require __DIR__ . '/../pages/frame/' . $FRAME_OPTIONS->frame;
 	}
 
-	public function database()
+	public function Database()
 	{
-		if ($this->database === null)
-		{
-			require_once 'database.php';
-			$this->database = new Database($this);
-		}
+		if ($this->database === null) { require_once 'database.php'; $this->database = new Database($this); }
 		return $this->database;
 	}
+
+	public function AdventOfCode()
+	{
+		if ($this->adventOfCode === null) { require_once 'adventofcode.php'; $this->adventOfCode = new AdventOfCode(); }
+		return $this->adventOfCode;
+	}
+
+	public function Blog()
+	{
+		if ($this->blog === null) { require_once 'blog.php'; $this->blog = new Blog(); }
+		return $this->blog;
+	}
+
+	public function Books()
+	{
+		if ($this->books === null) { require_once 'books.php'; $this->books = new Books(); }
+		return $this->books;
+	}
+
+
 
 	/**
 	 * @return bool
