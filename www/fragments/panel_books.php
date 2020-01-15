@@ -1,7 +1,19 @@
 <?php
-	require_once(__DIR__ . '/../internals/books.php');
-	
-	$allbooks = Books::listAllNewestFirst();
+require_once (__DIR__ . '/../internals/website.php');
+
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
+
+global $FRAGMENT_PARAM;
+/** @var array $parameter */
+$parameter = $FRAGMENT_PARAM;
+?>
+
+<?php
+    $BOOKS = $SITE->modules->Books();
+
+    $allbooks = $BOOKS->listAllNewestFirst();
 ?>
 
 <div class="index_pnl_base">

@@ -3,6 +3,8 @@
 require_once 'ruleengine.php';
 require_once 'urlroute.php';
 require_once 'pageframeoptions.php';
+require_once 'modules.php';
+require_once 'fragments.php';
 
 require_once 'utils.php';
 
@@ -17,16 +19,11 @@ class Website
 	/** @var bool|null */
 	public $isLoggedIn = null;
 
-	/** @var Database|null */            private $database = null;
-	/** @var AdventOfCode|null */        private $adventOfCode = null;
-	/** @var Blog|null */                private $blog = null;
-	/** @var Books|null */               private $books = null;
-	/** @var Euler|null */               private $euler = null;
-	/** @var Programs|null */            private $programs = null;
-	/** @var AlephNoteStatistics|null */ private $anstats = null;
-	/** @var UpdatesLog|null */          private $updateslog = null;
-	/** @var WebApps|null */             private $webapps = null;
-	/** @var MikescherGitGraph|null */   private $extendedgitgraph = null;
+	/** @var Modules */
+	public $modules;
+
+	/** @var Fragments */
+	public $fragments;
 
 	public function init()
 	{
@@ -42,6 +39,10 @@ class Website
 				ini_set('display_startup_errors', 1);
 				error_reporting(E_ALL);
 			}
+
+			$this->modules = new Modules($this);
+
+			$this->fragments = new Fragments();
 
 			self::$instance = $this;
 		}
@@ -70,16 +71,11 @@ class Website
 				exit();
 			}
 
-			if ($result->contentType !== null) header('Content-Type: ' . $result->contentType);
-			http_response_code($result->statuscode);
-
 			$this->output($result, $route);
-
-			exit();
 		}
 		catch (Exception $e)
 		{
-			$this->serveServerError(null, formatException($e), null);
+			$this->serveServerError("Internal Server Error", formatException($e), null);
 		}
 	}
 
@@ -87,8 +83,6 @@ class Website
 	{
 		try
 		{
-			@ob_end_clean();
-
 			$frameOpt->statuscode = 404;
 			$frameOpt->title = 'Page not found';
 
@@ -100,23 +94,21 @@ class Website
 		}
 		catch (Exception $e)
 		{
-			$this->serveServerError(null, formatException($e), null);
+			$this->serveServerError("Internal Server Error", formatException($e), null);
 		}
 
 		exit();
 	}
 
 	/**
-	 * @param string|null $message
+	 * @param string $message
 	 * @param string|null $debugInfo
 	 * @param PageFrameOptions|null $frameOpt
 	 */
-	private function serveServerError($message, $debugInfo, $frameOpt)
+	private function serveServerError(string $message, $debugInfo, $frameOpt)
 	{
 		try
 		{
-			@ob_end_clean();
-
 			if ($frameOpt === null) $frameOpt = new PageFrameOptions();
 
 			$frameOpt->statuscode = 500;
@@ -155,66 +147,6 @@ class Website
 
 		/** @noinspection PhpIncludeInspection */
 		require __DIR__ . '/../frames/' . $FRAME_OPTIONS->frame;
-	}
-
-	public function Database()
-	{
-		if ($this->database === null) { require_once 'database.php'; $this->database = new Database($this); }
-		return $this->database;
-	}
-
-	public function AdventOfCode(): AdventOfCode
-	{
-		if ($this->adventOfCode === null) { require_once 'adventofcode.php'; $this->adventOfCode = new AdventOfCode(); }
-		return $this->adventOfCode;
-	}
-
-	public function Blog(): Blog
-	{
-		if ($this->blog === null) { require_once 'blog.php'; $this->blog = new Blog(); }
-		return $this->blog;
-	}
-
-	public function Books(): Books
-	{
-		if ($this->books === null) { require_once 'books.php'; $this->books = new Books(); }
-		return $this->books;
-	}
-
-	public function Euler(): Euler
-	{
-		if ($this->euler === null) { require_once 'euler.php'; $this->euler = new Euler(); }
-		return $this->euler;
-	}
-
-	public function Programs(): Programs
-	{
-		if ($this->programs === null) { require_once 'programs.php'; $this->programs = new Programs(); }
-		return $this->programs;
-	}
-
-	public function AlephNoteStatistics(): AlephNoteStatistics
-	{
-		if ($this->anstats === null) { require_once 'alephnoteStatistics.php'; $this->anstats = new AlephNoteStatistics($this); }
-		return $this->anstats;
-	}
-
-	public function UpdatesLog(): UpdatesLog
-	{
-		if ($this->updateslog === null) { require_once 'updateslog.php'; $this->updateslog = new UpdatesLog($this); }
-		return $this->updateslog;
-	}
-
-	public function WebApps(): WebApps
-	{
-		if ($this->webapps === null) { require_once 'webapps.php'; $this->webapps = new WebApps(); }
-		return $this->webapps;
-	}
-
-	public function ExtendedGitGraph(): MikescherGitGraph
-	{
-		if ($this->extendedgitgraph === null) { require_once 'mikeschergitgraph.php'; $this->extendedgitgraph = new MikescherGitGraph($this); }
-		return $this->extendedgitgraph;
 	}
 
 	/**

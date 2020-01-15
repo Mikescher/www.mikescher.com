@@ -1,7 +1,5 @@
 <?php
 
-require_once 'website.php';
-
 class Database
 {
 	/* @var PDO $pdo */

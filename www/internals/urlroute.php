@@ -44,22 +44,28 @@ class URLRoute
 	 */
 	public function getDirect(Website $site, PageFrameOptions $pfo): PageFrameOptions
 	{
-		@ob_end_clean();
-		ob_start();
+		try
+		{
+			ob_start();
 
-		global $ROUTE;
-		global $FRAME_OPTIONS;
-		global $SITE;
-		$ROUTE = $this;
-		$FRAME_OPTIONS = $pfo;
-		$SITE = $site;
+			global $ROUTE;
+			global $FRAME_OPTIONS;
+			global $SITE;
+			$ROUTE = $this;
+			$FRAME_OPTIONS = $pfo;
+			$SITE = $site;
 
-		/** @noinspection PhpIncludeInspection */
-		require $this->targetpath;
+			/** @noinspection PhpIncludeInspection */
+			require $this->targetpath;
 
-		$FRAME_OPTIONS->raw = ob_get_clean();
+			$FRAME_OPTIONS->raw = ob_get_contents();
 
-		return $FRAME_OPTIONS;
+			return $FRAME_OPTIONS;
+		}
+		finally
+		{
+			ob_end_clean();
+		}
 	}
 
 	/**

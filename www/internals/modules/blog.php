@@ -1,7 +1,5 @@
 <?php
 
-require_once 'website.php';
-
 class Blog
 {
 	/** @var array */
@@ -14,7 +12,7 @@ class Blog
 
 	private function load()
 	{
-		$all = require (__DIR__ . '/../statics/blog/__all.php');
+		$all = require (__DIR__ . '/../../statics/blog/__all.php');
 
 		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
 	}
@@ -66,8 +64,7 @@ class Blog
 		$eulerproblem = null;
 		if ($isSubEuler)
 		{
-			require_once(__DIR__ . '/../internals/euler.php');
-			$eulerproblem = Website::inst()->Euler()->getEulerProblemFromStrIdent($subview);
+			$eulerproblem = Website::inst()->modules->Euler()->getEulerProblemFromStrIdent($subview);
 			if ($eulerproblem === null) { $error="Project Euler entry not found"; return null; }
 			$post['submodel'] = $eulerproblem;
 			$post['issubview'] = true;
@@ -77,8 +74,7 @@ class Blog
 		$adventofcodeday = null;
 		if ($isSubAdventOfCode)
 		{
-			require_once(__DIR__ . '/../internals/adventofcode.php');
-			$adventofcodeday = Website::inst()->AdventOfCode()->getDayFromStrIdent($post['extras']['aoc:year'], $subview);
+			$adventofcodeday = Website::inst()->modules->AdventOfCode()->getDayFromStrIdent($post['extras']['aoc:year'], $subview);
 			if ($adventofcodeday === null) { $error="AdventOfCode entry not found"; return null; }
 			$post['submodel'] = $adventofcodeday;
 			$post['issubview'] = true;

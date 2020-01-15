@@ -23,25 +23,6 @@ function endsWith($haystack, $needle)
 	return $length === 0 || (substr($haystack, -$length) === $needle);
 }
 
-function httpError($errorcode, $message)
-{
-	ob_clean();
-
-	http_response_code($errorcode);
-
-	global $OPTIONS;
-	$OPTIONS = [ 'code' => $errorcode, 'message' => $message ];
-	require (__DIR__ . '/../pages/errorview.php');
-	die();
-}
-
-function httpDie($errorcode, $message)
-{
-	ob_flush();
-	http_response_code($errorcode);
-	die($message);
-}
-
 function destructiveUrlEncode($str) {
 	$str = str_replace(' ', '_', $str);
 	$str = str_replace('+', '_', $str);
@@ -342,6 +323,7 @@ function formatException($e)
 			$xdbg = str_replace('<br />', "\n", $xdbg);
 			$xdbg = str_replace('<br/>', "\n", $xdbg);
 			$xdbg = str_replace('<br>', "\n", $xdbg);
+			$xdbg = str_replace('><', "> <", $xdbg);
 			$xdbg = strip_tags($xdbg);
 			$xdbg = htmlspecialchars($xdbg);
 			$r .= $xdbg . "\n";

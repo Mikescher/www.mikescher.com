@@ -1,7 +1,6 @@
 <?php
 
-require_once 'website.php';
-require_once (__DIR__ . '/../extern/egg/ExtendedGitGraph2.php');
+require_once (__DIR__ . '/../../extern/egg/ExtendedGitGraph2.php');
 
 class MikescherGitGraph
 {
@@ -16,7 +15,7 @@ class MikescherGitGraph
 
 	public function getPathRenderedData()
 	{
-		return __DIR__ . '/../dynamic/egg/cache_fullrenderer.html';
+		return __DIR__ . '/../../dynamic/egg/cache_fullrenderer.html';
 	}
 
 	/**
@@ -32,7 +31,7 @@ class MikescherGitGraph
 
 	public function checkConsistency()
 	{
-		$p =$this->getPathRenderedData();
+		$p = $this->getPathRenderedData();
 
 		if (!file_exists($p)) return ['result'=>'err', 'message' => 'Rendered data not found'];
 

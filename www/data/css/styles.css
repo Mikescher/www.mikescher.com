@@ -1900,6 +1900,7 @@ html, body {
 /* 400px */
 .ev_master {
   align-self: center;
+  width: 100%;
 }
 @media (min-width: 851px) {
   .ev_master {
@@ -1917,6 +1918,15 @@ html, body {
   color: #888888;
   text-align: center;
   font-size: 25pt;
+}
+.ev_master .ev_statusmore {
+  color: #333333;
+  background-color: #BBBBBB;
+  text-align: left;
+  padding: 4px;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
 }
 @media (max-width: 767px) {
   .ev_master .ev_code {

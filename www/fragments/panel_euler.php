@@ -1,7 +1,19 @@
 <?php
-	require_once(__DIR__ . '/../internals/euler.php');
-	
-	$euler = Euler::listAll();
+require_once (__DIR__ . '/../internals/website.php');
+
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
+
+global $FRAGMENT_PARAM;
+/** @var array $parameter */
+$parameter = $FRAGMENT_PARAM;
+?>
+
+<?php
+	$EULER = $SITE->modules->Euler();
+
+	$data = $EULER->listAll();
 
 	$RATING_CLASSES = ['euler_pnl_celltime_perfect', 'euler_pnl_celltime_good', 'euler_pnl_celltime_ok', 'euler_pnl_celltime_bad', 'euler_pnl_celltime_fail'];
 ?>
@@ -18,7 +30,7 @@
 	$arr = [];
 
 	$max = 0;
-	foreach ($euler as $problem)
+	foreach ($data as $problem)
 	{
 		$max = max($max, $problem['number']);
 		$arr[$problem['number']] = $problem;

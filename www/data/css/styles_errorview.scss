@@ -3,6 +3,7 @@
 .ev_master {
 
   align-self: center;
+  width: 100%;
 
   @include rdmedia_range(2,4) {padding-bottom: 80px;}
 
@@ -18,6 +19,18 @@
     color: $LAYER0_FG_LIGHTER;
     text-align: center;
     font-size: 25pt;
+  }
+
+  .ev_statusmore {
+    color: $LAYER1_FG;
+    background-color: $LAYER1_BG_DARKER;
+    text-align: left;
+    padding: 4px;
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    width: 100%;
   }
 
   @include rdmedia(0) {

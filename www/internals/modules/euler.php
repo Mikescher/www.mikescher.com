@@ -1,7 +1,5 @@
 <?php
 
-require_once 'website.php';
-
 class Euler
 {
 	/** @var array */
@@ -14,7 +12,7 @@ class Euler
 
 	private function load()
 	{
-		$all = require (__DIR__ . '/../statics/euler/__all.php');
+		$all = require (__DIR__ . '/../../statics/euler/__all.php');
 
 		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
 	}

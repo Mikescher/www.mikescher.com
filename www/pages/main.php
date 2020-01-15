@@ -6,12 +6,18 @@ require_once (__DIR__ . '/../internals/website.php');
 /** @var Website $SITE */ global $SITE;
 ?>
 
-<?php include (__DIR__ . '/../fragments/panel_euler.php');  ?>
+<?php
+$FRAME_OPTIONS->title = 'Mikescher.com';
+$FRAME_OPTIONS->canonical_url = 'https://www.mikescher.com';
+$FRAME_OPTIONS->activeHeader = 'home';
+?>
 
-<?php include (__DIR__ . '/../fragments/panel_programs.php');  ?>
+<?php $SITE->fragments->PanelEuler(); ?>
 
-<?php include (__DIR__ . '/../fragments/panel_blog.php');  ?>
+<?php $SITE->fragments->PanelPrograms(); ?>
 
-<?php include (__DIR__ . '/../fragments/panel_books.php');  ?>
+<?php $SITE->fragments->PanelBlog(); ?>
 
-<?php include (__DIR__ . '/../fragments/panel_aoc.php');  ?>
+<?php $SITE->fragments->PanelBooks(); ?>
+
+<?php $SITE->fragments->PanelAdventOfCode(); ?>

@@ -20,7 +20,7 @@ require_once (__DIR__ . '/../internals/website.php');
 	foreach ($FRAME_OPTIONS->stylesheets as $cssfile) echo '<link rel="stylesheet" href="' . $cssfile . '"/>';
 	foreach ($FRAME_OPTIONS->scripts as $scriptfile)
 	{
-		if ($scriptfile[1]) echo '<script src="' . $scriptfile[0]	 . '" defer/>';
+		if ($scriptfile[1]) echo '<script src="' . $scriptfile[0]	 . '" defer></script>';
 		else                echo '<script src="' . $scriptfile[0]	 . '" type="text/javascript" ></script>';
 	}
     ?>

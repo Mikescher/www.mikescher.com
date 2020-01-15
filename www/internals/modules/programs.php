@@ -1,7 +1,5 @@
 <?php
 
-require_once 'website.php';
-
 class Programs
 {
 	const PROG_LANGS = [ 'Java', 'C#', 'Delphi', 'PHP', 'C++' ];
@@ -43,7 +41,7 @@ class Programs
 
 	private function load()
 	{
-		$all = require (__DIR__ . '/../statics/programs/__all.php');
+		$all = require (__DIR__ . '/../../statics/programs/__all.php');
 
 		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
 	}
@@ -197,7 +195,7 @@ class Programs
 
 	public function getDirectDownloadPath($prog)
 	{
-		return (__DIR__ . '/../data/binaries/'.$prog['internal_name'].'.zip');
+		return (__DIR__ . '/../../data/binaries/'.$prog['internal_name'].'.zip');
 	}
 
 	public function checkConsistency()

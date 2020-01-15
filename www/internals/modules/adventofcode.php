@@ -1,7 +1,5 @@
 <?php
 
-require_once 'website.php';
-
 class AdventOfCode
 {
 	const YEARS =
@@ -35,7 +33,7 @@ class AdventOfCode
 
 	private function load()
 	{
-		$all = require (__DIR__ . '/../statics/aoc/__all.php');
+		$all = require (__DIR__ . '/../../statics/aoc/__all.php');
 
 		array_walk($all, function(&$value, $year) { array_walk($value, function (&$innervalue) use ($year) { $innervalue = self::readSingle($year, $innervalue); }); });
 
