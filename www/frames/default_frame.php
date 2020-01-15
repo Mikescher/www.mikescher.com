@@ -15,7 +15,15 @@ require_once (__DIR__ . '/../internals/website.php');
 	<title><?php echo $FRAME_OPTIONS->title; ?></title>
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<link rel="canonical" href="<?php echo $FRAME_OPTIONS->canonical_url; ?>"/>
+	<?php
+    if ($FRAME_OPTIONS->canonical_url !== null) echo '<link rel="canonical" href="'.$FRAME_OPTIONS->canonical_url.'"/>';
+	foreach ($FRAME_OPTIONS->stylesheets as $cssfile) echo '<link rel="stylesheet" href="' . $cssfile . '"/>';
+	foreach ($FRAME_OPTIONS->scripts as $scriptfile)
+	{
+		if ($scriptfile[1]) echo '<script src="' . $scriptfile[0]	 . '" defer/>';
+		else                echo '<script src="' . $scriptfile[0]	 . '" type="text/javascript" ></script>';
+	}
+    ?>
 </head>
 <body>
 <div id="mastercontainer">
@@ -40,7 +48,9 @@ require_once (__DIR__ . '/../internals/website.php');
 
     </div>
 
-	<?php echo $FRAME_OPTIONS->raw; ?>
+	<div id="content" class="<?php echo join(' ', $FRAME_OPTIONS->contentCSSClasses); ?>">
+		<?php echo $FRAME_OPTIONS->raw; ?>
+	</div>
 
 	<div id="footerdiv" class="content-responsive">
 		<hr />

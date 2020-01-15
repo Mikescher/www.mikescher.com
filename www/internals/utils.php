@@ -82,61 +82,6 @@ function formatMilliseconds($millis)
 	}
 }
 
-function includeAdditionalScript($script, $attr='', $printImmediately = false) {
-	global $ADDITIONAL_SCRIPTS;
-
-	if (in_array($script, $ADDITIONAL_SCRIPTS)) return false;
-
-	if ($printImmediately) {
-		$ADDITIONAL_SCRIPTS[$script] = ['src' => $script, 'attr' => $attr, 'consumed' => true];
-		echo '<script src="'.$script.'" type="text/javascript" '.$attr.'></script>';
-		return true;
-	} else {
-		$ADDITIONAL_SCRIPTS[$script] = ['src' => $script, 'attr' => $attr, 'consumed' => false];
-		return true;
-	}
-}
-
-function includeAdditionalStylesheet($sheet, $attr='', $printImmediately = false) {
-	global $ADDITIONAL_STYLESHEETS;
-
-	if (in_array($sheet, $ADDITIONAL_STYLESHEETS)) return false;
-
-	if ($printImmediately) {
-		$ADDITIONAL_STYLESHEETS[$sheet] = ['src' => $sheet, 'attr' => $attr, 'consumed' => true];
-		echo '<link rel="stylesheet" href="' . $sheet . '" '.$attr.'/>';
-		return true;
-	} else {
-		$ADDITIONAL_STYLESHEETS[$sheet] = ['src' => $sheet, 'attr' => $attr, 'consumed' => false];
-		return true;
-	}
-}
-
-function printHeaderCSS() {
-	global $CSS_BASE;
-	includeAdditionalStylesheet($CSS_BASE, '', true);
-}
-
-function printAdditionalScripts()  {
-	global $ADDITIONAL_SCRIPTS;
-
-	foreach ($ADDITIONAL_SCRIPTS as $d) {
-		if ($d['consumed']) continue;
-		echo '<script src="' . $d['src'] . '" type="text/javascript" ' . $d['attr'] . '></script>';
-		$d['consumed'] = true;
-	}
-}
-
-function printAdditionalStylesheets()  {
-	global $ADDITIONAL_STYLESHEETS;
-
-	foreach ($ADDITIONAL_STYLESHEETS as $d) {
-		if ($d['consumed']) continue;
-		echo '<link rel="stylesheet" href="' . $d['src'] . '" ' . $d['attr'] . '/>';
-		$d['consumed'] = true;
-	}
-}
-
 function isProd() {
 	global $CONFIG;
 	return $CONFIG['prod'];
@@ -178,34 +123,6 @@ function convertLanguageToFlag($lang) {
 	if ($lang === 'spanish')     return '/data/images/flags/128-spain.svg';
 
 	return null;
-}
-
-function setLoginCookie($user, $pass)
-{
-	$expires = time() + (24*60*60); // 24h
-	$hash = hash('sha256', $user . ';' . $pass . ';' . gmdate('Y-m-d'));
-	setcookie('mikescher_auth', $hash, $expires);
-}
-
-function isLoggedInByCookie()
-{
-	static $_loginCache = null;
-	if ($_loginCache !== null) return $_loginCache;
-
-	global $CONFIG;
-	if (key_exists('mikescher_auth', $_COOKIE))
-	{
-		if (strlen($_COOKIE['mikescher_auth']) !== 64) return $_loginCache = false;
-		$auth = hash('sha256', $CONFIG['admin_username'] . ';' . $CONFIG['admin_password'] . ';' . gmdate('Y-m-d'));
-		if ($auth === $_COOKIE['mikescher_auth']) return $_loginCache = true;
-	}
-
-	return $_loginCache = false;
-}
-
-function clearLoginCookie()
-{
-	setcookie("mikescher_auth", "", time()+30);
 }
 
 /**

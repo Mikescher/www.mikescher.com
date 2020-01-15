@@ -7,7 +7,7 @@ class PageFrameOptions
 	public $raw;
 
 	/** @var string */
-	public $title = '';
+	public $title = 'Mikescher.com';
 
 	/** @var int */
 	public $statuscode = 200;
@@ -23,4 +23,39 @@ class PageFrameOptions
 
 	/** @var string */
 	public $contentType = null;
+
+	/** @var string */
+	public $activeHeader = null;
+
+	/** @var string */
+	public $canonical_url = null;
+
+	/** @var string[] */
+	public $contentCSSClasses = [ 'content-responsive' ];
+
+	/** @var array */
+	public $stylesheets = [];
+
+	/** @var array */
+	public $scripts = [];
+
+	public function addStylesheet(string $url)
+	{
+		foreach ($this->stylesheets as $css) if ($css === $url) return;
+		$this->stylesheets []= $url;
+	}
+
+	public function addScript(string $url, bool $defer = false)
+	{
+		foreach ($this->scripts as &$script)
+		{
+			if ($script[0] === $url)
+			{
+				if (!$defer && $script[1]) $script[1] = false; // upgrade from defered to immediate script
+				return;
+			}
+		}
+
+		$this->scripts []= [ $url, $defer ];
+	}
 }

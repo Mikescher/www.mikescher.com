@@ -5,13 +5,13 @@ require_once "website.php";
 class RuleEngine
 {
 	/**
-	 * @param Website $app
+	 * @param Website $site
 	 * @param array $urlConfig
 	 * @return URLRoute
 	 */
-	public static function findRoute(Website $app, array $urlConfig): URLRoute
+	public static function findRoute(Website $site, array $urlConfig): URLRoute
 	{
-		if ($app->isProd())
+		if ($site->isProd())
 			$requri = $_SERVER['REQUEST_URI'];
 		else
 			$requri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : 'localhost:80/';
@@ -24,16 +24,18 @@ class RuleEngine
 
 		foreach ($urlConfig as $rule)
 		{
-			$route = self::testRule($app, $rule, $requri, $pathparts, $partcount);
+			$route = self::testRule($site, $rule, $requri, $pathparts, $partcount);
 			if ($route === null) continue;
 
-			if ($route->needsAdminLogin && !$app->isLoggedIn()) return URLRoute::getLoginRoute($route, $requri);
+			if ($route->needsAdminLogin && !$site->isLoggedInByCookie()) return URLRoute::getLoginRoute($route, $requri);
+
+			return $route;
 		}
 
 		return URLRoute::getNotFoundRoute($requri);
 	}
 
-	private static function testRule(Website $app, array $rule, string $requri, array $pathparts, int $partcount)
+	private static function testRule(Website $site, array $rule, string $requri, array $pathparts, int $partcount)
 	{
 		if ($partcount !== count($rule['url'])) return null;
 
@@ -95,7 +97,7 @@ class RuleEngine
 
 		$route->needsAdminLogin = isset($ctrlOpt['password']);
 
-		if ($app->isProd() && isHTTPRequest() && !in_array('http', $ctrlOpt))
+		if ($site->isProd() && isHTTPRequest() && !in_array('http', $ctrlOpt))
 		{
 			// enforce https
 			$redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];

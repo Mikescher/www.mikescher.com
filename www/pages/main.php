@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php require_once (__DIR__ . '/../internals/base.php'); ?>
-<head>
-	<meta charset="utf-8">
-	<title>Mikescher.com</title>
-	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
-	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-    <link rel="canonical" href="https://www.mikescher.com/"/>
-	<?php printHeaderCSS(); ?>
-</head>
-<body>
-<div id="mastercontainer">
+<?php
+require_once (__DIR__ . '/../internals/website.php');
 
-	<?php $HEADER_ACTIVE='home'; include (__DIR__ . '/../fragments/header.php');  ?>
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
+?>
 
-	<div id="content" class="content-responsive">
+<?php include (__DIR__ . '/../fragments/panel_euler.php');  ?>
 
-		<?php include (__DIR__ . '/../fragments/panel_euler.php');  ?>
+<?php include (__DIR__ . '/../fragments/panel_programs.php');  ?>
 
-		<?php include (__DIR__ . '/../fragments/panel_programs.php');  ?>
+<?php include (__DIR__ . '/../fragments/panel_blog.php');  ?>
 
-		<?php include (__DIR__ . '/../fragments/panel_blog.php');  ?>
+<?php include (__DIR__ . '/../fragments/panel_books.php');  ?>
 
-		<?php include (__DIR__ . '/../fragments/panel_books.php');  ?>
-
-		<?php include (__DIR__ . '/../fragments/panel_aoc.php');  ?>
-
-	</div>
-
-	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
-
-</div>
-<?php printAdditionalScripts(); ?>
-<?php printAdditionalStylesheets(); ?>
-</body>
-</html>
+<?php include (__DIR__ . '/../fragments/panel_aoc.php');  ?>

@@ -14,6 +14,9 @@ class Website
 	/** @var array */
 	public $config;
 
+	/** @var bool|null */
+	public $isLoggedIn = null;
+
 	/** @var Database|null */            private $database = null;
 	/** @var AdventOfCode|null */        private $adventOfCode = null;
 	/** @var Blog|null */                private $blog = null;
@@ -145,13 +148,13 @@ class Website
 
 		global $ROUTE;
 		global $FRAME_OPTIONS;
-		global $APP;
+		global $SITE;
 		$ROUTE = $route;
 		$FRAME_OPTIONS = $pfo;
-		$APP = $this;
+		$SITE = $this;
 
 		/** @noinspection PhpIncludeInspection */
-		require __DIR__ . '/../pages/frame/' . $FRAME_OPTIONS->frame;
+		require __DIR__ . '/../frames/' . $FRAME_OPTIONS->frame;
 	}
 
 	public function Database()
@@ -222,6 +225,33 @@ class Website
 		if ($this->config == null) return true;
 		return $this->config['prod'];
 	}
+
+	public function isLoggedInByCookie()
+	{
+		if ($this->isLoggedIn !== null) return $this->isLoggedIn;
+
+		if (key_exists('mikescher_auth', $_COOKIE))
+		{
+			if (strlen($_COOKIE['mikescher_auth']) !== 64) return ($this->isLoggedIn = false);
+			$auth = hash('sha256', $this->config['admin_username'] . ';' . $this->config['admin_password'] . ';' . gmdate('Y-m-d'));
+			if ($auth === $_COOKIE['mikescher_auth']) return ($this->isLoggedIn = true);
+		}
+
+		return ($this->isLoggedIn = false);
+	}
+
+	function setLoginCookie($user, $pass)
+	{
+		$expires = time() + (24*60*60); // 24h
+		$hash = hash('sha256', $user . ';' . $pass . ';' . gmdate('Y-m-d'));
+		setcookie('mikescher_auth', $hash, $expires);
+	}
+
+	function clearLoginCookie()
+	{
+		setcookie("mikescher_auth", "", time()+30);
+	}
+
 }
 
 /**

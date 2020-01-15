@@ -16,52 +16,43 @@ class URLRoute
 	/** @var int */
 	public $needsAdminLogin;
 
-	/** @var int */
-	public $isAPI;
-
 	public function __construct(string $target, string $url)
 	{
 		$this->targetpath = __DIR__ . '/../pages/' . $target;
 		$this->full_url = $url;
 		$this->parameter = [];
 		$this->needsAdminLogin = false;
-		$this->isAPI = false;
 	}
 
 	/**
-	 * @param Website $app
+	 * @param Website $site
 	 * @return PageFrameOptions
 	 */
-	public function get(Website $app): PageFrameOptions
+	public function get(Website $site): PageFrameOptions
 	{
 		$pfo = new PageFrameOptions();
 
-		$pfo->title = 'Mikescher.com'; // default title
-		if ($this->isAPI)
-		{
-			$pfo->frame = 'no_frame.php';
-			$pfo->contentType = 'application/json';
-		}
+		$pfo->addStylesheet($site->isProd() ? ('/data/css/styles.min.css') : ('/data/css/styles.css'));
 
-		return $this->getDirect($app, $pfo);
+		return $this->getDirect($site, $pfo);
 	}
 
 	/**
-	 * @param Website $app
+	 * @param Website $site
 	 * @param PageFrameOptions $pfo
 	 * @return PageFrameOptions
 	 */
-	public function getDirect(Website $app, PageFrameOptions $pfo): PageFrameOptions
+	public function getDirect(Website $site, PageFrameOptions $pfo): PageFrameOptions
 	{
 		@ob_end_clean();
 		ob_start();
 
 		global $ROUTE;
 		global $FRAME_OPTIONS;
-		global $APP;
+		global $SITE;
 		$ROUTE = $this;
 		$FRAME_OPTIONS = $pfo;
-		$APP = $app;
+		$SITE = $site;
 
 		/** @noinspection PhpIncludeInspection */
 		require $this->targetpath;
@@ -79,7 +70,7 @@ class URLRoute
 	public static function getLoginRoute(URLRoute $route, string $requri): URLRoute
 	{
 		$r = new URLRoute('login.php', $requri);
-		$r->parameter = [ 'redirect' => $route->full_url ];
+		$r->parameter = [ 'login_target' => $route->full_url ];
 		return $r;
 	}
 
@@ -89,7 +80,7 @@ class URLRoute
 	 */
 	public static function getNotFoundRoute(string $requri): URLRoute
 	{
-		$r = new URLRoute('errors/not_found.php', $requri);
+		$r = new URLRoute('error_notfound.php', $requri);
 		$r->parameter = [];
 		return $r;
 	}
@@ -100,7 +91,7 @@ class URLRoute
 	 */
 	public static function getServerErrorRoute(string $requri): URLRoute
 	{
-		$r = new URLRoute('errors/server_error.php', $requri);
+		$r = new URLRoute('error_servererror.php', $requri);
 		$r->parameter = [];
 		return $r;
 	}
