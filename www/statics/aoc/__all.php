@@ -10,7 +10,7 @@ return
 			['day' =>  4, 'parts' => 2, 'title' => 'High-Entropy Passphrases',                'language' => 'pyth', 'solutions' => ['477', '167'] ],
 			['day' =>  5, 'parts' => 2, 'title' => 'A Maze of Twisty Trampolines, All Alike', 'language' => 'pyth', 'solutions' => ['388611', '27763113'] ],
 			['day' =>  6, 'parts' => 2, 'title' => 'Memory Reallocation',                     'language' => 'pyth', 'solutions' => ['11137', '1037'] ],
-			['day' =>  6, 'parts' => 2, 'title' => 'Recursive Circus',                        'language' => 'pyth', 'solutions' => ['hlqnsbe', '1993'] ],
+			['day' =>  7, 'parts' => 2, 'title' => 'Recursive Circus',                        'language' => 'pyth', 'solutions' => ['hlqnsbe', '1993'] ],
 		],
 		'2018' =>
 		[
