@@ -81,8 +81,8 @@ class AdventOfCode
 
 		$a['url_aoc']    = $yeardata['url-aoc'] . $a['day']; // adventofcode.com/{year}/day/{day}
 
-		$a['file_challenge'] = (__DIR__ . '/../statics/aoc/'.$year.'/'.$n2p.'_challenge.txt');
-		$a['file_input']     = (__DIR__ . '/../statics/aoc/'.$year.'/'.$n2p.'_input.txt');
+		$a['file_challenge'] = (__DIR__ . '/../../statics/aoc/'.$year.'/'.$n2p.'_challenge.txt');
+		$a['file_input']     = (__DIR__ . '/../../statics/aoc/'.$year.'/'.$n2p.'_input.txt');
 
 		$a['date']     = $year . '-' . 12 . '-' . $n2p;
 
@@ -90,7 +90,7 @@ class AdventOfCode
 
 		for ($i=1; $i <= $a['parts']; $i++)
 		{
-			$solutionfiles []= (__DIR__ . '/../statics/aoc/' . $year . '/' . $n2p . '_solution-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
+			$solutionfiles []= (__DIR__ . '/../../statics/aoc/' . $year . '/' . $n2p . '_solution-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
 		}
 
 		$a['file_solutions'] = $solutionfiles;
