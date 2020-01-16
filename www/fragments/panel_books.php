@@ -11,9 +11,7 @@ $parameter = $FRAGMENT_PARAM;
 ?>
 
 <?php
-    $BOOKS = $SITE->modules->Books();
-
-    $allbooks = $BOOKS->listAllNewestFirst();
+$allbooks = $SITE->modules->Books()->listAllNewestFirst();
 ?>
 
 <div class="index_pnl_base">

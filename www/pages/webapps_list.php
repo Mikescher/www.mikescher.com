@@ -1,52 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/webapp.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-$allapps = WebApps::listAllNewestFirst();
-
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 ?>
-<head>
-	<meta charset="utf-8">
-	<title>Mikescher.com - Tools</title>
-	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-    <link rel="canonical" href="https://www.mikescher.com/webapps"/>
-	<?php printHeaderCSS(); ?>
-</head>
-<body>
-<div id="mastercontainer">
 
-<?php $HEADER_ACTIVE='webapps'; include (__DIR__ . '/../fragments/header.php');  ?>
+<?php
+$FRAME_OPTIONS->title = 'External tools, apps and more';
+$FRAME_OPTIONS->canonical_url = 'https://www.mikescher.com/webapps';
+$FRAME_OPTIONS->activeHeader = 'webapps';
 
-<div id="content" class="content-responsive">
+$allapps = $SITE->modules->WebApps()->listAllNewestFirst();
+?>
 
-	<div class="blockcontent">
+<div class="blockcontent">
 
-		<div class="contentheader"><h1>Online tools, web apps and more</h1><hr/></div>
+    <div class="contentheader"><h1>Online tools, web apps and more</h1><hr/></div>
 
-		<div class='webapplistelem_container'>
-			<?php
+    <div class='webapplistelem_container'>
+		<?php
 
-			foreach ($allapps as $post)
-			{
-				echo "<a class='webapplistelem' href='" . $post['url'] . "'>\n";
-				echo "<div class='wle_date'>"  . $post['date'] . "</div>\n";
-				echo "<div class='wle_title'>"  . $post['title'] . "</div>\n";
-				echo "</a>\n";
-			}
+		foreach ($allapps as $post)
+		{
+			echo "<a class='webapplistelem' href='" . $post['url'] . "'>\n";
+			echo "<div class='wle_date'>"  . $post['date'] . "</div>\n";
+			echo "<div class='wle_title'>"  . $post['title'] . "</div>\n";
+			echo "</a>\n";
+		}
 
-			?>
-		</div>
-
-	</div>
+		?>
+    </div>
 
 </div>
-
-<?php include (__DIR__ . '/../fragments/footer.php');  ?>
-
-</div>
-<?php printAdditionalScripts(); ?>
-<?php printAdditionalStylesheets(); ?>
-</body>
-</html>

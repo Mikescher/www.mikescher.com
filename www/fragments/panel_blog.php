@@ -11,9 +11,7 @@ $parameter = $FRAGMENT_PARAM;
 ?>
 
 <?php
-    $BLOG = $SITE->modules->Blog();
-
-    $allposts = $BLOG->listAllNewestFirst();
+$allposts = $SITE->modules->Blog()->listAllNewestFirst();
 ?>
 
 <div class="index_pnl_base">

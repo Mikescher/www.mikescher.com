@@ -11,9 +11,7 @@ $parameter = $FRAGMENT_PARAM;
 ?>
 
 <?php
-	$EULER = $SITE->modules->Euler();
-
-	$data = $EULER->listAll();
+	$data = $SITE->modules->Euler()->listAll();
 
 	$RATING_CLASSES = ['euler_pnl_celltime_perfect', 'euler_pnl_celltime_good', 'euler_pnl_celltime_ok', 'euler_pnl_celltime_bad', 'euler_pnl_celltime_fail'];
 ?>

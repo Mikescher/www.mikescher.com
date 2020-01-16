@@ -15,8 +15,6 @@ if ($prog === null) { $FRAME_OPTIONS->setForced404("Program not found"); return;
 $FRAME_OPTIONS->title = $prog['name'];
 $FRAME_OPTIONS->canonical_url =$prog['url'];
 $FRAME_OPTIONS->activeHeader = 'programs';
-
-if ($prog['has_extra_images']) $FRAME_OPTIONS->addScript('/data/javascript/ms_basic.js', true);
 ?>
 
 <div class="blockcontent">
@@ -73,6 +71,8 @@ if ($prog['has_extra_images']) $FRAME_OPTIONS->addScript('/data/javascript/ms_ba
         </div>
 
 		<?php if ($prog['has_extra_images']): ?>
+
+            <?php $FRAME_OPTIONS->addScript('/data/javascript/ms_basic.js', true); ?>
 
             <div class="progv_extra imgcarousel_parent" data-imgcarousel-index="0" data-imgcarousel-images="<?php echo htmlspecialchars(json_encode($prog['extraimages_urls'])); ?>" >
                 <a class="imgcarousel_prev">

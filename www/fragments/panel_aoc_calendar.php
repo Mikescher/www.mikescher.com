@@ -18,11 +18,9 @@ $ajax       = $parameter['ajax'];
 $frame      = $parameter['frame'];
 $frameid    = $parameter['frameid'];
 
-$AOC = $SITE->modules->AdventOfCode();
-
-$assocdays = $AOC->listSingleYearAssociative($year);
-$prev_year = $shownav ? $AOC->getPrevYear($year) : null;
-$next_year = $shownav ? $AOC->getNextYear($year) : null;
+$assocdays = $SITE->modules->AdventOfCode()->listSingleYearAssociative($year);
+$prev_year = $shownav ? $SITE->modules->AdventOfCode()->getPrevYear($year) : null;
+$next_year = $shownav ? $SITE->modules->AdventOfCode()->getNextYear($year) : null;
 
 if ($ajax) $FRAME_OPTIONS->addScript("/data/javascript/aoc_panel_interactive.js", true);
 
@@ -37,14 +35,14 @@ if ($ajax) $FRAME_OPTIONS->addScript("/data/javascript/aoc_panel_interactive.js"
                 if ($ajax)
                     echo '<a href="javascript:void();" onclick="javascript:changeAOCPanel(' . $prev_year . ', ' . ($shownav?'true':'false') . ', ' . ($linkheader?'true':'false') . ', ' . ($ajax?'true':'false') . ', \'' . $frameid . '\')" class="aoc_calendar_header_link aoc_prev" >&lt;</a>';
                 else
-                    echo '<a href="' . $AOC->getURLForYear($prev_year) . '" class="aoc_calendar_header_link aoc_prev" >&lt;</a>';
+                    echo '<a href="' . $SITE->modules->AdventOfCode()->getURLForYear($prev_year) . '" class="aoc_calendar_header_link aoc_prev" >&lt;</a>';
             }
 			else
             {
                 echo '<a href="#" class="aoc_calendar_header_link aoc_prev aoc_link_hidden" >&lt;</a>';
 			}
 
-			if ($linkheader) echo '<span class="aoc_calendar_header_title"><a href="' . $AOC->getURLForYear($year) . '">'.$year.'</a></span>';
+			if ($linkheader) echo '<span class="aoc_calendar_header_title"><a href="' . $SITE->modules->AdventOfCode()->getURLForYear($year) . '">'.$year.'</a></span>';
 			else             echo '<span class="aoc_calendar_header_title">'.$year.'</span>';
 
 			if ($next_year !== null)
@@ -52,7 +50,7 @@ if ($ajax) $FRAME_OPTIONS->addScript("/data/javascript/aoc_panel_interactive.js"
 				if ($ajax)
 					echo '<a href="javascript:void();" onclick="javascript:changeAOCPanel(' . $next_year . ', ' . ($shownav?'true':'false') . ', ' . ($linkheader?'true':'false') . ', ' . ($ajax?'true':'false') . ', \'' . $frameid . '\')" class="aoc_calendar_header_link aoc_next" >&gt;</a>';
 				else
-                    echo '<a href="' . $AOC->getURLForYear($next_year) . '" class="aoc_calendar_header_link aoc_next" >&gt;</a>';
+                    echo '<a href="' . $SITE->modules->AdventOfCode()->getURLForYear($next_year) . '" class="aoc_calendar_header_link aoc_next" >&gt;</a>';
             }
 			else
             {

@@ -11,9 +11,7 @@ $parameter = $FRAGMENT_PARAM;
 ?>
 
 <?php
-    $PROGRAMS = $SITE->modules->Programs();
-
-    $allprograms = $PROGRAMS->listAllNewestFirst();
+$allprograms = $SITE->modules->Programs()->listAllNewestFirst();
 ?>
 
 <div class="index_pnl_base">

@@ -20,7 +20,6 @@ class MikescherGitGraph
 
 	/**
 	 * @return string|null
-	 * @throws Exception
 	 */
 	public function get()
 	{
