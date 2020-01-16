@@ -67,29 +67,14 @@ class ParsedownCustom extends ParsedownExtra
 
 	protected function handleBFJoust(array $Element)
 	{
-		global $PARAM_CODE_LEFT;
-		global $PARAM_CODE_RIGHT;
-
 		$split = preg_split("/-{16,}/", $Element['text']);
 
-		$PARAM_CODE_LEFT  = trim($split[0]);
-		$PARAM_CODE_RIGHT = trim($split[1]);
-
-		return require (__DIR__ . '/../fragments/widget_bfjoust.php');
+		return Website::inst()->fragments->WidgetBFJoust(trim($split[0]), trim($split[1]));
 	}
 
 	protected function handleBef93(array $Element)
 	{
-		global $PARAM_BEFUNGE93RUNNER;
-		$PARAM_BEFUNGE93RUNNER =
-		[
-			'code'        => $Element['text'],
-			'url'         => '',
-			'interactive' => $Element['b93_interactive'],
-			'speed'       => $Element['b93_speed'],
-			'editable'    => $Element['b93_editable'],
-		];
-		return require (__DIR__ . '/../fragments/widget_befunge93.php');
+		return Website::inst()->fragments->WidgetBefunge93($Element['text'], '', $Element['b93_interactive'], $Element['b93_speed'], $Element['b93_editable']);
 	}
 
 	protected function blockTable($Line, array $Block = null)

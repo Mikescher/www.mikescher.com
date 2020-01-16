@@ -33,21 +33,21 @@ else
 
 	if ($post['type'] === 'plain')
 	{
-	    $SITE->fragments->BlogviewPlain($post);
+	    echo $SITE->fragments->BlogviewPlain($post);
 	}
 	elseif ($post['type'] === 'markdown')
     {
-		$SITE->fragments->BlogviewMarkdown($post);
+		echo $SITE->fragments->BlogviewMarkdown($post);
 	}
 	elseif ($post['type'] === 'euler')
     {
-		if ($subview === '') $SITE->fragments->BlogviewEulerList($post);
-		else                 $SITE->fragments->BlogviewEulerSingle($post, $subview);
+		if ($subview === '') echo $SITE->fragments->BlogviewEulerList($post);
+		else                 echo $SITE->fragments->BlogviewEulerSingle($post, $subview);
 	}
 	elseif ($post['type'] === 'aoc')
     {
-		if ($subview === '') $SITE->fragments->BlogviewAdventOfCodeList($post);
-		else                 $SITE->fragments->BlogviewAdventOfCodeSingle($post, $subview);
+		if ($subview === '') echo $SITE->fragments->BlogviewAdventOfCodeList($post);
+		else                 echo $SITE->fragments->BlogviewAdventOfCodeSingle($post, $subview);
 	}
 	?>
 

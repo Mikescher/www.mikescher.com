@@ -12,12 +12,12 @@ $FRAME_OPTIONS->canonical_url = 'https://www.mikescher.com';
 $FRAME_OPTIONS->activeHeader = 'home';
 ?>
 
-<?php $SITE->fragments->PanelEuler(); ?>
+<?php echo $SITE->fragments->PanelEuler(); ?>
 
-<?php $SITE->fragments->PanelPrograms(); ?>
+<?php echo $SITE->fragments->PanelPrograms(); ?>
 
-<?php $SITE->fragments->PanelBlog(); ?>
+<?php echo $SITE->fragments->PanelBlog(); ?>
 
-<?php $SITE->fragments->PanelBooks(); ?>
+<?php echo $SITE->fragments->PanelBooks(); ?>
 
-<?php $SITE->fragments->PanelAdventOfCode(); ?>
+<?php echo $SITE->fragments->PanelAdventOfCode(); ?>

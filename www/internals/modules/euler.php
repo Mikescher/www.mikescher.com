@@ -33,9 +33,9 @@ class Euler
 		$a['url_raw']    = 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-' . $n3p . '.b93';
 		$a['url_github'] =  'https://github.com/Mikescher/Project-Euler_Befunge';
 
-		$a['file_description'] = (__DIR__ . '/../statics/euler/Euler_Problem-'.$n3p.'_description.md');
-		$a['file_code']        = (__DIR__ . '/../statics/euler/Euler_Problem-'.$n3p.'.b93');
-		$a['file_explanation'] = (__DIR__ . '/../statics/euler/Euler_Problem-'.$n3p.'_explanation.md');
+		$a['file_description'] = (__DIR__ . '/../../statics/euler/Euler_Problem-'.$n3p.'_description.md');
+		$a['file_code']        = (__DIR__ . '/../../statics/euler/Euler_Problem-'.$n3p.'.b93');
+		$a['file_explanation'] = (__DIR__ . '/../../statics/euler/Euler_Problem-'.$n3p.'_explanation.md');
 
 		return $a;
 	}

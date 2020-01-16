@@ -1924,6 +1924,8 @@ html, body {
   background-color: #BBBBBB;
   text-align: left;
   padding: 4px;
+  font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
+  font-size: small;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;

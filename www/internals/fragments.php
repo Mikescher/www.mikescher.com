@@ -2,89 +2,131 @@
 
 class Fragments
 {
+	private function evalFragment($name, $url, $params)
+	{
+		try
+		{
+			ob_start();
+			{
+				global $FRAGMENT_PARAM;
+				$FRAGMENT_PARAM = $params;
+				/** @noinspection PhpIncludeInspection */
+				include (__DIR__ . '/../fragments/' . $url);
+			}
+			return ob_get_contents();
+		}
+		finally
+		{
+			ob_end_clean();
+		}
+	}
+
 	public function PanelEuler()
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ ];
-		include (__DIR__ . '/../fragments/panel_euler.php');
+		return $this->evalFragment('PanelEuler', 'panel_euler.php', [ ]);
 	}
 
 	public function PanelPrograms()
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ ];
-		include (__DIR__ . '/../fragments/panel_programs.php');
+		return $this->evalFragment('PanelPrograms', 'panel_programs.php', [ ]);
 	}
 
 	public function PanelBlog()
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ ];
-		include (__DIR__ . '/../fragments/panel_blog.php');
+		return $this->evalFragment('PanelBlog', 'panel_blog.php', [ ]);
 	}
 
 	public function PanelBooks()
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ ];
-		include (__DIR__ . '/../fragments/panel_books.php');
+		return $this->evalFragment('PanelBooks', 'panel_books.php', [ ]);
 	}
 
 	public function PanelAdventOfCode()
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ ];
-		include (__DIR__ . '/../fragments/panel_aoc.php');
+		return $this->evalFragment('PanelAdventOfCode', 'panel_aoc.php', [ ]);
 	}
 
 	public function PanelAdventOfCodeCalendar(int $year, bool $shownav, bool $linkheader, bool $ajax, bool $frame=true, $frameid=null)
 	{
-		if ($frameid == null) $frameid = 'aoc_frame_' . getRandomToken(16);
-
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ 'year' => $year, 'nav'=>$shownav, 'linkheader'=>$linkheader, 'ajax'=>$ajax, 'frame'=>$frame, 'frameid'=>$frameid ];
-		include (__DIR__ . '/../fragments/panel_aoc_calendar.php');
+		return $this->evalFragment('PanelAdventOfCodeCalendar', 'panel_aoc_calendar.php',
+		[
+			'year'       => $year,
+			'nav'        => $shownav,
+			'linkheader' => $linkheader,
+			'ajax'       => $ajax,
+			'frame'      => $frame,
+			'frameid'    => ($frameid == null) ? ('aoc_frame_' . getRandomToken(16)) : $frameid,
+		]);
 	}
 
 	public function BlogviewPlain(array $blogpost)
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost ];
-		include (__DIR__ . '/../fragments/blogview_plain.php');
+		return $this->evalFragment('BlogviewPlain', 'blogview_plain.php',
+		[
+			'blogpost' => $blogpost,
+		]);
 	}
 
 	public function BlogviewMarkdown(array $blogpost)
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost ];
-		include (__DIR__ . '/../fragments/blogview_markdown.php');
+		return $this->evalFragment('BlogviewMarkdown', 'blogview_markdown.php',
+		[
+			'blogpost' => $blogpost,
+		]);
 	}
 
 	public function BlogviewEulerList(array $blogpost)
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost ];
-		include (__DIR__ . '/../fragments/blogview_euler_list.php');
+		return $this->evalFragment('BlogviewEulerList', 'blogview_euler_list.php',
+		[
+			'blogpost' => $blogpost,
+		]);
 	}
 
 	public function BlogviewEulerSingle(array $blogpost, string $subview)
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost, 'subview' => $subview ];
-		include (__DIR__ . '/../fragments/blogview_euler_single.php');
+		return $this->evalFragment('BlogviewEulerSingle', 'blogview_euler_single.php',
+		[
+			'blogpost' => $blogpost,
+			'subview'  => $subview,
+		]);
 	}
 
 	public function BlogviewAdventOfCodeList(array $blogpost)
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost ];
-		include (__DIR__ . '/../fragments/blogview_aoc_list.php');
+		return $this->evalFragment('BlogviewAdventOfCodeList', 'blogview_aoc_list.php',
+		[
+			'blogpost' => $blogpost,
+		]);
 	}
 
 	public function BlogviewAdventOfCodeSingle(array $blogpost, string $subview)
 	{
-		global $FRAGMENT_PARAM;
-		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost, 'subview' => $subview ];
-		include (__DIR__ . '/../fragments/blogview_aoc_single.php');
+		return $this->evalFragment('BlogviewAdventOfCodeSingle', 'blogview_aoc_single.php',
+		[
+			'blogpost' => $blogpost,
+			'subview'  => $subview,
+		]);
+	}
+
+	public function WidgetBefunge93(string $code, string $url, bool $interactive, int $speed, bool $editable)
+	{
+		return $this->evalFragment('WidgetBefunge93', 'widget_befunge93.php',
+		[
+			'code'        => $code,
+			'url'         => $url,
+			'interactive' => $interactive,
+			'speed'       => $speed,
+			'editable'    => $editable,
+		]);
+	}
+
+	public function WidgetBFJoust(string $codeLeft, string $codeRight)
+	{
+		return $this->evalFragment('WidgetBFJoust', 'widget_bfjoust.php',
+		[
+			'code_left'  => $codeLeft,
+			'code_right' => $codeRight,
+		]);
 	}
 }

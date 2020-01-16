@@ -364,7 +364,7 @@ html,body{margin:0;padding:0;height:100%}
 @media(min-width:851px){.ev_master{padding-bottom:80px}}
 .ev_master .ev_code{color:#333;text-align:center;font-size:150pt;font-weight:500;font-family:Consolas,Monaco,"Courier New",Menlo,monospace}
 .ev_master .ev_msg{color:#888;text-align:center;font-size:25pt}
-.ev_master .ev_statusmore{color:#333;background-color:#bbb;text-align:left;padding:4px;overflow-x:auto;white-space:nowrap;width:100%}
+.ev_master .ev_statusmore{color:#333;background-color:#bbb;text-align:left;padding:4px;font-family:Consolas,Monaco,"Courier New",Menlo,monospace;font-size:small;overflow-x:auto;white-space:nowrap;width:100%}
 @media(max-width:767px){
 	.ev_master .ev_code{font-size:75pt}
 	.ev_master .ev_msg{font-size:15pt}

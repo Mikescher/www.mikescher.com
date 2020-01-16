@@ -18,4 +18,4 @@ $linkheader = boolval($API_OPTIONS['linkheader']);
 $ajax       = boolval($API_OPTIONS['ajax']);
 $frameid    = strval($API_OPTIONS['frameid']);
 
-$SITE->fragments->PanelAdventOfCodeCalendar($year, $shownav, $linkheader, $ajax, false, $frameid);
+echo $SITE->fragments->PanelAdventOfCodeCalendar($year, $shownav, $linkheader, $ajax, false, $frameid);

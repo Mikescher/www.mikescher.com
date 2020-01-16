@@ -22,7 +22,7 @@ $year = intval(end($years));
 	</div>
 	<div class="index_pnl_content">
 
-		<?php $SITE->fragments->PanelAdventOfCodeCalendar($year, true, true, true); ?>
+		<?php echo $SITE->fragments->PanelAdventOfCodeCalendar($year, true, true, true); ?>
 
 	</div>
 
