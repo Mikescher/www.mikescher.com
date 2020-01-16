@@ -17,7 +17,7 @@ class Website
 	public $config;
 
 	/** @var bool|null */
-	public $isLoggedIn = null;
+	private $isLoggedIn = null;
 
 	/** @var Modules */
 	public $modules;

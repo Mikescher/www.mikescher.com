@@ -1,9 +1,9 @@
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/database.php');
-require_once (__DIR__ . '/../internals/alephnoteStatistics.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-Database::connect();
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
 ?>
 <div class="stripedtable_container">
@@ -20,7 +20,7 @@ Database::connect();
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach (AlephNoteStatistics::getAllActiveEntriesOrdered() as $entry): ?>
+			<?php foreach ($SITE->modules->AlephNoteStatistics()->getAllActiveEntriesOrdered() as $entry): ?>
 				<tr>
 					<td><?php echo $entry['ClientID']; ?></td>
 					<td><?php echo $entry['Version']; ?></td>

@@ -18,6 +18,16 @@ class MikescherGitGraph
 		return __DIR__ . '/../../dynamic/egg/cache_fullrenderer.html';
 	}
 
+	public function update()
+	{
+		return $this->extgitgraph->update();
+	}
+
+	public function updateCache()
+	{
+		return $this->extgitgraph->updateCache();
+	}
+
 	/**
 	 * @return string|null
 	 */

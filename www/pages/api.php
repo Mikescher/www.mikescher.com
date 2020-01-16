@@ -1,8 +1,15 @@
 <?php
+require_once (__DIR__ . '/../internals/website.php');
 
-global $OPTIONS;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-require_once (__DIR__ . '/../internals/base.php');
+$FRAME_OPTIONS->title = null;
+$FRAME_OPTIONS->canonical_url = null;
+$FRAME_OPTIONS->activeHeader = null;
+$FRAME_OPTIONS->frame = 'api_frame.php';
+
 
 $API_COMMANDS =
 [
@@ -29,7 +36,7 @@ $API_COMMANDS =
 	'html::panel_aoc_calendar'      => [ 'src' => __DIR__.'/../commands/html_panel-aoc-calendar.php',      'auth' => 'none'           ],
 ];
 
-$cmd = strtolower($OPTIONS['cmd']);
+$cmd = strtolower($ROUTE->parameter['cmd']);
 
 if (!array_key_exists($cmd, $API_COMMANDS))
 {
@@ -66,17 +73,17 @@ $config = $API_COMMANDS[$cmd];
 
 $secret = isset($_GET['secret']) ? $_GET['secret'] : '';
 
-if ($config['auth'] === 'webhook_secret' && $secret !== $CONFIG['webhook_secret']) httpDie(401, 'Unauthorized.');
-if ($config['auth'] === 'ajax_secret'    && $secret !== $CONFIG['ajax_secret'])    httpDie(401, 'Unauthorized.');
-if ($config['auth'] === 'upload_secret'  && $secret !== $CONFIG['upload_secret'])  httpDie(401, 'Unauthorized.');
-if ($config['auth'] === 'admin'          && !isLoggedInByCookie())                 httpDie(401, 'Unauthorized.');
+if ($config['auth'] === 'webhook_secret' && $secret !== $CONFIG['webhook_secret']) { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
+if ($config['auth'] === 'ajax_secret'    && $secret !== $CONFIG['ajax_secret'])    { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
+if ($config['auth'] === 'upload_secret'  && $secret !== $CONFIG['upload_secret'])  { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
+if ($config['auth'] === 'admin'          && !$SITE->isLoggedInByCookie())          { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
 
 
 global $API_OPTIONS;
 
 $API_OPTIONS = [];
 foreach ($_GET as $k => $v) $API_OPTIONS[strtolower($k)] = $v;
-foreach ($OPTIONS['_urlparams'] as $k => $v) $API_OPTIONS[strtolower($k)] = $v;
+foreach ($ROUTE->urlParameter as $k => $v) $API_OPTIONS[strtolower($k)] = $v;
 
 try
 {
@@ -85,15 +92,16 @@ try
 }
 catch (exception $e)
 {
-	print("API Command failed with exception");
-	print($e);
-
 	$content =
 		"REQUEST: " . var_export($_REQUEST) . "\r\n\r\n" .
 		"IP:      " . get_client_ip()       . "\r\n\r\n" .
 		"ERROR:   " . $e                    . "\r\n\r\n";
 
-	if (isProd()) sendMail("Website API call failed", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
+	if ($SITE->isProd()) sendMail("Website API call failed", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
 
-	httpDie(500, 'Error.');
+	$msg = "Error.";
+	if (!$SITE->isProd()) $msg = "Error.\n" . "API Command failed with exception.\n" . $e;
+
+	$FRAME_OPTIONS->forceResult(500, $msg);
+	return;
 }

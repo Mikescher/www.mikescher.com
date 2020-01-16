@@ -1,10 +1,14 @@
 <?php
+require_once (__DIR__ . '/../internals/website.php');
 
-global $CONFIG;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-if ($CONFIG['extendedgitgraph']['output_file'])
+
+if ($SITE->config['extendedgitgraph']['output_file'])
 {
-	$lfile = $CONFIG['extendedgitgraph']['output_filepath'];
+	$lfile = $SITE->config['extendedgitgraph']['output_filepath'];
 
 	if (file_exists($lfile))
 	{
@@ -18,11 +22,11 @@ if ($CONFIG['extendedgitgraph']['output_file'])
 		echo '[[ FILE NOT FOUND ]]';
 	}
 }
-else if ($CONFIG['extendedgitgraph']['output_file'])
+else if ($SITE->config['extendedgitgraph']['output_file'])
 {
 	if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
-	$svar = $CONFIG['extendedgitgraph']['session_var'];
+	$svar = $SITE->config['extendedgitgraph']['session_var'];
 
 	if (isset($_GET['clear'])) if (key_exists($svar, $_SESSION)) $_SESSION[$svar] = '';
 

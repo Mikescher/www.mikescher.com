@@ -88,6 +88,8 @@ class RuleEngine
 		}
 		if (!$match) return null;
 
+		$route->urlParameter = $urlparams;
+
 		$ctrlOpt = $rule['options'];
 
 		if (in_array('disabled', $ctrlOpt)) return null;

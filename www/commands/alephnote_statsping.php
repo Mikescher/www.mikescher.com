@@ -1,16 +1,17 @@
 <?php
+require_once (__DIR__ . '/../internals/website.php');
 
-global $API_OPTIONS;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/database.php');
 
-if (!isset($API_OPTIONS['name']))        httpDie(400, "Wrong parameters.");
-if (!isset($API_OPTIONS['clientid']))    httpDie(400, "Wrong parameters.");
-if (!isset($API_OPTIONS['version']))     httpDie(400, "Wrong parameters.");
-if (!isset($API_OPTIONS['providerstr'])) httpDie(400, "Wrong parameters.");
-if (!isset($API_OPTIONS['providerid']))  httpDie(400, "Wrong parameters.");
-if (!isset($API_OPTIONS['notecount']))   httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['name']))        { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
+if (!isset($API_OPTIONS['clientid']))    { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
+if (!isset($API_OPTIONS['version']))     { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
+if (!isset($API_OPTIONS['providerstr'])) { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
+if (!isset($API_OPTIONS['providerid']))  { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
+if (!isset($API_OPTIONS['notecount']))   { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
 
 $nam = $API_OPTIONS['name'];
 $cid = $API_OPTIONS['clientid'];
@@ -22,9 +23,7 @@ $tnc = $API_OPTIONS['notecount'];
 if ($nam !== 'AlephNote') print('{"success":false, "message":"Unknown AppName"}');
 
 
-Database::connect();
-
-Database::sql_exec_prep('INSERT INTO an_statslog (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid1, :ver1, :prv1, :pid1, :tnc1) ON DUPLICATE KEY UPDATE Version=:ver2,ProviderStr=:prv2,ProviderID=:pid2,NoteCount=:tnc2',
+$SITE->modules->Database()->sql_exec_prep('INSERT INTO an_statslog (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid1, :ver1, :prv1, :pid1, :tnc1) ON DUPLICATE KEY UPDATE Version=:ver2,ProviderStr=:prv2,ProviderID=:pid2,NoteCount=:tnc2',
 [
 	[':cid1', $cid, PDO::PARAM_STR],
 	[':ver1', $ver, PDO::PARAM_STR],

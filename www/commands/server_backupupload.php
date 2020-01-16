@@ -1,17 +1,17 @@
 <?php
+require_once (__DIR__ . '/../internals/website.php');
 
-global $API_OPTIONS;
-global $OPTIONS;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/database.php');
 
-if (!isset($API_OPTIONS['folder']))   httpDie(400, "Wrong parameters.");
-if (!isset($API_OPTIONS['filename'])) httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['folder']))   { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
+if (!isset($API_OPTIONS['filename'])) { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
 
 $folder   = $API_OPTIONS['folder'];
 $filename = $API_OPTIONS['filename'];
-$uri      = $OPTIONS['uri'];
+$uri      = $ROUTE->full_url;
 
 $reltarget = "Backup/$folder/$filename";
 

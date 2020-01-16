@@ -76,4 +76,11 @@ class PageFrameOptions
 		$this->force_redirect = true;
 		$this->force_redirect_url = $url;
 	}
+
+	public function forceResult(int $statuscode, string $content)
+	{
+		$this->statuscode = $statuscode;
+		ob_clean();
+		echo $content;
+	}
 }

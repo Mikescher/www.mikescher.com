@@ -1,21 +1,21 @@
 <?php
+require_once (__DIR__ . '/../internals/website.php');
 
-global $API_OPTIONS;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/programs.php');
-require_once (__DIR__ . '/../internals/updateslog.php');
 
-if (!isset($API_OPTIONS['name'])) httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['name'])) { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
 
 $name = $API_OPTIONS['name'];
 
-$updatedata = UpdatesLog::listUpdateData();
+$updatedata = $SITE->modules->UpdatesLog()->listUpdateData();
 
-if (!array_key_exists($name, $updatedata)) httpError(404, 'Invalid Request - [Name] not found');
+if (!array_key_exists($name, $updatedata)) { $FRAME_OPTIONS->forceResult(404, 'Invalid Request - [Name] not found'); return; }
 
 $data = $updatedata[$name];
 
-UpdatesLog::insert($name, $data['version']);
+$SITE->modules->UpdatesLog()->insert($name, $data['version']);
 
 print($name."<hr>".$data['version']."<hr>".$data['url']);

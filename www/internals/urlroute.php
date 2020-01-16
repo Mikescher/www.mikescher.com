@@ -16,12 +16,20 @@ class URLRoute
 	/** @var int */
 	public $needsAdminLogin;
 
+	/** @var array */
+	public $urlParameter;
+
+	/** @var bool */
+	public $isAPI;
+
 	public function __construct(string $target, string $url)
 	{
-		$this->targetpath = __DIR__ . '/../pages/' . $target;
+		$this->targetpath = (__DIR__ . '/../pages/' . $target);
 		$this->full_url = $url;
 		$this->parameter = [];
 		$this->needsAdminLogin = false;
+		$this->urlParameter = [];
+		$this->isAPI = false;
 	}
 
 	/**
