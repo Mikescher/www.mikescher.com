@@ -1,14 +1,16 @@
 <?php
-	global $OPTIONS;
-	
-	require_once (__DIR__ . '/../internals/base.php');
-	require_once (__DIR__ . '/../internals/database.php');
-	require_once (__DIR__ . '/../internals/highscores.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-	Database::connect();
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-	$games = Highscores::getAllGames();
+$FRAME_OPTIONS->title = null;
+$FRAME_OPTIONS->canonical_url = null;
+$FRAME_OPTIONS->activeHeader = null;
+$FRAME_OPTIONS->frame = 'api_frame.php';
 
+$games = $SITE->modules->Highscores()->getAllGames();
 ?>
 <html>
 <head>

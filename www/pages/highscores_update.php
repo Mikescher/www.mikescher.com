@@ -1,38 +1,42 @@
 <?php
-	global $OPTIONS;
+require_once (__DIR__ . '/../internals/website.php');
 
-	require_once (__DIR__ . '/../internals/base.php');
-	require_once (__DIR__ . '/../internals/database.php');
-	require_once (__DIR__ . '/../internals/highscores.php');
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-	Database::connect();
+$FRAME_OPTIONS->title = null;
+$FRAME_OPTIONS->canonical_url = null;
+$FRAME_OPTIONS->activeHeader = null;
+$FRAME_OPTIONS->frame = 'api_frame.php';
 
-	$gameid = $OPTIONS['gameid'];
-	$check  = $OPTIONS['check'];
-	$name   = $OPTIONS['name'];
-	$nameid = $OPTIONS['nameid'];
-	$rand   = $OPTIONS['rand'];
-	$points = $OPTIONS['points'];
 
-	if (! is_numeric($gameid)) httpError(400, 'Invalid Request');
-	if (! is_numeric($nameid)) httpError(400, 'Invalid Request');
-	if (! is_numeric($points)) httpError(400, 'Invalid Request');
+$gameid = $ROUTE->parameter['gameid'];
+$check  = $ROUTE->parameter['check'];
+$name   = $ROUTE->parameter['name'];
+$nameid = $ROUTE->parameter['nameid'];
+$rand   = $ROUTE->parameter['rand'];
+$points = $ROUTE->parameter['points'];
 
-	$game = Highscores::getGameByID($OPTIONS['gameid']);
-	if ($game == NULL) httpError(400, 'Invalid Request');
+if (! is_numeric($gameid)) { $FRAME_OPTIONS->forceResult(400, 'Invalid Request'); return; }
+if (! is_numeric($nameid)) { $FRAME_OPTIONS->forceResult(400, 'Invalid Request'); return; }
+if (! is_numeric($points)) { $FRAME_OPTIONS->forceResult(400, 'Invalid Request'); return; }
 
-	$checksum_generated = Highscores::generateChecksum($rand, $name, $nameid, $points, $game['SALT']);
-	if ($checksum_generated != $check) die('Nice try !');
+$game = $SITE->modules->Highscores()->getGameByID($ROUTE->parameter['gameid']);
+if ($game == NULL) { $FRAME_OPTIONS->forceResult(400, 'Invalid Request'); return; }
 
-	$old = Highscores::getSpecificScore($gameid, $nameid);
+$checksum_generated = $SITE->modules->Highscores()->generateChecksum($rand, $name, $nameid, $points, $game['SALT']);
+if ($checksum_generated != $check) die('Nice try !');
 
-	if ($old == null)
-	{
-		Highscores::insert($gameid, $points, $name, $nameid, $check, date("Y-m-d H:m:s", time()), $_SERVER['REMOTE_ADDR']);
-		echo 'ok.';
-	}
-	else 
-	{
-		Highscores::update($gameid, $points, $name, $nameid, $check, date("Y-m-d H:m:s", time()), $_SERVER['REMOTE_ADDR']);
-		echo 'ok.';
-	}
+$old = $SITE->modules->Highscores()->getSpecificScore($gameid, $nameid);
+
+if ($old == null)
+{
+	$SITE->modules->Highscores()->insert($gameid, $points, $name, $nameid, $check, date("Y-m-d H:m:s", time()), $_SERVER['REMOTE_ADDR']);
+	echo 'ok.';
+}
+else
+{
+	$SITE->modules->Highscores()->update($gameid, $points, $name, $nameid, $check, date("Y-m-d H:m:s", time()), $_SERVER['REMOTE_ADDR']);
+	echo 'ok.';
+}

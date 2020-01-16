@@ -1,26 +1,30 @@
 <?php
-	global $OPTIONS;
+require_once (__DIR__ . '/../internals/website.php');
 
-	require_once (__DIR__ . '/../internals/base.php');
-	require_once (__DIR__ . '/../internals/database.php');
-	require_once (__DIR__ . '/../internals/highscores.php');
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-	Database::connect();
+$FRAME_OPTIONS->title = null;
+$FRAME_OPTIONS->canonical_url = null;
+$FRAME_OPTIONS->activeHeader = null;
+$FRAME_OPTIONS->frame = 'api_frame.php';
 
-	$gameid = $OPTIONS['gameid'];
-	$check  = $OPTIONS['check'];
-	$name   = $OPTIONS['name'];
-	$rand   = $OPTIONS['rand'];
-	$points = $OPTIONS['points'];
 
-	if (! is_numeric($gameid)) httpError(400, 'Invalid Request');
-	if (! is_numeric($points)) httpError(400, 'Invalid Request');
+$gameid = $ROUTE->parameter['gameid'];
+$check  = $ROUTE->parameter['check'];
+$name   = $ROUTE->parameter['name'];
+$rand   = $ROUTE->parameter['rand'];
+$points = $ROUTE->parameter['points'];
 
-	$game = Highscores::getGameByID($gameid);
-	if ($game == NULL) httpError(400, 'Invalid Request');
+if (! is_numeric($gameid)) { $FRAME_OPTIONS->forceResult(400, 'Invalid Request'); return; }
+if (! is_numeric($points)) { $FRAME_OPTIONS->forceResult(400, 'Invalid Request'); return; }
 
-	$checksum_generated = Highscores::generateChecksum($rand, $name, -1, $points, $game['SALT']);
-	if ($checksum_generated != $check) die('Nice try !');
+$game = $SITE->modules->Highscores()->getGameByID($gameid);
+if ($game == NULL) { $FRAME_OPTIONS->forceResult(400, 'Invalid Request'); return; }
 
-	Highscores::insert($gameid, $points, $name, -1, $check, date("Y-m-d H:m:s", time()), $_SERVER['REMOTE_ADDR']);
-	echo 'ok.';
+$checksum_generated = $SITE->modules->Highscores()->generateChecksum($rand, $name, -1, $points, $game['SALT']);
+if ($checksum_generated != $check) die('Nice try !');
+
+$SITE->modules->Highscores()->insert($gameid, $points, $name, -1, $check, date("Y-m-d H:m:s", time()), $_SERVER['REMOTE_ADDR']);
+echo 'ok.';

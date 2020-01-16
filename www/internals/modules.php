@@ -14,6 +14,7 @@ class Modules
 	/** @var UpdatesLog|null */          private $updateslog = null;
 	/** @var WebApps|null */             private $webapps = null;
 	/** @var MikescherGitGraph|null */   private $extendedgitgraph = null;
+	/** @var Highscores|null */          private $highscores = null;
 
 	/** @var Website */
 	private $site;
@@ -83,4 +84,9 @@ class Modules
 		return $this->extendedgitgraph;
 	}
 
+	public function Highscores(): Highscores
+	{
+		if ($this->highscores === null) { require_once 'modules/highscores.php'; $this->highscores = new Highscores($this->site); }
+		return $this->highscores;
+	}
 }
