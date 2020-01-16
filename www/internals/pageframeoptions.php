@@ -58,4 +58,10 @@ class PageFrameOptions
 
 		$this->scripts []= [ $url, $defer ];
 	}
+
+	public function setForced404(string $err)
+	{
+		$this->force_404 = true;
+		$this->force_404_message = $err;
+	}
 }

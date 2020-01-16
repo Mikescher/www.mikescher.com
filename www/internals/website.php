@@ -67,7 +67,7 @@ class Website
 
 			if ($result->force_404)
 			{
-				$this->serveCustom404($route->full_url, $result);
+				$this->serveCustom404($route->full_url, $result, $result->force_404_message);
 				exit();
 			}
 
@@ -79,7 +79,7 @@ class Website
 		}
 	}
 
-	private function serveCustom404(string $uri, PageFrameOptions $frameOpt)
+	private function serveCustom404(string $uri, PageFrameOptions $frameOpt, string $message)
 	{
 		try
 		{
@@ -87,6 +87,8 @@ class Website
 			$frameOpt->title = 'Page not found';
 
 			$route = URLRoute::getNotFoundRoute($uri);
+
+			$route->parameter['message'] = $message;
 
 			$result = $route->getDirect($this, $frameOpt);
 
@@ -182,6 +184,13 @@ class Website
 	function clearLoginCookie()
 	{
 		setcookie("mikescher_auth", "", time()+30);
+	}
+
+	public function renderMarkdown(string $txt)
+	{
+		require_once 'parsedowncustom.php';
+		$pd = new ParsedownCustom();
+		return $pd->text($txt);
 	}
 
 }

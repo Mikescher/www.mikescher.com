@@ -26,7 +26,7 @@ class Blog
 
 		$d['canonical'] = "https://www.mikescher.com" . $d['url'];
 
-		$d['file_fragment'] = __DIR__ . '/../statics/blog/' . $d['fragment'];
+		$d['file_fragment'] = __DIR__ . '/../../statics/blog/' . $d['fragment'];
 
 		if (!array_key_exists('extras', $d)) $d['extras'] = [];
 
@@ -53,6 +53,12 @@ class Blog
 		return null;
 	}
 
+	/**
+	 * @param string $id
+	 * @param string $subview
+	 * @param string $error
+	 * @return array|null
+	 */
 	public function getFullBlogpost($id, $subview, &$error)
 	{
 		$post = $this->getBlogpost($id);

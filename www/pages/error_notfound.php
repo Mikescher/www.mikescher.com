@@ -1,34 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-    require_once (__DIR__ . '/../internals/base.php');
-    global $OPTIONS;
+require_once (__DIR__ . '/../internals/website.php');
 
-    $errorcode = $OPTIONS['code'];
-    $errormsg  = $OPTIONS['message'];
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 ?>
-<head>
-	<meta charset="utf-8">
-	<title>Mikescher.com - <?php echo $errormsg; ?></title>
-	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-    <?php printHeaderCSS(); ?>
-</head>
-<body>
-<div id="mastercontainer">
 
-	<?php $HEADER_ACTIVE='none'; include (__DIR__ . '/../fragments/header.php');  ?>
+<?php
+$message = isset($ROUTE->parameter['message']) ? $ROUTE->parameter['message'] : '';
 
-<div id="content" class="content-responsive content-fullheight">
+$FRAME_OPTIONS->title = 'Mikescher.com - ' . $message;
+$FRAME_OPTIONS->canonical_url = null;
+$FRAME_OPTIONS->activeHeader = null;
+$FRAME_OPTIONS->contentCSSClasses []= 'content-fullheight';
+?>
 
-    <div class="ev_master">
-        <div class="ev_code"><?php echo $errorcode; ?></div>
-        <div class="ev_msg"><?php echo $errormsg; ?></div>
-    </div>
 
+<div class="ev_master">
+    <div class="ev_code">404</div>
+    <?php if ($message !== ''): ?>
+    <div class="ev_msg"><?php echo $message; ?></div>
+	<?php endif; ?>
 </div>
-
-</div>
-<?php printAdditionalScripts(); ?>
-<?php printAdditionalStylesheets(); ?>
-</body>
-</html>

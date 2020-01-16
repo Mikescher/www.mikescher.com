@@ -19,7 +19,7 @@ $debuginfo = $ROUTE->parameter['debuginfo'];
 
 <div class="ev_master">
 	<div class="ev_code">500</div>
-	<div class="ev_msg">asdasd<?php echo $message; ?></div>
+	<div class="ev_msg"><?php echo $message; ?></div>
 	<?php if ($debuginfo !== null && strlen($debuginfo)>0 && ($SITE != null && !$SITE->isProd())): ?>
 		<p class="ev_statusmore"><?php echo nl2br($debuginfo); ?></p>
 	<?php endif; ?>

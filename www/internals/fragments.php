@@ -45,4 +45,46 @@ class Fragments
 		$FRAGMENT_PARAM = [ 'year' => $year, 'nav'=>$shownav, 'linkheader'=>$linkheader, 'ajax'=>$ajax, 'frame'=>$frame, 'frameid'=>$frameid ];
 		include (__DIR__ . '/../fragments/panel_aoc_calendar.php');
 	}
+
+	public function BlogviewPlain(array $blogpost)
+	{
+		global $FRAGMENT_PARAM;
+		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost ];
+		include (__DIR__ . '/../fragments/blogview_plain.php');
+	}
+
+	public function BlogviewMarkdown(array $blogpost)
+	{
+		global $FRAGMENT_PARAM;
+		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost ];
+		include (__DIR__ . '/../fragments/blogview_markdown.php');
+	}
+
+	public function BlogviewEulerList(array $blogpost)
+	{
+		global $FRAGMENT_PARAM;
+		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost ];
+		include (__DIR__ . '/../fragments/blogview_euler_list.php');
+	}
+
+	public function BlogviewEulerSingle(array $blogpost, string $subview)
+	{
+		global $FRAGMENT_PARAM;
+		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost, 'subview' => $subview ];
+		include (__DIR__ . '/../fragments/blogview_euler_single.php');
+	}
+
+	public function BlogviewAdventOfCodeList(array $blogpost)
+	{
+		global $FRAGMENT_PARAM;
+		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost ];
+		include (__DIR__ . '/../fragments/blogview_aoc_list.php');
+	}
+
+	public function BlogviewAdventOfCodeSingle(array $blogpost, string $subview)
+	{
+		global $FRAGMENT_PARAM;
+		$FRAGMENT_PARAM = [ 'blogpost' => $blogpost, 'subview' => $subview ];
+		include (__DIR__ . '/../fragments/blogview_aoc_single.php');
+	}
 }

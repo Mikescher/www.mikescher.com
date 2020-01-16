@@ -1,6 +1,5 @@
 <?php
 
-require_once (__DIR__ . '/../internals/base.php');
 require_once (__DIR__ . '/../extern/Parsedown.php');
 require_once (__DIR__ . '/../extern/ParsedownExtra.php');
 
@@ -71,7 +70,7 @@ class ParsedownCustom extends ParsedownExtra
 		global $PARAM_CODE_LEFT;
 		global $PARAM_CODE_RIGHT;
 
-		$split = preg_split("/\-{16,}/", $Element['text']);
+		$split = preg_split("/-{16,}/", $Element['text']);
 
 		$PARAM_CODE_LEFT  = trim($split[0]);
 		$PARAM_CODE_RIGHT = trim($split[1]);
