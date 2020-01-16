@@ -16,12 +16,12 @@ require_once (__DIR__ . '/../internals/website.php');
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<?php
-    if ($FRAME_OPTIONS->canonical_url !== null) echo '<link rel="canonical" href="'.$FRAME_OPTIONS->canonical_url.'"/>';
-	foreach ($FRAME_OPTIONS->stylesheets as $cssfile) echo '<link rel="stylesheet" href="' . $cssfile . '"/>';
+    if ($FRAME_OPTIONS->canonical_url !== null) echo '<link rel="canonical" href="'.$FRAME_OPTIONS->canonical_url.'"/>' . "\n";
+	foreach ($FRAME_OPTIONS->stylesheets as $cssfile) echo '<link rel="stylesheet" href="' . $cssfile . '"/>' . "\n";
 	foreach ($FRAME_OPTIONS->scripts as $scriptfile)
 	{
-		if ($scriptfile[1]) echo '<script src="' . $scriptfile[0]	 . '" defer></script>';
-		else                echo '<script src="' . $scriptfile[0]	 . '" type="text/javascript" ></script>';
+		if ($scriptfile[1]) echo '<script src="' . $scriptfile[0]	 . '" defer></script>' . "\n";
+		else                echo '<script src="' . $scriptfile[0]	 . '" type="text/javascript" ></script>' . "\n";
 	}
     ?>
 </head>
