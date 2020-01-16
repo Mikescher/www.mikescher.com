@@ -12,7 +12,14 @@ require_once (__DIR__ . '/../internals/website.php');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title><?php echo ($FRAME_OPTIONS->title !== '') ? htmlspecialchars('Mikescher.com - ' . $FRAME_OPTIONS->title) : 'Mikescher.com'; ?></title>
+	<?php
+    if ($FRAME_OPTIONS->title !== '' && $FRAME_OPTIONS->title !== null)
+        echo '<title>' . htmlspecialchars('Mikescher.com - ' . $FRAME_OPTIONS->title) . '</title>';
+    else if ($FRAME_OPTIONS->title === '')
+        echo '<title>Mikescher.com</title>';
+    else
+        echo '';
+    ?>
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<?php

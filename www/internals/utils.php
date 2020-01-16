@@ -68,44 +68,6 @@ function isProd() {
 	return $CONFIG['prod'];
 }
 
-function convertCountryToFlag($country) {
-	$country = trim(strtolower($country));
-
-	if ($country === 'italy')       return '/data/images/flags/013-italy.svg';
-	if ($country === 'china')       return '/data/images/flags/034-china.svg';
-	if ($country === 'japan')       return '/data/images/flags/063-japan.svg';
-	if ($country === 'un')          return '/data/images/flags/082-united-nations.svg';
-	if ($country === 'south korea') return '/data/images/flags/094-south-korea.svg';
-	if ($country === 'spain')       return '/data/images/flags/128-spain.svg';
-	if ($country === 'norway')      return '/data/images/flags/143-norway.svg';
-	if ($country === 'Czech')       return '/data/images/flags/149-czech-republic.svg';
-	if ($country === 'germany')     return '/data/images/flags/162-germany.svg';
-	if ($country === 'sweden')      return '/data/images/flags/184-sweden.svg';
-	if ($country === 'france')      return '/data/images/flags/195-france.svg';
-	if ($country === 'switzerland') return '/data/images/flags/205-switzerland.svg';
-	if ($country === 'england')     return '/data/images/flags/216-england.svg';
-	if ($country === 'usa')         return '/data/images/flags/226-united-states.svg';
-	if ($country === 'america')     return '/data/images/flags/226-united-states.svg';
-	if ($country === 'canada')      return '/data/images/flags/243-canada.svg';
-	if ($country === 'russia')      return '/data/images/flags/248-russia.svg';
-	if ($country === 'eu')          return '/data/images/flags/259-european-union.svg';
-	if ($country === 'uk')          return '/data/images/flags/260-united-kingdom.svg';
-
-	return null;
-}
-
-function convertLanguageToFlag($lang) {
-	$lang = trim(strtolower($lang));
-
-	if ($lang === 'italian')     return '/data/images/flags/013-italy.svg';
-	if ($lang === 'english')     return '/data/images/flags/226-united-states.svg';
-	if ($lang === 'french')      return '/data/images/flags/195-france.svg';
-	if ($lang === 'german')      return '/data/images/flags/162-germany.svg';
-	if ($lang === 'spanish')     return '/data/images/flags/128-spain.svg';
-
-	return null;
-}
-
 /**
  * easy image resize function
  * @author http://www.nimrodstech.com/php-image-resize/

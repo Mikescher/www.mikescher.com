@@ -1,69 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/programs.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-$filter = $OPTIONS['categoryfilter'];
-
-$allprograms = Programs::listAllNewestFirst($filter);
-
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 ?>
-<head>
-	<meta charset="utf-8">
-	<title>Mikescher.com - Programs</title>
-	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-    <link rel="canonical" href="https://www.mikescher.com/programs"/>
-	<?php printHeaderCSS(); ?>
-</head>
-<body>
-<div id="mastercontainer">
 
-	<?php $HEADER_ACTIVE = 'programs'; include (__DIR__ . '/../fragments/header.php'); ?>
+<?php
+$filter = $ROUTE->parameter['categoryfilter'];
 
-	<div id="content" class="content-responsive">
-
-		<div class="blockcontent">
-
-			<div class="contentheader"><h1>My programs</h1><hr/></div>
+$FRAME_OPTIONS->title = 'Programs';
+$FRAME_OPTIONS->canonical_url = ($filter === '') ? ('https://www.mikescher.com/programs') : ('https://www.mikescher.com/programs/cat/' . $filter);
+$FRAME_OPTIONS->activeHeader = 'programs';
 
 
-            <?php
+$allprograms = $SITE->modules->Programs()->listAllNewestFirst($filter);
+?>
 
-			echo '<div class="prgl_parent">' . "\n";
-            foreach ($allprograms as $prog)
-            {
-                $uilang = '';
-				foreach (explode('|', $prog['ui_language']) as $lang) $uilang .= '<img src="'.convertLanguageToFlag($lang).'" alt="'.$lang.'" />';
+<div class="blockcontent">
 
-				echo '<a class="prgl_elem" href="'.$prog['url'].'">';
-				echo '  <div class="prgl_elem_left">';
-				echo '    <img src="' . $prog['preview_url'] . '" alt="Thumbnail '  . $prog['name'] . '" />';
-				echo '  </div>';
-				echo '  <div class="prgl_elem_right">';
-				echo '    <div class="prgl_elem_title">' . htmlspecialchars($prog['name']) . '</div>';
-				echo '    <div class="prgl_elem_sdesc">' . htmlspecialchars($prog['short_description']) . '</div>';
-				echo '    <div class="prgl_elem_info">';
-				echo '      <div class="prgl_elem_subinfo"><span class="prgl_elem_subinfo_caption">Date:</span><span class="prgl_elem_subinfo_data">'.$prog['add_date'].'</span></div>';
-				echo '      <div class="prgl_elem_subinfo"><span class="prgl_elem_subinfo_caption">Language:</span><span class="prgl_elem_subinfo_data">'.$prog['prog_language'].'</span></div>';
-				echo '      <div class="prgl_elem_subinfo"><span class="prgl_elem_subinfo_caption">UI Language:</span><span class="prgl_elem_subinfo_data">'.$uilang.'</span></div>';
-				echo '      <div class="prgl_elem_subinfo"><span class="prgl_elem_subinfo_caption">Category:</span><span class="prgl_elem_subinfo_data">'.$prog['category'].'</span></div>';
-				echo '    </div>';
-				echo '  </div>';
-				echo '</a>' . "\n";
-            }
-			echo '</div>' . "\n";
+    <div class="contentheader"><h1>My programs</h1><hr/></div>
 
-            ?>
+	<?php
 
-		</div>
+	echo '<div class="prgl_parent">' . "\n";
 
-	</div>
+	foreach ($allprograms as $prog)
+	{
+		$uilang = '';
+		foreach (explode('|', $prog['ui_language']) as $lang) $uilang .= '<img src="' . $SITE->modules->Programs()->convertLanguageToFlag($lang).'" alt="'.$lang.'" />';
 
-	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
+		echo '<a class="prgl_elem" href="'.$prog['url'].'">';
+		echo '  <div class="prgl_elem_left">';
+		echo '    <img src="' . $prog['preview_url'] . '" alt="Thumbnail '  . $prog['name'] . '" />';
+		echo '  </div>';
+		echo '  <div class="prgl_elem_right">';
+		echo '    <div class="prgl_elem_title">' . htmlspecialchars($prog['name']) . '</div>';
+		echo '    <div class="prgl_elem_sdesc">' . htmlspecialchars($prog['short_description']) . '</div>';
+		echo '    <div class="prgl_elem_info">';
+		echo '      <div class="prgl_elem_subinfo"><span class="prgl_elem_subinfo_caption">Date:</span><span class="prgl_elem_subinfo_data">'.$prog['add_date'].'</span></div>';
+		echo '      <div class="prgl_elem_subinfo"><span class="prgl_elem_subinfo_caption">Language:</span><span class="prgl_elem_subinfo_data">'.$prog['prog_language'].'</span></div>';
+		echo '      <div class="prgl_elem_subinfo"><span class="prgl_elem_subinfo_caption">UI Language:</span><span class="prgl_elem_subinfo_data">'.$uilang.'</span></div>';
+		echo '      <div class="prgl_elem_subinfo"><span class="prgl_elem_subinfo_caption">Category:</span><span class="prgl_elem_subinfo_data">'.$prog['category'].'</span></div>';
+		echo '    </div>';
+		echo '  </div>';
+		echo '</a>' . "\n";
+	}
+	echo '</div>' . "\n";
+
+	?>
 
 </div>
-<?php printAdditionalScripts(); ?>
-<?php printAdditionalStylesheets(); ?>
-</body>
-</html>

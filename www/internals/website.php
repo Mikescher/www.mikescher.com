@@ -65,6 +65,12 @@ class Website
 
 			$result = $route->get($this);
 
+			if ($result->force_redirect)
+			{
+				header('Location: ' . $result->force_redirect_url);
+				exit();
+			}
+
 			if ($result->force_404)
 			{
 				$this->serveCustom404($route->full_url, $result, $result->force_404_message);

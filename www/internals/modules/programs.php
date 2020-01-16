@@ -49,12 +49,12 @@ class Programs
 	private static function readSingle($a)
 	{
 		$a['mainimage_url']        =              '/data/images/program_img/' . $a['internal_name'] . '.png';
-		$a['mainimage_path']       = __DIR__ . '/../data/images/program_img/' . $a['internal_name'] . '.png';
+		$a['mainimage_path']       = __DIR__ . '/../../data/images/program_img/' . $a['internal_name'] . '.png';
 
 		$a['preview_url']          =              '/data/dynamic/progprev_' . $a['internal_name'] . '.png';
-		$a['preview_path']         = __DIR__ . '/../data/dynamic/progprev_' . $a['internal_name'] . '.png';
+		$a['preview_path']         = __DIR__ . '/../../data/dynamic/progprev_' . $a['internal_name'] . '.png';
 
-		$a['file_longdescription'] = (__DIR__ . '/../statics/programs/' . $a['internal_name'] . '_description.md');
+		$a['file_longdescription'] = (__DIR__ . '/../../statics/programs/' . $a['internal_name'] . '_description.md');
 
 		$a['url']                  = '/programs/view/' . $a['internal_name'];
 
@@ -276,5 +276,17 @@ class Programs
 			magick_resize_image($src, 250, 0, $dst);
 		else
 			smart_resize_image($src, 250, 0, true, $dst);
+	}
+
+	public function convertLanguageToFlag($lang) {
+		$lang = trim(strtolower($lang));
+
+		if ($lang === 'italian')     return '/data/images/flags/013-italy.svg';
+		if ($lang === 'english')     return '/data/images/flags/226-united-states.svg';
+		if ($lang === 'french')      return '/data/images/flags/195-france.svg';
+		if ($lang === 'german')      return '/data/images/flags/162-germany.svg';
+		if ($lang === 'spanish')     return '/data/images/flags/128-spain.svg';
+
+		return null;
 	}
 }

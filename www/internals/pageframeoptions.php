@@ -18,6 +18,12 @@ class PageFrameOptions
 	/** @var string */
 	public $force_404_message = '';
 
+	/**  @var bool */
+	public $force_redirect = false;
+
+	/** @var string */
+	public $force_redirect_url = '';
+
 	/** @var string */
 	public $frame = 'default_frame.php';
 
@@ -63,5 +69,11 @@ class PageFrameOptions
 	{
 		$this->force_404 = true;
 		$this->force_404_message = $err;
+	}
+
+	public function setForcedRedirect(string $url)
+	{
+		$this->force_redirect = true;
+		$this->force_redirect_url = $url;
 	}
 }
