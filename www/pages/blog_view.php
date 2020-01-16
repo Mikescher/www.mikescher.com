@@ -13,7 +13,7 @@ $subview = $ROUTE->parameter['subview'];
 $post = $SITE->modules->Blog()->getFullBlogpost($id, $subview, $err);
 if ($post === null) { $FRAME_OPTIONS->setForced404($err); return; }
 
-$FRAME_OPTIONS->title = 'Mikescher.com - ' . $post['title'];
+$FRAME_OPTIONS->title = $post['title'];
 $FRAME_OPTIONS->canonical_url = $post['canonical'];
 
 if ($post['type'] == 'euler')

@@ -9,7 +9,7 @@ require_once (__DIR__ . '/../internals/website.php');
 <?php
 $message = isset($ROUTE->parameter['message']) ? $ROUTE->parameter['message'] : '';
 
-$FRAME_OPTIONS->title = 'Mikescher.com - ' . $message;
+$FRAME_OPTIONS->title = $message;
 $FRAME_OPTIONS->canonical_url = null;
 $FRAME_OPTIONS->activeHeader = null;
 $FRAME_OPTIONS->contentCSSClasses []= 'content-fullheight';

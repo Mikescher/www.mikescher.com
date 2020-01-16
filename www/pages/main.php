@@ -7,7 +7,7 @@ require_once (__DIR__ . '/../internals/website.php');
 ?>
 
 <?php
-$FRAME_OPTIONS->title = 'Mikescher.com';
+$FRAME_OPTIONS->title = '';
 $FRAME_OPTIONS->canonical_url = 'https://www.mikescher.com';
 $FRAME_OPTIONS->activeHeader = 'home';
 ?>
