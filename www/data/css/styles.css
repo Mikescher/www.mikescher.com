@@ -887,6 +887,10 @@ html, body {
   background: -webkit-radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
+.admindberr {
+  color: #BB2222;
+}
+
 /* 400px */
 #loginform div {
   display: flex;

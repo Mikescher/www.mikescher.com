@@ -1,18 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-global $OPTIONS;
+require_once (__DIR__ . '/../internals/website.php');
 
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
+?>
+
+<?php
+$FRAME_OPTIONS->title = 'Login';
+$FRAME_OPTIONS->canonical_url = 'https://www.mikescher.com/login';
+$FRAME_OPTIONS->activeHeader = 'login';
+
+$FRAME_OPTIONS->addScript('/data/javascript/ms_basic.js', true);
+?>
+
+<?php
 $err = false;
 
 if (key_exists('username', $_GET) && key_exists('password', $_GET) && key_exists('redirect', $_GET))
 {
-	if ($_GET['username'] === $CONFIG['admin_username'] && $_GET['password'] === $CONFIG['admin_password'])
-    {
-	    setLoginCookie($_GET['username'], $_GET['password']);
-		header('Location: ' . $_GET['redirect']);
-		die();
+	if ($_GET['username'] === $SITE->config['admin_username'] && $_GET['password'] === $SITE->config['admin_password'])
+	{
+		$SITE->setLoginCookie($_GET['username'], $_GET['password']);
+		$FRAME_OPTIONS->setForcedRedirect($_GET['redirect']);
+		return;
 	}
 	else
 	{
@@ -20,73 +31,49 @@ if (key_exists('username', $_GET) && key_exists('password', $_GET) && key_exists
 	}
 }
 
-$redirect = $OPTIONS['login_target'];
+$redirect = $ROUTE->parameter['login_target'];
 if (($redirect === '/' || $redirect === '') && isset($_GET['redirect'])) $redirect = $_GET['redirect'];
-
+if (($redirect === '/' || $redirect === '')) $redirect = '/admin';
 ?>
-<head>
-	<meta charset="utf-8">
-	<title>Mikescher.com - Login</title>
-	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<link rel="canonical" href="https://www.mikescher.com/login"/>
-	<?php printHeaderCSS(); ?>
-</head>
-<body>
-<div id="mastercontainer">
 
-	<?php $HEADER_ACTIVE = 'login'; include (__DIR__ . '/../fragments/header.php'); ?>
+<div class="aboutcontent">
 
-	<div id="content" class="content-responsive">
+    <div class="boxedcontent">
+        <div class="bc_header">Mikescher.com - Login</div>
 
-		<div class="aboutcontent">
+        <div class="bc_data">
 
-			<div class="boxedcontent">
-				<div class="bc_header">Mikescher.com - Login</div>
+            <div class="form">
+                <form id="loginform" action="/login" method="GET">
 
-				<div class="bc_data">
+					<?php if ($err): ?>
+                        <span class="loginerror">Wrong username or password</span>
+					<?php endif; ?>
 
-					<div class="form">
-						<form id="loginform" action="/login" method="GET">
+                    <div>
+                        <label for="username" class="required">Username</label>
+                        <input name="username" id="username" type="text" autofocus>
+                    </div>
 
-                            <?php if ($err): ?>
-                            <span class="loginerror">Wrong username or password</span>
-							<?php endif; ?>
+                    <div>
+                        <label for="password">Password</label>
+                        <input name="password" id="password" type="password">
+                    </div>
 
-							<div>
-								<label for="username" class="required">Username</label>
-								<input name="username" id="username" type="text" autofocus >
-							</div>
+                    <div style="display: none; visibility: hidden">
+                        <label for="redirect">Redirect</label>
+                        <input name="redirect" id="redirect" type="text" value="<?php echo $redirect ?>">
+                    </div>
 
-							<div>
-								<label for="password">Password</label>
-								<input name="password" id="password" type="password">
-							</div>
+                    <div>
+                        <button class="button" type="submit" name="yt0">Login</button>
+                    </div>
 
-							<div style="display: none; visibility: hidden">
-								<label for="redirect">Redirect</label>
-								<input name="redirect" id="redirect" type="text" value="<?php echo $redirect ?>">
-							</div>
+                </form>
+            </div>
 
-							<div>
-								<button class="button" type="submit" name="yt0">Login</button>
-							</div>
+        </div>
 
-						</form>
-					</div>
-
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
+    </div>
 
 </div>
-<?php printAdditionalScripts(); ?>
-<?php printAdditionalStylesheets(); ?>
-</body>
-</html>

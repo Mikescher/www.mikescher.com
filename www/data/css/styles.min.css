@@ -173,6 +173,7 @@ html,body{margin:0;padding:0;height:100%}
 .consistency_result_warn{background:#ff0}
 .consistency_result_err{background:red}
 .admincontent .boxedcontent hr{width:95%;height:1px;border:0;color:#FFFFFF00;background:-moz-radial-gradient(circle,rgba(0,0,0,0.1),rgba(0,0,0,0));background:-webkit-radial-gradient(circle,rgba(0,0,0,0.1) 0,rgba(0,0,0,0) 100%)}
+.admindberr{color:#b22}
 #loginform div{display:flex;flex-direction:column}
 #loginform div button{margin:10px 0;padding:0}
 .loginerror{display:flex;background:#f44;color:#222;border:1px solid #a44;border-radius:2px;font-weight:bold;padding:0 5px;margin:5px 0 20px 0}

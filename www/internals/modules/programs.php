@@ -223,7 +223,7 @@ class Programs
 
 			if (strpos($prog['internal_name'], ' ') !== FALSE) return ['result'=>'err', 'message' => 'Internal name contains spaces ' . $prog['name']];
 
-			foreach (explode('|', $prog['ui_language']) as $lang) if (convertLanguageToFlag($lang) === null) return ['result'=>'err', 'message' => 'Unknown ui-lang ' . $prog['name']];;
+			foreach (explode('|', $prog['ui_language']) as $lang) if ($this->convertLanguageToFlag($lang) === null) return ['result'=>'err', 'message' => 'Unknown ui-lang ' . $prog['name']];;
 
 			if (!in_array($prog['prog_language'], self::PROG_LANGS)) return ['result'=>'err', 'message' => 'Unknown prog-lang ' . $prog['name']];
 
@@ -232,11 +232,11 @@ class Programs
 			if ($prog['license'] !== null && !array_key_exists($prog['license'], self::LICENSES)) return ['result'=>'err', 'message' => 'Unknown license ' . $prog['name']];
 
 			$isdl = false;
-			foreach (self::getURLs($prog) as $xurl)
+			foreach ($this->getURLs($prog) as $xurl)
 			{
 				if (!in_array($xurl['type'], self::URL_ORDER)) return ['result'=>'err', 'message' => 'Unknown url ' . $xurl['type']];
 
-				if ($xurl['type']==='download' && $xurl['isdirect'] && !file_exists(self::getDirectDownloadPath($prog))) return ['result'=>'err', 'message' => 'Direct download not found ' . $prog['name']];
+				if ($xurl['type']==='download' && $xurl['isdirect'] && !file_exists($this->getDirectDownloadPath($prog))) return ['result'=>'err', 'message' => 'Direct download not found ' . $prog['name']];
 
 				if ($xurl['type']==='download' || $xurl['type']==='playstore' || $xurl['type']==='itunesstore') $isdl = true;
 			}

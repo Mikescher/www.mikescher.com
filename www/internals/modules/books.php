@@ -2,11 +2,15 @@
 
 class Books
 {
+	/** @var Website */
+	private $site;
+
 	/** @var array */
 	private $staticData;
 
-	public function __construct()
+	public function __construct(Website $site)
 	{
+		$this->site = $site;
 		$this->load();
 	}
 
@@ -104,12 +108,10 @@ class Books
 
 	public function createPreview($prog)
 	{
-		global $CONFIG;
-
 		$src = $prog['imgfront_path'];
 		$dst = $prog['preview_path'];
 
-		if ($CONFIG['use_magick'])
+		if ($this->site->config['use_magick'])
 			magick_resize_image($src, 200, 0, $dst);
 		else
 			smart_resize_image($src, 200, 0, true, $dst);

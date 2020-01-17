@@ -63,11 +63,6 @@ function formatMilliseconds($millis)
 	}
 }
 
-function isProd() {
-	global $CONFIG;
-	return $CONFIG['prod'];
-}
-
 /**
  * easy image resize function
  * @author http://www.nimrodstech.com/php-image-resize/

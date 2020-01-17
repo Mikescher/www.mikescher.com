@@ -44,7 +44,7 @@ class Modules
 
 	public function Books(): Books
 	{
-		if ($this->books === null) { require_once 'modules/books.php'; $this->books = new Books(); }
+		if ($this->books === null) { require_once 'modules/books.php'; $this->books = new Books($this->site); }
 		return $this->books;
 	}
 
