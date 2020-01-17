@@ -65,7 +65,9 @@ if (!array_key_exists($cmd, $API_COMMANDS))
 	print("     ::::::`:::::;'  /  /   `#                      \n");
 	print("                                                    \n");
 	print("                                                    \n");
-	httpDie(400, 'Wrong command.');
+
+	$FRAME_OPTIONS->forceResult(400, 'Wrong command.');
+	return;
 }
 
 $config = $API_COMMANDS[$cmd];
@@ -73,10 +75,10 @@ $config = $API_COMMANDS[$cmd];
 
 $secret = isset($_GET['secret']) ? $_GET['secret'] : '';
 
-if ($config['auth'] === 'webhook_secret' && $secret !== $CONFIG['webhook_secret']) { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
-if ($config['auth'] === 'ajax_secret'    && $secret !== $CONFIG['ajax_secret'])    { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
-if ($config['auth'] === 'upload_secret'  && $secret !== $CONFIG['upload_secret'])  { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
-if ($config['auth'] === 'admin'          && !$SITE->isLoggedInByCookie())          { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
+if ($config['auth'] === 'webhook_secret' && $secret !== $SITE->config['webhook_secret']) { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
+if ($config['auth'] === 'ajax_secret'    && $secret !== $SITE->config['ajax_secret'])    { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
+if ($config['auth'] === 'upload_secret'  && $secret !== $SITE->config['upload_secret'])  { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
+if ($config['auth'] === 'admin'          && !$SITE->isLoggedInByCookie())                { $FRAME_OPTIONS->forceResult(401, "Unauthorized."); return; }
 
 
 global $API_OPTIONS;

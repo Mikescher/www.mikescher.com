@@ -223,7 +223,7 @@ class Programs
 
 			if (strpos($prog['internal_name'], ' ') !== FALSE) return ['result'=>'err', 'message' => 'Internal name contains spaces ' . $prog['name']];
 
-			foreach (explode('|', $prog['ui_language']) as $lang) if ($this->convertLanguageToFlag($lang) === null) return ['result'=>'err', 'message' => 'Unknown ui-lang ' . $prog['name']];;
+			foreach (explode('|', $prog['ui_language']) as $lang) if ($this->convertLanguageToFlag($lang) === null) return ['result'=>'err', 'message' => 'Unknown ui-lang ' . $prog['name']];
 
 			if (!in_array($prog['prog_language'], self::PROG_LANGS)) return ['result'=>'err', 'message' => 'Unknown prog-lang ' . $prog['name']];
 

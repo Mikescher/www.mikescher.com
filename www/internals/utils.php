@@ -1,16 +1,5 @@
 <?php
 
-global $CONFIG;
-$CONFIG = require 'config.php';
-
-global $CSS_BASE;
-$CSS_BASE = ($CONFIG['prod']) ? ('/data/css/styles.min.css') : ('/data/css/styles.css');
-
-global $ADDITIONAL_SCRIPTS;
-global $ADDITIONAL_STYLESHEETS;
-$ADDITIONAL_SCRIPTS     = [];
-$ADDITIONAL_STYLESHEETS = [];
-
 function startsWith($haystack, $needle)
 {
 	$length = strlen($needle);
@@ -23,7 +12,8 @@ function endsWith($haystack, $needle)
 	return $length === 0 || (substr($haystack, -$length) === $needle);
 }
 
-function destructiveUrlEncode($str) {
+function destructiveUrlEncode($str)
+{
 	$str = str_replace(' ', '_', $str);
 	$str = str_replace('+', '_', $str);
 	$str = str_replace(':', '_', $str);
@@ -73,7 +63,7 @@ function formatMilliseconds($millis)
  * @param  string $output - name of the new file (include path if needed)
  * @return boolean|resource
  */
-function smart_resize_image($file, $width = 0, $height = 0, $proportional, $output)
+function smart_resize_image($file, $width, $height, $proportional, $output)
 {
 	if ( $height <= 0 && $width <= 0 ) return false;
 	if ( $file === null) return false;
@@ -189,43 +179,9 @@ function magick_resize_image($file, $width, $height, $output)
 	shell_exec($cmd);
 }
 
-function sendMail($subject, $content, $to, $from) {
-	mail($to, $subject, $content, 'From: ' . $from);
-}
-
-function ParamServerOrUndef($idx) {
-	return isset($_SERVER[$idx]) ? $_SERVER[$idx] : 'NOT_SET';
-}
-
-/**
- * @param Exception $e
- */
-function sendExceptionMail($e)
+function sendMail($subject, $content, $to, $from)
 {
-	try	{
-		$subject = "Server has encountered an Error at " . date("Y-m-d H:i:s") . "] ";
-
-		$content = "";
-
-		$content .= 'HTTP_HOST: '            . ParamServerOrUndef('HTTP_HOST')            . "\n";
-		$content .= 'REQUEST_URI: '          . ParamServerOrUndef('REQUEST_URI')          . "\n";
-		$content .= 'TIME: '                 . date('Y-m-d H:i:s')                        . "\n";
-		$content .= 'REMOTE_ADDR: '          . ParamServerOrUndef('REMOTE_ADDR')          . "\n";
-		$content .= 'HTTP_X_FORWARDED_FOR: ' . ParamServerOrUndef('HTTP_X_FORWARDED_FOR') . "\n";
-		$content .= 'HTTP_USER_AGENT: '      . ParamServerOrUndef('HTTP_USER_AGENT')      . "\n";
-		$content .= 'MESSAGE:'               . "\n" . $e->getMessage()                    . "\n";
-		$content .= 'CODE:'                  . "\n" . $e->getCode()                       . "\n";
-		$content .= 'TRACE:'                 . "\n" . $e->getTraceAsString()              . "\n";
-		$content .= '$_GET:'                 . "\n" . print_r($_GET, true)                . "\n";
-		$content .= '$_POST:'                . "\n" . print_r($_POST, true)               . "\n";
-		$content .= '$_FILES:'               . "\n" . print_r($_FILES, true)              . "\n";
-
-		sendMail($subject, $content, 'virtualadmin@mikescher.de', 'webserver-error@mikescher.com');
-	}
-	catch (Exception $e)
-	{
-		//
-	}
+	mail($to, $subject, $content, 'From: ' . $from);
 }
 
 function get_client_ip() {
