@@ -6,6 +6,8 @@
         <language minSize="100" name="PHP" />
       </Languages>
     </inspection_tool>
+    <inspection_tool class="HtmlUnknownTarget" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="PhpUnhandledExceptionInspection" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />
       <option name="processLiterals" value="true" />

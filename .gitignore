@@ -8,3 +8,5 @@ runtime/
 **/.idea/dataSources*
 
 config.php
+
+www/dtest.php

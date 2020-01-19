@@ -15,6 +15,7 @@ class Modules
 	/** @var WebApps|null */             private $webapps = null;
 	/** @var MikescherGitGraph|null */   private $extendedgitgraph = null;
 	/** @var Highscores|null */          private $highscores = null;
+	/** @var SelfTest|null */            private $selftest = null;
 
 	/** @var Website */
 	private $site;
@@ -88,5 +89,11 @@ class Modules
 	{
 		if ($this->highscores === null) { require_once 'modules/highscores.php'; $this->highscores = new Highscores($this->site); }
 		return $this->highscores;
+	}
+
+	public function SelfTest(): SelfTest
+	{
+		if ($this->selftest === null) { require_once 'modules/selftest.php'; $this->selftest = new SelfTest(); }
+		return $this->selftest;
 	}
 }

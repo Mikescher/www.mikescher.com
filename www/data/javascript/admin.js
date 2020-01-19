@@ -70,3 +70,59 @@ function startAjaxReplace(target, url)
         async:   true
     });
 }
+
+function refreshConsistencyDisplay(skip)
+{
+    let i = 0;
+    for (let apibutton of $('.consistence_ajax_handler').toArray())
+    {
+        if (i++ !== skip) continue;
+
+        const filter = $(apibutton).data('filter');
+
+        $(apibutton).removeClass('consistency_result_intermed');
+        $(apibutton).addClass('consistency_result_running');
+
+        $.ajax('/api/site::selftest?filter=' + filter)
+            .done((data, status, xhr) =>
+            {
+                let json = JSON.parse(data);
+                $(apibutton).removeClass('consistency_result_intermed');
+                $(apibutton).removeClass('consistency_result_running');
+
+                if (json.result === 0)
+                {
+                    $(apibutton).addClass('consistency_result_ok');
+                    $(apibutton).text(json.message+" ");
+                }
+                else if (json.result === 1)
+                {
+                    $(apibutton).addClass('consistency_result_warn');
+                    $(apibutton).text(json.message+" ");
+                }
+                else if (json.result === 2)
+                {
+                    $(apibutton).addClass('consistency_result_err');
+                    $(apibutton).text(json.message+" ");
+                }
+
+                setTimeout(() => refreshConsistencyDisplay(skip+1), 300);
+            })
+            .fail((xhr, status, err) =>
+            {
+                $(apibutton).removeClass('consistency_result_intermed');
+                $(apibutton).removeClass('consistency_result_running');
+
+                $(apibutton).addClass('consistency_result_err');
+                $(apibutton).text(err+" ");
+
+                setTimeout(() => refreshConsistencyDisplay(skip+1), 300);
+            });
+
+    }
+}
+
+$(function()
+{
+    setTimeout(() => refreshConsistencyDisplay(0), 200);
+});

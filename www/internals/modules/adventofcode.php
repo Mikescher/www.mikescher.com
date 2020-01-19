@@ -45,6 +45,13 @@ class AdventOfCode
 		return $this->staticData;
 	}
 
+	public function listAllDays()
+	{
+		$r = [];
+		foreach ($this->staticData as $yeardata) foreach ($yeardata as $year => $daydata) $r []= $daydata;
+		return $this->staticData;
+	}
+
 	public function listSingleYear($year)
 	{
 		return $this->staticData[$year];
@@ -84,6 +91,7 @@ class AdventOfCode
 		$a['file_challenge'] = (__DIR__ . '/../../statics/aoc/'.$year.'/'.$n2p.'_challenge.txt');
 		$a['file_input']     = (__DIR__ . '/../../statics/aoc/'.$year.'/'.$n2p.'_input.txt');
 
+		$a['year']     = $year;
 		$a['date']     = $year . '-' . 12 . '-' . $n2p;
 
 		$solutionfiles = [];

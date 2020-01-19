@@ -246,3 +246,33 @@ function formatException($e)
 
 	return 'object';
 }
+
+function array_key_map_unique(array $array, string $key)
+{
+	$r = [];
+	foreach ($array as $d) if (!in_array($d[$key], $r)) $r []= $d[$key];
+	return $r;
+}
+
+function array_key_map(array $array, string $key)
+{
+	$r = [];
+	foreach ($array as $d) $r []= $d[$key];
+	return $r;
+}
+
+function curl_http_request($url)
+{
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+
+	$output   = curl_exec($ch);
+	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	$redirect = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
+	curl_close($ch);
+
+	return [ 'output'=>$output, 'statuscode'=>$httpcode, 'redirect'=>$redirect ];
+}
+
+

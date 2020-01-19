@@ -152,7 +152,6 @@ html,body{margin:0;padding:0;height:100%}
 .about_circles{display:flex;flex-direction:column}
 .about_circles a{margin:5px 0}
 .about_circles .iconbutton_light span{text-align:left}
-.boxedcontent.alertbox{background-color:#F52;font-weight:bold;text-align:center}
 .egg_col_x5_0{fill:#eee}
 .egg_col_x5_1{fill:#6bcdff}
 .egg_col_x5_2{fill:#00a1f3}
@@ -168,12 +167,22 @@ html,body{margin:0;padding:0;height:100%}
 .kvl_100 div span:first-child{min-width:100px}
 .kvl_200 div span:first-child{min-width:200px}
 .kvl_300 div span:first-child{min-width:300px}
-.consistency_result_ok,.consistency_result_warn,.consistency_result_err{min-width:400px;color:#222;border:1px solid #888;padding:0 5px;margin:1px 0}
+.consistency_result_ok,.consistency_result_warn,.consistency_result_err,.consistency_result_intermed,.consistency_result_running{min-width:400px;color:#222;border:1px solid #888;padding:0 5px;margin:1px 0}
 .consistency_result_ok{background:#0f0}
 .consistency_result_warn{background:#ff0}
 .consistency_result_err{background:red}
+.consistency_result_intermed{background:#eee}
+.consistency_result_running{background:#ddd;border:1px solid #000}
 .admincontent .boxedcontent hr{width:95%;height:1px;border:0;color:#FFFFFF00;background:-moz-radial-gradient(circle,rgba(0,0,0,0.1),rgba(0,0,0,0));background:-webkit-radial-gradient(circle,rgba(0,0,0,0.1) 0,rgba(0,0,0,0) 100%)}
 .admindberr{color:#b22}
+.boxedcontent.alertbox{background-color:#f44;color:#222;border:1px solid #a44;font-weight:bold;text-align:center}
+.boxedcontent.alertbox .bc_data{padding-top:2px;padding-bottom:2px}
+.boxedcontent.warnbox{background-color:#ffa726;color:#333;border:1px solid #444;font-weight:bold;text-align:center}
+.boxedcontent.warnbox .bc_data{padding-top:2px;padding-bottom:2px}
+.boxedcontent.graybox{background-color:#888;color:#222;border:1px solid #444;font-weight:bold;text-align:center}
+.boxedcontent.graybox .bc_data{padding-top:2px;padding-bottom:2px}
+.boxedcontent.successbox{background-color:#168b00;color:#222;border:1px solid #444;font-weight:bold;text-align:center}
+.boxedcontent.successbox .bc_data{padding-top:2px;padding-bottom:2px}
 #loginform div{display:flex;flex-direction:column}
 #loginform div button{margin:10px 0;padding:0}
 .loginerror{display:flex;background:#f44;color:#222;border:1px solid #a44;border-radius:2px;font-weight:bold;padding:0 5px;margin:5px 0 20px 0}
