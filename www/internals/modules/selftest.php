@@ -8,15 +8,26 @@ class SelfTest implements IWebsiteModule
 
 	private const DISPLAY_NAMES =
 	[
-		'web::main'      => 'Website (http)',
-		'web::programs'  => 'Programs (http)',
-		'web::books'     => 'Books (http)',
-		'web::blog'      => 'Blog (http)',
-		'web::webapps'   => 'WebApps (http)',
-		'web::euler'     => 'Project Euler (http)',
-		'web::aoc'       => 'Advent of code (http)',
-		'api::default'   => 'API',
-		'api::highscore' => 'Highscores API',
+		'web::main'             => 'Website (http)',
+		'web::programs'         => 'Programs (http)',
+		'web::books'            => 'Books (http)',
+		'web::blog'             => 'Blog (http)',
+		'web::webapps'          => 'WebApps (http)',
+		'web::euler'            => 'Project Euler (http)',
+		'web::aoc'              => 'Advent of code (http)',
+		'api::default'          => 'API',
+		'api::highscore'        => 'Highscores API',
+		'modules::database'     => 'Database',
+		'modules::blog'         => 'blog',
+		'modules::euler'        => 'Project Euler',
+		'modules::books'        => 'Books',
+		'modules::extgitgraph'  => 'ExtendedGitGraph',
+		'modules::programs'     => 'Programs',
+		'modules::adventofcode' => 'Advent of Code',
+		'modules::anstatistics' => 'AlephNote Stats',
+		'modules::updateslog'   => 'Program Updates',
+		'modules::webapps'      => 'Webapps',
+		'modules::highscores'   => 'Highscores',
 	];
 
 	private $methods = [];
@@ -36,8 +47,8 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodPathStatus("web::main::about-2",    200, '/msmain/about');
 		$this->addMethodPathStatus("web::main::login-1",    200, '/login');
 		$this->addMethodPathStatus("web::main::404-1",      404, '/asdf');
-		$this->addMethodRedirect(  "web::main::redirect-1", '');
-		$this->addMethodRedirect(  "web::main::redirect-2", '/about');
+		$this->addHTTPSRedirect(  "web::main::redirect-1", '');
+		$this->addHTTPSRedirect(  "web::main::redirect-2", '/about');
 		$this->addHTTPSRedirect(   "web::main::redirect-3", '/about');
 
 		$this->addMethodPathStatus(     "web::programs::programs-list-1",     200, '/programs');
@@ -176,7 +187,7 @@ class SelfTest implements IWebsiteModule
 					];
 
 					$r = curl_http_request($_SERVER['HTTP_HOST'] . $path);
-					if ($r['statuscode'] == $status) return
+					if ($r['statuscode'] === $status) return
 					[
 						'result' => self::STATUS_OK,
 						'message' => "{".$xname."} succeeded",
@@ -208,7 +219,62 @@ class SelfTest implements IWebsiteModule
 
 	private function addMethodMultiPathStatus(string $name, int $status, string $path, Closure $supplier)
 	{
-		//TODO
+		$this->methods []=
+		[
+			'name' => $name,
+			'func' => function() use ($name, $path, $status, $supplier)
+			{
+				$xname = explode('::', $name)[2];
+
+				try
+				{
+					if (!Website::inst()->isProd()) return
+					[
+						'result' => self::STATUS_WARN,
+						'message' => '{'.$xname.'} not executed: curl requests in dev mode prohibited',
+						'long' => null,
+						'exception' => null,
+					];
+
+					$supdata = $supplier();
+
+					$message = '';
+					$count = 0;
+					foreach ($supdata as $d)
+					{
+						$r = curl_http_request($_SERVER['HTTP_HOST'] . str_replace('{0}', $d, $path));
+						$count++;
+						if ($r['statuscode'] === $status) { $message .= "{".$xname."} succeeded" . "\n"; continue; }
+
+						return
+						[
+							'result' => self::STATUS_ERROR,
+							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'],
+							'exception' => null,
+						];
+					}
+
+					return
+					[
+						'result' => self::STATUS_OK,
+						'message' => "$count requests succeeded\n" . $message,
+						'long' => null,
+						'exception' => null,
+					];
+				}
+				catch (Exception $e)
+				{
+					return
+					[
+						'result' => self::STATUS_ERROR,
+						'message' => "{$xname} failed: " . $e->getMessage(),
+						'long' => str_max_len($e->getMessage(), 48),
+						'exception' => $e,
+					];
+				}
+			}
+		];
 	}
 
 	private function addCheckConsistency(string $name, Closure $moduleSupplier)
@@ -218,8 +284,6 @@ class SelfTest implements IWebsiteModule
 			'name' => $name,
 			'func' => function() use ($name, $moduleSupplier)
 			{
-				$xname = explode('::', $name)[2];
-
 				try
 				{
 					/** @var IWebsiteModule $module */
@@ -267,29 +331,249 @@ class SelfTest implements IWebsiteModule
 		];
 	}
 
-	private function addMethodPathResponse(string $name, int $statuscode, string $json_expected, string $path)
+	private function addMethodPathResponse(string $name, int $status, string $json_expected, string $path)
 	{
-		//TODO
+		$this->methods []=
+		[
+			'name' => $name,
+			'func' => function() use ($name, $path, $status, $json_expected)
+			{
+				$xname = explode('::', $name)[2];
+
+				try
+				{
+					if (!Website::inst()->isProd()) return
+					[
+						'result' => self::STATUS_WARN,
+						'message' => '{'.$xname.'} not executed: curl requests in dev mode prohibited',
+						'long' => null,
+						'exception' => null,
+					];
+
+					$r = curl_http_request($_SERVER['HTTP_HOST'] . $path);
+					if ($r['statuscode'] !== $status)
+					{
+						return
+						[
+							'result' => self::STATUS_ERROR,
+							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'],
+							'exception' => null,
+						];
+					}
+					if (json_encode(json_decode($r['output'])) == json_encode(json_decode($json_expected)))
+					{
+						return
+						[
+							'result' => self::STATUS_ERROR,
+							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
+							'long' => "Wrong HTTP Response\nExpected:\n$json_expected\nFound:\n".$r['output'] . "\n" . "HTTP Statuscode:\n" . $r['statuscode'],
+							'exception' => null,
+						];
+					}
+					return
+					[
+						'result' => self::STATUS_OK,
+						'message' => "{".$xname."} succeeded",
+						'long' => null,
+						'exception' => null,
+					];
+				}
+				catch (Exception $e)
+				{
+					return
+					[
+						'result' => self::STATUS_ERROR,
+						'message' => "{$xname} failed: " . $e->getMessage(),
+						'long' => str_max_len($e->getMessage(), 48),
+						'exception' => $e,
+					];
+				}
+			}
+		];
 	}
 
 	private function addMethodGitStatusCheck(string $name)
 	{
-		//TODO
+		$this->methods []=
+		[
+			'name' => $name,
+			'func' => function() use ($name)
+			{
+				$xname = explode('::', $name)[2];
+
+				try
+				{
+					if (!Website::inst()->isProd()) return
+					[
+						'result' => self::STATUS_WARN,
+						'message' => '{'.$xname.'} not executed in dev mode',
+						'long' => null,
+						'exception' => null,
+					];
+
+					$r = exec('git rev-parse --abbrev-ref HEAD');
+					$ok = (strpos($r, 'Your branch is up to date with') !== false) && (strpos($r, 'nothing to commit, working tree clean') !== false);
+
+					if (!$ok)
+					{
+						return
+						[
+							'result' => self::STATUS_ERROR,
+							'message' => "{$xname} failed",
+							'long' => $r,
+							'exception' => null,
+						];
+					}
+					else
+					{
+						return
+						[
+							'result' => self::STATUS_OK,
+							'message' => "{".$xname."} succeeded",
+							'long' => $r,
+							'exception' => null,
+						];
+					}
+
+				}
+				catch (Exception $e)
+				{
+					return
+					[
+						'result' => self::STATUS_ERROR,
+						'message' => "{$xname} failed: " . $e->getMessage(),
+						'long' => str_max_len($e->getMessage(), 48),
+						'exception' => $e,
+					];
+				}
+			}
+		];
 	}
 
 	private function addMethodExtProgLinks(string $name)
 	{
-		//TODO
+		$this->methods []=
+		[
+			'name' => $name,
+			'func' => function() use ($name)
+			{
+				$xname = explode('::', $name)[2];
+
+				try
+				{
+					$message = '';
+					$count = 0;
+					foreach (Website::inst()->modules->Programs()->listAll() as $prog)
+					{
+						foreach ($prog['urls'] as $urlobj)
+						{
+							$url = $urlobj;
+							if (is_array($urlobj)) $url = $urlobj['url'];
+
+							$r = curl_http_request($url);
+							$count++;
+							if ($r['statuscode'] === 200) { $message .= "[".$prog['name']."] Request to '$url' succeeded" . "\n"; continue; }
+
+							return
+							[
+								'result' => self::STATUS_ERROR,
+								'message' => '['.$prog['name'].'] failed: Request to returned wrong statuscode',
+								'long' => 'Wrong HTTP Statuscode from "'.$url.'"' . "\nExpected: [200]\nFound: [".$r['statuscode'].']' . "\n" . "Response:\n" . $r['output'],
+								'exception' => null,
+							];
+						}
+					}
+
+					return
+					[
+						'result' => self::STATUS_OK,
+						'message' => "$count requests succeeded\n" . $message,
+						'long' => null,
+						'exception' => null,
+					];
+				}
+				catch (Exception $e)
+				{
+					return
+					[
+						'result' => self::STATUS_ERROR,
+						'message' => "{$xname} failed: " . $e->getMessage(),
+						'long' => str_max_len($e->getMessage(), 48),
+						'exception' => $e,
+					];
+				}
+			}
+		];
 	}
 
-	private function addMethodRedirect(string $name, string $url)
+	private function addHTTPSRedirect(string $name, string $path)
 	{
-		//TODO
-	}
+		$this->methods []=
+		[
+			'name' => $name,
+			'func' => function() use ($name, $path)
+			{
+				$xname = explode('::', $name)[2];
 
-	private function addHTTPSRedirect(string $name)
-	{
-		//TODO
+				try
+				{
+					if (!Website::inst()->isProd()) return
+					[
+						'result' => self::STATUS_WARN,
+						'message' => '{'.$xname.'} not executed: curl requests in dev mode prohibited',
+						'long' => null,
+						'exception' => null,
+					];
+
+					$host = parse_url($_SERVER['HTTP_HOST'], PHP_URL_HOST);
+					$port = parse_url($_SERVER['HTTP_HOST'], PHP_URL_PORT);
+
+					$url1 = 'http://'  . $host . ':' . $port . $path;
+					$url2 = 'https://' . $host . ':' . $port . $path;
+
+					$r = curl_http_request($url1);
+					if ($r['statuscode'] !== 310)
+					{
+						return
+						[
+							'result' => self::STATUS_ERROR,
+							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
+							'long' => 'Wrong HTTP Statuscode (Expected: [200]; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'],
+							'exception' => null,
+						];
+					}
+					if ($r['redirect'] !== $url2)
+					{
+						return
+						[
+							'result' => self::STATUS_ERROR,
+							'message' => '{'.$xname.'} failed: Request returned wrong redirect',
+							'long' => 'Wrong Redirect URL (Expected: ['.$url2.']; Found: ['.$r['redirect'].'])' . "\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'],
+							'exception' => null,
+						];
+					}
+
+					return
+					[
+						'result' => self::STATUS_OK,
+						'message' => "{".$xname."} succeeded",
+						'long' => null,
+						'exception' => null,
+					];
+				}
+				catch (Exception $e)
+				{
+					return
+					[
+						'result' => self::STATUS_ERROR,
+						'message' => "{$xname} failed: " . $e->getMessage(),
+						'long' => str_max_len($e->getMessage(), 48),
+						'exception' => $e,
+					];
+				}
+			}
+		];
 	}
 
 	public function run($filter)
@@ -301,12 +585,11 @@ class SelfTest implements IWebsiteModule
 
 		$warnings = 0;
 		$count = 0;
-		$lastresult = null;
 		foreach ($this->methods as $method)
 		{
 			if (!preg_match($rex, $method['name'])) continue;
 
-			$lastresult = $r = $method['func']();
+			$r = $method['func']();
 			if ($r['result'] === self::STATUS_ERROR) return $r;
 			if ($r['result'] === self::STATUS_WARN) { $warnings++; $fullwarnmessage .= $r['message'] . "\n"; }
 			$fullmessage .= $r['message'] . "\n";

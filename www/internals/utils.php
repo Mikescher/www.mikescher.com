@@ -236,7 +236,7 @@ function formatException($e)
 		$r = '';
 		$r .= $e->getMessage() . "\n\n";
 		$r .= $e->getFile() . "\n\n";
-		$r .= $e->getTraceAsString() . "\n\n";
+		$r .= str_replace(dirname(__DIR__), '.', $e->getTraceAsString()) . "\n\n";
 		if (isset($e->xdebug_message))
 		{
 			$xdbg = $e->xdebug_message;
