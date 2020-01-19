@@ -41,13 +41,15 @@
 .kvl_200 div span:first-child { min-width: 200px; }
 .kvl_300 div span:first-child { min-width: 300px; }
 
-.consistency_result_ok, .consistency_result_warn, .consistency_result_err, .consistency_result_intermed, .consistency_result_running {
+.consistency_result {
   min-width: 400px;
   color: $COL_ADMIN_STATUS_FG;
   border: $COL_ADMIN_STATUS_BORDER;
   padding: 0 5px;
   margin: 1px 0;
 }
+
+.consistency_result:after { content: '\00a0' }
 
 .consistency_result_ok       { background: $COL_ADMIN_OK; }
 .consistency_result_warn     { background: $COL_ADMIN_WARN; }

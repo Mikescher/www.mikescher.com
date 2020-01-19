@@ -1,6 +1,6 @@
 <?php
 
-class WebApps
+class WebApps implements IWebsiteModule
 {
 	/** @var array */
 	private $staticData;
@@ -27,5 +27,23 @@ class WebApps
 		$data = $this->staticData;
 		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });
 		return $data;
+	}
+
+	public function checkConsistency()
+	{
+		$warn = null;
+
+		$this->load();
+
+		$ids = [];
+
+		foreach ($this->staticData as $prog)
+		{
+			if (in_array($prog['id'], $ids)) return ['result'=>'err', 'message' => 'Duplicate id ' . $prog['id']];
+			$ids []= $prog['id'];
+		}
+
+		if ($warn != null) return $warn;
+		return ['result'=>'ok', 'message' => ''];
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Books
+class Books implements IWebsiteModule
 {
 	/** @var Website */
 	private $site;
@@ -39,8 +39,8 @@ class Books
 
 		for ($i=1; $i <= $a['imagecount']; $i++)
 		{
-			$a['extraimages_urls']  []=              '/data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
-			$a['extraimages_paths'] []= __DIR__ . '/../data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
+			$a['extraimages_urls']  []=                 '/data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
+			$a['extraimages_paths'] []= __DIR__ . '/../../data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
 		}
 
 		$a['book_count'] = is_array($a['pdf']) ? count($a['pdf']) : 1;

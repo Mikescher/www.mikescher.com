@@ -220,6 +220,13 @@ function isHTTPRequest()
 	return (!isset($_SERVER['HTTPS'])) || empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off";
 }
 
+function str_max_len(string $str, int $max)
+{
+	if (strlen($str) < $max) return $str;
+
+	return substr($str, 0, $max-3)."...";
+}
+
 function formatException($e)
 {
 	if ($e === null) return "NULL";

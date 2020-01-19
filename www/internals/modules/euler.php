@@ -1,6 +1,6 @@
 <?php
 
-class Euler
+class Euler implements IWebsiteModule
 {
 	/** @var array */
 	private $staticData;

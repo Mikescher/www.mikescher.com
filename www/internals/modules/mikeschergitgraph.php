@@ -2,7 +2,7 @@
 
 require_once (__DIR__ . '/../../extern/egg/ExtendedGitGraph2.php');
 
-class MikescherGitGraph
+class MikescherGitGraph implements IWebsiteModule
 {
 	/** @var ExtendedGitGraph2 */
 	private $extgitgraph;

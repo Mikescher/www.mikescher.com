@@ -3,6 +3,7 @@
 require_once 'ruleengine.php';
 require_once 'urlroute.php';
 require_once 'pageframeoptions.php';
+require_once 'iwebsitemodule.php';
 require_once 'modules.php';
 require_once 'fragments.php';
 

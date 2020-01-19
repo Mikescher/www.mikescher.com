@@ -1,6 +1,6 @@
 <?php
 
-class AdventOfCode
+class AdventOfCode implements IWebsiteModule
 {
 	const YEARS =
 	[

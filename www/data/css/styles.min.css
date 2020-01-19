@@ -1,4 +1,4 @@
-body{background-color:#eee;color:#333;font-family:"Times New Roman",serif}
+@charset "UTF-8";body{background-color:#eee;color:#333;font-family:"Times New Roman",serif}
 #content{padding-top:64px;display:flex;justify-content:center;line-height:1.4;flex-direction:column;align-items:center}
 .content-responsive{margin-left:auto;margin-right:auto}
 @media(max-width:767px){.content-responsive{width:95%;width:calc(100% - 20px);margin-left:auto;margin-right:auto}}
@@ -167,7 +167,8 @@ html,body{margin:0;padding:0;height:100%}
 .kvl_100 div span:first-child{min-width:100px}
 .kvl_200 div span:first-child{min-width:200px}
 .kvl_300 div span:first-child{min-width:300px}
-.consistency_result_ok,.consistency_result_warn,.consistency_result_err,.consistency_result_intermed,.consistency_result_running{min-width:400px;color:#222;border:1px solid #888;padding:0 5px;margin:1px 0}
+.consistency_result{min-width:400px;color:#222;border:1px solid #888;padding:0 5px;margin:1px 0}
+.consistency_result:after{content:" "}
 .consistency_result_ok{background:#0f0}
 .consistency_result_warn{background:#ff0}
 .consistency_result_err{background:red}

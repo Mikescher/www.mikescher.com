@@ -1,6 +1,6 @@
 <?php
 
-class Programs
+class Programs implements IWebsiteModule
 {
 	const PROG_LANGS = [ 'Java', 'C#', 'Delphi', 'PHP', 'C++' ];
 
@@ -67,8 +67,8 @@ class Programs
 		{
 			foreach ($a['extra_images'] as $fn)
 			{
-				$a['extraimages_urls']  []=              '/data/images/program_img/' . $fn;
-				$a['extraimages_paths'] []= __DIR__ . '/../data/images/program_img/' . $fn;
+				$a['extraimages_urls']  []=                 '/data/images/program_img/' . $fn;
+				$a['extraimages_paths'] []= __DIR__ . '/../../data/images/program_img/' . $fn;
 			}
 		}
 
@@ -249,7 +249,7 @@ class Programs
 
 			foreach ($prog['extraimages_paths'] as $eipath)
 			{
-				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['title_short']];
+				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['name'], 'long' => $eipath];
 			}
 		}
 

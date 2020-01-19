@@ -1,6 +1,6 @@
 <?php
 
-class SelfTest
+class SelfTest implements IWebsiteModule
 {
 	private const STATUS_ERROR = 2;
 	private const STATUS_WARN  = 1;
@@ -167,8 +167,15 @@ class SelfTest
 
 				try
 				{
-					//$r = curl_http_request($_SERVER['HTTP_HOST'] . $path);
-					$r = curl_http_request('https://www.mikescher.com/' . $path);
+					if (!Website::inst()->isProd()) return
+					[
+						'result' => self::STATUS_WARN,
+						'message' => '{'.$xname.'} not executed: curl requests in dev mode prohibited',
+						'long' => null,
+						'exception' => null,
+					];
+
+					$r = curl_http_request($_SERVER['HTTP_HOST'] . $path);
 					if ($r['statuscode'] == $status) return
 					[
 						'result' => self::STATUS_OK,
@@ -191,7 +198,7 @@ class SelfTest
 					[
 						'result' => self::STATUS_ERROR,
 						'message' => "{$xname} failed: " . $e->getMessage(),
-						'long' => formatException($e),
+						'long' => str_max_len($e->getMessage(), 48),
 						'exception' => $e,
 					];
 				}
@@ -206,7 +213,58 @@ class SelfTest
 
 	private function addCheckConsistency(string $name, Closure $moduleSupplier)
 	{
-		//TODO
+		$this->methods []=
+		[
+			'name' => $name,
+			'func' => function() use ($name, $moduleSupplier)
+			{
+				$xname = explode('::', $name)[2];
+
+				try
+				{
+					/** @var IWebsiteModule $module */
+					$module = $moduleSupplier();
+
+					$consistency = $module->checkConsistency();
+
+					if ($consistency['result'] === 'err') return
+					[
+						'result' => self::STATUS_ERROR,
+						'message' => $consistency['message'],
+						'long' => isset($consistency['long']) ? $consistency['long'] : null,
+						'exception' => null,
+					];
+
+					if ($consistency['result'] === 'warn') return
+					[
+						'result' => self::STATUS_WARN,
+						'message' => $consistency['message'],
+						'long' => isset($consistency['long']) ? $consistency['long'] : null,
+						'exception' => null,
+					];
+
+					if ($consistency['result'] === 'ok') return
+					[
+						'result' => self::STATUS_OK,
+						'message' => 'OK',
+						'long' => isset($consistency['long']) ? $consistency['long'] : null,
+						'exception' => null,
+					];
+
+					throw new Exception("Unknown result: " . print_r($consistency, true));
+				}
+				catch (Exception $e)
+				{
+					return
+					[
+						'result' => self::STATUS_ERROR,
+						'message' => str_max_len($e->getMessage(), 48),
+						'long' => formatException($e),
+						'exception' => $e,
+					];
+				}
+			}
+		];
 	}
 
 	private function addMethodPathResponse(string $name, int $statuscode, string $json_expected, string $path)
@@ -239,25 +297,53 @@ class SelfTest
 		$rex = '/^' . str_replace('*', '([^:]*)', $filter) . '$/';
 
 		$fullmessage = '';
+		$fullwarnmessage = '';
 
+		$warnings = 0;
 		$count = 0;
+		$lastresult = null;
 		foreach ($this->methods as $method)
 		{
 			if (!preg_match($rex, $method['name'])) continue;
 
-			$r = $method['func']();
-			if ($r['result'] !== self::STATUS_OK) return $r;
-			$fullmessage = $fullmessage . $method['message'] . "\n";
+			$lastresult = $r = $method['func']();
+			if ($r['result'] === self::STATUS_ERROR) return $r;
+			if ($r['result'] === self::STATUS_WARN) { $warnings++; $fullwarnmessage .= $r['message'] . "\n"; }
+			$fullmessage .= $r['message'] . "\n";
 
 			$count++;
 		}
 
+		if ($warnings > 0)
+		{
+			return
+			[
+				'result' => self::STATUS_WARN,
+				'message' => "$warnings/$count methods had warnings",
+				'long' => $fullwarnmessage,
+				'exception' => null,
+			];
+		}
+
+		if ($count === 0) return
+		[
+			'result' => self::STATUS_WARN,
+			'message' => "No methods matched filter",
+			'long' => null,
+			'exception' => null,
+		];
+
 		return
 		[
 			'result' => self::STATUS_OK,
-			'message' => "{$count} methods succeeded",
-			'long' => $fullmessage,
+			'message' => "OK",
+			'long' => "$count methods succeeded\n\n" . $fullmessage,
 			'exception' => null,
 		];
+	}
+
+	public function checkConsistency()
+	{
+		return ['result'=>'ok', 'message' => ''];
 	}
 }

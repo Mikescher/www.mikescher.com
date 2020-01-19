@@ -1,6 +1,6 @@
 <?php
 
-class Database
+class Database implements IWebsiteModule
 {
 	/* @var PDO $pdo */
 	private $pdo = NULL;
@@ -90,5 +90,10 @@ class Database
 		$stmt->execute();
 
 		return $stmt->rowCount();
+	}
+
+	public function checkConsistency()
+	{
+		return ['result'=>'ok', 'message' => ''];
 	}
 }

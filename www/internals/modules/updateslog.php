@@ -1,6 +1,6 @@
 <?php
 
-class UpdatesLog
+class UpdatesLog implements IWebsiteModule
 {
 	/** @var Website */
 	private $site;
@@ -60,5 +60,21 @@ class UpdatesLog
 				[':pn', $name,    PDO::PARAM_STR],
 				[':lt', $limit,   PDO::PARAM_INT],
 			]);
+	}
+
+	public function checkConsistency()
+	{
+		$warn = null;
+
+		$this->load();
+
+		foreach ($this->staticData as $name => $data)
+		{
+			if (!key_exists('version', $data)) return ['result'=>'err', 'message' => 'Missing value [version]'];
+			if (!key_exists('url', $data)) return ['result'=>'err', 'message' => 'Missing value [url]'];
+		}
+
+		if ($warn != null) return $warn;
+		return ['result'=>'ok', 'message' => ''];
 	}
 }

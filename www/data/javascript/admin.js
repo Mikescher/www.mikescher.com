@@ -90,23 +90,14 @@ function refreshConsistencyDisplay(skip)
                 $(apibutton).removeClass('consistency_result_intermed');
                 $(apibutton).removeClass('consistency_result_running');
 
-                if (json.result === 0)
-                {
-                    $(apibutton).addClass('consistency_result_ok');
-                    $(apibutton).text(json.message+" ");
-                }
-                else if (json.result === 1)
-                {
-                    $(apibutton).addClass('consistency_result_warn');
-                    $(apibutton).text(json.message+" ");
-                }
-                else if (json.result === 2)
-                {
-                    $(apibutton).addClass('consistency_result_err');
-                    $(apibutton).text(json.message+" ");
-                }
+                if (json.result === 0) $(apibutton).addClass('consistency_result_ok');
+                if (json.result === 1) $(apibutton).addClass('consistency_result_warn');
+                if (json.result === 2) $(apibutton).addClass('consistency_result_err');
 
-                setTimeout(() => refreshConsistencyDisplay(skip+1), 300);
+                $(apibutton).text(json.message);
+                $(apibutton).attr('title', json.long);
+
+                setTimeout(() => refreshConsistencyDisplay(skip+1), 10);
             })
             .fail((xhr, status, err) =>
             {
@@ -114,9 +105,9 @@ function refreshConsistencyDisplay(skip)
                 $(apibutton).removeClass('consistency_result_running');
 
                 $(apibutton).addClass('consistency_result_err');
-                $(apibutton).text(err+" ");
+                $(apibutton).text(err);
 
-                setTimeout(() => refreshConsistencyDisplay(skip+1), 300);
+                setTimeout(() => refreshConsistencyDisplay(skip+1), 10);
             });
 
     }

@@ -1,6 +1,6 @@
 <?php
 
-class Highscores
+class Highscores implements IWebsiteModule
 {
 	/** @var Website */
 	private $site;
@@ -104,5 +104,10 @@ class Highscores
 				[ ':gid', $gameid,   PDO::PARAM_INT ],
 				[ ':pid', $playerid, PDO::PARAM_INT ],
 			]);
+	}
+
+	public function checkConsistency()
+	{
+		return ['result'=>'ok', 'message' => ''];
 	}
 }

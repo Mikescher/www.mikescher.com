@@ -1,6 +1,6 @@
 <?php
 
-class AlephNoteStatistics
+class AlephNoteStatistics implements IWebsiteModule
 {
 	/** @var Website */
 	private $site;
@@ -28,5 +28,10 @@ class AlephNoteStatistics
 	public function getAllActiveEntriesOrdered()
 	{
 		return $this->site->modules->Database()->sql_query_assoc('SELECT * FROM an_statslog WHERE NoteCount>0 ORDER BY LastChanged DESC');
+	}
+
+	public function checkConsistency()
+	{
+		return ['result'=>'ok', 'message' => ''];
 	}
 }

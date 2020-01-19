@@ -56,7 +56,7 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
         <div class="bc_data">
             <div class="keyvaluelist kvl_200">
                 <?php foreach ($SITE->modules->SelfTest()->listMethodGroups() as $group): ?>
-                    <div><span><?php echo $group['name']; ?></span><span class='consistency_result_intermed consistence_ajax_handler' data-filter="<?php echo $group['filter']; ?>">&nbsp;</span></div>
+                    <div><span><?php echo $group['name']; ?></span><span class='consistency_result consistency_result_intermed consistence_ajax_handler' data-filter="<?php echo $group['filter']; ?>">&nbsp;</span></div>
                 <?php endforeach; ?>
             </div>
             <br/>

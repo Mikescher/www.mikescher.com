@@ -1,6 +1,6 @@
 <?php
 
-class Blog
+class Blog implements IWebsiteModule
 {
 	/** @var array */
 	private $staticData;
