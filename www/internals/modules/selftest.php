@@ -125,7 +125,7 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodMultiPathStatus("api::default::updatecheck-7", 200, '/api/update/{0}',      function(){ return array_keys(Website::inst()->modules->UpdatesLog()->listUpdateData()); });
 		$this->addMethodPathStatus(     "api::default::egg-status",    200, "/api/extendedgitgraph::status?secret=$ajaxsecret");
 		$this->addMethodPathStatus(     "api::default::an-show",       200, "/api/alephnote::show?secret=$ajaxsecret");
-		$this->addMethodPathStatus(     "api::default::updates-show",  200, "/api/updates::show?secret=$ajaxsecret");
+		$this->addMethodMultiPathStatus("api::default::updates-show",  200, "/api/updates::show?secret=$ajaxsecret&ulname={0}", function(){ return array_key_map(Website::inst()->modules->UpdatesLog()->listProgramsInformation(), 'name'); });
 		$this->addMethodPathStatus(     "api::default::aoc-ajax",      200, "/api/html::panel_aoc_calendar");
 		$this->addMethodPathStatus(     "api::default::404-1",         404, '/api/update/no_prog_xx');
 		$this->addMethodPathStatus(     "api::default::404-2",         404, '/api/asdf::notfound');
