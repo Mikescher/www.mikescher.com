@@ -126,7 +126,13 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodPathStatus(     "api::default::egg-status",    200, "/api/extendedgitgraph::status?secret=$ajaxsecret");
 		$this->addMethodPathStatus(     "api::default::an-show",       200, "/api/alephnote::show?secret=$ajaxsecret");
 		$this->addMethodMultiPathStatus("api::default::updates-show",  200, "/api/updates::show?secret=$ajaxsecret&ulname={0}", function(){ return array_key_map(Website::inst()->modules->UpdatesLog()->listProgramsInformation(), 'name'); });
-		$this->addMethodPathStatus(     "api::default::aoc-ajax",      200, "/api/html::panel_aoc_calendar");
+		$this->addMethodPathStatus(     "api::default::aoc-ajax-1",    200, "/api/html::panel_aoc_calendar?year=2017&nav=true&linkheader=true&ajax=true&frameid=x");
+		$this->addMethodPathStatus(     "api::default::aoc-ajax-2",    200, "/api/html::panel_aoc_calendar?year=2018&nav=true&linkheader=true&ajax=true&frameid=x");
+		$this->addMethodPathStatus(     "api::default::aoc-ajax-3",    200, "/api/html::panel_aoc_calendar?year=2019&nav=true&linkheader=true&ajax=true&frameid=x");
+		$this->addMethodPathStatus(     "api::default::aoc-ajax-4",    200, "/api/html::panel_aoc_calendar?year=2019&nav=false&linkheader=true&ajax=true&frameid=x");
+		$this->addMethodPathStatus(     "api::default::aoc-ajax-5",    200, "/api/html::panel_aoc_calendar?year=2019&nav=true&linkheader=false&ajax=true&frameid=x");
+		$this->addMethodPathStatus(     "api::default::aoc-ajax-6",    200, "/api/html::panel_aoc_calendar?year=2019&nav=true&linkheader=true&ajax=false&frameid=x");
+		$this->addMethodPathStatus(     "api::default::aoc-ajax-7",    200, "/api/html::panel_aoc_calendar?year=2019&nav=false&linkheader=false&ajax=false&frameid=x");
 		$this->addMethodPathStatus(     "api::default::404-1",         404, '/api/update/no_prog_xx');
 		$this->addMethodPathStatus(     "api::default::404-2",         404, '/api/asdf::notfound');
 
