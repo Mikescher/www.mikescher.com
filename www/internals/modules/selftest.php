@@ -50,7 +50,7 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodPathStatus("web::main::404-1",      404, '/asdf');
 		$this->addHTTPSRedirect(  "web::main::redirect-1", '');
 		$this->addHTTPSRedirect(  "web::main::redirect-2", '/about');
-		$this->addHTTPSRedirect(   "web::main::redirect-3", '/about');
+		$this->addHTTPSRedirect(  "web::main::redirect-3", '/about');
 
 		$this->addMethodPathStatus(     "web::programs::programs-list-1",     200, '/programs');
 		$this->addMethodPathStatus(     "web::programs::programs-list-2",     200, '/programs/index');
@@ -61,9 +61,9 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodMultiPathStatus("web::programs::programs-show-1",     200, '/programs/view/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
 		$this->addMethodMultiPathStatus("web::programs::programs-show-2",     200, '/programs/view?id={0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
 		$this->addMethodMultiPathStatus("web::programs::programs-show-3",     200, '{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'url'); });
-		$this->addMethodMultiPathStatus("web::programs::programs-download-1", 301, '/downloads/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
-		$this->addMethodMultiPathStatus("web::programs::programs-download-2", 301, '/programs/download/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
-		$this->addMethodMultiPathStatus("web::programs::programs-download-3", 301, '/programs/download?id={0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
+		$this->addMethodMultiPathStatus("web::programs::programs-download-1", 302, '/downloads/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
+		$this->addMethodMultiPathStatus("web::programs::programs-download-2", 302, '/programs/download/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
+		$this->addMethodMultiPathStatus("web::programs::programs-download-3", 302, '/programs/download?id={0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
 		$this->addMethodPathStatus(     "web::programs::programs-404-1",      404, '/programs/view/asdf_not_found');
 		$this->addMethodPathStatus(     "web::programs::programs-404-2",      404, '/programs/download/asdf_not_found');
 		$this->addMethodExtProgLinks(   "web::programs::programs-ext-links");
@@ -190,8 +190,8 @@ class SelfTest implements IWebsiteModule
 						'exception' => null,
 					];
 
-					$url = $_SERVER['HTTP_HOST'] . $path;
-					$r = curl_http_request($_SERVER['HTTP_HOST'] . $path);
+					$url = 'https://' . $_SERVER['HTTP_HOST'] . $path;
+					$r = curl_http_request($url);
 					if ($r['statuscode'] === $status) return
 					[
 						'result' => self::STATUS_OK,
@@ -204,7 +204,7 @@ class SelfTest implements IWebsiteModule
 					[
 						'result' => self::STATUS_ERROR,
 						'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-						'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+						'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\nRedirect: " . $r['redirect'] . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 						'exception' => null,
 					];
 				}
@@ -247,7 +247,7 @@ class SelfTest implements IWebsiteModule
 					$count = 0;
 					foreach ($supdata as $d)
 					{
-						$url = $_SERVER['HTTP_HOST'] . str_replace('{0}', $d, $path);
+						$url = 'https://' . $_SERVER['HTTP_HOST'] . str_replace('{0}', $d, $path);
 						$r = curl_http_request($url);
 						$count++;
 						if ($r['statuscode'] === $status) { $message .= "{".$xname."} succeeded" . "\n"; continue; }
@@ -256,7 +256,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\nRedirect: " . $r['redirect'] . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
