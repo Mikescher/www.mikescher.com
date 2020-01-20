@@ -158,7 +158,8 @@ function refreshConsistencyDisplayParallel()
                 $(apibutton).addClass('consistency_result_fin');
 
                 $(apibutton).text(json.message);
-                $(apibutton).attr('title', json.long);
+                //$(apibutton).attr('title', json.long);
+                outdiv.text(json.long);
             })
             .fail((xhr, status, err) =>
             {
@@ -167,7 +168,9 @@ function refreshConsistencyDisplayParallel()
 
                 $(apibutton).addClass('consistency_result_err');
                 $(apibutton).addClass('consistency_result_fin');
-                $(apibutton).text(err);
+
+                //$(apibutton).attr('title', json.long);
+                outdiv.text(err);
             });
     }
 }
