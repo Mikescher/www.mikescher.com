@@ -94,45 +94,7 @@ function refreshConsistencyDisplaySequential(skip)
     {
         if (i++ !== skip) continue;
 
-        const filter = $(apibutton).data('filter');
-        const outdiv = $($(apibutton).data('stid'));
-
-        $(apibutton).removeClass('consistency_result_intermed');
-        $(apibutton).addClass('consistency_result_running');
-
-        $.ajax('/api/site::selftest?filter=' + filter)
-            .done((data, status, xhr) =>
-            {
-                let json = JSON.parse(data);
-                $(apibutton).removeClass('consistency_result_intermed');
-                $(apibutton).removeClass('consistency_result_running');
-                $(apibutton).addClass('consistency_result_fin');
-
-                if (json.result === 0) $(apibutton).addClass('consistency_result_ok');
-                if (json.result === 1) $(apibutton).addClass('consistency_result_warn');
-                if (json.result === 2) $(apibutton).addClass('consistency_result_err');
-
-                $(apibutton).text(json.message);
-                //$(apibutton).attr('title', json.long);
-                outdiv.text(json.long);
-
-                setTimeout(() => refreshConsistencyDisplaySequential(skip+1), 10);
-            })
-            .fail((xhr, status, err) =>
-            {
-                $(apibutton).removeClass('consistency_result_intermed');
-                $(apibutton).removeClass('consistency_result_running');
-
-                $(apibutton).addClass('consistency_result_err');
-                $(apibutton).addClass('consistency_result_fin');
-                $(apibutton).text(("" + err).substr(0, 48));
-
-                //$(apibutton).attr('title', json.long);
-                outdiv.text(err);
-
-                setTimeout(() => refreshConsistencyDisplaySequential(skip+1), 10);
-            });
-
+        refreshSingle(apibutton, () => setTimeout(() => refreshConsistencyDisplaySequential(skip+1), 10));
     }
 }
 
@@ -140,39 +102,50 @@ function refreshConsistencyDisplayParallel()
 {
     for (let apibutton of $('.selftest_parallel .consistence_ajax_handler').toArray())
     {
-        const filter = $(apibutton).data('filter');
-
-        $(apibutton).removeClass('consistency_result_intermed');
-        $(apibutton).addClass('consistency_result_running');
-
-        $.ajax('/api/site::selftest?filter=' + filter)
-            .done((data, status, xhr) =>
-            {
-                let json = JSON.parse(data);
-
-                if (json.result === 0) $(apibutton).addClass('consistency_result_ok');
-                if (json.result === 1) $(apibutton).addClass('consistency_result_warn');
-                if (json.result === 2) $(apibutton).addClass('consistency_result_err');
-
-                $(apibutton).removeClass('consistency_result_running');
-                $(apibutton).addClass('consistency_result_fin');
-
-                $(apibutton).text(json.message);
-                //$(apibutton).attr('title', json.long);
-                outdiv.text(json.long);
-            })
-            .fail((xhr, status, err) =>
-            {
-                $(apibutton).removeClass('consistency_result_intermed');
-                $(apibutton).removeClass('consistency_result_running');
-
-                $(apibutton).addClass('consistency_result_err');
-                $(apibutton).addClass('consistency_result_fin');
-
-                //$(apibutton).attr('title', json.long);
-                outdiv.text(err);
-            });
+        refreshSingle(apibutton, () => {});
     }
+}
+
+function refreshSingle(apibutton, then)
+{
+    const filter = $(apibutton).data('filter');
+    const outdiv = $($(apibutton).data('stid'));
+
+    $(apibutton).removeClass('consistency_result_intermed');
+    $(apibutton).addClass('consistency_result_running');
+
+    $.ajax('/api/site::selftest?filter=' + filter)
+        .done((data, status, xhr) =>
+        {
+            let json = JSON.parse(data);
+            $(apibutton).removeClass('consistency_result_intermed');
+            $(apibutton).removeClass('consistency_result_running');
+            $(apibutton).addClass('consistency_result_fin');
+
+            if (json.result === 0) $(apibutton).addClass('consistency_result_ok');
+            if (json.result === 1) $(apibutton).addClass('consistency_result_warn');
+            if (json.result === 2) $(apibutton).addClass('consistency_result_err');
+
+            $(apibutton).text(json.message);
+            //$(apibutton).attr('title', json.long);
+            outdiv.text(json.long);
+
+            then();
+        })
+        .fail((xhr, status, err) =>
+        {
+            $(apibutton).removeClass('consistency_result_intermed');
+            $(apibutton).removeClass('consistency_result_running');
+
+            $(apibutton).addClass('consistency_result_err');
+            $(apibutton).addClass('consistency_result_fin');
+            $(apibutton).text(("" + err).substr(0, 48));
+
+            //$(apibutton).attr('title', json.long);
+            outdiv.text(err);
+
+            then();
+        });
 }
 
 $(function()
