@@ -90,9 +90,6 @@ class Website
 	{
 		try
 		{
-			$frameOpt->statuscode = 404;
-			$frameOpt->title = 'Page not found';
-
 			$route = URLRoute::getNotFoundRoute($uri);
 
 			$route->parameter['message'] = $message;
@@ -119,9 +116,6 @@ class Website
 		try
 		{
 			if ($frameOpt === null) $frameOpt = new PageFrameOptions();
-
-			$frameOpt->statuscode = 500;
-			$frameOpt->title = 'Internal Server Error';
 			$frameOpt->frame = 'error_frame.php';
 
 			$route = URLRoute::getServerErrorRoute($_SERVER['REQUEST_URI']);

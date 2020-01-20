@@ -10,6 +10,7 @@ require_once (__DIR__ . '/../internals/website.php');
 $message = isset($ROUTE->parameter['message']) ? $ROUTE->parameter['message'] : '';
 
 $FRAME_OPTIONS->title = $message;
+$FRAME_OPTIONS->statuscode = 404;
 $FRAME_OPTIONS->canonical_url = null;
 $FRAME_OPTIONS->activeHeader = null;
 $FRAME_OPTIONS->contentCSSClasses []= 'content-fullheight';

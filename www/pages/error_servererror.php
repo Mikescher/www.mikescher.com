@@ -8,6 +8,7 @@ require_once (__DIR__ . '/../internals/website.php');
 
 <?php
 $FRAME_OPTIONS->title = 'Error';
+$FRAME_OPTIONS->statuscode = 404;
 $FRAME_OPTIONS->canonical_url = null;
 $FRAME_OPTIONS->activeHeader = null;
 $FRAME_OPTIONS->contentCSSClasses []= 'content-fullheight';
