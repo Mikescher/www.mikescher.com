@@ -227,7 +227,7 @@ abstract class StandardGitConnection implements IRemoteSource
 		$target = $branch->Head;
 
 		$next_sha = [ $branch->HeadFromAPI ];
-		$visited  = [ $branch->HeadFromAPI ];
+		$visited  = [ ];
 
 		$json = $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]);
 
@@ -257,6 +257,7 @@ abstract class StandardGitConnection implements IRemoteSource
 					if (count($newcommits) === 0)
 					{
 						$this->logger->proclog("Found no new commits for: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]  (HEAD at {" . substr($branch->HeadFromAPI, 0, 8) . "})");
+						if ($branch->HeadFromAPI !== $branch->Head) $db->setBranchHead($branch, $branch->HeadFromAPI);
 						return [];
 					}
 
@@ -295,7 +296,11 @@ abstract class StandardGitConnection implements IRemoteSource
 
 		$db->deleteAllCommits($branch);
 
-		if (count($newcommits) === 0) return [];
+		if (count($newcommits) === 0)
+		{
+			if ($branch->HeadFromAPI !== $branch->Head) $db->setBranchHead($branch, $branch->HeadFromAPI);
+			return [];
+		}
 
 		$db->insertNewCommits($this->name, $repo, $branch, $newcommits);
 		$db->setBranchHead($branch, $branch->HeadFromAPI);
