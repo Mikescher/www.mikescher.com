@@ -41,12 +41,32 @@
 .kvl_200 div span:first-child { min-width: 200px; }
 .kvl_300 div span:first-child { min-width: 300px; }
 
+.selftest_parent {
+  width: 800px;
+  max-width: 100%;
+}
+
+.selftest_outputchild {
+  border: $COL_ADMIN_STATUS_BORDER;
+  background: $LAYER2_CODE_BG;
+  color: $LAYER2_CODE_FG;
+  font-family: $FONT_CODE;
+  white-space: pre;
+  max-height: 600px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.consistency_result_fin {
+  cursor: pointer;
+}
+
 .consistency_result {
-  width: 500px;
   color: $COL_ADMIN_STATUS_FG;
   border: $COL_ADMIN_STATUS_BORDER;
   padding: 0 5px;
   margin: 1px 0;
+  flex-grow: 1;
 }
 
 .consistency_result:after { content: '\00a0' }

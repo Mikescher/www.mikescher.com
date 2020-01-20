@@ -115,6 +115,10 @@ body {
   height: 0 !important;
 }
 
+.generic_nodisplay {
+  display: none !important;
+}
+
 .boxedcontent {
   color: #333333;
   border: 1px solid #444444;
@@ -853,12 +857,32 @@ html, body {
   min-width: 300px;
 }
 
+.selftest_parent {
+  width: 800px;
+  max-width: 100%;
+}
+
+.selftest_outputchild {
+  border: 1px solid #888;
+  background: #F8F8F8;
+  color: #000000;
+  font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
+  white-space: pre;
+  max-height: 600px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.consistency_result_fin {
+  cursor: pointer;
+}
+
 .consistency_result {
-  width: 500px;
   color: #222222;
   border: 1px solid #888;
   padding: 0 5px;
   margin: 1px 0;
+  flex-grow: 1;
 }
 
 .consistency_result:after {

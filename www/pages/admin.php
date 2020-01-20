@@ -11,8 +11,8 @@ $FRAME_OPTIONS->title = 'Admin';
 $FRAME_OPTIONS->canonical_url = 'https://www.mikescher.com/admin';
 $FRAME_OPTIONS->activeHeader = 'admin';
 
-$FRAME_OPTIONS->addScript('https://code.jquery.com/jquery-latest.min.js', true);
-$FRAME_OPTIONS->addScript('/data/javascript/admin.js', true);
+$FRAME_OPTIONS->addScript('https://code.jquery.com/jquery-latest.min.js', false);
+$FRAME_OPTIONS->addScript('/data/javascript/admin.js', false);
 
 
 $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $connected = false; }
@@ -54,9 +54,13 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
         <div class="bc_header">Self test</div>
 
         <div class="bc_data">
-            <div class="keyvaluelist kvl_200">
-                <?php foreach ($SITE->modules->SelfTest()->listMethodGroups() as $group): ?>
-                    <div><span><?php echo $group['name']; ?></span><span class='consistency_result consistency_result_intermed consistence_ajax_handler' data-filter="<?php echo $group['filter']; ?>">&nbsp;</span></div>
+            <div class="keyvaluelist kvl_200 selftest_parent <?php echo $SITE->isProd() ? 'selftest_parallel' : 'selftest_sequential' ?>">
+                <?php $stid=1000; foreach ($SITE->modules->SelfTest()->listMethodGroups() as $group): $stid++; ?>
+                    <div class="selftest_tabchild" onclick="showSelfTestOutput('#selftest_tab_<?php echo $stid; ?>', '#selftest_out_<?php echo $stid; ?>')">
+                        <span><?php echo $group['name']; ?></span>
+                        <span class='consistency_result consistency_result_intermed consistence_ajax_handler' id="selftest_tab_<?php echo $stid; ?>" data-filter="<?php echo $group['filter']; ?>" data-stid="#selftest_out_<?php echo $stid; ?>"></span>
+                    </div>
+                    <div class="selftest_outputchild generic_nodisplay" id="selftest_out_<?php echo $stid; ?>">&nbsp;</div>
                 <?php endforeach; ?>
             </div>
             <br/>

@@ -85,6 +85,10 @@ body {
   height:0 !important;
 }
 
+.generic_nodisplay   {
+  display: none !important;
+}
+
 .boxedcontent {
   color: $LAYER1_FG;
   border: $LAYER1_BORDER;

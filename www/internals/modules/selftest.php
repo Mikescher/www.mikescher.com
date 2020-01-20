@@ -259,17 +259,21 @@ class SelfTest implements IWebsiteModule
 
 					$message = '';
 					$count = 0;
+					$i = 0;
 					foreach ($supdata as $d)
 					{
+						$i++;
+						$sxname = $xname . '-' . $i;
+
 						$url = 'https://' . $_SERVER['HTTP_HOST'] . str_replace('{0}', $d, $path);
 						$r = curl_http_request($url);
 						$count++;
-						if ($r['statuscode'] === $status) { $message .= "{".$xname."} succeeded" . "\n"; continue; }
+						if ($r['statuscode'] === $status) { $message .= "    {".$sxname."} succeeded" . "\n"; continue; }
 
 						return
 						[
 							'result' => self::STATUS_ERROR,
-							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
+							'message' => '{'.$sxname.'} failed: Request returned wrong statuscode',
 							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n".
 								      "URL: $url\n".
 								      "Redirect: " . $r['redirect'] . "\n" .
@@ -282,7 +286,7 @@ class SelfTest implements IWebsiteModule
 					return
 					[
 						'result' => self::STATUS_OK,
-						'message' => "$count requests succeeded\n" . rtrim($message, "\n"),
+						'message' => "$count requests succeeded\n" . trim($message, "\n"),
 						'long' => null,
 						'exception' => null,
 					];

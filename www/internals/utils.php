@@ -245,7 +245,6 @@ function formatException($e)
 			$xdbg = str_replace('<br>', "\n", $xdbg);
 			$xdbg = str_replace('><', "> <", $xdbg);
 			$xdbg = strip_tags($xdbg);
-			$xdbg = htmlspecialchars($xdbg);
 			$r .= $xdbg . "\n";
 		}
 		return $r;

@@ -18,6 +18,7 @@
 .blockcontent{display:block;width:100%}
 .generic_hidden{visibility:hidden !important}
 .generic_collapsed{visibility:collapse !important;display:none !important;width:0 !important;height:0 !important}
+.generic_nodisplay{display:none !important}
 .boxedcontent{color:#333;border:1px solid #444;background:#e0e0e0;width:100%;margin-left:auto;margin-right:auto}
 .boxedcontent .bc_header{background-color:#bbb;color:#222;padding:0 4px}
 .boxedcontent .bc_data{padding:8px}
@@ -167,7 +168,10 @@ html,body{margin:0;padding:0;height:100%}
 .kvl_100 div span:first-child{min-width:100px}
 .kvl_200 div span:first-child{min-width:200px}
 .kvl_300 div span:first-child{min-width:300px}
-.consistency_result{width:500px;color:#222;border:1px solid #888;padding:0 5px;margin:1px 0}
+.selftest_parent{width:800px;max-width:100%}
+.selftest_outputchild{border:1px solid #888;background:#f8f8f8;color:#000;font-family:Consolas,Monaco,"Courier New",Menlo,monospace;white-space:pre;max-height:600px;overflow-x:auto;overflow-y:auto}
+.consistency_result_fin{cursor:pointer}
+.consistency_result{color:#222;border:1px solid #888;padding:0 5px;margin:1px 0;flex-grow:1}
 .consistency_result:after{content:" "}
 .consistency_result_ok{background:#0f0}
 .consistency_result_warn{background:#ff0}
