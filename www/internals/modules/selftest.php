@@ -364,7 +364,7 @@ class SelfTest implements IWebsiteModule
 						'exception' => null,
 					];
 
-					$url = $_SERVER['HTTP_HOST'] . $path;
+					$url = 'https://' . $_SERVER['HTTP_HOST'] . $path;
 					$r = curl_http_request($url);
 
 					if ($r['statuscode'] !== $status)
@@ -512,14 +512,14 @@ class SelfTest implements IWebsiteModule
 
 							$r = curl_http_request($url);
 							$count++;
-							if ($r['statuscode'] === 200) { $message .= "[".$prog['name']."] Request to '$url' succeeded" . "\n"; continue; }
+							if ($r['statuscode'] === 200 || $r['statuscode'] === 301 || $r['statuscode'] === 302) { $message .= "[".$prog['name']."] Request to '$url' succeeded" . "\n"; continue; }
 
 							return
 							[
 								'result' => self::STATUS_ERROR,
 								'message' => '['.$prog['name'].'] failed: Request to returned wrong statuscode',
 								'long' => 'Wrong HTTP Statuscode from "'.$url.'"' . "\n".
-									      "Expected: [200]\n".
+									      "Expected: [200|301|302]\n".
 									      "Found: [".$r['statuscode'].']' . "\n" .
 									      "Response:\n" . $r['output'] . "\n".
 									      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],

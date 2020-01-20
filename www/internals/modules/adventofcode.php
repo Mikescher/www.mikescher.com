@@ -49,7 +49,7 @@ class AdventOfCode implements IWebsiteModule
 	{
 		$r = [];
 		foreach ($this->staticData as $year => $yeardata) foreach ($yeardata as $daydata) $r []= $daydata;
-		return $this->staticData;
+		return $r;
 	}
 
 	public function listSingleYear($year)
