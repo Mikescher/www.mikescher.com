@@ -41,6 +41,8 @@ $cmd = strtolower($ROUTE->parameter['cmd']);
 
 if (!array_key_exists($cmd, $API_COMMANDS))
 {
+	ob_clean();
+	print("<div style=\"white-space: pre;font-family: monospace;\">\n");
 	print("                                                    \n");
 	print("                                                    \n");
 	print("                 ...                                \n");
@@ -66,8 +68,11 @@ if (!array_key_exists($cmd, $API_COMMANDS))
 	print("     ::::::`:::::;'  /  /   `#                      \n");
 	print("                                                    \n");
 	print("                                                    \n");
+	print("</div>\n");
+	print("Wrong command.");
+	$reaper = ob_get_clean();
 
-	$FRAME_OPTIONS->forceResult(400, 'Wrong command.');
+	$FRAME_OPTIONS->forceResult(404, $reaper);
 	return;
 }
 

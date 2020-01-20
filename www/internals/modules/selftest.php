@@ -133,8 +133,8 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodPathStatus(     "api::default::aoc-ajax-5",    200, "/api/html::panel_aoc_calendar?year=2019&nav=true&linkheader=false&ajax=true&frameid=x");
 		$this->addMethodPathStatus(     "api::default::aoc-ajax-6",    200, "/api/html::panel_aoc_calendar?year=2019&nav=true&linkheader=true&ajax=false&frameid=x");
 		$this->addMethodPathStatus(     "api::default::aoc-ajax-7",    200, "/api/html::panel_aoc_calendar?year=2019&nav=false&linkheader=false&ajax=false&frameid=x");
-		$this->addMethodPathStatus(     "api::default::404-1",         404, '/api/update/no_prog_xx');
-		$this->addMethodPathStatus(     "api::default::404-2",         404, '/api/asdf::notfound');
+		$this->addMethodPathStatus(     "api::default::api-404-1",     404, '/api/update/no_prog_xx');
+		$this->addMethodPathStatus(     "api::default::api-404-2",     404, '/api/asdf::notfound');
 
 		$this->addMethodPathStatus(     "api::highscore::listgames-1",   200, "/highscores/list.php");
 		$this->addMethodPathStatus(     "api::highscore::listgames-2",   200, "/highscores/list");
@@ -593,13 +593,15 @@ class SelfTest implements IWebsiteModule
 							'exception' => null,
 						];
 					}
-					if ($r['redirect'] !== $url2)
+					if (rtrim($r['redirect'], "/\t \n#") !== rtrim($url2, "/\t \n#"))
 					{
 						return
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong redirect',
-							'long' => 'Wrong Redirect URL (Expected: ['.$url2.']; Found: ['.$r['redirect'].'])' . "\n" .
+							'long' => "Wrong Redirect URL\n" .
+								      'Expected: "'.$url2.'"' . "\n" .
+								      'Found: "'.$r['redirect'].'")' . "\n" .
 								      "Response:\n" . $r['output'] . "\n" .
 								      "Redirect:\n" . $r['redirect'] . "\n".
 								      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],
