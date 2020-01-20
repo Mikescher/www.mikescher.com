@@ -23,14 +23,14 @@ class Books implements IWebsiteModule
 
 	private static function readSingle($a)
 	{
-		$a['imgfront_url']      =              '/data/images/book_img/' . $a['id'] . '_front.png';
-		$a['imgfront_path']     = __DIR__ . '/../data/images/book_img/' . $a['id'] . '_front.png';
+		$a['imgfront_url']      =                 '/data/images/book_img/' . $a['id'] . '_front.png';
+		$a['imgfront_path']     = __DIR__ . '/../../data/images/book_img/' . $a['id'] . '_front.png';
 
-		$a['imgfull_url']       =              '/data/images/book_img/' . $a['id'] . '_full.png';
-		$a['imgfull_path']      = __DIR__ . '/../data/images/book_img/' . $a['id'] . '_full.png';
+		$a['imgfull_url']       =                 '/data/images/book_img/' . $a['id'] . '_full.png';
+		$a['imgfull_path']      = __DIR__ . '/../../data/images/book_img/' . $a['id'] . '_full.png';
 
-		$a['preview_url']       =              '/data/dynamic/bookprev_' . $a['id'] . '.png';
-		$a['preview_path']      = __DIR__ . '/../data/dynamic/bookprev_' . $a['id'] . '.png';
+		$a['preview_url']       =                 '/data/dynamic/bookprev_' . $a['id'] . '.png';
+		$a['preview_path']      = __DIR__ . '/../../data/dynamic/bookprev_' . $a['id'] . '.png';
 
 		$a['url']               = '/books/view/' . $a['id'] . '/' . destructiveUrlEncode($a['title']);
 
@@ -73,8 +73,8 @@ class Books implements IWebsiteModule
 			if (in_array($prog['id'], $ids)) return ['result'=>'err', 'message' => 'Duplicate id ' . $prog['id']];
 			$ids []= $prog['id'];
 
-			if (!file_exists($prog['imgfront_path'])) return ['result'=>'err', 'message' => 'Image not found ' . $prog['title_short']];
-			if (!file_exists($prog['imgfull_path']))  return ['result'=>'err', 'message' => 'Image not found ' . $prog['title_short']];
+			if (!file_exists($prog['imgfront_path'])) return ['result'=>'err', 'message' => 'Image (Front) not found ' . $prog['title_short']];
+			if (!file_exists($prog['imgfull_path']))  return ['result'=>'err', 'message' => 'Image (Full) not found ' . $prog['title_short']];
 
 			foreach ($prog['extraimages_paths'] as $eipath)
 			{
