@@ -109,7 +109,7 @@ class Fragments
 		]);
 	}
 
-	public function WidgetBefunge93(string $code, string $url, bool $interactive, int $speed, bool $editable)
+	public function WidgetBefunge93(string $code, string $url, bool $interactive, $speed, bool $editable)
 	{
 		return $this->evalFragment('WidgetBefunge93', 'widget_befunge93.php',
 		[

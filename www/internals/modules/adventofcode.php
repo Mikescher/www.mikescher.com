@@ -48,7 +48,7 @@ class AdventOfCode implements IWebsiteModule
 	public function listAllDays()
 	{
 		$r = [];
-		foreach ($this->staticData as $yeardata) foreach ($yeardata as $year => $daydata) $r []= $daydata;
+		foreach ($this->staticData as $year => $yeardata) foreach ($yeardata as $daydata) $r []= $daydata;
 		return $this->staticData;
 	}
 

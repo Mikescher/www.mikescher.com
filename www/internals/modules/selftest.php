@@ -204,7 +204,11 @@ class SelfTest implements IWebsiteModule
 					[
 						'result' => self::STATUS_ERROR,
 						'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-						'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\nRedirect: " . $r['redirect'] . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+						'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" .
+						          "URL: $url\n".
+							      "Redirect: " . $r['redirect'] . "\n" .
+							      "Response:\n" . $r['output'] . "\n".
+							      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],
 						'exception' => null,
 					];
 				}
@@ -256,7 +260,11 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\nRedirect: " . $r['redirect'] . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n".
+								      "URL: $url\n".
+								      "Redirect: " . $r['redirect'] . "\n" .
+								      "Response:\n" . $r['output'] . "\n".
+								      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -358,26 +366,40 @@ class SelfTest implements IWebsiteModule
 
 					$url = $_SERVER['HTTP_HOST'] . $path;
 					$r = curl_http_request($url);
+
 					if ($r['statuscode'] !== $status)
 					{
 						return
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n".
+								      "URL: $url\n" .
+								      "Response:\n" . $r['output'] . "\n".
+								      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
-					if (json_encode(json_decode($r['output'])) == json_encode(json_decode($json_expected)))
+
+					$jj_found    = json_encode(json_decode($r['output']));
+					$jj_expected = json_encode(json_decode($json_expected));
+
+					if ($jj_found !== $jj_expected)
 					{
 						return
 						[
 							'result' => self::STATUS_ERROR,
-							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => "Wrong HTTP Response\nExpected:\n$json_expected\nFound:\n".$r['output'] . "\nURL: $url\n" . "HTTP Statuscode:\n" . $r['statuscode'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'message' => '{'.$xname.'} failed: Request returned wrong response',
+							'long' => "Wrong HTTP Response\n".
+								      "Expected:\n$json_expected\n".
+								      "Found:\n".$r['output'] . "\n".
+								      "URL: $url\n" .
+								      "HTTP Statuscode:\n" . $r['statuscode'] . "\n".
+								      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
+
 					return
 					[
 						'result' => self::STATUS_OK,
@@ -419,8 +441,8 @@ class SelfTest implements IWebsiteModule
 						'exception' => null,
 					];
 
-					$r = exec('git status 2>&1');
-					$ok = (strpos($r, 'Your branch is up to date with') !== false) && (strpos($r, 'nothing to commit, working tree clean') !== false);
+					$r = shell_exec('git status 2>&1');
+					$ok = ($r !== null) && (strpos($r, 'Your branch is up to date with') !== false) && (strpos($r, 'nothing to commit, working tree clean') !== false);
 
 					if (!$ok)
 					{
@@ -481,10 +503,12 @@ class SelfTest implements IWebsiteModule
 					$count = 0;
 					foreach (Website::inst()->modules->Programs()->listAll() as $prog)
 					{
-						foreach ($prog['urls'] as $urlobj)
+						foreach ($prog['urls'] as $urlname => $urlobj)
 						{
 							$url = $urlobj;
 							if (is_array($urlobj)) $url = $urlobj['url'];
+
+							if ($url === 'direct') continue;
 
 							$r = curl_http_request($url);
 							$count++;
@@ -494,7 +518,11 @@ class SelfTest implements IWebsiteModule
 							[
 								'result' => self::STATUS_ERROR,
 								'message' => '['.$prog['name'].'] failed: Request to returned wrong statuscode',
-								'long' => 'Wrong HTTP Statuscode from "'.$url.'"' . "\nExpected: [200]\nFound: [".$r['statuscode'].']' . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+								'long' => 'Wrong HTTP Statuscode from "'.$url.'"' . "\n".
+									      "Expected: [200]\n".
+									      "Found: [".$r['statuscode'].']' . "\n" .
+									      "Response:\n" . $r['output'] . "\n".
+									      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],
 								'exception' => null,
 							];
 						}
@@ -541,11 +569,8 @@ class SelfTest implements IWebsiteModule
 						'exception' => null,
 					];
 
-					$host = parse_url($_SERVER['HTTP_HOST'], PHP_URL_HOST);
-					$port = parse_url($_SERVER['HTTP_HOST'], PHP_URL_PORT);
-
-					$url1 = 'http://'  . $host . ':' . $port . $path;
-					$url2 = 'https://' . $host . ':' . $port . $path;
+					$url1 = 'http://'  . $_SERVER['HTTP_HOST'] . $path;
+					$url2 = 'https://' . $_SERVER['HTTP_HOST'] . $path;
 
 					$r = curl_http_request($url1);
 					if ($r['statuscode'] !== 310)
@@ -554,7 +579,11 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: [200]; Found: ['.$r['statuscode'].'])' . "\nURL: $url1 >> $url2\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => 'Wrong HTTP Statuscode (Expected: [200]; Found: ['.$r['statuscode'].'])' . "\n".
+								      "URL: $url1 >> $url2\n" .
+								      "Response:\n" . $r['output'] . "\n" .
+								      "Redirect:\n" . $r['redirect'] . "\n".
+								      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -564,7 +593,10 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong redirect',
-							'long' => 'Wrong Redirect URL (Expected: ['.$url2.']; Found: ['.$r['redirect'].'])' . "\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => 'Wrong Redirect URL (Expected: ['.$url2.']; Found: ['.$r['redirect'].'])' . "\n" .
+								      "Response:\n" . $r['output'] . "\n" .
+								      "Redirect:\n" . $r['redirect'] . "\n".
+								      "Error [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}

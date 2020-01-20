@@ -30,7 +30,7 @@ $URL_RULES =
 
 	[ 'url' => ['books'],                                  'target' => 'books_list.php',             'options' => [ 'http' ],        'parameter' => [ ],                                       ],
 	[ 'url' => ['books', 'list'],                          'target' => 'books_list.php',             'options' => [ 'http' ],        'parameter' => [ ],                                       ],
-	[ 'url' => ['books', 'view', '?{id}'],                 'target' => 'books_view.php',             'options' => [ 'http' ],        'parameter' => [ 'id' => '%GET%' ],                       ],
+	[ 'url' => ['books', 'view', '?{id}'],                 'target' => 'books_view.php',             'options' => [ 'http' ],        'parameter' => [ 'id' => '%URL%' ],                       ],
 	[ 'url' => ['books', 'view', '?{id}', '*'],            'target' => 'books_view.php',             'options' => [ 'http' ],        'parameter' => [ 'id' => '%URL%' ],                       ],
 
 	[ 'url' => ['update.php'],                             'target' => 'api.php',                    'options' => [ 'http', 'api' ], 'parameter' => [ 'cmd' => 'progs::updatecheck' ],         ],
