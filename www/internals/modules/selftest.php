@@ -14,20 +14,21 @@ class SelfTest implements IWebsiteModule
 		'web::blog'             => 'Blog (http)',
 		'web::webapps'          => 'WebApps (http)',
 		'web::euler'            => 'Project Euler (http)',
-		'web::aoc'              => 'Advent of code (http)',
+		'web::aoc'              => 'Advent of Code (http)',
 		'api::default'          => 'API',
 		'api::highscore'        => 'Highscores API',
 		'modules::database'     => 'Database',
-		'modules::blog'         => 'blog',
-		'modules::euler'        => 'Project Euler',
-		'modules::books'        => 'Books',
-		'modules::extgitgraph'  => 'ExtendedGitGraph',
-		'modules::programs'     => 'Programs',
-		'modules::adventofcode' => 'Advent of Code',
-		'modules::anstatistics' => 'AlephNote Stats',
-		'modules::updateslog'   => 'Program Updates',
-		'modules::webapps'      => 'Webapps',
-		'modules::highscores'   => 'Highscores',
+		'modules::blog'         => 'Blog (data)',
+		'modules::euler'        => 'Project Euler (data)',
+		'modules::books'        => 'Books (data)',
+		'modules::extgitgraph'  => 'ExtendedGitGraph (data)',
+		'modules::programs'     => 'Programs (data)',
+		'modules::adventofcode' => 'Advent of Code (data)',
+		'modules::anstatistics' => 'AlephNote Stats (data)',
+		'modules::updateslog'   => 'Program Updates (data)',
+		'modules::webapps'      => 'Webapps (data)',
+		'modules::highscores'   => 'Highscores (data)',
+		'backend::git'          => 'Git Repository'
 	];
 
 	private $methods = [];
@@ -164,6 +165,9 @@ class SelfTest implements IWebsiteModule
 				'base'   => $d
 			];
 		}
+
+		sort($result);
+
 		return $result;
 	}
 
@@ -199,7 +203,7 @@ class SelfTest implements IWebsiteModule
 					[
 						'result' => self::STATUS_ERROR,
 						'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-						'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'],
+						'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 						'exception' => null,
 					];
 				}
@@ -250,7 +254,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'],
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -357,7 +361,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'],
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -367,7 +371,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => "Wrong HTTP Response\nExpected:\n$json_expected\nFound:\n".$r['output'] . "\n" . "HTTP Statuscode:\n" . $r['statuscode'],
+							'long' => "Wrong HTTP Response\nExpected:\n$json_expected\nFound:\n".$r['output'] . "\n" . "HTTP Statuscode:\n" . $r['statuscode'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -460,6 +464,14 @@ class SelfTest implements IWebsiteModule
 			{
 				$xname = explode('::', $name)[2];
 
+				if (!Website::inst()->isProd()) return
+				[
+					'result' => self::STATUS_WARN,
+					'message' => '{'.$xname.'} not executed: curl requests in dev mode prohibited',
+					'long' => null,
+					'exception' => null,
+				];
+
 				try
 				{
 					$message = '';
@@ -479,7 +491,7 @@ class SelfTest implements IWebsiteModule
 							[
 								'result' => self::STATUS_ERROR,
 								'message' => '['.$prog['name'].'] failed: Request to returned wrong statuscode',
-								'long' => 'Wrong HTTP Statuscode from "'.$url.'"' . "\nExpected: [200]\nFound: [".$r['statuscode'].']' . "\n" . "Response:\n" . $r['output'],
+								'long' => 'Wrong HTTP Statuscode from "'.$url.'"' . "\nExpected: [200]\nFound: [".$r['statuscode'].']' . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 								'exception' => null,
 							];
 						}
@@ -539,7 +551,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: [200]; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'],
+							'long' => 'Wrong HTTP Statuscode (Expected: [200]; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -549,7 +561,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong redirect',
-							'long' => 'Wrong Redirect URL (Expected: ['.$url2.']; Found: ['.$r['redirect'].'])' . "\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'],
+							'long' => 'Wrong Redirect URL (Expected: ['.$url2.']; Found: ['.$r['redirect'].'])' . "\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}

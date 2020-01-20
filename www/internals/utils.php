@@ -277,9 +277,11 @@ function curl_http_request($url)
 	$output   = curl_exec($ch);
 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	$redirect = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
+	$errnum   = curl_errno( $ch );
+	$errmsg   = curl_error( $ch );
 	curl_close($ch);
 
-	return [ 'output'=>$output, 'statuscode'=>$httpcode, 'redirect'=>$redirect ];
+	return [ 'output'=>$output, 'statuscode'=>$httpcode, 'redirect'=>$redirect, 'erronum'=>$errnum, 'errorstr'=>$errmsg ];
 }
 
 
