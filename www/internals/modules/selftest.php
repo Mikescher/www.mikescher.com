@@ -416,7 +416,7 @@ class SelfTest implements IWebsiteModule
 						'exception' => null,
 					];
 
-					$r = exec('git rev-parse --abbrev-ref HEAD');
+					$r = exec('git status 2>&1');
 					$ok = (strpos($r, 'Your branch is up to date with') !== false) && (strpos($r, 'nothing to commit, working tree clean') !== false);
 
 					if (!$ok)

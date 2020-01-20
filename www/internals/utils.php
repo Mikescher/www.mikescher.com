@@ -281,7 +281,7 @@ function curl_http_request($url)
 	$errmsg   = curl_error( $ch );
 	curl_close($ch);
 
-	return [ 'output'=>$output, 'statuscode'=>$httpcode, 'redirect'=>$redirect, 'erronum'=>$errnum, 'errorstr'=>$errmsg ];
+	return [ 'output'=>$output, 'statuscode'=>$httpcode, 'redirect'=>$redirect, 'errnum'=>$errnum, 'errstr'=>$errmsg ];
 }
 
 
