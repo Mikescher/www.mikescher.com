@@ -278,7 +278,7 @@ class SelfTest implements IWebsiteModule
 					return
 					[
 						'result' => self::STATUS_OK,
-						'message' => "$count requests succeeded\n" . $message,
+						'message' => "$count requests succeeded\n" . rtrim($message, "\n"),
 						'long' => null,
 						'exception' => null,
 					];
