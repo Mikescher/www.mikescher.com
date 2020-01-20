@@ -10,6 +10,8 @@ class SelfTest implements IWebsiteModule
 	[
 		'web::main'             => 'Website (http)',
 		'web::programs'         => 'Programs (http)',
+		'web::programs-ext'     => 'Programs (links)',
+		'web::programs-dl'      => 'Programs (download)',
 		'web::books'            => 'Books (http)',
 		'web::blog'             => 'Blog (http)',
 		'web::webapps'          => 'WebApps (http)',
@@ -61,12 +63,14 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodMultiPathStatus("web::programs::programs-show-1",     200, '/programs/view/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
 		$this->addMethodMultiPathStatus("web::programs::programs-show-2",     200, '/programs/view?id={0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
 		$this->addMethodMultiPathStatus("web::programs::programs-show-3",     200, '{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'url'); });
-		$this->addMethodMultiPathStatus("web::programs::programs-download-1", 302, '/downloads/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
-		$this->addMethodMultiPathStatus("web::programs::programs-download-2", 302, '/programs/download/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
-		$this->addMethodMultiPathStatus("web::programs::programs-download-3", 302, '/programs/download?id={0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
 		$this->addMethodPathStatus(     "web::programs::programs-404-1",      404, '/programs/view/asdf_not_found');
 		$this->addMethodPathStatus(     "web::programs::programs-404-2",      404, '/programs/download/asdf_not_found');
-		$this->addMethodExtProgLinks(   "web::programs::programs-ext-links");
+
+		$this->addMethodMultiPathStatus("web::programs-dl::programs-download-1", 302, '/downloads/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
+		$this->addMethodMultiPathStatus("web::programs-dl::programs-download-2", 302, '/programs/download/{0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
+		$this->addMethodMultiPathStatus("web::programs-dl::programs-download-3", 302, '/programs/download?id={0}', function(){ return array_key_map(Website::inst()->modules->Programs()->listAll(), 'internal_name'); });
+
+		$this->addMethodExtProgLinks(   "web::programs-ext::programs-ext-links");
 
 		$this->addMethodPathStatus(     "web::books::books-list-1", 200, '/books');
 		$this->addMethodPathStatus(     "web::books::books-list-2", 200, '/books/list');
