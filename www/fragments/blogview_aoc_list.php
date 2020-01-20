@@ -15,6 +15,8 @@ $post = $parameter['blogpost'];
 
 $year = $post['extras']['aoc:year'];
 
+$FRAME_OPTIONS->alternative_url = "/adventofcode/$year";
+
 ?>
 
 <div class="boxedcontent blogcontent_plain">

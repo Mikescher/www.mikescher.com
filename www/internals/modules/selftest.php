@@ -97,11 +97,13 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodPathStatus(     "web::euler::euler-404-2",  404, '/blog/1/Project_Euler_with_Befunge/problem-99999');
 		$this->addMethodPathStatus(     "web::euler::euler-404-3",  404, '/blog/1/Project_Euler_with_Befunge/asdf');
 
-		$this->addMethodMultiPathStatus("web::aoc::aoc-list-1", 200, '{0}', function(){ return array_map(function($x){return Website::inst()->modules->AdventOfCode()->getURLForYear($x);},Website::inst()->modules->AdventOfCode()->listYears()); });
-		$this->addMethodMultiPathStatus("web::aoc::aoc-show-1", 200, '{0}', function(){ return array_key_map(Website::inst()->modules->AdventOfCode()->listAllDays(), 'url'); });
-		$this->addMethodPathStatus(     "web::aoc::aoc-404-1",  404, '/blog/25/Advent_of_Code_2017/day-26');
-		$this->addMethodPathStatus(     "web::aoc::aoc-404-2",  404, '/blog/23/Advent_of_Code_2018/day-27');
-		$this->addMethodPathStatus(     "web::aoc::aoc-404-3",  404, '/blog/24/Advent_of_Code_2019/day-28');
+		$this->addMethodMultiPathStatus("web::aoc::aoc-list-1",     200, '{0}', function(){ return array_map(function($x){return Website::inst()->modules->AdventOfCode()->getURLForYear($x);},Website::inst()->modules->AdventOfCode()->listYears()); });
+		$this->addMethodMultiPathStatus("web::aoc::aoc-show-1",     200, '{0}', function(){ return array_key_map(Website::inst()->modules->AdventOfCode()->listAllDays(), 'url'); });
+		$this->addMethodPathStatus(     "web::aoc::aoc-404-1",      404, '/blog/25/Advent_of_Code_2017/day-26');
+		$this->addMethodPathStatus(     "web::aoc::aoc-404-2",      404, '/blog/23/Advent_of_Code_2018/day-27');
+		$this->addMethodPathStatus(     "web::aoc::aoc-404-3",      404, '/blog/24/Advent_of_Code_2019/day-28');
+		$this->addMethodMultiPathStatus("web::aoc::aoc-redirect-1", 302, '{0}', function(){ return array_key_map(Website::inst()->modules->AdventOfCode()->listAllDays(), 'url-alternative'); });
+		$this->addMethodMultiPathStatus("web::aoc::aoc-redirect-1", 302, '/adventofcode/{0}', function(){ return Website::inst()->modules->AdventOfCode()->listYears(); });
 
 		$this->addCheckConsistency("modules::database::database-check-consistency",         function(){ return Website::inst()->modules->Database(); });
 		$this->addCheckConsistency("modules::blog::blog-check-consistency",                 function(){ return Website::inst()->modules->Blog(); });

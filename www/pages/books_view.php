@@ -14,7 +14,7 @@ if ($book === null) { $FRAME_OPTIONS->setForced404("Books not found"); return; }
 
 $FRAME_OPTIONS->title = $book['title'];
 $FRAME_OPTIONS->canonical_url = $book['url'];
-$FRAME_OPTIONS->activeHeader = 'book';
+$FRAME_OPTIONS->activeHeader = 'books';
 
 $FRAME_OPTIONS->addScript('/data/javascript/ms_basic.js', true);
 ?>

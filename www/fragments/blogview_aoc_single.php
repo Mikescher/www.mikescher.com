@@ -17,6 +17,8 @@ $year = $post['extras']['aoc:year'];
 
 $day = $SITE->modules->AdventOfCode()->getDayFromStrIdent($year, $subview);
 if ($day === NULL) { $FRAME_OPTIONS->forceResult(404, 'AdventOfCode entry not found'); return; }
+
+$FRAME_OPTIONS->alternative_url = $day['url-alternative'];
 ?>
 
 <div class="boxedcontent base_markdown">

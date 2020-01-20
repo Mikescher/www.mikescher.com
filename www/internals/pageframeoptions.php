@@ -36,6 +36,9 @@ class PageFrameOptions
 	/** @var string */
 	public $canonical_url = null;
 
+	/** @var string */
+	public $alternative_url = null;
+
 	/** @var string[] */
 	public $contentCSSClasses = [ 'content-responsive' ];
 

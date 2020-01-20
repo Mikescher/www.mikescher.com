@@ -83,7 +83,8 @@ class AdventOfCode implements IWebsiteModule
 		$n2p = str_pad($a['day'], 2, '0', STR_PAD_LEFT);
 		$a['day-padded'] = $n2p;
 
-		$a['url']       = '/blog/' . $yeardata['blog-id'] . '/Advent_of_Code_' . $year . '/day-' . $n2p;
+		$a['url']          = '/blog/' . $yeardata['blog-id'] . '/Advent_of_Code_' . $year . '/day-' . $n2p;
+		$a['url-alternative'] = '/adventofcode/' . $year . '/' . $n2p;
 		$a['canonical'] = "https://www.mikescher.com" . $a['url'];
 
 		$a['url_aoc']    = $yeardata['url-aoc'] . $a['day']; // adventofcode.com/{year}/day/{day}

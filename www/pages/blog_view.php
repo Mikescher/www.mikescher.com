@@ -18,7 +18,7 @@ $FRAME_OPTIONS->canonical_url = $post['canonical'];
 
 if ($post['type'] == 'euler')
 	$FRAME_OPTIONS->activeHeader = 'euler';
-else if ($post['type'] == 'euler' && $post['issubview'])
+else if ($post['type'] == 'aoc')
 	$FRAME_OPTIONS->activeHeader = 'aoc';
 else
 	$FRAME_OPTIONS->activeHeader = 'blog';

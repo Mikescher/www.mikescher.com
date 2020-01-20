@@ -60,6 +60,10 @@ $URL_RULES =
 	[ 'url' => ['log', '?{id}', '?{name}', '?{subview}'],  'target' => 'blog_view.php',              'options' => [ ],               'parameter' => [ 'id' => '%URL%', 'subview' => '%URL%' ], ],
 	[ 'url' => ['blogpost', 'view'],                       'target' => 'blog_view.php',              'options' => [ ],               'parameter' => [ 'id' => '%GET%', 'subview' => '' ],      ],
 
+	[ 'url' => ['adventofcode'],                           'target' => 'adventofcode_year.php',      'options' => [ ],               'parameter' => [ 'year' => '' ],                          ],
+	[ 'url' => ['adventofcode', '?{year}'],                'target' => 'adventofcode_year.php',      'options' => [ ],               'parameter' => [ 'year' => '%URL%' ],                     ],
+	[ 'url' => ['adventofcode', '?{year}', '?{day}'],      'target' => 'adventofcode_day.php',       'options' => [ ],               'parameter' => [ 'year' => '%URL%', 'day' => '%URL%' ],   ],
+
 	[ 'url' => ['webapps'],                                'target' => 'webapps_list.php',           'options' => [ ],               'parameter' => [ ],                                       ],
 
 	[ 'url' => ['highscores', 'list.php'],                 'target' => 'highscores_listentries.php', 'options' => [ 'http' ],        'parameter' => [ 'gameid' => '%GET%' ],                   ],

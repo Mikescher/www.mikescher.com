@@ -23,7 +23,9 @@ require_once (__DIR__ . '/../internals/website.php');
 	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
 	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
 	<?php
-    if ($FRAME_OPTIONS->canonical_url !== null) echo '<link rel="canonical" href="'.$FRAME_OPTIONS->canonical_url.'"/>' . "\n";
+	if ($FRAME_OPTIONS->canonical_url !== null)   echo '<link rel="canonical" href="'.$FRAME_OPTIONS->canonical_url.'"/>' . "\n";
+	if ($FRAME_OPTIONS->alternative_url !== null) echo '<link rel="alternate" href="'.$FRAME_OPTIONS->alternative_url.'"/>' . "\n";
+
 	foreach ($FRAME_OPTIONS->stylesheets as $cssfile) echo '<link rel="stylesheet" href="' . $cssfile . '"/>' . "\n";
 	foreach ($FRAME_OPTIONS->scripts as $scriptfile)
 	{
@@ -41,15 +43,37 @@ require_once (__DIR__ . '/../internals/website.php');
         </div>
 
         <div class="tabrow">
+
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'home')     echo 'tab_active'; ?>" href="/">Home</a>
+
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'euler')    echo 'tab_active'; ?>" href="/blog/1/Project_Euler_with_Befunge">Project Euler</a>
+
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'blog')     echo 'tab_active'; ?>" href="/blog">Blog</a>
+
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'programs') echo 'tab_active'; ?>" href="/programs">Programs</a>
+
+			<?php if ($FRAME_OPTIONS->activeHeader === 'aoc' || intval(date('m')) === 12): ?>
+				<a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'aoc') echo 'tab_active'; ?>" href="/adventofcode">Advent of Code</a>
+			<?php endif; ?>
+
+			<?php if ($FRAME_OPTIONS->activeHeader === 'books'): ?>
+				<a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'books') echo 'tab_active'; ?>" href="/books">Books</a>
+			<?php endif; ?>
+
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'webapps')  echo 'tab_active'; ?>" href="/webapps">Tools</a>
-			<?php if ($SITE->isLoggedInByCookie()): ?><a class="tab tab_admin" href="/admin">Admin</a><?php endif; ?>
+
+			<?php if ($SITE->isLoggedInByCookie()): ?>
+                <a class="tab tab_admin" href="/admin">Admin</a>
+			<?php endif; ?>
+
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'about')    echo 'tab_active'; ?>" href="/about">About</a>
+
             <div class="tab_split" ></div>
-			<?php if ($SITE->isLoggedInByCookie()): ?><a class="tab tab_logout" href="/logout"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-8 0 40 32"><path d="m 18,24 0,4 -14,0 0,-24 14,0 0,4 4,0 0,-8 -22,0 0,32 22,0 0,-8 z m -6,-4.003 0,-8 12,0 0,-4 8,8 -8,8 0,-4 z"></path></svg></a><?php endif; ?>
+
+			<?php if ($SITE->isLoggedInByCookie()): ?>
+				<a class="tab tab_logout" href="/logout"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-8 0 40 32"><path d="m 18,24 0,4 -14,0 0,-24 14,0 0,4 4,0 0,-8 -22,0 0,32 22,0 0,-8 z m -6,-4.003 0,-8 12,0 0,-4 8,8 -8,8 0,-4 z"></path></svg></a>
+			<?php endif; ?>
+
             <a class="tab tab_github" href="https://github.com/Mikescher/">Github</a>
         </div>
 

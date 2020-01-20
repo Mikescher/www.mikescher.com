@@ -68,7 +68,7 @@ class Website
 
 			if ($result->force_redirect)
 			{
-				header('Location: ' . $result->force_redirect_url);
+				header('Location: ' . $result->force_redirect_url); // http 302: Found
 				exit();
 			}
 
