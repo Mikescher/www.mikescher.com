@@ -123,9 +123,9 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodMultiPathStatus("api::default::updatecheck-5", 200, '/update2?name={0}',    function(){ return array_keys(Website::inst()->modules->UpdatesLog()->listUpdateData()); });
 		$this->addMethodMultiPathStatus("api::default::updatecheck-6", 200, '/api/update?name={0}', function(){ return array_keys(Website::inst()->modules->UpdatesLog()->listUpdateData()); });
 		$this->addMethodMultiPathStatus("api::default::updatecheck-7", 200, '/api/update/{0}',      function(){ return array_keys(Website::inst()->modules->UpdatesLog()->listUpdateData()); });
-		$this->addMethodPathStatus(     "api::default::egg-status",    200, "/api/extendedgitgraph::status?ajax_secret=$ajaxsecret");
-		$this->addMethodPathStatus(     "api::default::an-show",       200, "/api/alephnote::show?ajax_secret=$ajaxsecret");
-		$this->addMethodPathStatus(     "api::default::updates-show",  200, "/api/updates::show?ajax_secret=$ajaxsecret");
+		$this->addMethodPathStatus(     "api::default::egg-status",    200, "/api/extendedgitgraph::status?secret=$ajaxsecret");
+		$this->addMethodPathStatus(     "api::default::an-show",       200, "/api/alephnote::show?secret=$ajaxsecret");
+		$this->addMethodPathStatus(     "api::default::updates-show",  200, "/api/updates::show?secret=$ajaxsecret");
 		$this->addMethodPathStatus(     "api::default::aoc-ajax",      200, "/api/html::panel_aoc_calendar");
 		$this->addMethodPathStatus(     "api::default::404-1",         404, '/api/update/no_prog_xx');
 		$this->addMethodPathStatus(     "api::default::404-2",         404, '/api/asdf::notfound');
@@ -573,13 +573,13 @@ class SelfTest implements IWebsiteModule
 					$url2 = 'https://' . $_SERVER['HTTP_HOST'] . $path;
 
 					$r = curl_http_request($url1);
-					if ($r['statuscode'] !== 310)
+					if ($r['statuscode'] !== 301)
 					{
 						return
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: [200]; Found: ['.$r['statuscode'].'])' . "\n".
+							'long' => 'Wrong HTTP Statuscode (Expected: [301]; Found: ['.$r['statuscode'].'])' . "\n".
 								      "URL: $url1 >> $url2\n" .
 								      "Response:\n" . $r['output'] . "\n" .
 								      "Redirect:\n" . $r['redirect'] . "\n".

@@ -120,7 +120,7 @@ return
 		'urls'              =>
 			[
 				'download'    => 'direct',
-				'homepage'    => 'http://borderlinedefense.99k.org/',
+				//'homepage'    => 'http://borderlinedefense.99k.org/',
 			],
 	],
 
