@@ -190,6 +190,7 @@ class SelfTest implements IWebsiteModule
 						'exception' => null,
 					];
 
+					$url = $_SERVER['HTTP_HOST'] . $path;
 					$r = curl_http_request($_SERVER['HTTP_HOST'] . $path);
 					if ($r['statuscode'] === $status) return
 					[
@@ -203,7 +204,7 @@ class SelfTest implements IWebsiteModule
 					[
 						'result' => self::STATUS_ERROR,
 						'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-						'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+						'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 						'exception' => null,
 					];
 				}
@@ -246,7 +247,8 @@ class SelfTest implements IWebsiteModule
 					$count = 0;
 					foreach ($supdata as $d)
 					{
-						$r = curl_http_request($_SERVER['HTTP_HOST'] . str_replace('{0}', $d, $path));
+						$url = $_SERVER['HTTP_HOST'] . str_replace('{0}', $d, $path);
+						$r = curl_http_request($url);
 						$count++;
 						if ($r['statuscode'] === $status) { $message .= "{".$xname."} succeeded" . "\n"; continue; }
 
@@ -254,7 +256,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -354,14 +356,15 @@ class SelfTest implements IWebsiteModule
 						'exception' => null,
 					];
 
-					$r = curl_http_request($_SERVER['HTTP_HOST'] . $path);
+					$url = $_SERVER['HTTP_HOST'] . $path;
+					$r = curl_http_request($url);
 					if ($r['statuscode'] !== $status)
 					{
 						return
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => 'Wrong HTTP Statuscode (Expected: ['.$status.']; Found: ['.$r['statuscode'].'])' . "\nURL: $url\n" . "Response:\n" . $r['output'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -371,7 +374,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => "Wrong HTTP Response\nExpected:\n$json_expected\nFound:\n".$r['output'] . "\n" . "HTTP Statuscode:\n" . $r['statuscode'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => "Wrong HTTP Response\nExpected:\n$json_expected\nFound:\n".$r['output'] . "\nURL: $url\n" . "HTTP Statuscode:\n" . $r['statuscode'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}
@@ -551,7 +554,7 @@ class SelfTest implements IWebsiteModule
 						[
 							'result' => self::STATUS_ERROR,
 							'message' => '{'.$xname.'} failed: Request returned wrong statuscode',
-							'long' => 'Wrong HTTP Statuscode (Expected: [200]; Found: ['.$r['statuscode'].'])' . "\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
+							'long' => 'Wrong HTTP Statuscode (Expected: [200]; Found: ['.$r['statuscode'].'])' . "\nURL: $url1 >> $url2\n" . "Response:\n" . $r['output'] . "\n" . "Redirect:\n" . $r['redirect'] . "\nError [" . $r['errnum'] . "]:\n" . $r['errstr'],
 							'exception' => null,
 						];
 					}

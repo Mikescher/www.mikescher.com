@@ -167,7 +167,7 @@ html,body{margin:0;padding:0;height:100%}
 .kvl_100 div span:first-child{min-width:100px}
 .kvl_200 div span:first-child{min-width:200px}
 .kvl_300 div span:first-child{min-width:300px}
-.consistency_result{min-width:400px;color:#222;border:1px solid #888;padding:0 5px;margin:1px 0}
+.consistency_result{width:500px;color:#222;border:1px solid #888;padding:0 5px;margin:1px 0}
 .consistency_result:after{content:" "}
 .consistency_result_ok{background:#0f0}
 .consistency_result_warn{background:#ff0}

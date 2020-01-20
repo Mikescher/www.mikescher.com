@@ -854,7 +854,7 @@ html, body {
 }
 
 .consistency_result {
-  min-width: 400px;
+  width: 500px;
   color: #222222;
   border: 1px solid #888;
   padding: 0 5px;
