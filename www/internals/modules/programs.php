@@ -1,8 +1,6 @@
-<?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+<?php
 
-require_once __DIR__ . '/base.php';
-
-class Programs
+class Programs implements IWebsiteModule
 {
 	const PROG_LANGS = [ 'Java', 'C#', 'Delphi', 'PHP', 'C++' ];
 
@@ -33,15 +31,30 @@ class Programs
 		'Mozilla-2.0' => 'https://choosealicense.com/licenses/mpl-2.0/',
 	];
 
-	public static function readSingle($a)
+	/** @var array */
+	private $staticData;
+
+	public function __construct()
+	{
+		$this->load();
+	}
+
+	private function load()
+	{
+		$all = require (__DIR__ . '/../../statics/programs/__all.php');
+
+		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
+	}
+
+	private static function readSingle($a)
 	{
 		$a['mainimage_url']        =              '/data/images/program_img/' . $a['internal_name'] . '.png';
-		$a['mainimage_path']       = __DIR__ . '/../data/images/program_img/' . $a['internal_name'] . '.png';
+		$a['mainimage_path']       = __DIR__ . '/../../data/images/program_img/' . $a['internal_name'] . '.png';
 
 		$a['preview_url']          =              '/data/dynamic/progprev_' . $a['internal_name'] . '.png';
-		$a['preview_path']         = __DIR__ . '/../data/dynamic/progprev_' . $a['internal_name'] . '.png';
+		$a['preview_path']         = __DIR__ . '/../../data/dynamic/progprev_' . $a['internal_name'] . '.png';
 
-		$a['file_longdescription'] = (__DIR__ . '/../statics/programs/' . $a['internal_name'] . '_description.md');
+		$a['file_longdescription'] = (__DIR__ . '/../../statics/programs/' . $a['internal_name'] . '_description.md');
 
 		$a['url']                  = '/programs/view/' . $a['internal_name'];
 
@@ -54,50 +67,42 @@ class Programs
 		{
 			foreach ($a['extra_images'] as $fn)
 			{
-				$a['extraimages_urls']  []=              '/data/images/program_img/' . $fn;
-				$a['extraimages_paths'] []= __DIR__ . '/../data/images/program_img/' . $fn;
+				$a['extraimages_urls']  []=                 '/data/images/program_img/' . $fn;
+				$a['extraimages_paths'] []= __DIR__ . '/../../data/images/program_img/' . $fn;
 			}
 		}
 
 		return $a;
 	}
 
-	public static function listAll()
+	public function listAll()
 	{
-		$all = require (__DIR__ . '/../statics/programs/__all.php');
-
-		return array_map('self::readSingle', $all);
+		return $this->staticData;
 	}
 
-	public static function listAllNewestFirst($filter = '')
+	public function listAllNewestFirst($filter = '')
 	{
-		$data = self::listAll();
+		$data = $this->staticData;
 		usort($data, function($a, $b) { return strcasecmp($b['add_date'], $a['add_date']); });
 		if ($filter !== '') $data = array_filter($data, function($a) use($filter) { return strtolower($a['category']) === strtolower($filter); });
 		return $data;
 	}
 
-	public static function listUpdateData()
+	public function getProgramByInternalName($id)
 	{
-		$a = require (__DIR__ . '/../statics/updates/_all.php');
-		return $a;
-	}
-
-	public static function getProgramByInternalName($id)
-	{
-		foreach (self::listAll() as $prog) {
+		foreach ($this->staticData as $prog) {
 			if (strcasecmp($prog['internal_name'], $id) === 0) return $prog;
 			if ($prog['internal_name_alt'] !== null && strcasecmp($prog['internal_name_alt'], $id) === 0) return $prog;
 		}
 		return null;
 	}
 
-	public static function getProgramDescription($prog)
+	public function getProgramDescription($prog)
 	{
 		return file_get_contents($prog['file_longdescription']);
 	}
 
-	public static function urlComparator($a, $b)
+	private static function urlComparator($a, $b)
 	{
 		$na = 0;
 		$nb = 0;
@@ -118,10 +123,10 @@ class Programs
 
 	}
 
-	public static function getURLs($prog)
+	public function getURLs($prog)
 	{
 		$urls = $prog['urls'];
-		uksort($urls, 'self::urlComparator');
+		uksort($urls, function($a,$b){return self::urlComparator($a,$b);});
 
 		$result = [];
 		foreach ($urls as $fulltype => $urldata)
@@ -178,29 +183,31 @@ class Programs
 		return $result;
 	}
 
-	public static function getLicenseUrl($license)
+	public function getLicenseUrl($license)
 	{
 		return self::LICENSES[$license];
 	}
 
-	public static function getDirectDownloadURL($prog)
+	public function getDirectDownloadURL($prog)
 	{
 		return '/data/binaries/'.$prog['internal_name'].'.zip';
 	}
 
-	public static function getDirectDownloadPath($prog)
+	public function getDirectDownloadPath($prog)
 	{
-		return (__DIR__ . '/../data/binaries/'.$prog['internal_name'].'.zip');
+		return (__DIR__ . '/../../data/binaries/'.$prog['internal_name'].'.zip');
 	}
 
-	public static function checkConsistency()
+	public function checkConsistency()
 	{
 		$warn = null;
+
+		$this->load();
 
 		$intname = [];
 		$realname = [];
 
-		foreach (self::listAll() as $prog)
+		foreach ($this->staticData as $prog)
 		{
 			if (in_array($prog['internal_name'], $intname)) return ['result'=>'err', 'message' => 'Duplicate internal_name ' . $prog['name']];
 			$intname []= $prog['internal_name'];
@@ -216,7 +223,7 @@ class Programs
 
 			if (strpos($prog['internal_name'], ' ') !== FALSE) return ['result'=>'err', 'message' => 'Internal name contains spaces ' . $prog['name']];
 
-			foreach (explode('|', $prog['ui_language']) as $lang) if (convertLanguageToFlag($lang) === null) return ['result'=>'err', 'message' => 'Unknown ui-lang ' . $prog['name']];;
+			foreach (explode('|', $prog['ui_language']) as $lang) if ($this->convertLanguageToFlag($lang) === null) return ['result'=>'err', 'message' => 'Unknown ui-lang ' . $prog['name']];
 
 			if (!in_array($prog['prog_language'], self::PROG_LANGS)) return ['result'=>'err', 'message' => 'Unknown prog-lang ' . $prog['name']];
 
@@ -225,11 +232,11 @@ class Programs
 			if ($prog['license'] !== null && !array_key_exists($prog['license'], self::LICENSES)) return ['result'=>'err', 'message' => 'Unknown license ' . $prog['name']];
 
 			$isdl = false;
-			foreach (self::getURLs($prog) as $xurl)
+			foreach ($this->getURLs($prog) as $xurl)
 			{
 				if (!in_array($xurl['type'], self::URL_ORDER)) return ['result'=>'err', 'message' => 'Unknown url ' . $xurl['type']];
 
-				if ($xurl['type']==='download' && $xurl['isdirect'] && !file_exists(self::getDirectDownloadPath($prog))) return ['result'=>'err', 'message' => 'Direct download not found ' . $prog['name']];
+				if ($xurl['type']==='download' && $xurl['isdirect'] && !file_exists($this->getDirectDownloadPath($prog))) return ['result'=>'err', 'message' => 'Direct download not found ' . $prog['name']];
 
 				if ($xurl['type']==='download' || $xurl['type']==='playstore' || $xurl['type']==='itunesstore') $isdl = true;
 			}
@@ -242,7 +249,7 @@ class Programs
 
 			foreach ($prog['extraimages_paths'] as $eipath)
 			{
-				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['title_short']];
+				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['name'], 'long' => $eipath];
 			}
 		}
 
@@ -250,9 +257,9 @@ class Programs
 		return ['result'=>'ok', 'message' => ''];
 	}
 
-	public static function checkThumbnails()
+	public function checkThumbnails()
 	{
-		foreach (self::listAll() as $prog)
+		foreach ($this->staticData as $prog)
 		{
 			if (!file_exists($prog['preview_path'])) return ['result'=>'err', 'message' => 'Preview not found ' . $prog['name']];
 		}
@@ -260,16 +267,26 @@ class Programs
 		return ['result'=>'ok', 'message' => ''];
 	}
 
-	public static function createPreview($prog)
+	public function createPreview($prog)
 	{
-		global $CONFIG;
-
 		$src = $prog['mainimage_path'];
 		$dst = $prog['preview_path'];
 
-		if ($CONFIG['use_magick'])
+		if (Website::inst()->config['use_magick'])
 			magick_resize_image($src, 250, 0, $dst);
 		else
 			smart_resize_image($src, 250, 0, true, $dst);
+	}
+
+	public function convertLanguageToFlag($lang) {
+		$lang = trim(strtolower($lang));
+
+		if ($lang === 'italian')     return '/data/images/flags/013-italy.svg';
+		if ($lang === 'english')     return '/data/images/flags/226-united-states.svg';
+		if ($lang === 'french')      return '/data/images/flags/195-france.svg';
+		if ($lang === 'german')      return '/data/images/flags/162-germany.svg';
+		if ($lang === 'spanish')     return '/data/images/flags/128-spain.svg';
+
+		return null;
 	}
 }

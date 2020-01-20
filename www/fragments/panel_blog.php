@@ -1,7 +1,17 @@
 <?php
-	require_once(__DIR__ . '/../internals/blog.php');
-	
-	$allposts = Blog::listAllNewestFirst();
+require_once (__DIR__ . '/../internals/website.php');
+
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
+
+global $FRAGMENT_PARAM;
+/** @var array $parameter */
+$parameter = $FRAGMENT_PARAM;
+?>
+
+<?php
+$allposts = $SITE->modules->Blog()->listAllNewestFirst();
 ?>
 
 <div class="index_pnl_base">

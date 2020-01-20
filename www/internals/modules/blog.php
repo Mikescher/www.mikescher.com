@@ -1,12 +1,20 @@
 <?php
 
-class Blog
+class Blog implements IWebsiteModule
 {
-	public static function listAll()
-	{
-		$all = require (__DIR__ . '/../statics/blog/__all.php');
+	/** @var array */
+	private $staticData;
 
-		return array_map('self::readSingle', $all);
+	public function __construct()
+	{
+		$this->load();
+	}
+
+	private function load()
+	{
+		$all = require (__DIR__ . '/../../statics/blog/__all.php');
+
+		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
 	}
 
 	private static function readSingle($d)
@@ -18,31 +26,42 @@ class Blog
 
 		$d['canonical'] = "https://www.mikescher.com" . $d['url'];
 
-		$d['file_fragment'] = __DIR__ . '/../statics/blog/' . $d['fragment'];
+		$d['file_fragment'] = __DIR__ . '/../../statics/blog/' . $d['fragment'];
 
 		if (!array_key_exists('extras', $d)) $d['extras'] = [];
 
 		return $d;
 	}
 
-	public static function listAllNewestFirst()
+	public function listAll()
 	{
-		$data = self::listAll();
+		return $this->staticData;
+	}
+
+	public function listAllNewestFirst()
+	{
+		$data = $this->staticData;
 		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });
 		return $data;
 	}
 
-	public static function getBlogpost($id)
+	public function getBlogpost($id)
 	{
-		foreach (self::listAll() as $post) {
+		foreach ($this->staticData as $post) {
 			if ($post['id'] == $id) return $post;
 		}
 		return null;
 	}
 
-	public static function getFullBlogpost($id, $subview, &$error)
+	/**
+	 * @param string $id
+	 * @param string $subview
+	 * @param string $error
+	 * @return array|null
+	 */
+	public function getFullBlogpost($id, $subview, &$error)
 	{
-		$post = self::getBlogpost($id);
+		$post = $this->getBlogpost($id);
 		if ($post === null) { $error="Blogpost not found"; return null; }
 
 		$post['issubview'] = false;
@@ -51,8 +70,7 @@ class Blog
 		$eulerproblem = null;
 		if ($isSubEuler)
 		{
-			require_once(__DIR__ . '/../internals/euler.php');
-			$eulerproblem = Euler::getEulerProblemFromStrIdent($subview);
+			$eulerproblem = Website::inst()->modules->Euler()->getEulerProblemFromStrIdent($subview);
 			if ($eulerproblem === null) { $error="Project Euler entry not found"; return null; }
 			$post['submodel'] = $eulerproblem;
 			$post['issubview'] = true;
@@ -62,8 +80,7 @@ class Blog
 		$adventofcodeday = null;
 		if ($isSubAdventOfCode)
 		{
-			require_once(__DIR__ . '/../internals/adventofcode.php');
-			$adventofcodeday = AdventOfCode::getDayFromStrIdent($post['extras']['aoc:year'], $subview);
+			$adventofcodeday = Website::inst()->modules->AdventOfCode()->getDayFromStrIdent($post['extras']['aoc:year'], $subview);
 			if ($adventofcodeday === null) { $error="AdventOfCode entry not found"; return null; }
 			$post['submodel'] = $adventofcodeday;
 			$post['issubview'] = true;
@@ -79,16 +96,18 @@ class Blog
 
 	}
 
-	public static function getPostFragment($post)
+	public function getPostFragment($post)
 	{
 		return file_get_contents($post['file_fragment']);
 	}
 
-	public static function checkConsistency()
+	public function checkConsistency()
 	{
 		$keys = [];
 
-		foreach (self::listAll() as $post)
+		$this->load();
+
+		foreach ($this->staticData as $post)
 		{
 			if (in_array($post['id'], $keys)) return ['result'=>'err', 'message' => 'Duplicate key ' . $post['id']];
 			$keys []= $post['id'];

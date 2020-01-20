@@ -1,10 +1,10 @@
 <?php
+require_once (__DIR__ . '/../internals/website.php');
 
-global $OPTIONS;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/books.php');
-require_once (__DIR__ . '/../internals/programs.php');
 
 echo '<!DOCTYPE html>';
 echo '<html lang="en">';
@@ -17,10 +17,10 @@ echo '<meta http-equiv="refresh" content="3; url=/admin; ?>" />';
 echo '</head>';
 echo '<body>';
 
-foreach (Books::listAll() as $book)
+foreach ($SITE->modules->Books()->listAll() as $book)
 {
 	echo 'Create preview for ' . $book['title'] . '<br/>' . "\n";
-	Books::createPreview($book);
+	$SITE->modules->Books()->createPreview($book);
 }
 echo 'Finished.' . '<br/>' . "\n";
 

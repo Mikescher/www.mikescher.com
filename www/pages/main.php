@@ -1,37 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php require_once (__DIR__ . '/../internals/base.php'); ?>
-<head>
-	<meta charset="utf-8">
-	<title>Mikescher.com</title>
-	<meta name="google-site-verification" content="pZOhmjeJcQbRMNa8xRLam4dwJ2oYwMwISY1lRKreSSs"/>
-	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-    <link rel="canonical" href="https://www.mikescher.com/"/>
-	<?php printHeaderCSS(); ?>
-</head>
-<body>
-<div id="mastercontainer">
+<?php
+require_once (__DIR__ . '/../internals/website.php');
 
-	<?php $HEADER_ACTIVE='home'; include (__DIR__ . '/../fragments/header.php');  ?>
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
+?>
 
-	<div id="content" class="content-responsive">
+<?php
+$FRAME_OPTIONS->title = '';
+$FRAME_OPTIONS->canonical_url = 'https://www.mikescher.com';
+$FRAME_OPTIONS->activeHeader = 'home';
+?>
 
-		<?php include (__DIR__ . '/../fragments/panel_euler.php');  ?>
+<?php echo $SITE->fragments->PanelEuler(); ?>
 
-		<?php include (__DIR__ . '/../fragments/panel_programs.php');  ?>
+<?php echo $SITE->fragments->PanelPrograms(); ?>
 
-		<?php include (__DIR__ . '/../fragments/panel_blog.php');  ?>
+<?php echo $SITE->fragments->PanelBlog(); ?>
 
-		<?php include (__DIR__ . '/../fragments/panel_books.php');  ?>
+<?php echo $SITE->fragments->PanelBooks(); ?>
 
-		<?php include (__DIR__ . '/../fragments/panel_aoc.php');  ?>
-
-	</div>
-
-	<?php include (__DIR__ . '/../fragments/footer.php');  ?>
-
-</div>
-<?php printAdditionalScripts(); ?>
-<?php printAdditionalStylesheets(); ?>
-</body>
-</html>
+<?php echo $SITE->fragments->PanelAdventOfCode(); ?>

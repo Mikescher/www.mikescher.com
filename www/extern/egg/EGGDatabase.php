@@ -69,9 +69,7 @@ class EGGDatabase
 
 	public function sql_query_assoc(string $query)
 	{
-		$r = $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
-
-		return $r;
+		return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function sql_query_assoc_prep(string $query, array $params)
@@ -84,9 +82,7 @@ class EGGDatabase
 		}
 
 		$stmt->execute();
-		$r = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-		return $r;
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function sql_exec_prep(string $query, array $params)

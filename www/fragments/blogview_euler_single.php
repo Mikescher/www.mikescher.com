@@ -1,18 +1,23 @@
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/blog.php');
-require_once (__DIR__ . '/../internals/euler.php');
-require_once (__DIR__ . '/../internals/ParsedownCustom.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-$subview = $OPTIONS['subview'];
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-$euler   = Euler::listAll();
-$problem = Euler::getEulerProblemFromStrIdent($subview);
+global $FRAGMENT_PARAM;
+/** @var array $parameter */
+$parameter = $FRAGMENT_PARAM;
+?>
 
-if ($problem === NULL) httpError(404, 'Project Euler entry not found');
+<?php
+$post = $parameter['blogpost'];
+$subview = $parameter['subview'];
 
-$pd = new ParsedownCustom();
+$euler   = $SITE->modules->Euler()->listAll();
+$problem = $SITE->modules->Euler()->getEulerProblemFromStrIdent($subview);
 
+if ($problem === NULL) { $FRAME_OPTIONS->forceResult(404, 'Project Euler entry not found'); return; }
 
 $arr = [];
 $max = 0;
@@ -42,28 +47,19 @@ $max = ceil($max / 20) * 20;
         <div class="bce_header"><h1><a href="<?php echo $problem['url_euler']; ?>">Problem <?php echo $problem['number3']; ?></a>: <?php echo htmlspecialchars($problem['title']); ?></h1></div>
 
         <b>Description:</b>
-        <div class="bce_description"><?php echo $pd->text(file_get_contents($problem['file_description'])); ?></div>
+        <div class="bce_description"><?php echo $SITE->renderMarkdown(file_get_contents($problem['file_description'])); ?></div>
         <br/>
 
         <b>Solution:</b>
 		<?php
-		    global $PARAM_BEFUNGE93RUNNER;
-		    $PARAM_BEFUNGE93RUNNER =
-			[
-				'code'        => file_get_contents($problem['file_code']),
-				'url'         => $problem['url_raw'],
-				'interactive' => !$problem['abbreviated'],
-				'speed'       => $problem['steps'] < 15000 ? 1 : ($problem['steps'] < 500000 ? 2 : 3),
-				'editable'    => false,
-			];
-            echo require (__DIR__ . '/../fragments/widget_befunge93.php');
+            echo $SITE->fragments->WidgetBefunge93(file_get_contents($problem['file_code']), $problem['url_raw'], !$problem['abbreviated'], $problem['steps'] < 15000 ? 1 : ($problem['steps'] < 500000 ? 2 : 3), false);
 
             if ($problem['abbreviated']) echo '<i>This program is too big to display/execute here, click [download] to get the full program. </i><br/>';
 		?>
         <br/>
 
         <b>Explanation:</b>
-        <div class="bce_explanation"><?php echo $pd->text(file_get_contents($problem['file_explanation'])); ?></div>
+        <div class="bce_explanation"><?php echo $SITE->renderMarkdown(file_get_contents($problem['file_explanation'])); ?></div>
         <br/>
 
         <table class="notable">

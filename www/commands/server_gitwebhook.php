@@ -1,21 +1,27 @@
 <?php
+require_once (__DIR__ . '/../internals/website.php');
 
-global $API_OPTIONS;
-global $OPTIONS;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/database.php');
 
-if (!isset($API_OPTIONS['target'])) httpDie(400, "Wrong parameters.");
+if (!isset($API_OPTIONS['target']))   { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
 
 $hook   = $API_OPTIONS['target'];
-$uri    = $OPTIONS['uri'];
+$uri    = $ROUTE->full_url;
 
 $cmd = "";
 
-if ($hook == 'website_mikescher')  $cmd = 'git pull';
-else if ($hook == 'griddominance') $cmd = 'update-gdapi';
-else                               httpDie(400, "Unknown webhook: $hook");
+if ($hook == 'website_mikescher')
+	$cmd = 'git pull';
+else if ($hook == 'griddominance')
+	$cmd = 'update-gdapi';
+else
+{
+	$FRAME_OPTIONS->forceResult(400, "Unknown webhook: $hook");
+	return;
+}
 
 $std = shell_exec($cmd);
 

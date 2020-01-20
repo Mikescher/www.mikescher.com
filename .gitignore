@@ -6,3 +6,7 @@ runtime/
 **/.idea/tasks.xml
 
 **/.idea/dataSources*
+
+config.php
+
+www/dtest.php

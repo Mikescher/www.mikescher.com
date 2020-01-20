@@ -1,10 +1,27 @@
-<?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+<?php
 
-require_once __DIR__ . '/base.php';
-
-class Books
+class Books implements IWebsiteModule
 {
-	public static function readSingle($a)
+	/** @var Website */
+	private $site;
+
+	/** @var array */
+	private $staticData;
+
+	public function __construct(Website $site)
+	{
+		$this->site = $site;
+		$this->load();
+	}
+
+	private function load()
+	{
+		$all = require (__DIR__ . '/../../statics/books/__all.php');
+
+		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
+	}
+
+	private static function readSingle($a)
 	{
 		$a['imgfront_url']      =              '/data/images/book_img/' . $a['id'] . '_front.png';
 		$a['imgfront_path']     = __DIR__ . '/../data/images/book_img/' . $a['id'] . '_front.png';
@@ -22,8 +39,8 @@ class Books
 
 		for ($i=1; $i <= $a['imagecount']; $i++)
 		{
-			$a['extraimages_urls']  []=              '/data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
-			$a['extraimages_paths'] []= __DIR__ . '/../data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
+			$a['extraimages_urls']  []=                 '/data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
+			$a['extraimages_paths'] []= __DIR__ . '/../../data/images/book_img/' . $a['id'] . '_img' . $i . '.jpg';
 		}
 
 		$a['book_count'] = is_array($a['pdf']) ? count($a['pdf']) : 1;
@@ -31,27 +48,27 @@ class Books
 		return $a;
 	}
 
-	public static function listAll()
+	public function listAll()
 	{
-		$all = require (__DIR__ . '/../statics/books/__all.php');
-
-		return array_map('self::readSingle', $all);
+		return $this->staticData;
 	}
 
-	public static function listAllNewestFirst()
+	public function listAllNewestFirst()
 	{
-		$data = self::listAll();
+		$data = $this->staticData;
 		usort($data, function($a, $b) { return strcasecmp($b['date'], $a['date']); });
 		return $data;
 	}
 
-	public static function checkConsistency()
+	public function checkConsistency()
 	{
 		$warn = null;
 
+		$this->load();
+
 		$ids = [];
 
-		foreach (self::listAll() as $prog)
+		foreach ($this->staticData as $prog)
 		{
 			if (in_array($prog['id'], $ids)) return ['result'=>'err', 'message' => 'Duplicate id ' . $prog['id']];
 			$ids []= $prog['id'];
@@ -79,7 +96,7 @@ class Books
 		return ['result'=>'ok', 'message' => ''];
 	}
 
-	public static function checkThumbnails()
+	public function checkThumbnails()
 	{
 		foreach (self::listAll() as $book)
 		{
@@ -89,21 +106,19 @@ class Books
 		return ['result'=>'ok', 'message' => ''];
 	}
 
-	public static function createPreview($prog)
+	public function createPreview($prog)
 	{
-		global $CONFIG;
-
 		$src = $prog['imgfront_path'];
 		$dst = $prog['preview_path'];
 
-		if ($CONFIG['use_magick'])
+		if ($this->site->config['use_magick'])
 			magick_resize_image($src, 200, 0, $dst);
 		else
 			smart_resize_image($src, 200, 0, true, $dst);
 
 	}
 
-	public static function getBook($id)
+	public function getBook($id)
 	{
 		foreach (self::listAll() as $book) {
 			if ($book['id'] == $id) return $book;
@@ -111,7 +126,7 @@ class Books
 		return null;
 	}
 
-	public static function getRepositoryHost($book)
+	public function getRepositoryHost($book)
 	{
 		$r = $book['repository'];
 		if (startsWith($r, "http://")) $r = substr($r, strlen("http://"));

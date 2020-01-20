@@ -1,15 +1,25 @@
 <?php
-require_once (__DIR__ . '/../internals/base.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-global $PARAM_CODE_LEFT;
-global $PARAM_CODE_RIGHT;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
+
+global $FRAGMENT_PARAM;
+/** @var array $parameter */
+$parameter = $FRAGMENT_PARAM;
+
+
+$codeLeft  = $parameter['code_left'];
+$codeRight = $parameter['code_right'];
+
 
 $result = '';
 
 $result .= '<div class="bfjoust_runner_owner">' . "\n";
 $result .= '	<div class="hsplit">' . "\n";
-$result .= '		<textarea class="hsplit_1 source" id="source_1">' . htmlspecialchars($PARAM_CODE_LEFT)  . '</textarea>' . "\n";
-$result .= '		<textarea class="hsplit_2 source" id="source_2">' . htmlspecialchars($PARAM_CODE_RIGHT) . '</textarea>' . "\n";
+$result .= '		<textarea class="hsplit_1 source" id="source_1">' . htmlspecialchars($codeLeft)  . '</textarea>' . "\n";
+$result .= '		<textarea class="hsplit_2 source" id="source_2">' . htmlspecialchars($codeRight) . '</textarea>' . "\n";
 $result .= '	</div>' . "\n";
 
 $result .= '	<div id="commandpanel">' . "\n";
@@ -35,6 +45,6 @@ $result .= '</div>' . "\n";
 
 $result .= '' . "\n";
 
-includeAdditionalScript("/data/javascript/blogpost_BFJoustBot_script.js");
+$FRAME_OPTIONS->addScript('/data/javascript/blogpost_BFJoustBot_script.js', false);
 
-return $result;
+echo $result;

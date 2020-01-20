@@ -1,8 +1,23 @@
-<?php if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+<?php
 
-class Euler
+class Euler implements IWebsiteModule
 {
-	public static function readSingle($a)
+	/** @var array */
+	private $staticData;
+
+	public function __construct()
+	{
+		$this->load();
+	}
+
+	private function load()
+	{
+		$all = require (__DIR__ . '/../../statics/euler/__all.php');
+
+		$this->staticData = array_map(function($a){return self::readSingle($a);}, $all);
+	}
+
+	private static function readSingle($a)
 	{
 		$n3p = str_pad($a['number'], 3, '0', STR_PAD_LEFT);
 		$a['number3'] = $n3p;
@@ -18,40 +33,14 @@ class Euler
 		$a['url_raw']    = 'https://raw.githubusercontent.com/Mikescher/Project-Euler_Befunge/master/processed/Euler_Problem-' . $n3p . '.b93';
 		$a['url_github'] =  'https://github.com/Mikescher/Project-Euler_Befunge';
 
-		$a['file_description'] = (__DIR__ . '/../statics/euler/Euler_Problem-'.$n3p.'_description.md');
-		$a['file_code']        = (__DIR__ . '/../statics/euler/Euler_Problem-'.$n3p.'.b93');
-		$a['file_explanation'] = (__DIR__ . '/../statics/euler/Euler_Problem-'.$n3p.'_explanation.md');
+		$a['file_description'] = (__DIR__ . '/../../statics/euler/Euler_Problem-'.$n3p.'_description.md');
+		$a['file_code']        = (__DIR__ . '/../../statics/euler/Euler_Problem-'.$n3p.'.b93');
+		$a['file_explanation'] = (__DIR__ . '/../../statics/euler/Euler_Problem-'.$n3p.'_explanation.md');
 
 		return $a;
 	}
 
-	public static function listAll()
-	{
-		$all = require (__DIR__ . '/../statics/euler/__all.php');
-
-		return array_map('self::readSingle', $all);
-	}
-
-	public static function getEulerProblemFromStrIdent($ident)
-	{
-		$e = explode('-', $ident, 2); // problem-xxx
-		if (count($e)!==2) return null;
-
-		$i = intval($e[1], 10);
-		if ($i == 0) return null;
-
-		return self::getEulerProblem($i);
-	}
-
-	public static function getEulerProblem($num)
-	{
-		foreach (self::listAll() as $ep) {
-			if ($ep['number'] == $num) return $ep;
-		}
-		return null;
-	}
-
-	public static function rateTime($problem)
+	private static function rateTime($problem)
 	{
 		if ($problem['time'] < 100) // < 100ms
 			return 0;
@@ -68,14 +57,40 @@ class Euler
 		return 4;
 	}
 
-	public static function checkConsistency()
+	public function listAll()
+	{
+		return $this->staticData;
+	}
+
+	public function getEulerProblemFromStrIdent($ident)
+	{
+		$e = explode('-', $ident, 2); // problem-xxx
+		if (count($e)!==2) return null;
+
+		$i = intval($e[1], 10);
+		if ($i == 0) return null;
+
+		return self::getEulerProblem($i);
+	}
+
+	public function getEulerProblem($num)
+	{
+		foreach (self::listAll() as $ep) {
+			if ($ep['number'] == $num) return $ep;
+		}
+		return null;
+	}
+
+	public function checkConsistency()
 	{
 		$warn = null;
+
+		$this->load();
 
 		$numbers = [];
 		$realname = [];
 
-		foreach (self::listAll() as $ep)
+		foreach ($this->staticData as $ep)
 		{
 			if (in_array($ep['number'], $numbers)) return ['result'=>'err', 'message' => 'Duplicate number ' . $ep['number']];
 			$numbers []= $ep['number'];

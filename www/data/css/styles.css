@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* 400px */
 body {
   background-color: #EEEEEE;
@@ -782,12 +783,6 @@ html, body {
   text-align: left;
 }
 
-.boxedcontent.alertbox {
-  background-color: #F52;
-  font-weight: bold;
-  text-align: center;
-}
-
 .egg_col_x5_0 {
   fill: #eeeeee;
 }
@@ -858,12 +853,16 @@ html, body {
   min-width: 300px;
 }
 
-.consistency_result_ok, .consistency_result_warn, .consistency_result_err {
+.consistency_result {
   min-width: 400px;
   color: #222222;
   border: 1px solid #888;
   padding: 0 5px;
   margin: 1px 0;
+}
+
+.consistency_result:after {
+  content: " ";
 }
 
 .consistency_result_ok {
@@ -878,6 +877,15 @@ html, body {
   background: #FF0000;
 }
 
+.consistency_result_intermed {
+  background: #EEEEEE;
+}
+
+.consistency_result_running {
+  background: #DDDDDD;
+  border: 1px solid #000;
+}
+
 .admincontent .boxedcontent hr {
   width: 95%;
   height: 1px;
@@ -885,6 +893,58 @@ html, body {
   color: #FFFFFF00;
   background: -moz-radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   background: -webkit-radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.admindberr {
+  color: #BB2222;
+}
+
+.boxedcontent.alertbox {
+  background-color: #FF4444;
+  color: #222222;
+  border: 1px solid #AA4444;
+  font-weight: bold;
+  text-align: center;
+}
+.boxedcontent.alertbox .bc_data {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.boxedcontent.warnbox {
+  background-color: #FFA726;
+  color: #333333;
+  border: 1px solid #444444;
+  font-weight: bold;
+  text-align: center;
+}
+.boxedcontent.warnbox .bc_data {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.boxedcontent.graybox {
+  background-color: #888888;
+  color: #222222;
+  border: 1px solid #444444;
+  font-weight: bold;
+  text-align: center;
+}
+.boxedcontent.graybox .bc_data {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.boxedcontent.successbox {
+  background-color: #168B00;
+  color: #222222;
+  border: 1px solid #444444;
+  font-weight: bold;
+  text-align: center;
+}
+.boxedcontent.successbox .bc_data {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 /* 400px */
@@ -1900,6 +1960,7 @@ html, body {
 /* 400px */
 .ev_master {
   align-self: center;
+  width: 100%;
 }
 @media (min-width: 851px) {
   .ev_master {
@@ -1917,6 +1978,17 @@ html, body {
   color: #888888;
   text-align: center;
   font-size: 25pt;
+}
+.ev_master .ev_statusmore {
+  color: #333333;
+  background-color: #BBBBBB;
+  text-align: left;
+  padding: 4px;
+  font-family: Consolas, Monaco, "Courier New", Menlo, monospace;
+  font-size: small;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
 }
 @media (max-width: 767px) {
   .ev_master .ev_code {

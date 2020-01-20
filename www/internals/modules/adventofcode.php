@@ -1,6 +1,6 @@
 <?php
 
-class AdventOfCode
+class AdventOfCode implements IWebsiteModule
 {
 	const YEARS =
 	[
@@ -23,48 +23,60 @@ class AdventOfCode
 		'ts'   => ['ext'=>'ts',   'css'=>'language-typescript',    'name'=>'Typescript'],
 	];
 
-	public static function listAllFromAllYears()
+	/** @var array */
+	private $staticData;
+
+	public function __construct()
 	{
-		$all = require (__DIR__ . '/../statics/aoc/__all.php');
+		$this->load();
+	}
+
+	private function load()
+	{
+		$all = require (__DIR__ . '/../../statics/aoc/__all.php');
 
 		array_walk($all, function(&$value, $year) { array_walk($value, function (&$innervalue) use ($year) { $innervalue = self::readSingle($year, $innervalue); }); });
 
-		return $all;
+		$this->staticData = $all;
 	}
 
-	public static function listSingleYear($year)
+	public function listAllFromAllYears()
 	{
-		$all = require (__DIR__ . '/../statics/aoc/__all.php');
-
-		$result = $all[$year];
-
-		array_walk($result, function(&$value) use ($year) { $value = self::readSingle($year, $value); });
-
-		return $result;
+		return $this->staticData;
 	}
 
-	public static function listSingleYearAssociative($year)
+	public function listAllDays()
 	{
-		$all = self::listSingleYear($year);
+		$r = [];
+		foreach ($this->staticData as $yeardata) foreach ($yeardata as $year => $daydata) $r []= $daydata;
+		return $this->staticData;
+	}
+
+	public function listSingleYear($year)
+	{
+		return $this->staticData[$year];
+	}
+
+	public function listSingleYearAssociative($year)
+	{
+		$all = $this->listSingleYear($year);
 
 		$result = array_fill(0, 25, null);
 
 		foreach ($all as $d)
 		{
-			$result[$d['day']-1] = $d;
+			$result[$d['day'] - 1] = $d;
 		}
 
 		return $result;
 	}
 
-	public static function listYears()
+	public function listYears()
 	{
-		$all = require (__DIR__ . '/../statics/aoc/__all.php');
-
-		return array_keys($all);
+		return array_keys($this->staticData);
 	}
 
-	public static function readSingle($year, $a)
+	private static function readSingle($year, $a)
 	{
 		$yeardata = self::YEARS[$year];
 
@@ -76,16 +88,17 @@ class AdventOfCode
 
 		$a['url_aoc']    = $yeardata['url-aoc'] . $a['day']; // adventofcode.com/{year}/day/{day}
 
-		$a['file_challenge'] = (__DIR__ . '/../statics/aoc/'.$year.'/'.$n2p.'_challenge.txt');
-		$a['file_input']     = (__DIR__ . '/../statics/aoc/'.$year.'/'.$n2p.'_input.txt');
+		$a['file_challenge'] = (__DIR__ . '/../../statics/aoc/'.$year.'/'.$n2p.'_challenge.txt');
+		$a['file_input']     = (__DIR__ . '/../../statics/aoc/'.$year.'/'.$n2p.'_input.txt');
 
+		$a['year']     = $year;
 		$a['date']     = $year . '-' . 12 . '-' . $n2p;
 
 		$solutionfiles = [];
 
 		for ($i=1; $i <= $a['parts']; $i++)
 		{
-			$solutionfiles []= (__DIR__ . '/../statics/aoc/' . $year . '/' . $n2p . '_solution-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
+			$solutionfiles []= (__DIR__ . '/../../statics/aoc/' . $year . '/' . $n2p . '_solution-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
 		}
 
 		$a['file_solutions'] = $solutionfiles;
@@ -93,7 +106,7 @@ class AdventOfCode
 		return $a;
 	}
 
-	public static function getDayFromStrIdent($year, $ident)
+	public function getDayFromStrIdent($year, $ident)
 	{
 		$e = explode('-', $ident, 2); // day-xxx
 		if (count($e)!==2) return null;
@@ -104,25 +117,25 @@ class AdventOfCode
 		return self::getSingleDay($year, $i);
 	}
 
-	public static function getSingleDay($year, $day)
+	public function getSingleDay($year, $day)
 	{
-		foreach (self::listSingleYear($year) as $aocd) {
+		foreach ($this->listSingleYear($year) as $aocd) {
 			if ($aocd['day'] == $day) return $aocd;
 		}
 		return null;
 	}
 
-	public static function getGithubLink($year)
+	public function getGithubLink($year)
 	{
 		return self::YEARS['' . $year]['github'];
 	}
 
-	public static function getURLForYear($year)
+	public function getURLForYear($year)
 	{
 		return '/blog/' . self::YEARS[''.$year]['blog-id'] . '/Advent_of_Code_' . $year . '/';
 	}
 
-	public static function getPrevYear($year)
+	public function getPrevYear($year)
 	{
 		$last = null;
 		foreach (self::YEARS as $y => $d)
@@ -133,7 +146,7 @@ class AdventOfCode
 		return null;
 	}
 
-	public static function getNextYear($year)
+	public function getNextYear($year)
 	{
 		$found = false;
 		foreach (self::YEARS as $y => $d)
@@ -144,12 +157,12 @@ class AdventOfCode
 		return null;
 	}
 
-	public static function getLanguageCSS($data)
+	public function getLanguageCSS($data)
 	{
 		return self::LANGUAGES[$data['language']]['css'];
 	}
 
-	public static function getSolutionCode($data, $i)
+	public function getSolutionCode($data, $i)
 	{
 		$raw = file_get_contents($data['file_solutions'][$i]);
 
@@ -165,11 +178,13 @@ class AdventOfCode
 		return $raw;
 	}
 
-	public static function checkConsistency()
+	public function checkConsistency()
 	{
 		$warn = null;
 
-		foreach (self::listAllFromAllYears() as $year => $yd)
+		$this->load();
+
+		foreach ($this->listAllFromAllYears() as $year => $yd)
 		{
 			$daylist = [];
 			$titlelist = [];

@@ -1,27 +1,16 @@
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-global $OPTIONS;
+require_once (__DIR__ . '/../internals/website.php');
 
-$redirect = $OPTIONS['logout_target'];
-
-clearLoginCookie();
-
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Mikescher.com - Logout</title>
-    <link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-    <link rel="canonical" href="https://www.mikescher.com/logout"/>
-    <meta http-equiv="refresh" content="1; url=<?php echo $redirect; ?>" />
-</head>
-<body>
+
+
+<?php
+$redirect = $ROUTE->parameter['logout_target'];
+$SITE->clearLoginCookie();
+?>
+
 You have been logged out
-<script>
-    setTimeout(function () { window.location.href = "<?php echo $redirect; ?>"; }, 1000);
-</script>
-<?php printAdditionalScripts(); ?>
-<?php printAdditionalStylesheets(); ?>
-</body>
-</html>
+<script>  setTimeout(function () { window.location.href = "<?php echo $redirect; ?>"; }, 1000);  </script>

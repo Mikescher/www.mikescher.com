@@ -1,15 +1,23 @@
 <?php
-require_once (__DIR__ . '/../internals/base.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-global $PARAM_BEFUNGE93RUNNER;
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
-$code        = $PARAM_BEFUNGE93RUNNER['code'];
-$url         = $PARAM_BEFUNGE93RUNNER['url'];
-$interactive = $PARAM_BEFUNGE93RUNNER['interactive'];
-$initspeed   = $PARAM_BEFUNGE93RUNNER['speed'];
-$editable    = $PARAM_BEFUNGE93RUNNER['editable'];
+global $FRAGMENT_PARAM;
+/** @var array $parameter */
+$parameter = $FRAGMENT_PARAM;
 
-function fmtBef($str) {
+
+$code        = $parameter['code'];
+$url         = $parameter['url'];
+$interactive = $parameter['interactive'];
+$initspeed   = $parameter['speed'];
+$editable    = $parameter['editable'];
+
+function fmtBef($str)
+{
 	$str = htmlspecialchars($str);
 	$str = str_replace("\r", "", $str);
 	$str = join("\n", array_map(function($p){return rtrim($p);}, explode("\n", $str)));
@@ -23,7 +31,8 @@ function fmtBef($str) {
 $result = '';
 
 
-if ($interactive) {
+if ($interactive)
+{
 	$speed_attr = '';
 	if (isset($initspeed) && $initspeed != NULL && $initspeed>0) $speed_attr = ' data-b93rnr_initialspeed="'.$initspeed.'" ';
 	$code_attr  = '';
@@ -58,7 +67,7 @@ if ($interactive) {
 	$result .= '	</div>' . "\n";
 	$result .= '</div>' . "\n";
 
-	includeAdditionalScript("/data/javascript/blogpost_bef93runner.js");
+	$FRAME_OPTIONS->addScript("/data/javascript/blogpost_bef93runner.js", false);
 }
 else
 {
@@ -72,4 +81,4 @@ else
 	$result .= '</div>' . "\n";
 }
 
-return $result;
+echo $result;

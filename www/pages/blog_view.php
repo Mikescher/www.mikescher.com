@@ -1,72 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/blog.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-
-$id = $OPTIONS['id'];
-$subview = $OPTIONS['subview'];
-
-$post = Blog::getFullBlogpost($id, $subview, $err);
-if ($post === null) httpError(404, $err);
-
-?>
-<head>
-	<meta charset="utf-8">
-	<title>Mikescher.com - <?php echo htmlspecialchars($post['title']); ?></title>
-	<link rel="icon" type="image/png" href="/data/images/favicon.png"/>
-	<?php printHeaderCSS(); ?>
-	<?php echo '<link rel="canonical" href="' . $post['canonical'] . '"/>'; ?>
-</head>
-<body>
-<div id="mastercontainer">
-
-<?php
-if      ($post['type'] == 'euler')                       $HEADER_ACTIVE = 'euler';
-else if ($post['type'] == 'euler' && $post['issubview']) $HEADER_ACTIVE = 'aoc';
-else                                                     $HEADER_ACTIVE = 'blog';
-
-include (__DIR__ . '/../fragments/header.php');
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 ?>
 
-<div id="content" class="content-responsive">
+<?php
+$id      = $ROUTE->parameter['id'];
+$subview = $ROUTE->parameter['subview'];
 
-	<div class="blockcontent">
+$post = $SITE->modules->Blog()->getFullBlogpost($id, $subview, $err);
+if ($post === null) { $FRAME_OPTIONS->setForced404($err); return; }
 
-		<div class="contentheader"><h1><?php echo htmlspecialchars($post['title']); ?></h1><hr/></div>
+$FRAME_OPTIONS->title = $post['title'];
+$FRAME_OPTIONS->canonical_url = $post['canonical'];
 
-		<?php
+if ($post['type'] == 'euler')
+	$FRAME_OPTIONS->activeHeader = 'euler';
+else if ($post['type'] == 'euler' && $post['issubview'])
+	$FRAME_OPTIONS->activeHeader = 'aoc';
+else
+	$FRAME_OPTIONS->activeHeader = 'blog';
+?>
 
-        if ($post['type'] === 'plain') {
 
-			include (__DIR__ . '/../fragments/blogview_plain.php');
+<div class="blockcontent">
 
-		} elseif ($post['type'] === 'markdown') {
+    <div class="contentheader"><h1><?php echo htmlspecialchars($post['title']); ?></h1><hr/></div>
 
-			include (__DIR__ . '/../fragments/blogview_markdown.php');
+	<?php
 
-		} elseif ($post['type'] === 'euler') {
-
-			if ($subview === '') include (__DIR__ . '/../fragments/blogview_euler_list.php');
-			else                 include (__DIR__ . '/../fragments/blogview_euler_single.php');
-
-		} elseif ($post['type'] === 'aoc') {
-
-			if ($subview === '') include (__DIR__ . '/../fragments/blogview_aoc_list.php');
-			else                 include (__DIR__ . '/../fragments/blogview_aoc_single.php');
-
-		}
-		?>
-
-	</div>
+	if ($post['type'] === 'plain')
+	{
+	    echo $SITE->fragments->BlogviewPlain($post);
+	}
+	elseif ($post['type'] === 'markdown')
+    {
+		echo $SITE->fragments->BlogviewMarkdown($post);
+	}
+	elseif ($post['type'] === 'euler')
+    {
+		if ($subview === '') echo $SITE->fragments->BlogviewEulerList($post);
+		else                 echo $SITE->fragments->BlogviewEulerSingle($post, $subview);
+	}
+	elseif ($post['type'] === 'aoc')
+    {
+		if ($subview === '') echo $SITE->fragments->BlogviewAdventOfCodeList($post);
+		else                 echo $SITE->fragments->BlogviewAdventOfCodeSingle($post, $subview);
+	}
+	?>
 
 </div>
 
-<?php include (__DIR__ . '/../fragments/footer.php');  ?>
-
-</div>
-<?php printAdditionalScripts(); ?>
-<?php printAdditionalStylesheets(); ?>
-</body>
-</html>

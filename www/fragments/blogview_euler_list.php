@@ -1,11 +1,18 @@
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/blog.php');
-require_once (__DIR__ . '/../internals/euler.php');
-require_once (__DIR__ . '/../extern/Parsedown.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-$problems = Euler::listAll();
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 
+global $FRAGMENT_PARAM;
+/** @var array $parameter */
+$parameter = $FRAGMENT_PARAM;
+?>
+
+<?php
+$post = $parameter['blogpost'];
+$problems = $SITE->modules->Euler()->listAll();
 ?>
 
 <div class="boxedcontent blogcontent_euler base_markdown">

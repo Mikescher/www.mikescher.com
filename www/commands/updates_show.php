@@ -1,10 +1,9 @@
 <?php
-require_once (__DIR__ . '/../internals/base.php');
-require_once (__DIR__ . '/../internals/database.php');
-require_once (__DIR__ . '/../internals/updateslog.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-Database::connect();
-
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
 ?>
 <div class="stripedtable_container" style="width: 100%;">
 	<table class="stripedtable">
@@ -16,7 +15,7 @@ Database::connect();
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach (UpdatesLog::getEntries($_GET['ulname'], 512) as $entry): ?>
+			<?php foreach ($SITE->modules->UpdatesLog()->getEntries($_GET['ulname'], 512) as $entry): ?>
 				<tr>
 					<td><?php echo $entry['ip']; ?></td>
 					<td><?php echo $entry['version']; ?></td>

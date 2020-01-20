@@ -1,22 +1,28 @@
 <?php
-require_once(__DIR__ . '/../internals/adventofcode.php');
+require_once (__DIR__ . '/../internals/website.php');
 
-$years = AdventOfCode::listYears();
-$year = end($years);
+/** @var PageFrameOptions $FRAME_OPTIONS */ global $FRAME_OPTIONS;
+/** @var URLRoute $ROUTE */ global $ROUTE;
+/** @var Website $SITE */ global $SITE;
+
+global $FRAGMENT_PARAM;
+/** @var array $parameter */
+$parameter = $FRAGMENT_PARAM;
+?>
+
+<?php
+$years = $SITE->modules->AdventOfCode()->listYears();
+$year = intval(end($years));
 ?>
 
 <div class="index_pnl_base">
 
 	<div class="index_pnl_header">
-        <a href="<?php echo AdventOfCode::getURLForYear($year); ?>">Advent of Code</a>
+        <a href="<?php echo $SITE->modules->AdventOfCode()->getURLForYear($year); ?>">Advent of Code</a>
 	</div>
 	<div class="index_pnl_content">
 
-		<?php
-            global $PARAM_AOCCALENDAR;
-            $PARAM_AOCCALENDAR = ['year' => $year, 'nav'=>true, 'linkheader'=>true, 'ajax'=>true];
-            require (__DIR__ . '/../fragments/panel_aoc_calendar.php')
-        ?>
+		<?php echo $SITE->fragments->PanelAdventOfCodeCalendar($year, true, true, true); ?>
 
 	</div>
 

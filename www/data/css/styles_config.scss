@@ -115,9 +115,21 @@ $COL_FOOTER_FG:           #CCCCCC;
 
 // ------------------------------------
 
-$COL_TOAST_ERROR_FG:     #222222;
-$COL_TOAST_ERROR_BG:     #FF4444;
-$COL_TOAST_ERROR_BORDER: 1px solid #AA4444;
+$COL_TOAST_ERROR_FG:       #222222;
+$COL_TOAST_ERROR_BG:       #FF4444;
+$COL_TOAST_ERROR_BORDER:   1px solid #AA4444;
+
+$COL_TOAST_WARN_FG:        #333333;
+$COL_TOAST_WARN_BG:        #FFA726;
+$COL_TOAST_WARN_BORDER:    $LAYER1_BORDER;
+
+$COL_TOAST_GRAY_FG:        #222222;
+$COL_TOAST_GRAY_BG:        #888888;
+$COL_TOAST_GRAY_BORDER:    $LAYER1_BORDER;
+
+$COL_TOAST_SUCCESS_FG:     #222222;
+$COL_TOAST_SUCCESS_BG:     #168B00;
+$COL_TOAST_SUCCESS_BORDER: $LAYER1_BORDER;
 
 // ------------------------------------
 
@@ -149,12 +161,17 @@ $AOC_DESCRIPTION_BG: #333333;
 
 // ------------------------------------
 
-$COL_ADMIN_OK:    #00FF00;
-$COL_ADMIN_WARN:  #FFFF00;
-$COL_ADMIN_ERROR: #FF0000;
+$COL_ADMIN_OK:       #00FF00;
+$COL_ADMIN_WARN:     #FFFF00;
+$COL_ADMIN_ERROR:    #FF0000;
+$COL_ADMIN_INTERMED: #EEEEEE;
+$COL_ADMIN_RUNNING:  #DDDDDD;
 
 $COL_ADMIN_STATUS_FG:     #222222;
 $COL_ADMIN_STATUS_BORDER: 1px solid #888;
+$COL_ADMIN_STATUS_BORDER_ACTIVE: 1px solid #000;
+
+$COL_ADMIN_STATUS_DB_ERROR:     #BB2222;
 
 
 // ------------------------------------ ------------------------------------
