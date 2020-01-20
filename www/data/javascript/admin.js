@@ -155,6 +155,7 @@ function refreshConsistencyDisplayParallel()
                 if (json.result === 2) $(apibutton).addClass('consistency_result_err');
 
                 $(apibutton).removeClass('consistency_result_running');
+                $(apibutton).addClass('consistency_result_fin');
 
                 $(apibutton).text(json.message);
                 $(apibutton).attr('title', json.long);
@@ -165,6 +166,7 @@ function refreshConsistencyDisplayParallel()
                 $(apibutton).removeClass('consistency_result_running');
 
                 $(apibutton).addClass('consistency_result_err');
+                $(apibutton).addClass('consistency_result_fin');
                 $(apibutton).text(err);
             });
     }
