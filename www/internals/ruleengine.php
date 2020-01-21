@@ -97,7 +97,7 @@ class RuleEngine
 
 		if (isset($ctrlOpt['method']) && $_SERVER["REQUEST_METHOD"] !== $ctrlOpt['method']) return null;
 
-		$route->needsAdminLogin = isset($ctrlOpt['password']);
+		$route->needsAdminLogin = in_array('password', $ctrlOpt);
 
 		if ($site->isProd() && isHTTPRequest() && !in_array('http', $ctrlOpt))
 		{
