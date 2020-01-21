@@ -257,7 +257,6 @@ abstract class StandardGitConnection implements IRemoteSource
 					if (count($newcommits) === 0)
 					{
 						$this->logger->proclog("Found no new commits for: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]  (HEAD at {" . substr($branch->HeadFromAPI, 0, 8) . "})");
-						if ($branch->HeadFromAPI !== $branch->Head) $db->setBranchHead($branch, $branch->HeadFromAPI);
 						return [];
 					}
 
@@ -298,7 +297,7 @@ abstract class StandardGitConnection implements IRemoteSource
 
 		if (count($newcommits) === 0)
 		{
-			if ($branch->HeadFromAPI !== $branch->Head) $db->setBranchHead($branch, $branch->HeadFromAPI);
+			$db->setBranchHead($branch, null);
 			return [];
 		}
 
