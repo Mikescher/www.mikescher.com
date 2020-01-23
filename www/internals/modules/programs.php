@@ -251,19 +251,11 @@ class Programs implements IWebsiteModule
 			{
 				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['name'], 'long' => $eipath];
 			}
+
+			if (!file_exists($prog['preview_path'])) $warn = ['result'=>'warn', 'message' => 'Preview not found ' . $prog['name']];
 		}
 
 		if ($warn != null) return $warn;
-		return ['result'=>'ok', 'message' => ''];
-	}
-
-	public function checkThumbnails()
-	{
-		foreach ($this->staticData as $prog)
-		{
-			if (!file_exists($prog['preview_path'])) return ['result'=>'err', 'message' => 'Preview not found ' . $prog['name']];
-		}
-
 		return ['result'=>'ok', 'message' => ''];
 	}
 

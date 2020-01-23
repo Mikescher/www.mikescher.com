@@ -107,6 +107,14 @@
 
 }
 
+.bookv_readme {
+  margin: 10px;
+  padding: 16px;
+  background: $LAYER2_TXTBLOCK_BG;
+  color: $LAYER2_TXTBLOCK_FG;
+  border:$LAYER2_TXTBLOCK_BORDER;
+}
+
 @include rdmedia_range(0,2)  {
   .bookv_content { border: none; }
   #bookv_header h1 { font-size: 28pt; }

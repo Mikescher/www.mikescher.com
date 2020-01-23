@@ -108,5 +108,9 @@ $FRAME_OPTIONS->addScript('/data/javascript/ms_basic.js', true);
             </a>
         </div>
 
+        <div class="bookv_readme base_markdown">
+			<?php echo $SITE->renderMarkdown($SITE->modules->Books()->getREADME($book)); ?>
+        </div>
+
     </div>
 </div>

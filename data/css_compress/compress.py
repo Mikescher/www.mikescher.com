@@ -79,7 +79,7 @@ print()
 print('======== CALL SCSS ========')
 out = subprocess.run(['ruby', 'scss', '--style=expanded', '--no-cache', '--update', fsource + ':' + finput],
                      stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-print('> scss.bat --style=expanded --no-cache --update ' + fsource + ':' + finput)
+print('> ruby scss --style=expanded --no-cache --update ' + fsource + ':' + finput)
 print('STDOUT:')
 print(out.stdout.decode('utf-8'))
 print('STDERR:')

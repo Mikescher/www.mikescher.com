@@ -32,6 +32,8 @@ class Books implements IWebsiteModule
 		$a['preview_url']       =                 '/data/dynamic/bookprev_' . $a['id'] . '.png';
 		$a['preview_path']      = __DIR__ . '/../../data/dynamic/bookprev_' . $a['id'] . '.png';
 
+		$a['file_readme']       = (__DIR__ . '/../../statics/books/' . $a['id'] . '.md');
+
 		$a['url']               = '/books/view/' . $a['id'] . '/' . destructiveUrlEncode($a['title']);
 
 		$a['extraimages_urls']  = [];
@@ -68,41 +70,35 @@ class Books implements IWebsiteModule
 
 		$ids = [];
 
-		foreach ($this->staticData as $prog)
+		foreach ($this->staticData as $book)
 		{
-			if (in_array($prog['id'], $ids)) return ['result'=>'err', 'message' => 'Duplicate id ' . $prog['id']];
-			$ids []= $prog['id'];
+			if (in_array($book['id'], $ids)) return ['result'=>'err', 'message' => 'Duplicate id ' . $book['id']];
+			$ids []= $book['id'];
 
-			if (!file_exists($prog['imgfront_path'])) return ['result'=>'err', 'message' => 'Image (Front) not found ' . $prog['title_short']];
-			if (!file_exists($prog['imgfull_path']))  return ['result'=>'err', 'message' => 'Image (Full) not found ' . $prog['title_short']];
+			if (!file_exists($book['imgfront_path'])) return ['result'=>'err', 'message' => 'Image (Front) not found ' . $book['title_short']];
+			if (!file_exists($book['imgfull_path']))  return ['result'=>'err', 'message' => 'Image (Full) not found ' . $book['title_short']];
 
-			foreach ($prog['extraimages_paths'] as $eipath)
+			foreach ($book['extraimages_paths'] as $eipath)
 			{
-				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $prog['title_short']];
+				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $book['title_short']];
 			}
 
-			if ($prog['book_count'] <= 0) return ['result'=>'err', 'message' => 'BookCount must be greater than zero ' . $prog['title_short']];
+			if ($book['book_count'] <= 0) return ['result'=>'err', 'message' => 'BookCount must be greater than zero ' . $book['title_short']];
 
-			if ($prog['book_count'] > 1 && !is_array($prog['pdf'])) return ['result'=>'err', 'message' => 'Attribute [pdf] must be an array ' . $prog['title_short']];
-			if ($prog['book_count'] > 1 && count($prog['pdf']) !== $prog['book_count']) return ['result'=>'err', 'message' => 'Attribute [pdf] must be the correct size ' . $prog['title_short']];
-			if ($prog['book_count'] === 1 && !is_string($prog['pdf'])) return ['result'=>'err', 'message' => 'Attribute [pdf] must be an string ' . $prog['title_short']];
+			if ($book['book_count'] > 1 && !is_array($book['pdf'])) return ['result'=>'err', 'message' => 'Attribute [pdf] must be an array ' . $book['title_short']];
+			if ($book['book_count'] > 1 && count($book['pdf']) !== $book['book_count']) return ['result'=>'err', 'message' => 'Attribute [pdf] must be the correct size ' . $book['title_short']];
+			if ($book['book_count'] === 1 && !is_string($book['pdf'])) return ['result'=>'err', 'message' => 'Attribute [pdf] must be an string ' . $book['title_short']];
 
-			if ($prog['book_count'] > 1 && !is_array($prog['pages'])) return ['result'=>'err', 'message' => 'Attribute [pages] must be an array ' . $prog['title_short']];
-			if ($prog['book_count'] > 1 && count($prog['pages']) !== $prog['book_count']) return ['result'=>'err', 'message' => 'Attribute [pages] must be the correct size ' . $prog['title_short']];
-			if ($prog['book_count'] === 1 && !is_string($prog['pages'])) return ['result'=>'err', 'message' => 'Attribute [pages] must be an string ' . $prog['title_short']];
+			if ($book['book_count'] > 1 && !is_array($book['pages'])) return ['result'=>'err', 'message' => 'Attribute [pages] must be an array ' . $book['title_short']];
+			if ($book['book_count'] > 1 && count($book['pages']) !== $book['book_count']) return ['result'=>'err', 'message' => 'Attribute [pages] must be the correct size ' . $book['title_short']];
+			if ($book['book_count'] === 1 && !is_string($book['pages'])) return ['result'=>'err', 'message' => 'Attribute [pages] must be an string ' . $book['title_short']];
+
+			if (!file_exists($book['file_readme'])) return ['result'=>'err', 'message' => 'Readme not found ' . $book['title_short']];
+
+			if (!file_exists($book['preview_path'])) $warn = ['result'=>'warn', 'message' => 'Preview not found ' . $book['title_short']];
 		}
 
 		if ($warn != null) return $warn;
-		return ['result'=>'ok', 'message' => ''];
-	}
-
-	public function checkThumbnails()
-	{
-		foreach (self::listAll() as $book)
-		{
-			if (!file_exists($book['preview_path'])) return ['result'=>'err', 'message' => 'Preview not found ' . $book['title_short']];
-		}
-
 		return ['result'=>'ok', 'message' => ''];
 	}
 
@@ -138,5 +134,10 @@ class Books implements IWebsiteModule
 		if (startsWith(strtolower($r), "bitbucket")) return "Bitbucket";
 
 		return "Online";
+	}
+
+	public function getREADME($book)
+	{
+		return file_get_contents($book['file_readme']);
 	}
 }

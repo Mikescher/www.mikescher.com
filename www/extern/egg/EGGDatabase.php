@@ -6,8 +6,6 @@ require_once 'Utils.php';
 
 class EGGDatabase
 {
-	const DB_NAME = "";
-
 	/** @var string */
 	private $path;
 

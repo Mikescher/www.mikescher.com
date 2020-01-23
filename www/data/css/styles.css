@@ -1886,6 +1886,14 @@ html, body {
   margin: 10px;
 }
 
+.bookv_readme {
+  margin: 10px;
+  padding: 16px;
+  background: #EEEEEE;
+  color: #333333;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
 @media (max-width: 991px) {
   .bookv_content {
     border: none;

@@ -353,6 +353,7 @@ html,body{margin:0;padding:0;height:100%}
 .bookv_dl_github{background:#4078c0}
 .bookv_right_lang img{display:inline;height:16pt;max-width:32px;margin:1px 2px 0 2px}
 .bookv_extra{height:500px;border:1px solid #333;background:#aaa;margin:10px}
+.bookv_readme{margin:10px;padding:16px;background:#eee;color:#333;border:1px solid rgba(0,0,0,0.15)}
 @media(max-width:991px){
 	.bookv_content{border:0}
 	#bookv_header h1{font-size:28pt}
