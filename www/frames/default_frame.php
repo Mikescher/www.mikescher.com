@@ -46,7 +46,7 @@ require_once (__DIR__ . '/../internals/website.php');
 
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'home')     echo 'tab_active'; ?>" href="/">Home</a>
 
-            <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'euler')    echo 'tab_active'; ?>" href="/blog/1/Project_Euler_with_Befunge">Project Euler</a>
+            <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'euler')    echo 'tab_active'; ?>" href="/projecteuler">Project Euler</a>
 
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'blog')     echo 'tab_active'; ?>" href="/blog">Blog</a>
 

@@ -106,5 +106,10 @@ class Euler implements IWebsiteModule
 		if ($warn != null) return $warn;
 		return ['result'=>'ok', 'message' => ''];
 	}
+
+	public function getOverviewURL()
+	{
+		return '/blog/1/Project_Euler_with_Befunge';
+	}
 }
 

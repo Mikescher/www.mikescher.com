@@ -61,6 +61,8 @@ $URL_RULES =
 	[ 'url' => ['blogpost', 'view'],                       'target' => 'blog_view.php',              'options' => [ ],               'parameter' => [ 'id' => '%GET%', 'subview' => '' ],      ],
 
 	[ 'url' => ['adventofcode'],                           'target' => 'adventofcode_year.php',      'options' => [ ],               'parameter' => [ 'year' => '' ],                          ],
+	[ 'url' => ['projecteuler'],                           'target' => 'projecteuler.php',           'options' => [ ],               'parameter' => [ ],                                       ],
+
 	[ 'url' => ['adventofcode', '?{year}'],                'target' => 'adventofcode_year.php',      'options' => [ ],               'parameter' => [ 'year' => '%URL%' ],                     ],
 	[ 'url' => ['adventofcode', '?{year}', '?{day}'],      'target' => 'adventofcode_day.php',       'options' => [ ],               'parameter' => [ 'year' => '%URL%', 'day' => '%URL%' ],   ],
 
@@ -89,3 +91,5 @@ $site->serve($URL_RULES);
 //TODO support for different color schemes
 //     should be possible to change with just a few constant in config.scss
 //     a (little) bit more hue in default scheme
+
+//TODO AOC panel not responsive
