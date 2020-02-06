@@ -51,7 +51,7 @@ return
 			'date'        => '2016-12-23',
 			'repository'  => 'https://gitlab.com/Mikescher2/A-Practical-Guide-To-Evil-Lyx',
 			'pages'       => '501',
-			'pdf'         => 'https://gitlab.com/Mikescher2/A-Practical-Guide-To-Evil-Lyx/raw/master/APGTE_1/APGTE.pdf',
+			'pdf'         => [],
 			'online'      => 'https://practicalguidetoevil.wordpress.com/',
 			'author'      => 'David Verburg',
 			'size'        => [12.5, 19.0],

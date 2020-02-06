@@ -3,9 +3,8 @@ A Practical Guide To Evil (LyX)
 
 [https://practicalguidetoevil.wordpress.com/](https://practicalguidetoevil.wordpress.com/) LyX files
 
-----------
-
-A pdf version of *A Practical Guide To Evil* used for printing the book on [epubli.com](https://www.epubli.de/)
+> **Note**   
+> The author requested the pdf file to be taken down
 
 Font and back cover image edited with [Paint.net](http://www.getpaint.net/), [Gimp](https://www.gimp.org/) and [canva.com](https://www.canva.com)  
 Front image from [sandara](http://sandara.deviantart.com/art/Catherine-Foundling-608331843)
