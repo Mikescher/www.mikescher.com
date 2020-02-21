@@ -83,7 +83,7 @@ class Books implements IWebsiteModule
 				if (!file_exists($eipath)) return ['result'=>'err', 'message' => 'Extra-Image not found ' . $book['title_short']];
 			}
 
-			if ($book['book_count'] <= 0) return ['result'=>'err', 'message' => 'BookCount must be greater than zero ' . $book['title_short']];
+			if ($book['book_count'] < 0) return ['result'=>'err', 'message' => 'BookCount must be greater than zero ' . $book['title_short']];
 
 			if ($book['book_count'] > 1 && !is_array($book['pdf'])) return ['result'=>'err', 'message' => 'Attribute [pdf] must be an array ' . $book['title_short']];
 			if ($book['book_count'] > 1 && count($book['pdf']) !== $book['book_count']) return ['result'=>'err', 'message' => 'Attribute [pdf] must be the correct size ' . $book['title_short']];
