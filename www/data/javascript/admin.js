@@ -148,8 +148,33 @@ function refreshSingle(apibutton, then)
         });
 }
 
+function queryGitField(dest)
+{
+    const ddest = $(dest);
+
+    let config =
+        {
+            url: '/api/site::gitinfo?field=' + ddest.attr('data-ajax_gitfield'),
+            type: 'GET',
+            dataType: 'text',
+            cache : false,
+        };
+
+    $.ajax(config)
+        .done((data, status, xhr) =>
+        {
+            ddest.text(data);
+        })
+        .fail((xhr, status, err) =>
+        {
+            ddest.addClass('admin_ajax_gitfield_error');
+            ddest.text('ERROR');
+        });
+}
+
 $(function()
 {
-    for (let apibutton of $('.selftest_sequential').toArray()) setTimeout(() => refreshConsistencyDisplaySequential(0), 200);
-    for (let apibutton of $('.selftest_parallel').toArray())   setTimeout(() => refreshConsistencyDisplayParallel(), 200);
+    for (let elem of $('.selftest_sequential').toArray()) setTimeout(() => refreshConsistencyDisplaySequential(0), 200);
+    for (let elem of $('.selftest_parallel').toArray())   setTimeout(() => refreshConsistencyDisplayParallel(), 200);
+    for (let elem of $('.admin_ajax_gitfield').toArray())   setTimeout(() => queryGitField(elem), 0);
 });

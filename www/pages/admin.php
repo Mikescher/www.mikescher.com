@@ -41,10 +41,11 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
         <div class="bc_header">Version</div>
 
         <div class="bc_data keyvaluelist kvl_100">
-            <div><span>Branch:</span> <span><?php echo exec('git rev-parse --abbrev-ref HEAD'); ?></span></div>
-            <div><span>Commit:</span> <span><?php echo exec('git rev-parse HEAD'); ?></span></div>
-            <div><span>Date:</span>   <span><?php echo exec('git log -1 --format=%cd'); ?></span></div>
-            <div><span>Message:</span><span><?php echo nl2br(trim(exec('git log -1'))); ?></span></div>
+            <div><span>Branch:</span> <span class="admin_ajax_gitfield" data-ajax_gitfield="branch"   >...</span></div>
+            <div><span>Commit:</span> <span class="admin_ajax_gitfield" data-ajax_gitfield="head"     >...</span></div>
+            <div><span>Date:</span>   <span class="admin_ajax_gitfield" data-ajax_gitfield="timestamp">...</span></div>
+            <div><span>Origin:</span> <span class="admin_ajax_gitfield" data-ajax_gitfield="origin"   >...</span></div>
+            <div><span>Message:</span><span class="admin_ajax_gitfield" data-ajax_gitfield="message"  >...</span></div>
         </div>
     </div>
 

@@ -20,6 +20,7 @@ $API_COMMANDS =
 	'site::createprogramthumbnails' => [ 'src' => __DIR__.'/../commands/site_createProgramThumbnails.php', 'auth' => 'admin'          ],
 	'site::createbookthumbnails'    => [ 'src' => __DIR__.'/../commands/site_createBookThumbnails.php',    'auth' => 'admin'          ],
 	'site::selftest'                => [ 'src' => __DIR__.'/../commands/site_selftest.php',                'auth' => 'admin'          ],
+	'site::gitinfo'                 => [ 'src' => __DIR__.'/../commands/site_gitinfo.php',                 'auth' => 'admin'          ],
 
 	'server::setselfaddress'        => [ 'src' => __DIR__.'/../commands/server_setselfaddress.php',        'auth' => 'none'           ],
 	'server::gitwebhook'            => [ 'src' => __DIR__.'/../commands/server_gitwebhook.php',            'auth' => 'webhook_secret' ],
