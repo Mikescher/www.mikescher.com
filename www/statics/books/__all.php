@@ -78,7 +78,7 @@ return
 			'title_short' => 'Mother of Learning',
 			'date'        => '2019-11-24',
 			'repository'  => 'https://github.com/Mikescher/Mother-of-Learning-Lyx',
-			'pages'       => ['298', '328', '330', '362', '372', '346', '396', /*'???'*/],
+			'pages'       => ['298', '328', '330', '362', '372', '346', '396', '272'],
 			'pdf'         =>
 			[
 				'https://github.com/Mikescher/Mother-of-Learning-Lyx/blob/master/build/Book_1_1.pdf',
@@ -88,7 +88,7 @@ return
 				'https://github.com/Mikescher/Mother-of-Learning-Lyx/blob/master/build/Book_3_1.pdf',
 				'https://github.com/Mikescher/Mother-of-Learning-Lyx/blob/master/build/Book_3_2.pdf',
 				'https://github.com/Mikescher/Mother-of-Learning-Lyx/blob/master/build/Book_3_3.pdf',
-				//'https://github.com/Mikescher/Mother-of-Learning-Lyx/blob/master/build/Book_3_4.pdf',
+				'https://github.com/Mikescher/Mother-of-Learning-Lyx/blob/master/build/Book_3_4.pdf',
 			],
 			'online'      => 'https://www.fictionpress.com/s/2961893',
 			'author'      => 'Domagoj Kurmaic',
