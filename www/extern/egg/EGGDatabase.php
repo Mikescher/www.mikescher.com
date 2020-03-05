@@ -6,6 +6,8 @@ require_once 'Utils.php';
 
 class EGGDatabase
 {
+	const DB_NAME = "";
+
 	/** @var string */
 	private $path;
 
@@ -67,7 +69,9 @@ class EGGDatabase
 
 	public function sql_query_assoc(string $query)
 	{
-		return $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+		$r = $this->pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
+		return $r;
 	}
 
 	public function sql_query_assoc_prep(string $query, array $params)
@@ -80,7 +84,9 @@ class EGGDatabase
 		}
 
 		$stmt->execute();
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		return $r;
 	}
 
 	public function sql_exec_prep(string $query, array $params)
@@ -202,9 +208,14 @@ class EGGDatabase
 		{
 			$strparents = implode(";", $commit->Parents);
 
-			$this->sql_exec_prep("INSERT INTO commits ([branch_id], [hash], [author_name], [author_email], [committer_name], [committer_email], [message], [date], [parent_commits]) VALUES (:brid, :sha, :an, :am, :cn, :cm, :msg, :dat, :prt)",
+			$this->sql_exec_prep("INSERT INTO commits ([branch_id], [hash]) VALUES (:brid, :sha)",
 				[
 					[":brid", $branch->ID,             PDO::PARAM_INT],
+					[":sha",  $commit->Hash,           PDO::PARAM_STR],
+				]);
+
+			$this->sql_exec_prep("INSERT OR IGNORE INTO metadata ([hash], [author_name], [author_email], [committer_name], [committer_email], [message], [date], [parent_commits]) VALUES (:sha, :an, :am, :cn, :cm, :msg, :dat, :prt)",
+				[
 					[":sha",  $commit->Hash,           PDO::PARAM_STR],
 					[":an",   $commit->AuthorName,     PDO::PARAM_STR],
 					[":am",   $commit->AuthorEmail,    PDO::PARAM_STR],
@@ -320,6 +331,15 @@ class EGGDatabase
 		}
 	}
 
+	public function deleteDanglingCommitdata(string $name)
+	{
+		$db = $this->sql_query_assoc_prep("SELECT metadata.hash FROM metadata LEFT JOIN commits WHERE commits.hash IS NULL", []);
+
+		if (count($db) === 0) return;
+
+		$this->logger->proclog("Delete ".count($db)." dangling commits [" . $name . "] from database (no longer linked)");
+	}
+
 	/**
 	 * @param string $source
 	 * @param string $name
@@ -416,7 +436,7 @@ class EGGDatabase
 	 */
 	public function getAllYears(): array
 	{
-		$rows = $this->sql_query_assoc("SELECT d FROM (SELECT cast(strftime('%Y', commits.date) as decimal) AS d FROM commits) GROUP BY d ORDER BY d");
+		$rows = $this->sql_query_assoc("SELECT d FROM (SELECT cast(strftime('%Y', metadata.date) as decimal) AS d FROM commits LEFT JOIN metadata ON commits.hash = metadata.hash) GROUP BY d ORDER BY d");
 		$r = [];
 		foreach ($rows as $row) $r []= $row['d'];
 		return $r;

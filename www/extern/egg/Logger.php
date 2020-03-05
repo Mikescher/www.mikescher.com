@@ -84,8 +84,6 @@ class SessionLogger implements ILogger
 	{
 		if (session_status() === PHP_SESSION_DISABLED) return;
 
-			if (session_status() !== PHP_SESSION_ACTIVE) session_start();
-		if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 		$_SESSION[$this->sessionvar] .= $text . "\r\n";
 		session_commit();
 	}

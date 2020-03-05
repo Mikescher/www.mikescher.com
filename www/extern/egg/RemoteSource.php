@@ -53,6 +53,8 @@ abstract class StandardGitConnection implements IRemoteSource
 
 		$repos = $this->listAndUpdateRepositories($db);
 
+		$anyChanged = false;
+
 		foreach ($repos as $repo)
 		{
 			$branches = $this->listAndUpdateBranches($db, $repo);
@@ -83,6 +85,12 @@ abstract class StandardGitConnection implements IRemoteSource
 			}
 
 			if ($repo_changed) $db->setChangeDateOnRepository($repo);
+			if ($repo_changed) $anyChanged = true;
+		}
+
+		if ($anyChanged)
+		{
+			$db->deleteDanglingCommitdata($this->name);
 		}
 
 		$this->postUpdate();
