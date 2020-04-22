@@ -379,12 +379,12 @@ class GithubConnection extends StandardGitConnection
 		$url = Utils::sharpFormat(self::URL_OAUTH_TOKEN, ['id'=>$this->oauth_id, 'secret'=>$this->oauth_secret, 'code'=>'egg']);
 		$fullresult = $result = file_get_contents($url);
 
+		if (Utils::startsWith($fullresult, 'error=')) throw new EGGException('GitHub Auth failed: ' . $fullresult);
+
 		$result = str_replace('access_token=', '', $result);
 		$result = str_replace('&scope=&token_type=bearer', '', $result);
 
 		$this->logger->proclog("Updated Github API token");
-
-		if (Utils::startsWith($result, "error=")) throw new Exception($fullresult);
 
 		if ($result!=='' && $result !== null && $this->apitokenpath !== null)
 			file_put_contents($this->apitokenpath, $result);

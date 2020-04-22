@@ -136,7 +136,7 @@ class Utils
 		{
 			$logger->proclog("Error recieving json: '" . $url . "'");
 			$logger->proclog(print_r(error_get_last(), true));
-			return [];
+			throw new EGGException("Error recieving json: '" . $url . "'");
 		}
 
 		return json_decode($response);

@@ -7,6 +7,19 @@ require_once (__DIR__ . '/../internals/website.php');
 
 set_time_limit(900); // 15min
 
-$SITE->modules->ExtendedGitGraph()->update();
-$SITE->modules->ExtendedGitGraph()->updateCache();
+$r1 = $SITE->modules->ExtendedGitGraph()->update();
+if (!$r1)
+{
+	http_response_code(500);
+	echo 'EGG::update failed.';
+}
 
+$r2 = $SITE->modules->ExtendedGitGraph()->updateCache();
+if (!$r2)
+{
+	http_response_code(500);
+	echo 'EGG::updateCache failed.';
+}
+
+http_response_code(200);
+echo 'Done.';

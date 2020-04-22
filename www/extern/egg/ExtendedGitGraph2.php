@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Logger.php';
+require_once 'EGGException.php';
 require_once 'RemoteSource.php';
 require_once 'OutputGenerator.php';
 require_once 'EGGDatabase.php';
@@ -43,9 +44,9 @@ class ExtendedGitGraph2 implements ILogger
 			else if ($rmt['type'] === 'gitea')
 				$newsrc = new GiteaConnection($this, $rmt['name'], $rmt['url'], $rmt['filter'], $rmt['exclusions'], $rmt['username'], $rmt['password'] );
 			else
-				throw new Exception("Unknown remote-type: " . $rmt['type']);
+				throw new EGGException("Unknown remote-type: " . $rmt['type']);
 
-			if (array_key_exists($newsrc->getName(), $sourcenames)) throw new Exception("Duplicate source name: " . $newsrc->getName());
+			if (array_key_exists($newsrc->getName(), $sourcenames)) throw new EGGException("Duplicate source name: " . $newsrc->getName());
 
 			$this->sources []= $newsrc;
 			$sourcenames   []= $newsrc->getName();
@@ -61,6 +62,7 @@ class ExtendedGitGraph2 implements ILogger
 		try
 		{
 			$this->db->open();
+			$this->db->beginTransaction();
 
 			$this->proclog("Start incremental data update");
 			$this->proclog();
@@ -78,7 +80,21 @@ class ExtendedGitGraph2 implements ILogger
 
 			$this->proclog("Update finished.");
 
+			$this->db->commitTransaction();
+			$this->proclog("Data written.");
+
 			$this->db->close();
+
+			return true;
+		}
+		catch (EGGException $exception)
+		{
+			$this->proclog("ExtendedGitGraph2::update failed:");
+			$this->proclog($exception->egg_message);
+
+			$this->db->abortTransactionIfExists();
+
+			return false;
 		}
 		catch (Exception $exception)
 		{
@@ -87,14 +103,19 @@ class ExtendedGitGraph2 implements ILogger
 			$this->proclog($exception->getMessage());
 			$this->proclog();
 			$this->proclog($exception->getTraceAsString());
+
+			$this->db->abortTransactionIfExists();
+
+			return false;
 		}
 	}
 
-	public function updateCache(): string
+	public function updateCache(): ?string
 	{
 		try
 		{
-			$this->db->open();
+			$this->db->openReadOnly();
+			$this->db->beginTransaction();
 
 			$this->proclog("Start update cache");
 			$this->proclog();
@@ -106,6 +127,15 @@ class ExtendedGitGraph2 implements ILogger
 
 			return $data;
 		}
+		catch (EGGException $exception)
+		{
+			$this->proclog("ExtendedGitGraph2::updateCache failed:");
+			$this->proclog($exception->egg_message);
+
+			$this->db->abortTransactionIfExists();
+
+			return null;
+		}
 		catch (Exception $exception)
 		{
 			$this->proclog("(!) FATAL ERROR -- UNCAUGHT EXCEPTION THROWN");
@@ -113,6 +143,8 @@ class ExtendedGitGraph2 implements ILogger
 			$this->proclog($exception->getMessage());
 			$this->proclog();
 			$this->proclog($exception->getTraceAsString());
+
+			return null;
 		}
 	}
 
@@ -123,9 +155,11 @@ class ExtendedGitGraph2 implements ILogger
 	{
 		try
 		{
-			$this->db->open();
+			$this->db->openReadOnly();
 
 			$data = $this->outputter->loadFromCache();
+
+			$this->db->close();
 
 			return $data;
 		}

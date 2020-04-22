@@ -45,6 +45,26 @@ class EGGDatabase
 		if(!$exists) $this->init();
 	}
 
+	public function openReadOnly()
+	{
+		$this->open();
+	}
+
+	public function beginTransaction()
+	{
+		$this->pdo->beginTransaction();
+	}
+
+	public function commitTransaction()
+	{
+		$this->pdo->commit();
+	}
+
+	public function abortTransactionIfExists()
+	{
+		if ($this->pdo !== null) $this->pdo->rollBack();
+	}
+
 	private function init()
 	{
 		$this->logger->proclog("Initialize new database '" . $this->path . "'");
@@ -133,7 +153,7 @@ class EGGDatabase
 					[":url", $url, PDO::PARAM_STR],
 				]);
 
-			if (count($repo) === 0) throw new Exception("No repo after insert [" . $source . "|" . $name . "]");
+			if (count($repo) === 0) throw new EGGException("No repo after insert [" . $source . "|" . $name . "]");
 
 			$this->logger->proclog("Inserted (new) repository [" . $source . "|" . $name . "] into database");
 		}
@@ -180,7 +200,7 @@ class EGGDatabase
 					[":nam", $name,     PDO::PARAM_STR],
 				]);
 
-			if (count($branch) === 0) throw new Exception("No branch after insert [" . $source . "|" . $repo->Name  . "|" . $name . "]");
+			if (count($branch) === 0) throw new EGGException("No branch after insert [" . $source . "|" . $repo->Name  . "|" . $name . "]");
 
 			$this->logger->proclog("Inserted (new) branch [" . $source . "|" . $repo->Name  . "|" . $name . "] into database");
 		}
