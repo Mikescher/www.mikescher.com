@@ -681,4 +681,35 @@ return
 				'download'       => 'https://github.com/Mikescher/SynoCtrl/releases',
 			],
 	],
+
+
+	[
+		'name'              => 'youtube-dl Viewer',
+		'internal_name'     => 'youtube-dl-viewer',
+		'internal_name_alt' => 'ytdl-viewer',
+		'category'          => 'Tool',
+		'stars'             => 4,
+		'ui_language'       => 'English',
+		'prog_language'     => 'C#',
+		'short_description' => 'View youtube-dl backups on a youtube-like webpage. Locally or from a server',
+		'add_date'          => '2020-08-10',
+		'license'           => 'MIT',
+		'urls'              =>
+			[
+				'github'         => 'https://github.com/Mikescher/youtube-dl-viewer',
+				'download'       => 'https://github.com/Mikescher/youtube-dl-viewer/releases',
+			],
+		'extra_images'      =>
+			[
+				'youtube-dl-viewer_01.gif',
+				'youtube-dl-viewer_02.png',
+				'youtube-dl-viewer_03.png',
+				'youtube-dl-viewer_04.png',
+				'youtube-dl-viewer_05.png',
+				'youtube-dl-viewer_06.png',
+				'youtube-dl-viewer_07.png',
+				'youtube-dl-viewer_08.png',
+				'youtube-dl-viewer_09.png',
+			],
+	],
 ];
