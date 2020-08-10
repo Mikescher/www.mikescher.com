@@ -70,6 +70,8 @@
   padding-bottom: 0.5em;
 }
 
+@include rdmedia_range(0,1) { .aoc_calendar { transform: scale(0.75); } } // cause I'm lazy
+
 .aoc_calendar_row {
   display: flex;
   flex-direction: row;

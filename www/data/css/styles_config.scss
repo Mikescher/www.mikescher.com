@@ -180,7 +180,7 @@ $COL_ADMIN_STATUS_DB_ERROR:     #BB2222;
 // [0] ResponsiveDesign Minimal Mobile
 //     content_width = auto
 //     header        = vertical
-$RD_0_MINIMOBILE_MIN:   0px; /* 400px */
+$RD_0_MINIMOBILE_MIN:   0px;
 $RD_0_MINIMOBILE_MAX: 767px;
 
 // [1] ResponsiveDesign Normal Mobile
@@ -228,14 +228,17 @@ $RD_4_LARGEDESKTOP_MAX: 99999px;
   @if ($max == 3) { $w2: $RD_3_MEDDESKTOP_MAX;   }
   @if ($max == 4) { $w2: $RD_4_LARGEDESKTOP_MAX; }
 
-  @if (($min == 0) and ($max == 4)) { @return "(all)"; }
-  @if ($min == 0 ) { @return "(max-width:"+$w2+")"; }
-  @if ($max == 4 ) { @return "(min-width:"+$w1+")"; }
+  @if (($min == 0) and ($max == 4)) { @return "all"; }
+  @if ($min == 0 ) { @return "(max-device-width:"+$w2+")"; }
+  @if ($max == 4 ) { @return "(min-device-width:"+$w1+")"; }
 
-  @return "(min-width:"+$w1+") and (max-width:"+$w2+")";
+  @return "(min-device-width:"+$w1+") and (max-device-width:"+$w2+")";
 }
 
-@mixin rdmedia_range($min, $max) {
+@mixin rdmedia_range($min, $max)
+{
+
+  /* Level: #{$min} - #{$max} */
   @media #{rdmedia_expr($min, $max)}
   {
 
@@ -244,10 +247,12 @@ $RD_4_LARGEDESKTOP_MAX: 99999px;
   }
 }
 
-@mixin rdmedia($lvl) {
+@mixin rdmedia($lvl)
+{
+
+  /* Level: #{$lvl} */
   @media #{rdmedia_expr($lvl, $lvl)}
   {
-
     @content;
 
   }

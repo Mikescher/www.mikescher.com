@@ -4,6 +4,7 @@ import sys
 import os
 import re
 import subprocess
+import shutil
 
 
 def findnext(strdata, start, searchchr):
@@ -41,12 +42,11 @@ def comment_remover(text):
     )
     return re.sub(pattern, replacer, text)
 
-
 fsource = str.replace(sys.argv[1], '\\', '/')  # scss
-finput = str.replace(sys.argv[2], '\\', '/')  # css
+finput  = str.replace(sys.argv[2], '\\', '/')  # css
 foutput = str.replace(sys.argv[3], '\\', '/')  # min.css
-ftemp1 = '__temp_compresss_py_1.tmp.css'
-ftemp2 = '__temp_compresss_py_2.tmp.css'
+ftemp1  = '__temp_compresss_py_1.tmp.css'
+ftemp2  = '__temp_compresss_py_2.tmp.css'
 
 print('======== INPUT ========')
 print()
@@ -77,9 +77,8 @@ print()
 print()
 
 print('======== CALL SCSS ========')
-out = subprocess.run(['ruby', 'scss', '--style=expanded', '--no-cache', '--update', fsource + ':' + finput],
-                     stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-print('> ruby scss --style=expanded --no-cache --update ' + fsource + ':' + finput)
+print('> scss --style=expanded --no-cache --update "' + fsource + ':' + finput + '"')
+out = subprocess.run([shutil.which('scss'), '--style=expanded', '--no-cache', '--update', fsource + ':' + finput], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 print('STDOUT:')
 print(out.stdout.decode('utf-8'))
 print('STDERR:')
@@ -104,9 +103,8 @@ print('')
 print('')
 
 print('======== CALL YUI ========')
-out = subprocess.run(['java', '-jar', 'yuicompressor.jar', '--verbose', ftemp1, '-o', ftemp2], stdout=subprocess.PIPE,
-                     stderr=subprocess.PIPE)
 print('> java -jar yuicompressor.jar --verbose "' + finput + '" -o "' + ftemp2 + '"')
+out = subprocess.run(['java', '-jar', 'yuicompressor.jar', '--verbose', ftemp1, '-o', ftemp2], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 print('STDOUT:')
 print(out.stdout.decode('utf-8'))
 print('STDERR:')
