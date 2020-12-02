@@ -87,20 +87,24 @@ function showSelfTestOutput(id1, id2)
 
 }
 
-function refreshConsistencyDisplaySequential(skip)
+function refreshConsistencyDisplaySequential(skip, filter)
 {
+    let all = (filter === '') ? $('.selftest_parent .consistence_ajax_handler') : $('.selftest_sequential .consistence_ajax_handler[data-root="'+filter+'"]');
+
     let i = 0;
-    for (let apibutton of $('.selftest_sequential .consistence_ajax_handler').toArray())
+    for (let apibutton of all.toArray())
     {
         if (i++ !== skip) continue;
 
-        refreshSingle(apibutton, () => setTimeout(() => refreshConsistencyDisplaySequential(skip+1), 10));
+        refreshSingle(apibutton, () => setTimeout(() => refreshConsistencyDisplaySequential(skip+1, filter), 10));
     }
 }
 
-function refreshConsistencyDisplayParallel()
+function refreshConsistencyDisplayParallel(filter)
 {
-    for (let apibutton of $('.selftest_parallel .consistence_ajax_handler').toArray())
+    let all = (filter === '') ? $('.selftest_parent .consistence_ajax_handler') : $('.selftest_parallel .consistence_ajax_handler[data-root="'+filter+'"]');
+
+    for (let apibutton of all.toArray())
     {
         refreshSingle(apibutton, () => {});
     }
@@ -111,7 +115,13 @@ function refreshSingle(apibutton, then)
     const filter = $(apibutton).data('filter');
     const outdiv = $($(apibutton).data('stid'));
 
-    $(apibutton).removeClass('consistency_result_intermed');
+    $(apibutton)
+        .removeClass('consistency_result_intermed')
+        .removeClass('consistency_result_fin')
+        .removeClass('consistency_result_ok')
+        .removeClass('consistency_result_warn')
+        .removeClass('consistency_result_err');
+
     $(apibutton).addClass('consistency_result_running');
 
     $.ajax('/api/site::selftest?filter=' + filter)
@@ -174,7 +184,24 @@ function queryGitField(dest)
 
 $(function()
 {
-    for (let elem of $('.selftest_sequential').toArray()) setTimeout(() => refreshConsistencyDisplaySequential(0), 200);
-    for (let elem of $('.selftest_parallel').toArray())   setTimeout(() => refreshConsistencyDisplayParallel(), 200);
+    if ($('.selftest_sequential').length > 0) setTimeout(() => refreshConsistencyDisplaySequential(0, "modules"), 200);
+
+    if ($('.selftest_parallel').length > 0)   setTimeout(() => refreshConsistencyDisplayParallel("modules"), 200);
+
     for (let elem of $('.admin_ajax_gitfield').toArray())   setTimeout(() => queryGitField(elem), 0);
+
+    $('#btnFullSelftest').on('click', () =>
+    {
+        $('.consistence_ajax_handler')
+            .removeClass('consistency_result_fin')
+            .removeClass('consistency_result_ok')
+            .removeClass('consistency_result_warn')
+            .removeClass('consistency_result_err')
+            .addClass('consistency_result_intermed')
+            .text('');
+
+        if ($('.selftest_sequential').length > 0) refreshConsistencyDisplaySequential(0, "");
+        if ($('.selftest_parallel').length > 0)   refreshConsistencyDisplayParallel("");
+        return false;
+    });
 });

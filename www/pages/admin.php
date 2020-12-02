@@ -55,13 +55,15 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
         <div class="bc_header">Self test</div>
 
         <div class="bc_data">
-            <div class="keyvaluelist kvl_200 selftest_parent <?php echo $SITE->isProd() ? 'selftest_parallel' : 'selftest_sequential' ?>">
+            <a id="btnFullSelftest" class="button" href="#">Full Selftest</a>
+
+            <div class="keyvaluelist kvl_200 selftest_parent <?= ($SITE->isProd() ? 'selftest_parallel' : 'selftest_sequential') ?>">
                 <?php $stid=1000; foreach ($SITE->modules->SelfTest()->listMethodGroups() as $group): $stid++; ?>
-                    <div class="selftest_tabchild" onclick="showSelfTestOutput('#selftest_tab_<?php echo $stid; ?>', '#selftest_out_<?php echo $stid; ?>')">
-                        <span><?php echo $group['name']; ?></span>
-                        <span class='consistency_result consistency_result_intermed consistence_ajax_handler' id="selftest_tab_<?php echo $stid; ?>" data-filter="<?php echo $group['filter']; ?>" data-stid="#selftest_out_<?php echo $stid; ?>"></span>
+                    <div class="selftest_tabchild" onclick="showSelfTestOutput('#selftest_tab_<?= $stid; ?>', '#selftest_out_<?= $stid; ?>')">
+                        <span><?= $group['name']; ?></span>
+                        <span class='consistency_result consistency_result_intermed consistence_ajax_handler' id="selftest_tab_<?= $stid; ?>" data-filter="<?= $group['filter']; ?>" data-stid="#selftest_out_<?= $stid; ?>" data-root="<?= $group['root'] ?>"></span>
                     </div>
-                    <div class="selftest_outputchild generic_nodisplay" id="selftest_out_<?php echo $stid; ?>">&nbsp;</div>
+                    <div class="selftest_outputchild generic_nodisplay" id="selftest_out_<?= $stid; ?>">&nbsp;</div>
                 <?php endforeach; ?>
             </div>
             <br/>

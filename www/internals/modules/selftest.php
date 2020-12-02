@@ -174,7 +174,8 @@ class SelfTest implements IWebsiteModule
 			[
 				'name'   => key_exists($d, self::DISPLAY_NAMES) ? self::DISPLAY_NAMES[$d] : $d,
 				'filter' => $d.'::*',
-				'base'   => $d
+				'base'   => $d,
+				'root'   => explode('::', $d)[0],
 			];
 		}
 
