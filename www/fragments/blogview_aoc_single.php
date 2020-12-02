@@ -45,18 +45,34 @@ $FRAME_OPTIONS->alternative_url = $day['url-alternative'];
         <div class="bc_aoc_input"><?php echo nl2br(htmlspecialchars(file_get_contents($day['file_input']))); ?></div>
         <br/>
 
-		<?php for ($i=1; $i<=$day['parts']; $i++): ?>
+		<?php if ($day['single_solution_file']): ?>
 
-            <b>Part <?php echo $i; ?>:</b>
             <div class="bc_aoc_solution_parent">
                 <div class="bc_aoc_solution_code">
-                    <pre><code class="<?php echo $SITE->modules->AdventOfCode()->getLanguageCSS($day) ?>"><?php echo htmlspecialchars($SITE->modules->AdventOfCode()->getSolutionCode($day, $i-1)); ?></code></pre>
+                    <pre><code class="<?php echo $SITE->modules->AdventOfCode()->getLanguageCSS($day) ?>"><?php echo htmlspecialchars($SITE->modules->AdventOfCode()->getSolutionCode($day, 0)); ?></code></pre>
                 </div>
-                <div class="bc_aoc_solution_value"><b>Result:</b> <?php echo $day['solutions'][$i-1]; ?></div>
+				<?php for ($i=1; $i<=$day['parts']; $i++): ?>
+                    <div class="bc_aoc_solution_value multi"><b>Result Part <?= $i ?>:</b> <?php echo $day['solutions'][$i-1]; ?></div>
+				<?php endfor; ?>
             </div>
             <br/>
 
-		<?php endfor; ?>
+		<?php else: ?>
+
+			<?php for ($i=1; $i<=$day['parts']; $i++): ?>
+
+                <b>Part <?php echo $i; ?>:</b>
+                <div class="bc_aoc_solution_parent">
+                    <div class="bc_aoc_solution_code">
+                        <pre><code class="<?php echo $SITE->modules->AdventOfCode()->getLanguageCSS($day) ?>"><?php echo htmlspecialchars($SITE->modules->AdventOfCode()->getSolutionCode($day, $i-1)); ?></code></pre>
+                    </div>
+                    <div class="bc_aoc_solution_value"><b>Result:</b> <?php echo $day['solutions'][$i-1]; ?></div>
+                </div>
+                <br/>
+
+			<?php endfor; ?>
+
+        <?php endif; ?>
 
 		<?php $FRAME_OPTIONS->addScript("/data/javascript/prism.js", true); ?>
 		<?php $FRAME_OPTIONS->addStylesheet("/data/rawcss/prism.css"); ?>

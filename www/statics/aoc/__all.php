@@ -68,4 +68,9 @@ return
 			['day' => 24, 'parts' => 2, 'title' => 'Planet of Discord',                       'language' => 'ts', 'solutions' => ['25719471', '1916'] ],
 			['day' => 25, 'parts' => 1, 'title' => 'Cryostasis',                              'language' => 'ts', 'solutions' => ['2236672'] ],
 		],
+		'2020' =>
+		[
+			['day' =>  1, 'parts' => 2, 'title' => 'Report Repair',                           'language' => 'rust', 'solutions' => ['1009899', '44211152'] ],
+			['day' =>  2, 'parts' => 2, 'title' => 'Password Philosophy',                     'language' => 'rust', 'solutions' => ['564', '325'] ],
+		],
 	];

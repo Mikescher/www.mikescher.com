@@ -260,7 +260,8 @@ html,body{margin:0;padding:0;height:100%}
 .bc_aoc_solution_parent{border:1px solid #333}
 .bc_aoc_solution_code{padding:0}
 .bc_aoc_solution_code pre{margin:0 !important;border:0}
-.bc_aoc_solution_value{background:#888;color:#000}
+.bc_aoc_solution_value{background:#888;color:#000;padding-left:2px}
+.bc_aoc_solution_value.multi{border-top:1px solid #333}
 .prgl_parent{display:flex;flex-direction:column}
 @media(max-device-width:850px){.prgl_parent{align-items:center}}
 .prgl_elem{display:flex;flex-direction:row;text-decoration:none;background:#bbb;border:1px solid #444;color:#333;margin:5px 0}

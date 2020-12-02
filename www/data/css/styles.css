@@ -1397,6 +1397,11 @@ html, body {
 .bc_aoc_solution_value {
   background: #888888;
   color: #000000;
+  padding-left: 2px;
+}
+
+.bc_aoc_solution_value.multi {
+  border-top: 1px solid #333333;
 }
 
 .prgl_parent {

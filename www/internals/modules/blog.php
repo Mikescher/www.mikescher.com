@@ -128,6 +128,8 @@ class Blog implements IWebsiteModule
 
 			} else if ($post['type'] === 'aoc') {
 
+				if (!file_exists($post['file_fragment'])) return ['result'=>'err', 'message' => 'Fragment not found ' . $post['fragment']];
+
 				if (!array_key_exists('aoc:year', $post['extras'])) return ['result'=>'err', 'message' => 'AdventOfCode metadata [aoc:year] missing: ' . $post['title']];
 
 				// aok

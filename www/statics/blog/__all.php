@@ -27,4 +27,5 @@ return
 	[ 'id' => 23, 'date' => '2018-12-01', 'visible' => true,  'title' => 'Advent of Code 2018',                    'fragment' => 'aoc2018.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2018'] ],
 	[ 'id' => 24, 'date' => '2019-12-01', 'visible' => true,  'title' => 'Advent of Code 2019',                    'fragment' => 'aoc2019.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2019'] ],
 	[ 'id' => 25, 'date' => '2020-01-09', 'visible' => true,  'title' => 'Advent of Code 2017',                    'fragment' => 'aoc2017.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2017'] ],
+	[ 'id' => 26, 'date' => '2020-12-01', 'visible' => true,  'title' => 'Advent of Code 2020',                    'fragment' => 'aoc2020.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2020'] ],
 ];

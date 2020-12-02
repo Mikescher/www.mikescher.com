@@ -158,4 +158,9 @@
 .bc_aoc_solution_value {
   background: $LAYER2_HEADER_BG;
   color:      $LAYER2_HEADER_FG;
+  padding-left: 2px;
+}
+
+.bc_aoc_solution_value.multi {
+  border-top: $LAYER2_BORDER;
 }

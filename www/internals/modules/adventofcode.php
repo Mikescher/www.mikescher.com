@@ -4,9 +4,10 @@ class AdventOfCode implements IWebsiteModule
 {
 	const YEARS =
 	[
-		'2017' => [ 'url-aoc'=>'https://adventofcode.com/2017/day/', 'blog-id' => 25, 'github' => 'https://github.com/Mikescher/AdventOfCode2017' ],
-		'2018' => [ 'url-aoc'=>'https://adventofcode.com/2018/day/', 'blog-id' => 23, 'github' => 'https://github.com/Mikescher/AdventOfCode2018' ],
-		'2019' => [ 'url-aoc'=>'https://adventofcode.com/2019/day/', 'blog-id' => 24, 'github' => 'https://github.com/Mikescher/AdventOfCode2019' ],
+		'2017' => [ 'url-aoc'=>'https://adventofcode.com/2017/day/', 'blog-id' => 25, 'github' => 'https://github.com/Mikescher/AdventOfCode2017', 'single_solution_file' => false ],
+		'2018' => [ 'url-aoc'=>'https://adventofcode.com/2018/day/', 'blog-id' => 23, 'github' => 'https://github.com/Mikescher/AdventOfCode2018', 'single_solution_file' => false ],
+		'2019' => [ 'url-aoc'=>'https://adventofcode.com/2019/day/', 'blog-id' => 24, 'github' => 'https://github.com/Mikescher/AdventOfCode2019', 'single_solution_file' => false ],
+		'2020' => [ 'url-aoc'=>'https://adventofcode.com/2020/day/', 'blog-id' => 26, 'github' => 'https://github.com/Mikescher/AdventOfCode2020', 'single_solution_file' => true  ],
 	];
 
 	const LANGUAGES =
@@ -80,6 +81,8 @@ class AdventOfCode implements IWebsiteModule
 	{
 		$yeardata = self::YEARS[$year];
 
+		$a['single_solution_file'] = $yeardata['single_solution_file'];
+
 		$n2p = str_pad($a['day'], 2, '0', STR_PAD_LEFT);
 		$a['day-padded'] = $n2p;
 
@@ -97,9 +100,16 @@ class AdventOfCode implements IWebsiteModule
 
 		$solutionfiles = [];
 
-		for ($i=1; $i <= $a['parts']; $i++)
+		if ($a['single_solution_file'])
 		{
-			$solutionfiles []= (__DIR__ . '/../../statics/aoc/' . $year . '/' . $n2p . '_solution-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
+			$solutionfiles []= (__DIR__ . '/../../statics/aoc/' . $year . '/' . $n2p . '_solution' . '.' . self::LANGUAGES[$a['language']]['ext']);
+		}
+		else
+		{
+			for ($i=1; $i <= $a['parts']; $i++)
+			{
+				$solutionfiles []= (__DIR__ . '/../../statics/aoc/' . $year . '/' . $n2p . '_solution-' . $i . '.' . self::LANGUAGES[$a['language']]['ext']);
+			}
 		}
 
 		$a['file_solutions'] = $solutionfiles;
@@ -200,10 +210,15 @@ class AdventOfCode implements IWebsiteModule
 				if (in_array($aocdata['title'], $titlelist)) return ['result'=>'err', 'message' => 'Duplicate title ' . $aocdata['title']];
 				$titlelist []= $aocdata['title'];
 
-				if ($aocdata['day'] < 1 || $aocdata['day'] > 25) return ['result'=>'err', 'message' => 'Invali [day]-value title ' . $aocdata['day']];
+				if ($aocdata['day'] < 1 || $aocdata['day'] > 25) return ['result'=>'err', 'message' => 'Invalid [day]-value title ' . $aocdata['day']];
 
 				if (count($aocdata['solutions']) !== $aocdata['parts'])      return ['result'=>'err', 'message' => 'Not enough solution-values in day' . $aocdata['day']];
-				if (count($aocdata['file_solutions']) !== $aocdata['parts']) return ['result'=>'err', 'message' => 'Not enough solution-files in day' . $aocdata['day']];
+
+				if ($aocdata['single_solution_file']) {
+					if (count($aocdata['file_solutions']) !== 1) return ['result'=>'err', 'message' => 'Not enough solution-files in day' . $aocdata['day']];
+				} else {
+					if (count($aocdata['file_solutions']) !== $aocdata['parts']) return ['result'=>'err', 'message' => 'Not enough solution-files in day' . $aocdata['day']];
+				}
 
 				if (!file_exists($aocdata['file_challenge'])) return ['result'=>'err', 'message' => 'file_challenge not found ' . $aocdata['file_challenge']];
 				if (!file_exists($aocdata['file_input']))     return ['result'=>'err', 'message' => 'file_input not found ' .     $aocdata['file_input']];

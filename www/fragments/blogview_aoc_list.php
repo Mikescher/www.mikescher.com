@@ -32,7 +32,7 @@ $FRAME_OPTIONS->alternative_url = "/adventofcode/$year";
 	</div>
 
     <div class="bc_data">
-		<?php $SITE->renderMarkdown($SITE->modules->Blog()->getPostFragment($post)); ?>
+		<?php echo $SITE->renderMarkdown($SITE->modules->Blog()->getPostFragment($post)); ?>
         <br/>
 		<?php echo $SITE->fragments->PanelAdventOfCodeCalendar($year, true, false, false); ?>
     </div>
