@@ -11,6 +11,9 @@ return
 			['day' =>  5, 'parts' => 2, 'title' => 'A Maze of Twisty Trampolines, All Alike', 'language' => 'pyth', 'solutions' => ['388611', '27763113'] ],
 			['day' =>  6, 'parts' => 2, 'title' => 'Memory Reallocation',                     'language' => 'pyth', 'solutions' => ['11137', '1037'] ],
 			['day' =>  7, 'parts' => 2, 'title' => 'Recursive Circus',                        'language' => 'pyth', 'solutions' => ['hlqnsbe', '1993'] ],
+			['day' =>  8, 'parts' => 2, 'title' => 'I Heard You Like Registers',              'language' => 'pyth', 'solutions' => ['6343', '7184'] ],
+			['day' =>  9, 'parts' => 2, 'title' => 'Stream Processing',                       'language' => 'pyth', 'solutions' => ['7640', '4368'] ],
+			['day' => 10, 'parts' => 2, 'title' => 'Knot Hash',                               'language' => 'pyth', 'solutions' => ['2928', '0c2f794b2eb555f7830766bf8fb65a16'] ],
 		],
 		'2018' =>
 		[
