@@ -28,7 +28,7 @@ $allprograms = $SITE->modules->Programs()->listAllNewestFirst($filter);
 	foreach ($allprograms as $prog)
 	{
 		$uilang = '';
-		foreach (explode('|', $prog['ui_language']) as $lang) $uilang .= '<img src="' . $SITE->modules->Programs()->convertLanguageToFlag($lang).'" alt="'.$lang.'" />';
+		foreach (explode_allow_empty('|', $prog['ui_language']) as $lang) $uilang .= '<img src="' . $SITE->modules->Programs()->convertLanguageToFlag($lang).'" alt="'.$lang.'" />';
 
 		echo '<a class="prgl_elem" href="'.$prog['url'].'">';
 		echo '  <div class="prgl_elem_left">';

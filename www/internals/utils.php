@@ -288,3 +288,7 @@ function array_last(array $arr)
 	return $arr[count($arr)-1];
 }
 
+function explode_allow_empty(string $separator, string $str): array {
+	if ($str === '') return [];
+	return explode($separator, $str);
+}

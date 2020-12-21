@@ -607,7 +607,8 @@ return
 			[
 				'CannonConquest_01.webm', 'CannonConquest_02.png', 'CannonConquest_03.png', 'CannonConquest_04.png',
 				'CannonConquest_05.png',  'CannonConquest_06.png', 'CannonConquest_07.png', 'CannonConquest_08.png',
-				'CannonConquest_09.png',  'CannonConquest_10.png', 'CannonConquest_11.png', 'CannonConquest_12.png'
+				'CannonConquest_09.png',  'CannonConquest_10.png', 'CannonConquest_11.png', 'CannonConquest_12.png',
+				'CannonConquest_13.png'
 			],
 	],
 
@@ -710,6 +711,25 @@ return
 				'youtube-dl-viewer_07.png',
 				'youtube-dl-viewer_08.png',
 				'youtube-dl-viewer_09.png',
+			],
+	],
+
+
+	[
+		'name'              => 'CanvasCellSim',
+		'internal_name'     => 'CanvasCellSim',
+		'internal_name_alt' => null,
+		'category'          => 'Simulation',
+		'stars'             => 3,
+		'ui_language'       => '',
+		'prog_language'     => 'Typescript',
+		'short_description' => 'Render a cellular automata via javascript onto an HTML5 canvas',
+		'add_date'          => '2020-12-21',
+		'license'           => 'MIT',
+		'urls'              =>
+			[
+				'github'         => 'https://github.com/Mikescher/CanvasCellSim',
+				'homepage'       => 'https://mikescher.github.io/CanvasCellSim/',
 			],
 	],
 ];

@@ -61,7 +61,7 @@ $FRAME_OPTIONS->activeHeader = 'programs';
 
                 <div class="prgv_right_comb prgv_right_lang" style="grid-row:8">
 					<?php
-					foreach (explode('|', $prog['ui_language']) as $lang)
+					foreach (explode_allow_empty('|', $prog['ui_language']) as $lang)
 					{
 						echo '<img src="'.$SITE->modules->Programs()->convertLanguageToFlag($lang).'" title="'.$lang.'" alt="'.$lang[0].'" />' . "\n";
 					}
