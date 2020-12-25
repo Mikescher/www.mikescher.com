@@ -2,7 +2,7 @@
 
 class Programs implements IWebsiteModule
 {
-	const PROG_LANGS = [ 'Java', 'C#', 'Delphi', 'PHP', 'C++' ];
+	const PROG_LANGS = [ 'Java', 'C#', 'Delphi', 'PHP', 'C++', 'Rust' ];
 
 	const URL_ORDER =
 	[
