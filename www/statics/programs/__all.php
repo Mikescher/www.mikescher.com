@@ -730,6 +730,7 @@ return
 			[
 				'github'         => 'https://github.com/Mikescher/CanvasCellSim',
 				'homepage'       => 'https://mikescher.github.io/CanvasCellSim/',
+				'download'       => 'https://github.com/Mikescher/CanvasCellSim',
 			],
 	],
 ];
