@@ -15,27 +15,35 @@ if (!isset($API_OPTIONS['notecount']))   { $FRAME_OPTIONS->forceResult(400, "Wro
 
 $nam = $API_OPTIONS['name'];
 $cid = $API_OPTIONS['clientid'];
-$ver = $API_OPTIONS['version'];
-$prv = $API_OPTIONS['providerstr'];
-$pid = $API_OPTIONS['providerid'];
-$tnc = $API_OPTIONS['notecount'];
+
+$values = [];
+
+$values['Version']     = $API_OPTIONS['version'];
+$values['ProviderStr'] = $API_OPTIONS['providerstr'];
+$values['ProviderID']  = $API_OPTIONS['providerid'];
+$values['NoteCount']   = $API_OPTIONS['notecount'];
+
+$values['RawFolderRepo']                = isset($_GET['RawFolderRepo'])                ? $_GET['RawFolderRepo']                : null;
+$values['RawFolderRepoMode']            = isset($_GET['RawFolderRepoMode'])            ? $_GET['RawFolderRepoMode']            : null;
+$values['GitMirror']                    = isset($_GET['GitMirror'])                    ? $_GET['GitMirror']                    : null;
+$values['GitMirrorPush']                = isset($_GET['GitMirrorPush'])                ? $_GET['GitMirrorPush']                : null;
+$values['Theme']                        = isset($_GET['Theme'])                        ? $_GET['Theme']                        : null;
+$values['LaunchOnBoot']                 = isset($_GET['LaunchOnBoot'])                 ? $_GET['LaunchOnBoot']                 : null;
+$values['EmulateHierarchicalStructure'] = isset($_GET['EmulateHierarchicalStructure']) ? $_GET['EmulateHierarchicalStructure'] : null;
+$values['HasEditedAdvancedSettings']    = isset($_GET['HasEditedAdvancedSettings'])    ? $_GET['HasEditedAdvancedSettings']    : null;
+$values['AdvancedSettingsDiff']         = isset($_GET['AdvancedSettingsDiff'])         ? $_GET['AdvancedSettingsDiff']         : null;
 
 if ($nam !== 'AlephNote') print('{"success":false, "message":"Unknown AppName"}');
 
+/** @noinspection SqlInsertValues */
+$sql = 'INSERT INTO an_statslog (ClientID, '.join(', ', array_keys($values)).') VALUES (:cid, '.join(', ', array_map(function($v) {return ':'.$v.'_1';}, array_keys($values))).') ON DUPLICATE KEY UPDATE '.join(', ', array_map(function($v) {return $v.'=:'.$v.'_2';}, array_keys($values)));
 
-$SITE->modules->Database()->sql_exec_prep('INSERT INTO an_statslog (ClientID, Version, ProviderStr, ProviderID, NoteCount) VALUES (:cid1, :ver1, :prv1, :pid1, :tnc1) ON DUPLICATE KEY UPDATE Version=:ver2,ProviderStr=:prv2,ProviderID=:pid2,NoteCount=:tnc2',
-[
-	[':cid1', $cid, PDO::PARAM_STR],
-	[':ver1', $ver, PDO::PARAM_STR],
-	[':prv1', $prv, PDO::PARAM_STR],
-	[':pid1', $pid, PDO::PARAM_STR],
-	[':tnc1', $tnc, PDO::PARAM_INT],
+$params = [];
+$params []= [':cid', $cid, PDO::PARAM_STR];
+foreach ($values as $k => $v) $params []= [':'.$k.'_1', $v, ($k=='NoteCount') ? PDO::PARAM_INT : PDO::PARAM_STR];
+foreach ($values as $k => $v) $params []= [':'.$k.'_2', $v, ($k=='NoteCount') ? PDO::PARAM_INT : PDO::PARAM_STR];
 
-	[':ver2', $ver, PDO::PARAM_STR],
-	[':prv2', $prv, PDO::PARAM_STR],
-	[':pid2', $pid, PDO::PARAM_STR],
-	[':tnc2', $tnc, PDO::PARAM_INT],
-]);
+$SITE->modules->Database()->sql_exec_prep($sql, $params);
 
 print('{"success":true}');
 

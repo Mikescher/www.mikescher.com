@@ -1,12 +1,25 @@
 CREATE TABLE IF NOT EXISTS an_statslog
 (
   ClientID    varchar(256)  NOT NULL,
-  Version     varchar(256)  DEFAULT NULL,
-  ProviderStr varchar(256)  DEFAULT NULL,
-  ProviderID  varchar(256)  DEFAULT NULL,
-  NoteCount   int(11)       DEFAULT NULL,
+
+  Version                      varchar(256)  DEFAULT NULL,
+  ProviderStr                  varchar(256)  DEFAULT NULL,
+  ProviderID                   varchar(256)  DEFAULT NULL,
+  NoteCount                    int(11)       DEFAULT NULL,
+  RawFolderRepo                varchar(2048)  DEFAULT NULL,
+  RawFolderRepoMode            varchar(2048)  DEFAULT NULL,
+  GitMirror                    varchar(2048)  DEFAULT NULL,
+  GitMirrorPush                varchar(2048)  DEFAULT NULL,
+  Theme                        varchar(2048)  DEFAULT NULL,
+  LaunchOnBoot                 varchar(2048)  DEFAULT NULL,
+  EmulateHierarchicalStructure varchar(2048)  DEFAULT NULL,
+  HasEditedAdvancedSettings    varchar(2048)  DEFAULT NULL,
+  AdvancedSettingsDiff         varchar(2048)  DEFAULT NULL,
+
+
   LastChanged datetime      NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   CreatedAt   datetime      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
   Comment     varchar(1024) DEFAULT NULL,
 
   PRIMARY KEY (ClientID)
