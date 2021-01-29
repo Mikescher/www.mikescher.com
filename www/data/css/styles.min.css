@@ -189,6 +189,7 @@ html,body{margin:0;padding:0;height:100%}
 .boxedcontent.successbox{background-color:#168b00;color:#222;border:1px solid #444;font-weight:bold;text-align:center}
 .boxedcontent.successbox .bc_data{padding-top:2px;padding-bottom:2px}
 .admin_ajax_gitfield_error{color:red}
+.admin_ajax_gitfield{white-space:pre}
 #loginform div{display:flex;flex-direction:column}
 #loginform div button{margin:10px 0;padding:0}
 .loginerror{display:flex;background:#f44;color:#222;border:1px solid #a44;border-radius:2px;font-weight:bold;padding:0 5px;margin:5px 0 20px 0}

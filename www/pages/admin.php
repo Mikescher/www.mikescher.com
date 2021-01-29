@@ -119,7 +119,8 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
                 </div>
                 <br/>
                 <div id="an_ajax_target"></div>
-                <a class="button" href="javascript:startAjaxReplace('#an_ajax_target', '/api/alephnote::show?secret=<?php echo $SITE->config['ajax_secret'] ?>')">Show</a>
+                <a class="button" href="javascript:startAjaxReplace('#an_ajax_target', '/api/alephnote::show?secret=<?php echo $SITE->config['ajax_secret'] ?>&mode=short')">Show (short)</a>
+                <a class="button" href="javascript:startAjaxReplace('#an_ajax_target', '/api/alephnote::show?secret=<?php echo $SITE->config['ajax_secret'] ?>&mode=full')" >Show (full)</a>
             </div>
 		<?php else: ?>
             <div class="bc_data keyvaluelist admindberr">Database not connected.</div>

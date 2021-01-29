@@ -991,6 +991,10 @@ html, body {
   color: #FF0000;
 }
 
+.admin_ajax_gitfield {
+  white-space: pre;
+}
+
 #loginform div {
   display: flex;
   flex-direction: column;
