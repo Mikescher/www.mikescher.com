@@ -56,4 +56,17 @@ CREATE VIEW alldata AS
 	FROM commits
 	LEFT JOIN metadata     ON commits.hash      = metadata.hash
 	LEFT JOIN branches     ON commits.branch_id = branches.id
-	LEFT JOIN repositories ON branches.repo_id  = repositories.id
+	LEFT JOIN repositories ON branches.repo_id  = repositories.id;
+
+/*----SPLIT----*/
+
+CREATE VIEW allbranches AS
+	SELECT
+		repositories.source, repositories.name AS repository,
+		branches.name AS branch,
+		repositories.url,
+		repositories.last_update, repositories.last_change,
+		(SELECT COUNT(*) FROM commits WHERE branch_id = branches.id) AS commit_count
+	FROM branches
+		LEFT JOIN repositories ON branches.repo_id  = repositories.id;
+

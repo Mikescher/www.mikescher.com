@@ -233,9 +233,10 @@ abstract class StandardGitConnection implements IRemoteSource
 		if ($branch->HeadFromAPI === null) return [];
 
 		$target = $branch->Head;
+		$targetFound = false;
 
 		$next_sha = [ $branch->HeadFromAPI ];
-		$visited  = [ ];
+		$visited  = array_map(function(Commit $m):string{return $m->Hash;}, $db->getCommits($branch));
 
 		$json = $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]);
 
@@ -260,18 +261,24 @@ abstract class StandardGitConnection implements IRemoteSource
 				if (in_array($sha, $visited)) continue;
 				$visited []= $sha;
 
-				if ($sha === $target && count($next_sha) === 0)
+				if ($sha === $target) $targetFound = true;
+
+				if ($targetFound && count($next_sha) === 0)
 				{
 					if (count($newcommits) === 0)
 					{
 						$this->logger->proclog("Found no new commits for: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]  (HEAD at {" . substr($branch->HeadFromAPI, 0, 8) . "})");
 						return [];
 					}
+					else
+					{
+						$this->logger->proclog("Added " . count($newcommits) . " new commits for: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]  (HEAD moved from {" . substr($branch->Head, 0, 8) . "} to {" . substr($branch->HeadFromAPI, 0, 8) . "})");
 
-					$db->insertNewCommits($this->name, $repo, $branch, $newcommits);
-					$db->setBranchHead($branch, $branch->HeadFromAPI);
+						$db->insertNewCommits($this->name, $repo, $branch, $newcommits);
+						$db->setBranchHead($branch, $branch->HeadFromAPI);
 
-					return $newcommits;
+						return $newcommits;
+					}
 				}
 
 				$commit = new Commit();
@@ -299,7 +306,7 @@ abstract class StandardGitConnection implements IRemoteSource
 			$json = $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]);
 		}
 
-		$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Re-query all " . count($newcommits) . " commits (old HEAD := {".substr($branch->Head, 0, 8)."})");
+		$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Re-query all " . count($newcommits) . " commits (old HEAD := {".substr($branch->Head, 0, 8)."}, missing: [" . join(", ", array_map(function($p){return substr($p, 0, 8);}, $next_sha)) . "] )");
 
 		$db->deleteAllCommits($branch);
 

@@ -461,4 +461,29 @@ class EGGDatabase
 		foreach ($rows as $row) $r []= $row['d'];
 		return $r;
 	}
+
+	/**
+	 * @return Commit[]
+	 */
+	public function getCommits(Branch $branch): array
+	{
+		$rows = $this->sql_query_assoc("SELECT metadata.*, commits.id AS commitid FROM commits LEFT JOIN metadata WHERE commits.branch_id = :bid", [[":bid", $branch->ID, PDO::PARAM_INT]]);
+		$r = [];
+		foreach ($rows as $row)
+		{
+			$c = new Commit();
+			$c->ID             = $row['commitid'];
+			$c->Branch         = $branch;
+			$c->Hash           = $row['hash'];
+			$c->AuthorName     = $row['author_name'];
+			$c->AuthorEmail    = $row['author_email'];
+			$c->CommitterName  = $row['committer_name'];
+			$c->CommitterEmail = $row['committer_email'];
+			$c->Message        = $row['message'];
+			$c->Date           = $row['date'];
+			$c->Parents        = $row['parent_commits'];
+			$r []= $c;
+		}
+		return $r;
+	}
 }
