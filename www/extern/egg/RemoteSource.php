@@ -115,9 +115,10 @@ abstract class StandardGitConnection implements IRemoteSource
 
 	/**
 	 * @param string $reponame
+	 * @param int $page
 	 * @return array
 	 */
-	protected abstract function queryBranches($reponame);
+	protected abstract function queryBranches($reponame, $page);
 
 	/**
 	 * @param string $reponame
@@ -161,11 +162,16 @@ abstract class StandardGitConnection implements IRemoteSource
 		$page = 1;
 		$json = $this->queryRepositories($f[0], $page);
 
+		$found = [];
 		while (! empty($json))
 		{
+			$count = 0;
 			foreach ($json as $result_repo)
 			{
 				$jdata = $this->readRepository($result_repo);
+
+				if (in_array($jdata['full_name'], $found)) continue;
+				$found []= $jdata['full_name'];
 
 				if (!Utils::isRepoFilterMatch($this->filter, $this->exclusions, $jdata['full_name']))
 				{
@@ -177,6 +183,8 @@ abstract class StandardGitConnection implements IRemoteSource
 
 				$result []= $db->getOrCreateRepository($jdata['html_url'], $jdata['full_name'], $this->name);
 			}
+
+			if ($count === 0) break;
 
 			$page++;
 			$json = $this->queryRepositories($f[0], $page);
@@ -197,21 +205,36 @@ abstract class StandardGitConnection implements IRemoteSource
 
 		$result = [];
 
-		$json = $this->queryBranches($repo->Name);
+		$page = 1;
+		$json = $this->queryBranches($repo->Name, $page);
 
-		foreach ($json as $result_branch) {
-			$jdata = $this->readBranch($result_branch);
+		$found = [];
+		while (! empty($json))
+		{
+			$count = 0;
+			foreach ($json as $result_branch) {
+				$jdata = $this->readBranch($result_branch);
 
-			if ($jdata === null) continue;
+				if ($jdata === null) continue;
 
-			$bname = $jdata['name'];
-			$bhead = $jdata['sha'];
+				$bname = $jdata['name'];
+				$bhead = $jdata['sha'];
 
-			$this->logger->proclog("Found Branch in Remote: [" . $repo->Name . "] " . $bname);
+				if (in_array($bname, $found)) continue;
+				$found []= $bname;
 
-			$b = $db->getOrCreateBranch($this->name, $repo, $bname);
-			$b->HeadFromAPI = $bhead;
-			$result []= $b;
+				$this->logger->proclog("Found Branch in Remote: [" . $repo->Name . "] " . $bname);
+
+				$b = $db->getOrCreateBranch($this->name, $repo, $bname);
+				$b->HeadFromAPI = $bhead;
+				$result []= $b;
+				$count++;
+			}
+
+			if ($count === 0) break;
+
+			$page++;
+			$json = $this->queryBranches($repo->Name, $page);
 		}
 
 		$db->deleteOtherBranches($this->name, $repo, $result);
@@ -337,7 +360,7 @@ class GithubConnection extends StandardGitConnection
 	const API_RATELIMIT        = 'https://api.github.com/rate_limit';
 	const API_REPOSITORIESLIST = 'https://api.github.com/users/{user}/repos?page={page}&per_page=100';
 	const API_COMMITSLIST      = 'https://api.github.com/repos/{repo}/commits?per_page=100&sha={sha}';
-	const API_BRANCHLIST       = 'https://api.github.com/repos/{repo}/branches';
+	const API_BRANCHLIST       = 'https://api.github.com/repos/{repo}/branches?page={page}';
 
 	/** @var string $url */
 	private $url;
@@ -419,9 +442,9 @@ class GithubConnection extends StandardGitConnection
 	}
 
 	/** @inheritDoc */
-	protected function queryBranches($reponame)
+	protected function queryBranches($reponame, $page)
 	{
-		$url = Utils::sharpFormat(self::API_BRANCHLIST, ['repo'=>$reponame]);
+		$url = Utils::sharpFormat(self::API_BRANCHLIST, ['repo'=>$reponame, 'page'=>$page]);
 		return Utils::getJSONWithTokenAuth($this->logger, $url, $this->apitoken);
 	}
 
@@ -483,9 +506,9 @@ class GiteaConnection extends StandardGitConnection
 {
 	const API_BASE_URL     = '/api/v1';
 
-	const API_USER_REPO_LIST = '/users/{user}/repos';
-	const API_BRANCH_LIST    = '/repos/{repo}/branches';
-	const API_COMMIT_LIST    = '/repos/{repo}/commits?sha={sha}';
+	const API_USER_REPO_LIST = '/users/{user}/repos?page={page}&limit={limit}';
+	const API_BRANCH_LIST    = '/repos/{repo}/branches?page={page}&limit={limit}';
+	const API_COMMIT_LIST    = '/repos/{repo}/commits?sha={sha}&limit={limit}';
 
 	/** @var string $url */
 	private $url;
@@ -529,22 +552,21 @@ class GiteaConnection extends StandardGitConnection
 	/** @inheritDoc */
 	protected function queryRepositories($user, $page)
 	{
-		if ($page > 1) return [];
-		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_USER_REPO_LIST), ['user'=>$user ]);
+		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_USER_REPO_LIST), ['user'=>$user, 'page'=>$page, 'limit'=>64 ]);
 		return Utils::getJSONWithTokenBasicAuth($this->logger, $url, $this->username, $this->password);
 	}
 
 	/** @inheritDoc */
-	protected function queryBranches($reponame)
+	protected function queryBranches($reponame, $page)
 	{
-		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_BRANCH_LIST), ['repo'=>$reponame]);
+		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_BRANCH_LIST), ['repo'=>$reponame, 'page'=>$page, 'limit'=>64]);
 		return Utils::getJSONWithTokenBasicAuth($this->logger, $url, $this->username, $this->password);
 	}
 
 	/** @inheritDoc */
 	protected function queryCommits($reponame, $branchname, $startsha)
 	{
-		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_COMMIT_LIST), [ 'repo'=>$reponame, 'sha'=>$startsha ]);
+		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_COMMIT_LIST), [ 'repo'=>$reponame, 'sha'=>$startsha, 'limit'=>1024 ]);
 		$this->logger->proclog("Query commits from: [" . $this->name . "|" . $reponame . "|" . $branchname . "] continuing at {" . substr($startsha, 0, 8) . "}");
 		return Utils::getJSONWithTokenBasicAuth($this->logger, $url, $this->username, $this->password);
 	}

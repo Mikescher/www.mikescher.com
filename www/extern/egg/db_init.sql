@@ -68,5 +68,5 @@ CREATE VIEW allbranches AS
 		repositories.last_update, repositories.last_change,
 		(SELECT COUNT(*) FROM commits WHERE branch_id = branches.id) AS commit_count
 	FROM branches
-		LEFT JOIN repositories ON branches.repo_id  = repositories.id;
+	LEFT JOIN repositories ON branches.repo_id  = repositories.id;
 
