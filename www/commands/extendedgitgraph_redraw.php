@@ -6,6 +6,6 @@ require_once (__DIR__ . '/../internals/website.php');
 /** @var Website $SITE */ global $SITE;
 
 
-set_time_limit(900); // 15min
+set_time_limit(15*60); // 15min
 
 $v = $SITE->modules->ExtendedGitGraph()->updateCache();
