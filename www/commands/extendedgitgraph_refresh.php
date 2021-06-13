@@ -5,7 +5,7 @@ require_once (__DIR__ . '/../internals/website.php');
 /** @var URLRoute $ROUTE */ global $ROUTE;
 /** @var Website $SITE */ global $SITE;
 
-set_time_limit(60*60); // 60min
+set_time_limit(6*60*60); // 6h
 
 $r1 = $SITE->modules->ExtendedGitGraph()->update();
 if (!$r1)
