@@ -24,8 +24,9 @@ return
 	[ 'id' => 9,  'date' => '2016-10-22', 'visible' => true,  'title' => 'A complete sudoku solver in Befunge-93', 'fragment' => 'sudoku_befunge.md',  'type' => 'markdown', 'cat' => 'blog' ],
 	[ 'id' => 21, 'date' => '2018-01-02', 'visible' => true,  'title' => 'A simple javascript befunge-93 runner',  'fragment' => 'js_befrunner.md',    'type' => 'markdown', 'cat' => 'blog' ],
 	[ 'id' => 22, 'date' => '2018-02-06', 'visible' => true,  'title' => 'Homepage iteration 5',                   'fragment' => 'v5.md',              'type' => 'markdown', 'cat' => 'log'  ],
-	[ 'id' => 23, 'date' => '2018-12-01', 'visible' => true,  'title' => 'Advent of Code 2018',                    'fragment' => 'aoc2018.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2018'] ],
-	[ 'id' => 24, 'date' => '2019-12-01', 'visible' => true,  'title' => 'Advent of Code 2019',                    'fragment' => 'aoc2019.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2019'] ],
-	[ 'id' => 25, 'date' => '2020-01-09', 'visible' => true,  'title' => 'Advent of Code 2017',                    'fragment' => 'aoc2017.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2017'] ],
-	[ 'id' => 26, 'date' => '2020-12-01', 'visible' => true,  'title' => 'Advent of Code 2020',                    'fragment' => 'aoc2020.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2020'] ],
+	[ 'id' => 23, 'date' => '2018-12-01', 'visible' => true,  'title' => 'Advent of Code 2018 - C#',               'fragment' => 'aoc2018.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2018'] ],
+	[ 'id' => 24, 'date' => '2019-12-01', 'visible' => true,  'title' => 'Advent of Code 2019 - Typescript',       'fragment' => 'aoc2019.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2019'] ],
+	[ 'id' => 25, 'date' => '2020-01-09', 'visible' => true,  'title' => 'Advent of Code 2017 - Python3',          'fragment' => 'aoc2017.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2017'] ],
+	[ 'id' => 26, 'date' => '2020-12-01', 'visible' => true,  'title' => 'Advent of Code 2020 - Rust',             'fragment' => 'aoc2020.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2020'] ],
+	[ 'id' => 27, 'date' => '2021-11-25', 'visible' => false, 'title' => 'Advent of Code 2021 - Go',               'fragment' => 'aoc2021.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2021'] ],
 ];
