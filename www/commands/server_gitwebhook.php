@@ -14,7 +14,7 @@ $uri    = $ROUTE->full_url;
 $cmd = "";
 
 if ($hook == 'website_mikescher')
-	$cmd = 'git pull';
+	$cmd = 'git fetch ; git reset origin/master --hard';
 else if ($hook == 'griddominance')
 	$cmd = 'update-gdapi';
 else
