@@ -8,6 +8,7 @@ class AdventOfCode implements IWebsiteModule
 		'2018' => [ 'url-aoc'=>'https://adventofcode.com/2018/day/', 'blog-id' => 23, 'github' => 'https://github.com/Mikescher/AdventOfCode2018', 'single_solution_file' => false ],
 		'2019' => [ 'url-aoc'=>'https://adventofcode.com/2019/day/', 'blog-id' => 24, 'github' => 'https://github.com/Mikescher/AdventOfCode2019', 'single_solution_file' => false ],
 		'2020' => [ 'url-aoc'=>'https://adventofcode.com/2020/day/', 'blog-id' => 26, 'github' => 'https://github.com/Mikescher/AdventOfCode2020', 'single_solution_file' => true  ],
+		'2021' => [ 'url-aoc'=>'https://adventofcode.com/2021/day/', 'blog-id' => 27, 'github' => 'https://github.com/Mikescher/AdventOfCode2021', 'single_solution_file' => true  ],
 	];
 
 	const LANGUAGES =

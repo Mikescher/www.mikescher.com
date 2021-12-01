@@ -99,4 +99,8 @@ return
 		  	['day' => 24, 'parts' => 2, 'title' => 'Lobby Layout',                            'language' => 'rust', 'solutions' => ['459', '4150'] ],
 		  	['day' => 25, 'parts' => 1, 'title' => 'Combo Breaker',                           'language' => 'rust', 'solutions' => ['3217885'] ],
 		],
+		'2021' => 
+		[
+			['day' =>  1, 'parts' => 2, 'title' => 'Sonar Sweep',                             'language' => 'go',   'solutions' => ['1715', '1739'] ],
+		]
 	];
