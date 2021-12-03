@@ -103,5 +103,6 @@ return
 		[
 			['day' =>  1, 'parts' => 2, 'title' => 'Sonar Sweep',                             'language' => 'go',   'solutions' => ['1715', '1739'] ],
 			['day' =>  2, 'parts' => 2, 'title' => 'Dive!',                                   'language' => 'go',   'solutions' => ['1451208', '1620141160'] ],
+			['day' =>  3, 'parts' => 2, 'title' => 'Binary Diagnostic',                       'language' => 'go',   'solutions' => ['2954600', '1662846'] ],
 		]
 	];
