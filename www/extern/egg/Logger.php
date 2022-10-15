@@ -53,7 +53,7 @@ class SingleFileLogger implements ILogger
 	public function __construct($filename)
 	{
 		$this->path = $filename;
-		file_put_contents($this->path, '', FILE_TEXT);
+		file_put_contents($this->path, '');
 	}
 
 	public function proclog($text)

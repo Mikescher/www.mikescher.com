@@ -733,4 +733,23 @@ return
 				'download'       => 'https://github.com/Mikescher/CanvasCellSim',
 			],
 	],
+
+
+	[
+		'name'              => './dops - better docker ps',
+		'internal_name'     => 'dops',
+		'internal_name_alt' => null,
+		'category'          => 'Commandline',
+		'stars'             => 3,
+		'ui_language'       => 'English',
+		'prog_language'     => 'Go',
+		'short_description' => 'A replacement for the default docker-ps that tries to fit into the width of the terminal.',
+		'add_date'          => '2922-10-15',
+		'license'           => 'MIT',
+		'urls'              =>
+			[
+				'github'         => 'https://github.com/Mikescher/better-docker-ps',
+				'download'       => 'https://github.com/Mikescher/better-docker-ps/releases',
+			],
+	],
 ];

@@ -19,7 +19,7 @@ class RuleEngine
 		$parse = parse_url($requri);
 
 		$path      = isset($parse['path']) ? $parse['path'] : '';
-		$pathparts = preg_split('@/@', $path, NULL, PREG_SPLIT_NO_EMPTY);
+		$pathparts = preg_split('@/@', $path, -1, PREG_SPLIT_NO_EMPTY);
 		$partcount = count($pathparts);
 
 		foreach ($urlConfig as $rule)
