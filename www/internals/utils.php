@@ -176,7 +176,12 @@ function magick_resize_image($file, $width, $height, $output)
 
 	$cmd = 'convert "' . $file . '" -strip -resize ' . $final_width . 'x' . $final_height . ' "' . $output . '"';
 
-	shell_exec($cmd);
+	$output=null;
+	$retval=null;
+	$r = exec($cmd, $output, $retval);
+
+	if ($r === false) throw new Exception("Magick exec() return FALSE");
+	if ($retval !== 0) throw new Exception("Magick exec() returned exitcode $retval");
 }
 
 function sendMail($subject, $content, $to, $from)

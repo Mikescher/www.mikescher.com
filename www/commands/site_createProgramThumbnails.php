@@ -20,7 +20,13 @@ echo '<body>';
 foreach ($SITE->modules->Programs()->listAll() as $prog)
 {
 	echo 'Create preview for ' . $prog['name'] . '<br/>' . "\n";
-	$SITE->modules->Programs()->createPreview($prog);
+
+	try {
+		$SITE->modules->Programs()->createPreview($prog);
+	} catch (Exception $e) {
+		echo '<strong>Failed to create preview for ' . $prog['name'] . ':' . $e->getMessage() . '</strong><br/>' . "\n";
+	}
+
 }
 echo 'Finished.' . '<br/>' . "\n";
 

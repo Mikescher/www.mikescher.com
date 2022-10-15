@@ -20,7 +20,13 @@ echo '<body>';
 foreach ($SITE->modules->Books()->listAll() as $book)
 {
 	echo 'Create preview for ' . $book['title'] . '<br/>' . "\n";
-	$SITE->modules->Books()->createPreview($book);
+
+	try {
+		$SITE->modules->Books()->createPreview($book);
+	} catch (Exception $e) {
+		echo '<strong>Failed to create preview for ' . $book['title'] . ':' . $e->getMessage() . '</strong><br/>' . "\n";
+	}
+
 }
 echo 'Finished.' . '<br/>' . "\n";
 
