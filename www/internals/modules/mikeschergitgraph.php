@@ -1,29 +1,30 @@
 <?php
 
 require_once (__DIR__ . '/../../extern/egg/ExtendedGitGraph2.php');
+require_once (__DIR__ . '/../iwebsitemodule.php');
 
 class MikescherGitGraph implements IWebsiteModule
 {
 	/** @var ExtendedGitGraph2 */
-	private $extgitgraph;
+	private ExtendedGitGraph2 $extgitgraph;
 
 	/** @noinspection PhpUnhandledExceptionInspection */
-	public function __construct(Website $site)
+	public function __construct(array $egh_conf)
 	{
-		$this->extgitgraph = new ExtendedGitGraph2($site->config['extendedgitgraph']);
+		$this->extgitgraph = new ExtendedGitGraph2($egh_conf);
 	}
 
-	public function getPathRenderedData()
+	public function getPathRenderedData(): string
 	{
 		return __DIR__ . '/../../dynamic/egg/cache_fullrenderer.html';
 	}
 
-	public function update()
+	public function update(): bool
 	{
 		return $this->extgitgraph->update();
 	}
 
-	public function updateCache()
+	public function updateCache(): ?string
 	{
 		return $this->extgitgraph->updateCache();
 	}
@@ -31,14 +32,14 @@ class MikescherGitGraph implements IWebsiteModule
 	/**
 	 * @return string|null
 	 */
-	public function get()
+	public function get(): ?string
 	{
 		$d = $this->extgitgraph->loadFromCache();
 		if ($d === null) return "";
 		return $d;
 	}
 
-	public function checkConsistency()
+	public function checkConsistency(): array
 	{
 		$p = $this->getPathRenderedData();
 

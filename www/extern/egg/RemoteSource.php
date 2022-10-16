@@ -329,7 +329,7 @@ abstract class StandardGitConnection implements IRemoteSource
 			$json = $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]);
 		}
 
-		$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Re-query all " . count($newcommits) . " commits (old HEAD := {".substr($branch->Head, 0, 8)."}, missing: [" . join(", ", array_map(function($p){return substr($p, 0, 8);}, $next_sha)) . "] )");
+		$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Re-query all " . count($newcommits) . " commits (old HEAD := {".substr($branch->Head ?? 'NULL', 0, 8)."}, missing: [" . join(", ", array_map(function($p){return substr($p ?? 'NULL', 0, 8);}, $next_sha)) . "] )");
 
 		$db->deleteAllCommits($branch);
 

@@ -81,7 +81,7 @@ class Modules
 
 	public function ExtendedGitGraph(): MikescherGitGraph
 	{
-		if ($this->extendedgitgraph === null) { require_once 'modules/mikeschergitgraph.php'; $this->extendedgitgraph = new MikescherGitGraph($this->site); }
+		if ($this->extendedgitgraph === null) { require_once 'modules/mikeschergitgraph.php'; $this->extendedgitgraph = new MikescherGitGraph($this->site->config['extendedgitgraph']); }
 		return $this->extendedgitgraph;
 	}
 
