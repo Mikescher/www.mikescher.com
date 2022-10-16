@@ -62,7 +62,6 @@ class ExtendedGitGraph2 implements ILogger
 		try
 		{
 			$this->db->open();
-			$this->db->beginTransaction();
 
 			$this->proclog("Start incremental data update");
 			$this->proclog();
@@ -76,11 +75,12 @@ class ExtendedGitGraph2 implements ILogger
 				$this->proclog();
 			}
 
+			$this->db->beginTransaction();
 			$this->db->deleteOldSources(array_map(function (IRemoteSource $v){ return $v->getName(); }, $this->sources));
+			$this->db->commitTransaction();
 
 			$this->proclog("Update finished.");
 
-			$this->db->commitTransaction();
 			$this->proclog("Data written.");
 
 			$this->db->close();
