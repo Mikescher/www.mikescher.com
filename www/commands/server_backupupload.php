@@ -25,10 +25,10 @@ $std = shell_exec("ncc_upload " . '"' . $tmppath . '" "' . $reltarget . '" 2>&1'
 
 fclose($fp);
 
-$content = "REQUEST: " . $uri            . "\r\n\r\n" .
-		   "IP:      " . get_client_ip() . "\r\n\r\n" .
-	       "TARGET:  " . $reltarget      . "\r\n\r\n" .
-	       "OUTPUT:  " . $std            . "\r\n\r\n";
+$content = "REQUEST: " . $uri            . "\n\n" .
+		   "IP:      " . get_client_ip() . "\n\n" .
+	       "TARGET:  " . $reltarget      . "\n\n" .
+	       "OUTPUT:  " . $std            . "\n\n";
 
 sendMail("Fileupload to '$folder' triggered", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
 

@@ -5,7 +5,7 @@ function queryStatus(appendix, secret)
         success: function(result)
         {
             let ajaxOutput = $('#egg_ajaxOutput');
-            ajaxOutput.val(result + '\r\n' + appendix);
+            ajaxOutput.val(result + '\n' + appendix);
             ajaxOutput.scrollTop(ajaxOutput[0].scrollHeight);
         },
         async:   true
@@ -27,7 +27,7 @@ function startAjaxRefresh(secret)
         error: function( jqXHR, textStatus, errorThrown)
         {
             clearInterval(val);
-            queryStatus('AN ERROR OCCURED:' + '\r\n' + textStatus, secret);
+            queryStatus('AN ERROR OCCURED:' + '\n' + textStatus, secret);
         },
         async:   true
     });
@@ -48,7 +48,7 @@ function startAjaxRedraw(secret)
         error: function( jqXHR, textStatus, errorThrown)
         {
             clearInterval(val);
-            queryStatus('AN ERROR OCCURED:' + '\r\n' + textStatus, secret);
+            queryStatus('AN ERROR OCCURED:' + '\n' + textStatus, secret);
         },
         async:   true
     });

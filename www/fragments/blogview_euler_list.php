@@ -88,27 +88,27 @@ $problems = $SITE->modules->Euler()->listAll();
                 <?php
                 foreach ($problems as $problem)
                 {
-                    echo '<tr class="PEB_tablerowProblems">' . "\r\n";
+                    echo '<tr class="PEB_tablerowProblems">' . "\n";
 
                     echo '<td class="PEB_tablecellProblems PEB_TC_Number">';
                     echo '<a href="' . $problem['url'] . '">';
                     echo $problem['number'];
                     echo '</a>';
-                    echo '</td>' . "\r\n";
+                    echo '</td>' . "\n";
 
 					echo '<td class="PEB_tablecellProblems PEB_TC_Title">';
 					echo '<a href="' . $problem['url'] . '">';
 					echo htmlspecialchars($problem['title']);
 					echo '</a>';
-					echo '</td>' . "\r\n";
+					echo '</td>' . "\n";
 
 					echo '<td class="PEB_tablecellProblems PEB_TC_Rating">';
 					echo '<a href="' . $problem['url'] . '">';
 					echo '<div class="PEB_TC_Time PEB_TC_Timelevel_' . $problem['rating'] . '">';
-					echo formatMilliseconds($problem['time']) . "</div></td>\r\n";
+					echo formatMilliseconds($problem['time']) . "</div></td>\n";
 					echo '</div>';
 					echo '</a>';
-					echo '</td>' . "\r\n";
+					echo '</td>' . "\n";
 
 					echo '<td class="PEB_tablecellProblems PEB_TC_Size">';
 					echo '<a href="' . $problem['url'] . '">';
@@ -117,13 +117,13 @@ $problems = $SITE->modules->Euler()->listAll();
 					echo ($problem['is93'] ? 'Bef-93' : 'Bef-93+');
 					echo '</div>';
 					echo '</a>';
-					echo '</td>' . "\r\n";
+					echo '</td>' . "\n";
 
 					echo '<td class="PEB_tablecellProblems PEB_TC_Value">';
 					echo number_format($problem['value'], 0, null, ',');
-					echo '</td>' . "\r\n";
+					echo '</td>' . "\n";
 
-                    echo "</tr>\r\n";
+                    echo "</tr>\n";
                 }
                 ?>
                 </tbody>

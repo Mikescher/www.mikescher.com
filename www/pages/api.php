@@ -102,9 +102,9 @@ try
 catch (exception $e)
 {
 	$content =
-		"REQUEST: " . var_export($_REQUEST) . "\r\n\r\n" .
-		"IP:      " . get_client_ip()       . "\r\n\r\n" .
-		"ERROR:   " . $e                    . "\r\n\r\n";
+		"REQUEST: " . var_export($_REQUEST) . "\n\n" .
+		"IP:      " . get_client_ip()       . "\n\n" .
+		"ERROR:   " . $e                    . "\n\n";
 
 	if ($SITE->isProd()) sendMail("Website API call failed", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
 

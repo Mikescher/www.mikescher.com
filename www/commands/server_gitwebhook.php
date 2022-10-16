@@ -25,10 +25,10 @@ else
 
 $std = shell_exec($cmd);
 
-$content = "REQUEST: " . $uri . "\r\n\r\n" .
-		   "IP:      " . get_client_ip() . "\r\n\r\n" .
-	       "TARGET:  " . $hook . "\r\n\r\n" .
-	       "OUTPUT:  " . $std . "\r\n\r\n";
+$content = "REQUEST: " . $uri            . "\n\n" .
+		   "IP:      " . get_client_ip() . "\n\n" .
+	       "TARGET:  " . $hook           . "\n\n" .
+	       "OUTPUT:  " . $std            . "\n\n";
 
 sendMail("Webhook '$hook' triggered", $content, 'virtualadmin@mikescher.de', 'webserver-info@mikescher.com');
 
