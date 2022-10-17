@@ -104,9 +104,22 @@ class EGGDatabase
 		}
 
 		$stmt->execute();
-		$r = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		return $r;
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function sql_query_assoc_pre_prep(PDOStatement $stmt, array $params)
+	{
+		$stmt->closeCursor();
+
+		foreach ($params as $p)
+		{
+			if (strpos($stmt->queryString, $p[0]) !== FALSE) $stmt->bindValue($p[0], $p[1], $p[2]);
+		}
+
+		$stmt->execute();
+
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function sql_exec_prep(string $query, array $params)
@@ -116,6 +129,20 @@ class EGGDatabase
 		foreach ($params as $p)
 		{
 			if (strpos($query, $p[0]) !== FALSE) $stmt->bindValue($p[0], $p[1], $p[2]);
+		}
+
+		$stmt->execute();
+
+		return $stmt->rowCount();
+	}
+
+	public function sql_exec_pre_prep(PDOStatement $stmt, array $params)
+	{
+		$stmt->closeCursor();
+
+		foreach ($params as $p)
+		{
+			if (str_contains($stmt->queryString, $p[0])) $stmt->bindValue($p[0], $p[1], $p[2]);
 		}
 
 		$stmt->execute();
@@ -224,17 +251,22 @@ class EGGDatabase
 	public function insertNewCommits(string $source, Repository $repo, Branch $branch, array $commits) {
 		$this->logger->proclog("Inserting " . count($commits) . " (new) commits into [" . $source . "|" . $repo->Name  . "|" . $branch->Name . "]");
 
+
+		$stmtAddCommit = $this->pdo->prepare("INSERT INTO commits ([branch_id], [hash]) VALUES (:brid, :sha)");
+		$stmtAddMD = $this->pdo->prepare("INSERT OR IGNORE INTO metadata ([hash], [author_name], [author_email], [committer_name], [committer_email], [message], [date], [parent_commits]) VALUES (:sha, :an, :am, :cn, :cm, :msg, :dat, :prt)");
+		$stmtGetID = $this->pdo->prepare("SELECT id FROM commits WHERE [branch_id] = :brid AND [Hash] = :sha");
+
 		foreach ($commits as $commit)
 		{
 			$strparents = implode(";", $commit->Parents);
 
-			$this->sql_exec_prep("INSERT INTO commits ([branch_id], [hash]) VALUES (:brid, :sha)",
+			$this->sql_exec_pre_prep($stmtAddCommit,
 				[
 					[":brid", $branch->ID,             PDO::PARAM_INT],
 					[":sha",  $commit->Hash,           PDO::PARAM_STR],
 				]);
 
-			$this->sql_exec_prep("INSERT OR IGNORE INTO metadata ([hash], [author_name], [author_email], [committer_name], [committer_email], [message], [date], [parent_commits]) VALUES (:sha, :an, :am, :cn, :cm, :msg, :dat, :prt)",
+			$this->sql_exec_pre_prep($stmtAddMD,
 				[
 					[":sha",  $commit->Hash,           PDO::PARAM_STR],
 					[":an",   $commit->AuthorName,     PDO::PARAM_STR],
@@ -246,7 +278,7 @@ class EGGDatabase
 					[":prt",  $strparents,             PDO::PARAM_STR],
 				]);
 
-			$dbid = $this->sql_query_assoc_prep("SELECT id FROM commits WHERE [branch_id] = :brid AND [Hash] = :sha",
+			$dbid = $this->sql_query_assoc_pre_prep($stmtGetID,
 				[
 					[":brid", $branch->ID,             PDO::PARAM_INT],
 					[":sha",  $commit->Hash,           PDO::PARAM_STR],

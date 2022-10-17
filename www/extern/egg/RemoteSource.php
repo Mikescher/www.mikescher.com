@@ -90,7 +90,6 @@ abstract class StandardGitConnection implements IRemoteSource
 				if ($repo_changed) $anyChanged = true;
 			}
 
-			$this->logger->proclog("Committing SQL-transaction for [" . $this->name . "|" . $repo->Name . "]");
 			$db->commitTransaction();
 		}
 
@@ -347,7 +346,7 @@ abstract class StandardGitConnection implements IRemoteSource
 		}
 
 		if ($branch->Head === null) {
-			$this->logger->proclog("HEAD pointer in new Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] set to ". $branch->HeadFromAPI ." Queried " . count($newcommits) . " commits (reused $reusedFromExisting commits from DB)");
+			$this->logger->proclog("HEAD pointer in new Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] set to {".substr($branch->HeadFromAPI ?? 'NULL', 0, 8)."} - Queried " . count($newcommits) . " commits (reused $reusedFromExisting commits from DB)");
 		} else {
 			$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Re-queried all " . count($newcommits) . " commits (old HEAD := {".substr($branch->Head ?? 'NULL', 0, 8)."}, missing: [" . join(", ", array_map(function($p){return substr($p ?? 'NULL', 0, 8);}, $next_sha)) . "] )");
 		}
