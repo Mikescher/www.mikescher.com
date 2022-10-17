@@ -355,11 +355,19 @@ class EGGDatabase
 
 	public function deleteDanglingCommitdata(string $name)
 	{
-		$db = $this->sql_query_assoc_prep("SELECT metadata.hash FROM metadata LEFT JOIN commits WHERE commits.hash IS NULL", []);
+		$hashes = $this->sql_query_assoc_prep("SELECT metadata.hash FROM metadata LEFT JOIN commits ON metadata.hash = commits.hash WHERE commits.hash IS NULL", []);
 
-		if (count($db) === 0) return;
+		if (count($hashes) === 0) return;
 
-		$this->logger->proclog("Delete ".count($db)." dangling commits [" . $name . "] from database (no longer linked)");
+		$this->logger->proclog("Deleting ".count($hashes)." dangling commits [" . $name . "] from database (no longer linked)");
+
+		$this->beginTransaction();
+		foreach ($hashes as $hash) {
+			$this->sql_query_assoc_prep("DELETE FROM metadata WHERE hash = :hash", [ [":hash", $hash, PDO::PARAM_STR] ]);
+		}
+		$this->commitTransaction();
+
+		$this->logger->proclog("Succesfully deleted ".count($hashes)." dangling commits");
 	}
 
 	/**

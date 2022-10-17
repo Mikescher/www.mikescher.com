@@ -466,7 +466,6 @@ class GithubConnection extends StandardGitConnection
 	protected function queryCommits($reponame, $branchname, $startsha)
 	{
 		$url = Utils::sharpFormat(self::API_COMMITSLIST, [ 'repo'=>$reponame, 'sha'=>$startsha ]);
-		$this->logger->proclog("Query commits from: [" . $this->name . "|" . $reponame . "|" . $branchname . "] continuing at {" . substr($startsha, 0, 8) . "}");
 		return Utils::getJSONWithTokenAuth($this->logger, $url, $this->apitoken);
 	}
 
@@ -581,7 +580,6 @@ class GiteaConnection extends StandardGitConnection
 	protected function queryCommits($reponame, $branchname, $startsha)
 	{
 		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_COMMIT_LIST), [ 'repo'=>$reponame, 'sha'=>$startsha, 'limit'=>1024 ]);
-		$this->logger->proclog("Query commits from: [" . $this->name . "|" . $reponame . "|" . $branchname . "] continuing at {" . substr($startsha, 0, 8) . "}");
 		return Utils::getJSONWithTokenBasicAuth($this->logger, $url, $this->username, $this->password);
 	}
 
