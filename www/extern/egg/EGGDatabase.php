@@ -355,7 +355,7 @@ class EGGDatabase
 
 	public function deleteDanglingCommitdata(string $name)
 	{
-		$hashes = $this->sql_query_assoc_prep("SELECT metadata.hash FROM metadata LEFT JOIN commits ON metadata.hash = commits.hash WHERE commits.hash IS NULL", []);
+		$hashes = $this->sql_query_assoc_prep("SELECT metadata.hash AS mdh FROM metadata LEFT JOIN commits ON metadata.hash = commits.hash WHERE commits.hash IS NULL", []);
 
 		if (count($hashes) === 0) return;
 
@@ -363,7 +363,7 @@ class EGGDatabase
 
 		$this->beginTransaction();
 		foreach ($hashes as $hash) {
-			$this->sql_query_assoc_prep("DELETE FROM metadata WHERE hash = :hash", [ [":hash", $hash, PDO::PARAM_STR] ]);
+			$this->sql_query_assoc_prep("DELETE FROM metadata WHERE hash = :hash", [ [":hash", $hash['mdh'], PDO::PARAM_STR] ]);
 		}
 		$this->commitTransaction();
 
@@ -475,9 +475,13 @@ class EGGDatabase
 	/**
 	 * @return Commit[]
 	 */
-	public function getCommits(Branch $branch): array
+	public function getCommitsForBranch(Branch $branch): array
 	{
-		$rows = $this->sql_query_assoc("SELECT metadata.*, commits.id AS commitid FROM commits LEFT JOIN metadata WHERE commits.branch_id = :bid", [[":bid", $branch->ID, PDO::PARAM_INT]]);
+		$rows = $this->sql_query_assoc_prep("SELECT metadata.*, commits.id AS commitid FROM commits LEFT JOIN metadata ON metadata.hash = commits.hash WHERE commits.branch_id = :bid",
+			[
+				[":bid", $branch->ID, PDO::PARAM_INT]
+			]);
+
 		$r = [];
 		foreach ($rows as $row)
 		{
@@ -491,7 +495,35 @@ class EGGDatabase
 			$c->CommitterEmail = $row['committer_email'];
 			$c->Message        = $row['message'];
 			$c->Date           = $row['date'];
-			$c->Parents        = $row['parent_commits'];
+			$c->Parents        = array_filter(explode(';', $row['parent_commits']), fn($p) => $p !== '');
+			$r []= $c;
+		}
+		return $r;
+	}
+
+	/**
+	 * @return Commit[]
+	 */
+	public function getCommitsForRepo(Repository $repo, Branch $branchValue): array
+	{
+		$rows = $this->sql_query_assoc_prep("SELECT DISTINCT metadata.* FROM branches INNER JOIN commits ON branches.id = commits.branch_id LEFT JOIN metadata ON metadata.hash = commits.hash WHERE branches.repo_id = :rid",
+			[
+				[":rid", $repo->ID, PDO::PARAM_INT]
+			]);
+
+		$r = [];
+		foreach ($rows as $row)
+		{
+			$c = new Commit();
+			$c->Branch         = $branchValue;
+			$c->Hash           = $row['hash'];
+			$c->AuthorName     = $row['author_name'];
+			$c->AuthorEmail    = $row['author_email'];
+			$c->CommitterName  = $row['committer_name'];
+			$c->CommitterEmail = $row['committer_email'];
+			$c->Message        = $row['message'];
+			$c->Date           = $row['date'];
+			$c->Parents        = array_filter(explode(';', $row['parent_commits']), fn($p) => $p !== '');
 			$r []= $c;
 		}
 		return $r;

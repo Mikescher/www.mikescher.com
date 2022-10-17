@@ -72,15 +72,15 @@ abstract class StandardGitConnection implements IRemoteSource
 						continue;
 					}
 
-					$commits = $this->listAndUpdateCommits($db, $repo, $branch);
+					$newcommits = $this->listAndUpdateCommits($db, $repo, $branch);
 					$db->setUpdateDateOnBranch($branch);
-					if (count($commits) === 0)
+					if (count($newcommits) === 0)
 					{
 						$this->logger->proclog("Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] has no new commits");
 						continue;
 					}
 
-					$this->logger->proclog("Found " . count($commits) . " new commits in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]");
+					$this->logger->proclog("Found " . count($newcommits) . " new commits in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]");
 
 					$repo_changed = true;
 					$db->setChangeDateOnBranch($branch);
@@ -269,34 +269,36 @@ abstract class StandardGitConnection implements IRemoteSource
 		$targetFound = false;
 
 		$next_sha = [ $branch->HeadFromAPI ];
-		$visited  = array_map(function(Commit $m):string{return $m->Hash;}, $db->getCommits($branch));
+		$visited  = array_map(function(Commit $m):string{return $m->Hash;}, $db->getCommitsForBranch($branch));
 
-		$this->logger->proclog("Query commit for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (initial @ {" . substr($next_sha[0], 0, 8) . "})");
+		$query_counter=0;
 
-		$json = $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]);
+		$existing = [];
+		$reusedFromExisting = 0;
+		if ($branch->Head === null) {
 
-		for ($pg=2;;$pg++)
+			// new branch, perhaps we can mix'n'match existing commits+metadata
+			$this->logger->proclog("Query existing commits for [" . $this->name . "|" . $repo->Name . "] (potentially reuse for new branch '" . $branch->Name . "')");
+			foreach ($db->getCommitsForRepo($repo, $branch) as $c) $existing[$c->Hash] = $c;
+		}
+
+
+
+		$query_counter++;
+		$this->logger->proclog("Query commits for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (initial @ {" . substr($next_sha[0], 0, 8) . "}) (target: {" . substr($target ?? 'NULL', 0, 8) . "})");
+
+		$unprocessed = array_map(fn($p) => $this->createCommit($branch, $p), $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]));
+
+		for (;;)
 		{
-			foreach ($json as $result_commit)
+			foreach ($unprocessed as $commit)
 			{
-				$jdata = $this->readCommit($result_commit);
+				while (($rmshakey = array_search($commit->Hash, $next_sha)) !== false) unset($next_sha[$rmshakey]);
 
-				$sha             = $jdata['sha'];
-				$author_name     = $jdata['author_name'];
-				$author_email    = $jdata['author_email'];
-				$committer_name  = $jdata['committer_name'];
-				$committer_email = $jdata['committer_email'];
-				$message         = $jdata['message'];
-				$date            = $jdata['date'];
+				if (in_array($commit->Hash, $visited)) continue;
+				$visited []= $commit->Hash;
 
-				$parents         = $jdata['parents'];
-
-				if (($rmshakey = array_search($sha, $next_sha)) !== false) unset($next_sha[$rmshakey]);
-
-				if (in_array($sha, $visited)) continue;
-				$visited []= $sha;
-
-				if ($sha === $target) $targetFound = true;
+				if ($commit->Hash === $target) $targetFound = true;
 
 				if ($targetFound && count($next_sha) === 0)
 				{
@@ -316,20 +318,9 @@ abstract class StandardGitConnection implements IRemoteSource
 					}
 				}
 
-				$commit = new Commit();
-				$commit->Branch         = $branch;
-				$commit->Hash           = $sha;
-				$commit->AuthorName     = $author_name;
-				$commit->AuthorEmail    = $author_email;
-				$commit->CommitterName  = $committer_name;
-				$commit->CommitterEmail = $committer_email;
-				$commit->Message        = $message;
-				$commit->Date           = $date;
-				$commit->Parents        = $parents;
-
 				$newcommits []= $commit;
 
-				foreach ($parents as $p)
+				foreach ($commit->Parents as $p)
 				{
 					$next_sha []= $p;
 				}
@@ -338,12 +329,29 @@ abstract class StandardGitConnection implements IRemoteSource
 			$next_sha = array_values($next_sha); // fix numeric keys
 			if (count($next_sha) === 0) break;
 
-			$this->logger->proclog("Query commit for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (" . $pg . " @ {" . substr($next_sha[0], 0, 8) . "})");
+			if (array_key_exists($next_sha[0], $existing)) {
 
-			$json = $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]);
+				// fast-track for existing Commits
+				$unprocessed = [ $existing[$next_sha[0]] ];
+				$reusedFromExisting++;
+
+			} else {
+
+				$query_counter++;
+				$this->logger->proclog("Query commits for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (" . $query_counter . " @ {" . substr($next_sha[0], 0, 8) . "})");
+
+				$unprocessed = array_map(fn($p) => $this->createCommit($branch, $p), $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]));
+
+			}
+
 		}
 
-		$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Re-query all " . count($newcommits) . " commits (old HEAD := {".substr($branch->Head ?? 'NULL', 0, 8)."}, missing: [" . join(", ", array_map(function($p){return substr($p ?? 'NULL', 0, 8);}, $next_sha)) . "] )");
+		if ($branch->Head === null) {
+			$this->logger->proclog("HEAD pointer in new Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] set to ". $branch->HeadFromAPI ." Queried " . count($newcommits) . " commits (reused $reusedFromExisting commits from DB)");
+		} else {
+			$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Re-queried all " . count($newcommits) . " commits (old HEAD := {".substr($branch->Head ?? 'NULL', 0, 8)."}, missing: [" . join(", ", array_map(function($p){return substr($p ?? 'NULL', 0, 8);}, $next_sha)) . "] )");
+		}
+
 
 		$db->deleteAllCommits($branch);
 
@@ -357,6 +365,35 @@ abstract class StandardGitConnection implements IRemoteSource
 		$db->setBranchHead($branch, $branch->HeadFromAPI);
 
 		return $newcommits;
+	}
+
+	private function createCommit(Branch $branch, $result_commit): Commit
+	{
+		$jdata = $this->readCommit($result_commit);
+
+		$sha             = $jdata['sha'];
+		$author_name     = $jdata['author_name'];
+		$author_email    = $jdata['author_email'];
+		$committer_name  = $jdata['committer_name'];
+		$committer_email = $jdata['committer_email'];
+		$message         = $jdata['message'];
+		$date            = $jdata['date'];
+
+		$parents         = $jdata['parents'];
+
+
+		$commit = new Commit();
+		$commit->Branch         = $branch;
+		$commit->Hash           = $sha;
+		$commit->AuthorName     = $author_name;
+		$commit->AuthorEmail    = $author_email;
+		$commit->CommitterName  = $committer_name;
+		$commit->CommitterEmail = $committer_email;
+		$commit->Message        = $message;
+		$commit->Date           = $date;
+		$commit->Parents        = $parents;
+
+		return $commit;
 	}
 
 	/** @inheritDoc  */

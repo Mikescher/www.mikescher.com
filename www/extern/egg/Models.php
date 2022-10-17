@@ -32,10 +32,10 @@ class Branch
 	/** @var Repository */
 	public $Repo;
 
-	/** @var string */
+	/** @var string|null */
 	public $Head;
 
-	/** @var string */
+	/** @var string|null */
 	public $HeadFromAPI = null;
 
 	/** @var string */
