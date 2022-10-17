@@ -51,9 +51,7 @@ abstract class StandardGitConnection implements IRemoteSource
 	{
 		$this->preUpdate();
 
-		$db->beginTransaction();
 		$repos = $this->listAndUpdateRepositories($db);
-		$db->commitTransaction();
 
 		$anyChanged = false;
 
@@ -91,19 +89,21 @@ abstract class StandardGitConnection implements IRemoteSource
 				if ($repo_changed) $db->setChangeDateOnRepository($repo);
 				if ($repo_changed) $anyChanged = true;
 			}
+
+			$this->logger->proclog("Committing SQL-transaction for [" . $this->name . "|" . $repo->Name . "]");
 			$db->commitTransaction();
 		}
 
 		if ($anyChanged)
 		{
-			$db->beginTransaction();
+			$this->logger->proclog("Deleting dangling commits...");
+
 			$db->deleteDanglingCommitdata($this->name);
-			$db->commitTransaction();
 		}
 
-		$db->beginTransaction();
 		$this->postUpdate();
-		$db->commitTransaction();
+
+		$this->logger->proclog("Finished [" . $this->name . "]");
 	}
 
 	/**
@@ -271,9 +271,11 @@ abstract class StandardGitConnection implements IRemoteSource
 		$next_sha = [ $branch->HeadFromAPI ];
 		$visited  = array_map(function(Commit $m):string{return $m->Hash;}, $db->getCommits($branch));
 
+		$this->logger->proclog("Query commit for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (initial @ {" . substr($next_sha[0], 0, 8) . "})");
+
 		$json = $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]);
 
-		for (;;)
+		for ($pg=2;;$pg++)
 		{
 			foreach ($json as $result_commit)
 			{
@@ -335,6 +337,8 @@ abstract class StandardGitConnection implements IRemoteSource
 
 			$next_sha = array_values($next_sha); // fix numeric keys
 			if (count($next_sha) === 0) break;
+
+			$this->logger->proclog("Query commit for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (" . $pg . " @ {" . substr($next_sha[0], 0, 8) . "})");
 
 			$json = $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]);
 		}

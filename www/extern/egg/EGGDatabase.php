@@ -62,7 +62,7 @@ class EGGDatabase
 
 	public function abortTransactionIfExists()
 	{
-		if ($this->pdo !== null) $this->pdo->rollBack();
+		if ($this->pdo !== null && $this->pdo->inTransaction()) $this->pdo->rollBack();
 	}
 
 	private function init()
@@ -222,7 +222,7 @@ class EGGDatabase
 	 * @param Commit[] $commits
 	 */
 	public function insertNewCommits(string $source, Repository $repo, Branch $branch, array $commits) {
-		$this->logger->proclog("Inserted " . count($commits) . " (new) commits into [" . $source . "|" . $repo->Name  . "|" . $branch->Name . "]");
+		$this->logger->proclog("Inserting " . count($commits) . " (new) commits into [" . $source . "|" . $repo->Name  . "|" . $branch->Name . "]");
 
 		foreach ($commits as $commit)
 		{
@@ -261,6 +261,8 @@ class EGGDatabase
 	 * @param string $head
 	 */
 	public function setBranchHead(Branch $branch, string $head) {
+		$this->logger->proclog("Set HEAD of branch [" . $branch->Repo->Source . "|" . $branch->Repo->Name  . "|" . $branch->Name . "] to {".substr($head, 0, 8)."}");
+
 		$this->sql_exec_prep("UPDATE branches SET head = :head WHERE id = :id",
 			[
 				[":id",   $branch->ID, PDO::PARAM_INT],
