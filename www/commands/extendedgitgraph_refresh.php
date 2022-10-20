@@ -14,8 +14,15 @@ if (!$r1)
 	echo 'EGG::update failed.';
 }
 
-$r2 = $SITE->modules->ExtendedGitGraph()->updateCache();
+$r2 = $SITE->modules->ExtendedGitGraph()->checkDatabaseConsistency();
 if (!$r2)
+{
+	http_response_code(500);
+	echo 'EGG::checkDatabaseConsistency failed.';
+}
+
+$r3 = $SITE->modules->ExtendedGitGraph()->updateCache();
+if (!$r3)
 {
 	http_response_code(500);
 	echo 'EGG::updateCache failed.';

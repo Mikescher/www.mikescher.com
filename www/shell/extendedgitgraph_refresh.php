@@ -34,11 +34,25 @@ if (!$r1)
 }
 
 echo "\n";
-echo "============================= Start Update-Cache =============================\n";
+echo "============================= Check Consistency =============================\n";
 echo "\n";
 
-$r2 = $egg->updateCache();
-if (!$r2)
+$r2 = $egg->checkDatabaseConsistency();
+if (count($r2) > 0)
+{
+	echo "EGG::updateCache failed.";
+    foreach ($r2 as $msg) {
+		echo "    > $msg";
+    }
+	exit(99);
+}
+
+echo "\n";
+echo "============================= Update Cache =============================\n";
+echo "\n";
+
+$r3 = $egg->updateCache();
+if (!$r3)
 {
 	echo "EGG::updateCache failed.";
 	exit(99);

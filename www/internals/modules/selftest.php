@@ -30,7 +30,8 @@ class SelfTest implements IWebsiteModule
 		'modules::updateslog'   => 'Program Updates (data)',
 		'modules::webapps'      => 'Webapps (data)',
 		'modules::highscores'   => 'Highscores (data)',
-		'backend::git'          => 'Git Repository'
+		'egg::db-check'         => 'ExtendedGitGraph (db-check)',
+		'backend::git'          => 'Git Repository',
 	];
 
 	private $methods = [];
@@ -117,6 +118,8 @@ class SelfTest implements IWebsiteModule
 		$this->addCheckConsistency("modules::updateslog::updateslog-check-consistency",     function(){ return Website::inst()->modules->UpdatesLog(); });
 		$this->addCheckConsistency("modules::webapps::webapps-check-consistency",           function(){ return Website::inst()->modules->WebApps(); });
 		$this->addCheckConsistency("modules::highscores::highscores-check-consistency",     function(){ return Website::inst()->modules->Highscores(); });
+
+		$this->addLambdaStatus("egg::db-check::check-db-consistency", function(){ return Website::inst()->modules->ExtendedGitGraph()->checkDatabaseConsistency(); });
 
 		$ajaxsecret = Website::inst()->config['ajax_secret'];
 
@@ -360,6 +363,77 @@ class SelfTest implements IWebsiteModule
 				}
 			}
 		];
+	}
+
+	private function addLambdaStatus(string $name, Closure $fun)
+	{
+		$this->methods []=
+			[
+				'name' => $name,
+				'func' => function() use ($name, $fun)
+				{
+					try
+					{
+						$result = $fun();
+
+						if (empty($result)) return
+						[
+							'result' => self::STATUS_OK,
+							'message' => 'OK',
+							'long' => 'Okay',
+							'exception' => null,
+						];
+
+						if (isset($result['result']) && isset($result['message'])) {
+							if ($result['result'] === 'err') return
+							[
+								'result' => self::STATUS_ERROR,
+								'message' => $result['message'],
+								'long' => isset($result['long']) ? $result['long'] : null,
+								'exception' => null,
+							];
+
+							if ($result['result'] === 'warn') return
+							[
+								'result' => self::STATUS_WARN,
+								'message' => $result['message'],
+								'long' => isset($result['long']) ? $result['long'] : null,
+								'exception' => null,
+							];
+
+							if ($result['result'] === 'ok') return
+							[
+								'result' => self::STATUS_OK,
+								'message' => 'OK',
+								'long' => isset($result['long']) ? $result['long'] : null,
+								'exception' => null,
+							];
+						}
+
+						if (is_array($result) && is_string($result[0])) {
+							return
+							[
+								'result' => self::STATUS_ERROR,
+								'message' => count($result) . " errors occured",
+								'long' => implode("\n", $result),
+								'exception' => null,
+							];
+						}
+
+						throw new Exception("Unknown result: " . print_r($result, true));
+					}
+					catch (Throwable $e)
+					{
+						return
+							[
+								'result' => self::STATUS_ERROR,
+								'message' => str_max_len($e->getMessage(), 48),
+								'long' => formatException($e),
+								'exception' => $e,
+							];
+					}
+				}
+			];
 	}
 
 	private function addMethodPathResponse(string $name, int $status, string $json_expected, string $path)

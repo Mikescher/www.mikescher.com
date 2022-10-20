@@ -167,6 +167,7 @@ html,body{margin:0;padding:0;height:100%}
 .keyvaluelist div span:first-child{font-weight:bold;min-width:500px;align-self:start}
 .kvl_100 div span:first-child{min-width:100px}
 .kvl_200 div span:first-child{min-width:200px}
+.kvl_250 div span:first-child{min-width:250px}
 .kvl_300 div span:first-child{min-width:300px}
 .selftest_parent{width:800px;max-width:100%}
 .selftest_outputchild{border:1px solid #888;background:#f8f8f8;color:#000;font-family:Consolas,Monaco,"Courier New",Menlo,monospace;white-space:pre;max-height:600px;overflow-x:auto;overflow-y:auto}

@@ -177,4 +177,18 @@ class ExtendedGitGraph2 implements ILogger
 	{
 		foreach($this->logger as $lgr) $lgr->proclog($text);
 	}
+
+	/**
+	 * @return string[]
+	 */
+	public function checkDatabase(): array
+	{
+		$this->db->open();
+
+		$r = $this->db->checkDatabase();
+
+		$this->db->close();
+
+		return $r;
+	}
 }

@@ -869,6 +869,10 @@ html, body {
   min-width: 200px;
 }
 
+.kvl_250 div span:first-child {
+  min-width: 250px;
+}
+
 .kvl_300 div span:first-child {
   min-width: 300px;
 }

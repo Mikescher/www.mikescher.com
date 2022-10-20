@@ -70,3 +70,14 @@ CREATE VIEW allbranches AS
 	FROM branches
 	LEFT JOIN repositories ON branches.repo_id  = repositories.id;
 
+/*----SPLIT----*/
+
+CREATE INDEX "branches_repo_id" ON "branches" ("repo_id");
+
+/*----SPLIT----*/
+
+CREATE INDEX "commits_branch_id" ON "commits" ("branch_id");
+
+/*----SPLIT----*/
+
+CREATE INDEX "commits_hash" ON "commits" ("hash");

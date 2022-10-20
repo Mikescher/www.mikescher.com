@@ -57,7 +57,7 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
         <div class="bc_data">
             <a id="btnFullSelftest" class="button" href="#">Full Selftest</a>
 
-            <div class="keyvaluelist kvl_200 selftest_parent <?= ($SITE->isProd() ? 'selftest_parallel' : 'selftest_sequential') ?>">
+            <div class="keyvaluelist kvl_250 selftest_parent <?= ($SITE->isProd() ? 'selftest_parallel' : 'selftest_sequential') ?>">
                 <?php $stid=1000; foreach ($SITE->modules->SelfTest()->listMethodGroups() as $group): $stid++; ?>
                     <div class="selftest_tabchild" onclick="showSelfTestOutput('#selftest_tab_<?= $stid; ?>', '#selftest_out_<?= $stid; ?>')">
                         <span><?= $group['name']; ?></span>
@@ -84,7 +84,7 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
 		$me = $real_ip == $self_ip
 		?>
 
-        <div class="bc_data keyvaluelist kvl_200">
+        <div class="bc_data keyvaluelist kvl_250">
             <div><span>Registered IP:</span> <span><?php echo $self_ip; ?></span></div>
             <div><span>Current IP:</span> <span><?php echo $real_ip; ?></span></div>
         </div>
@@ -112,7 +112,7 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
 
 		<?php if ($connected): ?>
             <div class="bc_data">
-                <div class="keyvaluelist kvl_200">
+                <div class="keyvaluelist kvl_250">
                     <div><span>Total users:</span> <span><?php echo $SITE->modules->AlephNoteStatistics()->getTotalUserCount(); ?></span></div>
                     <div><span>Users on latest version:</span> <span><?php echo $SITE->modules->AlephNoteStatistics()->getUserCountFromLastVersion(); ?></span></div>
                     <div><span>Active users:</span> <span><?php echo $SITE->modules->AlephNoteStatistics()->getActiveUserCount(32); ?></span></div>
@@ -133,7 +133,7 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
     <div class="boxedcontent">
         <div class="bc_header">Statics</div>
 
-        <div class="bc_data keyvaluelist kvl_200">
+        <div class="bc_data keyvaluelist kvl_250">
             <div><span>Blog entries:</span> <span><?php    echo count($SITE->modules->Blog()->listAll()); ?></span></div>
             <div><span>Book entries:</span> <span><?php    echo count($SITE->modules->Books()->listAll()); ?></span></div>
             <div><span>Euler entries:</span> <span><?php   echo count($SITE->modules->Euler()->listAll()); ?></span></div>
@@ -195,7 +195,7 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
 
     <div class="boxedcontent">
         <div class="bc_header">Configuration</div>
-        <div class="bc_data keyvaluelist kvl_200">
+        <div class="bc_data keyvaluelist kvl_250">
 			<?php
 			foreach ($SITE->config as $key => $value)
 			{
@@ -212,7 +212,7 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
 
     <div class="boxedcontent">
         <div class="bc_header">Configuration['extendedgitgraph']</div>
-        <div class="bc_data keyvaluelist kvl_200">
+        <div class="bc_data keyvaluelist kvl_250">
 			<?php
 			foreach ($SITE->config['extendedgitgraph'] as $key => $value)
 			{

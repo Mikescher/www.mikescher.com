@@ -10,7 +10,7 @@ import shutil
 def findnext(strdata, start, searchchr):
     depth = 0
     for i in range(start, len(strdata)):
-        if strdata[i] == searchchr: return i;
+        if strdata[i] == searchchr: return i
 
 
 def findclose(strdata, start):

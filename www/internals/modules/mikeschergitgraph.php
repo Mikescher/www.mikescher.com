@@ -49,4 +49,12 @@ class MikescherGitGraph implements IWebsiteModule
 
 		return ['result'=>'ok', 'message' => ''];
 	}
+
+	/**
+	 * @return string[]
+	 */
+	public function checkDatabaseConsistency(): array
+	{
+		return $this->extgitgraph->checkDatabase();
+	}
 }

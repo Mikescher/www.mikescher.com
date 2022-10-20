@@ -258,7 +258,8 @@ class EGGDatabase
 
 		foreach ($commits as $commit)
 		{
-			$strparents = implode(";", $commit->Parents);
+			$jparents = "[]";
+			if (count($commit->Parents) > 0) $jparents = '["'.implode('","', $commit->Parents).'"]';
 
 			$this->sql_exec_pre_prep($stmtAddCommit,
 				[
@@ -275,7 +276,7 @@ class EGGDatabase
 					[":cm",   $commit->CommitterEmail, PDO::PARAM_STR],
 					[":msg",  $commit->Message,        PDO::PARAM_STR],
 					[":dat",  $commit->Date,           PDO::PARAM_STR],
-					[":prt",  $strparents,             PDO::PARAM_STR],
+					[":prt",  $jparents,               PDO::PARAM_STR],
 				]);
 
 			$dbid = $this->sql_query_assoc_pre_prep($stmtGetID,
@@ -527,7 +528,7 @@ class EGGDatabase
 			$c->CommitterEmail = $row['committer_email'];
 			$c->Message        = $row['message'];
 			$c->Date           = $row['date'];
-			$c->Parents        = array_filter(explode(';', $row['parent_commits']), fn($p) => $p !== '');
+			$c->Parents        = json_decode($row['parent_commits']);
 			$r []= $c;
 		}
 		return $r;
@@ -555,9 +556,92 @@ class EGGDatabase
 			$c->CommitterEmail = $row['committer_email'];
 			$c->Message        = $row['message'];
 			$c->Date           = $row['date'];
-			$c->Parents        = array_filter(explode(';', $row['parent_commits']), fn($p) => $p !== '');
+			$c->Parents        = json_decode($row['parent_commits']);
 			$r []= $c;
 		}
 		return $r;
+	}
+
+	public function checkDatabase(): array{
+
+		$result = [];
+
+		// ======== [1] invalid json in parent_commits ==========
+		{
+			$errors = $this->sql_query_assoc_prep("SELECT * FROM metadata WHERE NOT json_valid(parent_commits)", []);
+
+			foreach ($errors as $e) {
+				$result []= "Found commit-metadata entry {".$e['hash']."} with invalid json in 'parent_commits'";
+			}
+		}
+
+		// ======== [2] metadata with missing parent ==========
+		{
+			$errors = $this->sql_query_assoc_prep("
+SELECT md1.*, md2.hash as check_hash FROM (
+	
+	SELECT 
+		md1.*, mdp.value AS parent 
+	FROM 
+		metadata AS md1, json_each(md1.parent_commits) AS mdp 
+
+) AS md1
+	
+LEFT JOIN metadata AS md2 ON md1.parent = md2.hash
+
+WHERE md1.parent != '' AND check_hash IS NULL", []);
+
+			foreach ($errors as $e) {
+				$result []= "Found commit-metadata entry {".$e['hash']."} with an reference to a not-existing parent '".$e['parent']."'";
+			}
+		}
+
+		// ======== [3] repositories without branches ==========
+		{
+			$errors = $this->sql_query_assoc_prep("SELECT repositories.*, (SELECT COUNT(*) FROM branches WHERE repositories.id = branches.repo_id) AS branch_count FROM repositories WHERE branch_count = 0", []);
+
+			foreach ($errors as $e) {
+				$result []= "Found repository [".$e['id']."]'".$e['name']."' without any branches";
+			}
+		}
+
+
+		// ======== [4] branches without commits ==========
+		{
+			$errors = $this->sql_query_assoc_prep("SELECT branches.*, (SELECT COUNT(*) FROM commits WHERE branches.id = commits.branch_id) AS commit_count FROM branches WHERE commit_count = 0", []);
+
+			foreach ($errors as $e) {
+				$result []= "Found branch [".$e['id']."]'".$e['name']."' without any commits";
+			}
+		}
+
+		// ======== [5] commits with missing metadata ==========
+		{
+			$errors = $this->sql_query_assoc_prep("SELECT commits.*, metadata.hash AS mdh FROM commits LEFT JOIN metadata ON commits.hash = metadata.hash WHERE mdh IS NULL", []);
+
+			foreach ($errors as $e) {
+				$result []= "Missing metadata for commit ".$e['id']." | {".$e['hash']."}";
+			}
+		}
+
+		// ======== [6] metadata with missing commits ==========
+		{
+			$errors = $this->sql_query_assoc_prep("SELECT metadata.*, commits.hash AS ch FROM metadata LEFT JOIN commits ON commits.hash = metadata.hash WHERE ch IS NULL", []);
+
+			foreach ($errors as $e) {
+				$result []= "Missing commit for metadata entry {".$e['hash']."}";
+			}
+		}
+
+		// ======== [7] missing branch-head in commits ==========
+		{
+			$errors = $this->sql_query_assoc_prep("SELECT branches.*, commits.id AS cid FROM branches LEFT JOIN commits ON branches.head = commits.hash WHERE cid IS NULL", []);
+
+			foreach ($errors as $e) {
+				$result []= "Missing head-commit {".$e['head']."} for branch ".$e['id'].": '".$e['name']."'";
+			}
+		}
+
+		return $result;
 	}
 }
