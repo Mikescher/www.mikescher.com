@@ -605,6 +605,8 @@ class SelfTest implements IWebsiteModule
 							$count++;
 							if ($r['statuscode'] === 200 || $r['statuscode'] === 301 || $r['statuscode'] === 302) { $message .= "[".$prog['name']."] Request to '$url' succeeded" . "\n"; continue; }
 
+							if ($r['statuscode'] === 403  && $urlname === 'alternativeto') { $message .= "[".$prog['name']."] Request to '$url' succeeded (alternative.to | 403)" . "\n"; continue; }
+
 							return
 							[
 								'result' => self::STATUS_ERROR,
