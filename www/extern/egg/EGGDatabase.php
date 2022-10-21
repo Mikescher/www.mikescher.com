@@ -386,13 +386,13 @@ class EGGDatabase
 		}
 	}
 
-	public function deleteDanglingCommitdata(string $name)
+	public function deleteDanglingCommitdata()
 	{
 		$hashes = $this->sql_query_assoc_prep("SELECT metadata.hash AS mdh FROM metadata LEFT JOIN commits ON metadata.hash = commits.hash WHERE commits.hash IS NULL", []);
 
 		if (count($hashes) === 0) return;
 
-		$this->logger->proclog("Deleting ".count($hashes)." dangling commits [" . $name . "] from database (no longer linked)");
+		$this->logger->proclog("Deleting ".count($hashes)." dangling commit[metadata] from database (no longer linked)");
 
 		$this->beginTransaction();
 		foreach ($hashes as $hash) {
@@ -400,7 +400,7 @@ class EGGDatabase
 		}
 		$this->commitTransaction();
 
-		$this->logger->proclog("Succesfully deleted ".count($hashes)." dangling commits");
+		$this->logger->proclog("Succesfully deleted ".count($hashes)." dangling commit[metadata]");
 	}
 
 	/**
@@ -537,7 +537,7 @@ class EGGDatabase
 	/**
 	 * @return Commit[]
 	 */
-	public function getCommitsForRepo(Repository $repo, Branch $branchValue): array
+	public function getCommitdataForRepo(Repository $repo, Branch $branchValue): array
 	{
 		$rows = $this->sql_query_assoc_prep("SELECT DISTINCT metadata.* FROM branches INNER JOIN commits ON branches.id = commits.branch_id LEFT JOIN metadata ON metadata.hash = commits.hash WHERE branches.repo_id = :rid",
 			[

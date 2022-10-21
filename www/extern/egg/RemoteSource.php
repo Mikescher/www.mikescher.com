@@ -72,15 +72,15 @@ abstract class StandardGitConnection implements IRemoteSource
 						continue;
 					}
 
-					$newcommits = $this->listAndUpdateCommits($db, $repo, $branch);
+					$updateCount = $this->listAndUpdateCommits($db, $repo, $branch);
 					$db->setUpdateDateOnBranch($branch);
-					if (count($newcommits) === 0)
+					if ($updateCount === 0)
 					{
 						$this->logger->proclog("Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] has no new commits");
 						continue;
 					}
 
-					$this->logger->proclog("Found " . count($newcommits) . " new commits in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]");
+					$this->logger->proclog("Found " . $updateCount . " new commits in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]");
 
 					$repo_changed = true;
 					$db->setChangeDateOnBranch($branch);
@@ -95,9 +95,9 @@ abstract class StandardGitConnection implements IRemoteSource
 
 		if ($anyChanged)
 		{
-			$this->logger->proclog("Deleting dangling commits...");
+			$this->logger->proclog("Deleting dangling commit-data...");
 
-			$db->deleteDanglingCommitdata($this->name);
+			$db->deleteDanglingCommitdata();
 		}
 
 		$this->postUpdate();
@@ -258,35 +258,35 @@ abstract class StandardGitConnection implements IRemoteSource
 	 * @return Commit[]
 	 * @throws Exception
 	 */
-	private function listAndUpdateCommits(EGGDatabase $db, Repository $repo, Branch $branch) {
+	private function listAndUpdateCommits(EGGDatabase $db, Repository $repo, Branch $branch): int {
 
-		$newcommits = [];
+		if ($branch->Head !== null && $branch->HeadFromAPI === $branch->Head) return 0; // nothing to do
+
+		/** @var Commit[] $queried_commits */
+		$queried_commits = [];
 
 		if ($branch->HeadFromAPI === null) return [];
 
 		$target = $branch->Head;
-		$targetFound = false;
+		$oldHeadFound = false;
 
 		$next_sha = [ $branch->HeadFromAPI ];
-		$visited  = array_map(function(Commit $m):string{return $m->Hash;}, $db->getCommitsForBranch($branch));
 
-		$query_counter=0;
+		$queryCounter=0;
+		$reusedFromExistingCommitData = 0;
+		$queriedFromAPI = 0;
 
-		$existing = [];
-		$reusedFromExisting = 0;
-		if ($branch->Head === null) {
+		$visited = [];
 
-			// new branch, perhaps we can mix'n'match existing commits+metadata
-			$this->logger->proclog("Query existing commits for [" . $this->name . "|" . $repo->Name . "] (potentially reuse for new branch '" . $branch->Name . "')");
-			foreach ($db->getCommitsForRepo($repo, $branch) as $c) $existing[$c->Hash] = $c;
-		}
+		/** @var Commit[] $existingCommitData (hash -> Commit) */
+		$existingCommitData = [];
 
+		$this->logger->proclog("Query existing commits for [" . $this->name . "|" . $repo->Name . "] (re-use)");
+		foreach ($db->getCommitdataForRepo($repo, $branch) as $c) $existingCommitData[$c->Hash] = $c;
+		$this->logger->proclog("Found " . count($existingCommitData) . " existing commit-data in DB");
 
-
-		$query_counter++;
-		$this->logger->proclog("Query commits for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (initial @ {" . substr($next_sha[0], 0, 8) . "}) (target: {" . substr($target ?? 'NULL', 0, 8) . "})");
-
-		$unprocessed = array_map(fn($p) => $this->createCommit($branch, $p), $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]));
+		/** @var Commit[] $unprocessed */
+		$unprocessed = [];
 
 		for (;;)
 		{
@@ -297,27 +297,9 @@ abstract class StandardGitConnection implements IRemoteSource
 				if (in_array($commit->Hash, $visited)) continue;
 				$visited []= $commit->Hash;
 
-				if ($commit->Hash === $target) $targetFound = true;
+				if ($commit->Hash === $target) $oldHeadFound = true;
 
-				if ($targetFound && count($next_sha) === 0)
-				{
-					if (count($newcommits) === 0)
-					{
-						$this->logger->proclog("Found no new commits for: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]  (HEAD at {" . substr($branch->HeadFromAPI, 0, 8) . "})");
-						return [];
-					}
-					else
-					{
-						$this->logger->proclog("Added " . count($newcommits) . " new commits for: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]  (HEAD moved from {" . substr($branch->Head, 0, 8) . "} to {" . substr($branch->HeadFromAPI, 0, 8) . "})");
-
-						$db->insertNewCommits($this->name, $repo, $branch, $newcommits);
-						$db->setBranchHead($branch, $branch->HeadFromAPI);
-
-						return $newcommits;
-					}
-				}
-
-				$newcommits []= $commit;
+				$queried_commits []= $commit;
 
 				foreach ($commit->Parents as $p)
 				{
@@ -326,44 +308,72 @@ abstract class StandardGitConnection implements IRemoteSource
 			}
 
 			$next_sha = array_values($next_sha); // fix numeric keys
-			if (count($next_sha) === 0) break;
 
-			if (array_key_exists($next_sha[0], $existing)) {
+			if (count($next_sha) === 0) break; // all leafs were processed, teh whole graph shoul have been handled
 
-				// fast-track for existing Commits
-				$unprocessed = [ $existing[$next_sha[0]] ];
-				$reusedFromExisting++;
+			if (array_key_exists($next_sha[0], $existingCommitData)) {
+
+				// fast-track for existing Commit-Data
+				$unprocessed = [ $existingCommitData[$next_sha[0]] ];
+				$reusedFromExistingCommitData++;
 
 			} else {
 
-				$query_counter++;
-				$this->logger->proclog("Query commits for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (" . $query_counter . " @ {" . substr($next_sha[0], 0, 8) . "})");
+				$queryCounter++;
+				if ($queryCounter === 1) {
+					$this->logger->proclog("Query commits for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (initial @ {" . substr($next_sha[0], 0, 8) . "}) (target: {" . substr($target ?? 'NULL', 0, 8) . "})");
+				} else {
+					$this->logger->proclog("Query commits for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] (" . $queryCounter . " @ {" . substr($next_sha[0], 0, 8) . "})");
+				}
 
 				$unprocessed = array_map(fn($p) => $this->createCommit($branch, $p), $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]));
+				$queriedFromAPI += count($unprocessed);
 
 			}
 
 		}
 
 		if ($branch->Head === null) {
-			$this->logger->proclog("HEAD pointer in new Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] set to {".substr($branch->HeadFromAPI ?? 'NULL', 0, 8)."} - Queried " . count($newcommits) . " commits (reused $reusedFromExisting commits from DB)");
+
+			// farm-fresh new branch
+
+			$this->logger->proclog("HEAD pointer in new Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] set to {".substr($branch->HeadFromAPI ?? 'NULL', 0, 8)."} - Queried " . count($queried_commits) . " commits (reused $reusedFromExistingCommitData commits from DB)");
+
+			$db->insertNewCommits($this->name, $repo, $branch, $queried_commits);
+			$db->setBranchHead($branch, $branch->HeadFromAPI);
+
+			return count($queried_commits);
+
+		} else if ($oldHeadFound) {
+
+			// normal update, a few commits were added
+
+			$this->logger->proclog("Query existing commits in DB for [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]");
+			$commitsInDB = array_map(function(Commit $m):string{return $m->Hash;}, $db->getCommitsForBranch($branch));
+
+			$actual_new_commits = array_filter($queried_commits, fn($p) => !in_array($p->Hash, $commitsInDB));
+
+			$this->logger->proclog("Update Branch [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] HEAD from {".substr($branch->Head ?? 'NULL', 0, 8)."} to {".substr($branch->HeadFromAPI ?? 'NULL', 0, 8)."} by adding ".count($actual_new_commits)." new commits (total = ".count($queried_commits).")");
+
+			$db->insertNewCommits($this->name, $repo, $branch, $actual_new_commits);
+			$db->setBranchHead($branch, $branch->HeadFromAPI);
+
+			return count($actual_new_commits);
+
 		} else {
-			$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Re-queried all " . count($newcommits) . " commits (old HEAD := {".substr($branch->Head ?? 'NULL', 0, 8)."}, missing: [" . join(", ", array_map(function($p){return substr($p ?? 'NULL', 0, 8);}, $next_sha)) . "] )");
+
+			// the old head was no longer found, some commits need to be deleted, do a full re-sync with the DB
+
+			$this->logger->proclog("HEAD pointer in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] no longer matches. Fully updating all " . count($queried_commits) . " commits (changing HEAD from {".substr($branch->Head ?? 'NULL', 0, 8)."} to {".substr($branch->HeadFromAPI ?? 'NULL', 0, 8)."} (reused $reusedFromExistingCommitData commits from DB)");
+
+			$db->deleteAllCommits($branch);
+
+			$db->insertNewCommits($this->name, $repo, $branch, $queried_commits);
+			$db->setBranchHead($branch, $branch->HeadFromAPI);
+
+			return count($queried_commits);
+
 		}
-
-
-		$db->deleteAllCommits($branch);
-
-		if (count($newcommits) === 0)
-		{
-			$db->setBranchHead($branch, null);
-			return [];
-		}
-
-		$db->insertNewCommits($this->name, $repo, $branch, $newcommits);
-		$db->setBranchHead($branch, $branch->HeadFromAPI);
-
-		return $newcommits;
 	}
 
 	private function createCommit(Branch $branch, $result_commit): Commit

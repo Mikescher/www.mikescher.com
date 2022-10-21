@@ -40,9 +40,9 @@ echo "\n";
 $r2 = $egg->checkDatabaseConsistency();
 if (count($r2) > 0)
 {
-	echo "EGG::updateCache failed.";
+	echo "EGG::updateCache failed.\n";
     foreach ($r2 as $msg) {
-		echo "    > $msg";
+		echo "    > $msg\n";
     }
 	exit(99);
 }
