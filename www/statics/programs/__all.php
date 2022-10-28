@@ -744,7 +744,7 @@ return
 		'ui_language'       => 'English',
 		'prog_language'     => 'Go',
 		'short_description' => 'A replacement for the default docker-ps that tries to fit into the width of the terminal.',
-		'add_date'          => '2922-10-15',
+		'add_date'          => '2022-10-15',
 		'license'           => 'MIT',
 		'urls'              =>
 			[
