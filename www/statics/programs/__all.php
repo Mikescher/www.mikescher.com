@@ -752,4 +752,23 @@ return
 				'download'       => 'https://github.com/Mikescher/better-docker-ps/releases',
 			],
 	],
+
+
+	[
+		'name'              => 'firefox-sync-client',
+		'internal_name'     => 'ffsclient',
+		'internal_name_alt' => null,
+		'category'          => 'Commandline',
+		'stars'             => 4,
+		'ui_language'       => 'English',
+		'prog_language'     => 'Go',
+		'short_description' => 'A cli for firefox-sync (firefox bookmarks, passwords, account, ...)',
+		'add_date'          => '2022-11-11',
+		'license'           => 'Apache-2.0',
+		'urls'              =>
+			[
+				'github'         => 'https://github.com/Mikescher/firefox-sync-client',
+				'download'       => 'https://github.com/Mikescher/firefox-sync-client/releases/latest',
+			],
+	],
 ];
