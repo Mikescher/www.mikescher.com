@@ -699,6 +699,7 @@ return
 			[
 				'github'         => 'https://github.com/Mikescher/youtube-dl-viewer',
 				'download'       => 'https://github.com/Mikescher/youtube-dl-viewer/releases',
+				'docker'         => 'https://hub.docker.com/r/mikescher/youtube-dl-viewer',
 			],
 		'extra_images'      =>
 			[
@@ -750,6 +751,8 @@ return
 			[
 				'github'         => 'https://github.com/Mikescher/better-docker-ps',
 				'download'       => 'https://github.com/Mikescher/better-docker-ps/releases',
+				'aur-bin'        => 'https://aur.archlinux.org/packages/dops-bin',
+				'aur-git'        => 'https://aur.archlinux.org/packages/dops-git',
 			],
 	],
 
@@ -769,6 +772,10 @@ return
 			[
 				'github'         => 'https://github.com/Mikescher/firefox-sync-client',
 				'download'       => 'https://github.com/Mikescher/firefox-sync-client/releases/latest',
+				'aur-bin'        => 'https://aur.archlinux.org/packages/ffsclient-bin',
+				'aur-git'        => 'https://aur.archlinux.org/packages/ffsclient-git',
+				'homebrew-tap'   => 'brew tap Mikescher/tap && brew install ffsclient',
+				'chocolatey'     => 'https://community.chocolatey.org/packages/ffsclient',
 			],
 	],
 ];

@@ -49,12 +49,24 @@ $FRAME_OPTIONS->activeHeader = 'programs';
 					<?php
 					foreach ($SITE->modules->Programs()->getURLs($prog) as $xurl)
 					{
-						echo '<a class="iconbutton '.$xurl['css'].'" href="'.$xurl['href'].'">';
-						echo '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">';
-						echo '<use xlink:href="/data/images/icons.svg#'.$xurl['svg'].'"/>';
-						echo '</svg>';
-						echo '<span>'.$xurl['caption'].'</span>';
-						echo '</a>';
+                        if ($xurl['alert'] === null)
+                        {
+							echo '<a class="iconbutton '.$xurl['css'].'" href="'.$xurl['href'].'">';
+							echo '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">';
+							echo '<use xlink:href="/data/images/icons.svg#'.$xurl['svg'].'"/>';
+							echo '</svg>';
+							echo '<span>'.$xurl['caption'].'</span>';
+							echo '</a>';
+                        }
+                        else
+                        {
+							echo '<a class="iconbutton '.$xurl['css'].'" onclick="alert(atob(\'' . base64_encode($xurl['alert']) . '\'))">';
+							echo '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">';
+							echo '<use xlink:href="/data/images/icons.svg#'.$xurl['svg'].'"/>';
+							echo '</svg>';
+							echo '<span>'.$xurl['caption'].'</span>';
+							echo '</a>';
+                        }
 					}
 					?>
                 </div>

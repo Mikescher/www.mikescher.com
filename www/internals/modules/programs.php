@@ -15,6 +15,14 @@ class Programs implements IWebsiteModule
 		'windowsstore',
 		'itunesstore',
 
+		'docker',
+
+		'aur-bin',
+		'aur-git',
+		'homebrew',
+		'homebrew-tap',
+		'chocolatey',
+
 		'homepage',
 		'wiki',
 		'alternativeto',
@@ -138,6 +146,7 @@ class Programs implements IWebsiteModule
 			$css     = '?';
 			$svg     = '?';
 			$direct  = false;
+			$alert   = null;
 
 			if ($type === 'download')       { $caption = 'Download';         $css = 'prgv_dl_download';      $svg = 'download';      }
 			if ($type === 'github')         { $caption = 'Github';           $css = 'prgv_dl_github';        $svg = 'github';        }
@@ -150,6 +159,13 @@ class Programs implements IWebsiteModule
 			if ($type === 'sourceforge')    { $caption = 'Sourceforge';      $css = 'prgv_dl_sourceforge';   $svg = 'sourceforge';   }
 			if ($type === 'alternativeto')  { $caption = 'AlternativeTo';    $css = 'prgv_dl_alternativeto'; $svg = 'alternativeto'; }
 			if ($type === 'changelog')      { $caption = 'Changelog';        $css = 'prgv_dl_changelog';     $svg = 'changelog';     }
+
+			if ($type === 'docker')         { $caption = 'Docker';           $css = 'prgv_dl_docker';        $svg = 'docker';        }
+			if ($type === 'aur-bin')        { $caption = 'AUR (bin)';        $css = 'prgv_dl_aur_bin';       $svg = 'arch';          }
+			if ($type === 'aur-git')        { $caption = 'AUR (git)';        $css = 'prgv_dl_aur_git';       $svg = 'arch';          }
+			if ($type === 'homebrew')       { $caption = 'Homebrew';         $css = 'prgv_dl_homebrew';      $svg = 'homebrew';      }
+			if ($type === 'homebrew-tap')   { $caption = 'Homebrew';         $css = 'prgv_dl_homebrew';      $svg = 'homebrew';      }
+			if ($type === 'chocolatey')     { $caption = 'Chocolatey';       $css = 'prgv_dl_chocolatey';    $svg = 'chocolatey';    }
 
 			if (is_array($urldata))
 			{
@@ -169,6 +185,12 @@ class Programs implements IWebsiteModule
 				$url    =  Programs::getDirectDownloadURL($prog);
 			}
 
+			if ($type === 'homebrew-tap')
+			{
+				$alert = $url;
+				$url = '';
+			}
+
 			$result []=
 			[
 				'type'     => $type,
@@ -177,6 +199,7 @@ class Programs implements IWebsiteModule
 				'href'     => $url,
 				'css'      => $css,
 				'isdirect' => $direct,
+				'alert'    => $alert,
 			];
 		}
 
@@ -238,7 +261,7 @@ class Programs implements IWebsiteModule
 
 				if ($xurl['type']==='download' && $xurl['isdirect'] && !file_exists($this->getDirectDownloadPath($prog))) return ['result'=>'err', 'message' => 'Direct download not found ' . $prog['name']];
 
-				if ($xurl['type']==='download' || $xurl['type']==='playstore' || $xurl['type']==='itunesstore') $isdl = true;
+				if (in_array($xurl['type'], ['download', 'playstore', 'itunesstore', 'docker', 'aur-bin', 'aur-git', 'homebrew', 'chocolatey'])) $isdl = true;
 			}
 
 			if (!$isdl) return ['result'=>'err', 'message' => 'No download link ' . $prog['name']];
