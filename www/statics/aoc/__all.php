@@ -99,10 +99,14 @@ return
 		  	['day' => 24, 'parts' => 2, 'title' => 'Lobby Layout',                            'language' => 'rust', 'solutions' => ['459', '4150'] ],
 		  	['day' => 25, 'parts' => 1, 'title' => 'Combo Breaker',                           'language' => 'rust', 'solutions' => ['3217885'] ],
 		],
-		'2021' => 
+		'2021' =>
 		[
 			['day' =>  1, 'parts' => 2, 'title' => 'Sonar Sweep',                             'language' => 'go',   'solutions' => ['1715', '1739'] ],
 			['day' =>  2, 'parts' => 2, 'title' => 'Dive!',                                   'language' => 'go',   'solutions' => ['1451208', '1620141160'] ],
 			['day' =>  3, 'parts' => 2, 'title' => 'Binary Diagnostic',                       'language' => 'go',   'solutions' => ['2954600', '1662846'] ],
+		],
+		'2022' =>
+		[
+			['day' =>  1, 'parts' => 2, 'title' => 'Calorie Counting',                        'language' => 'nim',  'solutions' => ['66719', '198551'] ],
 		]
 	];

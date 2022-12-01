@@ -9,6 +9,7 @@ class AdventOfCode implements IWebsiteModule
 		'2019' => [ 'url-aoc'=>'https://adventofcode.com/2019/day/', 'blog-id' => 24, 'github' => 'https://github.com/Mikescher/AdventOfCode2019', 'single_solution_file' => false ],
 		'2020' => [ 'url-aoc'=>'https://adventofcode.com/2020/day/', 'blog-id' => 26, 'github' => 'https://github.com/Mikescher/AdventOfCode2020', 'single_solution_file' => true  ],
 		'2021' => [ 'url-aoc'=>'https://adventofcode.com/2021/day/', 'blog-id' => 27, 'github' => 'https://github.com/Mikescher/AdventOfCode2021', 'single_solution_file' => true  ],
+		'2022' => [ 'url-aoc'=>'https://adventofcode.com/2022/day/', 'blog-id' => 28, 'github' => 'https://github.com/Mikescher/AdventOfCode2022', 'single_solution_file' => false ],
 	];
 
 	const LANGUAGES =
@@ -23,6 +24,7 @@ class AdventOfCode implements IWebsiteModule
 		'js'   => ['ext'=>'js',   'css'=>'language-javascript',    'name'=>'Javascript'],
 		'pas'  => ['ext'=>'pas',  'css'=>'language-pascal',        'name'=>'Pascal/Delphi'],
 		'ts'   => ['ext'=>'ts',   'css'=>'language-typescript',    'name'=>'Typescript'],
+		'nim'  => ['ext'=>'nim',  'css'=>'language-nim',           'name'=>'Nim'],
 	];
 
 	/** @var array */

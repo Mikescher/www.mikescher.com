@@ -29,4 +29,5 @@ return
 	[ 'id' => 25, 'date' => '2020-01-09', 'visible' => true,  'title' => 'Advent of Code 2017 - Python3',          'fragment' => 'aoc2017.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2017'] ],
 	[ 'id' => 26, 'date' => '2020-12-01', 'visible' => true,  'title' => 'Advent of Code 2020 - Rust',             'fragment' => 'aoc2020.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2020'] ],
 	[ 'id' => 27, 'date' => '2021-11-25', 'visible' => true,  'title' => 'Advent of Code 2021 - Go',               'fragment' => 'aoc2021.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2021'] ],
+	[ 'id' => 28, 'date' => '2022-12-01', 'visible' => true,  'title' => 'Advent of Code 2022 - Nim',              'fragment' => 'aoc2022.md',         'type' => 'aoc',      'cat' => 'blog', 'extras' => ['aoc:year' => '2022'] ],
 ];
