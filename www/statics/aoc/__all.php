@@ -108,5 +108,6 @@ return
 		'2022' =>
 		[
 			['day' =>  1, 'parts' => 2, 'title' => 'Calorie Counting',                        'language' => 'nim',  'solutions' => ['66719', '198551'] ],
+			['day' =>  2, 'parts' => 2, 'title' => 'Rock Paper Scissors',                     'language' => 'nim',  'solutions' => ['14297', '10498'] ],
 		]
 	];
