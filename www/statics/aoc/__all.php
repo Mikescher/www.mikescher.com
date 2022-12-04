@@ -110,5 +110,6 @@ return
 			['day' =>  1, 'parts' => 2, 'title' => 'Calorie Counting',                        'language' => 'nim',  'solutions' => ['66719', '198551'] ],
 			['day' =>  2, 'parts' => 2, 'title' => 'Rock Paper Scissors',                     'language' => 'nim',  'solutions' => ['14297', '10498'] ],
 			['day' =>  3, 'parts' => 2, 'title' => 'Rucksack Reorganization',                 'language' => 'nim',  'solutions' => ['7889', '2825'] ],
+			['day' =>  4, 'parts' => 2, 'title' => 'Camp Cleanup',                            'language' => 'nim',  'solutions' => ['550', '931'] ],
 		]
 	];
