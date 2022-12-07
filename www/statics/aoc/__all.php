@@ -112,6 +112,7 @@ return
 			['day' =>  3, 'parts' => 2, 'title' => 'Rucksack Reorganization',                 'language' => 'nim',  'solutions' => ['7889', '2825'] ],
 			['day' =>  4, 'parts' => 2, 'title' => 'Camp Cleanup',                            'language' => 'nim',  'solutions' => ['550', '931'] ],
 			['day' =>  5, 'parts' => 2, 'title' => 'Supply Stacks',                           'language' => 'nim',  'solutions' => ['HBTMTBSDC', 'PQTJRSHWS'] ],
-			['day' =>  6, 'parts' => 2, 'title' => 'Tuning Trouble',                          'language' => 'nim',  'solutions' => ['1042', '2980'] ],
+            ['day' =>  6, 'parts' => 2, 'title' => 'Tuning Trouble',                          'language' => 'nim',  'solutions' => ['1042', '2980'] ],
+            ['day' =>  7, 'parts' => 2, 'title' => 'No Space Left On Device',                 'language' => 'nim',  'solutions' => ['1243729', '4443914'] ],
 		]
 	];
