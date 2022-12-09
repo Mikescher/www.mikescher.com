@@ -115,5 +115,6 @@ return
             ['day' =>  6, 'parts' => 2, 'title' => 'Tuning Trouble',                          'language' => 'nim',  'solutions' => ['1042', '2980'] ],
             ['day' =>  7, 'parts' => 2, 'title' => 'No Space Left On Device',                 'language' => 'nim',  'solutions' => ['1243729', '4443914'] ],
             ['day' =>  8, 'parts' => 2, 'title' => 'Treetop Tree House',                      'language' => 'nim',  'solutions' => ['1823', '211680'] ],
+            ['day' =>  8, 'parts' => 2, 'title' => 'Rope Bridge',                             'language' => 'nim',  'solutions' => ['6037', '2485'] ],
 		]
 	];
