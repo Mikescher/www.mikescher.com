@@ -10,3 +10,5 @@ runtime/
 config.php
 
 www/dtest.php
+
+DOCKER_GIT_INFO
