@@ -22,10 +22,6 @@ $API_COMMANDS =
 	'site::selftest'                => [ 'src' => __DIR__.'/../commands/site_selftest.php',                'auth' => 'admin'          ],
 	'site::gitinfo'                 => [ 'src' => __DIR__.'/../commands/site_gitinfo.php',                 'auth' => 'admin'          ],
 
-	'server::setselfaddress'        => [ 'src' => __DIR__.'/../commands/server_setselfaddress.php',        'auth' => 'none'           ],
-	'server::gitwebhook'            => [ 'src' => __DIR__.'/../commands/server_gitwebhook.php',            'auth' => 'webhook_secret' ],
-	'server::backupupload'          => [ 'src' => __DIR__.'/../commands/server_backupupload.php',          'auth' => 'upload_secret'  ],
-
 	'extendedgitgraph::status'      => [ 'src' => __DIR__.'/../commands/extendedgitgraph_status.php',      'auth' => 'ajax_secret'    ],
 	'extendedgitgraph::redraw'      => [ 'src' => __DIR__.'/../commands/extendedgitgraph_redraw.php',      'auth' => 'ajax_secret'    ],
 	'extendedgitgraph::refresh'     => [ 'src' => __DIR__.'/../commands/extendedgitgraph_refresh.php',     'auth' => 'ajax_secret'    ],
