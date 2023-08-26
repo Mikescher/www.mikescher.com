@@ -8,7 +8,7 @@ require_once (__DIR__ . '/../internals/website.php');
 
 if (!isset($API_OPTIONS['name'])) { $FRAME_OPTIONS->forceResult(400, "Wrong parameters."); return; }
 
-$name = $API_OPTIONS['name'];
+$name = urldecode($API_OPTIONS['name']);
 
 $updatedata = $SITE->modules->UpdatesLog()->listUpdateData();
 

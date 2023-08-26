@@ -532,25 +532,34 @@ class SelfTest implements IWebsiteModule
 						'exception' => null,
 					];
 
-					$r = shell_exec('git status 2>&1');
-					$ok = ($r !== null) && (strpos($r, 'Your branch is up to date with') !== false) && (strpos($r, 'nothing to commit, working tree clean') !== false);
+					$r = Website::inst()->gitStatus();
 
-					if (!$ok)
+					if (!$r)
 					{
 						return
 						[
 							'result' => self::STATUS_ERROR,
-							'message' => "{$xname} failed",
+							'message' => "{$xname} failed (command error)",
 							'long' => $r,
 							'exception' => null,
 						];
 					}
-					else
+					else if (!$r[2])
+                    {
+                        return
+                            [
+                                'result' => self::STATUS_ERROR,
+                                'message' => "{$xname} failed (git repo not clean)",
+                                'long' => $r,
+                                'exception' => null,
+                            ];
+                    }
+                    else
 					{
 						return
 						[
 							'result' => self::STATUS_OK,
-							'message' => "{".$xname."} succeeded",
+							'message' => "{".$xname."} succeeded ('$r[0]' | '$r[1]')",
 							'long' => $r,
 							'exception' => null,
 						];
@@ -599,7 +608,8 @@ class SelfTest implements IWebsiteModule
 							$url = $urlobj;
 							if (is_array($urlobj)) $url = $urlobj['url'];
 
-							if ($url === 'direct') continue;
+                            if ($url     === 'direct')       continue;
+                            if ($urlname === 'homebrew-tap') continue;
 
 							$r = curl_http_request($url);
 							$count++;

@@ -11,10 +11,13 @@ RUN docker-php-ext-install pdo pdo_mysql bcmath
  
 COPY .docker /_docker
 
-RUN chmod +Xx /_docker/run.sh     && \ 
+RUN chmod +Xx /_docker/run.sh     && \
     chmod +Xx /_docker/init.sh
 
-COPY ./www /var/www/html
+COPY ./www             /var/www/html
+COPY ./DOCKER_GIT_INFO /DOCKER_GIT_INFO
+
+RUN chmod a+r /DOCKER_GIT_INFO
 
 # MapVolumes for: /var/www/html/config.php       [ro]
 # MapVolumes for: /var/www/html/dynamic          [rw]
@@ -23,5 +26,6 @@ COPY ./www /var/www/html
 
 EXPOSE 80
 
-CMD ["/_docker/run.sh"]
+ENTRYPOINT ["/_docker/run.sh"]
+CMD []
 

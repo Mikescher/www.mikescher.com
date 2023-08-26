@@ -9,12 +9,15 @@ HASH=$(shell git rev-parse HEAD)
 run:
 	php -S localhost:8000 -t .
 
-docker:
-	echo -n "VCSTYPE="     >> DOCKER_GIT_INFO ; echo "git"                                            >> DOCKER_GIT_INFO
-	echo -n "BRANCH="      >> DOCKER_GIT_INFO ; git rev-parse --abbrev-ref HEAD                       >> DOCKER_GIT_INFO
-	echo -n "HASH="        >> DOCKER_GIT_INFO ; git rev-parse              HEAD                       >> DOCKER_GIT_INFO
-	echo -n "COMMITTIME="  >> DOCKER_GIT_INFO ; git log -1 --format=%cd --date=iso                    >> DOCKER_GIT_INFO
-	echo -n "REMOTE="      >> DOCKER_GIT_INFO ; git remote -v | awk '{print $2}' | uniq | tr '\n' ';' >> DOCKER_GIT_INFO
+dgi:
+	[ ! -f "DOCKER_GIT_INFO" ] || rm DOCKER_GIT_INFO
+	echo -n "VCSTYPE="     >> DOCKER_GIT_INFO ; { echo "git" ;                                            } >> DOCKER_GIT_INFO
+	echo -n "BRANCH="      >> DOCKER_GIT_INFO ; { git rev-parse --abbrev-ref HEAD ;                       } >> DOCKER_GIT_INFO
+	echo -n "HASH="        >> DOCKER_GIT_INFO ; { git rev-parse              HEAD ;                       } >> DOCKER_GIT_INFO
+	echo -n "COMMITTIME="  >> DOCKER_GIT_INFO ; { git log -1 --format=%cd --date=iso ;                    } >> DOCKER_GIT_INFO
+	echo -n "REMOTE="      >> DOCKER_GIT_INFO ; { git remote -v | awk '{print $$2}' | uniq | tr '\n' ';'; } >> DOCKER_GIT_INFO
+
+docker: dgi
 	docker build \
 	    -t $(DOCKER_NAME):$(HASH) \
 	    -t $(DOCKER_NAME):$(NAMESPACE)-latest \
@@ -27,6 +30,7 @@ docker:
 run-docker: docker
 	mkdir -p ".run-data"
 	docker run --rm \
+	           -it \
 	           --init \
 	           --publish 8080:80 \
 	           --env "SMTP=0" \
@@ -37,6 +41,7 @@ run-docker: docker
 run-docker-live: docker
 	mkdir -p "$(shell pwd)/.run-data"
 	docker run --rm   \
+	           -it \
 	           --init \
 	           --publish 8080:80 \
 	           --volume "$(shell pwd)/www:/var/www/html/" \
