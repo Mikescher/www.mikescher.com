@@ -222,7 +222,11 @@ function getRandomToken($length = 32)
 
 function isHTTPRequest()
 {
-	return (!isset($_SERVER['HTTPS'])) || empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off";
+	if (isset($_SERVER['HTTP_X_FORWARDED_PROTOCOL']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTOCOL']) === "https" ) return false;
+
+	if (isset($_SERVER['HTTPS']) && (!empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== "off")) return false; 
+
+	return true;
 }
 
 function str_max_len(string $str, int $max)
