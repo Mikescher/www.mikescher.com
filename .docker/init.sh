@@ -1,3 +1,4 @@
+#!/bin/bash
 
 echo "" > /var/log/msmtp
 
