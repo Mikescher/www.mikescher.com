@@ -191,6 +191,7 @@ abstract class StandardGitConnection implements IRemoteSource
 				$this->logger->proclog("Found Repo in Remote: " . $jdata['full_name']);
 
 				$result []= $db->getOrCreateRepository($jdata['html_url'], $jdata['full_name'], $this->name);
+                $count++;
 			}
 
 			if ($count === 0) break;
