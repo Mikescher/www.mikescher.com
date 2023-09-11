@@ -39,7 +39,11 @@ else
     {
 		echo $SITE->fragments->BlogviewMarkdown($post);
 	}
-	elseif ($post['type'] === 'euler')
+	elseif ($post['type'] === 'html')
+    {
+        echo $SITE->fragments->BlogviewHTML($post);
+    }
+    elseif ($post['type'] === 'euler')
     {
 		if ($subview === '') echo $SITE->fragments->BlogviewEulerList($post);
 		else                 echo $SITE->fragments->BlogviewEulerSingle($post, $subview);

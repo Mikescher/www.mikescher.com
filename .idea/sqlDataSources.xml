@@ -6,10 +6,11 @@
         <State>
           <option name="id" value="b1f51636-21bf-4ca9-a884-b0419489ab5f" />
           <option name="name" value="EGG DB" />
-          <option name="languageId" value="SQLite" />
+          <option name="dbmsName" value="SQLITE" />
           <option name="urls">
             <array>
               <option value="file://$PROJECT_DIR$/www/extern/egg/db_init.sql" />
+              <option value="file://$PROJECT_DIR$/data/schema.sql" />
             </array>
           </option>
         </State>

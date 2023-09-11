@@ -75,6 +75,14 @@ class Fragments
 		]);
 	}
 
+    public function BlogviewHTML(array $blogpost)
+    {
+        return $this->evalFragment('BlogviewHTML', 'blogview_html.php',
+            [
+                'blogpost' => $blogpost,
+            ]);
+    }
+
 	public function BlogviewEulerList(array $blogpost)
 	{
 		return $this->evalFragment('BlogviewEulerList', 'blogview_euler_list.php',

@@ -19,7 +19,7 @@ $FRAME_OPTIONS->alternative_url = "/adventofcode/$year";
 
 ?>
 
-<div class="boxedcontent blogcontent_plain">
+<div class="boxedcontent blogcontent_aoclist">
 
     <div style="position: relative;">
         <a href="<?php echo $SITE->modules->AdventOfCode()->getGithubLink($year); ?>" style="position: absolute; top: 0; right: 0; border: 0;">

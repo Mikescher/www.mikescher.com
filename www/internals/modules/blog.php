@@ -118,9 +118,13 @@ class Blog implements IWebsiteModule
 
 				if (!file_exists($post['file_fragment'])) return ['result'=>'err', 'message' => 'Fragment not found ' . $post['fragment']];
 
-			} else if ($post['type'] === 'plain') {
+            } else if ($post['type'] === 'plain') {
 
-				if (!file_exists($post['file_fragment'])) return ['result'=>'err', 'message' => 'Fragment not found ' . $post['fragment']];
+                if (!file_exists($post['file_fragment'])) return ['result'=>'err', 'message' => 'Fragment not found ' . $post['fragment']];
+
+            } else if ($post['type'] === 'html') {
+
+                if (!file_exists($post['file_fragment'])) return ['result'=>'err', 'message' => 'Fragment not found ' . $post['fragment']];
 
 			} else if ($post['type'] === 'euler') {
 

@@ -8,30 +8,31 @@ class SelfTest implements IWebsiteModule
 
 	private const DISPLAY_NAMES =
 	[
-		'web::main'             => 'Website (http)',
-		'web::programs'         => 'Programs (http)',
-		'web::programs-ext'     => 'Programs (links)',
-		'web::programs-dl'      => 'Programs (download)',
-		'web::books'            => 'Books (http)',
-		'web::blog'             => 'Blog (http)',
-		'web::webapps'          => 'WebApps (http)',
-		'web::euler'            => 'Project Euler (http)',
-		'web::aoc'              => 'Advent of Code (http)',
-		'api::default'          => 'API',
-		'api::highscore'        => 'Highscores API',
-		'modules::database'     => 'Database',
-		'modules::blog'         => 'Blog (data)',
-		'modules::euler'        => 'Project Euler (data)',
-		'modules::books'        => 'Books (data)',
-		'modules::extgitgraph'  => 'ExtendedGitGraph (data)',
-		'modules::programs'     => 'Programs (data)',
-		'modules::adventofcode' => 'Advent of Code (data)',
-		'modules::anstatistics' => 'AlephNote Stats (data)',
-		'modules::updateslog'   => 'Program Updates (data)',
-		'modules::webapps'      => 'Webapps (data)',
-		'modules::highscores'   => 'Highscores (data)',
-		'egg::db-check'         => 'ExtendedGitGraph (db-check)',
-		'backend::git'          => 'Git Repository',
+		'web::main'                => 'Website (http)',
+		'web::programs'            => 'Programs (http)',
+		'web::programs-ext'        => 'Programs (links)',
+		'web::programs-dl'         => 'Programs (download)',
+		'web::books'               => 'Books (http)',
+		'web::blog'                => 'Blog (http)',
+		'web::webapps'             => 'WebApps (http)',
+		'web::euler'               => 'Project Euler (http)',
+		'web::aoc'                 => 'Advent of Code (http)',
+		'api::default'             => 'API',
+		'api::highscore'           => 'Highscores API',
+		'modules::database'        => 'Database',
+		'modules::blog'            => 'Blog (data)',
+		'modules::euler'           => 'Project Euler (data)',
+		'modules::books'           => 'Books (data)',
+		'modules::extgitgraph'     => 'ExtendedGitGraph (data)',
+		'modules::programs'        => 'Programs (data)',
+		'modules::adventofcode'    => 'Advent of Code (data)',
+		'modules::anstatistics'    => 'AlephNote Stats (data)',
+		'modules::updateslog'      => 'Program Updates (data)',
+		'modules::webapps'         => 'Webapps (data)',
+        'modules::highscores'      => 'Highscores (data)',
+        'modules::projectlawful'   => 'ProjectLawful-ebook (files)',
+		'egg::db-check'            => 'ExtendedGitGraph (db-check)',
+		'backend::git'             => 'Git Repository',
 	];
 
 	private $methods = [];
@@ -51,9 +52,9 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodPathStatus("web::main::about-2",    200, '/msmain/about');
 		$this->addMethodPathStatus("web::main::login-1",    200, '/login');
 		$this->addMethodPathStatus("web::main::404-1",      404, '/asdf');
-		$this->addHTTPSRedirect(  "web::main::redirect-1", '');
-		$this->addHTTPSRedirect(  "web::main::redirect-2", '/about');
-		$this->addHTTPSRedirect(  "web::main::redirect-3", '/about');
+		$this->addHTTPSRedirect(   "web::main::redirect-1",      '');
+		$this->addHTTPSRedirect(   "web::main::redirect-2",      '/about');
+		$this->addHTTPSRedirect(   "web::main::redirect-3",      '/about');
 
 		$this->addMethodPathStatus(     "web::programs::programs-list-1",     200, '/programs');
 		$this->addMethodPathStatus(     "web::programs::programs-list-2",     200, '/programs/index');
@@ -106,18 +107,19 @@ class SelfTest implements IWebsiteModule
 		$this->addMethodMultiPathStatus("web::aoc::aoc-redirect-1", 302, '{0}', function(){ return array_key_map(Website::inst()->modules->AdventOfCode()->listAllDays(), 'url-alternative'); });
 		$this->addMethodMultiPathStatus("web::aoc::aoc-redirect-1", 302, '/adventofcode/{0}', function(){ return Website::inst()->modules->AdventOfCode()->listYears(); });
 
-		$this->addCheckConsistency("modules::database::database-check-consistency",         function(){ return Website::inst()->modules->Database(); });
-		$this->addCheckConsistency("modules::blog::blog-check-consistency",                 function(){ return Website::inst()->modules->Blog(); });
-		$this->addCheckConsistency("modules::euler::euler-check-consistency",               function(){ return Website::inst()->modules->Euler(); });
-		$this->addCheckConsistency("modules::books::books-check-consistency",               function(){ return Website::inst()->modules->Books(); });
-		$this->addCheckConsistency("modules::extgitgraph::extgitgraph-check-consistency",   function(){ return Website::inst()->modules->ExtendedGitGraph(); });
-		$this->addCheckConsistency("modules::programs::programs-check-consistency",         function(){ return Website::inst()->modules->Programs(); });
-		$this->addCheckConsistency("modules::books::books-check-consistency",               function(){ return Website::inst()->modules->Books(); });
-		$this->addCheckConsistency("modules::adventofcode::adventofcode-check-consistency", function(){ return Website::inst()->modules->AdventOfCode(); });
-		$this->addCheckConsistency("modules::anstatistics::anstatistics-check-consistency", function(){ return Website::inst()->modules->AlephNoteStatistics(); });
-		$this->addCheckConsistency("modules::updateslog::updateslog-check-consistency",     function(){ return Website::inst()->modules->UpdatesLog(); });
-		$this->addCheckConsistency("modules::webapps::webapps-check-consistency",           function(){ return Website::inst()->modules->WebApps(); });
-		$this->addCheckConsistency("modules::highscores::highscores-check-consistency",     function(){ return Website::inst()->modules->Highscores(); });
+		$this->addCheckConsistency("modules::database::database-check-consistency",               function(){ return Website::inst()->modules->Database(); });
+		$this->addCheckConsistency("modules::blog::blog-check-consistency",                       function(){ return Website::inst()->modules->Blog(); });
+		$this->addCheckConsistency("modules::euler::euler-check-consistency",                     function(){ return Website::inst()->modules->Euler(); });
+		$this->addCheckConsistency("modules::books::books-check-consistency",                     function(){ return Website::inst()->modules->Books(); });
+		$this->addCheckConsistency("modules::extgitgraph::extgitgraph-check-consistency",         function(){ return Website::inst()->modules->ExtendedGitGraph(); });
+		$this->addCheckConsistency("modules::programs::programs-check-consistency",               function(){ return Website::inst()->modules->Programs(); });
+		$this->addCheckConsistency("modules::books::books-check-consistency",                     function(){ return Website::inst()->modules->Books(); });
+		$this->addCheckConsistency("modules::adventofcode::adventofcode-check-consistency",       function(){ return Website::inst()->modules->AdventOfCode(); });
+		$this->addCheckConsistency("modules::anstatistics::anstatistics-check-consistency",       function(){ return Website::inst()->modules->AlephNoteStatistics(); });
+		$this->addCheckConsistency("modules::updateslog::updateslog-check-consistency",           function(){ return Website::inst()->modules->UpdatesLog(); });
+		$this->addCheckConsistency("modules::webapps::webapps-check-consistency",                 function(){ return Website::inst()->modules->WebApps(); });
+        $this->addCheckConsistency("modules::highscores::highscores-check-consistency",           function(){ return Website::inst()->modules->Highscores(); });
+        $this->addCheckConsistency("modules::projectlawful::projectlawful-check-consistency",     function(){ return Website::inst()->modules->ProjectLawful(); });
 
 		$this->addLambdaStatus("egg::db-check::check-db-consistency", function(){ return Website::inst()->modules->ExtendedGitGraph()->checkDatabaseConsistency(); });
 

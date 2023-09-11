@@ -51,7 +51,7 @@ $FRAME_OPTIONS->activeHeader = 'programs';
 					{
                         if ($xurl['alert'] === null)
                         {
-							echo '<a class="iconbutton '.$xurl['css'].'" href="'.$xurl['href'].'">';
+							echo '<a rel="nofollow" class="iconbutton '.$xurl['css'].'" href="'.$xurl['href'].'">';
 							echo '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">';
 							echo '<use xlink:href="/data/images/icons.svg#'.$xurl['svg'].'"/>';
 							echo '</svg>';

@@ -1,5 +1,7 @@
 <?php
 
+use internals\modules\ProjectLawful;
+
 require_once 'website.php';
 
 class Modules
@@ -15,7 +17,8 @@ class Modules
 	/** @var WebApps|null */             private $webapps = null;
 	/** @var MikescherGitGraph|null */   private $extendedgitgraph = null;
 	/** @var Highscores|null */          private $highscores = null;
-	/** @var SelfTest|null */            private $selftest = null;
+    /** @var SelfTest|null */            private $selftest = null;
+    /** @var ProjectLawful|null */       private $projectlawful = null;
 
 	/** @var Website */
 	private $site;
@@ -91,9 +94,15 @@ class Modules
 		return $this->highscores;
 	}
 
-	public function SelfTest(): SelfTest
-	{
-		if ($this->selftest === null) { require_once 'modules/selftest.php'; $this->selftest = new SelfTest(); }
-		return $this->selftest;
-	}
+    public function SelfTest(): SelfTest
+    {
+        if ($this->selftest === null) { require_once 'modules/selftest.php'; $this->selftest = new SelfTest(); }
+        return $this->selftest;
+    }
+
+    public function ProjectLawful(): ProjectLawful
+    {
+        if ($this->projectlawful === null) { require_once 'modules/projectlawful.php'; $this->projectlawful = new ProjectLawful($this->site); }
+        return $this->projectlawful;
+    }
 }

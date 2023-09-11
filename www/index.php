@@ -49,6 +49,8 @@ $URL_RULES =
 
 	[ 'url' => ['admin'],                                  'target' => 'admin.php',                  'options' => [ 'password' ],    'parameter' => [ ]                                        ],
 
+    [ 'url' => ['blog','29','*','download','?{variant}'],  'target' => 'projectlawful_download.php', 'options' => [ ],               'parameter' => [ 'variant' => '%URL%' ],                 ],
+
 	[ 'url' => ['blog'],                                   'target' => 'blog_list.php',              'options' => [ ],               'parameter' => [ ],                                       ],
 	[ 'url' => ['log'],                                    'target' => 'blog_list.php',              'options' => [ ],               'parameter' => [ ],                                       ],
 	[ 'url' => ['blogpost', 'index'],                      'target' => 'blog_list.php',              'options' => [ ],               'parameter' => [ ],                                       ],
@@ -66,7 +68,7 @@ $URL_RULES =
 	[ 'url' => ['adventofcode', '?{year}'],                'target' => 'adventofcode_year.php',      'options' => [ ],               'parameter' => [ 'year' => '%URL%' ],                     ],
 	[ 'url' => ['adventofcode', '?{year}', '?{day}'],      'target' => 'adventofcode_day.php',       'options' => [ ],               'parameter' => [ 'year' => '%URL%', 'day' => '%URL%' ],   ],
 
-	[ 'url' => ['webapps'],                                'target' => 'webapps_list.php',           'options' => [ ],               'parameter' => [ ],                                       ],
+    [ 'url' => ['webapps'],                                'target' => 'webapps_list.php',           'options' => [ ],               'parameter' => [ ],                                       ],
 
 	[ 'url' => ['highscores', 'list.php'],                 'target' => 'highscores_listentries.php', 'options' => [ 'http' ],        'parameter' => [ 'gameid' => '%GET%' ],                   ],
 	[ 'url' => ['highscores', 'list'],                     'target' => 'highscores_listentries.php', 'options' => [ 'http' ],        'parameter' => [ 'gameid' => '%GET%' ],                   ],

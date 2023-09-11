@@ -93,6 +93,18 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
     <!-- - - - - - - - - - - - - - - - - - - - - -->
 
     <div class="boxedcontent">
+        <div class="bc_header">Project Lawful ebook (download count)</div>
+
+        <div class="bc_data keyvaluelist kvl_250">
+            <?php foreach ($SITE->modules->ProjectLawful()->listDownloadCounts() as $dlc): ?>
+                <div><span><?php echo $dlc['variant']; ?>:</span> <span><?php echo $dlc['count']; ?></span></div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - -->
+
+    <div class="boxedcontent">
         <div class="bc_header">ExtendedGitGraph</div>
 
         <div class="bc_data">

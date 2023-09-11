@@ -58,3 +58,14 @@ CREATE TABLE IF NOT EXISTS updateslog
 
   PRIMARY KEY (ID)
 );
+
+CREATE TABLE IF NOT EXISTS projectlawful_downloadcounter
+(
+    id          int(11)       NOT NULL AUTO_INCREMENT,
+    variant     varchar(512)  NOT NULL DEFAULT '0',
+    timestamp   timestamp     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ip          varchar(128)  NOT NULL,
+    useragent   varchar(4096) NOT NULL,
+
+    PRIMARY KEY (ID)
+);

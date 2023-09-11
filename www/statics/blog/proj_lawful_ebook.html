@@ -1,0 +1,181 @@
+
+<div class="project-lawful-ebook-blogpost">
+
+    This is my attempt at creating an ebook version of the <a href="https://www.projectlawful.com/">project lawful</a> story/glowfic.
+
+    <ul>
+        <li>I used the cache file of <a href="https://github.com/QuartzLibrary/glowpub">glowpub</a> as a basis, because I didn't want to write my own scraper (thanks to <a href="https://github.com/QuartzLibrary">github.com/QuartzLibrary</a>)</li>
+        <li>Then I <a href="https://github.com/Mikescher/ProjectLawfulEbook">hacked together a bit of C# code</a> to generate epub files</li>
+        <li>All external images (and optionally avatars) are included in the epub</li>
+        <li>I went through all the avatar files and made them square images (simplified my css, and looked better - most were already squares or almost-squares)</li>
+        <li>Various properties of the final file/layout can be changed, I generated the variants I found useful, but if anyone wants something special it should be enough to close the repo, edit <code>Program.cs</code> and run <code>make</code></li>
+    </ul>
+
+    <h2># Variants</h2>
+
+    I recommend either the <code>project-lawful-inline.epub</code> or the <code>project-lawful-avatars.epub</code> variants
+    (the <code>*-avatars</code> version contains the post profile-pictures, but is bigger and takes longer to open on older devices).
+
+    There are 3 different versions of the actual **content** of the files:
+    <ul>
+        <li>the normal one includes all threads from <a href="https://www.projectlawful.com/">projectlawful.com</a>, including sandboxes and lectures. If there is a SFW version of a thread, it is not included (the inline/nsfw is included instead)</li>
+        <li>the <code>*-sfw-*</code> versions have the NSFW threads replaced wih their SFW counterparts<br/><i>(replaces threads 5310 with 5403, 5610 with 5618, 5638 with 5671)</i></li>
+        <li>the <code>*-onlymainstory-*</code> versions do not include the sandbox threads or the (optional) lecture threads<br/><i>(removes threads 5775, 5778, 5785, 5826, 5864, 5880, 6029, 6124)</i></li>
+    </ul>
+
+    There are also 5 different layout options (that I code-built) for every version above:
+    <ul>
+        <li>the <code>*-inline</code> variant only includes the character-name of each post, and (if possible) the character-name is set inline with the first paragraph</li>
+        <li>the <code>*-moreinfo</code> variant also includes the alignment text of each post/character after the character-name.</li>
+        <li>the <code>*-avatars</code> variant show the character avatar beside each post. This forces us to include all 600-ish avatars in the epub file, which increases filesize and loading time</li>
+        <li>the <code>*-avatars-moreinfo</code> also includes the alignment text (additionally to the avatar). Here the avatar/character-name/alignment-text are also no longer inlined, but get their own paragraph at the start of every post.</li>
+        <li>the <code>*-biggerhtml</code> variant looks the same as <code>*-inline</code>, but internally every chapter is a single big file (instead of multiple split files), this makes the initial loading of the epub slower, but codevents a forced page-break after every 128th post.</li>
+    </ul>
+
+    As said above, it should be possible to create epub's with other combination of options (see <code>Program.cs</code> and <code>Options.cs</code>)
+
+    <h2># Tested on</h2>
+
+    <ul>
+        <li>Kindle Paperwhite /w KOReader</li>
+        <li>Foliate</li>
+        <li>epub.js</li>
+        <li>Calibre Ebook viewer</li>
+    </ul>
+
+    <h2># Download</h2>
+
+    <div class="variant">
+        <h3>project-lawful-inline.epub</h3>
+        <div class="dlbutton">
+            <img alt="page preview" src="/data/images/blog/ple-scaled-inline-01.jpeg">
+            <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/inline">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+                <span class="span_dl">Download</span>
+                <span class="span_mb">(30.9 MB)</span>
+            </a>
+        </div>
+        <img alt="page preview" src="/data/images/blog/ple-scaled-inline-01.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-inline-02.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-inline-03.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-inline-04.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-inline-05.jpeg">
+    </div>
+
+    <div class="variant">
+        <h3>project-lawful-avatars.epub</h3>
+        <div class="dlbutton">
+            <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-01.jpeg">
+            <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/avatars">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+                <span class="span_dl">Download</span>
+                <span class="span_mb">(37.5 MB)</span>
+            </a>
+        </div>
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-01.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-02.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-03.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-04.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-05.jpeg">
+    </div>
+
+    <div class="variant">
+        <h3>project-lawful-avatars-moreinfo.epub</h3>
+        <div class="dlbutton">
+            <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-moreinfo-01.jpeg">
+            <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/avatars-moreinfo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+                <span class="span_dl">Download</span>
+                <span class="span_mb">(37.6 MB)</span>
+            </a>
+        </div>
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-moreinfo-01.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-moreinfo-02.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-moreinfo-03.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-moreinfo-04.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-moreinfo-05.jpeg">
+    </div>
+
+    <div class="variant">
+        <h3>project-lawful-moreinfo.epub</h3>
+        <div class="dlbutton">
+            <img alt="page preview" src="/data/images/blog/ple-scaled-moreinfo-01.jpeg">
+            <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/moreinfo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+                <span class="span_dl">Download</span>
+                <span class="span_mb">(30.9 MB)</span>
+            </a>
+        </div>
+        <img alt="page preview" src="/data/images/blog/ple-scaled-moreinfo-01.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-moreinfo-02.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-moreinfo-03.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-moreinfo-04.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-moreinfo-05.jpeg">
+    </div>
+
+    <div class="variant">
+        <h3>project-lawful-biggerhtml.epub</h3>
+        <div class="dlbutton">
+            <img alt="page preview" src="/data/images/blog/ple-scaled-biggerhtml-01.jpeg">
+            <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/biggerhtml">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+                <span class="span_dl">Download</span>
+                <span class="span_mb">(30.6 MB)</span>
+            </a>
+        </div>
+        <img alt="page preview" src="/data/images/blog/ple-scaled-biggerhtml-01.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-biggerhtml-02.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-biggerhtml-03.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-biggerhtml-04.jpeg">
+        <img alt="page preview" src="/data/images/blog/ple-scaled-biggerhtml-05.jpeg">
+    </div>
+
+    <div class="variant alt-variants">
+        <h3>Alternatives (SFW)</h3>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/sfw-inline">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-sfw-inline</span><span class="span_mb">(30.8 MB)</span>
+        </a>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/sfw-avatars">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-sfw-avatars</span><span class="span_mb">(37.4 MB)</span>
+        </a>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/sfw-avatars-moreinfo">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-sfw-avatars-moreinfo</span><span class="span_mb">(37.5 MB)</span>
+        </a>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/sfw-moreinfo">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-sfw-moreinfo</span><span class="span_mb">(30.8 MB)</span>
+        </a>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/sfw-biggerhtml">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-sfw-biggerhtml</span><span class="span_mb">(30.5 MB)</span>
+        </a>
+    </div>
+
+    <div class="variant alt-variants">
+        <h3>Alternatives (Only-Main-Story)</h3>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/onlymainstory-inline">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-onlymainstory-inline</span><span class="span_mb">(30.5 MB)</span>
+        </a>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/onlymainstory-avatars">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-onlymainstory-avatars</span><span class="span_mb">(37.2 MB)</span>
+        </a>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/onlymainstory-avatars-moreinfo">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-onlymainstory-avatars-moreinfo</span><span class="span_mb">(37.3 MB)</span>
+        </a>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/onlymainstory-moreinfo">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-onlymainstory-moreinfo</span><span class="span_mb">(30.6 MB)</span>
+        </a>
+        <a class="dlbtn_alt" rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/onlymainstory-biggerhtml">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><use xlink:href="/data/images/icons.svg#download"/></svg>
+            <span class="span_dl">project-lawful-onlymainstory-biggerhtml</span><span class="span_mb">(30.2 MB)</span>
+        </a>
+    </div>
+
+</div>

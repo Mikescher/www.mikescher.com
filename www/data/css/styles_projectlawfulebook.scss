@@ -1,0 +1,123 @@
+@import 'styles_config';
+
+.project-lawful-ebook-blogpost
+{
+    code {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        padding-left:  2px;
+        padding-right: 2px;
+    }
+
+    .variant {
+        display: grid;
+        grid-template-columns: repeat(6, auto) 1fr;
+        grid-template-rows: auto auto;
+        grid-column-gap: 1rem;
+    }
+
+    .variant h3 { grid-row: 1; grid-column: 1/-1; text-decoration: underline; }
+
+    .variant .dlbutton {
+        position: relative;
+        height: 100%;
+        padding: 0;
+        display: flex;
+        border:none;
+    }
+
+    .variant .dlbutton img {
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .variant .dlbutton a {
+        display: grid;
+        grid-template-rows: 1fr auto auto;
+        grid-row-gap: 4px;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        padding: 0.5rem;
+        cursor: pointer;
+        text-decoration: none;
+
+        color: $COL_BUTTON_GENERIC_FG;
+        background-color: $COL_BUTTON_GENERIC_BG;
+
+        border-radius: 4px;
+
+        border: 1px solid black;
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .variant .dlbutton a:hover {
+        background-color: $COL_BUTTON_GENERIC_HOVER;
+    }
+
+    .variant .dlbutton a .span_dl {
+        font-weight: bold;
+        font-size: 1.33em;
+    }
+
+    .variant .dlbutton a .span_mb {
+        font-size: 0.75em;
+    }
+
+    .variant .dlbutton svg {
+        fill: #BBB;
+    }
+
+    .variant img {
+        width: 100%;
+        border: 1px solid #555;
+    }
+}
+
+.project-lawful-ebook-blogpost
+{
+    .variant.alt-variants {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .dlbtn_alt {
+        display: grid;
+        grid-template-columns: 24px auto 1fr auto;
+        grid-column-gap: 1rem;
+
+        color: $COL_BUTTON_GENERIC_FG;
+        background-color: $COL_BUTTON_GENERIC_BG;
+        border: 1px solid black;
+        border-radius: 4px;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        padding: 6px;
+
+        align-items: center;
+    }
+
+    .dlbtn_alt:hover {
+        background-color: $COL_BUTTON_GENERIC_HOVER;
+    }
+
+    .dlbtn_alt svg {
+        fill: #BBB;
+
+    }
+
+    .dlbtn_alt .span_mb {
+        font-size: 0.75em;
+        grid-column: 4;
+    }
+}
