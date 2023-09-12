@@ -2612,6 +2612,12 @@ html, body {
     height: 150px;
   }
 }
+.project-lawful-ebook-blogpost {
+  /* Level: 0 */
+  /* Level: 1 */
+  /* Level: 2 */
+  /* Level: 3 */
+}
 .project-lawful-ebook-blogpost code {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 2px;
@@ -2678,7 +2684,42 @@ html, body {
   width: 100%;
   border: 1px solid #555;
 }
+@media (max-device-width: 767px) {
+  .project-lawful-ebook-blogpost .variant .dlbutton svg {
+    width: 16px;
+  }
+  .project-lawful-ebook-blogpost .variant .dlbutton a .span_dl {
+    display: none;
+  }
+  .project-lawful-ebook-blogpost .variant .dlbutton a .span_mb {
+    display: none;
+  }
+}
+@media (min-device-width: 768px) and (max-device-width: 850px) {
+  .project-lawful-ebook-blogpost .variant .dlbutton svg {
+    width: 32px;
+  }
+  .project-lawful-ebook-blogpost .variant .dlbutton a .span_dl {
+    font-size: 1em;
+  }
+}
+@media (min-device-width: 851px) and (max-device-width: 991px) {
+  .project-lawful-ebook-blogpost .variant .dlbutton svg {
+    width: 48px;
+  }
+}
+@media (min-device-width: 992px) and (max-device-width: 1199px) {
+  .project-lawful-ebook-blogpost .variant .dlbutton svg {
+    width: 48px;
+  }
+  .project-lawful-ebook-blogpost .variant .dlbutton a .span_dl {
+    font-size: 1em;
+  }
+}
 
+.project-lawful-ebook-blogpost {
+  /* Level: 0 - 3 */
+}
 .project-lawful-ebook-blogpost .variant.alt-variants {
   display: flex;
   flex-direction: column;
@@ -2702,6 +2743,11 @@ html, body {
 }
 .project-lawful-ebook-blogpost .dlbtn_alt svg {
   fill: #BBB;
+}
+@media (max-device-width: 1199px) {
+  .project-lawful-ebook-blogpost .dlbtn_alt svg {
+    width: 16px;
+  }
 }
 .project-lawful-ebook-blogpost .dlbtn_alt .span_mb {
   font-size: 0.75em;

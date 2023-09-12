@@ -78,6 +78,27 @@
         width: 100%;
         border: 1px solid #555;
     }
+
+    @include rdmedia(0) {
+        .variant .dlbutton svg        { width: 16px;   }
+        .variant .dlbutton a .span_dl { display: none; }
+        .variant .dlbutton a .span_mb { display: none; }
+    }
+    @include rdmedia(1) {
+        .variant .dlbutton svg        { width: 32px;    }
+        .variant .dlbutton a .span_dl { font-size: 1em; }
+        .variant .dlbutton a .span_mb {                 }
+    }
+    @include rdmedia(2) {
+        .variant .dlbutton svg        { width: 48px;    }
+        .variant .dlbutton a .span_dl {                 }
+        .variant .dlbutton a .span_mb {                 }
+    }
+    @include rdmedia(3) {
+        .variant .dlbutton svg        { width: 48px;    }
+        .variant .dlbutton a .span_dl { font-size: 1em; }
+        .variant .dlbutton a .span_mb {                 }
+    }
 }
 
 .project-lawful-ebook-blogpost
@@ -113,8 +134,9 @@
 
     .dlbtn_alt svg {
         fill: #BBB;
-
     }
+
+    @include rdmedia_range(0, 3) { .dlbtn_alt svg { width: 16px; } }
 
     .dlbtn_alt .span_mb {
         font-size: 0.75em;
