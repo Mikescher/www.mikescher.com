@@ -165,33 +165,50 @@ class Website
         if (file_exists('/DOCKER_GIT_INFO'))
         {
             $dgi = preg_split("/\r\n|\n|\r/", file_get_contents('/DOCKER_GIT_INFO'));
-            $branch = '';
-            $sha    = '';
+            $branch  = false;
+            $sha     = false;
+            $time    = false;
+            $remote  = false;
+            $message = false;
             foreach ($dgi as $line)
             {
                 $split = explode('=', $line, 2);
                 if (count($split) !== 2) continue;
 
-                if ($split[0] === 'BRANCH') { $branch = $split[1]; continue; }
-                if ($split[0] === 'HASH')   { $sha    = $split[1]; continue; }
+                if ($split[0] === 'BRANCH')     { $branch  = $split[1];                continue; }
+                if ($split[0] === 'HASH')       { $sha     = $split[1];                continue; }
+                if ($split[0] === 'COMMITTIME') { $time    = $split[1];                continue; }
+                if ($split[0] === 'REMOTE')     { $remote  = $split[1];                continue; }
+                if ($split[0] === 'MESSAGE')    { $message = base64_decode($split[1]); continue; }
             }
 
-            if ($branch !== '' && $sha !== '') return [$branch, $sha, true];
-            return false;
+            if ($branch  === '') $branch  = false;
+            if ($sha     === '') $sha     = false;
+            if ($time    === '') $time    = false;
+            if ($remote  === '') $remote  = false;
+            if ($message === '') $message = false;
+
+            return [$branch, $sha, true, $time, $remote, $message];
         }
         else
         {
-            $status = shell_exec('git status 2>&1');
-            $branch = shell_exec('git rev-parse --abbrev-ref HEAD');
-            $sha    = shell_exec('git rev-parse HEAD');
+            $status  = shell_exec('git status 2>&1');
+            $branch  = shell_exec('git rev-parse --abbrev-ref HEAD');
+            $sha     = shell_exec('git rev-parse HEAD');
+            $time    = shell_exec('git log -1 --format=%cd --date=iso');
+            $remote  = shell_exec("git remote -v | awk '{print \$2}' | uniq | tr '\\n' ';'");
+            $message = shell_exec("git log -1 --format=%B  | awk '{s=s \$0 \"\\n\"}END{sub(/\\n+\$/,\"\",s);printf \"%s\",s}'");
 
-            if ($status === false || $status === null || $status === '') return false;
-            if ($branch === false || $branch === null || $branch === '') return false;
-            if ($sha    === false || $sha    === null || $sha    === '') return false;
+            if ($status  === false || $status  === null || $status  === '') $status  = false;
+            if ($branch  === false || $branch  === null || $branch  === '') $branch  = false;
+            if ($sha     === false || $sha     === null || $sha     === '') $sha     = false;
+            if ($time    === false || $time    === null || $time    === '') $time    = false;
+            if ($remote  === false || $remote  === null || $remote  === '') $remote  = false;
+            if ($message === false || $message === null || $message === '') $message = false;
 
             $clean = (str_contains($status, 'Your branch is up to date with')) && (str_contains($status, 'nothing to commit, working tree clean'));
 
-            return [$branch, $sha, $clean];
+            return [$branch, $sha, $clean, $time, $remote, $message];
         }
     }
 

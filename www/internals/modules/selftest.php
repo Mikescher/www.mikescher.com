@@ -546,7 +546,8 @@ class SelfTest implements IWebsiteModule
 							'exception' => null,
 						];
 					}
-					else if (!$r[2])
+
+                    if (!$r[2])
                     {
                         return
                             [
@@ -556,7 +557,18 @@ class SelfTest implements IWebsiteModule
                                 'exception' => null,
                             ];
                     }
-                    else
+
+                    if ($r[0] === false || $r[1] === false)
+                    {
+                        return
+                            [
+                                'result' => self::STATUS_ERROR,
+                                'message' => "{$xname} failed (failed to query branch/sha)",
+                                'long' => $r,
+                                'exception' => null,
+                            ];
+                    }
+
 					{
 						return
 						[

@@ -11,11 +11,14 @@ run:
 
 dgi:
 	[ ! -f "DOCKER_GIT_INFO" ] || rm DOCKER_GIT_INFO
-	echo -n "VCSTYPE="     >> DOCKER_GIT_INFO ; { echo "git" ;                                            } >> DOCKER_GIT_INFO
-	echo -n "BRANCH="      >> DOCKER_GIT_INFO ; { git rev-parse --abbrev-ref HEAD ;                       } >> DOCKER_GIT_INFO
-	echo -n "HASH="        >> DOCKER_GIT_INFO ; { git rev-parse              HEAD ;                       } >> DOCKER_GIT_INFO
-	echo -n "COMMITTIME="  >> DOCKER_GIT_INFO ; { git log -1 --format=%cd --date=iso ;                    } >> DOCKER_GIT_INFO
-	echo -n "REMOTE="      >> DOCKER_GIT_INFO ; { git remote -v | awk '{print $$2}' | uniq | tr '\n' ';'; } >> DOCKER_GIT_INFO
+	echo -n "VCSTYPE="     >> DOCKER_GIT_INFO ; { echo -n "git" ;                                                                                      echo ""; } >> DOCKER_GIT_INFO
+	echo -n "BRANCH="      >> DOCKER_GIT_INFO ; { git rev-parse --abbrev-ref HEAD ;                                                                             } >> DOCKER_GIT_INFO
+	echo -n "HASH="        >> DOCKER_GIT_INFO ; { git rev-parse              HEAD ;                                                                             } >> DOCKER_GIT_INFO
+	echo -n "COMMITTIME="  >> DOCKER_GIT_INFO ; { git log -1 --format=%cd --date=iso ;                                                                          } >> DOCKER_GIT_INFO
+	echo -n "REMOTE="      >> DOCKER_GIT_INFO ; { git remote -v | awk '{print $$2}' | uniq | tr '\n' ';';                                              echo ""; } >> DOCKER_GIT_INFO
+	echo -n "MESSAGE="     >> DOCKER_GIT_INFO ; { git log -1 --format=%B | awk '{s=s $$0 "\n"}END{sub(/\n+$$/,"",s);printf "%s",s}' | base64 --wrap=0; echo ""; } >> DOCKER_GIT_INFO
+
+
 
 docker: dgi
 	docker build \
