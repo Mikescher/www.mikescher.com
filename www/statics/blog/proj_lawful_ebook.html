@@ -29,7 +29,7 @@
         <li>the <code>*-inline</code> variant only includes the character-name of each post, and (if possible) the character-name is set inline with the first paragraph</li>
         <li>the <code>*-moreinfo</code> variant also includes the alignment text of each post/character after the character-name.</li>
         <li>the <code>*-avatars</code> variant show the character avatar beside each post. This forces us to include all 600-ish avatars in the epub file, which increases filesize and loading time</li>
-        <li>the <code>*-avatars-moreinfo</code> also includes the alignment text (additionally to the avatar). Here the avatar/character-name/alignment-text are also no longer inlined, but get their own paragraph at the start of every post.</li>
+        <li>the <code>*-avatars-moreinfo</code> also includes the alignment text and author name (additionally to the avatar). Here the avatar/character-name/alignment-text/author-name are also no longer inlined, but get their own paragraph at the start of every post.</li>
         <li>the <code>*-biggerhtml</code> variant looks the same as <code>*-inline</code>, but internally every chapter is a single big file (instead of multiple split files), this makes the initial loading of the epub slower, but codevents a forced page-break after every 128th post.</li>
     </ul>
 
@@ -47,7 +47,7 @@
     <h2># Download</h2>
 
     <div class="variant">
-        <h3>project-lawful-inline.epub</h3>
+        <div class="header"><h3>project-lawful-inline.epub</h3> <i>(recommended for ebook readers)</i></div>
         <div class="dlbutton">
             <img alt="page preview" src="/data/images/blog/ple-scaled-inline-01.jpeg">
             <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/inline">
@@ -64,7 +64,7 @@
     </div>
 
     <div class="variant">
-        <h3>project-lawful-avatars.epub</h3>
+        <div class="header"><h3>project-lawful-avatars.epub</h3></div>
         <div class="dlbutton">
             <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-01.jpeg">
             <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/avatars">
@@ -81,7 +81,7 @@
     </div>
 
     <div class="variant">
-        <h3>project-lawful-avatars-moreinfo.epub</h3>
+        <div class="header"><h3>project-lawful-avatars-moreinfo.epub</h3> <i>(recommended, if you want something close to the original experience)</i></div>
         <div class="dlbutton">
             <img alt="page preview" src="/data/images/blog/ple-scaled-avatars-moreinfo-01.jpeg">
             <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/avatars-moreinfo">
@@ -98,7 +98,7 @@
     </div>
 
     <div class="variant">
-        <h3>project-lawful-moreinfo.epub</h3>
+        <div class="header"><h3>project-lawful-moreinfo.epub</h3></div>
         <div class="dlbutton">
             <img alt="page preview" src="/data/images/blog/ple-scaled-moreinfo-01.jpeg">
             <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/moreinfo">
@@ -115,7 +115,7 @@
     </div>
 
     <div class="variant">
-        <h3>project-lawful-biggerhtml.epub</h3>
+        <div class="header"><h3>project-lawful-biggerhtml.epub</h3></div>
         <div class="dlbutton">
             <img alt="page preview" src="/data/images/blog/ple-scaled-biggerhtml-01.jpeg">
             <a rel="nofollow" href="/blog/29/Project_Lawful_ebook/download/biggerhtml">
