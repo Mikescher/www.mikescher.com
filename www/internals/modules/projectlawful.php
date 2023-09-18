@@ -57,6 +57,41 @@ class ProjectLawful implements IWebsiteModule
         return $this->site->modules->Database()->sql_query_assoc('SELECT variant, COUNT(*) AS `count` FROM projectlawful_downloadcounter GROUP BY variant ORDER BY variant');
     }
 
+    public function listDownloadCountsExt()
+    {
+        // https://github.com/JayBizzle/Crawler-Detect
+
+        require_once __DIR__ . '/../../extern/crawler-detect/src/Fixtures/AbstractProvider.php';
+        require_once __DIR__ . '/../../extern/crawler-detect/src/Fixtures/Crawlers.php';
+        require_once __DIR__ . '/../../extern/crawler-detect/src/Fixtures/Exclusions.php';
+        require_once __DIR__ . '/../../extern/crawler-detect/src/Fixtures/Headers.php';
+        require_once __DIR__ . '/../../extern/crawler-detect/src/CrawlerDetect.php';
+
+        $CrawlerDetect = new \Jaybizzle\CrawlerDetect\CrawlerDetect;
+
+        $r = [];
+
+        foreach ($this->site->modules->Database()->sql_query_assoc('SELECT * FROM projectlawful_downloadcounter ORDER BY timestamp ASC') as $entry)
+        {
+            if (!key_exists($entry['variant'], $r)) $r[$entry['variant']] = [0, 0, ''];
+
+            $v = $r[$entry['variant']];
+
+            if ($CrawlerDetect->isCrawler($entry['useragent']))
+            {
+                $r[$entry['variant']] = [$v[0] + 0, $v[1] + 1, $entry['timestamp']];
+            }
+            else
+            {
+                $r[$entry['variant']] = [$v[0] + 1, $v[1] + 1, $v[2]];
+            }
+        }
+
+        ksort($r);
+
+        return $r;
+    }
+
     public function variantExists(string $variant)
     {
         return isset($this->variants[$variant]);

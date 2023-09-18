@@ -848,6 +848,14 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+.keyvaluelist.bc_data {
+  padding-left: 0;
+  padding-right: 0;
+}
+.keyvaluelist.bc_data div {
+  padding-left: 8px;
+  padding-right: 8px;
+}
 .keyvaluelist div {
   display: flex;
   flex-direction: row;
@@ -859,6 +867,9 @@ html, body {
   font-weight: bold;
   min-width: 500px;
   align-self: start;
+}
+.keyvaluelist .row_hover:hover {
+  background-color: #E0E0FF;
 }
 
 .kvl_100 div span:first-child {

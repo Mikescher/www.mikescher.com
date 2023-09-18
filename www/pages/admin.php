@@ -97,8 +97,16 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
 
         <div class="bc_data keyvaluelist kvl_250">
             <?php if ($connected): ?>
-                <?php foreach ($SITE->modules->ProjectLawful()->listDownloadCounts() as $dlc): ?>
-                    <div><span><?php echo $dlc['variant']; ?>:</span> <span><?php echo $dlc['count']; ?></span></div>
+                <?php foreach ($SITE->modules->ProjectLawful()->listDownloadCountsExt() as $variant => [$nonbot, $total, $ts]): ?>
+                    <div class="row_hover">
+                        <span><?php echo $variant; ?>:</span>
+                        &nbsp;
+                        <span title="non-crawler count" style="min-width: 4em"><?php echo $nonbot; ?></span>
+                        &nbsp;
+                        <span title="total count" style="opacity: 0.45; min-width: 6em;">( <?php echo $total; ?> )</span>
+                        &nbsp;
+                        <span title="last-non-crawler-download" style="opacity: 0.75"><?php echo $ts; ?></span>
+                    </div>
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="bc_data keyvaluelist admindberr">Database not connected.</div>
@@ -150,11 +158,11 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
         <div class="bc_header">Statics</div>
 
         <div class="bc_data keyvaluelist kvl_250">
-            <div><span>Blog entries:</span> <span><?php    echo count($SITE->modules->Blog()->listAll()); ?></span></div>
-            <div><span>Book entries:</span> <span><?php    echo count($SITE->modules->Books()->listAll()); ?></span></div>
-            <div><span>Euler entries:</span> <span><?php   echo count($SITE->modules->Euler()->listAll()); ?></span></div>
-            <div><span>Program entries:</span> <span><?php echo count($SITE->modules->Programs()->listAll()); ?></span></div>
-            <div><span>Update entries:</span> <span><?php  echo count($SITE->modules->UpdatesLog()->listUpdateData()); ?></span></div>
+            <div class="row_hover" ><span>Blog entries:</span> <span><?php    echo count($SITE->modules->Blog()->listAll()); ?></span></div>
+            <div class="row_hover" ><span>Book entries:</span> <span><?php    echo count($SITE->modules->Books()->listAll()); ?></span></div>
+            <div class="row_hover" ><span>Euler entries:</span> <span><?php   echo count($SITE->modules->Euler()->listAll()); ?></span></div>
+            <div class="row_hover" ><span>Program entries:</span> <span><?php echo count($SITE->modules->Programs()->listAll()); ?></span></div>
+            <div class="row_hover" ><span>Update entries:</span> <span><?php  echo count($SITE->modules->UpdatesLog()->listUpdateData()); ?></span></div>
         </div>
     </div>
 
@@ -218,9 +226,9 @@ $connected = true; try { $SITE->modules->Database(); } catch (Exception $e) { $c
 				if ($key === 'extendedgitgraph') continue;
 
 				if (is_array($value))
-					echo '<div><span>' . $key . '</span> <span style="white-space: pre">' . json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</span></div>' . "\n";
+					echo '<div class="row_hover"><span>' . $key . '</span> <span style="white-space: pre">' . json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</span></div>' . "\n";
 				else
-					echo '<div><span>' . $key . '</span> <span>' . nl2br(var_export($value, true)) . '</span></div>' . "\n";
+					echo '<div class="row_hover"><span>' . $key . '</span> <span>' . nl2br(var_export($value, true)) . '</span></div>' . "\n";
 			}
 			?>
         </div>

@@ -162,9 +162,12 @@ html,body{margin:0;padding:0;height:100%}
 .admincontent .boxedcontent{margin-bottom:20px}
 .egg_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}
 .keyvaluelist{display:flex;flex-direction:column}
+.keyvaluelist.bc_data{padding-left:0;padding-right:0}
+.keyvaluelist.bc_data div{padding-left:8px;padding-right:8px}
 .keyvaluelist div{display:flex;flex-direction:row}
 .keyvaluelist div span{align-self:center}
 .keyvaluelist div span:first-child{font-weight:bold;min-width:500px;align-self:start}
+.keyvaluelist .row_hover:hover{background-color:#e0e0ff}
 .kvl_100 div span:first-child{min-width:100px}
 .kvl_200 div span:first-child{min-width:200px}
 .kvl_250 div span:first-child{min-width:250px}

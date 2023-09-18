@@ -25,6 +25,17 @@
   display: flex;
   flex-direction: column;
 
+  // transferred padding into div
+  &.bc_data {
+    padding-left:  0;
+    padding-right: 0;
+
+    div {
+      padding-left:  8px;
+      padding-right: 8px;
+    }
+  }
+
   div {
     display: flex;
     flex-direction: row;
@@ -34,6 +45,10 @@
       min-width: 500px;
       align-self: start;
     }
+  }
+
+  .row_hover {
+    &:hover { background-color: #E0E0FF }
   }
 }
 
