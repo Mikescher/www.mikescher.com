@@ -596,14 +596,14 @@ WHERE md1.parent != '' AND check_hash IS NULL", []);
 			}
 		}
 
-		// ======== [3] repositories without branches ==========
-		{
-			$errors = $this->sql_query_assoc_prep("SELECT repositories.*, (SELECT COUNT(*) FROM branches WHERE repositories.id = branches.repo_id) AS branch_count FROM repositories WHERE branch_count = 0", []);
-
-			foreach ($errors as $e) {
-				$result []= "Found repository [".$e['id']."]'".$e['name']."' without any branches";
-			}
-		}
+#		// ======== [3] repositories without branches ==========
+#		{
+#			$errors = $this->sql_query_assoc_prep("SELECT repositories.*, (SELECT COUNT(*) FROM branches WHERE repositories.id = branches.repo_id) AS branch_count FROM repositories WHERE branch_count = 0", []);
+#
+#			foreach ($errors as $e) {
+#				$result []= "Found repository [".$e['id']."]'".$e['name']."' without any branches";
+#			}
+#		}
 
 
 		// ======== [4] branches without commits ==========
