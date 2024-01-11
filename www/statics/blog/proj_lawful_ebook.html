@@ -30,7 +30,7 @@
         <li>the <code>*-moreinfo</code> variant also includes the alignment text of each post/character after the character-name.</li>
         <li>the <code>*-avatars</code> variant show the character avatar beside each post. This forces us to include all 600-ish avatars in the epub file, which increases filesize and loading time</li>
         <li>the <code>*-avatars-moreinfo</code> also includes the alignment text and author name (additionally to the avatar). Here the avatar/character-name/alignment-text/author-name are also no longer inlined, but get their own paragraph at the start of every post.</li>
-        <li>the <code>*-biggerhtml</code> variant looks the same as <code>*-inline</code>, but internally every chapter is a single big file (instead of multiple split files), this makes the initial loading of the epub slower, but codevents a forced page-break after every 128th post.</li>
+        <li>the <code>*-biggerhtml</code> variant looks the same as <code>*-inline</code>, but internally every chapter is a single big file (instead of multiple split files), this makes the initial loading of the epub slower, but prevents a forced page-break after every 128th post.</li>
     </ul>
 
     As said above, it should be possible to create epub's with other combination of options (see <code>Program.cs</code> and <code>Options.cs</code>)
