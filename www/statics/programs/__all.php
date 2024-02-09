@@ -778,4 +778,23 @@ return
 				'chocolatey'     => 'https://community.chocolatey.org/packages/ffsclient',
 			],
 	],
+
+
+    [
+        'name'              => 'MusicPly',
+        'internal_name'     => 'musicply',
+        'internal_name_alt' => null,
+        'category'          => 'Tool',
+        'stars'             => 3,
+        'ui_language'       => 'English',
+        'prog_language'     => 'Go',
+        'short_description' => 'A small webui to show local playlists and play audio files',
+        'add_date'          => '2023-11-12',
+        'license'           => 'GPL-3.0',
+        'urls'              =>
+            [
+                'github'         => 'https://github.com/Mikescher/musicply',
+                'download'       => 'https://hub.docker.com/r/mikescher/musicply',
+            ],
+    ],
 ];
