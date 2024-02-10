@@ -7,6 +7,7 @@ if (php_sapi_name() !== "cli") die("[cli only!]");
 set_time_limit(6*60*60); // 6h
 ini_set("display_errors", 1);
 ini_set("display_startup_errors", 1);
+ini_set('memory_limit', '1024M');
 error_reporting(E_ALL);
 
 try {
