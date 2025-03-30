@@ -1,4 +1,4 @@
-This is effectively an optimized implementation of [this algorithm](http://www.mathblog.dk/project-euler-51-eight-prime-family/).  
+This is effectively an optimized implementation of [this algorithm](https://web.archive.org/web/20150307042855/http://www.mathblog.dk/project-euler-51-eight-prime-family/).  
 You can see the ten patterns on the left side and beside them the area were we build our numbers.
 
 So what we do is iterate through the numbers from `100` to `1 000`, through the ten patterns and through the digits `0`, `1` and `2`.

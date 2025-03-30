@@ -1,1 +1,1 @@
-Here I was desperately in need of an efficient algorithm. So I copied [this](http://www.mathblog.dk/triangle-number-with-more-than-500-divisors/) one from mathblog.dk and translated it into befunge. And I have to say it's amazingly fast.
+Here I was desperately in need of an efficient algorithm. So I copied [this](https://web.archive.org/web/20150314051848/http://www.mathblog.dk/triangle-number-with-more-than-500-divisors/) one from mathblog.dk and translated it into befunge. And I have to say it's amazingly fast.

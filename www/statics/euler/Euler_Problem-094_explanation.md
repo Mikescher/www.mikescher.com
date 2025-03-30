@@ -1,5 +1,5 @@
 Nothing much to say about this one, we play a bit with the triangle formulas until we reach something that looks like a [Pell equation](https://en.wikipedia.org/wiki/Pell%27s_equation).
-My approach is basically the same as the one on [mathblog.dk](http://www.mathblog.dk/project-euler-94-almost-equilateral-triangles/), but he explains it better.
+My approach is basically the same as the one on [mathblog.dk](https://web.archive.org/web/20150420081602/http://www.mathblog.dk/project-euler-94-almost-equilateral-triangles/), but he explains it better.
 (And I improved my approach a bit after I read his article, his math skills are pretty good :D).
 
 The code is in a way interesting because it only has a single conditional operator.
