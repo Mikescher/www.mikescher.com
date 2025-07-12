@@ -3,6 +3,8 @@
 require_once 'Logger.php';
 require_once 'EGGException.php';
 require_once 'RemoteSource.php';
+require_once 'RemoteSourceGithub.php';
+require_once 'RemoteSourceGitea.php';
 require_once 'OutputGenerator.php';
 require_once 'EGGDatabase.php';
 require_once 'Utils.php';
