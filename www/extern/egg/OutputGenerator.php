@@ -179,13 +179,15 @@ class SingleYearRenderer implements IOutputGenerator
 	 */
 	private function generate(EGGDatabase $db)
 	{
-		$dbdata = $db->getCommitCountOfYearByDate($this->year, $this->identities);
+		$dbdataCount = $db->getCommitCountOfYearByDate($this->year, $this->identities);
 
-		if (Utils::array_value_max(0, $dbdata) === 0) return null;
+		if (Utils::array_value_max(0, $dbdataCount) === 0) return null;
+
+        $dbDataRepoCount = $db->getPerRepoCommitCountOfYearByDate($this->year, $this->identities);
 
 		$now = new DateTime();
 		$date = new DateTime($this->year . '-01-01');
-		$ymapmax = Utils::array_value_max(1, $dbdata);
+		$ymapmax = Utils::array_value_max(1, $dbdataCount);
 
 		$monthlist = array_fill(0, 12, [0, 0]);
 
@@ -217,7 +219,7 @@ class SingleYearRenderer implements IOutputGenerator
 				continue;
 			}
 
-			$c_count = array_key_exists($date->format('Y-m-d'), $dbdata) ? $dbdata[$date->format('Y-m-d')] : 0;
+			$c_count = array_key_exists($date->format('Y-m-d'), $dbdataCount) ? $dbdataCount[$date->format('Y-m-d')] : 0;
 			$color_idx9 = min(((9)-1), ceil(pow($c_count/$ymapmax, $exponent9) * ((9)-1)));
 			$color_idx5 = min(((5)-1), ceil(pow($c_count/$ymapmax, $exponent5) * ((5)-1)));
 
@@ -239,12 +241,30 @@ class SingleYearRenderer implements IOutputGenerator
 				$monthlist[$date->format('m') - 1][1] = $week + ($wday / 7);
 			}
 
+            $extra = Utils::sharpFormat("\ndata-totalrepo-count={c}", ['c' => 0]);
+
+            if (array_key_exists($date->format('Y-m-d'), $dbDataRepoCount))
+            {
+                $extra = Utils::sharpFormat("\ndata-totalrepo-count={c}", ['c' => count($dbDataRepoCount[$date->format('Y-m-d')])]);
+
+                foreach ($dbDataRepoCount[$date->format('Y-m-d')] as $repos) {
+
+                    $extra .= Utils::sharpFormat("\n data-repo-{repo_id}-count=\"{'repo_id': '{repo_id}', 'repo_name': '{repo_name}', 'source': '{source}', 'count': {count}}\"", [
+                        'repo_id'      => $repos['repo_id'],
+                        'repo_name'    => $repos['repo_name'],
+                        'source'       => $repos['source'],
+                        'count'        => $repos['count']
+                    ]);
+                }
+            }
+
 			$html .=  '<rect'.
 				' y="'               . ($wday * self::DIST_Y)                                        . '"' .
 				' height="'          . self::DAY_HEIGHT                                              . '"' .
 				' width="'           . self::DAY_WIDTH                                               . '"' .
 				' class="'           . 'egg_rect egg_col_x5_'.$color_idx5.' egg_col_x9_'.$color_idx9 . '"' .
-				' data-count="'      . $c_count                                                      . '"' .
+                ' data-count="'      . $c_count                                                      . '"' .
+                $extra                                                                                     .
 				' data-date="'       . $date->format('Y-m-d')                                        . '"' .
 				'></rect>' . "\n";
 
@@ -270,8 +290,8 @@ class SingleYearRenderer implements IOutputGenerator
 
 		$html .= '</g>' . "\n";
 		$html .= '</svg>' . "\n";
-		$html .= '<div class="svg-tip n">' . "\n";
-		$html .= '<strong>&nbsp;</strong><span>&nbsp;</span>' . "\n";
+		$html .= '<div class="svg-tip n"">' . "\n";
+		$html .= '<strong>&nbsp;</strong><span>&nbsp;</span><div style="display: grid; grid-template-columns: auto 1fr; grid-column-gap: 0.5rem; margin-top: 1rem; text-align: right;"></div>' . "\n";
 		$html .= '</div>' . "\n";
 		$html .= '<div class="egg_footer">' . "\n";
 		$html .= '<a href="https://www.mikescher.com/programs/view/ExtendedGitGraph">extendedGitGraph</a>' . "\n";

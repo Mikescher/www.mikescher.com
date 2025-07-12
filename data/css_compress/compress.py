@@ -134,7 +134,7 @@ print('')
 print('')
 
 print('======== REGEX ========')
-data = re.sub(r'(\}*\})', '\g<1>\n', data)
+data = re.sub(r'(\}*\})', '\\g<1>\n', data)
 
 print('css data modified (1)')
 

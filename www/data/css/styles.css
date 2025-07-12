@@ -763,6 +763,7 @@ html, body {
   border-radius: 3px;
   box-sizing: border-box;
   opacity: 0;
+  pointer-events: none;
 }
 
 .extGitGraphContainer {
