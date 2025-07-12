@@ -79,6 +79,7 @@ class ExtendedGitGraph2 implements ILogger
 
 			$this->db->beginTransaction();
 			$this->db->deleteOldSources(array_map(function (IRemoteSource $v){ return $v->getName(); }, $this->sources));
+            $this->db->deleteDanglingCommitdata();
 			$this->db->commitTransaction();
 
 			$this->proclog("Update finished.");
