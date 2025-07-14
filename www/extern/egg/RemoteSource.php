@@ -57,40 +57,46 @@ abstract class StandardGitConnection implements IRemoteSource
 
 		foreach ($repos as $repo)
 		{
-			$db->beginTransaction();
-			{
-				$branches = $this->listAndUpdateBranches($db, $repo);
-				$db->setUpdateDateOnRepository($repo);
+            $branches = $this->listAndUpdateBranches($db, $repo);
+            $this->logger->proclog("Found " . count($branches) . " branches in Repo: [" . $repo->Name . "]");
 
-				$repo_changed = false;
-				foreach ($branches as $branch)
-				{
-					if ($branch->HeadFromAPI === $branch->Head)
-					{
-						$db->setUpdateDateOnBranch($branch);
-						$this->logger->proclog("Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] is up to date");
-						continue;
-					}
+            foreach ($branches as $branch)
+            {
 
-					$updateCount = $this->listAndUpdateCommits($db, $repo, $branch);
-					$db->setUpdateDateOnBranch($branch);
-					if ($updateCount === 0)
-					{
-						$this->logger->proclog("Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] has no new commits");
-						continue;
-					}
+                $db->beginTransaction();
+                {
+                    if ($branch->HeadFromAPI === $branch->Head)
+                    {
+                        $db->setUpdateDateOnBranch($branch);
+                        $this->logger->proclog("Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] is up to date");
+                        $db->commitTransaction();
+                        continue;
+                    }
 
-					$this->logger->proclog("Found " . $updateCount . " new commits in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]");
+                    $updateCount = $this->listAndUpdateCommits($db, $repo, $branch);
+                    $db->setUpdateDateOnBranch($branch);
+                    if ($updateCount === 0)
+                    {
+                        $this->logger->proclog("Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] has no new commits");
+                        $db->commitTransaction();
+                        continue;
+                    }
 
-					$repo_changed = true;
-					$db->setChangeDateOnBranch($branch);
-				}
+                    $this->logger->proclog("Found " . $updateCount . " new commits in Branch: [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "]");
 
-				if ($repo_changed) $db->setChangeDateOnRepository($repo);
-				if ($repo_changed) $anyChanged = true;
-			}
+                    $anyChanged = true;
 
-			$db->commitTransaction();
+                    $db->setChangeDateOnBranch($branch);
+                    $db->setChangeDateOnRepository($repo);
+                    $db->setUpdateDateOnRepository($repo);
+                }
+                $db->commitTransaction();
+
+            }
+
+            $db->beginTransaction();
+            $db->setUpdateDateOnRepository($repo);
+            $db->commitTransaction();
 		}
 
 		if ($anyChanged)
