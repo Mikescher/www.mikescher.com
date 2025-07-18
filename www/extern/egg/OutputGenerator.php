@@ -291,7 +291,7 @@ class SingleYearRenderer implements IOutputGenerator
 		$html .= '</g>' . "\n";
 		$html .= '</svg>' . "\n";
 		$html .= '<div class="svg-tip n"">' . "\n";
-		$html .= '<strong>&nbsp;</strong><span>&nbsp;</span><div style="display: grid; grid-template-columns: auto 1fr; grid-column-gap: 0.5rem; margin-top: 1rem; text-align: right;"></div>' . "\n";
+		$html .= '<strong class="caption">&nbsp;</strong><span class="date">&nbsp;</span><div class="extra" style="display: grid; grid-template-columns: auto 1fr; grid-column-gap: 0.5rem; margin-top: 1rem; text-align: right;"></div>' . "\n";
 		$html .= '</div>' . "\n";
 		$html .= '<div class="egg_footer">' . "\n";
 		$html .= '<a href="https://www.mikescher.com/programs/view/ExtendedGitGraph">extendedGitGraph</a>' . "\n";
