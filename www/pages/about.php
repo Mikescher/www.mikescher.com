@@ -96,6 +96,12 @@ $FRAME_OPTIONS->activeHeader = 'about';
                 </svg>
                 <span>LinkedIn</span>
             </a>
+            <a class="iconbutton_light" href="https://lichess.org/@/Mikescher">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                    <use xlink:href="/data/images/icons.svg#lichess"></use>
+                </svg>
+                <span>Lichess</span>
+            </a>
 
         </div>
 
