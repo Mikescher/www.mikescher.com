@@ -14,6 +14,7 @@ return
 			'author'      => 'Eliezer Yudkowsky',
 			'size'        => [17.0, 24.0],
 			'imagecount'  => 4,
+			'grid_fsize'  => '1em',
 		],
 
 		[
@@ -28,6 +29,7 @@ return
 			'author'      => 'Eliezer Yudkowsky',
 			'size'        => [17.0, 24.0],
 			'imagecount'  => 4,
+			'grid_fsize'  => '1em',
 		],
 
 		[
@@ -42,6 +44,7 @@ return
 			'author'      => 'Eliezer Yudkowsky',
 			'size'        => [17.0, 24.0],
 			'imagecount'  => 4,
+			'grid_fsize'  => '1em',
 		],
 
 		[
@@ -56,6 +59,7 @@ return
 			'author'      => 'David Verburg',
 			'size'        => [12.5, 19.0],
 			'imagecount'  => 4,
+			'grid_fsize'  => '1em',
 		],
 
 		[
@@ -70,6 +74,7 @@ return
 			'author'      => 'Alexandr Wales',
 			'size'        => [12.5, 19.0],
 			'imagecount'  => 4,
+			'grid_fsize'  => '0.95em',
 		],
 
 		[
@@ -94,5 +99,22 @@ return
 			'author'      => 'Domagoj Kurmaic',
 			'size'        => [12.5, 19.0],
 			'imagecount'  => 5,
+			'grid_fsize'  => '1em',
 		],
+
+		[
+			'id'          => 'sotl',
+			'title'       => 'Shadows of the Limelight',
+			'title_short' => 'Shadows of the Limelight',
+			'date'        => '2025-10-12',
+			'repository'  => 'https://github.com/Mikescher/Shadows-Of-The-Limelight-Typst',
+			'pages'       => '662',
+			'pdf'         => 'https://github.com/Mikescher/Shadows-Of-The-Limelight-Typst/blob/master/data/SOTL.pdf',
+			'online'      => 'https://alexanderwales.com/shadows-of-the-limelight-ch-1-the-rooftop-races/',
+			'author'      => 'Alexander Wales',
+			'size'        => [12.5, 19.0],
+			'imagecount'  => 4,
+			'grid_fsize'  => '0.85em',
+		],
+
 	];
