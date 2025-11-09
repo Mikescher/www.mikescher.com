@@ -7,7 +7,7 @@ NAMESPACE=$(shell git rev-parse --abbrev-ref HEAD)
 HASH=$(shell git rev-parse HEAD)
 
 run:
-	php -S localhost:8000 -t .
+	cd www && php -S localhost:8000 -t .
 
 dgi:
 	[ ! -f "DOCKER_GIT_INFO" ] || rm DOCKER_GIT_INFO

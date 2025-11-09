@@ -17,7 +17,7 @@ $allbooks = $SITE->modules->Books()->listAllNewestFirst();
 <div class="index_pnl_base">
 
 	<div class="index_pnl_header">
-        <a href="/books">Converted books</a>
+        <a href="/books">Self-printed books</a>
 	</div>
 	<div class="index_pnl_content books_pnl_content">
 
@@ -29,7 +29,9 @@ $allbooks = $SITE->modules->Books()->listAllNewestFirst();
 
             $extra = $i>=2 ? 'books_pnl_extra' : '';
 
-			echo "<a class='books_pnl_entry $extra' href='" . $book['url'] . "'>";
+			$extraStyle = 'font-size: ' . $book['grid_fsize'];
+
+			echo "<a class=\"books_pnl_entry $extra\" style=\"$extraStyle\" href='" . $book['url'] . "'>";
 			echo '    <img src="' . $book['preview_url'] . '" alt="'  . $book['title'] . ' " />' . "\n";
 			echo "<div class='books_pnl_caption'>" . htmlspecialchars($book['title_short']) . "</div>";
 			echo "";

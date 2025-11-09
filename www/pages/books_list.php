@@ -7,7 +7,7 @@ require_once (__DIR__ . '/../internals/website.php');
 ?>
 
 <?php
-$FRAME_OPTIONS->title = 'Converted Books';
+$FRAME_OPTIONS->title = 'Self-printed Books';
 $FRAME_OPTIONS->canonical_url = 'https://www.mikescher.com/books';
 $FRAME_OPTIONS->activeHeader = 'books';
 
@@ -16,7 +16,7 @@ $allbooks = $SITE->modules->Books()->listAllNewestFirst();
 
 <div class="blockcontent booklst_content">
 
-    <div class="contentheader"><h1>Books/<wbr>Webserials I self-printed</h1><hr/></div>
+    <div class="contentheader"><h1>Books/<wbr>Webserials I printed myself</h1><hr/></div>
 
     <p>
         These are some books I read but that do not have an official print version.<br />
