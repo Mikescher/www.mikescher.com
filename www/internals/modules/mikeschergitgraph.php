@@ -14,6 +14,11 @@ class MikescherGitGraph implements IWebsiteModule
 		$this->extgitgraph = new ExtendedGitGraph2($egh_conf);
 	}
 
+    public function setFetchLimitCommits(int $flo)
+    {
+        $this->extgitgraph->fetchLimitCommits = $flo;
+    }
+
 	public function getPathRenderedData(): string
 	{
 		return __DIR__ . '/../../dynamic/egg/cache_fullrenderer.html';

@@ -1,5 +1,6 @@
 <?php
 
+require_once 'IConfigSource.php';
 require_once 'Utils.php';
 require_once 'EGGDatabase.php';
 
@@ -18,8 +19,11 @@ interface IRemoteSource
 abstract class StandardGitConnection implements IRemoteSource
 {
 
-	/** @var ILogger $logger */
-	protected $logger;
+    /** @var ILogger $logger */
+    protected $logger;
+
+    /** @var IConfigSource $cfgSource */
+    protected $cfgSource;
 
 	/** @var string $name */
 	protected $name;
@@ -31,14 +35,16 @@ abstract class StandardGitConnection implements IRemoteSource
 	protected $exclusions;
 
 	/**
-	 * @param ILogger $logger
-	 * @param string $name
+     * @param ILogger $logger
+     * @param IConfigSource $cfg
+     * @param string $name
 	 * @param string $filter
 	 * @param string[] exclusions
 	 */
-	public function __construct(ILogger $logger, string $name, string $filter, array $exclusions)
+	public function __construct(ILogger $logger, IConfigSource $cfg, string $name, string $filter, array $exclusions)
 	{
-		$this->logger       = $logger;
+        $this->logger       = $logger;
+        $this->cfgSource    = $cfg;
 		$this->name         = $name;
 		$this->filter       = $filter;
 		$this->exclusions   = $exclusions;

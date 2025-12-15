@@ -21,9 +21,17 @@ try {
     $config['output_file'] = false;
     $config['output_stdout'] = true;
 
+    echo "ENV:\n" . print_r($_ENV, true) . "\n";
+
     require_once __DIR__ .'/../internals/modules/mikeschergitgraph.php';
 
     $egg = new MikescherGitGraph($config);
+
+    if (getenv('EGG_FETCHLIMITCOMMITS')) {
+        $v = intval(getenv('EGG_FETCHLIMITCOMMITS'));
+        $egg->setFetchLimitCommits($v);
+        echo "[*] EGG_FETCHLIMITCOMMITS override detected: $v\n";}
+
 
     echo "\n";
     echo "================================ Start Update ================================\n";

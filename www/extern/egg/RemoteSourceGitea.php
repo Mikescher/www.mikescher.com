@@ -1,5 +1,6 @@
 <?php
 
+require_once 'IConfigSource.php';
 require_once 'Utils.php';
 require_once 'EGGDatabase.php';
 require_once 'RemoteSource.php';
@@ -31,9 +32,9 @@ class GiteaConnection extends StandardGitConnection
 	 * @param string $username
 	 * @param string $password
 	 */
-	public function __construct(ILogger $logger, string $name, string $url, string $filter, array $exclusions, string $username, string $password)
+	public function __construct(ILogger $logger, IConfigSource $cfg, string $name, string $url, string $filter, array $exclusions, string $username, string $password)
 	{
-		parent::__construct($logger, $name, $filter, $exclusions);
+		parent::__construct($logger, $cfg, $name, $filter, $exclusions);
 
 		$this->url          = $url;
 		$this->username     = $username;
@@ -55,28 +56,28 @@ class GiteaConnection extends StandardGitConnection
     /** @inheritDoc */
     protected function queryOrganizations($page)
     {
-        $url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_USER_ORG_LIST), ['page'=>$page, 'limit'=>64 ]);
+        $url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_USER_ORG_LIST), ['page'=>$page, 'limit'=>$this->cfgSource->getFetchLimitOrgs() ]);
         return Utils::getJSONWithTokenBasicAuth($this->logger, $url, $this->username, $this->password);
     }
 
 	/** @inheritDoc */
 	protected function queryRepositories($user, $page)
 	{
-		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_USER_REPO_LIST), ['user'=>$user, 'page'=>$page, 'limit'=>64 ]);
+		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_USER_REPO_LIST), ['user'=>$user, 'page'=>$page, 'limit'=>$this->cfgSource->getFetchLimitRepos() ]);
 		return Utils::getJSONWithTokenBasicAuth($this->logger, $url, $this->username, $this->password);
 	}
 
 	/** @inheritDoc */
 	protected function queryBranches($reponame, $page)
 	{
-		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_BRANCH_LIST), ['repo'=>$reponame, 'page'=>$page, 'limit'=>64]);
+		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_BRANCH_LIST), ['repo'=>$reponame, 'page'=>$page, 'limit'=>$this->cfgSource->getFetchLimitBranches()]);
 		return Utils::getJSONWithTokenBasicAuth($this->logger, $url, $this->username, $this->password);
 	}
 
 	/** @inheritDoc */
 	protected function queryCommits($reponame, $branchname, $startsha)
 	{
-		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_COMMIT_LIST), [ 'repo'=>$reponame, 'sha'=>$startsha, 'limit'=>1024 ]);
+		$url = Utils::sharpFormat(Utils::urlCombine($this->url, self::API_BASE_URL, self::API_COMMIT_LIST), [ 'repo'=>$reponame, 'sha'=>$startsha, 'limit'=>$this->cfgSource->getFetchLimitCommits() ]);
 		return Utils::getJSONWithTokenBasicAuth($this->logger, $url, $this->username, $this->password);
 	}
 

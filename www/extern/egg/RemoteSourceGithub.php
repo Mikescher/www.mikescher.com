@@ -1,5 +1,6 @@
 <?php
 
+require_once 'IConfigSource.php';
 require_once 'Utils.php';
 require_once 'EGGDatabase.php';
 require_once 'RemoteSource.php';
@@ -39,9 +40,9 @@ class GithubConnection extends StandardGitConnection
 	 * @param string $oauth_secret
 	 * @param string $apitokenpath
 	 */
-	public function __construct(ILogger $logger, string $name, string $url, string $filter, array $exclusions, string $oauth_id, string $oauth_secret, string $apitokenpath)
+	public function __construct(ILogger $logger, IConfigSource $cfg, string $name, string $url, string $filter, array $exclusions, string $oauth_id, string $oauth_secret, string $apitokenpath)
 	{
-		parent::__construct($logger, $name, $filter, $exclusions);
+		parent::__construct($logger, $cfg, $name, $filter, $exclusions);
 
 		$this->url          = $url;
 		$this->oauth_id     = $oauth_id;
@@ -95,21 +96,21 @@ class GithubConnection extends StandardGitConnection
 	/** @inheritDoc */
 	protected function queryRepositories($user, $page)
 	{
-		$url = Utils::sharpFormat(self::API_REPOSITORIESLIST, ['user'=>$user, 'page'=>$page]);
+		$url = Utils::sharpFormat(self::API_REPOSITORIESLIST, ['user'=>$user, 'page'=>$page, 'per_page'=>$this->cfgSource->getFetchLimitRepos() ]);
 		return Utils::getJSONWithTokenAuth($this->logger, $url, $this->apitoken);
 	}
 
 	/** @inheritDoc */
 	protected function queryBranches($reponame, $page)
 	{
-		$url = Utils::sharpFormat(self::API_BRANCHLIST, ['repo'=>$reponame, 'page'=>$page]);
+		$url = Utils::sharpFormat(self::API_BRANCHLIST, ['repo'=>$reponame, 'page'=>$page, 'per_page'=>$this->cfgSource->getFetchLimitBranches() ]);
 		return Utils::getJSONWithTokenAuth($this->logger, $url, $this->apitoken);
 	}
 
 	/** @inheritDoc */
 	protected function queryCommits($reponame, $branchname, $startsha)
 	{
-		$url = Utils::sharpFormat(self::API_COMMITSLIST, [ 'repo'=>$reponame, 'sha'=>$startsha ]);
+		$url = Utils::sharpFormat(self::API_COMMITSLIST, [ 'repo'=>$reponame, 'sha'=>$startsha, 'per_page'=>$this->cfgSource->getFetchLimitCommits() ]);
 		return Utils::getJSONWithTokenAuth($this->logger, $url, $this->apitoken);
 	}
 

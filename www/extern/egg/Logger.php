@@ -4,7 +4,7 @@ require_once 'Utils.php';
 
 interface ILogger
 {
-	public function proclog($text);
+    public function proclog($text);
 }
 
 class FileLogger implements ILogger

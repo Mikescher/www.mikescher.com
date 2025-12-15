@@ -1,5 +1,6 @@
 <?php
 
+require_once 'IConfigSource.php';
 require_once 'Logger.php';
 require_once 'EGGException.php';
 require_once 'RemoteSource.php';
@@ -9,9 +10,9 @@ require_once 'OutputGenerator.php';
 require_once 'EGGDatabase.php';
 require_once 'Utils.php';
 
-class ExtendedGitGraph2 implements ILogger
+class ExtendedGitGraph2 implements ILogger, IConfigSource
 {
-	/** @var ILogger[] **/
+    /** @var ILogger[] **/
 	private $logger;
 
 	/** @var IRemoteSource[] **/
@@ -23,6 +24,11 @@ class ExtendedGitGraph2 implements ILogger
 	/** @var EGGDatabase **/
 	private $db;
 
+    public int $fetchLimitCommits  = 1024;
+    public int $fetchLimitBranches = 64;
+    public int $fetchLimitRepos    = 64;
+    public int $fetchLimitOrgs     = 64;
+
 	/**
 	 * @param array $config
 	 * @throws Exception
@@ -33,7 +39,12 @@ class ExtendedGitGraph2 implements ILogger
 		if ($config['output_session']) $this->logger []= new SessionLogger($config['session_var']);
 		if ($config['output_stdout'])  $this->logger []= new OutputLogger();
 		if ($config['output_logfile']) $this->logger []= new FileLogger($config['logfile'], $config['logfile_count']);
-		if ($config['output_file'])    $this->logger []= new SingleFileLogger($config['output_filepath']);
+        if ($config['output_file'])    $this->logger []= new SingleFileLogger($config['output_filepath']);
+
+        if (isset($config['fetchlimit_commits']))  $this->fetchLimitCommits  = intval($config['fetchlimit_commits']);
+        if (isset($config['fetchlimit_branches'])) $this->fetchLimitBranches = intval($config['fetchlimit_branches']);
+        if (isset($config['fetchlimit_repos']))    $this->fetchLimitRepos    = intval($config['fetchlimit_repos']);
+        if (isset($config['fetchlimit_orgs']))     $this->fetchLimitOrgs     = intval($config['fetchlimit_orgs']);
 
 		$this->sources = [];
 
@@ -42,9 +53,9 @@ class ExtendedGitGraph2 implements ILogger
 		{
 			$newsrc = null;
 			if ($rmt['type'] === 'github')
-				$newsrc = new GithubConnection($this, $rmt['name'], $rmt['url'], $rmt['filter'], $rmt['exclusions'], $rmt['oauth_id'], $rmt['oauth_secret'], $rmt['token_cache'] );
+				$newsrc = new GithubConnection($this, $this, $rmt['name'], $rmt['url'], $rmt['filter'], $rmt['exclusions'], $rmt['oauth_id'], $rmt['oauth_secret'], $rmt['token_cache'] );
 			else if ($rmt['type'] === 'gitea')
-				$newsrc = new GiteaConnection($this, $rmt['name'], $rmt['url'], $rmt['filter'], $rmt['exclusions'], $rmt['username'], $rmt['password'] );
+				$newsrc = new GiteaConnection($this, $this, $rmt['name'], $rmt['url'], $rmt['filter'], $rmt['exclusions'], $rmt['username'], $rmt['password'] );
 			else
 				throw new EGGException("Unknown remote-type: " . $rmt['type']);
 
@@ -58,6 +69,11 @@ class ExtendedGitGraph2 implements ILogger
 
 		$this->outputter = new FullRenderer($this, $config['identities'], $config['output_cache_files']);
 	}
+
+    public function getFetchLimitCommits(): int  { return $this->fetchLimitCommits; }
+    public function getFetchLimitBranches(): int { return $this->fetchLimitBranches; }
+    public function getFetchLimitRepos(): int    { return $this->fetchLimitRepos; }
+    public function getFetchLimitOrgs(): int     { return $this->fetchLimitOrgs; }
 
 	public function update()
 	{
