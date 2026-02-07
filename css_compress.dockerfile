@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./data /project/data
+COPY ./www/data/css /project/www/data/css
+RUN chown -R 1000:1000 /project/www
 
 WORKDIR /project/data/css_compress
 
