@@ -45,8 +45,8 @@ def comment_remover(text):
 fsource = str.replace(sys.argv[1], '\\', '/')  # scss
 finput  = str.replace(sys.argv[2], '\\', '/')  # css
 foutput = str.replace(sys.argv[3], '\\', '/')  # min.css
-ftemp1  = '__temp_compresss_py_1.tmp.css'
-ftemp2  = '__temp_compresss_py_2.tmp.css'
+ftemp1  = '/tmp/__temp_compresss_py_1.tmp.css'
+ftemp2  = '/tmp/__temp_compresss_py_2.tmp.css'
 
 print('======== INPUT ========')
 print()
