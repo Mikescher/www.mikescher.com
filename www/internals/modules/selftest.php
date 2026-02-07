@@ -31,6 +31,7 @@ class SelfTest implements IWebsiteModule
 		'modules::webapps'         => 'Webapps (data)',
         'modules::highscores'      => 'Highscores (data)',
         'modules::projectlawful'   => 'ProjectLawful-ebook (files)',
+        'modules::ebookhistory'    => 'eBook History (data)',
 		'egg::db-check'            => 'ExtendedGitGraph (db-check)',
 		'backend::git'             => 'Git Repository',
 	];
@@ -120,6 +121,7 @@ class SelfTest implements IWebsiteModule
 		$this->addCheckConsistency("modules::webapps::webapps-check-consistency",                 function(){ return Website::inst()->modules->WebApps(); });
         $this->addCheckConsistency("modules::highscores::highscores-check-consistency",           function(){ return Website::inst()->modules->Highscores(); });
         $this->addCheckConsistency("modules::projectlawful::projectlawful-check-consistency",     function(){ return Website::inst()->modules->ProjectLawful(); });
+        $this->addCheckConsistency("modules::ebookhistory::ebookhistory-check-consistency",       function(){ return Website::inst()->modules->EbookHistory(); });
 
 		$this->addLambdaStatus("egg::db-check::check-db-consistency", function(){ return Website::inst()->modules->ExtendedGitGraph()->checkDatabaseConsistency(); });
 

@@ -1,11 +1,5 @@
 <?php
 
-namespace internals\modules;
-use IWebsiteModule;
-use PDO;
-use Throwable;
-use Website;
-
 class ProjectLawful implements IWebsiteModule
 {
     /** @var Website */

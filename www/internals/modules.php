@@ -1,7 +1,5 @@
 <?php
 
-use internals\modules\ProjectLawful;
-
 require_once 'website.php';
 
 class Modules
@@ -19,6 +17,7 @@ class Modules
 	/** @var Highscores|null */          private $highscores = null;
     /** @var SelfTest|null */            private $selftest = null;
     /** @var ProjectLawful|null */       private $projectlawful = null;
+    /** @var EbookHistory|null */        private $ebookhistory = null;
 
 	/** @var Website */
 	private $site;
@@ -104,5 +103,11 @@ class Modules
     {
         if ($this->projectlawful === null) { require_once 'modules/projectlawful.php'; $this->projectlawful = new ProjectLawful($this->site); }
         return $this->projectlawful;
+    }
+
+    public function EbookHistory(): EbookHistory
+    {
+        if ($this->ebookhistory === null) { require_once 'modules/ebookhistory.php'; $this->ebookhistory = new EbookHistory($this->site); }
+        return $this->ebookhistory;
     }
 }

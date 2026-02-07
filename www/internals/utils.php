@@ -292,9 +292,11 @@ function curl_http_request($url)
 	return [ 'output'=>$output, 'statuscode'=>$httpcode, 'redirect'=>$redirect, 'errnum'=>$errnum, 'errstr'=>$errmsg ];
 }
 
-function array_last(array $arr)
-{
-	return $arr[count($arr)-1];
+if (!function_exists('array_last')) {
+    function array_last(array $arr)
+    {
+        return $arr[count($arr)-1];
+    }
 }
 
 function explode_allow_empty(string $separator, string $str): array {

@@ -62,6 +62,18 @@ push-docker:
 	docker image push $(DOCKER_REPO)/$(DOCKER_NAME):$(NAMESPACE)-latest
 	docker image push $(DOCKER_REPO)/$(DOCKER_NAME):latest
 
+css:
+	docker build -t mscom-css-compile data/css_compress
+	docker run --rm \
+	    -v "$(shell pwd):/project" \
+	    -w /project/data/css_compress \
+	    mscom-css-compile \
+	    python3 /project/data/css_compress/compress.py \
+	        /project/www/data/css/styles.scss \
+	        /project/www/data/css/styles.css \
+	        /project/www/data/css/styles.min.css
+	docker image rm mscom-css-compile
+
 clean:
 	rm -rf ".run-data"
 	git clean -fdx

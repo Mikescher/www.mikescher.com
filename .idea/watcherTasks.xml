@@ -22,7 +22,7 @@
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="&quot;$ProjectFileDir$/data/css_compress/compress.py&quot; &quot;$FileDir$/styles.scss&quot; &quot;$FileDir$/styles.css&quot; &quot;$FileDir$/styles.min.css&quot;" />
+      <option name="arguments" value="css" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
@@ -34,11 +34,11 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="python" />
+      <option name="program" value="make" />
       <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />
-      <option name="workingDir" value="$PROJECT_DIR$/data/css_compress/" />
+      <option name="workingDir" value="$PROJECT_DIR$/" />
       <envs />
     </TaskOptions>
   </component>

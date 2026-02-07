@@ -22,6 +22,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
       - run: cd "${{ gitea.workspace }}" && make clean
+      - run: cd "${{ gitea.workspace }}" && make css
       - run: cd "${{ gitea.workspace }}" && make docker
       - run: cd "${{ gitea.workspace }}" && make push-docker
 

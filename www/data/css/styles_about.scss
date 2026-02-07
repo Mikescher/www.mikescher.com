@@ -191,3 +191,191 @@
   .egg_col_x9_7 { fill: #455464; }
   .egg_col_x9_8 { fill: #2C3E50; }
 }
+
+.about_ehr_container {
+
+  .reading-history {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 20px;
+
+    max-width: calc( min( 1170px, 100% ) );
+  }
+
+  .year-container {
+    margin-bottom: 16px;
+  }
+
+  .year-label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222222;
+    padding: 5px 10px;
+  }
+
+  .month-grid {
+    padding: 4px;
+    border: 1px solid #000;
+
+    display: grid;
+    gap: 8px;
+
+    @include rdmedia(4) { grid-template-columns: repeat(6, 1fr); }
+    @include rdmedia(3) { grid-template-columns: repeat(4, 1fr); }
+    @include rdmedia(2) { grid-template-columns: repeat(4, 1fr); }
+    @include rdmedia(1) { grid-template-columns: repeat(3, 1fr); }
+    @include rdmedia(0) { grid-template-columns: repeat(1, 1fr); }
+  }
+
+  .month-cell {
+    min-height: 180px;
+
+    background: #AAAAAA;
+    border: 1px solid #000;
+  }
+
+  .book-grid {
+    padding: 4px;
+  }
+
+  .month-label {
+    font-size: 0.8em;
+    background-color: #888888;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+
+    text-align: center;
+    margin-bottom: 8px;
+
+    font-weight: bold;
+  }
+
+  /* Book item styles */
+  .book-item {
+    border-radius: 0;
+    position: relative;
+  }
+
+  .book-item:not(:hover) {
+    overflow: hidden;
+    border: 1px solid #000000;
+  }
+
+  .book-container {
+    position: relative;
+    transition: transform 0.2s ease-in-out, z-index 0s;
+    pointer-events: none;
+  }
+
+  /* Chapter overlay at top */
+  .book-item .chapter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    font-size: 2px;
+    padding: 1px 1px 4px 1px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    opacity: 0;
+  }
+
+  /* Title overlay on hover */
+  .book-item .title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    font-size: 2px;
+    padding: 4px 1px 1px 1px;
+    transition: opacity 0.2s ease-in-out;
+    white-space: wrap;
+
+    opacity: 0;
+  }
+
+  .book-item img {
+    aspect-ratio: var(--preview-aspect-ratio);
+  }
+
+  .book-item.no-cover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    padding: 4px;
+  }
+
+  /* Rating stars - top right on hover */
+  .rating-overlay {
+    position: absolute;
+    bottom: calc(100% + 0.5px);
+    right: 0;
+    width: 100%;
+    height: 2px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    opacity: 0;
+  }
+
+  /* Word count - below title on hover */
+  .wordcount-overlay {
+    position: absolute;
+    top: calc(100% + 0.5px);
+    left: 0;
+    right: 0;
+    padding: 1px;
+    font-size: 2px;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+  }
+
+  /* Use data-count attribute to select star image */
+  .rating-overlay[data-count="1.0"] { background-image: url('/data/images/ehr/stars_1.0.png'); }
+  .rating-overlay[data-count="1.5"] { background-image: url('/data/images/ehr/stars_1.5.png'); }
+  .rating-overlay[data-count="2.0"] { background-image: url('/data/images/ehr/stars_2.0.png'); }
+  .rating-overlay[data-count="2.5"] { background-image: url('/data/images/ehr/stars_2.5.png'); }
+  .rating-overlay[data-count="3.0"] { background-image: url('/data/images/ehr/stars_3.0.png'); }
+  .rating-overlay[data-count="3.5"] { background-image: url('/data/images/ehr/stars_3.5.png'); }
+  .rating-overlay[data-count="4.0"] { background-image: url('/data/images/ehr/stars_4.0.png'); }
+  .rating-overlay[data-count="4.5"] { background-image: url('/data/images/ehr/stars_4.5.png'); }
+  .rating-overlay[data-count="5.0"] { background-image: url('/data/images/ehr/stars_5.0.png'); }
+
+  /* ================================================================================================================== */
+
+  .book-item:hover .book-container {
+    transform: scale(8);
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: #FFF;
+    position: absolute;
+    width: 32px;
+    height: calc( 32px / var(--img-aspect-ratio) );
+    left: calc(50% - 16px);
+    top: calc(50% - (16px / var(--img-aspect-ratio)));
+  }
+
+  .book-item:hover .title-overlay {
+    opacity: 1;
+  }
+  .book-item:hover .chapter-overlay {
+    opacity: 1;
+  }
+
+  .book-item:hover .wordcount-overlay { opacity: 1; }
+  .book-item:hover .rating-overlay { opacity: 1; }
+
+}

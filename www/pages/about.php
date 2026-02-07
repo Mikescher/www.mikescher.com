@@ -107,4 +107,17 @@ $FRAME_OPTIONS->activeHeader = 'about';
 
     </div>
 
+    <!-- - - - - - - - - - - - - - - - - - - - - -->
+
+    <div class="boxedcontent">
+        <div class="bc_header">Reading history (incomplete :/)</div>
+
+        <div class="bc_data about_ehr_container">
+
+            <?php echo $SITE->modules->EbookHistory()->get(); ?>
+
+        </div>
+
+    </div>
+
 </div>
