@@ -188,7 +188,7 @@ html,body{margin:0;padding:0;height:100%}
 .about_ehr_container .rating-overlay[data-count="4.0"]{background-image:url("/data/images/ehr/stars_4.0.png")}
 .about_ehr_container .rating-overlay[data-count="4.5"]{background-image:url("/data/images/ehr/stars_4.5.png")}
 .about_ehr_container .rating-overlay[data-count="5.0"]{background-image:url("/data/images/ehr/stars_5.0.png")}
-.about_ehr_container .book-item:hover .book-container{transform:scale(8);z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.3);background-color:#FFF;position:absolute;width:32px;height:calc(32px / var( -  - img - aspect - ratio));left:calc(50% - 16px);top:calc(50% - 16px / var( -  - img - aspect - ratio))}
+.about_ehr_container .book-item:hover .book-container{transform:scale(8);z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.3);background-color:#FFF;position:absolute;width:32px;height:calc(32px / var(--img-aspect-ratio));left:calc(50% - 16px);top:calc(50% - 16px / var(--img-aspect-ratio))}
 .about_ehr_container .book-item:hover .title-overlay{opacity:1}
 .about_ehr_container .book-item:hover .chapter-overlay{opacity:1}
 .about_ehr_container .book-item:hover .wordcount-overlay{opacity:1}

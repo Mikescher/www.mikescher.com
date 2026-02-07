@@ -165,7 +165,7 @@ for (l, c) in reversed(ins):
 print('======== MORE ========')
 
 # fixes `calc(100%+5px)` stuff
-data = re.compile(r"calc\(([^)]+)\)").sub(lambda m: "calc(" + re.sub(r"(?<=[^\s])([\+\-\*/])(?=[^\s])", " \\1 ", m.group(1)) + ")", data)
+data = re.compile(r"calc\(([^)]+)\)").sub(lambda m: "calc(" + re.sub(r"(?<=[%0-9])([\+\-\*/])(?=[%0-9])", " \\1 ", m.group(1)) + ")", data)
 
 
 print('')
