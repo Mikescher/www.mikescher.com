@@ -149,7 +149,7 @@ for i in range(len(data)):
         copen = findnext(data, i, '{')
         cclose = findclose(data, copen)
 
-        if countnl(data, copen, cclose) == 0: continue;
+        if countnl(data, copen, cclose) == 0: continue
 
         ins.append((copen + 1, '\n\t'))
         for i2 in range(copen + 1, cclose):
@@ -161,6 +161,12 @@ for i in range(len(data)):
 
 for (l, c) in reversed(ins):
     data = data[:l] + c + data[l:]
+
+print('======== MORE ========')
+
+# fixes `calc(100%+5px)` stuff
+data = re.compile(r"calc\(([^)]+)\)").sub(lambda m: "calc(" + re.sub(r"(?<=[^\s])([\+\-\*/])(?=[^\s])", " \\1 ", m.group(1)) + ")", data)
+
 
 print('')
 print('')

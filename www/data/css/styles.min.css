@@ -177,8 +177,8 @@ html,body{margin:0;padding:0;height:100%}
 .about_ehr_container .book-item .title-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.8));color:white;font-size:2px;padding:4px 1px 1px 1px;transition:opacity .2s ease-in-out;white-space:wrap;opacity:0}
 .about_ehr_container .book-item img{aspect-ratio:var(--preview-aspect-ratio)}
 .about_ehr_container .book-item.no-cover{background:linear-gradient(135deg,#667eea 0,#764ba2 100%);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;text-align:center;padding:4px}
-.about_ehr_container .rating-overlay{position:absolute;bottom:calc(100%+0.5px);right:0;width:100%;height:2px;background-size:contain;background-repeat:no-repeat;background-position:right bottom;opacity:0}
-.about_ehr_container .wordcount-overlay{position:absolute;top:calc(100%+0.5px);left:0;right:0;padding:1px;font-size:2px;text-align:center;color:white;background:rgba(0,0,0,0.7);opacity:0}
+.about_ehr_container .rating-overlay{position:absolute;bottom:calc(100% + 0.5px);right:0;width:100%;height:2px;background-size:contain;background-repeat:no-repeat;background-position:right bottom;opacity:0}
+.about_ehr_container .wordcount-overlay{position:absolute;top:calc(100% + 0.5px);left:0;right:0;padding:1px;font-size:2px;text-align:center;color:white;background:rgba(0,0,0,0.7);opacity:0}
 .about_ehr_container .rating-overlay[data-count="1.0"]{background-image:url("/data/images/ehr/stars_1.0.png")}
 .about_ehr_container .rating-overlay[data-count="1.5"]{background-image:url("/data/images/ehr/stars_1.5.png")}
 .about_ehr_container .rating-overlay[data-count="2.0"]{background-image:url("/data/images/ehr/stars_2.0.png")}
@@ -188,7 +188,7 @@ html,body{margin:0;padding:0;height:100%}
 .about_ehr_container .rating-overlay[data-count="4.0"]{background-image:url("/data/images/ehr/stars_4.0.png")}
 .about_ehr_container .rating-overlay[data-count="4.5"]{background-image:url("/data/images/ehr/stars_4.5.png")}
 .about_ehr_container .rating-overlay[data-count="5.0"]{background-image:url("/data/images/ehr/stars_5.0.png")}
-.about_ehr_container .book-item:hover .book-container{transform:scale(8);z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.3);background-color:#FFF;position:absolute;width:32px;height:calc(32px / var(--img-aspect-ratio));left:calc(50% - 16px);top:calc(50% - 16px / var(--img-aspect-ratio))}
+.about_ehr_container .book-item:hover .book-container{transform:scale(8);z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.3);background-color:#FFF;position:absolute;width:32px;height:calc(32px / var( -  - img - aspect - ratio));left:calc(50% - 16px);top:calc(50% - 16px / var( -  - img - aspect - ratio))}
 .about_ehr_container .book-item:hover .title-overlay{opacity:1}
 .about_ehr_container .book-item:hover .chapter-overlay{opacity:1}
 .about_ehr_container .book-item:hover .wordcount-overlay{opacity:1}

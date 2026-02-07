@@ -824,6 +824,8 @@ html, body {
   border: 1px solid #000;
   display: grid;
   gap: 8px;
+}
+.about_ehr_container {
   /* Level: 4 */
 }
 @media (min-device-width:1200px) {
@@ -831,7 +833,7 @@ html, body {
     grid-template-columns: repeat(6, 1fr);
   }
 }
-.about_ehr_container .month-grid {
+.about_ehr_container {
   /* Level: 3 */
 }
 @media (min-device-width:992px) and (max-device-width:1199px) {
@@ -839,7 +841,7 @@ html, body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.about_ehr_container .month-grid {
+.about_ehr_container {
   /* Level: 2 */
 }
 @media (min-device-width:851px) and (max-device-width:991px) {
@@ -847,7 +849,7 @@ html, body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.about_ehr_container .month-grid {
+.about_ehr_container {
   /* Level: 1 */
 }
 @media (min-device-width:768px) and (max-device-width:850px) {
@@ -855,7 +857,7 @@ html, body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.about_ehr_container .month-grid {
+.about_ehr_container {
   /* Level: 0 */
 }
 @media (max-device-width:767px) {

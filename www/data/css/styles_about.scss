@@ -219,12 +219,13 @@
     display: grid;
     gap: 8px;
 
-    @include rdmedia(4) { grid-template-columns: repeat(6, 1fr); }
-    @include rdmedia(3) { grid-template-columns: repeat(4, 1fr); }
-    @include rdmedia(2) { grid-template-columns: repeat(4, 1fr); }
-    @include rdmedia(1) { grid-template-columns: repeat(3, 1fr); }
-    @include rdmedia(0) { grid-template-columns: repeat(1, 1fr); }
   }
+
+  @include rdmedia(4) { .month-grid { grid-template-columns: repeat(6, 1fr); } }
+  @include rdmedia(3) { .month-grid { grid-template-columns: repeat(4, 1fr); } }
+  @include rdmedia(2) { .month-grid { grid-template-columns: repeat(4, 1fr); } }
+  @include rdmedia(1) { .month-grid { grid-template-columns: repeat(3, 1fr); } }
+  @include rdmedia(0) { .month-grid { grid-template-columns: repeat(1, 1fr); } }
 
   .month-cell {
     min-height: 180px;
