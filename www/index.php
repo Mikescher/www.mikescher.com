@@ -13,6 +13,8 @@ $URL_RULES =
 	[ 'url' => ['msmain', 'index'],                        'target' => 'main.php',                   'options' => [ ],               'parameter' => [ ],                                       ],
 	[ 'url' => ['about'],                                  'target' => 'about.php',                  'options' => [ ],               'parameter' => [ ],                                       ],
 	[ 'url' => ['msmain', 'about'],                        'target' => 'about.php',                  'options' => [ ],               'parameter' => [ ],                                       ],
+	[ 'url' => ['vcs'],                                    'target' => 'vcs.php',                    'options' => [ ],               'parameter' => [ ],                                       ],
+	[ 'url' => ['reading'],                                'target' => 'reading.php',                'options' => [ ],               'parameter' => [ ],                                       ],
 	[ 'url' => ['login'],                                  'target' => 'login.php',                  'options' => [ ],               'parameter' => [ 'login_target'  => '/' ],                ],
 	[ 'url' => ['logout'],                                 'target' => 'logout.php',                 'options' => [ ],               'parameter' => [ 'logout_target' => '/' ],                ],
 

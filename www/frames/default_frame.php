@@ -57,7 +57,7 @@ require_once (__DIR__ . '/../internals/website.php');
 			<?php endif; ?>
 
 			<?php if ($FRAME_OPTIONS->activeHeader === 'books'): ?>
-				<a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'books') echo 'tab_active'; ?>" href="/books">Books</a>
+				<a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'books') echo 'tab_active'; ?>" href="/books">Print-Books</a>
 			<?php endif; ?>
 
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'webapps')  echo 'tab_active'; ?>" href="/webapps">Tools</a>
@@ -65,6 +65,10 @@ require_once (__DIR__ . '/../internals/website.php');
 			<?php if ($SITE->isLoggedInByCookie()): ?>
                 <a class="tab tab_admin" href="/admin">Admin</a>
 			<?php endif; ?>
+
+            <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'vcs')      echo 'tab_active'; ?>" href="/vcs">git</a>
+
+            <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'reading')  echo 'tab_active'; ?>" href="/reading">Books</a>
 
             <a class="tab <?php if ($FRAME_OPTIONS->activeHeader === 'about')    echo 'tab_active'; ?>" href="/about">About</a>
 

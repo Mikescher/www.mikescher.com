@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="474px" height="230px" viewBox="0 0 2061 1000">
+
+    <defs>
+        <path id="tree_outer" d="M -200 +000 L +200 +000 L +000 -558 L -200 +000"/>
+        <path id="tree_inner" d="M -124 -054 L +124 -054 L +000 -399 L -124 -054"/>
+        <path id="tree_trunk" d="M -027 -135 L +027 -135 L +027 +080 L -027 +080"/>
+
+        <!-- https://www.dafont.com/de/caviar-dreams.font (bold) -->
+        <path id="letter_a"  d="m 0,195 a 105 105, 0, 0, 1, +175 -80 l 0,-20 l 35,0 l 0,200 l -35,0 l 0,-30 a 105 105, 0, 0, 1, -175 -70 m 0,-195 m 33,190 a 70 70, 0, 0, 0, 140 0 a 70 70, 0, 1, 0, -140 0" />
+        <path id="letter_b"  d="m 0,0 l 0,300 l 35,0 l 0,-25 a 105 105, 1, 1, 0, 0 -150 l 0,-125 l -35,0 m 42,200 a 70 70, 0, 0, 0, 140 0 a 70 70, 0, 1, 0, -140 0" />
+        <path id="letter_b2" d="m 0,20 l 0,280 l 35,0 l 0,-25 a 105 105, 1, 1, 0, 0 -150 l 0,-105 l -35,0 m 42,180 a 70 70, 0, 0, 0, 140 0 a 70 70, 0, 1, 0, -140 0" />
+        <path id="letter_l"  d="m 0,0 l 0,300 l 35,0 l 0,-300 l -35,0" />
+        <path id="letter_c"  d="m 200,150 a 105 105, 0, 1, 0, 0 100 l -32,-15 a 70 70, 1, 1, 1, 0 -75 Z" />
+        <path id="letter_e"  d="M 190.58,134.17 A 105 105, 0, 1, 0, 193.93 250.83 L 160.92,237.11 A 70 70, 0, 0, 1, 69.45 255.3 Z M 140.55,134.7 L 44.7,230.55 A 70 70, 0, 0, 1, 140.55,134.7" />
+        <path id="letter_f"  d="m 0,80 l 0,25 l -20,0 l 0,35 l 20,0 l 00,160 l 35,0 l 00,-160 l 30,0 l 0,-35 l -30,0 l 0,-25 a 26 26, 0, 0, 1, 45 -20 l 15,-27 a 57 57, 0, 0, 0, -95 47" />
+        <path id="letter_k"  d="m 0,40 l 0,260 l 35,0 l 0,-100 l 60,+100 l 40,0 l -75,-125 l 50,-70 l -40,0 l -35,49 l -0,-113 l -35,0" />
+        <path id="letter_o"  d="m 0,195 a 105 105, 0, 0, 0, 210 0 a 105 105, 1, 0, 0, -210 0 m 35,0 a 70 70, 0, 0, 0, 140 0 a 70 70, 1, 0, 0, -140 0" />
+        <path id="letter_r"  d="m 0,110 l 0,190 l 35,0 l 0,-110 a 50 50, 0, 0, 1, +50 -50 l 0,-30 a 80 80, 0, 0, 0, -50 +20 l 0,-20 l -35,0" />
+        <path id="letter_s"  d="M 115,131 c -11.6,-30.7 -50.2,-41.3 -73.2,-26.6 c -22.9,14.6 -38.4,43.7 -19.4,71.3 l 52.9,40.6 c 28,18.6 -6.8,72.9 -44.9,23.2 l -26.9,8.2 c 47.8,117.6 165.2,4.6 102.6,-53.1 l -52.4,-40.4 c -2.3,-14.8 10.6,-27.8 26.9,-12.7 z" />
+        <path id="letter_t"  d="m 35,30 l 0,75 l -35,0 l 0,35 l 35,0 l 0,160 l 35,0 l 0,-160 l 35,0 l 0,-35 l -35,0 l 0,-75 l -35,0" />
+        <path id="letter_y"  d="m 0,115 L 70,265 L 20,370 L 60,370 L 180,115 L 140,115 L 93,220 L 40,115 L 0,115" />
+
+    </defs>
+
+    <circle stroke="#000000" stroke-miterlimit="10" cx="500" cy="500" r="500"/>
+
+    <!-- TREE MID -->
+    <g transform="translate(500 694)">
+        <path fill="white" id="o2" d="M -200 +000 L +200 +000 L +000 -558 L -200 +000" transform="scale(0 1)"/>
+        <path fill="white" id="t2" d="M -027 +080 L +027 +080 L +027 +080 L -027 +080" />
+        <path fill="black" id="i2" d="M -124 -054 L +124 -054 L +000 -399 L -124 -054" transform="scale(0 1)"/>
+    </g>
+
+    <!-- TREE LEFT -->
+    <g transform="translate(300 730)">
+        <path fill="white" id="o1" d="M -200 +000 L +200 +000 L +000 -558 L -200 +000" transform="scale(0 1)"/>
+        <path fill="black" id="i1" d="M -124 -054 L +124 -054 L +000 -399 L -124 -054" transform="scale(0 1)"/>
+        <path fill="white" id="t1" d="M -027 +080 L +027 +080 L +027 +080 L -027 +080" />
+    </g>
+
+    <!-- TREE RIGHT -->
+    <g transform="translate(700 730)">
+        <path fill="white" id="o3" d="M -200 +000 L +200 +000 L +000 -558 L -200 +000" transform="scale(0 1)"/>
+        <path fill="black" id="i3" d="M -124 -054 L +124 -054 L +000 -399 L -124 -054" transform="scale(0 1)"/>
+        <path fill="white" id="t3" d="M -027 +080 L +027 +080 L +027 +080 L -027 +080" />
+    </g>
+    
+    <use x="1060" y="000" fill="#000" id="txt01" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_b"/>
+    <use x="1328" y="000" fill="#000" id="txt02" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_l"/>
+    <use x="1415" y="000" fill="#000" id="txt03" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_a"/>
+    <use x="1680" y="000" fill="#000" id="txt04" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_c"/>
+    <use x="1920" y="000" fill="#000" id="txt05" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_k"/>
+
+    <use x="1060" y="300" fill="#000" id="txt11" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_f"/>
+    <use x="1160" y="300" fill="#000" id="txt12" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_o"/>
+    <use x="1420" y="300" fill="#000" id="txt13" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_r"/>
+    <use x="1540" y="300" fill="#000" id="txt14" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_e"/>
+    <use x="1775" y="300" fill="#000" id="txt15" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_s"/>
+    <use x="1940" y="300" fill="#000" id="txt16" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_t"/>
+
+    <use x="1060" y="600" fill="#000" id="txt21" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_b2"/>
+    <use x="1310" y="600" fill="#000" id="txt22" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_y"/>
+    <use x="1530" y="600" fill="#000" id="txt23" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_t"/>
+    <use x="1670" y="600" fill="#000" id="txt24" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_e"/>
+    <use x="1930" y="600" fill="#000" id="txt25" fill-rule="evenodd" fill-opacity="0" xlink:href="#letter_s"/>
+
+
+
+    <animate xlink:href="#t1" attributeName="d"
+             begin="1.00s" dur="1.00s" fill="freeze"
+             from="M -027 +080 L +027 +080 L +027 +080 L -027 +080"
+             to="  M -027 -135 L +027 -135 L +027 +080 L -027 +080"
+             calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.55 1"/>
+
+    <animate xlink:href="#t2" attributeName="d"
+             begin="1.25s" dur="1.00s" fill="freeze"
+             from="M -027 +080 L +027 +080 L +027 +080 L -027 +080"
+             to="  M -027 -135 L +027 -135 L +027 +080 L -027 +080"
+             calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.55 1"/>
+
+    <animate xlink:href="#t3" attributeName="d" 
+             begin="1.50s" dur="1.00s" fill="freeze"
+             from="M -027 +080 L +027 +080 L +027 +080 L -027 +080"
+             to="  M -027 -135 L +027 -135 L +027 +080 L -027 +080"
+             calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.55 1"/>
+
+
+    <animateTransform xlink:href="#o1" attributeName="transform" attributeType="XML" type="scale"
+                      begin="2.75s" dur="1.00s" fill="freeze"
+                      from="0 1"
+                      to="  1 1"
+                      calcMode="spline" keyTimes="0;1" keySplines="0.2 1 0.45 1"/>
+
+    <animateTransform xlink:href="#o2" attributeName="transform" attributeType="XML" type="scale"
+                      begin="3.00s" dur="1.00s" fill="freeze"
+                      from="0 1"
+                      to="  1 1"
+                      calcMode="spline" keyTimes="0;1" keySplines="0.2 1 0.45 1"/>
+
+    <animateTransform xlink:href="#o3" attributeName="transform" attributeType="XML" type="scale"
+                      begin="3.25s" dur="1.00s" fill="freeze"
+                      from="0 1"
+                      to="  1 1"
+                      calcMode="spline" keyTimes="0;1" keySplines="0.2 1 0.45 1"/>
+
+
+    <animateTransform xlink:href="#i1" attributeName="transform" attributeType="XML" type="scale"
+                      begin="2.90s" dur="0.85s" fill="freeze"
+                      from="0 1"
+                      to="  1 1"
+                      calcMode="spline" keyTimes="0;1" keySplines="0.2 0.9 0.4 1"/>
+
+    <animateTransform xlink:href="#i2" attributeName="transform" attributeType="XML" type="scale"
+                      begin="3.15s" dur="0.85s" fill="freeze"
+                      from="0 1"
+                      to="  1 1"
+                      calcMode="spline" keyTimes="0;1" keySplines="0.2 0.9 0.4 1"/>
+
+    <animateTransform xlink:href="#i3" attributeName="transform" attributeType="XML" type="scale"
+                      begin="3.40s" dur="0.85s" fill="freeze"
+                      from="0 1"
+                      to="  1 1"
+                      calcMode="spline" keyTimes="0;1" keySplines="0.2 0.9 0.4 1"/>
+
+
+    <animate attributeType="xml" xlink:href="#txt01" attributeName="fill-opacity" begin="2.75s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt02" attributeName="fill-opacity" begin="2.80s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt03" attributeName="fill-opacity" begin="2.85s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt04" attributeName="fill-opacity" begin="2.90s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt05" attributeName="fill-opacity" begin="2.95s" values="0;1" dur="0.8s" fill="freeze" />
+    
+    <animate attributeType="xml" xlink:href="#txt11" attributeName="fill-opacity" begin="3.10s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt12" attributeName="fill-opacity" begin="3.15s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt13" attributeName="fill-opacity" begin="3.20s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt14" attributeName="fill-opacity" begin="3.25s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt15" attributeName="fill-opacity" begin="3.30s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt16" attributeName="fill-opacity" begin="3.35s" values="0;1" dur="0.8s" fill="freeze" />
+    
+    <animate attributeType="xml" xlink:href="#txt21" attributeName="fill-opacity" begin="3.40s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt22" attributeName="fill-opacity" begin="3.45s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt23" attributeName="fill-opacity" begin="3.50s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt24" attributeName="fill-opacity" begin="3.55s" values="0;1" dur="0.8s" fill="freeze" />
+    <animate attributeType="xml" xlink:href="#txt25" attributeName="fill-opacity" begin="3.60s" values="0;1" dur="0.8s" fill="freeze" />
+
+
+</svg>

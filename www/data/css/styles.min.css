@@ -133,66 +133,6 @@ html,body{margin:0;padding:0;height:100%}
 .index_pnl_header a:hover{text-decoration:underline}
 .index_pnl_content{display:flex;flex-direction:column;background:#e0e0e0;padding:6px}
 @media(max-device-width:850px){.index_pnl_base{width:330px}}
-.aboutcontent{display:block;width:100%}
-.aboutcontent .boxedcontent{margin-bottom:20px}
-.about_egg_container{display:flex;flex-direction:column;align-items:center}
-.git_list{display:inline-block;width:715px;height:115px;overflow:visible}
-@media(max-device-width:991px){
-	.git_list{width:100%;height:auto}
-	.extGitGraphContainer{width:95%;width:calc(100% - 16px)}
-}
-.git_list text.caption{font-size:10px;fill:#666}
-.git_list text.caption_month{font-size:8px;fill:#BBB}
-.git_list text.caption_day{font-size:8px;fill:#BBB}
-.svg-tip:after{box-sizing:border-box;position:absolute;left:50%;height:5px;width:5px;bottom:-10px;margin:0 0 0 -5px;content:" ";border:5px solid transparent;border-top-color:rgba(0,0,0,0.8);border-image:none}
-.svg-tip{padding:5px;background:none repeat scroll 0 0 rgba(0,0,0,0.8);color:#BBB;font-size:12px;position:absolute;z-index:99999;text-align:center;border-radius:3px;box-sizing:border-box;opacity:0;pointer-events:none}
-.extGitGraphContainer{background-color:#fcfcfc;margin:10px;display:inline-block;border:1px solid #222;border-radius:0;box-shadow:0 0 1px rgba(0,0,0,0.25) inset}
-.egg_footer{margin-top:5px;text-align:right;margin-right:5px;margin-bottom:5px;color:#888}
-.egg_footer>a{text-decoration:none;color:inherit}
-.egg_footer>a:hover{text-decoration:none;color:#22F}
-.about_circles{display:flex;flex-direction:column}
-.about_circles a{margin:5px 0}
-.about_circles .iconbutton_light span{text-align:left}
-.egg_col_x5_0{fill:#eee}
-.egg_col_x5_1{fill:#6bcdff}
-.egg_col_x5_2{fill:#00a1f3}
-.egg_col_x5_3{fill:#0079b7}
-.egg_col_x5_4{fill:#003958}
-.about_ehr_container .reading-history{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:20px;max-width:min(1170px,100%)}
-.about_ehr_container .year-container{margin-bottom:16px}
-.about_ehr_container .year-label{font-size:24px;font-weight:bold;color:#222;padding:5px 10px}
-.about_ehr_container .month-grid{padding:4px;border:1px solid #000;display:grid;gap:8px}
-@media(min-device-width:1200px){.about_ehr_container .month-grid{grid-template-columns:repeat(6,1fr)}}
-@media(min-device-width:992px) and (max-device-width:1199px){.about_ehr_container .month-grid{grid-template-columns:repeat(4,1fr)}}
-@media(min-device-width:851px) and (max-device-width:991px){.about_ehr_container .month-grid{grid-template-columns:repeat(4,1fr)}}
-@media(min-device-width:768px) and (max-device-width:850px){.about_ehr_container .month-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-device-width:767px){.about_ehr_container .month-grid{grid-template-columns:repeat(1,1fr)}}
-.about_ehr_container .month-cell{min-height:180px;background:#aaa;border:1px solid #000}
-.about_ehr_container .book-grid{padding:4px}
-.about_ehr_container .month-label{font-size:.8em;background-color:#888;color:#000;border-bottom:1px solid #000;text-align:center;margin-bottom:8px;font-weight:bold}
-.about_ehr_container .book-item{border-radius:0;position:relative}
-.about_ehr_container .book-item:not(:hover){overflow:hidden;border:1px solid #000}
-.about_ehr_container .book-container{position:relative;transition:transform .2s ease-in-out,z-index 0;pointer-events:none}
-.about_ehr_container .book-item .chapter-overlay{position:absolute;top:0;left:0;right:0;background:linear-gradient(rgba(0,0,0,0.8),transparent);color:white;font-size:2px;padding:1px 1px 4px 1px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0}
-.about_ehr_container .book-item .title-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.8));color:white;font-size:2px;padding:4px 1px 1px 1px;transition:opacity .2s ease-in-out;white-space:wrap;opacity:0}
-.about_ehr_container .book-item img{aspect-ratio:var(--preview-aspect-ratio)}
-.about_ehr_container .book-item.no-cover{background:linear-gradient(135deg,#667eea 0,#764ba2 100%);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;text-align:center;padding:4px}
-.about_ehr_container .rating-overlay{position:absolute;bottom:calc(100% + 0.5px);right:0;width:100%;height:2px;background-size:contain;background-repeat:no-repeat;background-position:right bottom;opacity:0}
-.about_ehr_container .wordcount-overlay{position:absolute;top:calc(100% + 0.5px);left:0;right:0;padding:1px;font-size:2px;text-align:center;color:white;background:rgba(0,0,0,0.7);opacity:0}
-.about_ehr_container .rating-overlay[data-count="1.0"]{background-image:url("/data/images/ehr/stars_1.0.png")}
-.about_ehr_container .rating-overlay[data-count="1.5"]{background-image:url("/data/images/ehr/stars_1.5.png")}
-.about_ehr_container .rating-overlay[data-count="2.0"]{background-image:url("/data/images/ehr/stars_2.0.png")}
-.about_ehr_container .rating-overlay[data-count="2.5"]{background-image:url("/data/images/ehr/stars_2.5.png")}
-.about_ehr_container .rating-overlay[data-count="3.0"]{background-image:url("/data/images/ehr/stars_3.0.png")}
-.about_ehr_container .rating-overlay[data-count="3.5"]{background-image:url("/data/images/ehr/stars_3.5.png")}
-.about_ehr_container .rating-overlay[data-count="4.0"]{background-image:url("/data/images/ehr/stars_4.0.png")}
-.about_ehr_container .rating-overlay[data-count="4.5"]{background-image:url("/data/images/ehr/stars_4.5.png")}
-.about_ehr_container .rating-overlay[data-count="5.0"]{background-image:url("/data/images/ehr/stars_5.0.png")}
-.about_ehr_container .book-item:hover .book-container{transform:scale(8);z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.3);background-color:#FFF;position:absolute;width:32px;height:calc(32px / var(--img-aspect-ratio));left:calc(50% - 16px);top:calc(50% - 16px / var(--img-aspect-ratio))}
-.about_ehr_container .book-item:hover .title-overlay{opacity:1}
-.about_ehr_container .book-item:hover .chapter-overlay{opacity:1}
-.about_ehr_container .book-item:hover .wordcount-overlay{opacity:1}
-.about_ehr_container .book-item:hover .rating-overlay{opacity:1}
 .admincontent{display:block;width:100%}
 .admincontent .boxedcontent{margin-bottom:20px}
 .egg_ajaxOutput{display:flex;box-sizing:border-box;width:100%;align-self:center;margin-left:auto;margin-right:auto;resize:none;height:300px}
@@ -232,6 +172,105 @@ html,body{margin:0;padding:0;height:100%}
 #loginform div{display:flex;flex-direction:column}
 #loginform div button{margin:10px 0;padding:0}
 .loginerror{display:flex;background:#f44;color:#222;border:1px solid #a44;border-radius:2px;font-weight:bold;padding:0 5px;margin:5px 0 20px 0}
+.aboutcontent{display:block;width:100%}
+.aboutcontent .boxedcontent{margin-bottom:20px}
+.about_circles{display:flex;flex-direction:column}
+.about_bfb{display:flex;justify-content:center;align-items:center}
+.about_bfb img{max-width:100%;min-height:230px;height:auto}
+.about_bfb{padding:4rem !important}
+.about_circles a{margin:5px 0}
+.about_circles .iconbutton_light span{text-align:left}
+.git_list{display:inline-block;width:715px;height:115px;overflow:visible}
+@media(max-device-width:991px){
+	.git_list{width:100%;height:auto}
+	.extGitGraphContainer{width:95%;width:calc(100% - 16px)}
+}
+.git_list text.caption{font-size:10px;fill:#666}
+.git_list text.caption_month{font-size:8px;fill:#BBB}
+.git_list text.caption_day{font-size:8px;fill:#BBB}
+.about_egg_container .svg-tip:after{box-sizing:border-box;position:absolute;left:50%;height:5px;width:5px;bottom:-10px;margin:0 0 0 -5px;content:" ";border:5px solid transparent;border-top-color:rgba(0,0,0,0.8);border-image:none}
+.about_egg_container .svg-tip{padding:5px;background:none repeat scroll 0 0 rgba(0,0,0,0.8);color:#BBB;font-size:12px;position:absolute;z-index:99999;text-align:center;border-radius:3px;box-sizing:border-box;opacity:0;pointer-events:none}
+.extGitGraphContainer{background-color:#fcfcfc;margin:10px;display:inline-block;border:1px solid #222;border-radius:0;box-shadow:0 0 1px rgba(0,0,0,0.25) inset}
+.egg_footer{margin-top:5px;text-align:right;margin-right:5px;margin-bottom:5px;color:#888}
+.egg_footer>a{text-decoration:none;color:inherit}
+.egg_footer>a:hover{text-decoration:none;color:#22F}
+.about_circles{display:flex;flex-direction:column}
+.about_bfb{display:flex;justify-content:center;align-items:center}
+.about_bfb img{max-width:100%;min-height:230px;height:auto}
+.about_bfb{padding:4rem !important}
+.about_circles a{margin:5px 0}
+.about_circles .iconbutton_light span{text-align:left}
+.egg_col_x5_0{fill:#eee}
+.egg_col_x5_1{fill:#6bcdff}
+.egg_col_x5_2{fill:#00a1f3}
+.egg_col_x5_3{fill:#0079b7}
+.egg_col_x5_4{fill:#003958}
+.about_ehr_container .reading-history{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:20px;max-width:min(1170px,100%)}
+.about_ehr_container .year-container{margin-bottom:16px}
+.about_ehr_container .year-label{font-size:24px;font-weight:bold;color:#222;padding:5px 10px}
+.about_ehr_container .month-grid{padding:4px;border:1px solid #000;display:grid;gap:8px}
+@media(min-device-width:1200px){.about_ehr_container .month-grid{grid-template-columns:repeat(6,1fr)}}
+@media(min-device-width:992px) and (max-device-width:1199px){.about_ehr_container .month-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-device-width:851px) and (max-device-width:991px){.about_ehr_container .month-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-device-width:768px) and (max-device-width:850px){.about_ehr_container .month-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-device-width:767px){.about_ehr_container .month-grid{grid-template-columns:repeat(1,1fr)}}
+.about_ehr_container .month-cell{min-height:180px;background:#aaa;border:1px solid #000}
+.about_ehr_container .book-grid{padding:4px}
+.about_ehr_container .month-label{font-size:.8em;background-color:#888;color:#000;border-bottom:1px solid #000;text-align:center;margin-bottom:8px;font-weight:bold}
+.about_ehr_container .book-item{border-radius:0;position:relative}
+.about_ehr_container .book-item:not(:hover){overflow:hidden;border:1px solid #000}
+.about_ehr_container .book-container{position:relative;transition:transform .2s ease-in-out,z-index 0;pointer-events:none;display:flex}
+.about_ehr_container .book-item .chapter-overlay{position:absolute;top:0;left:0;right:0;background:linear-gradient(rgba(0,0,0,0.8),transparent);color:white;font-size:2px;padding:1px 1px 4px 1px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0}
+.about_ehr_container .book-item .title-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.8));color:white;font-size:2px;padding:4px 1px 1px 1px;transition:opacity .2s ease-in-out;white-space:wrap;opacity:0}
+.about_ehr_container .book-item img{aspect-ratio:var(--preview-aspect-ratio)}
+.about_ehr_container .book-item.no-cover{background:linear-gradient(135deg,#667eea 0,#764ba2 100%);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;text-align:center;padding:4px}
+.about_ehr_container .rating-overlay{position:absolute;bottom:calc(100% + 0.5px);right:0;width:100%;height:2px;background-size:contain;background-repeat:no-repeat;background-position:right bottom;opacity:0}
+.about_ehr_container .wordcount-overlay{position:absolute;top:calc(100% + 0.5px);left:0;right:0;padding:1px;font-size:2px;text-align:center;color:white;background:rgba(0,0,0,0.7);opacity:0}
+.about_ehr_container .rating-overlay[data-count="1.0"]{background-image:url("/data/images/ehr/stars_1.0.png")}
+.about_ehr_container .rating-overlay[data-count="1.5"]{background-image:url("/data/images/ehr/stars_1.5.png")}
+.about_ehr_container .rating-overlay[data-count="2.0"]{background-image:url("/data/images/ehr/stars_2.0.png")}
+.about_ehr_container .rating-overlay[data-count="2.5"]{background-image:url("/data/images/ehr/stars_2.5.png")}
+.about_ehr_container .rating-overlay[data-count="3.0"]{background-image:url("/data/images/ehr/stars_3.0.png")}
+.about_ehr_container .rating-overlay[data-count="3.5"]{background-image:url("/data/images/ehr/stars_3.5.png")}
+.about_ehr_container .rating-overlay[data-count="4.0"]{background-image:url("/data/images/ehr/stars_4.0.png")}
+.about_ehr_container .rating-overlay[data-count="4.5"]{background-image:url("/data/images/ehr/stars_4.5.png")}
+.about_ehr_container .rating-overlay[data-count="5.0"]{background-image:url("/data/images/ehr/stars_5.0.png")}
+.about_ehr_container .book-item:hover .book-container{transform:scale(8);z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.3);background-color:#FFF;position:absolute;width:32px;height:calc(32px / var(--img-aspect-ratio));left:calc(50% - 16px);top:calc(50% - 16px / var(--img-aspect-ratio))}
+.about_ehr_container .book-item:hover .title-overlay{opacity:1}
+.about_ehr_container .book-item:hover .chapter-overlay{opacity:1}
+.about_ehr_container .book-item:hover .wordcount-overlay{opacity:1}
+.about_ehr_container .book-item:hover .rating-overlay{opacity:1}
+.about_tier_container .tierlist{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:20px;max-width:min(1170px,100%);display:flex;flex-direction:column;gap:12px}
+.about_tier_container .tier-row{display:grid;grid-template-columns:110px 1fr;min-height:56px;border:1px solid #000;background:#aaa}
+.about_tier_container .tier-label{display:flex;align-items:center;justify-content:center;font-weight:bold;color:#222;padding:8px;text-align:center;word-break:break-word;border-right:1px solid #000}
+.about_tier_container .tier-cells{display:flex;flex-wrap:wrap;gap:4px;padding:4px}
+.about_tier_container .tier-cell{display:grid;gap:1px;width:48px;height:calc(48px / var(--preview-aspect-ratio));flex:0 0 auto;min-width:0;min-height:0}
+.about_tier_container .tier-0 .tier-label{background:#9aa;color:#000}
+.about_tier_container .tier-5 .tier-label{background:#ff7f7f}
+.about_tier_container .tier-4 .tier-label{background:#ffbf7f}
+.about_tier_container .tier-3 .tier-label{background:#ffff7f}
+.about_tier_container .tier-2 .tier-label{background:#bfff7f}
+.about_tier_container .tier-1 .tier-label{background:#7fffbf}
+.about_tier_container .book-item{border-radius:2px;position:relative;display:block;width:100%;height:100%;min-width:0;min-height:0}
+.about_tier_container .book-item:not(:hover){overflow:hidden}
+.about_tier_container .book-container{position:relative;width:100%;height:100%;transition:transform .2s ease-in-out,z-index 0;pointer-events:none;display:flex}
+.about_tier_container .book-item.no-cover{background:linear-gradient(135deg,#667eea 0,#764ba2 100%);display:flex;align-items:center;justify-content:center;font-size:10px;color:white;text-align:center;padding:4px}
+.about_tier_container .book-item .title-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.8));color:white;font-size:2px;padding:4px 1px 1px 1px;transition:opacity .2s ease-in-out;white-space:wrap;opacity:0}
+.about_tier_container .rating-overlay{position:absolute;bottom:calc(100% + 0.5px);right:0;width:100%;height:2px;background-size:contain;background-repeat:no-repeat;background-position:right bottom;opacity:0}
+.about_tier_container .wordcount-overlay{position:absolute;top:calc(100% + 0.5px);left:0;right:0;padding:1px;font-size:2px;text-align:center;color:white;background:rgba(0,0,0,0.7);opacity:0}
+.about_tier_container .rating-overlay[data-count="1.0"]{background-image:url("/data/images/ehr/stars_1.0.png")}
+.about_tier_container .rating-overlay[data-count="1.5"]{background-image:url("/data/images/ehr/stars_1.5.png")}
+.about_tier_container .rating-overlay[data-count="2.0"]{background-image:url("/data/images/ehr/stars_2.0.png")}
+.about_tier_container .rating-overlay[data-count="2.5"]{background-image:url("/data/images/ehr/stars_2.5.png")}
+.about_tier_container .rating-overlay[data-count="3.0"]{background-image:url("/data/images/ehr/stars_3.0.png")}
+.about_tier_container .rating-overlay[data-count="3.5"]{background-image:url("/data/images/ehr/stars_3.5.png")}
+.about_tier_container .rating-overlay[data-count="4.0"]{background-image:url("/data/images/ehr/stars_4.0.png")}
+.about_tier_container .rating-overlay[data-count="4.5"]{background-image:url("/data/images/ehr/stars_4.5.png")}
+.about_tier_container .rating-overlay[data-count="5.0"]{background-image:url("/data/images/ehr/stars_5.0.png")}
+.about_tier_container .book-item:hover .book-container{transform:scale(8);z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.3);background-color:#FFF;position:absolute;width:32px;height:calc(32px / var(--img-aspect-ratio));left:calc(50% - 16px);top:calc(50% - 16px / var(--img-aspect-ratio))}
+.about_tier_container .book-item:hover .title-overlay{opacity:1}
+.about_tier_container .book-item:hover .wordcount-overlay{opacity:1}
+.about_tier_container .book-item:hover .rating-overlay{opacity:1}
 .bloglistelem_container{display:flex;align-items:center;flex-direction:column}
 .bloglistelem{width:100%;border:1px solid #444;margin:10px 5px;color:#333;text-decoration:none}
 .ble_blog{background-color:#bbb}

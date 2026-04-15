@@ -34,22 +34,6 @@ $FRAME_OPTIONS->activeHeader = 'about';
     <!-- - - - - - - - - - - - - - - - - - - - - -->
 
     <div class="boxedcontent">
-        <div class="bc_header">My git timeline</div>
-
-        <div class="bc_data about_egg_container">
-
-			<?php
-			$FRAME_OPTIONS->addScript('/data/javascript/extendedgitgraph.js', true);
-            echo $SITE->modules->ExtendedGitGraph()->get();
-            ?>
-
-        </div>
-
-    </div>
-
-    <!-- - - - - - - - - - - - - - - - - - - - - -->
-
-    <div class="boxedcontent">
         <div class="bc_header">Other addresses</div>
 
         <div class="bc_data about_circles">
@@ -110,11 +94,13 @@ $FRAME_OPTIONS->activeHeader = 'about';
     <!-- - - - - - - - - - - - - - - - - - - - - -->
 
     <div class="boxedcontent">
-        <div class="bc_header">Reading history (incomplete :/)</div>
+        <div class="bc_header">Blackforestbytes</div>
 
-        <div class="bc_data about_ehr_container">
+        <div class="bc_data about_bfb">
 
-            <?php echo $SITE->modules->EbookHistory()->get(); ?>
+            <a href="https://blackforestbytes.com">
+                <img src="/data/images/bfb.svg" alt="Blackforestbytes" />
+            </a>
 
         </div>
 
