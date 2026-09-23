@@ -18,7 +18,7 @@ jobs:
     runs-on: bfb-cicd-latest
     steps:
       - run: echo -n "${{ secrets.DOCKER_REG_PASS }}" | docker login registry.blackforestbytes.com -u docker                --password-stdin
-      - run: echo -n "${{ secrets.DOCKER_IO_PASS }}"  | docker login                               -u "${{DOCKER_IO_USER}}" --password-stdin
+      - run: echo -n "${{ secrets.DOCKER_IO_PASS }}"  | docker login                               -u "${{secrets.DOCKER_IO_USER}}" --password-stdin
       - name: Check out code
         uses: actions/checkout@v3
       - run: cd "${{ gitea.workspace }}" && make clean
