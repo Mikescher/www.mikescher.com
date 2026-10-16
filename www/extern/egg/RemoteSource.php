@@ -3,6 +3,7 @@
 require_once 'IConfigSource.php';
 require_once 'Utils.php';
 require_once 'EGGDatabase.php';
+require_once 'EGGException.php';
 
 interface IRemoteSource
 {
@@ -390,6 +391,11 @@ abstract class StandardGitConnection implements IRemoteSource
 
 				$unprocessed = array_map(fn($p) => $this->createCommit($branch, $p), $this->queryCommits($repo->Name, $branch->Name, $next_sha[0]));
 				$queriedFromAPI += count($unprocessed);
+
+				// otherwise $next_sha[0] is never removed and the same query repeats forever
+				if (!in_array($next_sha[0], array_map(fn($c) => $c->Hash, $unprocessed), true)) {
+					throw new EGGException("Query for commit {" . $next_sha[0] . "} in [" . $this->name . "|" . $repo->Name . "|" . $branch->Name . "] did not return the commit itself");
+				}
 
 			}
 

@@ -12,7 +12,7 @@ class GiteaConnection extends StandardGitConnection
     const API_USER_REPO_LIST = '/users/{user}/repos?page={page}&limit={limit}';
     const API_USER_ORG_LIST  = '/orgs?page={page}&limit={limit}';
 	const API_BRANCH_LIST    = '/repos/{repo}/branches?page={page}&limit={limit}';
-	const API_COMMIT_LIST    = '/repos/{repo}/commits?sha={sha}&limit={limit}';
+	const API_COMMIT_LIST    = '/repos/{repo}/commits?sha={sha}&limit={limit}&stat=false&verification=false&files=false';
 
 	/** @var string $url */
 	private $url;
@@ -117,7 +117,7 @@ class GiteaConnection extends StandardGitConnection
 	{
 		return
 		[
-			'sha'              => $data->{'commit'}->{'tree'}->{'sha'},
+			'sha'              => $data->{'sha'},
 
 			'author_name'      => $data->{'commit'}->{'author'}->{'name'},
 			'author_email'     => $data->{'commit'}->{'author'}->{'email'},
