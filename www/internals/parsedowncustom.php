@@ -77,7 +77,7 @@ class ParsedownCustom extends ParsedownExtra
 		return Website::inst()->fragments->WidgetBefunge93($Element['text'], '', $Element['b93_interactive'], $Element['b93_speed'], $Element['b93_editable']);
 	}
 
-	protected function blockTable($Line, array $Block = null)
+	protected function blockTable($Line, ?array $Block = null)
 	{
 		// https://stackoverflow.com/a/46346412/1761622
 

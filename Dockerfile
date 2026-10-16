@@ -1,4 +1,4 @@
-FROM php:8.0-apache
+FROM php:8.5-apache
 WORKDIR /var/www/html
 
 RUN apt-get update                                                 && \
